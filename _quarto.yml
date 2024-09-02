@@ -22,11 +22,11 @@ book:
   sidebar:
     collapse-level: 1
  
-format:
+format: 
   html:
     theme: 
-    - cosmo
-    - r4ds.scss
+     - cosmo
+     - r4ds.scss
 
 editor: source
 
