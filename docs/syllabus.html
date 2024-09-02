@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>BST 260 Introduction to Data Science - Syllabus</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./downloading-course-materials.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./syllabus.html">Syllabus</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">BST 260 Introduction to Data Science</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/datasciencelabs/2024" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./downloading-course-materials.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Downloading course materials</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./syllabus.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#course-information" id="toc-course-information" class="nav-link active" data-scroll-target="#course-information">Course Information</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
+  <li><a href="#textbooks" id="toc-textbooks" class="nav-link" data-scroll-target="#textbooks">Textbooks</a></li>
+  <li><a href="#course-description" id="toc-course-description" class="nav-link" data-scroll-target="#course-description">Course Description</a></li>
+  <li><a href="#weekly-course-structure" id="toc-weekly-course-structure" class="nav-link" data-scroll-target="#weekly-course-structure">Weekly Course Structure</a></li>
+  <li><a href="#grade-distribution" id="toc-grade-distribution" class="nav-link" data-scroll-target="#grade-distribution">Grade Distribution</a></li>
+  <li><a href="#problem-sets" id="toc-problem-sets" class="nav-link" data-scroll-target="#problem-sets">Problem Sets</a></li>
+  <li><a href="#midterm-policy" id="toc-midterm-policy" class="nav-link" data-scroll-target="#midterm-policy">Midterm Policy</a></li>
+  <li><a href="#final-project" id="toc-final-project" class="nav-link" data-scroll-target="#final-project">Final Project</a></li>
+  <li><a href="#chatgpt-policy" id="toc-chatgpt-policy" class="nav-link" data-scroll-target="#chatgpt-policy">ChatGPT Policy</a></li>
+  <li><a href="#key-dates---subject-to-change-after-first-week-of-class" id="toc-key-dates---subject-to-change-after-first-week-of-class" class="nav-link" data-scroll-target="#key-dates---subject-to-change-after-first-week-of-class">Key Dates - Subject to Change After First Week of Class</a></li>
+  <li><a href="#preliminary-schedule" id="toc-preliminary-schedule" class="nav-link" data-scroll-target="#preliminary-schedule">Preliminary Schedule</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/datasciencelabs/2024/blob/main/syllabus.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/datasciencelabs/2024/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Syllabus</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="course-information" class="level2">
+<h2 class="anchored" data-anchor-id="course-information">Course Information</h2>
+<ul>
+<li><strong>BST 260 Introduction to Data Science</strong></li>
+<li><strong>Kresge 202A and 202B (HSPH)</strong></li>
+<li><strong>Monday 09:45 AM - 11:15 AM; Wednesday 09:45 AM - 11:15 AM</strong></li>
+<li><strong>Lecture notes: <a href="https://datasciencelabs.github.io/2023/">https://datasciencelabs.github.io/2024/</a></strong></li>
+</ul>
+</section>
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<p>We assume students have taken or are taking a probability and statistics course and have basic programming skills.</p>
+<p>Students not matriculated in an HSPH Biostatistics graduate program (HDS SM60, BIO SM80 / SM60 / SM1, and CBQG SM80) will be required to pass (score 18 out of 20 or higher) on a basic math and programming diagnostic test to enroll in the course. If you are in a HSPH Biostatistics graduate program and you score less than 18 we will contact you to offer supplementary resource to help you be prepared for the course.</p>
+</section>
+<section id="textbooks" class="level2">
+<h2 class="anchored" data-anchor-id="textbooks">Textbooks</h2>
+<ul>
+<li><a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/">Introduction to Data Science: Data Wrangling and Visualization with R</a></li>
+<li><a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/">Introduction to Data Science:: Statistics and Prediction Algorithms Through Case Studies</a></li>
+</ul>
+</section>
+<section id="course-description" class="level2">
+<h2 class="anchored" data-anchor-id="course-description">Course Description</h2>
+<p>This course introduces the following:</p>
+<ul>
+<li>UNIX/Linux shell.</li>
+<li>Reproducible document preparation with RStudio, knitr, and markdown.<br>
+</li>
+<li>Version control with git and GitHub.</li>
+<li>R programming,</li>
+<li>Data wrangling with dplyr and data.table.</li>
+<li>Data visualization with ggplot2.</li>
+</ul>
+<p>We also demonstrate how the following concepts are applied in data analysis:</p>
+<ul>
+<li>Monte Carlo simulations.</li>
+<li>Statistical modeling.</li>
+<li>High-dimensional data techniques, and</li>
+<li>Machine learning.</li>
+</ul>
+<p>We do not cover the theory and details of these methods as they are covered in other courses.</p>
+<p>Throughout the course, <strong>we use motivating case studies and data analysis problem sets based on challenges similar to those you encounter in scientific research</strong>.</p>
+</section>
+<section id="weekly-course-structure" class="level2">
+<h2 class="anchored" data-anchor-id="weekly-course-structure">Weekly Course Structure</h2>
+<ul>
+<li>Monday lectures: we describe the concerts, methods, and skills needed for problem sets.</li>
+<li>Wednesday labs: We work together on problem sets.</li>
+<li>Friday: problem sets due (see Key dates)</li>
+</ul>
+<p><strong>Lectures will not be recorded.</strong></p>
+<p>We will have a Slack workspace for you to ask questions during and after class.</p>
+</section>
+<section id="grade-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="grade-distribution">Grade Distribution</h2>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>10 problem sets</td>
+<td>50%</td>
+</tr>
+<tr class="even">
+<td>Midterm 1</td>
+<td>10%</td>
+</tr>
+<tr class="odd">
+<td>Midterm 2</td>
+<td>20%</td>
+</tr>
+<tr class="even">
+<td>Final project</td>
+<td>20%</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="problem-sets" class="level2">
+<h2 class="anchored" data-anchor-id="problem-sets">Problem Sets</h2>
+<p>Problem sets will be due every week or every other week, depending on difficulty.</p>
+<p>Some problem sets include open ended questions that will be difficult to answer on your own. <strong>We will be working on these together during Wednesday labs</strong>. We also offer office hours where you can get help with unanswered questions.</p>
+<p>Problem sets must be submitted via GiHub. <strong>Students are required to have a GitHub account and create a repository for the course.</strong> We will be providing further instructions during the first lab.</p>
+<p>10% of the total points for the problem sets will be deducted for every late day. <strong>Students can have a total of 4 late days without penalty during the entire semester.</strong> No need to provide a written excuse. <strong>Providing an excuse does not give you more days</strong> unless an accommodation is requested and approved by the Office of Student Affairs (this includes COVID).</p>
+<p>Problem set submissions need to be completely reproducible Quarto documents.<strong>If your Quarto file does not compile</strong> it will be considered a late day, and you will be notified and will need to resubmit a Quarto file that does compile. You will be deducted further late days for every day it takes for you to turn in a Quarto file that does knit. <strong>You are required to check emails that come through the Canvas system</strong>, as this the only way we will communicate problems with your problem sets.</p>
+</section>
+<section id="midterm-policy" class="level2">
+<h2 class="anchored" data-anchor-id="midterm-policy">Midterm Policy</h2>
+<p><strong>Both midterms are closed book, no internet, and in-class</strong>. You are expected to complete them in 1 hour.</p>
+<p>Questions will be drawn mostly or entirely from the problem sets.</p>
+<p>Please make sure you can come to class on the midterm dates provided in the <strong>Key Dates</strong> table below. If you miss the exam, you will need approval from the Office of Student Affairs to receive a makeup. All make-up exams will be completely different from the in-class ones.</p>
+</section>
+<section id="final-project" class="level2">
+<h2 class="anchored" data-anchor-id="final-project">Final Project</h2>
+<p>For your final project we ask that you turn in a 4-6 page report using data to answer a public health related question. You can chose from one of the following:</p>
+<ul>
+<li>Based on state-level data, how effective where vaccines against SARS-CoV-2 reported cases and COVID-19 hospitalizations and deaths, and vaccination rates.</li>
+<li>What was the excess mortality after Hurricane María in Puerto Rico? Where different age groups affected differently?</li>
+</ul>
+<p>Optionally, you can select a question that align with your ongoing research. This way, it can be directly beneficial to your work. This will require prior approval from the instructor by October 25.</p>
+<p>Yet another option is to build a interactive webpage with poll-driven predictions for the 2024 US elections. Note this will be more challenging as we will not cover tools for interactive webpages until the last week of class (time permitting).</p>
+<p><strong>Note: You should start working on your project after the first midterm. Do not wait until the last week</strong>. Teaching staff will be available during office hours.</p>
+</section>
+<section id="chatgpt-policy" class="level2">
+<h2 class="anchored" data-anchor-id="chatgpt-policy">ChatGPT Policy</h2>
+<p>You can use ChatGPT however you want. Do remember <strong>you won’t be able to use it during the midterms.</strong></p>
+</section>
+<section id="key-dates---subject-to-change-after-first-week-of-class" class="level2">
+<h2 class="anchored" data-anchor-id="key-dates---subject-to-change-after-first-week-of-class">Key Dates - Subject to Change After First Week of Class</h2>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Date</th>
+<th>Event</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sep 10</td>
+<td>Problem Set 1 due</td>
+</tr>
+<tr class="even">
+<td>Sep 13</td>
+<td>Problem Set 2 due</td>
+</tr>
+<tr class="odd">
+<td>Sep 19</td>
+<td>Problem Set 3 due</td>
+</tr>
+<tr class="even">
+<td>Sep 26</td>
+<td>Problem Set 4 due</td>
+</tr>
+<tr class="odd">
+<td>Sep 26</td>
+<td>Problem Set 5 due</td>
+</tr>
+<tr class="even">
+<td>Oct 11</td>
+<td>Problem Set 6 due</td>
+</tr>
+<tr class="odd">
+<td>Oct 14</td>
+<td>No class: Indigenous Peoples Day</td>
+</tr>
+<tr class="even">
+<td>Oct 16</td>
+<td>Midterm 1</td>
+</tr>
+<tr class="odd">
+<td>Oct 23</td>
+<td>Start final project, obtain approval for personal project.</td>
+</tr>
+<tr class="even">
+<td>Nov 01</td>
+<td>Problem Set 7 due</td>
+</tr>
+<tr class="odd">
+<td>Nov 11</td>
+<td>No class: Veterans’ Day</td>
+</tr>
+<tr class="even">
+<td>Nov 01</td>
+<td>Problem Set 7 due</td>
+</tr>
+<tr class="odd">
+<td>Nov 22</td>
+<td>Problem Set 8 due</td>
+</tr>
+<tr class="even">
+<td>Nov 25</td>
+<td>Midterm 2</td>
+</tr>
+<tr class="odd">
+<td>Nov 27</td>
+<td>No class: Thanksgiving Recess Begins</td>
+</tr>
+<tr class="even">
+<td>Dec 06</td>
+<td>Problem Set 9 due</td>
+</tr>
+<tr class="odd">
+<td>Dec 13</td>
+<td>Problem Set 10 due</td>
+</tr>
+<tr class="even">
+<td>Dec 20</td>
+<td>Final Project due</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="preliminary-schedule" class="level2">
+<h2 class="anchored" data-anchor-id="preliminary-schedule">Preliminary Schedule</h2>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Dates</th>
+<th style="text-align: left;">Topic</th>
+<th style="text-align: left;">Links to readings and notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Sep 04</td>
+<td style="text-align: left;">Productivity Tools</td>
+<td style="text-align: left;"><a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/R/getting-started.html">Getting Started</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/R/installing-r-and-rstudio.html">Installing R and RStudio</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/unix.html">Unix</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sep 09</td>
+<td style="text-align: left;">Productivity Tools</td>
+<td style="text-align: left;"><a href="https://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/reproducible-projects.html">RStudio Projects, Quarto</a> <a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/git.html">Git and GitHub</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sep 10</td>
+<td style="text-align: left;"><strong>Problem Set 1 due</strong></td>
+<td style="text-align: left;">Difficulty: easy</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sep 11</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;"><a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/R/R-basics.html">R Basics</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/R/programming-basics.html#sec-vectorization">Vectorization</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sep 13</td>
+<td style="text-align: left;"><strong>Problem Set 2 due</strong></td>
+<td style="text-align: left;">Difficulty: easy</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sep 16, Sep 18</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;"><a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/R/tidyverse.html">dplyr</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/dates-and-times.html">dates and times</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/dataviz/ggplot2.html">ggplot2</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sep 19</td>
+<td style="text-align: left;"><strong>Problem Set 3 due</strong></td>
+<td style="text-align: left;">Difficulty: easy</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sep 23, Sep 25</td>
+<td style="text-align: left;">Wrangling</td>
+<td style="text-align: left;"><a href="https://rafalab.dfci.harvard.edu/dsbook-part-1/R/importing-data.html">Importing data</a> <a href="https://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/locales.html">Locales</a> <a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/reshaping-data.html">Reshaping Data</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/joining-tables.html">Joining Tables</a>, <a href="https://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/web-scraping.html">Extracting data from the web</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sep 26</td>
+<td style="text-align: left;"><strong>Problem Set 4 due</strong></td>
+<td style="text-align: left;">Difficulty: medium</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sep 30, Oct 02</td>
+<td style="text-align: left;">Data visualization</td>
+<td style="text-align: left;"><a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/dataviz/distributions.html">Distributions</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/dataviz/dataviz-principles.html">Dataviz Principles</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sep 26</td>
+<td style="text-align: left;"><strong>Problem Set 5 due</strong></td>
+<td style="text-align: left;">Difficulty: medium</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oct 07, Oct 09</td>
+<td style="text-align: left;">Probability</td>
+<td style="text-align: left;"><a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/prob/continuous-probability.html#monte-carlo">Monte Carlo</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/prob/random-variables-sampling-models-clt.html">Random Variables &amp; CLT</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oct 11</td>
+<td style="text-align: left;"><strong>Problem Set 6 due</strong></td>
+<td style="text-align: left;">Difficulty: easy</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oct 14</td>
+<td style="text-align: left;">No class</td>
+<td style="text-align: left;">Indigenous Peoples Day</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oct 16</td>
+<td style="text-align: left;"><strong>Midterm 1</strong></td>
+<td style="text-align: left;">Cover material from Sep 04-Oct 09</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oct 21, Oct 23</td>
+<td style="text-align: left;">Inference</td>
+<td style="text-align: left;"><a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/inference/parameters-estimates.html">Parameters &amp; Estimates</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/inference/confidence-intervals.html">Confidence Intervals</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oct 28, Oct 30</td>
+<td style="text-align: left;">Statistical Models</td>
+<td style="text-align: left;"><a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/inference/models.html">Data-driven Models</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/inference/bayes.html">Bayesian Statistics</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/inference/hierarchical-models.html">Hierarchical Models</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nov 01</td>
+<td style="text-align: left;"><strong>Problem Set 7 due</strong></td>
+<td style="text-align: left;">Difficulty: hard</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nov 04, Nov 06</td>
+<td style="text-align: left;">Linear models</td>
+<td style="text-align: left;"><a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/linear-models/regression.html">Regression</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/linear-models/multivariate-regression.html">Multivariate Regression</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nov 11</td>
+<td style="text-align: left;">No class</td>
+<td style="text-align: left;">Veterans’ Day</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nov 13</td>
+<td style="text-align: left;">Linear models</td>
+<td style="text-align: left;"><a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/linear-models/measurement-error-models.html">Measurement Error Models</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/linear-models/treatment-effect-models.html">Treatment Effect Models</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/linear-models/association-tests.html">Association Tests</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/linear-models/association-not-causation.html">Association Not Causation</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nov 01</td>
+<td style="text-align: left;"><strong>Problem Set 7 due</strong></td>
+<td style="text-align: left;">Difficulty: hard</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nov 18, Nov 20</td>
+<td style="text-align: left;">High dimensional data</td>
+<td style="text-align: left;"><a href="https://rafalab.dfci.harvard.edu/dsbook-part-2/highdim/matrices-in-R.html">Matrices in R</a>, <a href="https://rafalab.dfci.harvard.edu/dsbook-part-2/highdim/linear-algebra.html">Applied Linear Algebra</a>, <a href="https://rafalab.dfci.harvard.edu/dsbook-part-2/highdim/dimension-reduction.html">Dimension Reduction</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nov 22</td>
+<td style="text-align: left;"><strong>Problem Set 8 due</strong></td>
+<td style="text-align: left;">Difficulty: easy</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nov 25</td>
+<td style="text-align: left;"><strong>Midterm 2</strong></td>
+<td style="text-align: left;">Cover material from Sep 04-Nov 20</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nov 27</td>
+<td style="text-align: left;">No class</td>
+<td style="text-align: left;">Thanksgiving Recess Begins</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dec 02, Dec 04</td>
+<td style="text-align: left;">Machine Learning</td>
+<td style="text-align: left;"><a href="https://rafalab.dfci.harvard.edu/dsbook-part-2/ml/notation-and-terminology.html">Notation and terminology</a>, [Evaluation Metrics</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dec 06</td>
+<td style="text-align: left;"><strong>Problem Set 9 due</strong></td>
+<td style="text-align: left;">Difficulty: easy</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dec 09, Dec 11</td>
+<td style="text-align: left;">Machine Learning</td>
+<td style="text-align: left;"><a href="https://rafalab.dfci.harvard.edu/dsbook-part-2/ml/resampling-methods.html">Resampling methods</a>, <a href="https://rafalab.dfci.harvard.edu/dsbook-part-2/ml/algorithms.html">ML algorithms</a>, <a href="https://rafalab.dfci.harvard.edu/dsbook-part-2/ml/ml-in-practice.html">ML in practice</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dec 13</td>
+<td style="text-align: left;"><strong>Problem Set 10 due</strong></td>
+<td style="text-align: left;">Difficulty: hard</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dec 16, Dec 18</td>
+<td style="text-align: left;">Other topics</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dec 20</td>
+<td style="text-align: left;"><strong>Final Project due</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./downloading-course-materials.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Downloading course materials</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
