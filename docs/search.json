@@ -28,11 +28,11 @@
     "text": "Forking the repository\nAn alternative more advanced way to cloning the directory is creating a fork. Forking a repository on GitHub allows you to create a copy of a project under your own GitHub account. This lets you make changes without affecting the original repository. Here’s how you can fork a repository on GitHub:\n\nLog In to GitHub:\n\nMake sure you are logged in to your GitHub account.\n\nNavigate to the Repository:\n\nGo to the main page of the repository you want to fork: https://github.com/datasciencelabs/2024\n\nClick the ‘Fork’ Button:\n\nIn the top-right corner of the repository’s page, you’ll find the “Fork” button. Click on it.\n\nChoose an Account:\n\nIf you are a member of any organizations, GitHub will ask you where you’d like to fork the repository. Choose your personal account unless you want to fork it to an organization.\n\nWait for the Forking Process to Complete:\n\nGitHub will then create a copy of the repository in your account. You’ll see an animation indicating the process, and once it’s done, you’ll be redirected to the forked repository under your account.\n\nClone Your Forked Repository:\n\nTo work with the forked repository on your local machine, you can clone it. Navigate to the main page of your forked repo, click on the green “Code” button, copy the URL, and then use the following command in your terminal or command prompt:\ngit clone [URL_you_copied]\n\n\nYou can continue to update the forked repository by doing the following:\n\nNavigate to Your Local Repository:\n\nOpen a terminal or command prompt.\nNavigate to the directory where you have your forked repository.\n\nAdd the Original Repository as an Upstream Remote:\n\nUse the following command to add the original repository as an upstream remote:\ngit remote add upstream [URL_of_original_repository]\nFor example, if the original repository’s URL is https://github.com/original-owner/original-repo.git, the command would be:\ngit remote add upstream https://github.com/original-owner/original-repo.git\n\nFetch Changes from the Upstream:\n\nUse the following command to fetch changes from the upstream:\ngit fetch upstream\n\nMerge Changes into Your Local Branch:\n\nFirst, ensure you are on the branch into which you want to merge the upstream changes, typically the main or master branch:\ngit checkout main\nThen, merge the changes from the upstream’s main or master branch:\ngit merge upstream/main\n\nPush Changes to Your Forked Repository on GitHub (if needed):\n\nIf you want these changes to reflect in your GitHub fork, push them:\ngit push origin main\n\n\nNow your fork is synchronized with the original repository. Whenever you want to pull in new changes from the original repository in the future, you just need to repeat steps 3-5.\nTo avoid conflicts you sill want to avoid editing the course notes files and instead make copies."
   },
   {
-    "objectID": "syllabus.html#course-information",
-    "href": "syllabus.html#course-information",
+    "objectID": "syllabus.html#general-information",
+    "href": "syllabus.html#general-information",
     "title": "Syllabus",
-    "section": "Course Information",
-    "text": "Course Information\n\nBST 260 Introduction to Data Science\nKresge 202A and 202B (HSPH)\nMonday 09:45 AM - 11:15 AM; Wednesday 09:45 AM - 11:15 AM\nLecture notes: https://datasciencelabs.github.io/2024/"
+    "section": "General Information",
+    "text": "General Information\n\nBST 260 Introduction to Data Science\nKresge 202A and 202B (HSPH)\nMonday 09:45 AM - 11:15 AM; Wednesday 09:45 AM - 11:15 AM\nLecture notes: https://datasciencelabs.github.io/2024/"
   },
   {
     "objectID": "syllabus.html#prerequisites",
@@ -60,7 +60,7 @@
     "href": "syllabus.html#weekly-course-structure",
     "title": "Syllabus",
     "section": "Weekly Course Structure",
-    "text": "Weekly Course Structure\n\nMonday lectures: we describe the concerts, methods, and skills needed for problem sets.\nWednesday labs: We work together on problem sets.\nFriday: problem sets due (see Key dates)\n\nLectures will not be recorded.\nWe will have a Slack workspace for you to ask questions during and after class."
+    "text": "Weekly Course Structure\n\nMonday lectures: we describe the concerts, methods, and skills needed for problem sets.\nWednesday labs: We work together on problem sets.\nFriday: problem sets due (see Key dates)\n\nPlease ensure that you read the chapters listed in the syllabus before each Monday. The lectures are designed with the assumption that you have completed the readings, enabling us to dive deeper into the nuances of data analysis and coding.\nLectures will not be recorded.\nWe will have a Slack workspace for you to ask questions during and after class."
   },
   {
     "objectID": "syllabus.html#grade-distribution",

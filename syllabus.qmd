@@ -1,6 +1,6 @@
 # Syllabus {.unnumbered}
 
-## Course Information
+## General Information
 
 - BST 260 Introduction to Data Science
 - Kresge 202A and 202B (HSPH)
@@ -46,6 +46,8 @@ Throughout the course, **we use motivating case studies and data analysis proble
 * Monday lectures: we describe the concerts, methods, and skills needed for problem sets.
 * Wednesday labs: We work together on problem sets.
 * Friday: problem sets due (see Key dates)
+
+**Please ensure that you read the chapters listed in the syllabus before each Monday.** The lectures are designed with the assumption that you have completed the readings, enabling us to dive deeper into the nuances of data analysis and coding.
 
 **Lectures will not be recorded.**
 
