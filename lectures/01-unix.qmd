@@ -28,12 +28,19 @@ For specific recommendations we highly recommend you follow The [Tidyverse Style
 
 ## The terminal
 
-Instead of clicking, dragging, and dropping to organize our files and folders, we will be typing Unix commands into the terminal. The way we do this is similar to how we type commands into the R console, but instead of generating plots and statistical summaries, we will be organizing files on our system.
+- Instead of clicking, dragging, and dropping to organize our files and folders, we will be typing Unix commands into the terminal. 
 
-The terminal is integrated into Mac and Linux systems, but Windows users will have to install an emulator. Once you have a terminal open, you can start typing commands. You should see a blinking cursor at the spot where what you type will show up. This position is called the command line. 
+- The way we do this is similar to how we type commands into the R console, but instead of generating plots and statistical summaries, we will be organizing files on our system.
 
 ---
 
+## The terminal
+
+- The terminal is integrated into Mac and Linux systems, but Windows users will have to install an emulator. Once you have a terminal open, you can start typing commands. 
+
+- You should see a blinking cursor at the spot where what you type will show up. This position is called the command line. 
+
+---
 ## The filesystem 
 
 
@@ -70,44 +77,36 @@ The structure on Windows looks something like this:
 
 ## Working directory
 
-The working directory is the directly you are currently *in*. Later we will see that we can move to other directories using the command line. It's similar to clicking on folders.
+- The working directory is the directly you are currently *in*. Later we will see that we can move to other directories using the command line.
+- It's similar to clicking on folders.
 
-You can see your working directory like this:
+- You can see your working directory using the Unix command `pwd`
 
-```
-pwd
-```
-
-In R we can use
-
-```
-getwd()
-```
+In R we can use `getwd()`
 
 
 ---
 
-## Paths {#sec-paths}
+## Paths 
 
 - This string returned in previous command is *full path* to working directory.
 
-- The full path to your home directory is stored in an *environment* variable, discussed in more detail later:
+- The full path to your home directory is stored in an *environment* variable. 
 
-```
-echo $HOME
-```
+- You can see it like this `echo $HOME`
+
 
 ---
 
 ## Paths
 
-In Unix, we use the shorthand `~` as a nickname for your home directory
+- In Unix, we use the shorthand `~` as a nickname for your home directory
 
-Example: the full path for *docs* (in image above) can be written like this `~/docs`.
+- Example: the full path for *docs* (in image above) can be written like this `~/docs`.
 
-Most terminals will show the path to your working directory right on the command line. 
+- Most terminals will show the path to your working directory right on the command line. 
 
-Exercise: Open a terminal window and see if the working directory is listed.
+- Let's open a terminal window and see if the working directory is listed.
 
 ---
 
@@ -115,236 +114,33 @@ Exercise: Open a terminal window and see if the working directory is listed.
 
 - `ls`: Listing directory content
 
-```
-ls
-```
-
----
-
-## Unix commands
-
 - `mkdir` and `rmdir`: make and remove a directory
 
-```
-mkdir projects
-```
+- `cd`: navigating the filesystem by changing directories
 
-If you do this correctly, nothing will happen: no news is good news. If the directory already exists, you will get an error message and the existing directory will remain untouched.
+- `pwd`: see your workding directory
 
----
+- `mv`: moving files
 
-## Unix commands
+- `cp`: copying files
 
-To confirm that you created these directories, you can list the directories:
+- `rm`: removing files
 
-```
-ls
-```
-
----
-
-## Unix commands
-
-You should see the directories we just created listed. 
-
-```
-mkdir docs teaching
-```
-
----
-
-## Unix commands
-
-If you made a mistake and need to remove the directory, you can use the command `rmdir` to remove it.
-
-```
-mkdir junk
-rmdir junk
-```
-
----
-
-## Unix commands
-
--`cd`: navigating the filesystem by changing directories
-
-
-```
-cd projects
-```
-
----
-
-## Unix commands
-
-To check that the working directory changed, we can use a command we previously learned to see our location:
-
-```
-pwd
-```
+`less`: looking at a file
 
 ---
 
 ## Autocomplete
 
- In Unix you can auto-complete by hitting tab. This means that we can type `cd d` then hit tab. Unix will either auto-complete if `docs` is the only directory/file starting with `d` or show you the options. Try it out! Using Unix without auto-complete will make it unbearable.
+- In Unix you can auto-complete by hitting tab. 
 
----
+- This means that we can type `cd d` then hit tab. 
 
-## `cd` continued
+- Unix will either auto-complete if `docs` is the only directory/file starting with `d` or show you the options. 
 
+- Try it out! Using Unix without auto-complete will make it unbearable.
 
-Going back one:
 
-```
-cd ..
-```
- 
-
----
-
-## `cd` continued
- 
-Going home:
-
-```
-cd ~
-```
-
-or simply:
-
-```
-cd
-```
-
-
----
-
-## `cd` continued
-
-Stating put (later we see why useful)
-
-```
-cd .
-```
-
-
----
-
-## `cd` continued
-
-Going far:
-
-```
-cd /c/Users/yourusername/projects
-```
-
-
----
-
-## `cd` continued
-
-Using relative paths:
-
-```
-cd ../..
-```
-
-
-
----
-
-## `cd` continued
-
-Going to previous working directory
-
-```
-cd -
-```
-
----
-
-## More Unix commands
-
-`mv`: moving files
-
-
-```
-mv path-to-file path-to-destination-directory
-```
-
-For example, if we want to move the file `cv.tex` from `resumes` to `reports`, you could use the full paths like this:
-
-```
-mv ~/docs/resumes/cv.tex ~/docs/reports/
-```
-
----
-
-## More Unix commands
-
-You can also use relative paths. So you could do this:
-
-```
-cd ~/docs/resumes
-mv cv.tex ../reports/
-```
-
-or this:
-
-```
-cd ~/docs/reports/
-mv ../resumes/cv.tex ./
-```
-
----
-
-## More Unix commands
-
-We can also use `mv` to change the name of a file. 
-
-```
-cd ~/docs/resumes
-mv cv.tex resume.tex
-```
-
----
-
-## More Unix commands
-
-We can also combine the move and a rename. For example:
-
-```
-cd ~/docs/resumes
-mv cv.tex ../reports/resume.tex
-```
-
----
-
-## More Unix commands
-
-And we can move entire directories. To move the `resumes` directory into `reports`, we do as follows:
-
-```
-mv ~/docs/resumes ~/docs/reports/
-```
-
-It is important to add the last `/` to make it clear you do not want to rename the `resumes` directory to `reports`, but rather move it into the `reports` directory.
-
----
-
-## More Unix commands
-
-`cp`: copying files
-
-The command `cp` behaves similar to `mv` except instead of moving, we copy the file, meaning that the original file stays untouched.
-
-
----
-
-## More Unix commands
-
-`rm`: removing files
 
 In point-and-click systems, we remove files by dragging and dropping them into the trash or using a special click on the mouse. In Unix, we use the `rm` command.
 
@@ -358,35 +154,6 @@ The general way it works is as follows:
 rm filename
 ```
 
----
-
-## More Unix commands
-
-You can actually list files as well like this:
-
-```
-rm filename-1 filename-2 filename-3
-```
-
-You can use full or relative paths. To remove directories, you will have to learn about arguments, which we do later.
-
----
-
-## More Unix commands
-
-`less`: looking at a file
-
-Often you want to quickly look at the content of a file. If this file is a text file, the quickest way to do is by using the command `less`. To look a the file `cv.tex`, you do this:
-
-```
-cd ~/docs/resumes
-less cv.tex 
-```
-
-To exit the viewer, you type `q`. If the files are long, you can use the arrow keys to move up and down. There are many other keyboard commands you can use within `less` to, for example, search or jump pages.
-
-
----
 
 ## Text editors
 
@@ -395,21 +162,10 @@ Command-line text editors are essential tools, especially for system administrat
 * Nano 
 * Pico 
 * Vi or Vim 
-* Emacs - Another old and powerful text editor. It's known for being extremely extensible.
-   
+* Emacs 
 
----
-## Text editors
 
-To use these to edit a file you type, for example, 
-
-```
-nano filename
-```
-
----
-
-## Commands you should learn
+## Other very useful commands you should learn
 
 
 * curl - download data from the internet.

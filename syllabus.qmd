@@ -6,12 +6,14 @@
 - Kresge 202A and 202B (HSPH)
 - Monday 09:45 AM - 11:15 AM; Wednesday 09:45 AM - 11:15 AM
 - Lecture notes: [https://datasciencelabs.github.io/2024/](https://datasciencelabs.github.io/2024/)
+- Slack channel: <https://bst260fall2024.slack.com/>
+- Canvas: <https://canvas.harvard.edu/courses/143922>
 
 ## Prerequisites
 
 We assume students have taken or are taking a probability and statistics course and have basic programming skills. 
 
-Students not matriculated in an HSPH Biostatistics graduate program (HDS SM60, BIO SM80 / SM60 / SM1, and CBQG SM80) will be required to pass (score 18 out of 20 or higher) on a basic math and programming diagnostic test to enroll in the course. If you are in a HSPH Biostatistics graduate program and you score less than 18 we will contact you to offer supplementary resource to help you be prepared for the course.
+Students not matriculated in an HSPH Biostatistics graduate program (HDS SM60, BIO SM80 / SM60 / SM1, and CBQG SM80) will be required to score at least 90% on a basic math and programming diagnostic test to enroll in the course. If you are in a HSPH Biostatistics graduate program and you score less than 90% we will contact you to offer supplementary resource to help you be prepared for the course.
 
 ## Textbooks
 
@@ -31,8 +33,8 @@ This course introduces the following:
 
 We also demonstrate how the following concepts are applied in data analysis:
 
-* Monte Carlo simulations
-* Statistical modeling
+* Probability theory.
+* Statistical inference and modeling
 * High-dimensional data techniques
 * Machine learning
 

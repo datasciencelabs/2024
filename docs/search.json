@@ -32,14 +32,14 @@
     "href": "syllabus.html#general-information",
     "title": "Syllabus",
     "section": "General Information",
-    "text": "General Information\n\nBST 260 Introduction to Data Science\nKresge 202A and 202B (HSPH)\nMonday 09:45 AM - 11:15 AM; Wednesday 09:45 AM - 11:15 AM\nLecture notes: https://datasciencelabs.github.io/2024/"
+    "text": "General Information\n\nBST 260 Introduction to Data Science\nKresge 202A and 202B (HSPH)\nMonday 09:45 AM - 11:15 AM; Wednesday 09:45 AM - 11:15 AM\nLecture notes: https://datasciencelabs.github.io/2024/\nSlack channel: https://bst260fall2024.slack.com/\nCanvas: https://canvas.harvard.edu/courses/143922"
   },
   {
     "objectID": "syllabus.html#prerequisites",
     "href": "syllabus.html#prerequisites",
     "title": "Syllabus",
     "section": "Prerequisites",
-    "text": "Prerequisites\nWe assume students have taken or are taking a probability and statistics course and have basic programming skills.\nStudents not matriculated in an HSPH Biostatistics graduate program (HDS SM60, BIO SM80 / SM60 / SM1, and CBQG SM80) will be required to pass (score 18 out of 20 or higher) on a basic math and programming diagnostic test to enroll in the course. If you are in a HSPH Biostatistics graduate program and you score less than 18 we will contact you to offer supplementary resource to help you be prepared for the course."
+    "text": "Prerequisites\nWe assume students have taken or are taking a probability and statistics course and have basic programming skills.\nStudents not matriculated in an HSPH Biostatistics graduate program (HDS SM60, BIO SM80 / SM60 / SM1, and CBQG SM80) will be required to score at least 90% on a basic math and programming diagnostic test to enroll in the course. If you are in a HSPH Biostatistics graduate program and you score less than 90% we will contact you to offer supplementary resource to help you be prepared for the course."
   },
   {
     "objectID": "syllabus.html#textbooks",
@@ -53,7 +53,7 @@
     "href": "syllabus.html#course-description",
     "title": "Syllabus",
     "section": "Course Description",
-    "text": "Course Description\nThis course introduces the following:\n\nUNIX/Linux shell.\nReproducible document preparation with RStudio, knitr, and markdown\nVersion control with git and GitHub\nR programming\nData wrangling with dplyr and data.table\nData visualization with ggplot2\n\nWe also demonstrate how the following concepts are applied in data analysis:\n\nMonte Carlo simulations\nStatistical modeling\nHigh-dimensional data techniques\nMachine learning\n\nWe do not cover the theory and details of these methods as they are covered in other courses.\nThroughout the course, we use motivating case studies and data analysis problem sets based on challenges similar to those you encounter in scientific research."
+    "text": "Course Description\nThis course introduces the following:\n\nUNIX/Linux shell.\nReproducible document preparation with RStudio, knitr, and markdown\nVersion control with git and GitHub\nR programming\nData wrangling with dplyr and data.table\nData visualization with ggplot2\n\nWe also demonstrate how the following concepts are applied in data analysis:\n\nProbability theory.\nStatistical inference and modeling\nHigh-dimensional data techniques\nMachine learning\n\nWe do not cover the theory and details of these methods as they are covered in other courses.\nThroughout the course, we use motivating case studies and data analysis problem sets based on challenges similar to those you encounter in scientific research."
   },
   {
     "objectID": "syllabus.html#weekly-course-structure",
@@ -110,5 +110,47 @@
     "title": "Syllabus",
     "section": "Preliminary Schedule",
     "text": "Preliminary Schedule\n\n\n\nDates\nTopic\nLinks to readings and notes\n\n\n\n\nSep 04\nProductivity Tools\nInstalling R and RStudio on Windows or Mac, Getting Started Unix\n\n\nSep 09\nProductivity Tools\nRStudio Projects, Quarto Git and GitHub\n\n\nSep 10\nProblem Set 1 due\nDifficulty: easy\n\n\nSep 11\nR\nR Basics, Vectorization\n\n\nSep 13\nProblem Set 2 due\nDifficulty: easy\n\n\nSep 16, Sep 18\nR\ndplyr, dates and times, ggplot2\n\n\nSep 19\nProblem Set 3 due\nDifficulty: easy\n\n\nSep 23, Sep 25\nWrangling\nImporting data Locales Reshaping Data, Joining Tables, Extracting data from the web\n\n\nSep 26\nProblem Set 4 due\nDifficulty: medium\n\n\nSep 30, Oct 02\nData visualization\nDistributions, Dataviz Principles\n\n\nOct 04\nProblem Set 5 due\nDifficulty: medium\n\n\nOct 07, Oct 09\nProbability\nMonte Carlo, Random Variables & CLT\n\n\nOct 11\nProblem Set 6 due\nDifficulty: easy\n\n\nOct 14\nNo class\nIndigenous Peoples Day\n\n\nOct 16\nMidterm 1\nCovers material from Sep 04-Oct 11\n\n\nOct 21, Oct 23\nInference\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 01\nProblem Set 7 due\nDifficulty: hard\n\n\nNov 04, Nov 06\nLinear models\nRegression, Multivariate Regression\n\n\nNov 11\nNo class\nVeterans’ Day\n\n\nNov 13\nLinear models\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 15\nProblem Set 8 due\nDifficulty: hard\n\n\nNov 18, Nov 20\nHigh dimensional data\nMatrices in R, Applied Linear Algebra, Dimension Reduction\n\n\nNov 22\nProblem Set 9 due\nDifficulty: easy\n\n\nNov 25\nMidterm 2\nCovers material from Sep 04-Nov 22\n\n\nNov 27\nNo class\nThanksgiving Recess Begins\n\n\nDec 02, Dec 04\nMachine Learning\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nDec 09, Dec 11\nMachine Learning\nResampling methods, ML algorithms, ML in practice\n\n\nDec 13\nProblem Set 10 due\nDifficulty: hard\n\n\nDec 16, Dec 18\nOther topics\n\n\n\nDec 20\nFinal Project due"
+  },
+  {
+    "objectID": "first-day.html",
+    "href": "first-day.html",
+    "title": "1  First day",
+    "section": "",
+    "text": "Introdcution\nUnix\nQuart qmd html"
+  },
+  {
+    "objectID": "psets.html",
+    "href": "psets.html",
+    "title": "Problem sets",
+    "section": "",
+    "text": "Problem set 1"
+  },
+  {
+    "objectID": "lectures/02-quarto.html#r-and-rstudio",
+    "href": "lectures/02-quarto.html#r-and-rstudio",
+    "title": "2  Quarto",
+    "section": "2.1 R and RStudio",
+    "text": "2.1 R and RStudio\nBefore introducing Quarto we need R installed. We highly recommend using RStudio as an IDE for this course. We will be using it in lectures.\n\n2.1.1 Installation\n\nInstall the latest version (4.3.1) of R\nInstall RStudio\n\n\n\n\nrstudio\n\n\n\n\n2.1.2 Basics\nLet’s try a few things together:\n\nOpen a new R script file\nLearn tab complete\nRun commands while editing scripts\nRun the entire script\nMake a plot\nChange options to never save workspace.\n\n\n\n2.1.3 Projects\n\nStart new project in exciting directory.\nStart new project in new directory.\nChange projects."
+  },
+  {
+    "objectID": "lectures/02-quarto.html#markdown",
+    "href": "lectures/02-quarto.html#markdown",
+    "title": "2  Quarto",
+    "section": "2.2 Markdown",
+    "text": "2.2 Markdown\nStart a new Quarto.\n\n2.2.1 Type of editor\n\nSource - See the actual code (WYSIWYG).\nVisual - Partial preview of final document.\n\n\n\n2.2.2 The header\nAt the top you see:\n---\ntitle: \"Untitled\"\n---\nThe things between the --- is the YAML header.\nYou will see it used throughout the Quarto guide.\n\n\n2.2.3 Text formating\nitalics, bold, bold italics\nstrikethrough\ncode\n\n\n2.2.4 Headings\n# Header 1\n## Header 2\n### Header 3\nand so on\n\n\n2.2.5 Links\nJust the link: https://quarto.org/docs/guide/\nLinked text: This is the link to Quarto Guide\n\n\n2.2.6 Images\n\n\n\nFirst week of data science\n\n\nThe image can also be a local file.\n\n\n2.2.7 Lists\nBullets:\n\nbullet 1\n\nsub-bullet 1\nsub-bullet 2\n\nbullet 2\n\nOrdered list\n\nItem 1\nItem 2\n\n\n\n2.2.8 Equations\nInline: \\(Y_i = \\beta_0 + \\beta_1 x_i + \\varepsilon_i\\)\nDisplay math:\n\\[\n\\mathbf{Y} = \\mathbf{X\\beta} + \\mathbf{\\varepsilon}\n\\]"
+  },
+  {
+    "objectID": "lectures/02-quarto.html#computations",
+    "href": "lectures/02-quarto.html#computations",
+    "title": "2  Quarto",
+    "section": "2.3 Computations",
+    "text": "2.3 Computations\nThe main reason we use Quarto is because we can include code and execute the code when compiling the document. In R we refer to them as R chunks.\nTo add your own R chunks, you can type the characters above quickly with the key binding command-option-I on the Mac and Ctrl-Alt-I on Windows.\nThis applies to plots as well; the plot will be placed in that position. We can write something like this:\n\nx &lt;- 1\ny &lt;- 2\nx + y\n\n[1] 3\n\n\nBy default, the code will show up as well. To avoid having the code show up, you can use an argument, which are annotated with |# To avoid showing code in the final document, you can use the argument echo: FALSE. For example:\n\n\n[1] 3\n\n\nWe recommend getting into the habit of adding a label to the R code chunks. This will be very useful when debugging, among other situations. You do this by adding a descriptive word like this:\n\nx &lt;- 1\ny &lt;- 2\nx + y\n\n[1] 3\n\n\n\n2.3.1 Academic reports\nQuarto has many nice features that facilitates publishing academic reports in this guide\n\n\n2.3.2 Global execution options\nIf you want to apply an option globally, you can include in the header, under execute. For example adding the following line to the header make code not show up, by default:\nexecute:\n  echo: false\n\n\n2.3.3 More on markdown\nThere is a lot more you can do with R markdown. We highly recommend you continue learning as you gain more experience writing reports in R. There are many free resources on the internet including:\n\nRStudio’s tutorial: https://quarto.org/docs/get-started/hello/rstudio.html\nThe knitR book: https://yihui.name/knitr/\nPandoc’s Markdown in-depth documentation"
+  },
+  {
+    "objectID": "lectures/02-quarto.html#sec-knitr",
+    "href": "lectures/02-quarto.html#sec-knitr",
+    "title": "2  Quarto",
+    "section": "2.4 knitR",
+    "text": "2.4 knitR\nWe use the knitR package to compile Quarto. The specific function used to compile is the knit function, which takes a file name as input. RStudio provides the Render button that makes it easier to compile the document.\nNote that the first time you click on the Render button, a dialog box may appear asking you to install packages you need. Once you have installed the packages, clicking Render will compile your Quarto file and the resulting document will pop up.\nThis particular example produces an html document which you can see in your working directory. To view it, open a terminal and list the files. You can open the file in a browser and use this to present your analysis. You can also produce a PDF or Microsoft document by changing:\nformat: html to format: pdf or format: docx. We can also produce documents that render on GitHub using format: gfm, which stands for GitHub flavored markdown, a convenient way to share your reports."
   }
 ]
