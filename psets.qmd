@@ -1,3 +1,0 @@
-# Problem sets {.unnumbered}
-
-- [Problem set 1](psets/01-rmarkdown.qmd)
