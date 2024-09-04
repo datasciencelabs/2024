@@ -1,6 +1,6 @@
 # First day
 
 
-* [Introdcution](lectures/00-intro.html)
-* [Unix](lectures/02-unix.html)
+* [Introdcution](lectures/00-intro.qmd)
+* [Unix](lectures/01-unix.qmd)
 * Quart [qmd](lectures/02-quarto.qmd) [html](lectures/02-quarto.html)
