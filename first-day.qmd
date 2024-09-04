@@ -1,0 +1,4 @@
+# First day
+
+
+* [Introdcution slides](lectures/01-intro.html)
