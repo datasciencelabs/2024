@@ -15,7 +15,8 @@ book:
   - downloading-course-materials.qmd
   - syllabus.qmd
   - first-day.qmd
-  - psets/01-rmarkdown.qmd
+  - psets.qmd
+  - lectures/02-quarto.qmd
   reader-mode: true
   site-url: http://datasciencelabs.github.io/2024
   repo-url: https://github.com/datasciencelabs/2024
