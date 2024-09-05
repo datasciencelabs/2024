@@ -21,8 +21,6 @@ website:
     contents:
     - href: index.qmd
       text: Home
-    - href: general-info.qmd
-      text: General Information
     - href: slides.qmd
       text: Slides
     - href: psets.qmd

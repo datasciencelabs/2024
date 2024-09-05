@@ -2,12 +2,21 @@
 title: "BST 260 Introduction to Data Science"
 ---
 
-* Lecture slides, class notes, and problem sets are linked in the schedules below.
-* New material is added approximately on a weekly basis.
-* The code that creates this page is availabe from this [GitHub repo](https://github.com/datasciencelabs/2024).
+## Course Information
+
+* Instructor: [Rafael A.Irizarry](https://rafalab.dfci.harvard.edu/)
+* Teaching fellows:  Corri Sept, Nikhil Vytla, and Yuan Wang
+* Location: Kresge 202A and 202B,	Harvard School of Public Health
+* Date and time: Mon & Wed 9.45 - 11:15am
+* Textbooks: <https://github.com/rafalab/dsbook-part-1>, <https://github.com/rafalab/dsbook-part-2>
+* Slack: <https://bst260fall2024.slack.com/>
+* Canvas: <https://canvas.harvard.edu/courses/143922/pages/Course%20Information>
+* GitHub repo: <https://github.com/datasciencelabs/2024>
 * Remember to read the [syllabus](syllabus.qmd), [listen to SD](https://www.youtube.com/embed/aL_fP5axQV4).
 
 ## Lectures 
+
+Lecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.
 
 | Dates   | Topic  |    Slides | Reading |
 |:-------------------|:---------|:----------|:----------|
@@ -43,6 +52,14 @@ title: "BST 260 Introduction to Data Science"
 | 10          | Digit reading | Dec 13   | hard | 
 |Final Project| Your choice | Dec 20   | hard  |
 
+## Office hour times
+
+| Meeting | Location | Time                   |
+|---------|----------|------------------------|
+| Office hour 1  | TBA   | TBA       |
+| Office hour 2  | TBA   | TBA        |
+| Office hour 3  | TBA   | TBA      |
+| Office hour 4  | TBA   | TBA      |
 
 ## Acknowledgments
 

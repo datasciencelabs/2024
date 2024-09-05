@@ -88,7 +88,17 @@
     "href": "index.html",
     "title": "BST 260 Introduction to Data Science",
     "section": "",
-    "text": "Lecture slides, class notes, and problem sets are linked in the schedules below.\nNew material is added approximately on a weekly basis.\nThe code that creates this page is availabe from this GitHub repo.\nRemember to read the syllabus, listen to SD.",
+    "text": "Instructor: Rafael A.Irizarry\nTeaching fellows: Corri Sept, Nikhil Vytla, and Yuan Wang\nLocation: Kresge 202A and 202B, Harvard School of Public Health\nDate and time: Mon & Wed 9.45 - 11:15am\nTextbooks: https://github.com/rafalab/dsbook-part-1, https://github.com/rafalab/dsbook-part-2\nSlack: https://bst260fall2024.slack.com/\nCanvas: https://canvas.harvard.edu/courses/143922/pages/Course%20Information\nGitHub repo: https://github.com/datasciencelabs/2024\nRemember to read the syllabus, listen to SD.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#course-information",
+    "href": "index.html#course-information",
+    "title": "BST 260 Introduction to Data Science",
+    "section": "",
+    "text": "Instructor: Rafael A.Irizarry\nTeaching fellows: Corri Sept, Nikhil Vytla, and Yuan Wang\nLocation: Kresge 202A and 202B, Harvard School of Public Health\nDate and time: Mon & Wed 9.45 - 11:15am\nTextbooks: https://github.com/rafalab/dsbook-part-1, https://github.com/rafalab/dsbook-part-2\nSlack: https://bst260fall2024.slack.com/\nCanvas: https://canvas.harvard.edu/courses/143922/pages/Course%20Information\nGitHub repo: https://github.com/datasciencelabs/2024\nRemember to read the syllabus, listen to SD.",
     "crumbs": [
       "Home"
     ]
@@ -98,7 +108,7 @@
     "href": "index.html#lectures",
     "title": "BST 260 Introduction to Data Science",
     "section": "Lectures",
-    "text": "Lectures\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09\nProductivity Tools\n\nRStudio Projects, Quarto, Git and GitHub\n\n\nSep 11\nR\n\nR Basics, Vectorization\n\n\nSep 16, Sep 19\nR\n\ndplyr, dates and times, ggplot2\n\n\nSep 23, Sep 25\nWrangling\n\nImporting data, Locales, Reshaping Data, Joining Tables, Extracting data from the web\n\n\nSep 30, Oct 02\nData visualization\n\nDistributions, Dataviz Principles\n\n\nOct 07, Oct 09\nProbability\n\nMonte Carlo, Random Variables & CLT\n\n\nOct 21, Oct 23\nInference\n\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\n\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\n\nRegression, Multivariate Regression\n\n\nNov 13\nLinear models\n\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 18, Nov 20\nHigh dimensional data\n\nMatrices in R, Applied Linear Algebra, Dimension Reduction\n\n\nMachine Learning\nDec 02, Dec 04\n\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nMachine Learning\nDec 09, Dec 11\n\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
+    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09\nProductivity Tools\n\nRStudio Projects, Quarto, Git and GitHub\n\n\nSep 11\nR\n\nR Basics, Vectorization\n\n\nSep 16, Sep 19\nR\n\ndplyr, dates and times, ggplot2\n\n\nSep 23, Sep 25\nWrangling\n\nImporting data, Locales, Reshaping Data, Joining Tables, Extracting data from the web\n\n\nSep 30, Oct 02\nData visualization\n\nDistributions, Dataviz Principles\n\n\nOct 07, Oct 09\nProbability\n\nMonte Carlo, Random Variables & CLT\n\n\nOct 21, Oct 23\nInference\n\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\n\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\n\nRegression, Multivariate Regression\n\n\nNov 13\nLinear models\n\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 18, Nov 20\nHigh dimensional data\n\nMatrices in R, Applied Linear Algebra, Dimension Reduction\n\n\nMachine Learning\nDec 02, Dec 04\n\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nMachine Learning\nDec 09, Dec 11\n\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
     "crumbs": [
       "Home"
     ]
@@ -114,6 +124,16 @@
     ]
   },
   {
+    "objectID": "index.html#office-hour-times",
+    "href": "index.html#office-hour-times",
+    "title": "BST 260 Introduction to Data Science",
+    "section": "Office hour times",
+    "text": "Office hour times\n\n\n\nMeeting\nLocation\nTime\n\n\n\n\nOffice hour 1\nTBA\nTBA\n\n\nOffice hour 2\nTBA\nTBA\n\n\nOffice hour 3\nTBA\nTBA\n\n\nOffice hour 4\nTBA\nTBA",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
     "objectID": "index.html#acknowledgments",
     "href": "index.html#acknowledgments",
     "title": "BST 260 Introduction to Data Science",
@@ -124,16 +144,6 @@
     ]
   },
   {
-    "objectID": "slides.html",
-    "href": "slides.html",
-    "title": "Slides",
-    "section": "",
-    "text": "Topic\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nFirst day\n\n\nIntroduction\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nUnix\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nQuarto\n\n\nMon, Sep 09\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Slides"
-    ]
-  },
-  {
     "objectID": "psets/pset-01-unix-quarto.html",
     "href": "psets/pset-01-unix-quarto.html",
     "title": "Problem set 1",
@@ -141,43 +151,13 @@
     "text": "After finishing the homwork you are to turn in all the code\n\nStart an RStudio project. Recommended name: pset-01-rmarkdown. Start a quarto document called beginning.qmd.\nCreate a directory called img and save a screen shot of your RStudio session for the project. Include your screen shot in the quarto document.\nWrite a Quarto document that defines variables \\(a=1, b=-1, c=-2\\) and print out the solutions to \\(f(x) = ax^2+bx+c=0\\). Do not report complex solutions, only real numbers.\nInclude a graph of \\(f(x)\\) versus \\(x\\) for \\(x \\in (-5,5)\\).\n\n\nx &lt;- seq(-5, 5, length = 100)\n# hint: use the plot function\n\n\nCreate a directory called docs. Use the command quarto render to create a PDF and save it to the docs directory. Show use the command you typed:\n\n# Your code here\n\nUse Unix to create a directory called data in the project home directory. Include the Unix command you used to create the directory.\n\n# Your code here\n\nUse a terminal-based text editor to create a file coefs.txt in the data directory and save three coefficients, 1 -1 -2 for example. Show us the Unix commands you used to achieve this:\n\n\n\nMake a directory called code. Use Unix to copy the file beginning.qmd to file called quadratic.qmd in the code directory. Show us the Unix commands you used.\n\n\n\nEdit the quadratic.qmd file to read in a, b, and c from the file coefs.txt. Make sure to use a relative path when reading the file. As before, print out the solutions to \\(f(x) = ax^2+bx+c=0\\). Do not report complex solutions, only real numbers.\nChange the path of the file you are reading to the full path you get when you type file.path(getwd(), \"data/coefs.txt\"). Confirm that the files sill renders. Then move the entire pset-01-rmarkdown to a directory called RtmpyDknq4. Does the file render? Change the path back to a relative path and see if it renders."
   },
   {
-    "objectID": "general-info.html",
-    "href": "general-info.html",
-    "title": "General Information",
+    "objectID": "slides.html",
+    "href": "slides.html",
+    "title": "Slides",
     "section": "",
-    "text": "BST 260: Introduction to Data Science\nLecture Kresge 202A and 202B, Mon & Wed 9.45 - 11:15am\nSlack: https://bst260fall2024.slack.com/\nCanvas: https://canvas.harvard.edu/courses/143922/pages/Course%20Information",
+    "text": "Topic\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nFirst day\n\n\nIntroduction\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nUnix\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nQuarto\n\n\nMon, Sep 09\n\n\n\n\n\nNo matching items",
     "crumbs": [
-      "General Information"
-    ]
-  },
-  {
-    "objectID": "general-info.html#course-information",
-    "href": "general-info.html#course-information",
-    "title": "General Information",
-    "section": "",
-    "text": "BST 260: Introduction to Data Science\nLecture Kresge 202A and 202B, Mon & Wed 9.45 - 11:15am\nSlack: https://bst260fall2024.slack.com/\nCanvas: https://canvas.harvard.edu/courses/143922/pages/Course%20Information",
-    "crumbs": [
-      "General Information"
-    ]
-  },
-  {
-    "objectID": "general-info.html#teaching-team",
-    "href": "general-info.html#teaching-team",
-    "title": "General Information",
-    "section": "Teaching team",
-    "text": "Teaching team\n\nRafael A. Irizarry\nCorri Sept\nNikhil Vytla\nYuan Wang",
-    "crumbs": [
-      "General Information"
-    ]
-  },
-  {
-    "objectID": "general-info.html#lecture-and-office-hour-times",
-    "href": "general-info.html#lecture-and-office-hour-times",
-    "title": "General Information",
-    "section": "Lecture and office hour times",
-    "text": "Lecture and office hour times\n\n\n\nMeeting\nLocation\nTime\n\n\n\n\nOffice hour 1\nTBA\nTBA\n\n\nOffice hour 2\nTBA\nTBA\n\n\nOffice hour 3\nTBA\nTBA\n\n\nOffice hour 4\nTBA\nTBA",
-    "crumbs": [
-      "General Information"
+      "Slides"
     ]
   },
   {
