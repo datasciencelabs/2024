@@ -1,6 +1,7 @@
 ---
-title: BST 260 Introduction to Data Science
-subtitle: Introduction
+title: "Introduction"
+keywords: "First day"
+date: 2024-09-04
 format:
   revealjs:
     theme: "serif"

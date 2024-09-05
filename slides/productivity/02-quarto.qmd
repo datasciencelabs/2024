@@ -1,5 +1,7 @@
 ---
 title: Quarto
+keywords: "Productivity Tools"
+date: 2024-09-09
 format:
    revealjs:
       theme: "serif"
