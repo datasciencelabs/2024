@@ -1,0 +1,119 @@
+---
+title: "Syllabus"
+---
+
+## General Information
+
+- BST 260 Introduction to Data Science
+- Kresge 202A and 202B (HSPH)
+- Monday 09:45 AM - 11:15 AM; Wednesday 09:45 AM - 11:15 AM
+- Lecture notes: [https://datasciencelabs.github.io/2024/](https://datasciencelabs.github.io/2024/)
+- Slack channel: <https://bst260fall2024.slack.com/>
+- Canvas: <https://canvas.harvard.edu/courses/143922>
+
+## Prerequisites
+
+We assume students have taken or are taking a probability and statistics course and have basic programming skills. 
+
+Students not matriculated in an HSPH Biostatistics graduate program (HDS SM60, BIO SM80 / SM60 / SM1, and CBQG SM80) will be required to score at least 90% on a basic math and programming diagnostic test to enroll in the course. If you are in a HSPH Biostatistics graduate program and you score less than 90% we will contact you to offer supplementary resource to help you be prepared for the course.
+
+## Textbooks
+
+- [Introduction to Data Science: Data Wrangling and Visualization with R](http://rafalab.dfci.harvard.edu/dsbook-part-1/)
+- [Introduction to Data Science:: Statistics and Prediction Algorithms Through Case Studies](http://rafalab.dfci.harvard.edu/dsbook-part-2/)
+
+## Course Description
+
+This course introduces the following:
+
+* UNIX/Linux shell.
+* Reproducible document preparation with RStudio, knitr, and markdown
+* Version control with git and GitHub
+* R programming
+* Data wrangling with dplyr and data.table
+* Data visualization with ggplot2
+
+We also demonstrate how the following concepts are applied in data analysis:
+
+* Probability theory.
+* Statistical inference and modeling
+* High-dimensional data techniques
+* Machine learning
+
+We do not cover the theory and details of these methods as they are covered in other courses.
+
+Throughout the course, **we use motivating case studies and data analysis problem sets based on challenges similar to those you encounter in scientific research**. 
+
+
+## Weekly Course Structure
+
+* Monday lectures: we describe the concerts, methods, and skills needed for problem sets.
+* Wednesday labs: We work together on problem sets.
+* Friday: problem sets due (see Key dates)
+
+**Please ensure that you read the chapters listed in the syllabus before each Monday.** The lectures are designed with the assumption that you have completed the readings, enabling us to dive deeper into the nuances of data analysis and coding.
+
+**Lectures will not be recorded.**
+
+We will have a Slack workspace for you to ask questions during and after class.
+
+## Grade Distribution
+
+| Component | Weight |
+|-----------|--------|
+| 10 problem sets | 50% |
+| Midterm 1 | 10% |
+| Midterm 2 | 20% |
+| Final project | 20% |
+
+## Problem Sets 
+
+Problem sets will be due every week or every other week, depending on difficulty.
+
+Some problem sets include open ended questions that will be difficult to answer on your own. **We will be working on these together during Wednesday labs**. We also offer office hours where you can get help with unanswered questions.
+
+Problem sets must be submitted via GiHub. **Students are required to have a GitHub account and create a repository for the course.**  We will be providing further instructions during the first lab.
+
+10% of the total points for the problem sets will be deducted for every late day. **Students can have a total of 4 late days without penalty during the entire semester.** No need to provide a written excuse. **Providing an excuse does not give you more days** unless an accommodation is requested and approved by the Office of Student Affairs (this includes COVID).
+
+Problem set submissions need to be completely reproducible Quarto documents.**If your Quarto file does not compile** it will be considered a late day, and you will be notified and will  need to resubmit a Quarto file that does compile. You will be deducted further late days for every day it takes for you to turn in a Quarto file that does knit. **You are required to check emails that come through the Canvas system**, as this the only way  we will communicate problems with your problem sets.
+
+
+## Midterm Policy
+
+**Both midterms are closed book, no internet, and in-class**. 
+You are expected to complete them in 1 hour. 
+
+Questions will be drawn mostly or entirely from the problem sets.
+
+Please make sure you can come to class on the midterm dates provided in the **Key Dates** table below. If you miss the exam, you will need approval from the Office of Student Affairs to receive a makeup. All make-up exams will be completely different from the in-class ones.
+
+## Final Project
+
+For your final project we ask that you turn in a 4-6 page report using data to answer a public health related question. You can chose from one of the following:
+
+* Based on state-level data, how effective where vaccines against SARS-CoV-2 reported cases and COVID-19 hospitalizations and deaths, and vaccination rates.
+* What was the excess mortality after Hurricane María in Puerto Rico? Where different age groups affected differently?
+ 
+Optionally, you can select a question that align with your ongoing research. This way, it can be directly beneficial to your work. This will require prior approval from the instructor by October 25.
+
+Yet another option is to build a interactive webpage with poll-driven predictions for the 2024 US elections. Note this will be more challenging as we will not cover tools for interactive webpages until the last week of class (time permitting).
+
+**Note: You should start working on your project after the first midterm. Do not wait until the last week**. Teaching staff will be available during office hours.
+
+## ChatGPT Policy
+
+You can use ChatGPT however you want. Do remember **you won't be able to use it during the midterms.**
+
+## Key Dates 
+
+| Date | Event |
+|------|-------|
+| Oct 14  | No class: Indigenous Peoples Day |  
+| Oct 16 | Midterm 1: covers material from Sep 04-Oct 11|
+| Oct 23 | Start final project. Obtain approval if you want to do personal project instead.|
+| Nov 11 | No class: Veterans' Day|           
+| Nov 25 | Midterm 2: cover material from Sep 04-Nov22 |           
+| Nov 27 | No class: Thanksgiving Recess Begins |          
+| Dec 20 |  Final Project  due| 
+
