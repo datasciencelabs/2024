@@ -1,0 +1,29 @@
+---
+title: "General Information"
+---
+
+
+## Course Information
+
+* BST 260: Introduction to Data Science
+* Lecture	Kresge 202A and 202B,	Mon & Wed 9.45 - 11:15am
+* Slack: <https://bst260fall2024.slack.com/>
+* Canvas: <https://canvas.harvard.edu/courses/143922/pages/Course%20Information>
+
+## Teaching team 
+
+* Rafael A. Irizarry
+* Corri Sept
+* Nikhil Vytla
+* Yuan Wang
+
+## Lecture and office hour times
+
+| Meeting | Location | Time                   |
+|---------|----------|------------------------|
+| Office hour 1  | TBA   | TBA       |
+| Office hour 2  | TBA   | TBA        |
+| Office hour 3  | TBA   | TBA      |
+| Office hour 4  | TBA   | TBA      |
+
+

@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-html/tabby.min.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.555">
 
-  <title>BST 260: Introduction to Data Science - Unix</title>
+  <meta name="dcterms.date" content="2024-09-04">
+  <meta name="keywords" content="First day">
+  <title>BST 260: Introduction to Data Science - Introduction</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -29,11 +31,11 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
-  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -325,143 +327,60 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Unix</h1>
+  <h1 class="title">Introduction</h1>
 
 <div class="quarto-title-authors">
 </div>
 
+  <p class="date">2024-09-04</p>
 </section>
-<section id="naming-convention" class="slide level2">
-<h2>Naming convention</h2>
+<section id="general-information" class="slide level2">
+<h2>General Information</h2>
 <ul>
-<li><p>In general you want to name your files in a way that is related to their contents and specifies how they relate to other files.</p></li>
-<li><p>The <a href="https://library.si.edu/sites/default/files/tutorial/pdf/filenamingorganizing20180227.pdf">Smithsonian Data Management Best Practices</a> has “five precepts of file naming and organization”</p></li>
+<li>BST 260 Introduction to Data Science</li>
+<li>Instructor: Rafael A. Irizarry</li>
+<li>TFs: Corri Sept, Nikhil Vytla, Yuan Wang</li>
+<li>Mondays we have lectures, Wednesday we have labs.</li>
+<li>We work on problem sets together, in lab.</li>
 </ul>
 </section>
-<section id="five-precepts-of-file-naming-and-organization" class="slide level2">
-<h2>Five precepts of file naming and organization</h2>
-<ul>
-<li>Have a distinctive, human-readable name that gives an indication of the content.</li>
-<li>Follow a consistent pattern that is machine-friendly.</li>
-<li>Organize files into directories (when necessary) that follow a consistent pattern.</li>
-<li>Avoid repetition of semantic elements among file and directory names.</li>
-<li>Have a file extension that matches the file format (no changing extensions!)</li>
-</ul>
-<p>For specific recommendations we highly recommend you follow The <a href="https://style.tidyverse.org/">Tidyverse Style Guide</a></p>
-</section>
-<section id="the-terminal" class="slide level2">
-<h2>The terminal</h2>
-<ul>
-<li><p>Instead of clicking, dragging, and dropping to organize our files and folders, we will be typing Unix commands into the terminal.</p></li>
-<li><p>The way we do this is similar to how we type commands into the R console, but instead of generating plots and statistical summaries, we will be organizing files on our system.</p></li>
-</ul>
-</section>
-<section id="the-terminal-1" class="slide level2">
-<h2>The terminal</h2>
-<ul>
-<li><p>The terminal is integrated into Mac and Linux systems, but Windows users will have to install an emulator. Once you have a terminal open, you can start typing commands.</p></li>
-<li><p>You should see a blinking cursor at the spot where what you type will show up. This position is called the command line.</p></li>
-</ul>
-</section>
-<section id="the-home-directory" class="slide level2">
-<h2>The home directory</h2>
-<div class="quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img//windows-screenshots/VirtualBox_Windows-7-Enterprise_23_03_2018_14_53_13.png"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img//mac-screenshots/Screen-Shot-2018-04-13-at-4.34.01-PM.png"></p>
-</div>
-</div>
-</div>
-</section>
-<section id="windows" class="slide level2">
-<h2>Windows</h2>
-<p>The structure on Windows looks something like this:</p>
+<section id="course-description" class="slide level2">
+<h2>Course Description</h2>
+<p>Lecture notes: <a href="https://datasciencelabs.github.io/2024/">https://datasciencelabs.github.io/2024/</a></p>
 
-<img data-src="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img//unix/windows-filesystem-from-root.png" class="r-stretch"></section>
-<section id="mac" class="slide level2">
-<h2>Mac</h2>
-<p>And on MacOS something like this:</p>
-
-<img data-src="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img//unix/mac-filesystem-from-root.png" class="r-stretch"></section>
-<section id="working-directory" class="slide level2">
-<h2>Working directory</h2>
-<ul>
-<li><p>The working directory is the directly you are currently <em>in</em>. Later we will see that we can move to other directories using the command line.</p></li>
-<li><p>It’s similar to clicking on folders.</p></li>
-<li><p>You can see your working directory using the Unix command <code>pwd</code></p></li>
-</ul>
-<p>In R we can use <code>getwd()</code></p>
+<img data-src="https://pbs.twimg.com/media/EN5AnSsWAAAtWmN.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:25.0%"><p>Please read the syllabus!</p>
 </section>
-<section id="paths" class="slide level2">
-<h2>Paths</h2>
+<section id="important-details" class="slide level2">
+<h2>Important details</h2>
 <ul>
-<li><p>This string returned in previous command is <em>full path</em> to working directory.</p></li>
-<li><p>The full path to your home directory is stored in an <em>environment</em> variable.</p></li>
-<li><p>You can see it like this <code>echo $HOME</code></p></li>
+<li>Complete readings before class.</li>
+<li>Midterms are in person. There are no makeups.</li>
+<li>Make sure you read messages sent via Canvas</li>
+<li>You can select your own final project, but need approval.</li>
+<li>You should start final project by October 23.</li>
+<li>Help us pick office hours: <a href="https://forms.gle/GiQXqDTaeYVxaXd78" class="uri">https://forms.gle/GiQXqDTaeYVxaXd78</a></li>
 </ul>
 </section>
-<section id="paths-1" class="slide level2">
-<h2>Paths</h2>
+<section id="whats-coming" class="slide level2">
+<h2>What’s coming</h2>
 <ul>
-<li><p>In Unix, we use the shorthand <code>~</code> as a nickname for your home directory</p></li>
-<li><p>Example: the full path for <em>docs</em> (in image above) can be written like this <code>~/docs</code>.</p></li>
-<li><p>Most terminals will show the path to your working directory right on the command line.</p></li>
-<li><p>Let’s open a terminal window and see if the working directory is listed.</p></li>
+<li>UNIX/Linux shell.</li>
+<li>Reproducible document preparation</li>
+<li>Version control with git and GitHub</li>
+<li>R programming</li>
+<li>Data wrangling with dplyr and data.table</li>
+<li>Data visualization with ggplot2</li>
+<li>Probability theory, inference and modeling</li>
+<li>High-dimensional data techniques</li>
+<li>Machine learning</li>
 </ul>
 </section>
-<section id="unix-commands" class="slide level2">
-<h2>Unix commands</h2>
+<section id="lets-get-started" class="slide level2">
+<h2>Let’s get started</h2>
 <ul>
-<li><p><code>ls</code>: Listing directory content</p></li>
-<li><p><code>mkdir</code> and <code>rmdir</code>: make and remove a directory</p></li>
-<li><p><code>cd</code>: navigating the filesystem by changing directories</p></li>
-<li><p><code>pwd</code>: see your workding directory</p></li>
-<li><p><code>mv</code>: moving files</p></li>
-<li><p><code>cp</code>: copying files</p></li>
-<li><p><code>rm</code>: removing files</p></li>
-<li><p><code>less</code>: looking at a file</p></li>
-</ul>
-</section>
-<section id="autocomplete" class="slide level2">
-<h2>Autocomplete</h2>
-<ul>
-<li><p>In Unix you can auto-complete by hitting tab.</p></li>
-<li><p>This means that we can type <code>cd d</code> then hit tab.</p></li>
-<li><p>Unix will either auto-complete if <code>docs</code> is the only directory/file starting with <code>d</code> or show you the options.</p></li>
-<li><p>Try it out! Using Unix without auto-complete will make it unbearable.</p></li>
-</ul>
-</section>
-<section id="text-editors" class="slide level2">
-<h2>Text editors</h2>
-<p>Command-line text editors are essential tools, especially for system administrators, developers, and other users who frequently work in a terminal environment. Here are some of the most popular command-line text editors:</p>
-<ul>
-<li>Nano</li>
-<li>Pico</li>
-<li>Vi or Vim</li>
-<li>Emacs</li>
-</ul>
-</section>
-<section id="other-very-useful-commands-you-should-learn" class="slide level2">
-<h2>Other very useful commands you should learn</h2>
-<ul>
-<li><p>curl - download data from the internet.</p></li>
-<li><p>tar - archive files and subdirectories of a directory into one file.</p></li>
-<li><p>ssh - connect to another computer.</p></li>
-<li><p>find - search for files by filename in your system.</p></li>
-<li><p>grep - search for patterns in a file.</p></li>
-<li><p>awk/sed - These are two very powerful commands that permit you to find specific strings in files and change them.</p></li>
-</ul>
-</section>
-<section id="resources" class="slide level2">
-<h2>Resources</h2>
-<p>To get started.</p>
-<ul>
-<li><a href="https://www.codecademy.com/learn/learn-the-command-line" class="uri">https://www.codecademy.com/learn/learn-the-command-line</a></li>
-<li><a href="https://www.edx.org/course/introduction-linux-linuxfoundationx-lfs101x-1" class="uri">https://www.edx.org/course/introduction-linux-linuxfoundationx-lfs101x-1</a></li>
-<li><a href="https://www.coursera.org/learn/unix" class="uri">https://www.coursera.org/learn/unix</a></li>
+<li>Install R.</li>
+<li>Install RStudio.</li>
+<li>Make sure you have access to a terminal.</li>
 </ul>
 
 <div class="quarto-auto-generated-content">
@@ -474,19 +393,19 @@
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
-  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>

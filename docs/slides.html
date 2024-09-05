@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="">
 
-<title>BST 260: Introduction to Data Science</title>
+<title>BST 260: Introduction to Data Science - Slides</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -63,6 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -99,7 +68,65 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-slides .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-keywords','listing-title','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-slides'] = new List('listing-slides', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -112,7 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./slides.html">Slides</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -154,7 +181,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./slides.html" class="sidebar-item-text sidebar-link">
+  <a href="./slides.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Slides</span></a>
   </div>
 </li>
@@ -176,113 +203,88 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#downloading-course-materials" id="toc-downloading-course-materials" class="nav-link active" data-scroll-target="#downloading-course-materials">Downloading course materials</a>
-  <ul class="collapse">
-  <li><a href="#associating-an-existing-directory" id="toc-associating-an-existing-directory" class="nav-link" data-scroll-target="#associating-an-existing-directory">Associating an existing directory</a></li>
-  <li><a href="#forking-the-repository" id="toc-forking-the-repository" class="nav-link" data-scroll-target="#forking-the-repository">Forking the repository</a></li>
-  </ul></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/datasciencelabs/2024/blob/main/downloading-course-materials.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Slides</h1>
+</div>
 
 
 
-<section id="downloading-course-materials" class="level1 unnumbered">
-<h1 class="unnumbered">Downloading course materials</h1>
-<p>You can download the quarto files used to create the course notes using Git. You can update files using <code>git pull</code> but <strong>you will not be able to change the course notes on the main repository</strong>. This means that if you edit the files and then try to update then using <code>git pull</code> you will encounter conflicts. For this reason recommend that you <strong>make a copy before editing files</strong>. We have edited the <code>.gitignore</code> file so that if you add the word <code>notes</code> to your filenames, git will not track the files. So we recommend that you before editing you make a copy of the file and <em>notes</em> to the filename. For example <code>01-unix.qmd</code> to <code>01-unix-notes.qmd</code>.</p>
-<p>You can download the files using <code>git clone</code> like this:</p>
-<ol type="1">
-<li>Open a terminal and navigate to the directory you want to keep these notes in.</li>
-<li>Type <code>git clone  https://github.com/datasciencelabs/2024.git</code></li>
-</ol>
-<p>or using RStudio like this:</p>
-<ol type="1">
-<li>Got to <a href="https://github.com/datasciencelabs/2024" class="uri">https://github.com/datasciencelabs/2024</a></li>
-<li>Click on the green “Clone or Download” on Github and copy the link.</li>
-<li>Open RStudio, and go to File &gt; New Project &gt; Version Control &gt; Git, and paste in the link you just copied. Under “Create Project as Sub-directory of”, browse and select a folder where you want the course materials to go.</li>
-<li>Press “Create Project”. This will create a folder called <code>2024</code> in the folder you selected in step 3.</li>
-<li>Now, you can open this project using the projects tab in the upper right of RStudio, or going to File &gt; Open Project and then navigating to the 2024 folder and opening the <code>.Rproj</code> file.</li>
-</ol>
-<p>Once you cloned the course repository and want to get updates, you must use <code>git pull</code> to get updates. You can do this in the terminal or on the RStudio’s <strong>Git</strong> pane.</p>
-<section id="associating-an-existing-directory" class="level2">
-<h2 class="anchored" data-anchor-id="associating-an-existing-directory">Associating an existing directory</h2>
-<p><strong>If you already cloned the repository outside of RStudio</strong>, you can associate the directory that was created in that step with RStudio. In RStudio, go to File &gt; New Project &gt; Existing Directory, and then navigate / click on the 2024 folder. Then click “Create Project”. Then you can follow step 5 above to open the project when you launch RStudio.</p>
-</section>
-<section id="forking-the-repository" class="level2">
-<h2 class="anchored" data-anchor-id="forking-the-repository">Forking the repository</h2>
-<p>An alternative <strong>more advanced</strong> way to cloning the directory is creating a <em>fork</em>. Forking a repository on GitHub allows you to create a copy of a project under your own GitHub account. This lets you make changes without affecting the original repository. Here’s how you can fork a repository on GitHub:</p>
-<ol type="1">
-<li><strong>Log In to GitHub</strong>:
-<ul>
-<li>Make sure you are logged in to your GitHub account.</li>
-</ul></li>
-<li><strong>Navigate to the Repository</strong>:
-<ul>
-<li>Go to the main page of the repository you want to fork: <a href="https://github.com/datasciencelabs/2024" class="uri">https://github.com/datasciencelabs/2024</a></li>
-</ul></li>
-<li><strong>Click the ‘Fork’ Button</strong>:
-<ul>
-<li>In the top-right corner of the repository’s page, you’ll find the “Fork” button. Click on it.</li>
-</ul></li>
-<li><strong>Choose an Account</strong>:
-<ul>
-<li>If you are a member of any organizations, GitHub will ask you where you’d like to fork the repository. Choose your personal account unless you want to fork it to an organization.</li>
-</ul></li>
-<li><strong>Wait for the Forking Process to Complete</strong>:
-<ul>
-<li>GitHub will then create a copy of the repository in your account. You’ll see an animation indicating the process, and once it’s done, you’ll be redirected to the forked repository under your account.</li>
-</ul></li>
-<li><strong>Clone Your Forked Repository</strong>:
-<ul>
-<li><p>To work with the forked repository on your local machine, you can clone it. Navigate to the main page of your forked repo, click on the green “Code” button, copy the URL, and then use the following command in your terminal or command prompt:</p>
-<pre><code>git clone [URL_you_copied]</code></pre></li>
-</ul></li>
-</ol>
-<p>You can continue to update the forked repository by doing the following:</p>
-<ol type="1">
-<li><strong>Navigate to Your Local Repository</strong>:
-<ul>
-<li>Open a terminal or command prompt.</li>
-<li>Navigate to the directory where you have your forked repository.</li>
-</ul></li>
-<li><strong>Add the Original Repository as an Upstream Remote</strong>:
-<ul>
-<li><p>Use the following command to add the original repository as an upstream remote:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add upstream <span class="pp">[</span><span class="ss">URL_of_original_repository</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>For example, if the original repository’s URL is <code>https://github.com/original-owner/original-repo.git</code>, the command would be:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add upstream https://github.com/original-owner/original-repo.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul></li>
-<li><strong>Fetch Changes from the Upstream</strong>:
-<ul>
-<li><p>Use the following command to fetch changes from the upstream:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch upstream</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul></li>
-<li><strong>Merge Changes into Your Local Branch</strong>:
-<ul>
-<li><p>First, ensure you are on the branch into which you want to merge the upstream changes, typically the <code>main</code> or <code>master</code> branch:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>Then, merge the changes from the upstream’s <code>main</code> or <code>master</code> branch:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge upstream/main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul></li>
-<li><strong>Push Changes to Your Forked Repository on GitHub (if needed)</strong>:
-<ul>
-<li><p>If you want these changes to reflect in your GitHub fork, push them:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul></li>
-</ol>
-<p>Now your fork is synchronized with the original repository. Whenever you want to pull in new changes from the original repository in the future, you just need to repeat steps 3-5.</p>
-<p><strong>To avoid conflicts you sill want to avoid editing the course notes files and instead make copies.</strong></p>
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
-</section>
-</section>
+</header>
+
+
+<div id="listing-slides" class="quarto-listing quarto-listing-container-table">
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+<th>
+Topic
+</th>
+<th>
+Title
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody class="list">
+<tr data-index="0" data-listing-date-sort="1725422400000" data-listing-file-modified-sort="1725558677151" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="141" data-listing-title-sort="Introduction" data-listing-filename-sort="00-intro.qmd">
+<td>
+<span class="listing-keywords">First day</span>
+</td>
+<td>
+<a href="./slides/00-intro.html" class="title listing-title">Introduction</a>
+</td>
+<td>
+<span class="listing-date">Wed, Sep 04</span>
+</td>
+</tr>
+<tr data-index="1" data-listing-date-sort="1725422400000" data-listing-file-modified-sort="1725558602831" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="612" data-listing-title-sort="Unix" data-listing-filename-sort="01-unix.qmd">
+<td>
+<span class="listing-keywords">Productivity Tools</span>
+</td>
+<td>
+<a href="./slides/productivity/01-unix.html" class="title listing-title">Unix</a>
+</td>
+<td>
+<span class="listing-date">Wed, Sep 04</span>
+</td>
+</tr>
+<tr data-index="2" data-listing-date-sort="1725854400000" data-listing-file-modified-sort="1725558651877" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="632" data-listing-title-sort="Quarto" data-listing-filename-sort="02-quarto.qmd">
+<td>
+<span class="listing-keywords">Productivity Tools</span>
+</td>
+<td>
+<a href="./slides/productivity/02-quarto.html" class="title listing-title">Quarto</a>
+</td>
+<td>
+<span class="listing-date">Mon, Sep 09</span>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+
+
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -699,4 +701,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/datasciencelabs/2024/blob/main/downloading-course-materials.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/datasciencelabs/2024/blob/main/slides.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
