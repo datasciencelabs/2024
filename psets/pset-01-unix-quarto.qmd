@@ -1,15 +1,15 @@
 ---
-title: Problem set 1 
+title: Problem Set 1 
 date: 2024-09-10
 ---
 
-After finishing the homework you are to turn in all the code
+After finishing the homework, you are to turn in all the code.
 
 1. Start an RStudio project. Recommended name: `pset-01-rmarkdown`. Start a Quarto document called `beginning.qmd`.
 
 2. Create a directory called `img` and save a screen shot of your RStudio session for the project. Include your screenshot in the Quarto document.
 
-3. Next, define variables $a=1, b=-1, c=-2$ and print out the solutions to $f(x) = ax^2+bx+c=0$. Do not report complex solutions, only real numbers. 
+3. Next, in your Quarto document, define variables $a=1, b=-1, c=-2$ and print out the solutions to $f(x) = ax^2+bx+c=0$. Do not report complex solutions, only real numbers. 
 
 4. Include a graph of $f(x)$ versus $x$ for $x \in (-5,5)$.
 
