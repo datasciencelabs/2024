@@ -1,7 +1,6 @@
 ---
 title: Problem set 2 
-subtitle: Due 2024-09-13
-
+date: 2024-09-13
 ---
 
 For these exercises, do not load any packages other than **dslabs**
