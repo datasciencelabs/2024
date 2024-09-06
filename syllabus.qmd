@@ -8,7 +8,7 @@ title: "Syllabus"
 - Kresge 202A and 202B (HSPH)
 - Monday 09:45 AM - 11:15 AM; Wednesday 09:45 AM - 11:15 AM
 - Lecture notes: [https://datasciencelabs.github.io/2024/](https://datasciencelabs.github.io/2024/)
-- Slack channel: <https://bst260fall2024.slack.com/>
+- Slack workspace: <https://bst260fall2024.slack.com/>
 - Canvas: <https://canvas.harvard.edu/courses/143922>
 
 ## Prerequisites
@@ -20,13 +20,13 @@ Students not matriculated in an HSPH Biostatistics graduate program (HDS SM60, B
 ## Textbooks
 
 - [Introduction to Data Science: Data Wrangling and Visualization with R](http://rafalab.dfci.harvard.edu/dsbook-part-1/)
-- [Introduction to Data Science:: Statistics and Prediction Algorithms Through Case Studies](http://rafalab.dfci.harvard.edu/dsbook-part-2/)
+- [Introduction to Data Science: Statistics and Prediction Algorithms Through Case Studies](http://rafalab.dfci.harvard.edu/dsbook-part-2/)
 
 ## Course Description
 
 This course introduces the following:
 
-* UNIX/Linux shell.
+* UNIX/Linux shell
 * Reproducible document preparation with RStudio, knitr, and markdown
 * Version control with git and GitHub
 * R programming
@@ -35,7 +35,7 @@ This course introduces the following:
 
 We also demonstrate how the following concepts are applied in data analysis:
 
-* Probability theory.
+* Probability theory
 * Statistical inference and modeling
 * High-dimensional data techniques
 * Machine learning
@@ -47,9 +47,9 @@ Throughout the course, **we use motivating case studies and data analysis proble
 
 ## Weekly Course Structure
 
-* Monday lectures: we describe the concerts, methods, and skills needed for problem sets.
+* Monday lectures: We describe the concerts, methods, and skills needed for problem sets.
 * Wednesday labs: We work together on problem sets.
-* Friday: problem sets due (see Key dates)
+* Friday: Problem sets due (see Key Dates and Problem Sets).
 
 **Please ensure that you read the chapters listed in the syllabus before each Monday.** The lectures are designed with the assumption that you have completed the readings, enabling us to dive deeper into the nuances of data analysis and coding.
 
@@ -68,15 +68,15 @@ We will have a Slack workspace for you to ask questions during and after class.
 
 ## Problem Sets 
 
-Problem sets will be due every week or every other week, depending on difficulty.
+Problem sets will be due every week or every other week, depending on difficulty. They will be due at 11:59 PM on the day denoted on the Problem Sets table.
 
 Some problem sets include open ended questions that will be difficult to answer on your own. **We will be working on these together during Wednesday labs**. We also offer office hours where you can get help with unanswered questions.
 
-Problem sets must be submitted via GiHub. **Students are required to have a GitHub account and create a repository for the course.**  We will be providing further instructions during the first lab.
+Problem sets must be submitted via GitHub. **Students are required to have a GitHub account and create a repository for the course.**  We will be providing further instructions during the first lab.
 
 10% of the total points for the problem sets will be deducted for every late day. **Students can have a total of 4 late days without penalty during the entire semester.** No need to provide a written excuse. **Providing an excuse does not give you more days** unless an accommodation is requested and approved by the Office of Student Affairs (this includes COVID).
 
-Problem set submissions need to be completely reproducible Quarto documents.**If your Quarto file does not compile** it will be considered a late day, and you will be notified and will  need to resubmit a Quarto file that does compile. You will be deducted further late days for every day it takes for you to turn in a Quarto file that does knit. **You are required to check emails that come through the Canvas system**, as this the only way  we will communicate problems with your problem sets.
+Problem set submissions need to be completely reproducible Quarto documents. **If your Quarto file does not compile** it will be considered a late day, and you will be notified and will need to resubmit a Quarto file that does compile. You will be deducted further late days for every day it takes for you to turn in a Quarto file that does knit. **You are required to check emails that come through the Canvas system**, as this the only way we will communicate problems with your problem sets.
 
 
 ## Midterm Policy
@@ -109,11 +109,12 @@ You can use ChatGPT however you want. Do remember **you won't be able to use it 
 
 | Date | Event |
 |------|-------|
-| Oct 14  | No class: Indigenous Peoples Day |  
-| Oct 16 | Midterm 1: covers material from Sep 04-Oct 11|
-| Oct 23 | Start final project. Obtain approval if you want to do personal project instead.|
-| Nov 11 | No class: Veterans' Day|           
-| Nov 25 | Midterm 2: cover material from Sep 04-Nov22 |           
-| Nov 27 | No class: Thanksgiving Recess Begins |          
-| Dec 20 |  Final Project  due| 
+| Sep 10 | Pset 1 due |
+| Oct 14 | No class: Indigenous Peoples' Day |
+| Oct 16 | Midterm 1: covers material from Sep 04-Oct 11 |
+| Oct 23 | Start final project. Obtain approval if you want to do a personal project instead. |
+| Nov 11 | No class: Veterans' Day |
+| Nov 25 | Midterm 2: cover material from Sep 04-Nov 22 | 
+| Nov 27 | No class: Thanksgiving Recess Begins |
+| Dec 20 | Final Project due | 
 
