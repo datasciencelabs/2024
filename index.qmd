@@ -21,7 +21,7 @@ Lecture slides, class notes, and problem sets are linked below. New material is 
 | Dates   | Topic  |    Slides | Reading |
 |:-------------------|:---------|:----------|:----------|
 | Sep 04 | Productivity Tools| [Intro](slides/00-intro.qmd), [Unix](slides/productivity/01-unix.qmd) | Installing R and RStudio on [Windows](https://teacherscollege.screenstepslive.com/a/1108074-install-r-and-rstudio-for-windows) or [Mac](https://teacherscollege.screenstepslive.com/a/1135059-install-r-and-rstudio-for-mac), [Getting Started](http://rafalab.dfci.harvard.edu/dsbook-part-1/R/getting-started.html), [Unix](http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/unix.html)|
-| Sep 09 | Productivity Tools| | [RStudio Projects, Quarto](https://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/reproducible-projects.html), [Git and GitHub](http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/git.html) |
+| Sep 09 | Productivity Tools| [RStudio](slides/productivity/02-rstudio.qmd), [Quarto](slides/productivity/03-quarto.qmd) [Git and GitHub](slides/productivity/04-git.qmd) | [RStudio Projects, Quarto](https://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/reproducible-projects.html), [Git](http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/git.html) |
 | Sep 11 | R | | [R Basics](http://rafalab.dfci.harvard.edu/dsbook-part-1/R/R-basics.html), [Vectorization](http://rafalab.dfci.harvard.edu/dsbook-part-1/R/programming-basics.html#sec-vectorization)|
 | Sep 16, Sep 19 | R |  | [dplyr](http://rafalab.dfci.harvard.edu/dsbook-part-1/R/tidyverse.html), [dates and times](http://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/dates-and-times.html), [ggplot2](http://rafalab.dfci.harvard.edu/dsbook-part-1/dataviz/ggplot2.html) |
 | Sep 23, Sep 25 | Wrangling  | | [Importing data](https://rafalab.dfci.harvard.edu/dsbook-part-1/R/importing-data.html), [Locales](https://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/locales.html), [Reshaping Data](http://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/reshaping-data.html), [Joining Tables](http://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/joining-tables.html), [Extracting data from the web](https://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/web-scraping.html)|
@@ -41,7 +41,7 @@ Lecture slides, class notes, and problem sets are linked below. New material is 
 | Problem set| Topic | Due Date  set |  Difficulty |
 |:-------|:--------------|:---------|:----------|
 | [01](psets/pset-01-unix-quarto.qmd)   |  Unix, Quarto|Sep 10   | easy | 
-| 02          |  R | Sep 13   |easy | 
+| [02](psets/pset-02-r-vectorization.qmd) |  R | Sep 13   |easy | 
 | 03          |  Tidyverse | Sep 19   |easy | 
 | 04          | Wrangling | Sep 26   | medium | 
 | 05          |  Covid 19 data visualization | Oct 04   |medium | 

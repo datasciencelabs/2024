@@ -1,0 +1,42 @@
+---
+title: RStudio
+keywords: "Productivity Tools"
+date: 2024-09-09
+---
+
+
+## The panes
+
+![](http://rafalab.dfci.harvard.edu/dsbook-part-1/R/img/rstudio.png)
+
+---
+
+## The Basics
+
+Let's try a few things together:
+
+* Open a new R script file
+* Learn tab complete
+* Run commands while editing scripts
+* Run the entire script
+* Make a plot
+* Change options to never save workspace.
+* Change appearance
+
+---
+
+## Projects
+
+* Start new project in exciting directory.
+* Start new project in new directory.
+* Change projects.
+
+---
+
+## Type of editor
+
+Start a new Quarto document.
+
+* Source - See the actual code (WYSIWYG).
+* Visual - Partial preview of final document.
+

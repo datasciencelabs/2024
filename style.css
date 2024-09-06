@@ -31,3 +31,20 @@ th {
     background-color: #4CAF50; /* Green background for header row */
     color: black; /* White text color for header row */
 }
+
+
+.quarto-title-meta-heading::before {
+    content: "Due Date";
+}
+
+.quarto-title-meta-heading {
+    visibility: hidden;
+    position: relative;
+}
+
+.quarto-title-meta-heading::before {
+    visibility: visible;
+    position: absolute;
+    left: 0;
+    top: 0;
+}

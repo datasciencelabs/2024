@@ -8,11 +8,11 @@
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.450">
+  <meta name="generator" content="quarto-1.4.555">
 
   <meta name="dcterms.date" content="2024-09-09">
   <meta name="keywords" content="Productivity Tools">
-  <title>BST 260: Introduction to Data Science - Quarto</title>
+  <title>BST 260: Introduction to Data Science - Git and GitHub</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -157,7 +157,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -326,128 +327,309 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Quarto</h1>
+  <h1 class="title">Git and GitHub</h1>
 
 <div class="quarto-title-authors">
 </div>
 
   <p class="date">2024-09-09</p>
 </section>
-<section id="the-basics" class="slide level2">
-<h2>The Basics</h2>
-<p>Let’s try a few things together:</p>
+<section id="goal-for-the-day" class="slide level2">
+<h2>Goal for the day</h2>
 <ul>
-<li>Open a new R script file</li>
-<li>Learn tab complete</li>
-<li>Run commands while editing scripts</li>
-<li>Run the entire script</li>
-<li>Make a plot</li>
-<li>Change options to never save workspace.</li>
-</ul>
-<h3 id="projects">Projects</h3>
-<ul>
-<li>Start new project in exciting directory.</li>
-<li>Start new project in new directory.</li>
-<li>Change projects.</li>
+<li>Create a repository</li>
+<li>push something to the repository</li>
+<li>connect RStudio to GitHub</li>
 </ul>
 </section>
-<section id="markdown" class="slide level2">
-<h2>Markdown</h2>
-<p>Start a new Quarto.</p>
-<h3 id="type-of-editor">Type of editor</h3>
-<ul>
-<li>Source - See the actual code (WYSIWYG).</li>
-<li>Visual - Partial preview of final document.</li>
-</ul>
-<h3 id="the-header">The header</h3>
-<p>At the top you see:</p>
-<pre><code>---
-title: "Untitled"
----</code></pre>
-<p>The things between the <code>---</code> is the <em>YAML</em> header.</p>
-<p>You will see it used throughout the <a href="https://quarto.org/docs/guide/">Quarto guide</a>.</p>
-<h3 id="text-formating">Text formating</h3>
-<p><em>italics</em>, <strong>bold</strong>, <strong><em>bold italics</em></strong></p>
-<p><sub>strikethrough</sub></p>
-<p><code>code</code></p>
-<h3 id="headings">Headings</h3>
-<p><code># Header 1</code></p>
-<p><code>## Header 2</code></p>
-<p><code>### Header 3</code></p>
-<p>and so on</p>
-<h3 id="links">Links</h3>
-<p>Just the link: <a href="https://quarto.org/docs/guide/" class="uri">https://quarto.org/docs/guide/</a></p>
-<p>Linked text: <a href="https://quarto.org/docs/guide/">This is the link to Quarto Guide</a></p>
-<h3 id="images">Images</h3>
+<section id="do-you-have-git" class="slide level2">
+<h2>Do you have git?</h2>
+<p>Before we start: everybody make sure you have Git installed. Open a terminal and type:</p>
+<pre><code>git -v</code></pre>
+<p>If not installed follow the instruction in textbook.</p>
+</section>
+<section id="motivation" class="slide level2">
+<h2>Motivation</h2>
+<p>We want to avoid this:</p>
 
-<img data-src="https://datasciencedojo.com/wp-content/uploads/11-1.jpg" class="r-stretch quarto-figure-center"><p class="caption">First week of data science</p><p>The image can also be a local file.</p>
-<h3 id="lists">Lists</h3>
-<p>Bullets:</p>
+<img data-src="https://preview.redd.it/02o1a7v23qf71.jpg?auto=webp&amp;s=bb61f40a88e2940e4f4b20a56640fcf12a7b1a39" class="r-stretch quarto-figure-center"><p class="caption">Posted by rjkb041 on r/ProgrammerHumor</p></section>
+<section id="motivation-1" class="slide level2">
+<h2>Motivation</h2>
 <ul>
-<li>bullet 1
-<ul>
-<li>sub-bullet 1</li>
-<li>sub-bullet 2</li>
-</ul></li>
-<li>bullet 2</li>
+<li><p>This is particularly true when more than one person is collaborating on editing the file.</p></li>
+<li><p>even more important when there are multiple files, as there is in software development, and to some extend data analysis.</p></li>
 </ul>
-<p>Ordered list</p>
+</section>
+<section id="motivation-2" class="slide level2">
+<h2>Motivation</h2>
+<ul>
+<li>Git is a version control system that provides a systematic approach to keeping versions of files.</li>
+</ul>
+
+<img data-src="https://img.devrant.com/devrant/rant/r_1840117_3JUPn.jpg" class="r-stretch quarto-figure-center"><p class="caption">Posted on devrant.com/ by bhimanshukalra</p></section>
+<section id="motivation-3" class="slide level2">
+<h2>Motivation</h2>
+<p>But we have to learn some things:</p>
+
+<img data-src="https://miro.medium.com/v2/resize:fit:1200/format:webp/0*VcMPr1unIjAIHw2j.jpg" class="r-stretch quarto-figure-center"><p class="caption">From Meme Git Compilation by Lulu Ilmaknun Qurotaini</p></section>
+<section class="slide level2">
+
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>I use <code>&lt; &gt;</code> to denote a placeholder. So if I say <code>&lt;filename&gt;</code> what you eventually type is the filename you want to use, without the <code>&lt; &gt;</code></p>
+</div>
+</div>
+</div>
+</section>
+<section id="why-use-git-and-github" class="slide level2">
+<h2>Why use Git and GitHub?</h2>
 <ol type="1">
-<li>Item 1</li>
-<li>Item 2</li>
+<li><p>Sharing.</p></li>
+<li><p>Collaborating.</p></li>
+<li><p>Version control.</p></li>
 </ol>
-<h3 id="equations">Equations</h3>
-<p>Inline: <span class="math inline">\(Y_i = \beta_0 + \beta_1 x_i + \varepsilon_i\)</span></p>
-<p>Display math:</p>
-<p><span class="math display">\[
-\mathbf{Y} = \mathbf{X\beta} + \mathbf{\varepsilon}
-\]</span></p>
+<p>We focus on the sharing aspects of Git and GitHub, but introduce some of the basics that permit you to collaborate and version control.</p>
 </section>
-<section id="computations" class="slide level2">
-<h2>Computations</h2>
-<p>The main reason we use Quarto is because we can include code and execute the code when compiling the document. In R we refer to them as R chunks.</p>
-<p>To add your own R chunks, you can type the characters above quickly with the key binding command-option-I on the Mac and Ctrl-Alt-I on Windows.</p>
-<p>This applies to plots as well; the plot will be placed in that position. We can write something like this:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3</code></pre>
-</div>
-</div>
-<p>By default, the code will show up as well. To avoid having the code show up, you can use an argument, which are annotated with <code>|#</code> To avoid showing code in the final document, you can use the argument <code>echo: FALSE</code>. For example:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3</code></pre>
-</div>
-</div>
-<p>We recommend getting into the habit of adding a label to the R code chunks. This will be very useful when debugging, among other situations. You do this by adding a descriptive word like this:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3</code></pre>
-</div>
-</div>
-<h3 id="academic-reports">Academic reports</h3>
-<p>Quarto has many nice features that facilitates publishing academic reports in <a href="https://quarto.org/docs/authoring/front-matter.html">this guide</a></p>
-<h3 id="global-execution-options">Global execution options</h3>
-<p>If you want to apply an option globally, you can include in the header, under <code>execute</code>. For example adding the following line to the header make code not show up, by default:</p>
-<pre><code>execute:
-  echo: false</code></pre>
-<h3 id="more-on-markdown">More on markdown</h3>
-<p>There is a lot more you can do with R markdown. We highly recommend you continue learning as you gain more experience writing reports in R. There are many free resources on the internet including:</p>
+<section id="what-is-git" class="slide level2">
+<h2>What is Git?</h2>
+
+<img data-src="https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/68739659-fb6f-41e8-9813-32e1de3d82c0_rw_3840.png?h=5c36d3c50c350a440567a1f8f72ac028" class="r-stretch"></section>
+<section id="what-is-github" class="slide level2">
+<h2>What is GitHub?</h2>
+<p>Basically, it’s a service that hosts the <em>remote repository (repo)</em> on the web. This facilitates collaboration and sharing greatly.</p>
+<p>There many other features such as</p>
 <ul>
-<li>RStudio’s tutorial: <a href="https://quarto.org/docs/get-started/hello/rstudio.html" class="uri">https://quarto.org/docs/get-started/hello/rstudio.html</a></li>
-<li>The knitR book: <a href="https://yihui.name/knitr/" class="uri">https://yihui.name/knitr/</a></li>
-<li>Pandoc’s Markdown <a href="https://pandoc.org/MANUAL.html#pandocs-markdown">in-depth documentation</a></li>
+<li>a recognition system: reward, badges and stars, for example.</li>
+<li>hosting web pages, like the class notes for example.</li>
+<li><em>forks</em> and <em>pull requests</em>,</li>
+<li>issue tracking</li>
+<li>automation tools</li>
 </ul>
 </section>
-<section id="sec-knitr" class="slide level2">
-<h2>knitR</h2>
-<p>We use the <strong>knitR</strong> package to compile Quarto. The specific function used to compile is the <code>knit</code> function, which takes a file name as input. RStudio provides the <strong>Render</strong> button that makes it easier to compile the document.</p>
-<p>Note that the first time you click on the <em>Render</em> button, a dialog box may appear asking you to install packages you need. Once you have installed the packages, clicking <em>Render</em> will compile your Quarto file and the resulting document will pop up.</p>
-<p>This particular example produces an html document which you can see in your working directory. To view it, open a terminal and list the files. You can open the file in a browser and use this to present your analysis. You can also produce a PDF or Microsoft document by changing:</p>
-<p><code>format: html</code> to <code>format: pdf</code> or <code>format: docx</code>. We can also produce documents that render on GitHub using <code>format: gfm</code>, which stands for GitHub flavored markdown, a convenient way to share your reports.</p>
+<section id="what-is-github-1" class="slide level2">
+<h2>What is GitHub?</h2>
+<ul>
+<li><p>It has been describes a <em>social network for software developers</em>.</p></li>
+<li><p>The main tool behind GitHub, is Git.</p></li>
+<li><p>Similar to how to how main tool behind RStudio, is R.</p></li>
+</ul>
+</section>
+<section id="github-accounts" class="slide level2">
+<h2>GitHub accounts</h2>
+<p>Consider adding a profile <code>README.md</code>.</p>
+<p>Instructions are <a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme">here</a></p>
+<p>Looks like <a href="https://github.com/rafalab">this</a></p>
+</section>
+<section id="repositories" class="slide level2">
+<h2>Repositories</h2>
+<ul>
+<li><p>You are now ready to create a GitHub repository (repo).</p></li>
+<li><p>The general idea is that you will have at least two copies of your code: one on your computer and one on GitHub.</p></li>
+<li><p>If you add collaborators to this repo, then each will have a copy on their computer.</p></li>
+<li><p>The GitHub copy is usually considered the main (previously called master) copy that each collaborator syncs to. Git will help you keep all the different copies synced.</p></li>
+</ul>
+</section>
+<section id="repositories-1" class="slide level2">
+<h2>Repositories</h2>
+<ul>
+<li><p>Let’s go make one on GitHub…</p></li>
+<li><p>Then create a directory on your computer, this will be the local repo, and connect it to the Github repository.</p></li>
+<li><p>First copy and paste the location of your git repository</p></li>
+<li><p>It should look something like this:</p></li>
+</ul>
+<pre><code>https://github.com/your-username/your-repo-name.git</code></pre>
+</section>
+<section id="connect-git-and-github" class="slide level2">
+<h2>Connect Git and GitHub</h2>
+<ul>
+<li><p>When accessing GitHub you need credentials to verify your identity.</p></li>
+<li><p>There are two ways to connect: HTTPS or SSH, each requiring different credentials.</p></li>
+<li><p>We recommend using HTTPS, which uses a Personal Access Token (PAT).</p></li>
+<li><p>Note that <strong>your GitHub website password isn’t your access token</strong>.</p></li>
+</ul>
+</section>
+<section id="connect-git-and-github-1" class="slide level2">
+<h2>Connect Git and GitHub</h2>
+<p>*GitHub provides a detailed guide on obtaining an access token which can be found by searching “Managing your personal access tokens” on the GitHub Docs website.</p>
+<ul>
+<li>Detailed instructions are <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens">here</a></li>
+</ul>
+</section>
+<section id="generate-a-token" class="slide level2">
+<h2>Generate a token:</h2>
+<ul>
+<li><p>Carefully follow the instructions provided by GitHub.</p></li>
+<li><p>When setting permissions for the token, choose non-expiring and select the repo option in the scopes section.</p></li>
+<li><p>Once you complete these steps, GitHub will display your token—a lengthy string of characters. You should then:</p></li>
+<li><p><strong>Immediately copy this token to your clipboard</strong>. This is the only time GitHub will show it to you.</p></li>
+</ul>
+</section>
+<section id="generate-a-token-1" class="slide level2">
+<h2>Generate a token:</h2>
+<ul>
+<li><p>For security, save this token in a password manager. This ensures you can access it if needed later on.</p></li>
+<li><p>When git prompts you to enter your password, paste the token you’ve copied. After this, password prompts should no longer appear.</p></li>
+<li><p>If you ever need the token again, retrieve it from your password manager.</p></li>
+</ul>
+<p>For a much more detailed explanation, including how to use SSH instead of HTTPS, please consult <a href="https://happygitwithr.com/https-pat">Happy Git and GitHub for the use</a>.</p>
+</section>
+<section id="connect-git-and-github-2" class="slide level2">
+<h2>Connect Git and GitHub</h2>
+<p>The next step is to let Git know who we are. This will make it easier to connect with GitHub. To to this type the following two commands in our terminal window:</p>
+<pre><code>git config --global user.name "Your Name"
+git config --global user.mail "your@email.com"</code></pre>
+<p>This will change the Git configuration in way that anytime you use Git, it will know this information. Note that you need to use the email account that you used to open your GitHub account.</p>
+<pre><code>git init
+git remote add origin &lt;remote-url&gt;</code></pre>
+<p>Now the two are connected.</p>
+</section>
+<section id="overview-of-git" class="slide level2">
+<h2>Overview of Git</h2>
+<p>The main actions in Git are to:</p>
+<ol type="1">
+<li><strong>pull</strong> changes from the remote repo, in this case the GitHub repo</li>
+<li><strong>add</strong> files, or as we say in the Git lingo <em>stage</em> files</li>
+<li><strong>commit</strong> changes to the local repo</li>
+<li><strong>push</strong> changes to the <em>remote</em> repo, in our case the GitHub repo</li>
+</ol>
+</section>
+<section class="slide level2">
 
+
+<img data-src="https://miro.medium.com/v2/resize:fit:880/format:webp/0*cesFJY5JFpI0Rl4v.jpg" class="r-stretch quarto-figure-center"><p class="caption">From Meme Git Compilation by Lulu Ilmaknun Qurotaini</p></section>
+<section id="the-four-areas-of-git" class="slide level2">
+<h2>The four areas of Git</h2>
+
+<img data-src="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img/git/git-layout.png" class="r-stretch"></section>
+<section id="status" class="slide level2">
+<h2>Status</h2>
+
+<img data-src="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img/git/git-status.png" class="r-stretch"><pre><code>git status filename</code></pre>
+</section>
+<section id="add" class="slide level2">
+<h2>Add</h2>
+<p>Use <code>git add</code> to move put file to staging area.</p>
+
+<img data-src="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img/git/git-add.png" class="r-stretch"><pre><code>git add &lt;filename&gt;
+git status &lt;filename&gt;</code></pre>
+</section>
+<section id="commit" class="slide level2">
+<h2>Commit</h2>
+<p>Use</p>
+<pre><code>git commit -m "must add comment"</code></pre>
+<p>to move all the added files to the local repository. This file is now <em>tracked</em> and a copy of this version is kept going forward… this is like adding <code>V1</code> to your filename.</p>
+
+<img data-src="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img/git/git-commit.png" class="r-stretch"></section>
+<section id="commit-1" class="slide level2">
+<h2>Commit</h2>
+<p>You can commit files directly without using <code>add</code> by explicitely writing the files at the end of the commit:</p>
+<pre><code>git commit -m "must add comment" &lt;filename&gt;</code></pre>
+</section>
+<section id="push" class="slide level2">
+<h2>Push</h2>
+<p>To move to upstream repo we use</p>
+<pre><code>git push -u origin main</code></pre>
+<p>The <code>-u</code> flag sets the upstream, so in the future, you can simply use git push to push changes. So going forward we can just type:</p>
+<pre><code>git push</code></pre>
+<p>Here we need to be careful as if collaborating this will affect the work of others. It might also create a <code>conflict</code>.</p>
+
+<img data-src="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img/git/git-push.png" class="r-stretch"></section>
+<section id="fetch" class="slide level2">
+<h2>Fetch</h2>
+<p>To update our local repository to the remote one we use</p>
+<pre><code>git fetch</code></pre>
+
+<img data-src="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img/git/git-fetch.png" class="r-stretch"></section>
+<section id="merge" class="slide level2">
+<h2>Merge</h2>
+<p>Once we are sure this is good, we can merge with our local files</p>
+<pre><code>git merge</code></pre>
+
+<img data-src="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img/git/git-merge.png" class="r-stretch"></section>
+<section id="pull" class="slide level2">
+<h2>Pull</h2>
+<p>It is common to want to just skip the fetch step and just update everything. For this we use</p>
+<pre><code>git pull</code></pre>
+
+<img data-src="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img/git/git-pull.png" class="r-stretch"></section>
+<section id="checkout" class="slide level2">
+<h2>Checkout</h2>
+
+<img data-src="https://andortang.wordpress.com/wp-content/uploads/2017/05/winter-is-coming-brace-yourself-merge-conflicts-are-coming.jpg" class="r-stretch quarto-figure-center"><p class="caption">Posted by andortang on Nothing is Impossible!</p></section>
+<section id="checkout-1" class="slide level2">
+<h2>Checkout</h2>
+<ul>
+<li>If you want to pull down a specific file you from the remote repo you can use:</li>
+</ul>
+<pre><code>git checkout filename</code></pre>
+<ul>
+<li>But if you have a newer version in your local repository this will create a <strong><em>conflict</em></strong>. If you are sure you want to get rid of your local copy you can remove and then checkout.</li>
+</ul>
+<p>You can also use <code>checkout</code> to pull older version:</p>
+<pre><code>git checkout &lt;commit-id&gt; &lt;filename&gt;</code></pre>
+</section>
+<section id="checkout-2" class="slide level2">
+<h2>Checkout</h2>
+<ul>
+<li>You can get the <code>commit-id</code> either on the GitHub webpage or using</li>
+</ul>
+<pre><code>git log filename</code></pre>
+</section>
+<section class="slide level2">
+
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>If you are asked for passwords when connecting or pushing things to you want to read <a href="https://docs.github.com/en/get-started/getting-started-with-git/why-is-git-always-asking-for-my-password">this</a> and avoid this. It will be impossible to use if you have to enter a password each time you push.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="branches" class="slide level2">
+<h2>Branches</h2>
+<p>Git can be even more complex. We can have several branches. These are useful for working in parallel or testing stuff out that might not make the main repo.</p>
+
+<img data-src="https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/efae32ce-863f-4773-852c-4335e3ce4709_rw_3840.png?h=c54a2e5af240ec6e1332e2dcacbd7f33" class="r-stretch quarto-figure-center"><p class="caption">Art by: Allison Horst</p><p>We wont go over this. But you should at least now these three commands</p>
+<pre><code>git remote -v
+git brach </code></pre>
+</section>
+<section id="clone" class="slide level2">
+<h2>Clone</h2>
+<p>If you</p>
+<pre><code>git clone &lt;repo-url&gt;</code></pre>
+<pre><code>pwd
+mkdir git-example
+cd git-example
+git clone https://github.com/rairizarry/murders.git
+cd murders</code></pre>
+</section>
+<section id="using-git-in-rstudio" class="slide level2">
+<h2>Using Git in RStudio</h2>
+<p>Go to file, new project, version control, and follow the instructions.</p>
+<p>Then notice the <code>Git</code> tab.</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="https://miro.medium.com/v2/resize:fit:820/format:webp/0*Gb3B1-Xk5qHaxU7v.jpg" class="r-stretch quarto-figure-center"><p class="caption">From Meme Git Compilation by Lulu Ilmaknun Qurotaini</p><p>For more memes see <a href="https://medium.com/@lulu.ilmaknun.q/kompilasi-meme-git-e2fe49c6e33e">Meme Git Compilation by Lulu Ilmaknun</a></p>
+
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
+</div>
 </div>
 </section>
     </div>
@@ -476,7 +658,6 @@ title: "Untitled"
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -661,44 +842,6 @@ title: "Untitled"
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
@@ -775,10 +918,27 @@ title: "Untitled"
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp("http:\/\/datasciencelabs\.github\.io\/2024");
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -788,8 +948,17 @@ title: "Untitled"
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -803,7 +972,11 @@ title: "Untitled"
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {
