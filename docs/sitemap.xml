@@ -1,27 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://datasciencelabs.github.io/2024/index.html</loc>
-    <lastmod>2024-09-04T13:55:54.306Z</lastmod>
-  </url>
-  <url>
     <loc>http://datasciencelabs.github.io/2024/downloading-course-materials.html</loc>
-    <lastmod>2024-09-04T13:55:54.309Z</lastmod>
+    <lastmod>2024-09-04T22:48:41.011Z</lastmod>
   </url>
   <url>
-    <loc>http://datasciencelabs.github.io/2024/syllabus.html</loc>
-    <lastmod>2024-09-04T13:55:54.314Z</lastmod>
+    <loc>http://datasciencelabs.github.io/2024/slides/productivity/02-quarto.html</loc>
+    <lastmod>2024-09-05T17:50:51.877Z</lastmod>
   </url>
   <url>
-    <loc>http://datasciencelabs.github.io/2024/first-day.html</loc>
-    <lastmod>2024-09-04T13:55:54.315Z</lastmod>
+    <loc>http://datasciencelabs.github.io/2024/slides/00-intro.html</loc>
+    <lastmod>2024-09-05T17:51:17.151Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/index.html</loc>
+    <lastmod>2024-09-05T18:33:53.286Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/psets/pset-01-unix-quarto.html</loc>
+    <lastmod>2024-09-04T21:39:23.943Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides.html</loc>
+    <lastmod>2024-09-05T17:49:27.592Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/psets.html</loc>
-    <lastmod>2024-09-04T13:55:54.317Z</lastmod>
+    <lastmod>2024-09-05T17:02:25.896Z</lastmod>
   </url>
   <url>
-    <loc>http://datasciencelabs.github.io/2024/lectures/02-quarto.html</loc>
-    <lastmod>2024-09-04T13:55:54.321Z</lastmod>
+    <loc>http://datasciencelabs.github.io/2024/slides/productivity/01-unix.html</loc>
+    <lastmod>2024-09-05T17:50:02.831Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/syllabus.html</loc>
+    <lastmod>2024-09-04T23:33:00.836Z</lastmod>
   </url>
 </urlset>

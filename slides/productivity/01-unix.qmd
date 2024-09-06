@@ -1,0 +1,180 @@
+---
+title: Unix
+keywords: "Productivity Tools"
+date: 2024-09-04
+format:
+   revealjs:
+      theme: "serif"
+---
+
+## Naming convention
+
+* In general you want to name your files in a way that is related to their contents and specifies how they relate to other files. 
+
+* The [Smithsonian Data Management Best Practices](https://library.si.edu/sites/default/files/tutorial/pdf/filenamingorganizing20180227.pdf) has "five precepts of file naming and organization"
+
+--- 
+
+## Five precepts of file naming and organization
+
+* Have a distinctive, human-readable name that gives an indication of the content.
+* Follow a consistent pattern that is machine-friendly.
+* Organize files into directories (when necessary) that follow a consistent pattern.
+* Avoid repetition of semantic elements among file and directory names.
+* Have a file extension that matches the file format (no changing extensions!)
+
+For specific recommendations we highly recommend you follow The [Tidyverse Style Guide](https://style.tidyverse.org/)
+
+--- 
+
+## The terminal
+
+- Instead of clicking, dragging, and dropping to organize our files and folders, we will be typing Unix commands into the terminal. 
+
+- The way we do this is similar to how we type commands into the R console, but instead of generating plots and statistical summaries, we will be organizing files on our system.
+
+---
+
+## The terminal
+
+- The terminal is integrated into Mac and Linux systems, but Windows users will have to install an emulator. Once you have a terminal open, you can start typing commands. 
+
+- You should see a blinking cursor at the spot where what you type will show up. This position is called the command line. 
+
+---
+## The filesystem 
+
+
+![](http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img//unix/filesystem.png)
+
+---
+
+## The home directory
+
+::: {layout-ncol=2}
+![](http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img//windows-screenshots/VirtualBox_Windows-7-Enterprise_23_03_2018_14_53_13.png) 
+
+![](http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img//mac-screenshots/Screen-Shot-2018-04-13-at-4.34.01-PM.png) 
+:::
+
+
+--- 
+
+## Windows
+
+The structure on Windows looks something like this:
+
+![](http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img//unix/windows-filesystem-from-root.png)
+
+---
+ 
+## Mac
+ 
+ And on MacOS something like this:
+
+![](http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img//unix/mac-filesystem-from-root.png)
+
+---
+
+## Working directory
+
+- The working directory is the directly you are currently *in*. Later we will see that we can move to other directories using the command line.
+- It's similar to clicking on folders.
+
+- You can see your working directory using the Unix command `pwd`
+
+In R we can use `getwd()`
+
+
+---
+
+## Paths 
+
+- This string returned in previous command is *full path* to working directory.
+
+- The full path to your home directory is stored in an *environment* variable. 
+
+- You can see it like this `echo $HOME`
+
+
+---
+
+## Paths
+
+- In Unix, we use the shorthand `~` as a nickname for your home directory
+
+- Example: the full path for *docs* (in image above) can be written like this `~/docs`.
+
+- Most terminals will show the path to your working directory right on the command line. 
+
+- Let's open a terminal window and see if the working directory is listed.
+
+---
+
+## Unix commands
+
+- `ls`: Listing directory content
+
+- `mkdir` and `rmdir`: make and remove a directory
+
+- `cd`: navigating the filesystem by changing directories
+
+- `pwd`: see your workding directory
+
+- `mv`: moving files
+
+- `cp`: copying files
+
+- `rm`: removing files
+
+- `less`: looking at a file
+
+---
+
+## Autocomplete
+
+- In Unix you can auto-complete by hitting tab. 
+
+- This means that we can type `cd d` then hit tab. 
+
+- Unix will either auto-complete if `docs` is the only directory/file starting with `d` or show you the options. 
+
+- Try it out! Using Unix without auto-complete will make it unbearable.
+
+
+
+## Text editors
+
+Command-line text editors are essential tools, especially for system administrators, developers, and other users who frequently work in a terminal environment. Here are some of the most popular command-line text editors:
+
+* Nano 
+* Pico 
+* Vi or Vim 
+* Emacs 
+
+
+## Other very useful commands you should learn
+
+
+* curl - download data from the internet.
+
+* tar - archive files and subdirectories of a directory into one file.
+
+* ssh - connect to another computer.
+
+* find - search for files by filename in your system.
+
+* grep - search for patterns in a file.
+
+* awk/sed - These are two very powerful commands that permit you to find specific strings in files and change them.
+
+
+---
+
+## Resources
+
+To get started.
+
+-   <https://www.codecademy.com/learn/learn-the-command-line>
+-   <https://www.edx.org/course/introduction-linux-linuxfoundationx-lfs101x-1>
+-   <https://www.coursera.org/learn/unix>

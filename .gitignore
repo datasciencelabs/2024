@@ -2,5 +2,8 @@
 .Rhistory
 .RData
 .Ruserdata
-
+downloading-course-materials.qmd 
+notes.txt
 /.quarto/
+.DS_Store
+docs/site_libs

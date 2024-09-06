@@ -1,4 +1,6 @@
-# Syllabus {.unnumbered}
+---
+title: "Syllabus"
+---
 
 ## General Information
 
@@ -103,54 +105,15 @@ Yet another option is to build a interactive webpage with poll-driven prediction
 
 You can use ChatGPT however you want. Do remember **you won't be able to use it during the midterms.**
 
-## Key Dates - Subject to Change After First Week of Class
+## Key Dates 
 
 | Date | Event |
 |------|-------|
 | Oct 14  | No class: Indigenous Peoples Day |  
-| Oct 16 | Midterm 1|
+| Oct 16 | Midterm 1: covers material from Sep 04-Oct 11|
 | Oct 23 | Start final project. Obtain approval if you want to do personal project instead.|
 | Nov 11 | No class: Veterans' Day|           
-| Nov 25 | Midterm 2|           
+| Nov 25 | Midterm 2: cover material from Sep 04-Nov22 |           
 | Nov 27 | No class: Thanksgiving Recess Begins |          
 | Dec 20 |  Final Project  due| 
-
-## Preliminary Schedule
-
-| Dates   | Topic  |  Links to readings and notes  |
-|:-------------------|:---------|:----------|
-| Sep 04 | Productivity Tools | Installing R and RStudio on [Windows](https://teacherscollege.screenstepslive.com/a/1108074-install-r-and-rstudio-for-windows) or [Mac](https://teacherscollege.screenstepslive.com/a/1135059-install-r-and-rstudio-for-mac), [Getting Started](http://rafalab.dfci.harvard.edu/dsbook-part-1/R/getting-started.html) [Unix](http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/unix.html) |
-| Sep 09 | Productivity Tools | [RStudio Projects, Quarto](https://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/reproducible-projects.html) [Git and GitHub](http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/git.html) |
-| Sep 10 | **Problem Set 1 due**| Difficulty: easy| 
-| Sep 11 | R | [R Basics](http://rafalab.dfci.harvard.edu/dsbook-part-1/R/R-basics.html), [Vectorization](http://rafalab.dfci.harvard.edu/dsbook-part-1/R/programming-basics.html#sec-vectorization) |
-| Sep 13 | **Problem Set 2 due**| Difficulty: easy| 
-| Sep 16, Sep 18 | R | [dplyr](http://rafalab.dfci.harvard.edu/dsbook-part-1/R/tidyverse.html), [dates and times](http://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/dates-and-times.html), [ggplot2](http://rafalab.dfci.harvard.edu/dsbook-part-1/dataviz/ggplot2.html) |
-| Sep 19 | **Problem Set 3 due**| Difficulty: easy| 
-| Sep 23, Sep 25 | Wrangling | [Importing data](https://rafalab.dfci.harvard.edu/dsbook-part-1/R/importing-data.html) [Locales](https://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/locales.html) [Reshaping Data](http://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/reshaping-data.html), [Joining Tables](http://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/joining-tables.html), [Extracting data from the web](https://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/web-scraping.html)|
-| Sep 26 |  **Problem Set 4 due**| Difficulty: medium| 
-| Sep 30, Oct 02 | Data visualization |  [Distributions](http://rafalab.dfci.harvard.edu/dsbook-part-1/dataviz/distributions.html), [Dataviz Principles](http://rafalab.dfci.harvard.edu/dsbook-part-1/dataviz/dataviz-principles.html) |
-| Oct 04 | **Problem Set 5 due**| Difficulty: medium| 
-| Oct 07, Oct 09  |  Probability | [Monte Carlo](http://rafalab.dfci.harvard.edu/dsbook-part-2/prob/continuous-probability.html#monte-carlo), [Random Variables & CLT](http://rafalab.dfci.harvard.edu/dsbook-part-2/prob/random-variables-sampling-models-clt.html)|
-| Oct 11 |  **Problem Set 6  due**| Difficulty: easy|  
-| Oct 14  | No class | Indigenous Peoples Day |  
-| Oct 16 | **Midterm 1**| Covers material from Sep 04-Oct 11|
-| Oct 21, Oct 23 | Inference | [Parameters & Estimates](http://rafalab.dfci.harvard.edu/dsbook-part-2/inference/parameters-estimates.html), [Confidence Intervals](http://rafalab.dfci.harvard.edu/dsbook-part-2/inference/confidence-intervals.html)|
-| Oct 28, Oct 30  |  Statistical Models | [Data-driven Models](http://rafalab.dfci.harvard.edu/dsbook-part-2/inference/models.html),  [Bayesian Statistics](http://rafalab.dfci.harvard.edu/dsbook-part-2/inference/bayes.html), [Hierarchical Models](http://rafalab.dfci.harvard.edu/dsbook-part-2/inference/hierarchical-models.html) | 
-| Nov 01 | **Problem Set 7 due** | Difficulty: hard |
-| Nov 04, Nov 06 |  Linear models |  [Regression](http://rafalab.dfci.harvard.edu/dsbook-part-2/linear-models/regression.html), [Multivariate Regression](http://rafalab.dfci.harvard.edu/dsbook-part-2/linear-models/multivariate-regression.html)|
-| Nov 11 | No class| Veterans' Day|           
-| Nov 13 | Linear models | [Measurement Error Models](http://rafalab.dfci.harvard.edu/dsbook-part-2/linear-models/measurement-error-models.html), [Treatment Effect Models](http://rafalab.dfci.harvard.edu/dsbook-part-2/linear-models/treatment-effect-models.html), [Association Tests](http://rafalab.dfci.harvard.edu/dsbook-part-2/linear-models/association-tests.html), [Association Not Causation](http://rafalab.dfci.harvard.edu/dsbook-part-2/linear-models/association-not-causation.html) |
-| Nov 15 | **Problem Set 8  due** |Difficulty: hard| 
-| Nov 18, Nov 20| High dimensional data | [Matrices in R](https://rafalab.dfci.harvard.edu/dsbook-part-2/highdim/matrices-in-R.html), [Applied Linear Algebra](https://rafalab.dfci.harvard.edu/dsbook-part-2/highdim/linear-algebra.html), [Dimension Reduction](https://rafalab.dfci.harvard.edu/dsbook-part-2/highdim/dimension-reduction.html) |           
-| Nov 22 | **Problem Set 9  due**| Difficulty: easy|  
-| Nov 25 | **Midterm 2**| Covers material from Sep 04-Nov 22 |           
-| Nov 27 | No class |Thanksgiving Recess Begins |          
-| Dec 02, Dec 04 | Machine Learning | [Notation and terminology](https://rafalab.dfci.harvard.edu/dsbook-part-2/ml/notation-and-terminology.html), [Evaluation Metrics](https://rafalab.dfci.harvard.edu/dsbook-part-2/ml/evaluation-metrics.html), [conditional probabilities](https://rafalab.dfci.harvard.edu/dsbook-part-2/ml/conditionals.html), [smoothing](https://rafalab.dfci.harvard.edu/dsbook-part-2/ml/smoothing.html) | 
-| Dec 09, Dec 11 | Machine Learning | [Resampling methods](https://rafalab.dfci.harvard.edu/dsbook-part-2/ml/resampling-methods.html), [ML algorithms](https://rafalab.dfci.harvard.edu/dsbook-part-2/ml/algorithms.html), [ML in practice](https://rafalab.dfci.harvard.edu/dsbook-part-2/ml/ml-in-practice.html) |           
-| Dec 13 |  **Problem Set 10  due**| Difficulty: hard|  
-| Dec 16, Dec 18 | Other topics | |           
-| Dec 20 |  **Final Project  due**| |  
-
-
-
 

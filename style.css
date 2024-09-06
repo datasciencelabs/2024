@@ -1,0 +1,33 @@
+/*-- scss:rules --*/
+/* Table styles */
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Ensures borders are clear and consistent */
+}
+
+/* Prevent wrapping in the first column of a table */
+
+table td:nth-child(1),
+table td:nth-child(2) {
+    white-space: nowrap;
+}
+
+th, td {
+    padding: 10px; /* Adds some padding for better readability */
+    border: 1px solid #ddd; /* Defines clear boundaries between columns */
+    text-align: left; /* Aligns text to the left */
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9; /* Light grey background for even rows */
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff; /* White background for odd rows */
+}
+
+th {
+    background-color: #4CAF50; /* Green background for header row */
+    color: black; /* White text color for header row */
+}

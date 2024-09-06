@@ -1,0 +1,26 @@
+---
+title: "Slides"
+author: ""
+date: ""
+listing:
+  - id: slides
+    contents:
+      - slides/00-intro.qmd
+      - slides/productivity/*.qmd
+    type: table
+    fields: [keywords, title, date]
+    date-format: "ddd, MMM DD"
+    field-display-names:
+      keywords: "Topic"
+      title: "Title"
+      date: "Date"
+    sort: [filename]
+    sort-ui: false
+    filter-ui: false
+tbl-colwidths: [10,50,40]
+---
+
+
+::: {#slides}
+:::
+
