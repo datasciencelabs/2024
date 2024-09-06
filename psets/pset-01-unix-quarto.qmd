@@ -1,5 +1,5 @@
 ---
-title: Problem Set 1 
+title: Problem set 1 
 date: 2024-09-10
 ---
 
@@ -43,7 +43,6 @@ x <- seq(-5, 5, length = 100)
 ```
 
 9. Edit the `quadratic.qmd` file to read in `a`, `b`, and `c` from the file `coefs.txt`. Make sure to use a relative path when reading the file. As before, print out the solutions to $f(x) = ax^2+bx+c=0$. Do not report complex solutions, only real numbers. 
-
 
 10. Change the path of the file you are reading to the full path you get when you type `file.path(getwd(), "data/coefs.txt")`. Confirm that the file still renders. Then move the entire `pset-01-rmarkdown` project to a directory called `RtmpyDknq4`.  Does the file render? Change the path back to a relative path and see if it renders.
 
