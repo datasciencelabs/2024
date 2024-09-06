@@ -11,7 +11,7 @@ listing:
     date-format: "ddd, MMM DD"
     field-display-names:
       title: "Topic"
-      date: "Due date"
+      date: "Due date (at 11:59 PM)"
     sort: [filename]
     sort-ui: false
     filter-ui: false
