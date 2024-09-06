@@ -68,7 +68,7 @@ We will have a Slack workspace for you to ask questions during and after class.
 
 ## Problem Sets 
 
-Problem sets will be due every week or every other week, depending on difficulty. They will be due at 11:59 PM on the day denoted on the Problem Sets table.
+Problem sets will be due every week or every other week, depending on difficulty. They will be due at 11:59 PM on the day denoted on the Problem Sets page.
 
 Some problem sets include open ended questions that will be difficult to answer on your own. **We will be working on these together during Wednesday labs**. We also offer office hours where you can get help with unanswered questions.
 

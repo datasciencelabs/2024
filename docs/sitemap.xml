@@ -1,39 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://datasciencelabs.github.io/2024/downloading-course-materials.html</loc>
-    <lastmod>2024-09-04T22:48:41.011Z</lastmod>
-  </url>
-  <url>
-    <loc>http://datasciencelabs.github.io/2024/slides/productivity/02-quarto.html</loc>
-    <lastmod>2024-09-05T17:50:51.877Z</lastmod>
-  </url>
-  <url>
-    <loc>http://datasciencelabs.github.io/2024/slides/00-intro.html</loc>
-    <lastmod>2024-09-05T17:51:17.151Z</lastmod>
-  </url>
-  <url>
-    <loc>http://datasciencelabs.github.io/2024/index.html</loc>
-    <lastmod>2024-09-05T18:33:53.286Z</lastmod>
-  </url>
-  <url>
-    <loc>http://datasciencelabs.github.io/2024/psets/pset-01-unix-quarto.html</loc>
-    <lastmod>2024-09-04T21:39:23.943Z</lastmod>
-  </url>
-  <url>
-    <loc>http://datasciencelabs.github.io/2024/slides.html</loc>
-    <lastmod>2024-09-05T17:49:27.592Z</lastmod>
-  </url>
-  <url>
-    <loc>http://datasciencelabs.github.io/2024/psets.html</loc>
-    <lastmod>2024-09-05T17:02:25.896Z</lastmod>
+    <loc>http://datasciencelabs.github.io/2024/syllabus.html</loc>
+    <lastmod>2024-09-06T04:03:12.559Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/productivity/01-unix.html</loc>
-    <lastmod>2024-09-05T17:50:02.831Z</lastmod>
+    <lastmod>2024-09-06T04:03:11.507Z</lastmod>
   </url>
   <url>
-    <loc>http://datasciencelabs.github.io/2024/syllabus.html</loc>
-    <lastmod>2024-09-04T23:33:00.836Z</lastmod>
+    <loc>http://datasciencelabs.github.io/2024/psets.html</loc>
+    <lastmod>2024-09-06T04:03:10.926Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides.html</loc>
+    <lastmod>2024-09-06T04:03:10.316Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/psets/pset-01-unix-quarto.html</loc>
+    <lastmod>2024-09-06T04:03:10.033Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/index.html</loc>
+    <lastmod>2024-09-06T04:03:10.691Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/00-intro.html</loc>
+    <lastmod>2024-09-06T04:03:11.200Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/productivity/02-quarto.html</loc>
+    <lastmod>2024-09-06T04:03:12.186Z</lastmod>
   </url>
 </urlset>
