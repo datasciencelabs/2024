@@ -110,6 +110,7 @@ You can use ChatGPT however you want. Do remember **you won't be able to use it 
 | Date | Event |
 |------|-------|
 | Sep 10 | Pset 1 due |
+| Sep 13 | Pset 2 due |
 | Oct 14 | No class: Indigenous Peoples' Day |
 | Oct 16 | Midterm 1: covers material from Sep 04-Oct 11 |
 | Oct 23 | Start final project. Obtain approval if you want to do a personal project instead. |

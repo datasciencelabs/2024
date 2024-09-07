@@ -42,6 +42,7 @@ For specific recommendations we highly recommend you follow The [Tidyverse Style
 - You should see a blinking cursor at the spot where what you type will show up. This position is called the command line. 
 
 ---
+
 ## The filesystem 
 
 

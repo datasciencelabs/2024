@@ -3,36 +3,62 @@ title: Problem set 2
 date: 2024-09-13
 ---
 
-For these exercises, do not load any packages other than **dslabs**
+For these exercises, do not load any packages other than **dslabs**.
 
 Make sure to use vectorization whenever possible.
 
 1. What is the sum of the first 100 positive integers? Use the functions `seq` and `sum` to compute the sum with R for any `n`.
 
+```{r}
+# Your code here
+```
 
-2. Load the US murders dataset in the **dslabs** package loaded. Use the function `str` to examine the structure of the `murders` object. What are the column names used by the data frame for these five variables? Show the subset of `murders` showing states with less than 1 per 100,000 deaths. Show all variables.
 
+2. Load the US murders dataset from the **dslabs** package. Use the function `str` to examine the structure of the `murders` object. What are the column names used by the data frame for these five variables? Show the subset of `murders` showing states with less than 1 per 100,000 deaths. Show all variables.
 
 ```{r}
 library(dslabs)
 str(murders)
 ```
 
+```{r}
+# Your code here
+```
+
+
 3. Show the subset of `murders` showing states with less than 1 per 100,000 deaths and in the West of the US. Don't show the `region` variable.
+
+```{r}
+# Your code here
+```
 
 
 4. Show the largest state with a rate less than 1 per 100,000.
 
+```{r}
+# Your code here
+```
+
 
 5. Show the state with a population of more than 10 million with the lowest rate.
+
+```{r}
+# Your code here
+```
 
 
 6. Compute the rate for each region of the US.
 
+```{r}
+# Your code here
+```
 
 
 7. Create a vector of numbers that starts at 6, does not pass 55, and adds numbers in increments of 4/7: 6, 6 + 4/7, 6 + 8/7, and so on. How many numbers does the list have? Hint: use `seq` and `length`.
 
+```{r}
+# Your code here
+```
 
 
 8. Make this data frame:
@@ -46,6 +72,10 @@ city_temps <- data.frame(name = city, temperature = temp)
 
 Convert the temperatures to Celsius.
 
+```{r}
+# Your code here
+```
+
 
 9. Write a function `euler` that compute the following sum for any $n$:
 
@@ -53,20 +83,44 @@ $$
 S_n = 1+1/2^2 + 1/3^2 + \dots 1/n^2
 $$
 
+```{r}
+# Your code here
+```
+
+
 10. Show that as $n$ gets bigger we get closer $\pi^2/6$ by plotting $S_n$ versus $n$ with a horizontal dashed line at $\pi^2/6$.
+
+```{r}
+# Your code here
+```
 
 
 11. Use the `%in%` operator and the predefined object `state.abb` to create a logical vector that answers the question: which of the following are actual abbreviations: MA, ME, MI, MO, MU?
 
+```{r}
+# Your code here
+```
 
 
-12. Extend the code you used in the previous exercise to report the one entry that is **not** an actual abbreviation. Hint: use the `!` operator, which turns `FALSE` into `TRUE` and viceversa, then `which` to obtain an index.
+12. Extend the code you used in the previous exercise to report the one entry that is **not** an actual abbreviation. Hint: use the `!` operator, which turns `FALSE` into `TRUE` and vice versa, then `which` to obtain an index.
+
+```{r}
+# Your code here
+```
 
 
 13. In the `murders` dataset, use `%in%` to show all variables for New York, California, and Texas, in that order.
 
+```{r}
+# Your code here
+```
 
-14. Write a function called `vandermonde_helper` that for any $x$ and $n$, returns the vector $(1 x x^2 x^3 \dots x^n)$. Show the results for $x=3$ and $n=5$. 
+
+14. Write a function called `vandermonde_helper` that for any $x$ and $n$, returns the vector $(1, x, x^2, x^3, \dots, x^n)$. Show the results for $x=3$ and $n=5$. 
+
+```{r}
+# Your code here
+```
 
 
 15. Create a vector using:
@@ -81,7 +135,7 @@ x <- sample(c(0,1), n, prob = c(1 - p, p), replace = TRUE)
 Compute the length of each stretch of 1s and then plot the distribution of these values. Check to see if the distribution follows a geometric distribution as the theory predicts.
 Do not use a loop! 
  
-
-
-
+```{r}
+# Your code here
+```
 
