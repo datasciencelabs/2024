@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.4.557">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -34,7 +34,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -101,7 +101,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -230,15 +230,20 @@ window.Quarto = {
 </header>
 
 
-<p>For these exercises, do not load any packages other than <strong>dslabs</strong></p>
+<p>For these exercises, do not load any packages other than <strong>dslabs</strong>.</p>
 <p>Make sure to use vectorization whenever possible.</p>
 <ol type="1">
-<li><p>What is the sum of the first 100 positive integers? Use the functions <code>seq</code> and <code>sum</code> to compute the sum with R for any <code>n</code>.</p></li>
-<li><p>Load the US murders dataset in the <strong>dslabs</strong> package loaded. Use the function <code>str</code> to examine the structure of the <code>murders</code> object. What are the column names used by the data frame for these five variables? Show the subset of <code>murders</code> showing states with less than 1 per 100,000 deaths. Show all variables.</p></li>
+<li>What is the sum of the first 100 positive integers? Use the functions <code>seq</code> and <code>sum</code> to compute the sum with R for any <code>n</code>.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dslabs)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(murders)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Load the US murders dataset from the <strong>dslabs</strong> package. Use the function <code>str</code> to examine the structure of the <code>murders</code> object. What are the column names used by the data frame for these five variables? Show the subset of <code>murders</code> showing states with less than 1 per 100,000 deaths. Show all variables.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dslabs)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(murders)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   51 obs. of  5 variables:
  $ state     : chr  "Alabama" "Alaska" "Arizona" "Arkansas" ...
@@ -248,42 +253,104 @@ window.Quarto = {
  $ total     : num  135 19 232 93 1257 ...</code></pre>
 </div>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <ol start="3" type="1">
-<li><p>Show the subset of <code>murders</code> showing states with less than 1 per 100,000 deaths and in the West of the US. Don’t show the <code>region</code> variable.</p></li>
-<li><p>Show the largest state with a rate less than 1 per 100,000.</p></li>
-<li><p>Show the state with a population of more than 10 million with the lowest rate.</p></li>
-<li><p>Compute the rate for each region of the US.</p></li>
-<li><p>Create a vector of numbers that starts at 6, does not pass 55, and adds numbers in increments of 4/7: 6, 6 + 4/7, 6 + 8/7, and so on. How many numbers does the list have? Hint: use <code>seq</code> and <code>length</code>.</p></li>
-<li><p>Make this data frame:</p></li>
+<li>Show the subset of <code>murders</code> showing states with less than 1 per 100,000 deaths and in the West of the US. Don’t show the <code>region</code> variable.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">35</span>, <span class="dv">88</span>, <span class="dv">42</span>, <span class="dv">84</span>, <span class="dv">81</span>, <span class="dv">30</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>city <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Beijing"</span>, <span class="st">"Lagos"</span>, <span class="st">"Paris"</span>, <span class="st">"Rio de Janeiro"</span>, </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>          <span class="st">"San Juan"</span>, <span class="st">"Toronto"</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>city_temps <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">name =</span> city, <span class="at">temperature =</span> temp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li>Show the largest state with a rate less than 1 per 100,000.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="5" type="1">
+<li>Show the state with a population of more than 10 million with the lowest rate.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="6" type="1">
+<li>Compute the rate for each region of the US.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="7" type="1">
+<li>Create a vector of numbers that starts at 6, does not pass 55, and adds numbers in increments of 4/7: 6, 6 + 4/7, 6 + 8/7, and so on. How many numbers does the list have? Hint: use <code>seq</code> and <code>length</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="8" type="1">
+<li>Make this data frame:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">35</span>, <span class="dv">88</span>, <span class="dv">42</span>, <span class="dv">84</span>, <span class="dv">81</span>, <span class="dv">30</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>city <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Beijing"</span>, <span class="st">"Lagos"</span>, <span class="st">"Paris"</span>, <span class="st">"Rio de Janeiro"</span>, </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>          <span class="st">"San Juan"</span>, <span class="st">"Toronto"</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>city_temps <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">name =</span> city, <span class="at">temperature =</span> temp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Convert the temperatures to Celsius.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <ol start="9" type="1">
 <li>Write a function <code>euler</code> that compute the following sum for any <span class="math inline">\(n\)</span>:</li>
 </ol>
 <p><span class="math display">\[
 S_n = 1+1/2^2 + 1/3^2 + \dots 1/n^2
 \]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <ol start="10" type="1">
-<li><p>Show that as <span class="math inline">\(n\)</span> gets bigger we get closer <span class="math inline">\(\pi^2/6\)</span> by plotting <span class="math inline">\(S_n\)</span> versus <span class="math inline">\(n\)</span> with a horizontal dashed line at <span class="math inline">\(\pi^2/6\)</span>.</p></li>
-<li><p>Use the <code>%in%</code> operator and the predefined object <code>state.abb</code> to create a logical vector that answers the question: which of the following are actual abbreviations: MA, ME, MI, MO, MU?</p></li>
-<li><p>Extend the code you used in the previous exercise to report the one entry that is <strong>not</strong> an actual abbreviation. Hint: use the <code>!</code> operator, which turns <code>FALSE</code> into <code>TRUE</code> and viceversa, then <code>which</code> to obtain an index.</p></li>
-<li><p>In the <code>murders</code> dataset, use <code>%in%</code> to show all variables for New York, California, and Texas, in that order.</p></li>
-<li><p>Write a function called <code>vandermonde_helper</code> that for any <span class="math inline">\(x\)</span> and <span class="math inline">\(n\)</span>, returns the vector <span class="math inline">\((1 x x^2 x^3 \dots x^n)\)</span>. Show the results for <span class="math inline">\(x=3\)</span> and <span class="math inline">\(n=5\)</span>.</p></li>
-<li><p>Create a vector using:</p></li>
+<li>Show that as <span class="math inline">\(n\)</span> gets bigger we get closer <span class="math inline">\(\pi^2/6\)</span> by plotting <span class="math inline">\(S_n\)</span> versus <span class="math inline">\(n\)</span> with a horizontal dashed line at <span class="math inline">\(\pi^2/6\)</span>.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2024-9-6</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), n, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">1</span> <span class="sc">-</span> p, p), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="11" type="1">
+<li>Use the <code>%in%</code> operator and the predefined object <code>state.abb</code> to create a logical vector that answers the question: which of the following are actual abbreviations: MA, ME, MI, MO, MU?</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="12" type="1">
+<li>Extend the code you used in the previous exercise to report the one entry that is <strong>not</strong> an actual abbreviation. Hint: use the <code>!</code> operator, which turns <code>FALSE</code> into <code>TRUE</code> and vice versa, then <code>which</code> to obtain an index.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="13" type="1">
+<li>In the <code>murders</code> dataset, use <code>%in%</code> to show all variables for New York, California, and Texas, in that order.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="14" type="1">
+<li>Write a function called <code>vandermonde_helper</code> that for any <span class="math inline">\(x\)</span> and <span class="math inline">\(n\)</span>, returns the vector <span class="math inline">\((1, x, x^2, x^3, \dots, x^n)\)</span>. Show the results for <span class="math inline">\(x=3\)</span> and <span class="math inline">\(n=5\)</span>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="15" type="1">
+<li>Create a vector using:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2024-9-6</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), n, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">1</span> <span class="sc">-</span> p, p), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Compute the length of each stretch of 1s and then plot the distribution of these values. Check to see if the distribution follows a geometric distribution as the theory predicts. Do not use a loop!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 
