@@ -341,7 +341,7 @@
     "href": "slides/productivity/03-quarto.html#quarto-render",
     "title": "Quarto",
     "section": "quarto render",
-    "text": "quarto render\n\nRStudio provides the Render button that makes it easier to compile the document.\nYou can also type quarto render filename.qmd on the command line. This offers many options.\nYou can produce html, pdf, or word documents.\nYou can specify the default in the YAML header using: format: html, format: pdf,format: docx, orformat: gfm (grm stands for GitHub flavored markdown, a convenient way to share your reports)."
+    "text": "quarto render\n\nRStudio provides the Render button that makes it easier to compile the document.\nYou can also type quarto render filename.qmd on the command line. This offers many options.\nYou can produce html, pdf, or word documents.\nYou can specify the default in the YAML header using: format: html, format: pdf,format: docx, orformat: gfm (gfm stands for GitHub flavored markdown, a convenient way to share your reports)."
   },
   {
     "objectID": "psets.html",

@@ -296,5 +296,5 @@ There is a lot more you can do with R markdown. We highly recommend you continue
 * You can produce html, pdf, or word documents. 
 
 * You can specify the default in the YAML header using:
-`format: html`, `format: pdf`,`format: docx`, or`format: gfm` (grm stands for GitHub flavored markdown, a convenient way to share your reports).
+`format: html`, `format: pdf`,`format: docx`, or`format: gfm` (gfm stands for GitHub flavored markdown, a convenient way to share your reports).
 
