@@ -3,8 +3,7 @@ title: Unix
 keywords: "Productivity Tools"
 date: 2024-09-04
 format:
-   revealjs:
-      theme: "serif"
+   revealjs
 ---
 
 ## Naming convention
@@ -42,7 +41,6 @@ For specific recommendations we highly recommend you follow The [Tidyverse Style
 - You should see a blinking cursor at the spot where what you type will show up. This position is called the command line. 
 
 ---
-
 ## The filesystem 
 
 

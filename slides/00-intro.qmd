@@ -2,9 +2,9 @@
 title: "Introduction"
 keywords: "First day"
 date: 2024-09-04
-format:
+format: 
   revealjs:
-    theme: "serif"
+    theme: night
 ---
 
 ## General Information

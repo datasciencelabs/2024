@@ -148,13 +148,6 @@
     "text": "The terminal\n\nThe terminal is integrated into Mac and Linux systems, but Windows users will have to install an emulator. Once you have a terminal open, you can start typing commands.\nYou should see a blinking cursor at the spot where what you type will show up. This position is called the command line."
   },
   {
-    "objectID": "slides/productivity/01-unix.html#the-filesystem",
-    "href": "slides/productivity/01-unix.html#the-filesystem",
-    "title": "Unix",
-    "section": "The filesystem",
-    "text": "The filesystem"
-  },
-  {
     "objectID": "slides/productivity/01-unix.html#the-home-directory",
     "href": "slides/productivity/01-unix.html#the-home-directory",
     "title": "Unix",
@@ -232,88 +225,123 @@
     "text": "Resources\nTo get started.\n\nhttps://www.codecademy.com/learn/learn-the-command-line\nhttps://www.edx.org/course/introduction-linux-linuxfoundationx-lfs101x-1\nhttps://www.coursera.org/learn/unix"
   },
   {
-    "objectID": "slides/productivity/03-quarto.html#type-of-editor",
-    "href": "slides/productivity/03-quarto.html#type-of-editor",
-    "title": "Quarto",
-    "section": "Type of editor",
-    "text": "Type of editor\nStart a new Quarto.\n\nSource - See the actual code (WYSIWYG).\nVisual - Partial preview of final document."
-  },
-  {
     "objectID": "slides/productivity/03-quarto.html#the-header",
     "href": "slides/productivity/03-quarto.html#the-header",
     "title": "Quarto",
     "section": "The header",
-    "text": "The header\nAt the top you see:\n---\ntitle: \"Untitled\"\n---\nThe things between the --- is the YAML header.\nYou will see it used throughout the Quarto guide."
+    "text": "The header\n\nStart a new empty document.\nAt the top you see:\n\n\n---\ntitle: \"Untitled\"\n---\n\n\nThe things between the --- is the YAML header.\nYou will see it used throughout the Quarto guide."
   },
   {
     "objectID": "slides/productivity/03-quarto.html#text-formating",
     "href": "slides/productivity/03-quarto.html#text-formating",
     "title": "Quarto",
     "section": "Text formating",
-    "text": "Text formating\nitalics, bold, bold italics\nstrikethrough\ncode"
+    "text": "Text formating\n*italics = italics\n**bold** = bold\n***bold italics*** = bold italics\n~~strikethrough~~ = strikethrough\n`code` = code"
+  },
+  {
+    "objectID": "slides/productivity/03-quarto.html#text-formating-1",
+    "href": "slides/productivity/03-quarto.html#text-formating-1",
+    "title": "Quarto",
+    "section": "Text formating",
+    "text": "Text formating\nThis:\n```\nline 1\nline 2\n```\nshows code chunks:\nline 1\nline 2"
   },
   {
     "objectID": "slides/productivity/03-quarto.html#links",
     "href": "slides/productivity/03-quarto.html#links",
     "title": "Quarto",
     "section": "Links",
-    "text": "Links\nJust the link: https://quarto.org/docs/guide/\nLinked text: This is the link to Quarto Guide"
+    "text": "Links\n\nShow the link and add link: &lt;https://quarto.org/docs/guide/&gt;\nAdd link to text: [Quarto Guide](https://quarto.org/docs/guide/)\n\nLooks like this:\nhttps://quarto.org/docs/guide/\nQuarto Guide"
   },
   {
     "objectID": "slides/productivity/03-quarto.html#images",
     "href": "slides/productivity/03-quarto.html#images",
     "title": "Quarto",
     "section": "Images",
-    "text": "Images\n\nFirst week of data scienceThe image can also be a local file."
+    "text": "Images\n![My caption](https://datasciencedojo.com/wp-content/uploads/11-1.jpg)\nShows the plot and caption:\n\nMy captionThe image can also be a local file."
   },
   {
     "objectID": "slides/productivity/03-quarto.html#lists",
     "href": "slides/productivity/03-quarto.html#lists",
     "title": "Quarto",
     "section": "Lists",
-    "text": "Lists\nBullets:\n\nbullet 1\n\nsub-bullet 1\nsub-bullet 2\n\nbullet 2\n\nOrdered list\n\nItem 1\nItem 2"
+    "text": "Lists\nBullets:\n-   bullet 1\n    -   sub-bullet 1\n    -   sub-bullet 2\n-   bullet 2\nLooks like this:\n\nbullet 1\n\nsub-bullet 1\nsub-bullet 2\n\nbullet 2"
+  },
+  {
+    "objectID": "slides/productivity/03-quarto.html#lists-1",
+    "href": "slides/productivity/03-quarto.html#lists-1",
+    "title": "Quarto",
+    "section": "Lists",
+    "text": "Lists\nOrdered list:\n1.  Item 1\n2.  Item 2\nLooks like this:\n\nItem 1\nItem 2"
   },
   {
     "objectID": "slides/productivity/03-quarto.html#equations",
     "href": "slides/productivity/03-quarto.html#equations",
     "title": "Quarto",
     "section": "Equations",
-    "text": "Equations\nInline: \\(Y_i = \\beta_0 + \\beta_1 x_i + \\varepsilon_i\\)\nDisplay math:\n\\[\n\\mathbf{Y} = \\mathbf{X\\beta} + \\mathbf{\\varepsilon}\n\\]"
+    "text": "Equations\n\n\n\n\n\n\n\nNote\n\n\nIf you are going to write technical report, you definitely want to learn LaTeX.\nOnce you learn LaTeX you will never want to use an equation editor again.\nThere are many online tutorials, like this one.\nChatGPT is great at LaTeX"
+  },
+  {
+    "objectID": "slides/productivity/03-quarto.html#equations-1",
+    "href": "slides/productivity/03-quarto.html#equations-1",
+    "title": "Quarto",
+    "section": "Equations",
+    "text": "Equations\nExamples:\n\nInline: $Y_i = \\beta_0 + \\beta_1 x_i + \\varepsilon_i$ looks like this \\(Y_i = \\beta_0 + \\beta_1 x_i + \\varepsilon_i\\)\nDisplay math:\n\n$$\n\\mathbf{Y} = \\mathbf{X\\beta} + \\mathbf{\\varepsilon}\n$$\nlooks like this:\n\\[\n\\mathbf{Y} = \\mathbf{X\\beta} + \\mathbf{\\varepsilon}\n\\]"
   },
   {
     "objectID": "slides/productivity/03-quarto.html#computations",
     "href": "slides/productivity/03-quarto.html#computations",
     "title": "Quarto",
     "section": "Computations",
-    "text": "Computations\nThe main reason we use Quarto is because we can include code and execute the code when compiling the document. In R we refer to them as R chunks.\nTo add your own R chunks, you can type the characters above quickly with the key binding command-option-I on the Mac and Ctrl-Alt-I on Windows.\nThis applies to plots as well; the plot will be placed in that position. We can write something like this:\n```{r}\nx &lt;- 1\ny &lt;- 2\nx + y\n\n---\n\n## Computations\n\nBy default, the code will show up as well. To avoid having the code show up, you can use an argument, which are annotated with `|#` To avoid showing code in the final document, you can use the argument `echo: FALSE`. For example:\n\n```{r}\n#| echo: false\n#| label: one-plus-two\nx &lt;- 1\ny &lt;- 2\nx + y\nWe recommend getting into the habit of adding a label to the R code chunks. This will be very useful when debugging, among other situations. You do this by adding a descriptive word like this:"
+    "text": "Computations\n\nThe main reason we use Quarto is because we can include code and execute the code when compiling the document.\nIn R we refer to them as R chunks.\nThis applies to plots as well; the plot will be placed in that position.\n\n\n\n\n\n\n\nNote\n\n\nTo add your own R chunks, you can type the characters above quickly with the key binding command-option-I on the Mac and Ctrl-Alt-I on Windows."
   },
   {
-    "objectID": "slides/productivity/03-quarto.html#academic-reports",
-    "href": "slides/productivity/03-quarto.html#academic-reports",
+    "objectID": "slides/productivity/03-quarto.html#computations-1",
+    "href": "slides/productivity/03-quarto.html#computations-1",
     "title": "Quarto",
-    "section": "Academic reports",
-    "text": "Academic reports\nQuarto has many nice features that facilitates publishing academic reports in this guide"
+    "section": "Computations",
+    "text": "Computations\nWe can write something like this:\n```{r}\nx &lt;- 1\ny &lt;- 2\nx + y\n```"
   },
   {
-    "objectID": "slides/productivity/03-quarto.html#global-execution-options",
-    "href": "slides/productivity/03-quarto.html#global-execution-options",
+    "objectID": "slides/productivity/03-quarto.html#computations-2",
+    "href": "slides/productivity/03-quarto.html#computations-2",
     "title": "Quarto",
-    "section": "Global execution options",
-    "text": "Global execution options\nIf you want to apply an option globally, you can include in the header, under execute. For example adding the following line to the header make code not show up, by default:\nexecute:\n  echo: false"
+    "section": "Computations",
+    "text": "Computations\nIt look slike this:\n\nx &lt;- 1\ny &lt;- 2\nx + y\n\n[1] 3\n\n\nNote that it was evaluated and the result is shown."
+  },
+  {
+    "objectID": "slides/productivity/03-quarto.html#computations-3",
+    "href": "slides/productivity/03-quarto.html#computations-3",
+    "title": "Quarto",
+    "section": "Computations",
+    "text": "Computations\n\nBy default, the code and result will show up as well.\nYou can send arguments to control the behavior with |#\nFor example, to avoid showing code in the final document, you can use the argument echo: FALSE.\n\n```{r}\n#| echo: false\nx &lt;- 1\ny &lt;- 2\nx + y\n```"
+  },
+  {
+    "objectID": "slides/productivity/03-quarto.html#computations-4",
+    "href": "slides/productivity/03-quarto.html#computations-4",
+    "title": "Quarto",
+    "section": "Computations",
+    "text": "Computations\n\nThere are many options (auto-complete shows them).\nFor example, to avoid the the code running you can use eval: FALSE.\nTo avoid showing warnings warning: FALSE, to avoid showing messages message: FALSE.\n\n\n\n\n\n\n\nNote\n\n\nIf you want to apply an option globally, these can be set globally in the header.\nexecute:\n  echo: false"
+  },
+  {
+    "objectID": "slides/productivity/03-quarto.html#computations-5",
+    "href": "slides/productivity/03-quarto.html#computations-5",
+    "title": "Quarto",
+    "section": "Computations",
+    "text": "Computations\n\nWe recommend getting into the habit of labeling code chunks:\n\n```{r}\n#| label: one-plus-two\nx &lt;- 1\ny &lt;- 2\nx + y\n```\n\nHelps with debugging\nGives meaningful names to generated images."
   },
   {
     "objectID": "slides/productivity/03-quarto.html#more-on-markdown",
     "href": "slides/productivity/03-quarto.html#more-on-markdown",
     "title": "Quarto",
     "section": "More on markdown",
-    "text": "More on markdown\nThere is a lot more you can do with R markdown. We highly recommend you continue learning as you gain more experience writing reports in R. There are many free resources on the internet including:\n\nRStudio’s tutorial: https://quarto.org/docs/get-started/hello/rstudio.html\nThe knitR book: https://yihui.name/knitr/\nPandoc’s Markdown in-depth documentation"
+    "text": "More on markdown\nThere is a lot more you can do with R markdown. We highly recommend you continue learning as you gain more experience writing reports in R. There are many free resources on the internet including:\n\nRStudio’s tutorial: https://quarto.org/docs/get-started/hello/rstudio.html\nThe knitR book: https://yihui.name/knitr/\nPandoc’s Markdown in-depth documentation\nGuide for academic reports"
   },
   {
-    "objectID": "slides/productivity/03-quarto.html#sec-knitr",
-    "href": "slides/productivity/03-quarto.html#sec-knitr",
+    "objectID": "slides/productivity/03-quarto.html#quarto-render",
+    "href": "slides/productivity/03-quarto.html#quarto-render",
     "title": "Quarto",
-    "section": "knitR",
-    "text": "knitR\n\nWe use the knitR package to compile Quarto. The specific function used to compile is the knit function, which takes a file name as input. RStudio provides the Render button that makes it easier to compile the document.\nNote that the first time you click on the Render button, a dialog box may appear asking you to install packages you need. Once you have installed the packages, clicking Render will compile your Quarto file and the resulting document will pop up.\nThis particular example produces an html document which you can see in your working directory. To view it, open a terminal and list the files. You can open the file in a browser and use this to present your analysis. You can also produce a PDF or Microsoft document by changing:\nformat: html to format: pdf or format: docx. We can also produce documents that render on GitHub using format: gfm, which stands for GitHub flavored markdown, a convenient way to share your reports.\nFrom the commmand line we can use the command quarto render"
+    "section": "quarto render",
+    "text": "quarto render\n\nRStudio provides the Render button that makes it easier to compile the document.\nYou can also type quarto render filename.qmd on the command line. This offers many options.\nYou can produce html, pdf, or word documents.\nYou can specify the default in the YAML header using: format: html, format: pdf,format: docx, orformat: gfm (grm stands for GitHub flavored markdown, a convenient way to share your reports)."
   },
   {
     "objectID": "psets.html",
@@ -330,7 +358,7 @@
     "href": "slides.html",
     "title": "Slides",
     "section": "",
-    "text": "Topic\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nFirst day\n\n\nIntroduction\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nUnix\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nRStudio\n\n\nMon, Sep 09\n\n\n\n\nProductivity Tools\n\n\nQuarto\n\n\nMon, Sep 09\n\n\n\n\nProductivity Tools\n\n\nGit and GitHub\n\n\nMon, Sep 09\n\n\n\n\n\nNo matching items",
+    "text": "Topic\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nFirst day\n\n\nIntroduction\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nUnix\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nRStudio\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nQuarto\n\n\nMon, Sep 09\n\n\n\n\nProductivity Tools\n\n\nGit and GitHub\n\n\nMon, Sep 09\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Slides"
     ]
@@ -374,7 +402,7 @@
     "href": "index.html#lectures",
     "title": "BST 260 Introduction to Data Science",
     "section": "Lectures",
-    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09\nProductivity Tools\nRStudio, Quarto Git and GitHub\nRStudio Projects, Quarto, Git\n\n\nSep 11\nR\n\nR Basics, Vectorization\n\n\nSep 16, Sep 19\nR\n\ndplyr, dates and times, ggplot2\n\n\nSep 23, Sep 25\nWrangling\n\nImporting data, Locales, Reshaping Data, Joining Tables, Extracting data from the web\n\n\nSep 30, Oct 02\nData visualization\n\nDistributions, Dataviz Principles\n\n\nOct 07, Oct 09\nProbability\n\nMonte Carlo, Random Variables & CLT\n\n\nOct 21, Oct 23\nInference\n\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\n\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\n\nRegression, Multivariate Regression\n\n\nNov 13\nLinear models\n\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 18, Nov 20\nHigh dimensional data\n\nMatrices in R, Applied Linear Algebra, Dimension Reduction\n\n\nMachine Learning\nDec 02, Dec 04\n\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nMachine Learning\nDec 09, Dec 11\n\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
+    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git\n\n\nSep 11\nR\n\nR Basics, Vectorization\n\n\nSep 16, Sep 19\nR\n\ndplyr, dates and times, ggplot2\n\n\nSep 23, Sep 25\nWrangling\n\nImporting data, Locales, Reshaping Data, Joining Tables, Extracting data from the web\n\n\nSep 30, Oct 02\nData visualization\n\nDistributions, Dataviz Principles\n\n\nOct 07, Oct 09\nProbability\n\nMonte Carlo, Random Variables & CLT\n\n\nOct 21, Oct 23\nInference\n\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\n\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\n\nRegression, Multivariate Regression\n\n\nNov 13\nLinear models\n\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 18, Nov 20\nHigh dimensional data\n\nMatrices in R, Applied Linear Algebra, Dimension Reduction\n\n\nMachine Learning\nDec 02, Dec 04\n\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nMachine Learning\nDec 09, Dec 11\n\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
     "crumbs": [
       "Home"
     ]
@@ -445,25 +473,32 @@
     "text": "Let’s get started\n\nInstall R.\nInstall RStudio.\nMake sure you have access to a terminal."
   },
   {
+    "objectID": "slides/productivity/02-rstudio.html#the-panes",
+    "href": "slides/productivity/02-rstudio.html#the-panes",
+    "title": "RStudio",
+    "section": "The panes",
+    "text": "The panes"
+  },
+  {
     "objectID": "slides/productivity/02-rstudio.html#the-basics",
     "href": "slides/productivity/02-rstudio.html#the-basics",
     "title": "RStudio",
     "section": "The Basics",
-    "text": "The Basics\nLet’s try a few things together:\n\nOpen a new R script file\nLearn tab complete\nRun commands while editing scripts\nRun the entire script\nMake a plot\nChange options to never save workspace.\nChange appearance"
+    "text": "The Basics\nLet’s try a few things together:\n\nOpen a new R script file.\nLearn tab complete.\nRun commands while editing scripts.\nRun the entire script.\nMake a plot.\nChange options to never save workspace.\nChange IDE appearance."
   },
   {
     "objectID": "slides/productivity/02-rstudio.html#projects",
     "href": "slides/productivity/02-rstudio.html#projects",
     "title": "RStudio",
     "section": "Projects",
-    "text": "Projects\n\nStart new project in exciting directory.\nStart new project in new directory.\nChange projects."
+    "text": "Projects\nLet’s try this together:\n\nStart new project in new directory.\nStart new project in existing directory.\nChange projects."
   },
   {
     "objectID": "slides/productivity/02-rstudio.html#type-of-editor",
     "href": "slides/productivity/02-rstudio.html#type-of-editor",
     "title": "RStudio",
     "section": "Type of editor",
-    "text": "Type of editor\nStart a new Quarto document.\n\nSource - See the actual code (WYSIWYG).\nVisual - Partial preview of final document."
+    "text": "Type of editor\nLet’s examine the two types of editors available:\n\nSource - See the actual code (WYSIWYG)\nVisual - Partial preview of final document.\n\nNote: You can state your preference in a the header:\neditor: source\n\nWe learn about headers in the Quarto lecture."
   },
   {
     "objectID": "slides/productivity/04-git.html#goal-for-the-day",
@@ -477,7 +512,7 @@
     "href": "slides/productivity/04-git.html#do-you-have-git",
     "title": "Git and GitHub",
     "section": "Do you have git?",
-    "text": "Do you have git?\nBefore we start: everybody make sure you have Git installed. Open a terminal and type:\ngit -v\nIf not installed follow the instruction in textbook."
+    "text": "Do you have git?\nBefore we start:\n\nMake sure you have Git installed.\nOpen a terminal and type:\n\n\ngit --version\n\nIf not installed\n\non a Mac, follow the instructions after typing the above.\non Windows follow these instructions"
   },
   {
     "objectID": "slides/productivity/04-git.html#motivation",
@@ -491,7 +526,7 @@
     "href": "slides/productivity/04-git.html#motivation-1",
     "title": "Git and GitHub",
     "section": "Motivation",
-    "text": "Motivation\n\nThis is particularly true when more than one person is collaborating on editing the file.\neven more important when there are multiple files, as there is in software development, and to some extend data analysis."
+    "text": "Motivation\n\nThis is particularly true when more than one person is collaborating and editing the file.\nEven more important when there are multiple files, as there is in software development, and to some extend data analysis."
   },
   {
     "objectID": "slides/productivity/04-git.html#motivation-2",
@@ -505,14 +540,14 @@
     "href": "slides/productivity/04-git.html#motivation-3",
     "title": "Git and GitHub",
     "section": "Motivation",
-    "text": "Motivation\nBut we have to learn some things:\n\nFrom Meme Git Compilation by Lulu Ilmaknun Qurotaini"
+    "text": "Motivation\nBut we have to learn some things.\n\nFrom Meme Git Compilation by Lulu Ilmaknun Qurotaini"
   },
   {
     "objectID": "slides/productivity/04-git.html#why-use-git-and-github",
     "href": "slides/productivity/04-git.html#why-use-git-and-github",
     "title": "Git and GitHub",
     "section": "Why use Git and GitHub?",
-    "text": "Why use Git and GitHub?\n\nSharing.\nCollaborating.\nVersion control.\n\nWe focus on the sharing aspects of Git and GitHub, but introduce some of the basics that permit you to collaborate and version control."
+    "text": "Why use Git and GitHub?\n\nSharing.\nCollaborating.\nVersion control.\n\nWe focus on the sharing aspects of Git and GitHub, but introduce some of the basics that permit you to collaborate and use version control."
   },
   {
     "objectID": "slides/productivity/04-git.html#what-is-git",
@@ -526,35 +561,42 @@
     "href": "slides/productivity/04-git.html#what-is-github",
     "title": "Git and GitHub",
     "section": "What is GitHub?",
-    "text": "What is GitHub?\nBasically, it’s a service that hosts the remote repository (repo) on the web. This facilitates collaboration and sharing greatly.\nThere many other features such as\n\na recognition system: reward, badges and stars, for example.\nhosting web pages, like the class notes for example.\nforks and pull requests,\nissue tracking\nautomation tools"
+    "text": "What is GitHub?\n\nDescribed a social network for software developers.\nBasically, it’s a service that hosts the remote repository (repo) on the web.\nThis facilitates collaboration and sharing greatly."
   },
   {
     "objectID": "slides/productivity/04-git.html#what-is-github-1",
     "href": "slides/productivity/04-git.html#what-is-github-1",
     "title": "Git and GitHub",
     "section": "What is GitHub?",
-    "text": "What is GitHub?\n\nIt has been describes a social network for software developers.\nThe main tool behind GitHub, is Git.\nSimilar to how to how main tool behind RStudio, is R."
+    "text": "What is GitHub?\nThere many other features such as\n\nRecognition system: reward, badges and stars.\nYou can host web pages, like the class notes for example.\nPermits contributions via forks and pull requests.\nIssue tracking\nAutomation tools."
+  },
+  {
+    "objectID": "slides/productivity/04-git.html#what-is-github-2",
+    "href": "slides/productivity/04-git.html#what-is-github-2",
+    "title": "Git and GitHub",
+    "section": "What is GitHub?",
+    "text": "What is GitHub?\n\nThe main tool behind GitHub is Git.\nSimilar to how the main tool behind RStudio is R."
   },
   {
     "objectID": "slides/productivity/04-git.html#github-accounts",
     "href": "slides/productivity/04-git.html#github-accounts",
     "title": "Git and GitHub",
     "section": "GitHub accounts",
-    "text": "GitHub accounts\nConsider adding a profile README.md.\nInstructions are here\nLooks like this"
+    "text": "GitHub accounts\n\nPick a professional sounding name.\nConsider adding a profile README.md.\nInstructions are here.\nExample here."
   },
   {
     "objectID": "slides/productivity/04-git.html#repositories",
     "href": "slides/productivity/04-git.html#repositories",
     "title": "Git and GitHub",
     "section": "Repositories",
-    "text": "Repositories\n\nYou are now ready to create a GitHub repository (repo).\nThe general idea is that you will have at least two copies of your code: one on your computer and one on GitHub.\nIf you add collaborators to this repo, then each will have a copy on their computer.\nThe GitHub copy is usually considered the main (previously called master) copy that each collaborator syncs to. Git will help you keep all the different copies synced."
+    "text": "Repositories\n\nWe are ready to create a GitHub repository (repo).\nYou will have at least two copies of your code: one on your computer and one on GitHub.\nIf you add collaborators to this repo, then each will have a copy on their computer.\nThe GitHub copy is considered the main (previously called master) copy that everybody syncs to.\nGit will help you keep all the different copies synced."
   },
   {
     "objectID": "slides/productivity/04-git.html#repositories-1",
     "href": "slides/productivity/04-git.html#repositories-1",
     "title": "Git and GitHub",
     "section": "Repositories",
-    "text": "Repositories\n\nLet’s go make one on GitHub…\nThen create a directory on your computer, this will be the local repo, and connect it to the Github repository.\nFirst copy and paste the location of your git repository\nIt should look something like this:\n\nhttps://github.com/your-username/your-repo-name.git"
+    "text": "Repositories\n\nLet’s go make one on GitHub…\nThen create a directory on your computer, this will be the local repo, and connect it to the Github repository.\nFirst copy and paste the location of your git repository. It should look something like this:\n\nhttps://github.com/your-username/your-repo-name.git"
   },
   {
     "objectID": "slides/productivity/04-git.html#connect-git-and-github",
@@ -568,35 +610,42 @@
     "href": "slides/productivity/04-git.html#connect-git-and-github-1",
     "title": "Git and GitHub",
     "section": "Connect Git and GitHub",
-    "text": "Connect Git and GitHub\n*GitHub provides a detailed guide on obtaining an access token which can be found by searching “Managing your personal access tokens” on the GitHub Docs website.\n\nDetailed instructions are here"
+    "text": "Connect Git and GitHub\n\nDetailed instructions are here.\nCarefully follow the instructions provided by GitHub.\nWhen setting permissions for the token, choose non-expiring and select the repo option in the scopes section.\nOnce you complete these steps, GitHub will display your token—a lengthy string of characters.\nImmediately copy this token to your clipboard. This is the only time GitHub will show it to you."
   },
   {
     "objectID": "slides/productivity/04-git.html#generate-a-token",
     "href": "slides/productivity/04-git.html#generate-a-token",
     "title": "Git and GitHub",
     "section": "Generate a token:",
-    "text": "Generate a token:\n\nCarefully follow the instructions provided by GitHub.\nWhen setting permissions for the token, choose non-expiring and select the repo option in the scopes section.\nOnce you complete these steps, GitHub will display your token—a lengthy string of characters. You should then:\nImmediately copy this token to your clipboard. This is the only time GitHub will show it to you."
-  },
-  {
-    "objectID": "slides/productivity/04-git.html#generate-a-token-1",
-    "href": "slides/productivity/04-git.html#generate-a-token-1",
-    "title": "Git and GitHub",
-    "section": "Generate a token:",
-    "text": "Generate a token:\n\nFor security, save this token in a password manager. This ensures you can access it if needed later on.\nWhen git prompts you to enter your password, paste the token you’ve copied. After this, password prompts should no longer appear.\nIf you ever need the token again, retrieve it from your password manager.\n\nFor a much more detailed explanation, including how to use SSH instead of HTTPS, please consult Happy Git and GitHub for the use."
+    "text": "Generate a token:\n\nFor security, save this token in a password manager. This ensures you can access it if needed later on.\nWhen git prompts you to enter your password, paste the token you’ve copied. After this, password prompts should no longer appear.\nIf you ever need the token again, retrieve it from your password manager.\n\nMore details available from Happy Git and GitHub for the use."
   },
   {
     "objectID": "slides/productivity/04-git.html#connect-git-and-github-2",
     "href": "slides/productivity/04-git.html#connect-git-and-github-2",
     "title": "Git and GitHub",
     "section": "Connect Git and GitHub",
-    "text": "Connect Git and GitHub\nThe next step is to let Git know who we are. This will make it easier to connect with GitHub. To to this type the following two commands in our terminal window:\ngit config --global user.name \"Your Name\"\ngit config --global user.mail \"your@email.com\"\nThis will change the Git configuration in way that anytime you use Git, it will know this information. Note that you need to use the email account that you used to open your GitHub account.\ngit init\ngit remote add origin &lt;remote-url&gt;\nNow the two are connected."
+    "text": "Connect Git and GitHub\n\nThe next step is to let Git know who we are on Github.\nTo to this type the following two commands in our terminal window:\n\n\ngit config --global user.name \"Your Name\"\ngit config --global user.mail \"your@email.com\""
+  },
+  {
+    "objectID": "slides/productivity/04-git.html#connect-git-and-github-3",
+    "href": "slides/productivity/04-git.html#connect-git-and-github-3",
+    "title": "Git and GitHub",
+    "section": "Connect Git and GitHub",
+    "text": "Connect Git and GitHub\n\nThis will change the Git configuration in way that anytime you use Git, it will know this information.\nNote that you need to use the email account that you used to open your GitHub account."
+  },
+  {
+    "objectID": "slides/productivity/04-git.html#connect-git-and-github-4",
+    "href": "slides/productivity/04-git.html#connect-git-and-github-4",
+    "title": "Git and GitHub",
+    "section": "Connect Git and GitHub",
+    "text": "Connect Git and GitHub\nTo connect working directory to the GitHub repo\n\ninitialize the directory:\n\n\ngit init\n\n\nLet Git know what is the remote repository.\n\n\ngit remote add origin &lt;remote-url&gt;\n\nNow the two are connected.\n\n\n\n\n\n\nNote\n\n\norigin is a nickname we will use for the remote. We can call it something else, but everybody calls it origin so best to stick with that."
   },
   {
     "objectID": "slides/productivity/04-git.html#overview-of-git",
     "href": "slides/productivity/04-git.html#overview-of-git",
     "title": "Git and GitHub",
     "section": "Overview of Git",
-    "text": "Overview of Git\nThe main actions in Git are to:\n\npull changes from the remote repo, in this case the GitHub repo\nadd files, or as we say in the Git lingo stage files\ncommit changes to the local repo\npush changes to the remote repo, in our case the GitHub repo"
+    "text": "Overview of Git\nThe main actions in Git are to:\n\npull changes from the remote repo.\nadd files, or as we say in the Git lingo stage files.\ncommit changes to the local repo.\npush changes to the remote repo."
   },
   {
     "objectID": "slides/productivity/04-git.html#the-four-areas-of-git",
@@ -610,97 +659,111 @@
     "href": "slides/productivity/04-git.html#status",
     "title": "Git and GitHub",
     "section": "Status",
-    "text": "Status\n\ngit status filename"
+    "text": "Status\n\n\ngit status filename"
   },
   {
     "objectID": "slides/productivity/04-git.html#add",
     "href": "slides/productivity/04-git.html#add",
     "title": "Git and GitHub",
     "section": "Add",
-    "text": "Add\nUse git add to move put file to staging area.\n\ngit add &lt;filename&gt;\ngit status &lt;filename&gt;"
+    "text": "Add\nUse git add to put file to staging area.\n\n\ngit status &lt;filename&gt;\n\nWe say that this file has been staged. Check to see what happened:\n\ngit status &lt;filename&gt;"
   },
   {
     "objectID": "slides/productivity/04-git.html#commit",
     "href": "slides/productivity/04-git.html#commit",
     "title": "Git and GitHub",
     "section": "Commit",
-    "text": "Commit\nUse\ngit commit -m \"must add comment\"\nto move all the added files to the local repository. This file is now tracked and a copy of this version is kept going forward… this is like adding V1 to your filename."
+    "text": "Commit\n\nTo move all the staged files to the local repository we use git commit.\n\n\n\ngit commit -m \"must add comment\"\n\n\nOnce committed the files are tracked and a copy of this version is kept going forward.\nThis is like adding V1 to your filename."
   },
   {
     "objectID": "slides/productivity/04-git.html#commit-1",
     "href": "slides/productivity/04-git.html#commit-1",
     "title": "Git and GitHub",
     "section": "Commit",
-    "text": "Commit\nYou can commit files directly without using add by explicitely writing the files at the end of the commit:\ngit commit -m \"must add comment\" &lt;filename&gt;"
+    "text": "Commit\n\n\n\n\n\n\nNote\n\n\nYou can commit files directly without using add by explicitely writing the files at the end of the commit:\n\n\n\n\ngit commit -m \"must add comment\" &lt;filename&gt;"
   },
   {
     "objectID": "slides/productivity/04-git.html#push",
     "href": "slides/productivity/04-git.html#push",
     "title": "Git and GitHub",
     "section": "Push",
-    "text": "Push\nTo move to upstream repo we use\ngit push -u origin main\nThe -u flag sets the upstream, so in the future, you can simply use git push to push changes. So going forward we can just type:\ngit push\nHere we need to be careful as if collaborating this will affect the work of others. It might also create a conflict."
+    "text": "Push\n\nTo move to upstream repo we use git push\n\n\n\ngit push -u origin main\n\n\nThe -u flag sets the upstream repo.\nBy using this flag, going forward you can simply use git push to push changes.\nSo going forward we can just type:\n\n\ngit push"
+  },
+  {
+    "objectID": "slides/productivity/04-git.html#push-1",
+    "href": "slides/productivity/04-git.html#push-1",
+    "title": "Git and GitHub",
+    "section": "Push",
+    "text": "Push\n\nWhen using git push we need to be careful as if collaborating this will affect the work of others.\nIt might also create a conflict.\n\n\nPosted by andortang on Nothing is Impossible!"
   },
   {
     "objectID": "slides/productivity/04-git.html#fetch",
     "href": "slides/productivity/04-git.html#fetch",
     "title": "Git and GitHub",
     "section": "Fetch",
-    "text": "Fetch\nTo update our local repository to the remote one we use\ngit fetch"
+    "text": "Fetch\n\nTo update our local repository to the remote one we use\n\n\ngit fetch"
   },
   {
     "objectID": "slides/productivity/04-git.html#merge",
     "href": "slides/productivity/04-git.html#merge",
     "title": "Git and GitHub",
     "section": "Merge",
-    "text": "Merge\nOnce we are sure this is good, we can merge with our local files\ngit merge"
+    "text": "Merge\n\nOnce we are sure this is good, we can merge with our local files:\n\n\ngit merge"
   },
   {
     "objectID": "slides/productivity/04-git.html#pull",
     "href": "slides/productivity/04-git.html#pull",
     "title": "Git and GitHub",
     "section": "Pull",
-    "text": "Pull\nIt is common to want to just skip the fetch step and just update everything. For this we use\ngit pull"
+    "text": "Pull\n\nI rarely use fetch and merge and instead use pull which does both of these in one step\n\n\ngit pull"
   },
   {
     "objectID": "slides/productivity/04-git.html#checkout",
     "href": "slides/productivity/04-git.html#checkout",
     "title": "Git and GitHub",
     "section": "Checkout",
-    "text": "Checkout\n\nPosted by andortang on Nothing is Impossible!"
+    "text": "Checkout\n\nIf you want to pull down a specific file you from the remote repo you can use:\n\n\ngit checkout filename\n\n\nI use this when I make changes but decide I want to go back to original version on remote repo.\n\n\n\n\n\n\n\nWarning\n\n\nIf you have a newer version in your local repository this will create a conflict. It won’t let you do it. If you are sure you want to get rid of your local copy you can remove it and then use checkout."
   },
   {
     "objectID": "slides/productivity/04-git.html#checkout-1",
     "href": "slides/productivity/04-git.html#checkout-1",
     "title": "Git and GitHub",
     "section": "Checkout",
-    "text": "Checkout\n\nIf you want to pull down a specific file you from the remote repo you can use:\n\ngit checkout filename\n\nBut if you have a newer version in your local repository this will create a conflict. If you are sure you want to get rid of your local copy you can remove and then checkout.\n\nYou can also use checkout to pull older version:\ngit checkout &lt;commit-id&gt; &lt;filename&gt;"
+    "text": "Checkout\n\nYou can also use checkout to obtain older version:\n\n\ngit checkout &lt;commit-id&gt; &lt;filename&gt;\n\n\nYou can get the commit-id either on the GitHub webpage or using\n\n\ngit log filename"
   },
   {
-    "objectID": "slides/productivity/04-git.html#checkout-2",
-    "href": "slides/productivity/04-git.html#checkout-2",
+    "objectID": "slides/productivity/04-git.html#reset",
+    "href": "slides/productivity/04-git.html#reset",
     "title": "Git and GitHub",
-    "section": "Checkout",
-    "text": "Checkout\n\nYou can get the commit-id either on the GitHub webpage or using\n\ngit log filename"
+    "section": "Reset",
+    "text": "Reset\n\nWhat if I commit and realize it was a mistake?\n\n\ngit reset HEAD~1\n\nundos the commit and unstages the files, but keeps your local copies. I use this on very often.\n\nThere are many wasy of using get reset and it covers most scenarios.\nChatGPT and stackoverflow are great resources to learn more."
   },
   {
     "objectID": "slides/productivity/04-git.html#branches",
     "href": "slides/productivity/04-git.html#branches",
     "title": "Git and GitHub",
     "section": "Branches",
-    "text": "Branches\nGit can be even more complex. We can have several branches. These are useful for working in parallel or testing stuff out that might not make the main repo.\n\nArt by: Allison HorstWe wont go over this. But you should at least now these three commands\ngit remote -v\ngit brach"
+    "text": "Branches\n\nWe are just sratching the surface of Git.\nOne advanced feature to be aware of is that you can have several branches, useful for working in parallel or testing stuff out that might not make the main repo.\n\n\nArt by: Allison Horst"
+  },
+  {
+    "objectID": "slides/productivity/04-git.html#branches-1",
+    "href": "slides/productivity/04-git.html#branches-1",
+    "title": "Git and GitHub",
+    "section": "Branches",
+    "text": "Branches\n\nWe wont go over this, but we might need to use these two related commands:\n\n\ngit remote -v\ngit brach"
   },
   {
     "objectID": "slides/productivity/04-git.html#clone",
     "href": "slides/productivity/04-git.html#clone",
     "title": "Git and GitHub",
     "section": "Clone",
-    "text": "Clone\nIf you\ngit clone &lt;repo-url&gt;\npwd\nmkdir git-example\ncd git-example\ngit clone https://github.com/rairizarry/murders.git\ncd murders"
+    "text": "Clone\n\nAnother common command is git clone.\nIt let’s download an entire repo, including version history.\n\n\ngit clone &lt;repo-url&gt;"
   },
   {
     "objectID": "slides/productivity/04-git.html#using-git-in-rstudio",
     "href": "slides/productivity/04-git.html#using-git-in-rstudio",
     "title": "Git and GitHub",
     "section": "Using Git in RStudio",
-    "text": "Using Git in RStudio\nGo to file, new project, version control, and follow the instructions.\nThen notice the Git tab."
+    "text": "Using Git in RStudio\n\nGo to file, new project, version control, and follow the instructions.\nThen notice the Git tab in the preferences."
   }
 ]

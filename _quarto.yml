@@ -28,14 +28,12 @@ website:
     - href: syllabus.qmd
       text: Syllabus
     
-        
 format:
   html:
     theme: 
      - journal
      - style.css
     toc: true
-    repo-actions: [source, issue]
 
 
 editor: source

@@ -7,8 +7,8 @@
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.557">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.4.555">
 
   <meta name="dcterms.date" content="2024-09-09">
   <meta name="keywords" content="Productivity Tools">
@@ -30,6 +30,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #f07178; background-color: #2a0f15; font-weight: bold; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #00e0e0; } /* Attribute */
+    code span.bn { color: #d4d0ab; } /* BaseN */
+    code span.bu { color: #abe338; } /* BuiltIn */
+    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffd700; } /* Constant */
+    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
+    code span.cv { color: #ffd700; } /* CommentVar */
+    code span.do { color: #f8f8f2; } /* Documentation */
+    code span.dt { color: #ffa07a; } /* DataType */
+    code span.dv { color: #d4d0ab; } /* DecVal */
+    code span.er { color: #f07178; text-decoration: underline; } /* Error */
+    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
+    code span.fl { color: #d4d0ab; } /* Float */
+    code span.fu { color: #ffa07a; } /* Function */
+    code span.im { color: #abe338; } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
+    code span.op { color: #ffa07a; } /* Operator */
+    code span.ot { color: #00e0e0; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
+    code span.sc { color: #abe338; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #00e0e0; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #dcc6e0; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -322,7 +387,7 @@
     }
   </style>
 </head>
-<body class="quarto-light">
+<body class="quarto-dark">
   <div class="reveal">
     <div class="slides">
 
@@ -344,9 +409,19 @@
 </section>
 <section id="do-you-have-git" class="slide level2">
 <h2>Do you have git?</h2>
-<p>Before we start: everybody make sure you have Git installed. Open a terminal and type:</p>
-<pre><code>git -v</code></pre>
-<p>If not installed follow the instruction in textbook.</p>
+<p>Before we start:</p>
+<ul>
+<li>Make sure you have Git installed.</li>
+<li>Open a terminal and type:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a>git <span class="sc">--</span>version</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If not installed</p>
+<ul>
+<li>on a Mac, follow the instructions after typing the above.</li>
+<li>on Windows follow <a href="https://gitforwindows.org/">these instructions</a></li>
+</ul>
 </section>
 <section id="motivation" class="slide level2">
 <h2>Motivation</h2>
@@ -356,8 +431,8 @@
 <section id="motivation-1" class="slide level2">
 <h2>Motivation</h2>
 <ul>
-<li><p>This is particularly true when more than one person is collaborating on editing the file.</p></li>
-<li><p>even more important when there are multiple files, as there is in software development, and to some extend data analysis.</p></li>
+<li><p>This is particularly true when more than one person is collaborating and editing the file.</p></li>
+<li><p>Even more important when there are multiple files, as there is in software development, and to some extend data analysis.</p></li>
 </ul>
 </section>
 <section id="motivation-2" class="slide level2">
@@ -369,7 +444,7 @@
 <img data-src="https://img.devrant.com/devrant/rant/r_1840117_3JUPn.jpg" class="r-stretch quarto-figure-center"><p class="caption">Posted on devrant.com/ by bhimanshukalra</p></section>
 <section id="motivation-3" class="slide level2">
 <h2>Motivation</h2>
-<p>But we have to learn some things:</p>
+<p>But we have to learn some things.</p>
 
 <img data-src="https://miro.medium.com/v2/resize:fit:1200/format:webp/0*VcMPr1unIjAIHw2j.jpg" class="r-stretch quarto-figure-center"><p class="caption">From Meme Git Compilation by Lulu Ilmaknun Qurotaini</p></section>
 <section class="slide level2">
@@ -383,7 +458,7 @@
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>I use <code>&lt; &gt;</code> to denote a placeholder. So if I say <code>&lt;filename&gt;</code> what you eventually type is the filename you want to use, without the <code>&lt; &gt;</code></p>
+<p>In these notes, I use <code>&lt; &gt;</code> to denote a placeholder. So if I say <code>&lt;filename&gt;</code> what you eventually type is the filename you want to use, without the <code>&lt; &gt;</code></p>
 </div>
 </div>
 </div>
@@ -395,7 +470,7 @@
 <li><p>Collaborating.</p></li>
 <li><p>Version control.</p></li>
 </ol>
-<p>We focus on the sharing aspects of Git and GitHub, but introduce some of the basics that permit you to collaborate and version control.</p>
+<p>We focus on the sharing aspects of Git and GitHub, but introduce some of the basics that permit you to collaborate and use version control.</p>
 </section>
 <section id="what-is-git" class="slide level2">
 <h2>What is Git?</h2>
@@ -403,37 +478,47 @@
 <img data-src="https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/68739659-fb6f-41e8-9813-32e1de3d82c0_rw_3840.png?h=5c36d3c50c350a440567a1f8f72ac028" class="r-stretch"></section>
 <section id="what-is-github" class="slide level2">
 <h2>What is GitHub?</h2>
-<p>Basically, it’s a service that hosts the <em>remote repository (repo)</em> on the web. This facilitates collaboration and sharing greatly.</p>
-<p>There many other features such as</p>
 <ul>
-<li>a recognition system: reward, badges and stars, for example.</li>
-<li>hosting web pages, like the class notes for example.</li>
-<li><em>forks</em> and <em>pull requests</em>,</li>
-<li>issue tracking</li>
-<li>automation tools</li>
+<li><p>Described a <em>social network for software developers</em>.</p></li>
+<li><p>Basically, it’s a service that hosts the <em>remote repository (repo)</em> on the web.</p></li>
+<li><p>This facilitates collaboration and sharing greatly.</p></li>
 </ul>
 </section>
 <section id="what-is-github-1" class="slide level2">
 <h2>What is GitHub?</h2>
+<p>There many other features such as</p>
 <ul>
-<li><p>It has been describes a <em>social network for software developers</em>.</p></li>
-<li><p>The main tool behind GitHub, is Git.</p></li>
-<li><p>Similar to how to how main tool behind RStudio, is R.</p></li>
+<li>Recognition system: reward, badges and stars.</li>
+<li>You can host web pages, like the class notes for example.</li>
+<li>Permits contributions via <em>forks</em> and <em>pull requests</em>.</li>
+<li>Issue tracking</li>
+<li>Automation tools.</li>
+</ul>
+</section>
+<section id="what-is-github-2" class="slide level2">
+<h2>What is GitHub?</h2>
+<ul>
+<li><p>The main tool behind GitHub is Git.</p></li>
+<li><p>Similar to how the main tool behind RStudio is R.</p></li>
 </ul>
 </section>
 <section id="github-accounts" class="slide level2">
 <h2>GitHub accounts</h2>
-<p>Consider adding a profile <code>README.md</code>.</p>
-<p>Instructions are <a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme">here</a></p>
-<p>Looks like <a href="https://github.com/rafalab">this</a></p>
+<ul>
+<li><p>Pick a professional sounding name.</p></li>
+<li><p>Consider adding a profile <code>README.md</code>.</p></li>
+<li><p>Instructions are <a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme">here</a>.</p></li>
+<li><p>Example <a href="https://github.com/rafalab">here</a>.</p></li>
+</ul>
 </section>
 <section id="repositories" class="slide level2">
 <h2>Repositories</h2>
 <ul>
-<li><p>You are now ready to create a GitHub repository (repo).</p></li>
-<li><p>The general idea is that you will have at least two copies of your code: one on your computer and one on GitHub.</p></li>
+<li><p>We are ready to create a GitHub repository (repo).</p></li>
+<li><p>You will have at least two copies of your code: one on your computer and one on GitHub.</p></li>
 <li><p>If you add collaborators to this repo, then each will have a copy on their computer.</p></li>
-<li><p>The GitHub copy is usually considered the main (previously called master) copy that each collaborator syncs to. Git will help you keep all the different copies synced.</p></li>
+<li><p>The GitHub copy is considered the main (previously called master) copy that everybody syncs to.</p></li>
+<li><p>Git will help you keep all the different copies synced.</p></li>
 </ul>
 </section>
 <section id="repositories-1" class="slide level2">
@@ -441,8 +526,7 @@
 <ul>
 <li><p>Let’s go make one on GitHub…</p></li>
 <li><p>Then create a directory on your computer, this will be the local repo, and connect it to the Github repository.</p></li>
-<li><p>First copy and paste the location of your git repository</p></li>
-<li><p>It should look something like this:</p></li>
+<li><p>First copy and paste the location of your git repository. It should look something like this:</p></li>
 </ul>
 <pre><code>https://github.com/your-username/your-repo-name.git</code></pre>
 </section>
@@ -457,47 +541,79 @@
 </section>
 <section id="connect-git-and-github-1" class="slide level2">
 <h2>Connect Git and GitHub</h2>
-<p>*GitHub provides a detailed guide on obtaining an access token which can be found by searching “Managing your personal access tokens” on the GitHub Docs website.</p>
 <ul>
-<li>Detailed instructions are <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens">here</a></li>
-</ul>
-</section>
-<section id="generate-a-token" class="slide level2">
-<h2>Generate a token:</h2>
-<ul>
+<li><p>Detailed instructions are <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens">here</a>.</p></li>
 <li><p>Carefully follow the instructions provided by GitHub.</p></li>
-<li><p>When setting permissions for the token, choose non-expiring and select the repo option in the scopes section.</p></li>
-<li><p>Once you complete these steps, GitHub will display your token—a lengthy string of characters. You should then:</p></li>
+<li><p>When setting permissions for the token, choose <em>non-expiring and select the repo</em> option in the scopes section.</p></li>
+<li><p>Once you complete these steps, GitHub will display your token—a lengthy string of characters.</p></li>
 <li><p><strong>Immediately copy this token to your clipboard</strong>. This is the only time GitHub will show it to you.</p></li>
 </ul>
 </section>
-<section id="generate-a-token-1" class="slide level2">
+<section id="generate-a-token" class="slide level2">
 <h2>Generate a token:</h2>
 <ul>
 <li><p>For security, save this token in a password manager. This ensures you can access it if needed later on.</p></li>
 <li><p>When git prompts you to enter your password, paste the token you’ve copied. After this, password prompts should no longer appear.</p></li>
 <li><p>If you ever need the token again, retrieve it from your password manager.</p></li>
 </ul>
-<p>For a much more detailed explanation, including how to use SSH instead of HTTPS, please consult <a href="https://happygitwithr.com/https-pat">Happy Git and GitHub for the use</a>.</p>
+<p>More details available from <a href="https://happygitwithr.com/https-pat">Happy Git and GitHub for the use</a>.</p>
 </section>
 <section id="connect-git-and-github-2" class="slide level2">
 <h2>Connect Git and GitHub</h2>
-<p>The next step is to let Git know who we are. This will make it easier to connect with GitHub. To to this type the following two commands in our terminal window:</p>
-<pre><code>git config --global user.name "Your Name"
-git config --global user.mail "your@email.com"</code></pre>
-<p>This will change the Git configuration in way that anytime you use Git, it will know this information. Note that you need to use the email account that you used to open your GitHub account.</p>
-<pre><code>git init
-git remote add origin &lt;remote-url&gt;</code></pre>
+<ul>
+<li><p>The next step is to let Git know who we are on Github.</p></li>
+<li><p>To to this type the following two commands in our terminal window:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a>git config <span class="sc">--</span>global user.name <span class="st">"Your Name"</span></span>
+<span id="cb3-2"><a aria-hidden="true" tabindex="-1"></a>git config <span class="sc">--</span>global user.mail <span class="st">"your@email.com"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="connect-git-and-github-3" class="slide level2">
+<h2>Connect Git and GitHub</h2>
+<ul>
+<li><p>This will change the Git configuration in way that anytime you use Git, it will know this information.</p></li>
+<li><p>Note that you need to use the email account that you used to open your GitHub account.</p></li>
+</ul>
+</section>
+<section id="connect-git-and-github-4" class="slide level2">
+<h2>Connect Git and GitHub</h2>
+<p>To connect working directory to the GitHub repo</p>
+<ol type="1">
+<li>initialize the directory:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a>git init</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Let Git know what is the <em>remote</em> repository.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a>git remote add origin <span class="sc">&lt;</span>remote<span class="sc">-</span>url<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Now the two are connected.</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p><code>origin</code> is a nickname we will use for the remote. We can call it something else, but everybody calls it origin so best to stick with that.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="overview-of-git" class="slide level2">
 <h2>Overview of Git</h2>
 <p>The main actions in Git are to:</p>
 <ol type="1">
-<li><strong>pull</strong> changes from the remote repo, in this case the GitHub repo</li>
-<li><strong>add</strong> files, or as we say in the Git lingo <em>stage</em> files</li>
-<li><strong>commit</strong> changes to the local repo</li>
-<li><strong>push</strong> changes to the <em>remote</em> repo, in our case the GitHub repo</li>
+<li><strong>pull</strong> changes from the remote repo.</li>
+<li><strong>add</strong> files, or as we say in the Git lingo <em>stage</em> files.</li>
+<li><strong>commit</strong> changes to the local repo.</li>
+<li><strong>push</strong> changes to the <em>remote</em> repo.</li>
 </ol>
 </section>
 <section class="slide level2">
@@ -511,79 +627,38 @@ git remote add origin &lt;remote-url&gt;</code></pre>
 <section id="status" class="slide level2">
 <h2>Status</h2>
 
-<img data-src="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img/git/git-status.png" class="r-stretch"><pre><code>git status filename</code></pre>
+<img data-src="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img/git/git-status.png" class="r-stretch"><div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a>git status filename</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="add" class="slide level2">
 <h2>Add</h2>
-<p>Use <code>git add</code> to move put file to staging area.</p>
+<p>Use <code>git add</code> to put file to staging area.</p>
 
-<img data-src="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img/git/git-add.png" class="r-stretch"><pre><code>git add &lt;filename&gt;
-git status &lt;filename&gt;</code></pre>
+<img data-src="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img/git/git-add.png" class="r-stretch"><div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a>git status <span class="sc">&lt;</span>filename<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We say that this file has been <em>staged</em>. Check to see what happened:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a>git status <span class="sc">&lt;</span>filename<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="commit" class="slide level2">
 <h2>Commit</h2>
-<p>Use</p>
-<pre><code>git commit -m "must add comment"</code></pre>
-<p>to move all the added files to the local repository. This file is now <em>tracked</em> and a copy of this version is kept going forward… this is like adding <code>V1</code> to your filename.</p>
+<ul>
+<li>To move all the staged files to the local repository we use <code>git commit</code>.</li>
+</ul>
 
-<img data-src="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img/git/git-commit.png" class="r-stretch"></section>
+<img data-src="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img/git/git-commit.png" class="r-stretch"><div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a>git commit <span class="sc">-</span>m <span class="st">"must add comment"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>Once <em>committed</em> the files are <em>tracked</em> and a copy of this version is kept going forward.</p></li>
+<li><p>This is like adding <code>V1</code> to your filename.</p></li>
+</ul>
+</section>
 <section id="commit-1" class="slide level2">
 <h2>Commit</h2>
-<p>You can commit files directly without using <code>add</code> by explicitely writing the files at the end of the commit:</p>
-<pre><code>git commit -m "must add comment" &lt;filename&gt;</code></pre>
-</section>
-<section id="push" class="slide level2">
-<h2>Push</h2>
-<p>To move to upstream repo we use</p>
-<pre><code>git push -u origin main</code></pre>
-<p>The <code>-u</code> flag sets the upstream, so in the future, you can simply use git push to push changes. So going forward we can just type:</p>
-<pre><code>git push</code></pre>
-<p>Here we need to be careful as if collaborating this will affect the work of others. It might also create a <code>conflict</code>.</p>
-
-<img data-src="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img/git/git-push.png" class="r-stretch"></section>
-<section id="fetch" class="slide level2">
-<h2>Fetch</h2>
-<p>To update our local repository to the remote one we use</p>
-<pre><code>git fetch</code></pre>
-
-<img data-src="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img/git/git-fetch.png" class="r-stretch"></section>
-<section id="merge" class="slide level2">
-<h2>Merge</h2>
-<p>Once we are sure this is good, we can merge with our local files</p>
-<pre><code>git merge</code></pre>
-
-<img data-src="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img/git/git-merge.png" class="r-stretch"></section>
-<section id="pull" class="slide level2">
-<h2>Pull</h2>
-<p>It is common to want to just skip the fetch step and just update everything. For this we use</p>
-<pre><code>git pull</code></pre>
-
-<img data-src="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img/git/git-pull.png" class="r-stretch"></section>
-<section id="checkout" class="slide level2">
-<h2>Checkout</h2>
-
-<img data-src="https://andortang.wordpress.com/wp-content/uploads/2017/05/winter-is-coming-brace-yourself-merge-conflicts-are-coming.jpg" class="r-stretch quarto-figure-center"><p class="caption">Posted by andortang on Nothing is Impossible!</p></section>
-<section id="checkout-1" class="slide level2">
-<h2>Checkout</h2>
-<ul>
-<li>If you want to pull down a specific file you from the remote repo you can use:</li>
-</ul>
-<pre><code>git checkout filename</code></pre>
-<ul>
-<li>But if you have a newer version in your local repository this will create a <strong><em>conflict</em></strong>. If you are sure you want to get rid of your local copy you can remove and then checkout.</li>
-</ul>
-<p>You can also use <code>checkout</code> to pull older version:</p>
-<pre><code>git checkout &lt;commit-id&gt; &lt;filename&gt;</code></pre>
-</section>
-<section id="checkout-2" class="slide level2">
-<h2>Checkout</h2>
-<ul>
-<li>You can get the <code>commit-id</code> either on the GitHub webpage or using</li>
-</ul>
-<pre><code>git log filename</code></pre>
-</section>
-<section class="slide level2">
-
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -593,33 +668,158 @@ git status &lt;filename&gt;</code></pre>
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>If you are asked for passwords when connecting or pushing things to you want to read <a href="https://docs.github.com/en/get-started/getting-started-with-git/why-is-git-always-asking-for-my-password">this</a> and avoid this. It will be impossible to use if you have to enter a password each time you push.</p>
+<p>You can commit files directly without using <code>add</code> by explicitely writing the files at the end of the commit:</p>
 </div>
 </div>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a>git commit <span class="sc">-</span>m <span class="st">"must add comment"</span> <span class="sc">&lt;</span>filename<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="push" class="slide level2">
+<h2>Push</h2>
+<ul>
+<li>To move to upstream repo we use <code>git push</code></li>
+</ul>
+
+<img data-src="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img/git/git-push.png" class="r-stretch"><div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-hidden="true" tabindex="-1"></a>git push <span class="sc">-</span>u origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>The <code>-u</code> flag sets the upstream repo.</p></li>
+<li><p>By using this flag, going forward you can simply use <code>git push</code> to push changes.</p></li>
+<li><p>So going forward we can just type:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-hidden="true" tabindex="-1"></a>git push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="push-1" class="slide level2">
+<h2>Push</h2>
+<ul>
+<li><p>When using <code>git push</code> we need to be careful as if collaborating this will affect the work of others.</p></li>
+<li><p>It might also create a <code>conflict</code>.</p></li>
+</ul>
+
+<img data-src="https://andortang.wordpress.com/wp-content/uploads/2017/05/winter-is-coming-brace-yourself-merge-conflicts-are-coming.jpg" class="r-stretch quarto-figure-center"><p class="caption">Posted by andortang on Nothing is Impossible!</p></section>
+<section id="fetch" class="slide level2">
+<h2>Fetch</h2>
+<ul>
+<li>To update our local repository to the remote one we use</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-hidden="true" tabindex="-1"></a>git fetch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<img data-src="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img/git/git-fetch.png" class="r-stretch"></section>
+<section id="merge" class="slide level2">
+<h2>Merge</h2>
+<ul>
+<li>Once we are sure this is good, we can merge with our local files:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-hidden="true" tabindex="-1"></a>git merge</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<img data-src="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img/git/git-merge.png" class="r-stretch"></section>
+<section id="pull" class="slide level2">
+<h2>Pull</h2>
+<div class="{::callout-note}">
+<p>I rarely use <code>fetch</code> and <code>merge</code> and instead use <code>pull</code> which does both of these in one step</p>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-hidden="true" tabindex="-1"></a>git pull</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<img data-src="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img/git/git-pull.png" class="r-stretch"></section>
+<section id="checkout" class="slide level2">
+<h2>Checkout</h2>
+<ul>
+<li>If you want to pull down a specific file you from the remote repo you can use:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-hidden="true" tabindex="-1"></a>git checkout filename</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>I use this when I make changes but decide I want to go back to original version on remote repo.</li>
+</ul>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<p>If you have a newer version in your local repository this will create a <strong><em>conflict</em></strong>. It won’t let you do it. If you are sure you want to get rid of your local copy you can remove it and then use <code>checkout</code>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="checkout-1" class="slide level2">
+<h2>Checkout</h2>
+<ul>
+<li>You can also use <code>checkout</code> to obtain older version:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-hidden="true" tabindex="-1"></a>git checkout <span class="sc">&lt;</span>commit<span class="sc">-</span>id<span class="sc">&gt;</span> <span class="er">&lt;</span>filename<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>You can get the <code>commit-id</code> either on the GitHub webpage or using</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-hidden="true" tabindex="-1"></a>git log filename</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="reset" class="slide level2">
+<h2>Reset</h2>
+<ul>
+<li>What if I commit and realize it was a mistake?</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-hidden="true" tabindex="-1"></a>git reset HEAD<span class="sc">~</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>undos the commit and unstages the files, but <strong>keeps your local copies</strong>. I use this on very often.</p>
+<ul>
+<li><p>There are many wasy of using <code>get reset</code> and it covers most scenarios.</p></li>
+<li><p>ChatGPT and stackoverflow are great resources to learn more.</p></li>
+</ul>
 </section>
 <section id="branches" class="slide level2">
 <h2>Branches</h2>
-<p>Git can be even more complex. We can have several branches. These are useful for working in parallel or testing stuff out that might not make the main repo.</p>
+<ul>
+<li><p>We are just sratching the surface of Git.</p></li>
+<li><p>One advanced feature to be aware of is that you can have several <em>branches</em>, useful for working in parallel or testing stuff out that might not make the main repo.</p></li>
+</ul>
 
-<img data-src="https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/efae32ce-863f-4773-852c-4335e3ce4709_rw_3840.png?h=c54a2e5af240ec6e1332e2dcacbd7f33" class="r-stretch quarto-figure-center"><p class="caption">Art by: Allison Horst</p><p>We wont go over this. But you should at least now these three commands</p>
-<pre><code>git remote -v
-git brach </code></pre>
+<img data-src="https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/efae32ce-863f-4773-852c-4335e3ce4709_rw_3840.png?h=c54a2e5af240ec6e1332e2dcacbd7f33" class="r-stretch quarto-figure-center"><p class="caption">Art by: Allison Horst</p></section>
+<section id="branches-1" class="slide level2">
+<h2>Branches</h2>
+<ul>
+<li>We wont go over this, but we might need to use these two related commands:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-hidden="true" tabindex="-1"></a>git remote <span class="sc">-</span>v</span>
+<span id="cb20-2"><a aria-hidden="true" tabindex="-1"></a>git brach </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="clone" class="slide level2">
 <h2>Clone</h2>
-<p>If you</p>
-<pre><code>git clone &lt;repo-url&gt;</code></pre>
-<pre><code>pwd
-mkdir git-example
-cd git-example
-git clone https://github.com/rairizarry/murders.git
-cd murders</code></pre>
+<ul>
+<li><p>Another common command is <code>git clone</code>.</p></li>
+<li><p>It let’s download an entire repo, including version history.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-hidden="true" tabindex="-1"></a>git clone <span class="sc">&lt;</span>repo<span class="sc">-</span>url<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="using-git-in-rstudio" class="slide level2">
 <h2>Using Git in RStudio</h2>
-<p>Go to file, new project, version control, and follow the instructions.</p>
-<p>Then notice the <code>Git</code> tab.</p>
+<ul>
+<li><p>Go to file, new project, version control, and follow the instructions.</p></li>
+<li><p>Then notice the <code>Git</code> tab in the preferences.</p></li>
+</ul>
 </section>
 <section class="slide level2">
 
@@ -842,6 +1042,44 @@ cd murders</code></pre>
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

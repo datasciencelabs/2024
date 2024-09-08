@@ -1,7 +1,10 @@
 ---
 title: RStudio
 keywords: "Productivity Tools"
-date: 2024-09-09
+date: 2024-09-04
+format:
+   revealjs:
+     theme: night
 ---
 
 
@@ -15,28 +18,38 @@ date: 2024-09-09
 
 Let's try a few things together:
 
-* Open a new R script file
-* Learn tab complete
-* Run commands while editing scripts
-* Run the entire script
-* Make a plot
+* Open a new R script file.
+* Learn tab complete.
+* Run commands while editing scripts.
+* Run the entire script.
+* Make a plot.
 * Change options to never save workspace.
-* Change appearance
+* Change IDE appearance.
 
 ---
 
 ## Projects
 
-* Start new project in exciting directory.
+Let's try this together:
+
 * Start new project in new directory.
+* Start new project in existing directory.
 * Change projects.
 
----
-
+--- 
+ 
 ## Type of editor
+ 
+Let's examine the two types of editors available:
 
-Start a new Quarto document.
-
-* Source - See the actual code (WYSIWYG).
+* Source - See the actual code (WYSIWYG)
 * Visual - Partial preview of final document.
+
+Note: You can state your preference in a the header:
+
+```yaml
+editor: source
+```
+
+* We learn about headers in the Quarto lecture.
 
