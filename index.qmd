@@ -7,7 +7,7 @@ title: "BST 260 Introduction to Data Science"
 * Instructor: [Rafael A.Irizarry](https://rafalab.dfci.harvard.edu/)
 * Teaching fellows:  Corri Sept, Nikhil Vytla, and Yuan Wang
 * Location: Kresge 202A and 202B,	Harvard School of Public Health
-* Date and time: Mon & Wed 9.45 - 11:15am
+* Date and time: Mon & Wed 9:45 - 11:15am
 * Textbooks: <https://github.com/rafalab/dsbook-part-1>, <https://github.com/rafalab/dsbook-part-2>
 * Slack: <https://bst260fall2024.slack.com/>
 * Canvas: <https://canvas.harvard.edu/courses/143922/pages/Course%20Information>
@@ -40,14 +40,14 @@ Lecture slides, class notes, and problem sets are linked below. New material is 
 
 | Problem set| Topic | Due Date  set |  Difficulty |
 |:-------|:--------------|:---------|:----------|
-| [01](psets/pset-01-unix-quarto.qmd)   |  Unix, Quarto|Sep 10   | easy | 
-| [02](psets/pset-02-r-vectorization.qmd) |  R | Sep 13   |easy | 
-| 03          |  Tidyverse | Sep 19   |easy | 
+| [01](psets/pset-01-unix-quarto.qmd)   |  Unix, Quarto | Sep 10   | easy | 
+| [02](psets/pset-02-r-vectorization.qmd) |  R | Sep 13   | easy | 
+| 03          |  Tidyverse | Sep 19   | easy | 
 | 04          | Wrangling | Sep 26   | medium | 
-| 05          |  Covid 19 data visualization | Oct 04   |medium | 
+| 05          |  Covid 19 data visualization | Oct 04   | medium | 
 | 06          | Probability | Oct 11   | easy | 
-| 07          | Predict the election |Nov 01   |  hard | 
-| 08          | Confidence intervals for excess mortality |Nov 15   |  hard | 
+| 07          | Predict the election | Nov 01   | hard | 
+| 08          | Confidence intervals for excess mortality | Nov 15   | hard | 
 | 09          | Matrices | Nov 22   | easy | 
 | 10          | Digit reading | Dec 13   | hard | 
 |Final Project| Your choice | Dec 20   | hard  |
@@ -56,10 +56,10 @@ Lecture slides, class notes, and problem sets are linked below. New material is 
 
 | Meeting | Location | Time                   |
 |---------|----------|------------------------|
-| Office hour 1  | TBA   | TBA       |
-| Office hour 2  | TBA   | TBA        |
-| Office hour 3  | TBA   | TBA      |
-| Office hour 4  | TBA   | TBA      |
+| Rafa  | TBA | Mon, 8:45 - 9:45am |
+| Corri (TF) | Kresge 201 | Tue, 3:00 - 4:00pm |
+| Nikhil (TF) | Kresge 201  | Wed, 2:00 - 3:00pm  |
+| Yuan (TF) | Zoom (see Canvas) | Fri, 1:00 - 2:00pm |
 
 ## Acknowledgments
 
