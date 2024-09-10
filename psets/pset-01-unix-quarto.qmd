@@ -1,11 +1,11 @@
 ---
 title: Problem set 1 
-date: 2024-09-10
+date: 2024-09-11
 ---
 
-After finishing the homework, you are to turn in all the code.
+After finishing the homework, you are to turn in all the code to GitHub using git.
 
-1. Start an RStudio project. Recommended name: `pset-01-rmarkdown`. Start a Quarto document called `beginning.qmd`.
+1. Start an RStudio project. Pick a good name following a naming convention. Start a Quarto document called `beginning.qmd`.
 
 2. Create a directory called `img` and save a screen shot of your RStudio session for the project. Include your screenshot in the Quarto document.
 

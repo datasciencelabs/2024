@@ -21,10 +21,9 @@ Lecture slides, class notes, and problem sets are linked below. New material is 
 | Dates   | Topic  |    Slides | Reading |
 |:-------------------|:---------|:----------|:----------|
 | Sep 04 | Productivity Tools| [Intro](slides/00-intro.qmd), [Unix](slides/productivity/01-unix.qmd) | Installing R and RStudio on [Windows](https://teacherscollege.screenstepslive.com/a/1108074-install-r-and-rstudio-for-windows) or [Mac](https://teacherscollege.screenstepslive.com/a/1135059-install-r-and-rstudio-for-mac), [Getting Started](http://rafalab.dfci.harvard.edu/dsbook-part-1/R/getting-started.html), [Unix](http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/unix.html)|
-| Sep 09 | Productivity Tools| [RStudio](slides/productivity/02-rstudio.qmd), [Quarto](slides/productivity/03-quarto.qmd), [Git and GitHub](slides/productivity/04-git.qmd) | [RStudio Projects, Quarto](https://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/reproducible-projects.html), [Git](http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/git.html) |
-| Sep 11 | R | | [R Basics](http://rafalab.dfci.harvard.edu/dsbook-part-1/R/R-basics.html), [Vectorization](http://rafalab.dfci.harvard.edu/dsbook-part-1/R/programming-basics.html#sec-vectorization)|
-| Sep 16, Sep 19 | R |  | [dplyr](http://rafalab.dfci.harvard.edu/dsbook-part-1/R/tidyverse.html), [dates and times](http://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/dates-and-times.html), [ggplot2](http://rafalab.dfci.harvard.edu/dsbook-part-1/dataviz/ggplot2.html) |
-| Sep 23, Sep 25 | Wrangling  | | [Importing data](https://rafalab.dfci.harvard.edu/dsbook-part-1/R/importing-data.html), [Locales](https://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/locales.html), [Reshaping Data](http://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/reshaping-data.html), [Joining Tables](http://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/joining-tables.html), [Extracting data from the web](https://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/web-scraping.html)|
+| Sep 09,  Sep 11| Productivity Tools| [RStudio](slides/productivity/02-rstudio.qmd), [Quarto](slides/productivity/03-quarto.qmd), [Git and GitHub](slides/productivity/04-git.qmd) | [RStudio Projects, Quarto](https://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/reproducible-projects.html), [Git](http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/git.html) |
+| Sep 16, Sep 19 | R |  |  [R Basics](http://rafalab.dfci.harvard.edu/dsbook-part-1/R/R-basics.html), [Vectorization](http://rafalab.dfci.harvard.edu/dsbook-part-1/R/programming-basics.html#sec-vectorization), [dplyr](http://rafalab.dfci.harvard.edu/dsbook-part-1/R/tidyverse.html), [ggplot2](http://rafalab.dfci.harvard.edu/dsbook-part-1/dataviz/ggplot2.html) |
+| Sep 23, Sep 25 | Wrangling  | | [Importing data](https://rafalab.dfci.harvard.edu/dsbook-part-1/R/importing-data.html), [dates and times](http://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/dates-and-times.html), [Locales](https://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/locales.html), [Reshaping Data](http://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/reshaping-data.html), [Joining Tables](http://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/joining-tables.html), [Extracting data from the web](https://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/web-scraping.html)|
 | Sep 30, Oct 02 | Data visualization  | | [Distributions](http://rafalab.dfci.harvard.edu/dsbook-part-1/dataviz/distributions.html), [Dataviz Principles](http://rafalab.dfci.harvard.edu/dsbook-part-1/dataviz/dataviz-principles.html) |
 | Oct 07, Oct 09 | Probability   | | [Monte Carlo](http://rafalab.dfci.harvard.edu/dsbook-part-2/prob/continuous-probability.html#monte-carlo), [Random Variables & CLT](http://rafalab.dfci.harvard.edu/dsbook-part-2/prob/random-variables-sampling-models-clt.html)|
 | Oct 21, Oct 23 | Inference |  | [Parameters & Estimates](http://rafalab.dfci.harvard.edu/dsbook-part-2/inference/parameters-estimates.html), [Confidence Intervals](http://rafalab.dfci.harvard.edu/dsbook-part-2/inference/confidence-intervals.html)|
@@ -38,15 +37,15 @@ Lecture slides, class notes, and problem sets are linked below. New material is 
 
 ## Problem sets
 
-| Problem set| Topic | Due Date  set |  Difficulty |
+| Problem set| Topic | Due Date |  Difficulty |
 |:-------|:--------------|:---------|:----------|
-| [01](psets/pset-01-unix-quarto.qmd)   |  Unix, Quarto|Sep 10   | easy | 
-| [02](psets/pset-02-r-vectorization.qmd) |  R | Sep 13   |easy | 
-| 03          |  Tidyverse | Sep 19   |easy | 
-| 04          | Wrangling | Sep 26   | medium | 
-| 05          |  Covid 19 data visualization | Oct 04   |medium | 
-| 06          | Probability | Oct 11   | easy | 
-| 07          | Predict the election |Nov 01   |  hard | 
+| [01](psets/pset-01-unix-quarto.qmd)   |  Unix, Quarto|Sep 11   | easy | 
+| [02](psets/pset-02-r-vectorization.qmd) |  R | Sep 19   |easy | 
+| 03          |  Tidyverse | Sep 29   |easy | 
+| 04          | Wrangling | Oct 4   | medium | 
+| 05          |  Covid 19 data visualization | Oct 11   |medium | 
+| 06          | Probability | Oct 25   | easy | 
+| 07          | Predict the election |Nov 04   |  hard | 
 | 08          | Confidence intervals for excess mortality |Nov 15   |  hard | 
 | 09          | Matrices | Nov 22   | easy | 
 | 10          | Digit reading | Dec 13   | hard | 
@@ -54,13 +53,12 @@ Lecture slides, class notes, and problem sets are linked below. New material is 
 
 ## Office hour times
 
-| Meeting | Location | Time                   |
+| Meeting | Time  | Location                 |
 |---------|----------|------------------------|
-| Office hour 1  | TBA   | TBA       |
-| Office hour 2  | TBA   | TBA        |
-| Office hour 3  | TBA   | TBA      |
-| Office hour 4  | TBA   | TBA      |
-
+| Rafael Irizarry  | Mon  8:45-9:45AM  |   Kresge LL6     |
+| Corri Sept | Tue     | 3:00-4:00PM     | Kresge 201         |
+| Nikhil Vytla   | Wed     | 2:00-3:00PM     | Kresge 201         |
+| Yuan Wang | Fri   | 1:00-2:00PM     | [Zoom](https://harvard.zoom.us/j/98901120095?pwd=CrhPTA0Nco2rY6ggzYIfq6kQmP4VZn.1) |
 ## Acknowledgments
 
 We thank [Maria Tackett](https://github.com/matackett) and [Mine Çetinkaya-Rundel](https://github.com/mine-cetinkaya-rundel) for sharing their [web page template](https://github.com/rstudio-conf-2022/teach-ds-course-website/tree/main), which we used in creating this website.

@@ -313,7 +313,7 @@ Use `git add` to put file to staging area.
 #| eval: false
 #| code-line-numbers: false
 
-git status <filename>
+git add <filename>
 ```
 
 We say that this file has been _staged_. Check to see what happened:
