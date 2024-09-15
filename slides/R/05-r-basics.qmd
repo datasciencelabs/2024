@@ -1,0 +1,1095 @@
+---
+title: "R Basics"
+keywords: "R"
+date: 2024-09-09
+format:
+  revealjs:
+    theme: night
+execute: 
+  echo: true
+---
+
+
+## Packages
+
+* Use `install.packages` to install the **dslabs** package.
+
+* Tryout the following functions: `sessionInfo`, `installed.packages`
+
+---
+
+## Prebuilt functions
+
+* Much of what we do in R is based on prebuilt functions. 
+
+* Many are included in automatically loaded packages: `stats`, `graphics`, `grDevices`, `utils`, `datasets`, `methods`.
+
+* This subset of the R universe is refereed to as _R base_.
+
+* Very popular packages not included in R base: `ggplot2`, `dplyr`, `tidyr`, and `data.table`.
+
+---
+
+:::{.callout-important}
+For problem set 2 you can only use R base.
+:::
+
+---
+
+
+## Prebuilt functions
+
+* Example of prebuilt functions that we will use today: `ls`, `rm`, `library`, `search`, `factor`, `list`, `exists`, `str`, `typeof`, and `class`.
+
+* You can see the raw code for a function by typing it without the parenthesis: type `ls` on your console to see an example.
+
+---
+
+## Help system
+
+* In R you can use `?` or `help` to learn more about functions.
+
+* You can learn about function using
+
+```r
+help("ls")
+```
+
+or 
+
+```r
+?ls
+```
+
+---
+
+## The workspace
+
+* Define a variable.
+
+```{r}
+a <- 2
+```
+
+* Use `ls` to see if it's there. Also take a look at the **Environment** tab in RStudio.
+
+```{r}
+ls()
+```
+
+* Use `rm` to remove the variable you defined.
+
+```{r}
+rm(a)
+```
+
+---
+
+## Variable name convention
+
+* A nice convention to follow is to use meaningful words that describe what is stored, use only lower case, and use underscores as a substitute for spaces. 
+
+* For more we recommend [this guide](http://adv-r.had.co.nz/Style.html).
+
+--- 
+
+## Data types
+
+The main data types in R are:
+
+* One dimensional vectors: numeric, integer, logical, complex, characters.
+
+* Factors
+
+* Lists: this includes data frames.
+
+* Arrays: Matrices are the most widely used.
+
+* Date and time
+
+* tibble
+
+* S4 objects
+
+---
+
+## Data types
+
+* Many errors in R come from confusing data types. 
+
+* `str` stands for structure, gives us information about an object.
+
+* `typeof` gives you the basic data type of the object. It reveals the lower-level, more fundamental type of an object in R's memory.
+
+* `class` This function returns the class attribute of an object. The class of an object is essentially `type_of` at a higher, often user-facing level.
+
+---
+
+## Data types
+
+Let's see some example:
+
+```{r}
+library(dslabs)
+typeof(murders)
+class(murders)
+str(murders)
+```
+
+---
+
+## Data frames
+
+* Date frames are the most common class used in data analysis. It is like a spreadsheet. 
+
+* Usually, rows represents observations and columns variables. 
+
+* Each variable can be a different data type.
+
+* You can see part of the content like this
+
+```{r}
+head(murders)
+```
+
+
+---
+
+## Data frames
+
+* and all of the content like this:
+
+```{r}
+#| eval: false
+View(murders)
+```
+
+* Type the above in RStudio.
+
+---
+
+## Data frames
+
+* A very common operation is adding columns like this:
+
+```{r}
+murders$pop_rank <- rank(murders$population)
+head(murders)
+```
+
+
+---
+
+## Data frames
+
+* Note that we used `$`.
+
+* This is called the `accessor` because it lets us access columns.
+
+```{r}
+murders$population
+```
+
+* More generally: used to access components of a list.
+
+---
+
+## Data frames
+
+* One way R confuses beginners is by having  multiple ways of doing the same thing.
+
+* For example you can access the 4th column in the following five different ways: 
+
+```{r}
+#| eval: false
+
+murders$population
+murders[, "population"]
+murders[["population"]]
+murders[, 4]
+murders[[4]]
+```
+
+* In general, we recommend using the name rather than the number as it is less likely to change.
+
+---
+
+## with
+
+*  `with` let's us use the column names as objects.
+
+
+* This is convenient to avoid typing the data frame name over and over:
+
+```{r}
+rate <- with(murders, total/population)
+```
+
+---
+
+## with
+
+* Note you can write entire code chunks by enclosing it in curly brackets:
+
+```{r}
+with(murders, {
+   rate <- total/population
+   rate <- round(rate*10^5)
+   print(rate[1:5])
+})
+```
+
+---
+
+## Vectors
+
+* The columns of data frames are an example of one dimensional (atomic) vectors.
+
+
+```{r}
+length(murders$population)
+```
+
+---
+
+## Vectors
+
+
+* Often we have to create vectors.  
+
+* The concatenate function `c` is the most basic way used to create vectors:
+
+```{r}
+x <- c("b", "s", "t", " ", "2", "6", "0")
+```
+
+___
+
+## Sequences
+
+* Sequences are a the common example of vectors we generate.
+
+```{r}
+seq(1, 10)
+seq(1, 9, 2)
+```
+
+* When increasing by 1 you can use  `:`
+
+```{r}
+1:10
+```
+
+___
+
+## Sequences
+
+* A useful function to quickly generate the sequence `1:length(x)` is `seq_along`:
+
+```{r}
+x <- c("b", "s", "t", " ", "2", "6", "0")
+seq_along(x)
+```
+
+* A reason to use this is to loop through entries:
+
+```{r}
+for (i in seq_along(x)) {
+  cat(toupper(x[i]))
+}
+```
+
+---  
+
+## Factors
+
+* One key distinction between data types you need to understad is the difference between factors and characters.
+
+* The `murder` dataset has examples of both.
+
+```{r}
+class(murders$state)
+class(murders$region)
+```
+
+* Why do you think this is?
+
+---  
+
+## Factors
+
+* Factors store levels and the label of each level.
+
+* This is useful for categorical data.
+
+```{r}
+x <- murders$region
+levels(x)
+```
+
+
+---  
+
+## Categories based on strata
+
+* In data analysis we often have to stratify continuous variables into categories.
+
+* The function `cut` helps us do this:
+
+
+```{r}
+age <- c(5, 93, 18, 102, 14, 22, 45, 65, 67, 25, 30, 16, 21)
+cut(age, c(0, 11, 27, 43, 59, 78, 96, Inf))
+```
+
+
+---  
+
+## Categories based on strata
+
+* We can assign it more meaningful level names:
+
+```{r}
+age <- c(5, 93, 18, 102, 14, 22, 45, 65, 67, 25, 30, 16, 21)
+cut(age, c(0, 11, 27, 43, 59, 78, 96, Inf), 
+    labels = c("Alpha", "Zoomer", "Millennial", "X", "Boomer", "Silent", "Greatest"))
+```
+
+---  
+
+## Changing levels
+
+* This is often needed for ordinal data because R defaults to alphabetical order:
+
+```{r}
+gen <- factor(c("Alpha", "Zoomer", "Millennial"))
+levels(gen)
+```
+
+* You can change this with the `levels` argument:
+
+```{r}
+gen <- factor(gen, levels = c("Alpha", "Zoomer", "Millennial", "X", "Boomer", "Silent", "Greatest"))
+levels(gen)
+```
+
+
+---  
+
+## Changing levels
+
+* A common reason we need to change levels is to assure R is aware which is the reference strata.
+
+* This is important for linear models because the first level is assumed to be the reference.
+
+```{r}
+x <- factor(c("no drug", "drug 1", "drug 2"))
+levels(x)
+x <- relevel(x, ref = "no drug")
+levels(x)          
+```
+
+---  
+
+## Changing levels
+
+* We often want to order strata based on a summary statistic.
+
+* This is common in data visualization.
+
+* We can use `reorder` for this:
+
+```{r}
+x <- reorder(murders$region, murders$population, sum)
+```
+
+
+---  
+
+## Factors
+
+* Another reason we used factors is because they  more efficient:
+
+```{r}
+x <- sample(murders$state[c(5,33,44)], 10^7, replace = TRUE)
+y <- factor(x)
+object.size(x)
+object.size(y)
+```
+
+* An integer is easier to store than a character string.
+
+--- 
+
+## Factors
+
+Exercise: How can we make this go much faster?
+
+```{r}
+system.time({levels(y) <- tolower(levels(y))})
+```
+
+--- 
+
+## Factors can be confusing
+
+* Try to make sense of this:
+
+```{r}
+x <- factor(c("3","2","1"), levels = c("3","2","1"))
+as.numeric(x)
+
+x[1]
+levels(x[1])
+
+table(x[1])
+```
+
+--- 
+
+## Factors can be confusing
+
+* Avoid keeping extra levels with `droplevels`:
+
+```{r}
+z <- x[1]
+z <- droplevels(z)
+```
+
+* But note what happens if we change to another level:
+
+```{r}
+z[1] <- "1"
+z
+```
+
+--- 
+
+## NAs
+
+* NA stands for not available. 
+
+* Data analysts have to deal with NAs often.
+
+--- 
+
+## NAs
+
+* dslabs includes an example dataset with NAs
+
+```{r}
+library(dslabs)
+na_example[1:20]
+```
+
+* The `is.na` function is key for dealing with NAs
+
+```{r}
+is.na(na_example[1])
+is.na(na_example[17])
+is.na(NA)
+is.na("NA")
+```
+
+
+
+--- 
+
+## NAs
+
+* Technically NA is a logical
+
+```{r}
+class(NA)
+```
+
+* When used with ands and ors, NAs behaves like FALSE
+
+```{r}
+TRUE & NA
+TRUE | NA
+```
+
+* But NA is not FALSE. Try this:
+
+```{r}
+#| eval: false
+if (NA) print(1) else print(0)
+```
+
+--- 
+
+## NaNs
+
+* A related constant is `NaN`.
+
+* Unlike `NA`, which is a logical, `NaN` is a number.
+
+* It is a `numeric` that is _Not a Number_. 
+
+* Here are some examples:
+
+```{r}
+0/0
+class(0/0)
+sqrt(-1)
+log(-1)
+```
+
+--- 
+
+## Coercing
+
+* When you do something inconsistent with data types, R tries to figure out what you mean and change it accordingly.
+
+* We call this _coercing_.
+
+* R does not return an error and in some cases does not return a warning either.
+
+* This can cause confusion and unnoticed errors. 
+
+*  So it's important to understand how and when it happens. 
+
+--- 
+
+## Coercing
+
+* Here are some examples:
+
+```{r}
+typeof(1L)
+typeof(1)
+typeof(1 + 1L)
+c("a", 1, 2)
+TRUE + FALSE
+factor("a") == "a"
+identical(factor("a"), "a")
+```
+
+--- 
+
+## Coercing 
+
+* When R can't figure out how to coerce, rather an error it returns an NA:
+
+```{r}
+as.numeric("a")
+```
+
+* Note that including `NA`s in arithmetical operations usually returns an `NA`.
+
+```{r}
+1 + 2 + NA
+```
+
+--- 
+
+## Coercing
+
+* You want to avoid automatic coercion and instead explicitly do it. 
+
+* Most coercion functions start with `as.`
+
+* Here is an example.
+
+```{r}
+x <- factor(c("a","b","b","c"))
+as.character(x)
+as.numeric(x)
+```
+
+--- 
+
+## Coercing
+
+* More examples: 
+```{r}
+x <- c("12323", "12,323")
+as.numeric(x)
+
+library(readr)
+parse_guess(x)
+```
+
+--- 
+
+## Lists
+
+* Data frames are a type of list. 
+
+* Lists permit components of different types and, unlike data frames, different lengths:
+
+```{r}
+x <- list(name = "John", id = 112, grades = c(95, 87, 92))
+```
+
+* The JSON format is best represented as list in R.
+
+--- 
+
+## Lists
+
+* You can access components in different ways:
+
+```{r}
+x$name
+x[[1]]
+x[["name"]]
+```
+
+## Matrics
+
+* Matrices are another widely used data type. 
+
+* They are similar to data frames except all entries need to be of the same type.
+
+* We will learn more about matrices in the High Dimensional data Analysis part of the class.
+
+---
+
+## Functions
+
+* You can define your own function. The form is like this:
+
+```{r}
+#| eval: false
+f <- function(x, y, z = 0){
+  ### do calculations with x, y, z to compute object
+  ## return(object)
+}
+```
+
+---
+
+## Functions
+ 
+* Here is an example of a function that sums $1,2,\dots,n$
+
+```{r}
+s <- function(n){
+   return(sum(1:n))
+}
+```
+
+---
+
+
+## Lexical scope
+
+* Study what happens here:
+
+```{r}
+f <- function(x){
+  cat("y is", y,"\n")
+  y <- x
+  cat("y is", y,"\n")
+  return(y)
+}
+y <- 2
+f(3)
+y <- f(3)
+y
+```
+
+---
+
+## Namespaces 
+
+
+* Look at how this function changes by typing the following:
+
+
+```{r}
+#| eval: false
+
+filter
+library(dplyr)
+filter
+```
+
+
+---
+
+## Namespaces 
+
+
+* Note what R searches the _Global Environment_ first.
+
+* Use `search` to see other environments R searches.
+
+* Note many prebuilt functions are in `stats`.
+
+---
+
+## Namespaces 
+
+
+* You can explicitly say which `filter` you want using namespaces:
+
+```{r}
+#| eval: false
+stats::filter
+dplyr::filter
+```
+
+---
+
+## Namespaces 
+
+* Restart yoru R Consuole and study this example:
+
+```{r}
+library(dslabs)
+exists("murders")
+murders <- murders
+murders2 <- murders
+rm(murders)
+exists("murders")
+detach("package:dslabs")
+exists("murders")
+exists("murders2")
+```
+
+--- 
+
+## Object Oriented Programming
+
+* R uses object oriented programming (OOP). 
+
+* It uses two approaches referred to as S3 and S4, respectively. 
+
+* S3, the original approach, is more common.
+
+* The S4 approach is more similar to the conventions used by modern OOP languages.
+
+--- 
+
+## Object Oriented Programming
+
+::: {.panel-tabset}
+
+## Time series
+
+```{r}
+#| label: co2-plot
+#| out-width: "8in"
+
+plot(co2)
+```
+
+## Numeric
+
+```{r}
+#| label: wrong-co2-plot
+#| out-width: "8in"
+
+plot(as.numeric(co2))
+
+```
+
+:::
+
+
+--- 
+
+## Object Oriented Programming
+
+* Note `co2` is not numeric:
+
+```{r}
+class(co2)
+```
+
+* The plots are different because `plot` behaves different with different classes.
+
+--- 
+
+## Object Oriented Programming
+
+* The first `plot` actually calls the function
+
+```{r}
+#| eval: false
+plot.ts
+```
+
+* Notice all the plot functions that start with `plot` by typing `plot.` and then tab.
+
+* The function plot will call different functions depending on the class of the arguments.
+
+
+## Vectorization 
+
+* We will be using the `murders` dataset in the **dslabs** package.
+
+* Includes data on 2010 gun murders for the US 50 states and DC. 
+
+* We will use it to answer questions such as "What is the state with lowest crime rate in the Western part of the US?"
+
+---
+
+## Vectorization
+
+* First, some simple examples of vectorization.
+
+* Let's convert the following heights in inches to meters:
+
+```{r}
+heights <- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)
+```
+
+* Rather than loop we use vectorization:
+
+```{r}
+heights*2.54/100
+```
+
+---
+
+## Vectorization
+
+* We can subtract a constant from each element of a vector.
+
+* This is convenient for computing residuals or deviations from an average:
+
+```{r}
+avg <- mean(heights)
+heights - avg 
+```
+
+---
+
+## Vectorization
+
+* This means we can compute standard units like this:
+
+```{r}
+s <- sd(heights)
+(heights - avg)/s
+```
+
+* There is actually a function, `scale`, that does this. We describe it soon.
+
+---
+
+## Vectorization
+
+* If we operate on two vectors, vectorization is componentwise.
+
+* Here is an example:
+
+```{r}
+heights <- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)
+error <- rnorm(length(heights), 0, 0.1)
+heights + error
+```
+
+---
+
+## Exercise
+
+
+* Add a column to the murders dataset with the murder rate.
+
+* Use murders per 100,000 persons as the unit.
+
+---
+
+
+## Functions that vectorize
+
+* Most arithmetic functions work on vectors.
+
+```{r}
+x <- 1:10
+sqrt(x)
+log(x)
+2^x
+```
+
+---
+
+## Functions that vectorize
+
+```{r}
+scale(heights)
+```
+
+provides the same results, 
+
+```{r}
+(heights - mean(heights))/sd(heights)
+```
+
+---
+
+## Functions that vectorize
+
+* But `scale` coerces to  a column matrix:
+
+```{r}
+class(scale(heights))
+```
+
+---
+
+## Functions that vectorize
+
+* The conditional function `if`-`else` does not vectorize. 
+
+* A particularly useful function is a  vectorized version `ifelse`. 
+
+* Here is an example:
+
+```{r}
+a <- c(0, 1, 2, -4, 5)
+ifelse(a > 0, 1/a, NA)
+```
+
+* Other conditional functions, such as `any` and `all`, do vectorize.
+
+---
+
+## Indexing
+
+* Vectorization also works for logical relationships:
+
+```{r}
+library(dslabs)
+ind <- murders$population < 10^6
+```
+
+* A convenient aspect of this is that you can subset a vector using this logical vector for indexing:
+
+```{r}
+murders$state[ind]
+```
+
+---
+
+## Indexing
+
+
+* You can also use vectorization to apply logical operators:
+
+```{r}
+ind <- murders$population < 10^6 & murders$region == "West"
+murders$state[ind]
+```
+
+---
+
+## split
+
+* Split is a useful function to get indexes using a factor:
+
+```{r}
+inds <- with(murders, split(seq_along(region), region))
+murders$state[inds$West]
+```
+
+---
+
+## Functions for subsetting
+
+* The functions `which`, `match` and the operator `%in%` are 
+useful for sub-setting
+
+* To understand how they work it's best to use examples.
+
+
+---
+
+## which
+
+```{r}
+ind <- which(murders$state == "California")
+ind
+murders[ind,]
+```
+
+---
+
+## match
+
+```{r}
+ind <- match(c("New York", "Florida", "Texas"), murders$state)
+ind
+murders[ind,]
+```
+
+---
+
+## %in%
+
+
+```{r}
+ind <- which(murders$state %in% c("New York", "Florida", "Texas"))
+ind
+murders[ind,]
+```
+
+* Note this is similar to using match. But note the order is different.
+
+---
+
+## match versus %in%
+
+```{r}
+c("Boston", "Dakota", "Washington") %in% murders$state
+```
+
+```{r}
+match(c("Boston", "Dakota", "Washington"), murders$state)
+```
+
+```{r}
+match(murders$state, c("Boston", "Dakota", "Washington"))
+```
+
+## The apply functions
+
+* The apply functions let use the concept of vectorization with functions that don't vectorize.
+
+* Here is an example of a function that won't vectorize in a convenient way:
+
+```{r}
+s <- function(n){
+   return(sum(1:n))
+}
+```
+
+* Try it on a vector:
+
+```{r}
+ns <- c(25, 100, 1000)
+s(ns)
+```
+
+## The apply functions
+
+* We can use `sapply`, one of the apply functions:
+
+```{r}
+sapply(ns, s)
+```
+
+* `sapply` will work on any vector, including lists.
+
+## The apply functions
+
+* There are other apply functions:
+    
+    - `lapply` - returns a list. Convenient when the function returns something other than a number.
+    
+    - `tapply` - can apply to subsets defined by second variable.
+    
+    - `mapply` - multivariate version of `sapply`.
+    
+    - `apply` - applies function to rows or columns o matrix.
+  
+  
+* We will learn some of these as we go.
+
+
+

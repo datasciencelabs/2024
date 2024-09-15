@@ -7,6 +7,7 @@ listing:
     contents:
       - slides/00-intro.qmd
       - slides/productivity/*.qmd
+      - slides/R/*.qmd
     type: table
     fields: [keywords, title, date]
     date-format: "ddd, MMM DD"

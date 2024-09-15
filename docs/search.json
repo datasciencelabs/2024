@@ -344,38 +344,39 @@
     "text": "quarto render\n\nRStudio provides the Render button that makes it easier to compile the document.\nYou can also type quarto render filename.qmd on the command line. This offers many options.\nYou can produce html, pdf, or word documents.\nYou can specify the default in the YAML header using: format: html, format: pdf,format: docx, or format: gfm (gfm stands for GitHub flavored markdown, a convenient way to share your reports)."
   },
   {
-    "objectID": "psets.html",
-    "href": "psets.html",
-    "title": "Problem Sets",
-    "section": "",
-    "text": "Topic\n\n\nDue date (at 11:59 PM)\n\n\n\n\n\n\nProblem set 1\n\n\nWed, Sep 11\n\n\n\n\nProblem set 2\n\n\nThu, Sep 19\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Problem Sets"
-    ]
+    "objectID": "slides/00-intro.html#general-information",
+    "href": "slides/00-intro.html#general-information",
+    "title": "Introduction",
+    "section": "General Information",
+    "text": "General Information\n\nBST 260 Introduction to Data Science\nInstructor: Rafael A. Irizarry\nTFs: Corri Sept, Nikhil Vytla, Yuan Wang\nMondays we have lectures, Wednesday we have labs.\nWe work on problem sets together, in lab."
   },
   {
-    "objectID": "slides.html",
-    "href": "slides.html",
-    "title": "Slides",
-    "section": "",
-    "text": "Topic\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nFirst day\n\n\nIntroduction\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nUnix\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nRStudio\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nQuarto\n\n\nMon, Sep 09\n\n\n\n\nProductivity Tools\n\n\nGit and GitHub\n\n\nMon, Sep 09\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Slides"
-    ]
+    "objectID": "slides/00-intro.html#course-description",
+    "href": "slides/00-intro.html#course-description",
+    "title": "Introduction",
+    "section": "Course Description",
+    "text": "Course Description\nLecture notes: https://datasciencelabs.github.io/2024/\n\nPlease read the syllabus!"
   },
   {
-    "objectID": "psets/pset-01-unix-quarto.html",
-    "href": "psets/pset-01-unix-quarto.html",
-    "title": "Problem set 1",
-    "section": "",
-    "text": "After finishing the homework, you are to turn in all the code to GitHub using git.\n\nStart an RStudio project. Pick a good name following a naming convention. Start a Quarto document called beginning.qmd.\nCreate a directory called img and save a screen shot of your RStudio session for the project. Include your screenshot in the Quarto document.\nNext, in your Quarto document, define variables \\(a=1, b=-1, c=-2\\) and print out the solutions to \\(f(x) = ax^2+bx+c=0\\). Do not report complex solutions, only real numbers.\nInclude a graph of \\(f(x)\\) versus \\(x\\) for \\(x \\in (-5,5)\\).\n\n\nx &lt;- seq(-5, 5, length = 100)\n# Hint: Use the plot function\n\n\nCreate a directory called docs. Use the command quarto render to create a PDF and save it to the docs directory. Show us the command you typed:\n\n# Your code here\n\nUse Unix to create a directory called data in the project home directory. Include the Unix command you used to create the directory.\n\n# Your code here\n\nUse a terminal-based text editor to create a file coefs.txt in the data directory and save three coefficients, 1 -1 -2 for example. Show us the Unix commands you used to achieve this:\n\n# Your code here\n\nMake a directory called code. Use Unix to copy the file beginning.qmd to a file called quadratic.qmd in the code directory. Show us the Unix commands you used.\n\n# Your code here\n\nEdit the quadratic.qmd file to read in a, b, and c from the file coefs.txt. Make sure to use a relative path when reading the file. As before, print out the solutions to \\(f(x) = ax^2+bx+c=0\\). Do not report complex solutions, only real numbers.\nChange the path of the file you are reading to the full path you get when you type file.path(getwd(), \"data/coefs.txt\"). Confirm that the file still renders. Then move the entire pset-01-rmarkdown project to a directory called RtmpyDknq4. Does the file render? Change the path back to a relative path and see if it renders."
+    "objectID": "slides/00-intro.html#important-details",
+    "href": "slides/00-intro.html#important-details",
+    "title": "Introduction",
+    "section": "Important details",
+    "text": "Important details\n\nComplete readings before class.\nMidterms are in person. There are no makeups.\nMake sure you read messages sent via Canvas\nYou can select your own final project, but need approval.\nYou should start final project by October 23.\nHelp us pick office hours: https://forms.gle/GiQXqDTaeYVxaXd78"
   },
   {
-    "objectID": "psets/pset-02-r-vectorization.html",
-    "href": "psets/pset-02-r-vectorization.html",
-    "title": "Problem set 2",
-    "section": "",
-    "text": "For these exercises, do not load any packages other than dslabs.\nMake sure to use vectorization whenever possible.\n\nWhat is the sum of the first 100 positive integers? Use the functions seq and sum to compute the sum with R for any n.\n\n\n# Your code here\n\n\nLoad the US murders dataset from the dslabs package. Use the function str to examine the structure of the murders object. What are the column names used by the data frame for these five variables? Show the subset of murders showing states with less than 1 per 100,000 deaths. Show all variables.\n\n\nlibrary(dslabs)\nstr(murders)\n\n'data.frame':   51 obs. of  5 variables:\n $ state     : chr  \"Alabama\" \"Alaska\" \"Arizona\" \"Arkansas\" ...\n $ abb       : chr  \"AL\" \"AK\" \"AZ\" \"AR\" ...\n $ region    : Factor w/ 4 levels \"Northeast\",\"South\",..: 2 4 4 2 4 4 1 2 2 2 ...\n $ population: num  4779736 710231 6392017 2915918 37253956 ...\n $ total     : num  135 19 232 93 1257 ...\n\n\n\n# Your code here\n\n\nShow the subset of murders showing states with less than 1 per 100,000 deaths and in the West of the US. Don’t show the region variable.\n\n\n# Your code here\n\n\nShow the largest state with a rate less than 1 per 100,000.\n\n\n# Your code here\n\n\nShow the state with a population of more than 10 million with the lowest rate.\n\n\n# Your code here\n\n\nCompute the rate for each region of the US.\n\n\n# Your code here\n\n\nCreate a vector of numbers that starts at 6, does not pass 55, and adds numbers in increments of 4/7: 6, 6 + 4/7, 6 + 8/7, and so on. How many numbers does the list have? Hint: use seq and length.\n\n\n# Your code here\n\n\nMake this data frame:\n\n\ntemp &lt;- c(35, 88, 42, 84, 81, 30)\ncity &lt;- c(\"Beijing\", \"Lagos\", \"Paris\", \"Rio de Janeiro\", \n          \"San Juan\", \"Toronto\")\ncity_temps &lt;- data.frame(name = city, temperature = temp)\n\nConvert the temperatures to Celsius.\n\n# Your code here\n\n\nWrite a function euler that compute the following sum for any \\(n\\):\n\n\\[\nS_n = 1+1/2^2 + 1/3^2 + \\dots 1/n^2\n\\]\n\n# Your code here\n\n\nShow that as \\(n\\) gets bigger we get closer \\(\\pi^2/6\\) by plotting \\(S_n\\) versus \\(n\\) with a horizontal dashed line at \\(\\pi^2/6\\).\n\n\n# Your code here\n\n\nUse the %in% operator and the predefined object state.abb to create a logical vector that answers the question: which of the following are actual abbreviations: MA, ME, MI, MO, MU?\n\n\n# Your code here\n\n\nExtend the code you used in the previous exercise to report the one entry that is not an actual abbreviation. Hint: use the ! operator, which turns FALSE into TRUE and vice versa, then which to obtain an index.\n\n\n# Your code here\n\n\nIn the murders dataset, use %in% to show all variables for New York, California, and Texas, in that order.\n\n\n# Your code here\n\n\nWrite a function called vandermonde_helper that for any \\(x\\) and \\(n\\), returns the vector \\((1, x, x^2, x^3, \\dots, x^n)\\). Show the results for \\(x=3\\) and \\(n=5\\).\n\n\n# Your code here\n\n\nCreate a vector using:\n\n\nn &lt;- 10000\np &lt;- 0.5\nset.seed(2024-9-6)\nx &lt;- sample(c(0,1), n, prob = c(1 - p, p), replace = TRUE)\n\nCompute the length of each stretch of 1s and then plot the distribution of these values. Check to see if the distribution follows a geometric distribution as the theory predicts. Do not use a loop!\n\n# Your code here"
+    "objectID": "slides/00-intro.html#whats-coming",
+    "href": "slides/00-intro.html#whats-coming",
+    "title": "Introduction",
+    "section": "What’s coming",
+    "text": "What’s coming\n\nUNIX/Linux shell.\nReproducible document preparation\nVersion control with git and GitHub\nR programming\nData wrangling with dplyr and data.table\nData visualization with ggplot2\nProbability theory, inference and modeling\nHigh-dimensional data techniques\nMachine learning"
+  },
+  {
+    "objectID": "slides/00-intro.html#lets-get-started",
+    "href": "slides/00-intro.html#lets-get-started",
+    "title": "Introduction",
+    "section": "Let’s get started",
+    "text": "Let’s get started\n\nInstall R.\nInstall RStudio.\nMake sure you have access to a terminal."
   },
   {
     "objectID": "index.html",
@@ -402,7 +403,7 @@
     "href": "index.html#lectures",
     "title": "BST 260 Introduction to Data Science",
     "section": "Lectures",
-    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09, Sep 11\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git\n\n\nSep 16, Sep 19\nR\n\nR Basics, Vectorization, dplyr, ggplot2\n\n\nSep 23, Sep 25\nWrangling\n\nImporting data, dates and times, Locales, Reshaping Data, Joining Tables, Extracting data from the web\n\n\nSep 30, Oct 02\nData visualization\n\nDistributions, Dataviz Principles\n\n\nOct 07, Oct 09\nProbability\n\nMonte Carlo, Random Variables & CLT\n\n\nOct 16\nMidterm 1\n\nCovers material from Sep 04-Oct 11\n\n\nOct 21, Oct 23\nInference\n\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\n\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\n\nRegression, Multivariate Regression\n\n\nNov 13\nLinear models\n\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 18, Nov 20\nHigh dimensional data\n\nMatrices in R, Applied Linear Algebra, Dimension Reduction\n\n\nNov 25\nMidterm 2\n\nMidterm 2: cover material from Sep 04-Nov 22\n\n\nDec 02, Dec 04\nMachine Learning\n\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nDec 09, Dec 11\nMachine Learning\n\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
+    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09, Sep 11\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git\n\n\nSep 16, Sep 19\nR\nR basics\nR Basics, Vectorization, dplyr, ggplot2\n\n\nSep 23, Sep 25\nWrangling\n\nImporting data, dates and times, Locales, Reshaping Data, Joining Tables, Extracting data from the web\n\n\nSep 30, Oct 02\nData visualization\n\nDistributions, Dataviz Principles\n\n\nOct 07, Oct 09\nProbability\n\nMonte Carlo, Random Variables & CLT\n\n\nOct 16\nMidterm 1\n\nCovers material from Sep 04-Oct 11\n\n\nOct 21, Oct 23\nInference\n\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\n\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\n\nRegression, Multivariate Regression\n\n\nNov 13\nLinear models\n\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 18, Nov 20\nHigh dimensional data\n\nMatrices in R, Applied Linear Algebra, Dimension Reduction\n\n\nNov 25\nMidterm 2\n\nMidterm 2: cover material from Sep 04-Nov 22\n\n\nDec 02, Dec 04\nMachine Learning\n\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nDec 09, Dec 11\nMachine Learning\n\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
     "crumbs": [
       "Home"
     ]
@@ -438,39 +439,563 @@
     ]
   },
   {
-    "objectID": "slides/00-intro.html#general-information",
-    "href": "slides/00-intro.html#general-information",
-    "title": "Introduction",
-    "section": "General Information",
-    "text": "General Information\n\nBST 260 Introduction to Data Science\nInstructor: Rafael A. Irizarry\nTFs: Corri Sept, Nikhil Vytla, Yuan Wang\nMondays we have lectures, Wednesday we have labs.\nWe work on problem sets together, in lab."
+    "objectID": "psets/pset-02-r-vectorization.html",
+    "href": "psets/pset-02-r-vectorization.html",
+    "title": "Problem set 2",
+    "section": "",
+    "text": "For these exercises, do not load any packages other than dslabs.\nMake sure to use vectorization whenever possible.\n\nWhat is the sum of the first 100 positive integers? Use the functions seq and sum to compute the sum with R for any n.\n\n\n# Your code here\n\n\nLoad the US murders dataset from the dslabs package. Use the function str to examine the structure of the murders object. What are the column names used by the data frame for these five variables? Show the subset of murders showing states with less than 1 per 100,000 deaths. Show all variables.\n\n\nlibrary(dslabs)\nstr(murders)\n\n'data.frame':   51 obs. of  5 variables:\n $ state     : chr  \"Alabama\" \"Alaska\" \"Arizona\" \"Arkansas\" ...\n $ abb       : chr  \"AL\" \"AK\" \"AZ\" \"AR\" ...\n $ region    : Factor w/ 4 levels \"Northeast\",\"South\",..: 2 4 4 2 4 4 1 2 2 2 ...\n $ population: num  4779736 710231 6392017 2915918 37253956 ...\n $ total     : num  135 19 232 93 1257 ...\n\n\n\n# Your code here\n\n\nShow the subset of murders showing states with less than 1 per 100,000 deaths and in the West of the US. Don’t show the region variable.\n\n\n# Your code here\n\n\nShow the largest state with a rate less than 1 per 100,000.\n\n\n# Your code here\n\n\nShow the state with a population of more than 10 million with the lowest rate.\n\n\n# Your code here\n\n\nCompute the rate for each region of the US.\n\n\n# Your code here\n\n\nCreate a vector of numbers that starts at 6, does not pass 55, and adds numbers in increments of 4/7: 6, 6 + 4/7, 6 + 8/7, and so on. How many numbers does the list have? Hint: use seq and length.\n\n\n# Your code here\n\n\nMake this data frame:\n\n\ntemp &lt;- c(35, 88, 42, 84, 81, 30)\ncity &lt;- c(\"Beijing\", \"Lagos\", \"Paris\", \"Rio de Janeiro\", \n          \"San Juan\", \"Toronto\")\ncity_temps &lt;- data.frame(name = city, temperature = temp)\n\nConvert the temperatures to Celsius.\n\n# Your code here\n\n\nWrite a function euler that compute the following sum for any \\(n\\):\n\n\\[\nS_n = 1+1/2^2 + 1/3^2 + \\dots 1/n^2\n\\]\n\n# Your code here\n\n\nShow that as \\(n\\) gets bigger we get closer \\(\\pi^2/6\\) by plotting \\(S_n\\) versus \\(n\\) with a horizontal dashed line at \\(\\pi^2/6\\).\n\n\n# Your code here\n\n\nUse the %in% operator and the predefined object state.abb to create a logical vector that answers the question: which of the following are actual abbreviations: MA, ME, MI, MO, MU?\n\n\n# Your code here\n\n\nExtend the code you used in the previous exercise to report the one entry that is not an actual abbreviation. Hint: use the ! operator, which turns FALSE into TRUE and vice versa, then which to obtain an index.\n\n\n# Your code here\n\n\nIn the murders dataset, use %in% to show all variables for New York, California, and Texas, in that order.\n\n\n# Your code here\n\n\nWrite a function called vandermonde_helper that for any \\(x\\) and \\(n\\), returns the vector \\((1, x, x^2, x^3, \\dots, x^n)\\). Show the results for \\(x=3\\) and \\(n=5\\).\n\n\n# Your code here\n\n\nCreate a vector using:\n\n\nn &lt;- 10000\np &lt;- 0.5\nset.seed(2024-9-6)\nx &lt;- sample(c(0,1), n, prob = c(1 - p, p), replace = TRUE)\n\nCompute the length of each stretch of 1s and then plot the distribution of these values. Check to see if the distribution follows a geometric distribution as the theory predicts. Do not use a loop!\n\n# Your code here"
   },
   {
-    "objectID": "slides/00-intro.html#course-description",
-    "href": "slides/00-intro.html#course-description",
-    "title": "Introduction",
-    "section": "Course Description",
-    "text": "Course Description\nLecture notes: https://datasciencelabs.github.io/2024/\n\nPlease read the syllabus!"
+    "objectID": "psets/pset-01-unix-quarto.html",
+    "href": "psets/pset-01-unix-quarto.html",
+    "title": "Problem set 1",
+    "section": "",
+    "text": "After finishing the homework, you are to turn in all the code to GitHub using git.\n\nStart an RStudio project. Pick a good name following a naming convention. Start a Quarto document called beginning.qmd.\nCreate a directory called img and save a screen shot of your RStudio session for the project. Include your screenshot in the Quarto document.\nNext, in your Quarto document, define variables \\(a=1, b=-1, c=-2\\) and print out the solutions to \\(f(x) = ax^2+bx+c=0\\). Do not report complex solutions, only real numbers.\nInclude a graph of \\(f(x)\\) versus \\(x\\) for \\(x \\in (-5,5)\\).\n\n\nx &lt;- seq(-5, 5, length = 100)\n# Hint: Use the plot function\n\n\nCreate a directory called docs. Use the command quarto render to create a PDF and save it to the docs directory. Show us the command you typed:\n\n# Your code here\n\nUse Unix to create a directory called data in the project home directory. Include the Unix command you used to create the directory.\n\n# Your code here\n\nUse a terminal-based text editor to create a file coefs.txt in the data directory and save three coefficients, 1 -1 -2 for example. Show us the Unix commands you used to achieve this:\n\n# Your code here\n\nMake a directory called code. Use Unix to copy the file beginning.qmd to a file called quadratic.qmd in the code directory. Show us the Unix commands you used.\n\n# Your code here\n\nEdit the quadratic.qmd file to read in a, b, and c from the file coefs.txt. Make sure to use a relative path when reading the file. As before, print out the solutions to \\(f(x) = ax^2+bx+c=0\\). Do not report complex solutions, only real numbers.\nChange the path of the file you are reading to the full path you get when you type file.path(getwd(), \"data/coefs.txt\"). Confirm that the file still renders. Then move the entire pset-01-rmarkdown project to a directory called RtmpyDknq4. Does the file render? Change the path back to a relative path and see if it renders."
   },
   {
-    "objectID": "slides/00-intro.html#important-details",
-    "href": "slides/00-intro.html#important-details",
-    "title": "Introduction",
-    "section": "Important details",
-    "text": "Important details\n\nComplete readings before class.\nMidterms are in person. There are no makeups.\nMake sure you read messages sent via Canvas\nYou can select your own final project, but need approval.\nYou should start final project by October 23.\nHelp us pick office hours: https://forms.gle/GiQXqDTaeYVxaXd78"
+    "objectID": "slides.html",
+    "href": "slides.html",
+    "title": "Slides",
+    "section": "",
+    "text": "Topic\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nFirst day\n\n\nIntroduction\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nUnix\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nRStudio\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nQuarto\n\n\nMon, Sep 09\n\n\n\n\nProductivity Tools\n\n\nGit and GitHub\n\n\nMon, Sep 09\n\n\n\n\nR\n\n\nR Basics\n\n\nMon, Sep 09\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Slides"
+    ]
   },
   {
-    "objectID": "slides/00-intro.html#whats-coming",
-    "href": "slides/00-intro.html#whats-coming",
-    "title": "Introduction",
-    "section": "What’s coming",
-    "text": "What’s coming\n\nUNIX/Linux shell.\nReproducible document preparation\nVersion control with git and GitHub\nR programming\nData wrangling with dplyr and data.table\nData visualization with ggplot2\nProbability theory, inference and modeling\nHigh-dimensional data techniques\nMachine learning"
+    "objectID": "psets.html",
+    "href": "psets.html",
+    "title": "Problem Sets",
+    "section": "",
+    "text": "Topic\n\n\nDue date (at 11:59 PM)\n\n\n\n\n\n\nProblem set 1\n\n\nWed, Sep 11\n\n\n\n\nProblem set 2\n\n\nThu, Sep 19\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Problem Sets"
+    ]
   },
   {
-    "objectID": "slides/00-intro.html#lets-get-started",
-    "href": "slides/00-intro.html#lets-get-started",
-    "title": "Introduction",
-    "section": "Let’s get started",
-    "text": "Let’s get started\n\nInstall R.\nInstall RStudio.\nMake sure you have access to a terminal."
+    "objectID": "slides/R/05-r-basics.html#packages",
+    "href": "slides/R/05-r-basics.html#packages",
+    "title": "R Basics",
+    "section": "Packages",
+    "text": "Packages\n\nUse install.packages to install the dslabs package.\nTryout the following functions: sessionInfo, installed.packages"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#prebuilt-functions",
+    "href": "slides/R/05-r-basics.html#prebuilt-functions",
+    "title": "R Basics",
+    "section": "Prebuilt functions",
+    "text": "Prebuilt functions\n\nMuch of what we do in R is based on prebuilt functions.\nMany are included in automatically loaded packages: stats, graphics, grDevices, utils, datasets, methods.\nThis subset of the R universe is refereed to as R base.\nVery popular packages not included in R base: ggplot2, dplyr, tidyr, and data.table."
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#prebuilt-functions-1",
+    "href": "slides/R/05-r-basics.html#prebuilt-functions-1",
+    "title": "R Basics",
+    "section": "Prebuilt functions",
+    "text": "Prebuilt functions\n\nExample of prebuilt functions that we will use today: ls, rm, library, search, factor, list, exists, str, typeof, and class.\nYou can see the raw code for a function by typing it without the parenthesis: type ls on your console to see an example."
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#help-system",
+    "href": "slides/R/05-r-basics.html#help-system",
+    "title": "R Basics",
+    "section": "Help system",
+    "text": "Help system\n\nIn R you can use ? or help to learn more about functions.\nYou can learn about function using\n\nhelp(\"ls\")\nor\n?ls"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#the-workspace",
+    "href": "slides/R/05-r-basics.html#the-workspace",
+    "title": "R Basics",
+    "section": "The workspace",
+    "text": "The workspace\n\nDefine a variable.\n\n\na &lt;- 2\n\n\nUse ls to see if it’s there. Also take a look at the Environment tab in RStudio.\n\n\nls()\n\n[1] \"a\"\n\n\n\nUse rm to remove the variable you defined.\n\n\nrm(a)"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#variable-name-convention",
+    "href": "slides/R/05-r-basics.html#variable-name-convention",
+    "title": "R Basics",
+    "section": "Variable name convention",
+    "text": "Variable name convention\n\nA nice convention to follow is to use meaningful words that describe what is stored, use only lower case, and use underscores as a substitute for spaces.\nFor more we recommend this guide."
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#data-types",
+    "href": "slides/R/05-r-basics.html#data-types",
+    "title": "R Basics",
+    "section": "Data types",
+    "text": "Data types\nThe main data types in R are:\n\nOne dimensional vectors: numeric, integer, logical, complex, characters.\nFactors\nLists: this includes data frames.\nArrays: Matrices are the most widely used.\nDate and time\ntibble\nS4 objects"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#data-types-1",
+    "href": "slides/R/05-r-basics.html#data-types-1",
+    "title": "R Basics",
+    "section": "Data types",
+    "text": "Data types\n\nMany errors in R come from confusing data types.\nstr stands for structure, gives us information about an object.\ntypeof gives you the basic data type of the object. It reveals the lower-level, more fundamental type of an object in R’s memory.\nclass This function returns the class attribute of an object. The class of an object is essentially type_of at a higher, often user-facing level."
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#data-types-2",
+    "href": "slides/R/05-r-basics.html#data-types-2",
+    "title": "R Basics",
+    "section": "Data types",
+    "text": "Data types\nLet’s see some example:\n\nlibrary(dslabs)\ntypeof(murders)\n\n[1] \"list\"\n\nclass(murders)\n\n[1] \"data.frame\"\n\nstr(murders)\n\n'data.frame':   51 obs. of  5 variables:\n $ state     : chr  \"Alabama\" \"Alaska\" \"Arizona\" \"Arkansas\" ...\n $ abb       : chr  \"AL\" \"AK\" \"AZ\" \"AR\" ...\n $ region    : Factor w/ 4 levels \"Northeast\",\"South\",..: 2 4 4 2 4 4 1 2 2 2 ...\n $ population: num  4779736 710231 6392017 2915918 37253956 ...\n $ total     : num  135 19 232 93 1257 ..."
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#data-frames",
+    "href": "slides/R/05-r-basics.html#data-frames",
+    "title": "R Basics",
+    "section": "Data frames",
+    "text": "Data frames\n\nDate frames are the most common class used in data analysis. It is like a spreadsheet.\nUsually, rows represents observations and columns variables.\nEach variable can be a different data type.\nYou can see part of the content like this\n\n\nhead(murders)\n\n       state abb region population total\n1    Alabama  AL  South    4779736   135\n2     Alaska  AK   West     710231    19\n3    Arizona  AZ   West    6392017   232\n4   Arkansas  AR  South    2915918    93\n5 California  CA   West   37253956  1257\n6   Colorado  CO   West    5029196    65"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#data-frames-1",
+    "href": "slides/R/05-r-basics.html#data-frames-1",
+    "title": "R Basics",
+    "section": "Data frames",
+    "text": "Data frames\n\nand all of the content like this:\n\n\nView(murders)\n\n\nType the above in RStudio."
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#data-frames-2",
+    "href": "slides/R/05-r-basics.html#data-frames-2",
+    "title": "R Basics",
+    "section": "Data frames",
+    "text": "Data frames\n\nA very common operation is adding columns like this:\n\n\nmurders$pop_rank &lt;- rank(murders$population)\nhead(murders)\n\n       state abb region population total pop_rank\n1    Alabama  AL  South    4779736   135       29\n2     Alaska  AK   West     710231    19        5\n3    Arizona  AZ   West    6392017   232       36\n4   Arkansas  AR  South    2915918    93       20\n5 California  CA   West   37253956  1257       51\n6   Colorado  CO   West    5029196    65       30"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#data-frames-3",
+    "href": "slides/R/05-r-basics.html#data-frames-3",
+    "title": "R Basics",
+    "section": "Data frames",
+    "text": "Data frames\n\nNote that we used $.\nThis is called the accessor because it lets us access columns.\n\n\nmurders$population\n\n [1]  4779736   710231  6392017  2915918 37253956  5029196  3574097   897934\n [9]   601723 19687653  9920000  1360301  1567582 12830632  6483802  3046355\n[17]  2853118  4339367  4533372  1328361  5773552  6547629  9883640  5303925\n[25]  2967297  5988927   989415  1826341  2700551  1316470  8791894  2059179\n[33] 19378102  9535483   672591 11536504  3751351  3831074 12702379  1052567\n[41]  4625364   814180  6346105 25145561  2763885   625741  8001024  6724540\n[49]  1852994  5686986   563626\n\n\n\nMore generally: used to access components of a list."
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#data-frames-4",
+    "href": "slides/R/05-r-basics.html#data-frames-4",
+    "title": "R Basics",
+    "section": "Data frames",
+    "text": "Data frames\n\nOne way R confuses beginners is by having multiple ways of doing the same thing.\nFor example you can access the 4th column in the following five different ways:\n\n\nmurders$population\nmurders[, \"population\"]\nmurders[[\"population\"]]\nmurders[, 4]\nmurders[[4]]\n\n\nIn general, we recommend using the name rather than the number as it is less likely to change."
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#with",
+    "href": "slides/R/05-r-basics.html#with",
+    "title": "R Basics",
+    "section": "with",
+    "text": "with\n\nwith let’s us use the column names as objects.\nThis is convenient to avoid typing the data frame name over and over:\n\n\nrate &lt;- with(murders, total/population)"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#with-1",
+    "href": "slides/R/05-r-basics.html#with-1",
+    "title": "R Basics",
+    "section": "with",
+    "text": "with\n\nNote you can write entire code chunks by enclosing it in curly brackets:\n\n\nwith(murders, {\n   rate &lt;- total/population\n   rate &lt;- round(rate*10^5)\n   print(rate[1:5])\n})\n\n[1] 3 3 4 3 3"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#vectors",
+    "href": "slides/R/05-r-basics.html#vectors",
+    "title": "R Basics",
+    "section": "Vectors",
+    "text": "Vectors\n\nThe columns of data frames are an example of one dimensional (atomic) vectors.\n\n\nlength(murders$population)\n\n[1] 51"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#vectors-1",
+    "href": "slides/R/05-r-basics.html#vectors-1",
+    "title": "R Basics",
+    "section": "Vectors",
+    "text": "Vectors\n\nOften we have to create vectors.\nThe concatenate function c is the most basic way used to create vectors:\n\n\nx &lt;- c(\"b\", \"s\", \"t\", \" \", \"2\", \"6\", \"0\")"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#sequences",
+    "href": "slides/R/05-r-basics.html#sequences",
+    "title": "R Basics",
+    "section": "Sequences",
+    "text": "Sequences\n\nSequences are a the common example of vectors we generate.\n\n\nseq(1, 10)\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\nseq(1, 9, 2)\n\n[1] 1 3 5 7 9\n\n\n\nWhen increasing by 1 you can use :\n\n\n1:10\n\n [1]  1  2  3  4  5  6  7  8  9 10"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#sequences-1",
+    "href": "slides/R/05-r-basics.html#sequences-1",
+    "title": "R Basics",
+    "section": "Sequences",
+    "text": "Sequences\n\nA useful function to quickly generate the sequence 1:length(x) is seq_along:\n\n\nx &lt;- c(\"b\", \"s\", \"t\", \" \", \"2\", \"6\", \"0\")\nseq_along(x)\n\n[1] 1 2 3 4 5 6 7\n\n\n\nA reason to use this is to loop through entries:\n\n\nfor (i in seq_along(x)) {\n  cat(toupper(x[i]))\n}\n\nBST 260"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#factors",
+    "href": "slides/R/05-r-basics.html#factors",
+    "title": "R Basics",
+    "section": "Factors",
+    "text": "Factors\n\nOne key distinction between data types you need to understad is the difference between factors and characters.\nThe murder dataset has examples of both.\n\n\nclass(murders$state)\n\n[1] \"character\"\n\nclass(murders$region)\n\n[1] \"factor\"\n\n\n\nWhy do you think this is?"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#factors-1",
+    "href": "slides/R/05-r-basics.html#factors-1",
+    "title": "R Basics",
+    "section": "Factors",
+    "text": "Factors\n\nFactors store levels and the label of each level.\nThis is useful for categorical data.\n\n\nx &lt;- murders$region\nlevels(x)\n\n[1] \"Northeast\"     \"South\"         \"North Central\" \"West\""
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#categories-based-on-strata",
+    "href": "slides/R/05-r-basics.html#categories-based-on-strata",
+    "title": "R Basics",
+    "section": "Categories based on strata",
+    "text": "Categories based on strata\n\nIn data analysis we often have to stratify continuous variables into categories.\nThe function cut helps us do this:\n\n\nage &lt;- c(5, 93, 18, 102, 14, 22, 45, 65, 67, 25, 30, 16, 21)\ncut(age, c(0, 11, 27, 43, 59, 78, 96, Inf))\n\n [1] (0,11]   (78,96]  (11,27]  (96,Inf] (11,27]  (11,27]  (43,59]  (59,78] \n [9] (59,78]  (11,27]  (27,43]  (11,27]  (11,27] \nLevels: (0,11] (11,27] (27,43] (43,59] (59,78] (78,96] (96,Inf]"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#categories-based-on-strata-1",
+    "href": "slides/R/05-r-basics.html#categories-based-on-strata-1",
+    "title": "R Basics",
+    "section": "Categories based on strata",
+    "text": "Categories based on strata\n\nWe can assign it more meaningful level names:\n\n\nage &lt;- c(5, 93, 18, 102, 14, 22, 45, 65, 67, 25, 30, 16, 21)\ncut(age, c(0, 11, 27, 43, 59, 78, 96, Inf), \n    labels = c(\"Alpha\", \"Zoomer\", \"Millennial\", \"X\", \"Boomer\", \"Silent\", \"Greatest\"))\n\n [1] Alpha      Silent     Zoomer     Greatest   Zoomer     Zoomer    \n [7] X          Boomer     Boomer     Zoomer     Millennial Zoomer    \n[13] Zoomer    \nLevels: Alpha Zoomer Millennial X Boomer Silent Greatest"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#changing-levels",
+    "href": "slides/R/05-r-basics.html#changing-levels",
+    "title": "R Basics",
+    "section": "Changing levels",
+    "text": "Changing levels\n\nThis is often needed for ordinal data because R defaults to alphabetical order:\n\n\ngen &lt;- factor(c(\"Alpha\", \"Zoomer\", \"Millennial\"))\nlevels(gen)\n\n[1] \"Alpha\"      \"Millennial\" \"Zoomer\"    \n\n\n\nYou can change this with the levels argument:\n\n\ngen &lt;- factor(gen, levels = c(\"Alpha\", \"Zoomer\", \"Millennial\", \"X\", \"Boomer\", \"Silent\", \"Greatest\"))\nlevels(gen)\n\n[1] \"Alpha\"      \"Zoomer\"     \"Millennial\" \"X\"          \"Boomer\"    \n[6] \"Silent\"     \"Greatest\""
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#changing-levels-1",
+    "href": "slides/R/05-r-basics.html#changing-levels-1",
+    "title": "R Basics",
+    "section": "Changing levels",
+    "text": "Changing levels\n\nA common reason we need to change levels is to assure R is aware which is the reference strata.\nThis is important for linear models because the first level is assumed to be the reference.\n\n\nx &lt;- factor(c(\"no drug\", \"drug 1\", \"drug 2\"))\nlevels(x)\n\n[1] \"drug 1\"  \"drug 2\"  \"no drug\"\n\nx &lt;- relevel(x, ref = \"no drug\")\nlevels(x)          \n\n[1] \"no drug\" \"drug 1\"  \"drug 2\""
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#changing-levels-2",
+    "href": "slides/R/05-r-basics.html#changing-levels-2",
+    "title": "R Basics",
+    "section": "Changing levels",
+    "text": "Changing levels\n\nWe often want to order strata based on a summary statistic.\nThis is common in data visualization.\nWe can use reorder for this:\n\n\nx &lt;- reorder(murders$region, murders$population, sum)"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#factors-2",
+    "href": "slides/R/05-r-basics.html#factors-2",
+    "title": "R Basics",
+    "section": "Factors",
+    "text": "Factors\n\nAnother reason we used factors is because they more efficient:\n\n\nx &lt;- sample(murders$state[c(5,33,44)], 10^7, replace = TRUE)\ny &lt;- factor(x)\nobject.size(x)\n\n80000232 bytes\n\nobject.size(y)\n\n40000648 bytes\n\n\n\nAn integer is easier to store than a character string."
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#factors-3",
+    "href": "slides/R/05-r-basics.html#factors-3",
+    "title": "R Basics",
+    "section": "Factors",
+    "text": "Factors\nExercise: How can we make this go much faster?\n\nsystem.time({levels(y) &lt;- tolower(levels(y))})\n\n   user  system elapsed \n  0.018   0.000   0.019"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#factors-can-be-confusing",
+    "href": "slides/R/05-r-basics.html#factors-can-be-confusing",
+    "title": "R Basics",
+    "section": "Factors can be confusing",
+    "text": "Factors can be confusing\n\nTry to make sense of this:\n\n\nx &lt;- factor(c(\"3\",\"2\",\"1\"), levels = c(\"3\",\"2\",\"1\"))\nas.numeric(x)\n\n[1] 1 2 3\n\nx[1]\n\n[1] 3\nLevels: 3 2 1\n\nlevels(x[1])\n\n[1] \"3\" \"2\" \"1\"\n\ntable(x[1])\n\n\n3 2 1 \n1 0 0"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#factors-can-be-confusing-1",
+    "href": "slides/R/05-r-basics.html#factors-can-be-confusing-1",
+    "title": "R Basics",
+    "section": "Factors can be confusing",
+    "text": "Factors can be confusing\n\nAvoid keeping extra levels with droplevels:\n\n\nz &lt;- x[1]\nz &lt;- droplevels(z)\n\n\nBut note what happens if we change to another level:\n\n\nz[1] &lt;- \"1\"\nz\n\n[1] &lt;NA&gt;\nLevels: 3"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#nas",
+    "href": "slides/R/05-r-basics.html#nas",
+    "title": "R Basics",
+    "section": "NAs",
+    "text": "NAs\n\nNA stands for not available.\nData analysts have to deal with NAs often."
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#nas-1",
+    "href": "slides/R/05-r-basics.html#nas-1",
+    "title": "R Basics",
+    "section": "NAs",
+    "text": "NAs\n\ndslabs includes an example dataset with NAs\n\n\nlibrary(dslabs)\nna_example[1:20]\n\n [1]  2  1  3  2  1  3  1  4  3  2  2 NA  2  2  1  4 NA  1  1  2\n\n\n\nThe is.na function is key for dealing with NAs\n\n\nis.na(na_example[1])\n\n[1] FALSE\n\nis.na(na_example[17])\n\n[1] TRUE\n\nis.na(NA)\n\n[1] TRUE\n\nis.na(\"NA\")\n\n[1] FALSE"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#nas-2",
+    "href": "slides/R/05-r-basics.html#nas-2",
+    "title": "R Basics",
+    "section": "NAs",
+    "text": "NAs\n\nTechnically NA is a logical\n\n\nclass(NA)\n\n[1] \"logical\"\n\n\n\nWhen used with ands and ors, NAs behaves like FALSE\n\n\nTRUE & NA\n\n[1] NA\n\nTRUE | NA\n\n[1] TRUE\n\n\n\nBut NA is not FALSE. Try this:\n\n\nif (NA) print(1) else print(0)"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#nans",
+    "href": "slides/R/05-r-basics.html#nans",
+    "title": "R Basics",
+    "section": "NaNs",
+    "text": "NaNs\n\nA related constant is NaN.\nUnlike NA, which is a logical, NaN is a number.\nIt is a numeric that is Not a Number.\nHere are some examples:\n\n\n0/0\n\n[1] NaN\n\nclass(0/0)\n\n[1] \"numeric\"\n\nsqrt(-1)\n\n[1] NaN\n\nlog(-1)\n\n[1] NaN"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#coercing",
+    "href": "slides/R/05-r-basics.html#coercing",
+    "title": "R Basics",
+    "section": "Coercing",
+    "text": "Coercing\n\nWhen you do something inconsistent with data types, R tries to figure out what you mean and change it accordingly.\nWe call this coercing.\nR does not return an error and in some cases does not return a warning either.\nThis can cause confusion and unnoticed errors.\nSo it’s important to understand how and when it happens."
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#coercing-1",
+    "href": "slides/R/05-r-basics.html#coercing-1",
+    "title": "R Basics",
+    "section": "Coercing",
+    "text": "Coercing\n\nHere are some examples:\n\n\ntypeof(1L)\n\n[1] \"integer\"\n\ntypeof(1)\n\n[1] \"double\"\n\ntypeof(1 + 1L)\n\n[1] \"double\"\n\nc(\"a\", 1, 2)\n\n[1] \"a\" \"1\" \"2\"\n\nTRUE + FALSE\n\n[1] 1\n\nfactor(\"a\") == \"a\"\n\n[1] TRUE\n\nidentical(factor(\"a\"), \"a\")\n\n[1] FALSE"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#coercing-2",
+    "href": "slides/R/05-r-basics.html#coercing-2",
+    "title": "R Basics",
+    "section": "Coercing",
+    "text": "Coercing\n\nWhen R can’t figure out how to coerce, rather an error it returns an NA:\n\n\nas.numeric(\"a\")\n\n[1] NA\n\n\n\nNote that including NAs in arithmetical operations usually returns an NA.\n\n\n1 + 2 + NA\n\n[1] NA"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#coercing-3",
+    "href": "slides/R/05-r-basics.html#coercing-3",
+    "title": "R Basics",
+    "section": "Coercing",
+    "text": "Coercing\n\nYou want to avoid automatic coercion and instead explicitly do it.\nMost coercion functions start with as.\nHere is an example.\n\n\nx &lt;- factor(c(\"a\",\"b\",\"b\",\"c\"))\nas.character(x)\n\n[1] \"a\" \"b\" \"b\" \"c\"\n\nas.numeric(x)\n\n[1] 1 2 2 3"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#coercing-4",
+    "href": "slides/R/05-r-basics.html#coercing-4",
+    "title": "R Basics",
+    "section": "Coercing",
+    "text": "Coercing\n\nMore examples:\n\n\nx &lt;- c(\"12323\", \"12,323\")\nas.numeric(x)\n\n[1] 12323    NA\n\nlibrary(readr)\nparse_guess(x)\n\n[1] 12323 12323"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#lists",
+    "href": "slides/R/05-r-basics.html#lists",
+    "title": "R Basics",
+    "section": "Lists",
+    "text": "Lists\n\nData frames are a type of list.\nLists permit components of different types and, unlike data frames, different lengths:\n\n\nx &lt;- list(name = \"John\", id = 112, grades = c(95, 87, 92))\n\n\nThe JSON format is best represented as list in R."
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#lists-1",
+    "href": "slides/R/05-r-basics.html#lists-1",
+    "title": "R Basics",
+    "section": "Lists",
+    "text": "Lists\n\nYou can access components in different ways:\n\n\nx$name\n\n[1] \"John\"\n\nx[[1]]\n\n[1] \"John\"\n\nx[[\"name\"]]\n\n[1] \"John\""
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#matrics",
+    "href": "slides/R/05-r-basics.html#matrics",
+    "title": "R Basics",
+    "section": "Matrics",
+    "text": "Matrics\n\nMatrices are another widely used data type.\nThey are similar to data frames except all entries need to be of the same type.\nWe will learn more about matrices in the High Dimensional data Analysis part of the class."
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#functions",
+    "href": "slides/R/05-r-basics.html#functions",
+    "title": "R Basics",
+    "section": "Functions",
+    "text": "Functions\n\nYou can define your own function. The form is like this:\n\n\nf &lt;- function(x, y, z = 0){\n  ### do calculations with x, y, z to compute object\n  ## return(object)\n}"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#functions-1",
+    "href": "slides/R/05-r-basics.html#functions-1",
+    "title": "R Basics",
+    "section": "Functions",
+    "text": "Functions\n\nHere is an example of a function that sums \\(1,2,\\dots,n\\)\n\n\ns &lt;- function(n){\n   return(sum(1:n))\n}"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#lexical-scope",
+    "href": "slides/R/05-r-basics.html#lexical-scope",
+    "title": "R Basics",
+    "section": "Lexical scope",
+    "text": "Lexical scope\n\nStudy what happens here:\n\n\nf &lt;- function(x){\n  cat(\"y is\", y,\"\\n\")\n  y &lt;- x\n  cat(\"y is\", y,\"\\n\")\n  return(y)\n}\ny &lt;- 2\nf(3)\n\ny is 2 \ny is 3 \n\n\n[1] 3\n\ny &lt;- f(3)\n\ny is 2 \ny is 3 \n\ny\n\n[1] 3"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#namespaces",
+    "href": "slides/R/05-r-basics.html#namespaces",
+    "title": "R Basics",
+    "section": "Namespaces",
+    "text": "Namespaces\n\nLook at how this function changes by typing the following:\n\n\nfilter\nlibrary(dplyr)\nfilter"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#namespaces-1",
+    "href": "slides/R/05-r-basics.html#namespaces-1",
+    "title": "R Basics",
+    "section": "Namespaces",
+    "text": "Namespaces\n\nNote what R searches the Global Environment first.\nUse search to see other environments R searches.\nNote many prebuilt functions are in stats."
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#namespaces-2",
+    "href": "slides/R/05-r-basics.html#namespaces-2",
+    "title": "R Basics",
+    "section": "Namespaces",
+    "text": "Namespaces\n\nYou can explicitly say which filter you want using namespaces:\n\n\nstats::filter\ndplyr::filter"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#namespaces-3",
+    "href": "slides/R/05-r-basics.html#namespaces-3",
+    "title": "R Basics",
+    "section": "Namespaces",
+    "text": "Namespaces\n\nRestart yoru R Consuole and study this example:\n\n\nlibrary(dslabs)\nexists(\"murders\")\n\n[1] TRUE\n\nmurders &lt;- murders\nmurders2 &lt;- murders\nrm(murders)\nexists(\"murders\")\n\n[1] TRUE\n\ndetach(\"package:dslabs\")\nexists(\"murders\")\n\n[1] FALSE\n\nexists(\"murders2\")\n\n[1] TRUE"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#object-oriented-programming",
+    "href": "slides/R/05-r-basics.html#object-oriented-programming",
+    "title": "R Basics",
+    "section": "Object Oriented Programming",
+    "text": "Object Oriented Programming\n\nR uses object oriented programming (OOP).\nIt uses two approaches referred to as S3 and S4, respectively.\nS3, the original approach, is more common.\nThe S4 approach is more similar to the conventions used by modern OOP languages."
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#object-oriented-programming-1",
+    "href": "slides/R/05-r-basics.html#object-oriented-programming-1",
+    "title": "R Basics",
+    "section": "Object Oriented Programming",
+    "text": "Object Oriented Programming\n\nTime seriesNumeric\n\n\n\nplot(co2)\n\n\n\n\n\n\n\n\n\n\n\nplot(as.numeric(co2))"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#object-oriented-programming-2",
+    "href": "slides/R/05-r-basics.html#object-oriented-programming-2",
+    "title": "R Basics",
+    "section": "Object Oriented Programming",
+    "text": "Object Oriented Programming\n\nNote co2 is not numeric:\n\n\nclass(co2)\n\n[1] \"ts\"\n\n\n\nThe plots are different because plot behaves different with different classes."
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#object-oriented-programming-3",
+    "href": "slides/R/05-r-basics.html#object-oriented-programming-3",
+    "title": "R Basics",
+    "section": "Object Oriented Programming",
+    "text": "Object Oriented Programming\n\nThe first plot actually calls the function\n\n\nplot.ts\n\n\nNotice all the plot functions that start with plot by typing plot. and then tab.\nThe function plot will call different functions depending on the class of the arguments."
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#vectorization",
+    "href": "slides/R/05-r-basics.html#vectorization",
+    "title": "R Basics",
+    "section": "Vectorization",
+    "text": "Vectorization\n\nWe will be using the murders dataset in the dslabs package.\nIncludes data on 2010 gun murders for the US 50 states and DC.\nWe will use it to answer questions such as “What is the state with lowest crime rate in the Western part of the US?”"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#vectorization-1",
+    "href": "slides/R/05-r-basics.html#vectorization-1",
+    "title": "R Basics",
+    "section": "Vectorization",
+    "text": "Vectorization\n\nFirst, some simple examples of vectorization.\nLet’s convert the following heights in inches to meters:\n\n\nheights &lt;- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)\n\n\nRather than loop we use vectorization:\n\n\nheights*2.54/100\n\n [1] 1.7526 1.5748 1.6764 1.7780 1.7780 1.8542 1.7018 1.8542 1.7018 1.7780"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#vectorization-2",
+    "href": "slides/R/05-r-basics.html#vectorization-2",
+    "title": "R Basics",
+    "section": "Vectorization",
+    "text": "Vectorization\n\nWe can subtract a constant from each element of a vector.\nThis is convenient for computing residuals or deviations from an average:\n\n\navg &lt;- mean(heights)\nheights - avg \n\n [1]  0.3 -6.7 -2.7  1.3  1.3  4.3 -1.7  4.3 -1.7  1.3"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#vectorization-3",
+    "href": "slides/R/05-r-basics.html#vectorization-3",
+    "title": "R Basics",
+    "section": "Vectorization",
+    "text": "Vectorization\n\nThis means we can compute standard units like this:\n\n\ns &lt;- sd(heights)\n(heights - avg)/s\n\n [1]  0.08995503 -2.00899575 -0.80959530  0.38980515  0.38980515  1.28935548\n [7] -0.50974519  1.28935548 -0.50974519  0.38980515\n\n\n\nThere is actually a function, scale, that does this. We describe it soon."
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#vectorization-4",
+    "href": "slides/R/05-r-basics.html#vectorization-4",
+    "title": "R Basics",
+    "section": "Vectorization",
+    "text": "Vectorization\n\nIf we operate on two vectors, vectorization is componentwise.\nHere is an example:\n\n\nheights &lt;- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)\nerror &lt;- rnorm(length(heights), 0, 0.1)\nheights + error\n\n [1] 69.10607 62.17878 66.13996 70.14801 70.11040 72.82319 67.10582 72.85931\n [9] 67.01908 69.94924"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#exercise",
+    "href": "slides/R/05-r-basics.html#exercise",
+    "title": "R Basics",
+    "section": "Exercise",
+    "text": "Exercise\n\nAdd a column to the murders dataset with the murder rate.\nUse murders per 100,000 persons as the unit."
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#functions-that-vectorize",
+    "href": "slides/R/05-r-basics.html#functions-that-vectorize",
+    "title": "R Basics",
+    "section": "Functions that vectorize",
+    "text": "Functions that vectorize\n\nMost arithmetic functions work on vectors.\n\n\nx &lt;- 1:10\nsqrt(x)\n\n [1] 1.000000 1.414214 1.732051 2.000000 2.236068 2.449490 2.645751 2.828427\n [9] 3.000000 3.162278\n\nlog(x)\n\n [1] 0.0000000 0.6931472 1.0986123 1.3862944 1.6094379 1.7917595 1.9459101\n [8] 2.0794415 2.1972246 2.3025851\n\n2^x\n\n [1]    2    4    8   16   32   64  128  256  512 1024"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#functions-that-vectorize-1",
+    "href": "slides/R/05-r-basics.html#functions-that-vectorize-1",
+    "title": "R Basics",
+    "section": "Functions that vectorize",
+    "text": "Functions that vectorize\n\nscale(heights)\n\n             [,1]\n [1,]  0.08995503\n [2,] -2.00899575\n [3,] -0.80959530\n [4,]  0.38980515\n [5,]  0.38980515\n [6,]  1.28935548\n [7,] -0.50974519\n [8,]  1.28935548\n [9,] -0.50974519\n[10,]  0.38980515\nattr(,\"scaled:center\")\n[1] 68.7\nattr(,\"scaled:scale\")\n[1] 3.335\n\n\nprovides the same results,\n\n(heights - mean(heights))/sd(heights)\n\n [1]  0.08995503 -2.00899575 -0.80959530  0.38980515  0.38980515  1.28935548\n [7] -0.50974519  1.28935548 -0.50974519  0.38980515"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#functions-that-vectorize-2",
+    "href": "slides/R/05-r-basics.html#functions-that-vectorize-2",
+    "title": "R Basics",
+    "section": "Functions that vectorize",
+    "text": "Functions that vectorize\n\nBut scale coerces to a column matrix:\n\n\nclass(scale(heights))\n\n[1] \"matrix\" \"array\""
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#functions-that-vectorize-3",
+    "href": "slides/R/05-r-basics.html#functions-that-vectorize-3",
+    "title": "R Basics",
+    "section": "Functions that vectorize",
+    "text": "Functions that vectorize\n\nThe conditional function if-else does not vectorize.\nA particularly useful function is a vectorized version ifelse.\nHere is an example:\n\n\na &lt;- c(0, 1, 2, -4, 5)\nifelse(a &gt; 0, 1/a, NA)\n\n[1]  NA 1.0 0.5  NA 0.2\n\n\n\nOther conditional functions, such as any and all, do vectorize."
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#indexing",
+    "href": "slides/R/05-r-basics.html#indexing",
+    "title": "R Basics",
+    "section": "Indexing",
+    "text": "Indexing\n\nVectorization also works for logical relationships:\n\n\nlibrary(dslabs)\nind &lt;- murders$population &lt; 10^6\n\n\nA convenient aspect of this is that you can subset a vector using this logical vector for indexing:\n\n\nmurders$state[ind]\n\n[1] \"Alaska\"               \"Delaware\"             \"District of Columbia\"\n[4] \"Montana\"              \"North Dakota\"         \"South Dakota\"        \n[7] \"Vermont\"              \"Wyoming\""
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#indexing-1",
+    "href": "slides/R/05-r-basics.html#indexing-1",
+    "title": "R Basics",
+    "section": "Indexing",
+    "text": "Indexing\n\nYou can also use vectorization to apply logical operators:\n\n\nind &lt;- murders$population &lt; 10^6 & murders$region == \"West\"\nmurders$state[ind]\n\n[1] \"Alaska\"  \"Montana\" \"Wyoming\""
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#split",
+    "href": "slides/R/05-r-basics.html#split",
+    "title": "R Basics",
+    "section": "split",
+    "text": "split\n\nSplit is a useful function to get indexes using a factor:\n\n\ninds &lt;- with(murders, split(seq_along(region), region))\nmurders$state[inds$West]\n\n [1] \"Alaska\"     \"Arizona\"    \"California\" \"Colorado\"   \"Hawaii\"    \n [6] \"Idaho\"      \"Montana\"    \"Nevada\"     \"New Mexico\" \"Oregon\"    \n[11] \"Utah\"       \"Washington\" \"Wyoming\""
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#functions-for-subsetting",
+    "href": "slides/R/05-r-basics.html#functions-for-subsetting",
+    "title": "R Basics",
+    "section": "Functions for subsetting",
+    "text": "Functions for subsetting\n\nThe functions which, match and the operator %in% are useful for sub-setting\nTo understand how they work it’s best to use examples."
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#which",
+    "href": "slides/R/05-r-basics.html#which",
+    "title": "R Basics",
+    "section": "which",
+    "text": "which\n\nind &lt;- which(murders$state == \"California\")\nind\n\n[1] 5\n\nmurders[ind,]\n\n       state abb region population total\n5 California  CA   West   37253956  1257"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#match",
+    "href": "slides/R/05-r-basics.html#match",
+    "title": "R Basics",
+    "section": "match",
+    "text": "match\n\nind &lt;- match(c(\"New York\", \"Florida\", \"Texas\"), murders$state)\nind\n\n[1] 33 10 44\n\nmurders[ind,]\n\n      state abb    region population total\n33 New York  NY Northeast   19378102   517\n10  Florida  FL     South   19687653   669\n44    Texas  TX     South   25145561   805"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#in",
+    "href": "slides/R/05-r-basics.html#in",
+    "title": "R Basics",
+    "section": "%in%",
+    "text": "%in%\n\nind &lt;- which(murders$state %in% c(\"New York\", \"Florida\", \"Texas\"))\nind\n\n[1] 10 33 44\n\nmurders[ind,]\n\n      state abb    region population total\n10  Florida  FL     South   19687653   669\n33 New York  NY Northeast   19378102   517\n44    Texas  TX     South   25145561   805\n\n\n\nNote this is similar to using match. But note the order is different."
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#match-versus-in",
+    "href": "slides/R/05-r-basics.html#match-versus-in",
+    "title": "R Basics",
+    "section": "match versus %in%",
+    "text": "match versus %in%\n\nc(\"Boston\", \"Dakota\", \"Washington\") %in% murders$state\n\n[1] FALSE FALSE  TRUE\n\n\n\nmatch(c(\"Boston\", \"Dakota\", \"Washington\"), murders$state)\n\n[1] NA NA 48\n\n\n\nmatch(murders$state, c(\"Boston\", \"Dakota\", \"Washington\"))\n\n [1] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA\n[26] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA  3 NA NA\n[51] NA"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#the-apply-functions",
+    "href": "slides/R/05-r-basics.html#the-apply-functions",
+    "title": "R Basics",
+    "section": "The apply functions",
+    "text": "The apply functions\n\nThe apply functions let use the concept of vectorization with functions that don’t vectorize.\nHere is an example of a function that won’t vectorize in a convenient way:\n\n\ns &lt;- function(n){\n   return(sum(1:n))\n}\n\n\nTry it on a vector:\n\n\nns &lt;- c(25, 100, 1000)\ns(ns)\n\n[1] 325"
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#the-apply-functions-1",
+    "href": "slides/R/05-r-basics.html#the-apply-functions-1",
+    "title": "R Basics",
+    "section": "The apply functions",
+    "text": "The apply functions\n\nWe can use sapply, one of the apply functions:\n\n\nsapply(ns, s)\n\n[1]    325   5050 500500\n\n\n\nsapply will work on any vector, including lists."
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#the-apply-functions-2",
+    "href": "slides/R/05-r-basics.html#the-apply-functions-2",
+    "title": "R Basics",
+    "section": "The apply functions",
+    "text": "The apply functions\n\nThere are other apply functions:\n\nlapply - returns a list. Convenient when the function returns something other than a number.\ntapply - can apply to subsets defined by second variable.\nmapply - multivariate version of sapply.\napply - applies function to rows or columns o matrix.\n\nWe will learn some of these as we go."
   },
   {
     "objectID": "slides/productivity/02-rstudio.html#the-panes",
