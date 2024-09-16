@@ -423,7 +423,7 @@
     "href": "index.html#office-hour-times",
     "title": "BST 260 Introduction to Data Science",
     "section": "Office hour times",
-    "text": "Office hour times\n\n\n\nMeeting\nTime\nLocation\n\n\n\n\nRafael Irizarry\nMon 8:45-9:45AM\nKresge LL6\n\n\nCorri Sept\nTue\n3:00-4:00PM\n\n\nNikhil Vytla\nWed\n2:00-3:00PM\n\n\nYuan Wang\nFri\n1:00-2:00PM",
+    "text": "Office hour times\n\n\n\nMeeting\nTime\nLocation\n\n\n\n\nRafael Irizarry\nMon 8:45-9:45AM\nKresge 203\n\n\nCorri Sept\nTue\n3:00-4:00PM\n\n\nNikhil Vytla\nWed\n2:00-3:00PM\n\n\nYuan Wang\nFri\n1:00-2:00PM",
     "crumbs": [
       "Home"
     ]
@@ -673,7 +673,7 @@
     "href": "slides/R/05-r-basics.html#factors-3",
     "title": "R Basics",
     "section": "Factors",
-    "text": "Factors\nExercise: How can we make this go much faster?\n\nsystem.time({levels(y) &lt;- tolower(levels(y))})\n\n   user  system elapsed \n  0.018   0.001   0.020"
+    "text": "Factors\nExercise: How can we make this go much faster?\n\nsystem.time({levels(y) &lt;- tolower(levels(y))})\n\n   user  system elapsed \n  0.018   0.000   0.019"
   },
   {
     "objectID": "slides/R/05-r-basics.html#factors-can-be-confusing",
@@ -883,7 +883,7 @@
     "href": "slides/R/05-r-basics.html#vectorization-4",
     "title": "R Basics",
     "section": "Vectorization",
-    "text": "Vectorization\n\nIf we operate on two vectors, vectorization is componentwise.\nHere is an example:\n\n\nheights &lt;- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)\nerror &lt;- rnorm(length(heights), 0, 0.1)\nheights + error\n\n [1] 68.93773 61.96358 65.91374 69.94958 69.93982 73.01678 67.01578 73.02351\n [9] 67.10582 69.97969"
+    "text": "Vectorization\n\nIf we operate on two vectors, vectorization is componentwise.\nHere is an example:\n\n\nheights &lt;- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)\nerror &lt;- rnorm(length(heights), 0, 0.1)\nheights + error\n\n [1] 69.03152 61.94383 65.97056 69.84739 69.99475 73.04673 67.19451 73.02103\n [9] 67.07204 70.04892"
   },
   {
     "objectID": "slides/R/05-r-basics.html#exercise",
@@ -996,6 +996,20 @@
     "title": "R Basics",
     "section": "The apply functions",
     "text": "The apply functions\n\nThere are other apply functions:\n\nlapply - returns a list. Convenient when the function returns something other than a number.\ntapply - can apply to subsets defined by second variable.\nmapply - multivariate version of sapply.\napply - applies function to rows or columns o matrix.\n\nWe will learn some of these as we go."
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#plots",
+    "href": "slides/R/05-r-basics.html#plots",
+    "title": "R Basics",
+    "section": "Plots",
+    "text": "Plots\n\nSoon we will learn how to use the ggplot2 package to make plots.\nR base does have functions for plotting though\nSome you should know about are:\n\nplot - mainly for making scatterplots.\nlines - add lines/curves to an existing plot.\nhist - to make a histogram.\nboxplot - makes boxplots.\nimage - uses color to represent entries in a matrix."
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#plots-1",
+    "href": "slides/R/05-r-basics.html#plots-1",
+    "title": "R Basics",
+    "section": "Plots",
+    "text": "Plots\n\nAlthough, in general, we recommend using ggplot2, R base plots are often better for quick exploratory plots.\nFor example, to make a histogram of values in x simply type:\n\n\nhist(x)\n\n\nTo make a scatter plot of y versus x and then interpolate we type:\n\n\nplot(x,y)\nlines(x,y)"
   },
   {
     "objectID": "slides/productivity/02-rstudio.html#the-panes",
@@ -1290,19 +1304,5 @@
     "title": "Git and GitHub",
     "section": "Using Git in RStudio",
     "text": "Using Git in RStudio\n\nGo to file, new project, version control, and follow the instructions.\nThen notice the Git tab in the preferences."
-  },
-  {
-    "objectID": "slides/R/05-r-basics.html#plots",
-    "href": "slides/R/05-r-basics.html#plots",
-    "title": "R Basics",
-    "section": "Plots",
-    "text": "Plots\n\nSoon we will learn how to use the ggplot2 package to make plots.\nR base does have functions for plotting though\nSome you should know about are:\n\nplot - mainly for making scatterplots.\nlines - add lines/curves to an existing plot.\nhist - to make a histogram.\nboxplot - makes boxplots.\nimage - uses color to represent entries in a matrix."
-  },
-  {
-    "objectID": "slides/R/05-r-basics.html#plots-1",
-    "href": "slides/R/05-r-basics.html#plots-1",
-    "title": "R Basics",
-    "section": "Plots",
-    "text": "Plots\n\nAlthough, in general, we recommend using ggplot2, R base plots are often better for quick exploratory plots.\nFor example, to make a histogram of values in x simply type:\n\n\nhist(x)\n\n\nTo make a scatter plot of y versus x and then interpolate we type:\n\n\nplot(x,y)\nlines(x,y)"
   }
 ]
