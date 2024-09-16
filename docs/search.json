@@ -673,7 +673,7 @@
     "href": "slides/R/05-r-basics.html#factors-3",
     "title": "R Basics",
     "section": "Factors",
-    "text": "Factors\nExercise: How can we make this go much faster?\n\nsystem.time({levels(y) &lt;- tolower(levels(y))})\n\n   user  system elapsed \n  0.018   0.000   0.019"
+    "text": "Factors\nExercise: How can we make this go much faster?\n\nsystem.time({levels(y) &lt;- tolower(levels(y))})\n\n   user  system elapsed \n  0.018   0.001   0.020"
   },
   {
     "objectID": "slides/R/05-r-basics.html#factors-can-be-confusing",
@@ -883,7 +883,7 @@
     "href": "slides/R/05-r-basics.html#vectorization-4",
     "title": "R Basics",
     "section": "Vectorization",
-    "text": "Vectorization\n\nIf we operate on two vectors, vectorization is componentwise.\nHere is an example:\n\n\nheights &lt;- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)\nerror &lt;- rnorm(length(heights), 0, 0.1)\nheights + error\n\n [1] 69.10607 62.17878 66.13996 70.14801 70.11040 72.82319 67.10582 72.85931\n [9] 67.01908 69.94924"
+    "text": "Vectorization\n\nIf we operate on two vectors, vectorization is componentwise.\nHere is an example:\n\n\nheights &lt;- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)\nerror &lt;- rnorm(length(heights), 0, 0.1)\nheights + error\n\n [1] 68.93773 61.96358 65.91374 69.94958 69.93982 73.01678 67.01578 73.02351\n [9] 67.10582 69.97969"
   },
   {
     "objectID": "slides/R/05-r-basics.html#exercise",
@@ -1290,5 +1290,19 @@
     "title": "Git and GitHub",
     "section": "Using Git in RStudio",
     "text": "Using Git in RStudio\n\nGo to file, new project, version control, and follow the instructions.\nThen notice the Git tab in the preferences."
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#plots",
+    "href": "slides/R/05-r-basics.html#plots",
+    "title": "R Basics",
+    "section": "Plots",
+    "text": "Plots\n\nSoon we will learn how to use the ggplot2 package to make plots.\nR base does have functions for plotting though\nSome you should know about are:\n\nplot - mainly for making scatterplots.\nlines - add lines/curves to an existing plot.\nhist - to make a histogram.\nboxplot - makes boxplots.\nimage - uses color to represent entries in a matrix."
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#plots-1",
+    "href": "slides/R/05-r-basics.html#plots-1",
+    "title": "R Basics",
+    "section": "Plots",
+    "text": "Plots\n\nAlthough, in general, we recommend using ggplot2, R base plots are often better for quick exploratory plots.\nFor example, to make a histogram of values in x simply type:\n\n\nhist(x)\n\n\nTo make a scatter plot of y versus x and then interpolate we type:\n\n\nplot(x,y)\nlines(x,y)"
   }
 ]

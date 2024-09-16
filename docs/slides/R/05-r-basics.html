@@ -862,7 +862,7 @@ Levels: Alpha Zoomer Millennial X Boomer Silent Greatest</code></pre>
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a></a><span class="fu">system.time</span>({<span class="fu">levels</span>(y) <span class="ot">&lt;-</span> <span class="fu">tolower</span>(<span class="fu">levels</span>(y))})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-  0.018   0.000   0.019 </code></pre>
+  0.018   0.001   0.020 </code></pre>
 </div>
 </div>
 </section>
@@ -1410,8 +1410,8 @@ y is 3 </code></pre>
 <span id="cb162-2"><a></a>error <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fu">length</span>(heights), <span class="dv">0</span>, <span class="fl">0.1</span>)</span>
 <span id="cb162-3"><a></a>heights <span class="sc">+</span> error</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 69.10607 62.17878 66.13996 70.14801 70.11040 72.82319 67.10582 72.85931
- [9] 67.01908 69.94924</code></pre>
+<pre><code> [1] 68.93773 61.96358 65.91374 69.94958 69.93982 73.01678 67.01578 73.02351
+ [9] 67.10582 69.97969</code></pre>
 </div>
 </div>
 </section>
@@ -1686,6 +1686,38 @@ attr(,"scaled:scale")
 </ul></li>
 <li><p>We will learn some of these as we go.</p></li>
 </ul>
+</section>
+<section id="plots" class="slide level2">
+<h2>Plots</h2>
+<ul>
+<li><p>Soon we will learn how to use the ggplot2 package to make plots.</p></li>
+<li><p>R base does have functions for plotting though</p></li>
+<li><p>Some you should know about are:</p>
+<ul>
+<li><code>plot</code> - mainly for making scatterplots.</li>
+<li><code>lines</code> - add lines/curves to an existing plot.</li>
+<li><code>hist</code> - to make a histogram.</li>
+<li><code>boxplot</code> - makes boxplots.</li>
+<li><code>image</code> - uses color to represent entries in a matrix.</li>
+</ul></li>
+</ul>
+</section>
+<section id="plots-1" class="slide level2">
+<h2>Plots</h2>
+<ul>
+<li><p>Although, in general, we recommend using ggplot2, R base plots are often better for quick exploratory plots.</p></li>
+<li><p>For example, to make a histogram of values in <code>x</code> simply type:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb208"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb208-1"><a></a><span class="fu">hist</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>To make a scatter plot of <code>y</code> versus <code>x</code> and then interpolate we type:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb209"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb209-1"><a></a><span class="fu">plot</span>(x,y)</span>
+<span id="cb209-2"><a></a><span class="fu">lines</span>(x,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
