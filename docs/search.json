@@ -344,135 +344,6 @@
     "text": "quarto render\n\nRStudio provides the Render button that makes it easier to compile the document.\nYou can also type quarto render filename.qmd on the command line. This offers many options.\nYou can produce html, pdf, or word documents.\nYou can specify the default in the YAML header using: format: html, format: pdf,format: docx, or format: gfm (gfm stands for GitHub flavored markdown, a convenient way to share your reports)."
   },
   {
-    "objectID": "slides/00-intro.html#general-information",
-    "href": "slides/00-intro.html#general-information",
-    "title": "Introduction",
-    "section": "General Information",
-    "text": "General Information\n\nBST 260 Introduction to Data Science\nInstructor: Rafael A. Irizarry\nTFs: Corri Sept, Nikhil Vytla, Yuan Wang\nMondays we have lectures, Wednesday we have labs.\nWe work on problem sets together, in lab."
-  },
-  {
-    "objectID": "slides/00-intro.html#course-description",
-    "href": "slides/00-intro.html#course-description",
-    "title": "Introduction",
-    "section": "Course Description",
-    "text": "Course Description\nLecture notes: https://datasciencelabs.github.io/2024/\n\nPlease read the syllabus!"
-  },
-  {
-    "objectID": "slides/00-intro.html#important-details",
-    "href": "slides/00-intro.html#important-details",
-    "title": "Introduction",
-    "section": "Important details",
-    "text": "Important details\n\nComplete readings before class.\nMidterms are in person. There are no makeups.\nMake sure you read messages sent via Canvas\nYou can select your own final project, but need approval.\nYou should start final project by October 23.\nHelp us pick office hours: https://forms.gle/GiQXqDTaeYVxaXd78"
-  },
-  {
-    "objectID": "slides/00-intro.html#whats-coming",
-    "href": "slides/00-intro.html#whats-coming",
-    "title": "Introduction",
-    "section": "What’s coming",
-    "text": "What’s coming\n\nUNIX/Linux shell.\nReproducible document preparation\nVersion control with git and GitHub\nR programming\nData wrangling with dplyr and data.table\nData visualization with ggplot2\nProbability theory, inference and modeling\nHigh-dimensional data techniques\nMachine learning"
-  },
-  {
-    "objectID": "slides/00-intro.html#lets-get-started",
-    "href": "slides/00-intro.html#lets-get-started",
-    "title": "Introduction",
-    "section": "Let’s get started",
-    "text": "Let’s get started\n\nInstall R.\nInstall RStudio.\nMake sure you have access to a terminal."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "BST 260 Introduction to Data Science",
-    "section": "",
-    "text": "Instructor: Rafael A.Irizarry\nTeaching fellows: Corri Sept, Nikhil Vytla, and Yuan Wang\nLocation: Kresge 202A and 202B, Harvard School of Public Health\nDate and time: Mon & Wed 9.45 - 11:15am\nTextbooks: https://github.com/rafalab/dsbook-part-1, https://github.com/rafalab/dsbook-part-2\nSlack: https://bst260fall2024.slack.com/\nCanvas: https://canvas.harvard.edu/courses/143922/pages/Course%20Information\nGitHub repo: https://github.com/datasciencelabs/2024\nRemember to read the syllabus, listen to SD.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#course-information",
-    "href": "index.html#course-information",
-    "title": "BST 260 Introduction to Data Science",
-    "section": "",
-    "text": "Instructor: Rafael A.Irizarry\nTeaching fellows: Corri Sept, Nikhil Vytla, and Yuan Wang\nLocation: Kresge 202A and 202B, Harvard School of Public Health\nDate and time: Mon & Wed 9.45 - 11:15am\nTextbooks: https://github.com/rafalab/dsbook-part-1, https://github.com/rafalab/dsbook-part-2\nSlack: https://bst260fall2024.slack.com/\nCanvas: https://canvas.harvard.edu/courses/143922/pages/Course%20Information\nGitHub repo: https://github.com/datasciencelabs/2024\nRemember to read the syllabus, listen to SD.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#lectures",
-    "href": "index.html#lectures",
-    "title": "BST 260 Introduction to Data Science",
-    "section": "Lectures",
-    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09, Sep 11\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git\n\n\nSep 16, Sep 19\nR\nR basics\nR Basics, Vectorization, dplyr, ggplot2\n\n\nSep 23, Sep 25\nWrangling\n\nImporting data, dates and times, Locales, Reshaping Data, Joining Tables, Extracting data from the web\n\n\nSep 30, Oct 02\nData visualization\n\nDistributions, Dataviz Principles\n\n\nOct 07, Oct 09\nProbability\n\nMonte Carlo, Random Variables & CLT\n\n\nOct 16\nMidterm 1\n\nCovers material from Sep 04-Oct 11\n\n\nOct 21, Oct 23\nInference\n\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\n\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\n\nRegression, Multivariate Regression\n\n\nNov 13\nLinear models\n\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 18, Nov 20\nHigh dimensional data\n\nMatrices in R, Applied Linear Algebra, Dimension Reduction\n\n\nNov 25\nMidterm 2\n\nMidterm 2: cover material from Sep 04-Nov 22\n\n\nDec 02, Dec 04\nMachine Learning\n\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nDec 09, Dec 11\nMachine Learning\n\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#problem-sets",
-    "href": "index.html#problem-sets",
-    "title": "BST 260 Introduction to Data Science",
-    "section": "Problem sets",
-    "text": "Problem sets\n\n\n\nProblem set\nTopic\nDue Date\nDifficulty\n\n\n\n\n01\nUnix, Quarto\nSep 11\neasy\n\n\n02\nR\nSep 19\neasy\n\n\n03\nTidyverse\nSep 29\neasy\n\n\n04\nWrangling\nOct 4\nmedium\n\n\n05\nCovid 19 data visualization\nOct 11\nmedium\n\n\n06\nProbability\nOct 25\neasy\n\n\n07\nPredict the election\nNov 04\nhard\n\n\n08\nConfidence intervals for excess mortality\nNov 15\nhard\n\n\n09\nMatrices\nNov 22\neasy\n\n\n10\nDigit reading\nDec 13\nhard\n\n\nFinal Project\nYour choice\nDec 20\nhard",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#office-hour-times",
-    "href": "index.html#office-hour-times",
-    "title": "BST 260 Introduction to Data Science",
-    "section": "Office hour times",
-    "text": "Office hour times\n\n\n\nMeeting\nTime\nLocation\n\n\n\n\nRafael Irizarry\nMon 8:45-9:45AM\nKresge 203\n\n\nCorri Sept\nTue\n3:00-4:00PM\n\n\nNikhil Vytla\nWed\n2:00-3:00PM\n\n\nYuan Wang\nFri\n1:00-2:00PM",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#acknowledgments",
-    "href": "index.html#acknowledgments",
-    "title": "BST 260 Introduction to Data Science",
-    "section": "Acknowledgments",
-    "text": "Acknowledgments\nWe thank Maria Tackett and Mine Çetinkaya-Rundel for sharing their web page template, which we used in creating this website.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "psets/pset-02-r-vectorization.html",
-    "href": "psets/pset-02-r-vectorization.html",
-    "title": "Problem set 2",
-    "section": "",
-    "text": "For these exercises, do not load any packages other than dslabs.\nMake sure to use vectorization whenever possible.\n\nWhat is the sum of the first 100 positive integers? Use the functions seq and sum to compute the sum with R for any n.\n\n\n# Your code here\n\n\nLoad the US murders dataset from the dslabs package. Use the function str to examine the structure of the murders object. What are the column names used by the data frame for these five variables? Show the subset of murders showing states with less than 1 per 100,000 deaths. Show all variables.\n\n\nlibrary(dslabs)\nstr(murders)\n\n'data.frame':   51 obs. of  5 variables:\n $ state     : chr  \"Alabama\" \"Alaska\" \"Arizona\" \"Arkansas\" ...\n $ abb       : chr  \"AL\" \"AK\" \"AZ\" \"AR\" ...\n $ region    : Factor w/ 4 levels \"Northeast\",\"South\",..: 2 4 4 2 4 4 1 2 2 2 ...\n $ population: num  4779736 710231 6392017 2915918 37253956 ...\n $ total     : num  135 19 232 93 1257 ...\n\n\n\n# Your code here\n\n\nShow the subset of murders showing states with less than 1 per 100,000 deaths and in the West of the US. Don’t show the region variable.\n\n\n# Your code here\n\n\nShow the largest state with a rate less than 1 per 100,000.\n\n\n# Your code here\n\n\nShow the state with a population of more than 10 million with the lowest rate.\n\n\n# Your code here\n\n\nCompute the rate for each region of the US.\n\n\n# Your code here\n\n\nCreate a vector of numbers that starts at 6, does not pass 55, and adds numbers in increments of 4/7: 6, 6 + 4/7, 6 + 8/7, and so on. How many numbers does the list have? Hint: use seq and length.\n\n\n# Your code here\n\n\nMake this data frame:\n\n\ntemp &lt;- c(35, 88, 42, 84, 81, 30)\ncity &lt;- c(\"Beijing\", \"Lagos\", \"Paris\", \"Rio de Janeiro\", \n          \"San Juan\", \"Toronto\")\ncity_temps &lt;- data.frame(name = city, temperature = temp)\n\nConvert the temperatures to Celsius.\n\n# Your code here\n\n\nWrite a function euler that compute the following sum for any \\(n\\):\n\n\\[\nS_n = 1+1/2^2 + 1/3^2 + \\dots 1/n^2\n\\]\n\n# Your code here\n\n\nShow that as \\(n\\) gets bigger we get closer \\(\\pi^2/6\\) by plotting \\(S_n\\) versus \\(n\\) with a horizontal dashed line at \\(\\pi^2/6\\).\n\n\n# Your code here\n\n\nUse the %in% operator and the predefined object state.abb to create a logical vector that answers the question: which of the following are actual abbreviations: MA, ME, MI, MO, MU?\n\n\n# Your code here\n\n\nExtend the code you used in the previous exercise to report the one entry that is not an actual abbreviation. Hint: use the ! operator, which turns FALSE into TRUE and vice versa, then which to obtain an index.\n\n\n# Your code here\n\n\nIn the murders dataset, use %in% to show all variables for New York, California, and Texas, in that order.\n\n\n# Your code here\n\n\nWrite a function called vandermonde_helper that for any \\(x\\) and \\(n\\), returns the vector \\((1, x, x^2, x^3, \\dots, x^n)\\). Show the results for \\(x=3\\) and \\(n=5\\).\n\n\n# Your code here\n\n\nCreate a vector using:\n\n\nn &lt;- 10000\np &lt;- 0.5\nset.seed(2024-9-6)\nx &lt;- sample(c(0,1), n, prob = c(1 - p, p), replace = TRUE)\n\nCompute the length of each stretch of 1s and then plot the distribution of these values. Check to see if the distribution follows a geometric distribution as the theory predicts. Do not use a loop!\n\n# Your code here"
-  },
-  {
-    "objectID": "psets/pset-01-unix-quarto.html",
-    "href": "psets/pset-01-unix-quarto.html",
-    "title": "Problem set 1",
-    "section": "",
-    "text": "After finishing the homework, you are to turn in all the code to GitHub using git.\n\nStart an RStudio project. Pick a good name following a naming convention. Start a Quarto document called beginning.qmd.\nCreate a directory called img and save a screen shot of your RStudio session for the project. Include your screenshot in the Quarto document.\nNext, in your Quarto document, define variables \\(a=1, b=-1, c=-2\\) and print out the solutions to \\(f(x) = ax^2+bx+c=0\\). Do not report complex solutions, only real numbers.\nInclude a graph of \\(f(x)\\) versus \\(x\\) for \\(x \\in (-5,5)\\).\n\n\nx &lt;- seq(-5, 5, length = 100)\n# Hint: Use the plot function\n\n\nCreate a directory called docs. Use the command quarto render to create a PDF and save it to the docs directory. Show us the command you typed:\n\n# Your code here\n\nUse Unix to create a directory called data in the project home directory. Include the Unix command you used to create the directory.\n\n# Your code here\n\nUse a terminal-based text editor to create a file coefs.txt in the data directory and save three coefficients, 1 -1 -2 for example. Show us the Unix commands you used to achieve this:\n\n# Your code here\n\nMake a directory called code. Use Unix to copy the file beginning.qmd to a file called quadratic.qmd in the code directory. Show us the Unix commands you used.\n\n# Your code here\n\nEdit the quadratic.qmd file to read in a, b, and c from the file coefs.txt. Make sure to use a relative path when reading the file. As before, print out the solutions to \\(f(x) = ax^2+bx+c=0\\). Do not report complex solutions, only real numbers.\nChange the path of the file you are reading to the full path you get when you type file.path(getwd(), \"data/coefs.txt\"). Confirm that the file still renders. Then move the entire pset-01-rmarkdown project to a directory called RtmpyDknq4. Does the file render? Change the path back to a relative path and see if it renders."
-  },
-  {
-    "objectID": "slides.html",
-    "href": "slides.html",
-    "title": "Slides",
-    "section": "",
-    "text": "Topic\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nFirst day\n\n\nIntroduction\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nUnix\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nRStudio\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nQuarto\n\n\nMon, Sep 09\n\n\n\n\nProductivity Tools\n\n\nGit and GitHub\n\n\nMon, Sep 09\n\n\n\n\nR\n\n\nR Basics\n\n\nMon, Sep 09\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Slides"
-    ]
-  },
-  {
-    "objectID": "psets.html",
-    "href": "psets.html",
-    "title": "Problem Sets",
-    "section": "",
-    "text": "Topic\n\n\nDue date (at 11:59 PM)\n\n\n\n\n\n\nProblem set 1\n\n\nWed, Sep 11\n\n\n\n\nProblem set 2\n\n\nThu, Sep 19\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Problem Sets"
-    ]
-  },
-  {
     "objectID": "slides/R/05-r-basics.html#packages",
     "href": "slides/R/05-r-basics.html#packages",
     "title": "R Basics",
@@ -673,7 +544,7 @@
     "href": "slides/R/05-r-basics.html#factors-3",
     "title": "R Basics",
     "section": "Factors",
-    "text": "Factors\nExercise: How can we make this go much faster?\n\nsystem.time({levels(y) &lt;- tolower(levels(y))})\n\n   user  system elapsed \n  0.018   0.000   0.019"
+    "text": "Factors\nExercise: How can we make this go much faster?\n\nsystem.time({levels(y) &lt;- tolower(levels(y))})\n\n   user  system elapsed \n  0.019   0.001   0.019"
   },
   {
     "objectID": "slides/R/05-r-basics.html#factors-can-be-confusing",
@@ -851,6 +722,20 @@
     "text": "Object Oriented Programming\n\nThe first plot actually calls the function\n\n\nplot.ts\n\n\nNotice all the plot functions that start with plot by typing plot. and then tab.\nThe function plot will call different functions depending on the class of the arguments."
   },
   {
+    "objectID": "slides/R/05-r-basics.html#plots",
+    "href": "slides/R/05-r-basics.html#plots",
+    "title": "R Basics",
+    "section": "Plots",
+    "text": "Plots\n\nSoon we will learn how to use the ggplot2 package to make plots.\nR base does have functions for plotting though\nSome you should know about are:\n\nplot - mainly for making scatterplots.\nlines - add lines/curves to an existing plot.\nhist - to make a histogram.\nboxplot - makes boxplots.\nimage - uses color to represent entries in a matrix."
+  },
+  {
+    "objectID": "slides/R/05-r-basics.html#plots-1",
+    "href": "slides/R/05-r-basics.html#plots-1",
+    "title": "R Basics",
+    "section": "Plots",
+    "text": "Plots\n\nAlthough, in general, we recommend using ggplot2, R base plots are often better for quick exploratory plots.\nFor example, to make a histogram of values in x simply type:\n\n\nhist(x)\n\n\nTo make a scatter plot of y versus x and then interpolate we type:\n\n\nplot(x,y)\nlines(x,y)"
+  },
+  {
     "objectID": "slides/R/05-r-basics.html#vectorization",
     "href": "slides/R/05-r-basics.html#vectorization",
     "title": "R Basics",
@@ -883,7 +768,7 @@
     "href": "slides/R/05-r-basics.html#vectorization-4",
     "title": "R Basics",
     "section": "Vectorization",
-    "text": "Vectorization\n\nIf we operate on two vectors, vectorization is componentwise.\nHere is an example:\n\n\nheights &lt;- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)\nerror &lt;- rnorm(length(heights), 0, 0.1)\nheights + error\n\n [1] 69.03152 61.94383 65.97056 69.84739 69.99475 73.04673 67.19451 73.02103\n [9] 67.07204 70.04892"
+    "text": "Vectorization\n\nIf we operate on two vectors, vectorization is componentwise.\nHere is an example:\n\n\nheights &lt;- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)\nerror &lt;- rnorm(length(heights), 0, 0.1)\nheights + error\n\n [1] 69.12797 62.08583 66.08792 70.04621 69.84402 72.89540 67.01986 72.95381\n [9] 67.05186 69.92057"
   },
   {
     "objectID": "slides/R/05-r-basics.html#exercise",
@@ -998,18 +883,203 @@
     "text": "The apply functions\n\nThere are other apply functions:\n\nlapply - returns a list. Convenient when the function returns something other than a number.\ntapply - can apply to subsets defined by second variable.\nmapply - multivariate version of sapply.\napply - applies function to rows or columns o matrix.\n\nWe will learn some of these as we go."
   },
   {
-    "objectID": "slides/R/05-r-basics.html#plots",
-    "href": "slides/R/05-r-basics.html#plots",
-    "title": "R Basics",
-    "section": "Plots",
-    "text": "Plots\n\nSoon we will learn how to use the ggplot2 package to make plots.\nR base does have functions for plotting though\nSome you should know about are:\n\nplot - mainly for making scatterplots.\nlines - add lines/curves to an existing plot.\nhist - to make a histogram.\nboxplot - makes boxplots.\nimage - uses color to represent entries in a matrix."
+    "objectID": "psets.html",
+    "href": "psets.html",
+    "title": "Problem Sets",
+    "section": "",
+    "text": "Topic\n\n\nDue date (at 11:59 PM)\n\n\n\n\n\n\nProblem set 1\n\n\nWed, Sep 11\n\n\n\n\nProblem set 2\n\n\nThu, Sep 19\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Problem Sets"
+    ]
   },
   {
-    "objectID": "slides/R/05-r-basics.html#plots-1",
-    "href": "slides/R/05-r-basics.html#plots-1",
-    "title": "R Basics",
-    "section": "Plots",
-    "text": "Plots\n\nAlthough, in general, we recommend using ggplot2, R base plots are often better for quick exploratory plots.\nFor example, to make a histogram of values in x simply type:\n\n\nhist(x)\n\n\nTo make a scatter plot of y versus x and then interpolate we type:\n\n\nplot(x,y)\nlines(x,y)"
+    "objectID": "slides.html",
+    "href": "slides.html",
+    "title": "Slides",
+    "section": "",
+    "text": "Topic\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nFirst day\n\n\nIntroduction\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nUnix\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nRStudio\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nQuarto\n\n\nMon, Sep 09\n\n\n\n\nProductivity Tools\n\n\nGit and GitHub\n\n\nMon, Sep 09\n\n\n\n\nR\n\n\nR Basics\n\n\nMon, Sep 16\n\n\n\n\n \n\n\nTidyverse\n\n\n \n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Slides"
+    ]
+  },
+  {
+    "objectID": "psets/pset-01-unix-quarto.html",
+    "href": "psets/pset-01-unix-quarto.html",
+    "title": "Problem set 1",
+    "section": "",
+    "text": "After finishing the homework, you are to turn in all the code to GitHub using git.\n\nStart an RStudio project. Pick a good name following a naming convention. Start a Quarto document called beginning.qmd.\nCreate a directory called img and save a screen shot of your RStudio session for the project. Include your screenshot in the Quarto document.\nNext, in your Quarto document, define variables \\(a=1, b=-1, c=-2\\) and print out the solutions to \\(f(x) = ax^2+bx+c=0\\). Do not report complex solutions, only real numbers.\nInclude a graph of \\(f(x)\\) versus \\(x\\) for \\(x \\in (-5,5)\\).\n\n\nx &lt;- seq(-5, 5, length = 100)\n# Hint: Use the plot function\n\n\nCreate a directory called docs. Use the command quarto render to create a PDF and save it to the docs directory. Show us the command you typed:\n\n# Your code here\n\nUse Unix to create a directory called data in the project home directory. Include the Unix command you used to create the directory.\n\n# Your code here\n\nUse a terminal-based text editor to create a file coefs.txt in the data directory and save three coefficients, 1 -1 -2 for example. Show us the Unix commands you used to achieve this:\n\n# Your code here\n\nMake a directory called code. Use Unix to copy the file beginning.qmd to a file called quadratic.qmd in the code directory. Show us the Unix commands you used.\n\n# Your code here\n\nEdit the quadratic.qmd file to read in a, b, and c from the file coefs.txt. Make sure to use a relative path when reading the file. As before, print out the solutions to \\(f(x) = ax^2+bx+c=0\\). Do not report complex solutions, only real numbers.\nChange the path of the file you are reading to the full path you get when you type file.path(getwd(), \"data/coefs.txt\"). Confirm that the file still renders. Then move the entire pset-01-rmarkdown project to a directory called RtmpyDknq4. Does the file render? Change the path back to a relative path and see if it renders."
+  },
+  {
+    "objectID": "psets/pset-02-r-vectorization.html",
+    "href": "psets/pset-02-r-vectorization.html",
+    "title": "Problem set 2",
+    "section": "",
+    "text": "For these exercises, do not load any packages other than dslabs.\nMake sure to use vectorization whenever possible.\n\nWhat is the sum of the first 100 positive integers? Use the functions seq and sum to compute the sum with R for any n.\n\n\n# Your code here\n\n\nLoad the US murders dataset from the dslabs package. Use the function str to examine the structure of the murders object. What are the column names used by the data frame for these five variables? Show the subset of murders showing states with less than 1 per 100,000 deaths. Show all variables.\n\n\nlibrary(dslabs)\nstr(murders)\n\n'data.frame':   51 obs. of  5 variables:\n $ state     : chr  \"Alabama\" \"Alaska\" \"Arizona\" \"Arkansas\" ...\n $ abb       : chr  \"AL\" \"AK\" \"AZ\" \"AR\" ...\n $ region    : Factor w/ 4 levels \"Northeast\",\"South\",..: 2 4 4 2 4 4 1 2 2 2 ...\n $ population: num  4779736 710231 6392017 2915918 37253956 ...\n $ total     : num  135 19 232 93 1257 ...\n\n\n\n# Your code here\n\n\nShow the subset of murders showing states with less than 1 per 100,000 deaths and in the West of the US. Don’t show the region variable.\n\n\n# Your code here\n\n\nShow the largest state with a rate less than 1 per 100,000.\n\n\n# Your code here\n\n\nShow the state with a population of more than 10 million with the lowest rate.\n\n\n# Your code here\n\n\nCompute the rate for each region of the US.\n\n\n# Your code here\n\n\nCreate a vector of numbers that starts at 6, does not pass 55, and adds numbers in increments of 4/7: 6, 6 + 4/7, 6 + 8/7, and so on. How many numbers does the list have? Hint: use seq and length.\n\n\n# Your code here\n\n\nMake this data frame:\n\n\ntemp &lt;- c(35, 88, 42, 84, 81, 30)\ncity &lt;- c(\"Beijing\", \"Lagos\", \"Paris\", \"Rio de Janeiro\", \n          \"San Juan\", \"Toronto\")\ncity_temps &lt;- data.frame(name = city, temperature = temp)\n\nConvert the temperatures to Celsius.\n\n# Your code here\n\n\nWrite a function euler that compute the following sum for any \\(n\\):\n\n\\[\nS_n = 1+1/2^2 + 1/3^2 + \\dots 1/n^2\n\\]\n\n# Your code here\n\n\nShow that as \\(n\\) gets bigger we get closer \\(\\pi^2/6\\) by plotting \\(S_n\\) versus \\(n\\) with a horizontal dashed line at \\(\\pi^2/6\\).\n\n\n# Your code here\n\n\nUse the %in% operator and the predefined object state.abb to create a logical vector that answers the question: which of the following are actual abbreviations: MA, ME, MI, MO, MU?\n\n\n# Your code here\n\n\nExtend the code you used in the previous exercise to report the one entry that is not an actual abbreviation. Hint: use the ! operator, which turns FALSE into TRUE and vice versa, then which to obtain an index.\n\n\n# Your code here\n\n\nIn the murders dataset, use %in% to show all variables for New York, California, and Texas, in that order.\n\n\n# Your code here\n\n\nWrite a function called vandermonde_helper that for any \\(x\\) and \\(n\\), returns the vector \\((1, x, x^2, x^3, \\dots, x^n)\\). Show the results for \\(x=3\\) and \\(n=5\\).\n\n\n# Your code here\n\n\nCreate a vector using:\n\n\nn &lt;- 10000\np &lt;- 0.5\nset.seed(2024-9-6)\nx &lt;- sample(c(0,1), n, prob = c(1 - p, p), replace = TRUE)\n\nCompute the length of each stretch of 1s and then plot the distribution of these values. Check to see if the distribution follows a geometric distribution as the theory predicts. Do not use a loop!\n\n# Your code here"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "BST 260 Introduction to Data Science",
+    "section": "",
+    "text": "Instructor: Rafael A.Irizarry\nTeaching fellows: Corri Sept, Nikhil Vytla, and Yuan Wang\nLocation: Kresge 202A and 202B, Harvard School of Public Health\nDate and time: Mon & Wed 9.45 - 11:15am\nTextbooks: https://github.com/rafalab/dsbook-part-1, https://github.com/rafalab/dsbook-part-2\nSlack: https://bst260fall2024.slack.com/\nCanvas: https://canvas.harvard.edu/courses/143922/pages/Course%20Information\nGitHub repo: https://github.com/datasciencelabs/2024\nRemember to read the syllabus, listen to SD.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#course-information",
+    "href": "index.html#course-information",
+    "title": "BST 260 Introduction to Data Science",
+    "section": "",
+    "text": "Instructor: Rafael A.Irizarry\nTeaching fellows: Corri Sept, Nikhil Vytla, and Yuan Wang\nLocation: Kresge 202A and 202B, Harvard School of Public Health\nDate and time: Mon & Wed 9.45 - 11:15am\nTextbooks: https://github.com/rafalab/dsbook-part-1, https://github.com/rafalab/dsbook-part-2\nSlack: https://bst260fall2024.slack.com/\nCanvas: https://canvas.harvard.edu/courses/143922/pages/Course%20Information\nGitHub repo: https://github.com/datasciencelabs/2024\nRemember to read the syllabus, listen to SD.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#lectures",
+    "href": "index.html#lectures",
+    "title": "BST 260 Introduction to Data Science",
+    "section": "Lectures",
+    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09, Sep 11\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git\n\n\nSep 16, Sep 19\nR\nR basics\nR Basics, Vectorization, dplyr, ggplot2\n\n\nSep 23, Sep 25\nWrangling\n\nImporting data, dates and times, Locales, Reshaping Data, Joining Tables, Extracting data from the web\n\n\nSep 30, Oct 02\nData visualization\n\nDistributions, Dataviz Principles\n\n\nOct 07, Oct 09\nProbability\n\nMonte Carlo, Random Variables & CLT\n\n\nOct 16\nMidterm 1\n\nCovers material from Sep 04-Oct 11\n\n\nOct 21, Oct 23\nInference\n\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\n\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\n\nRegression, Multivariate Regression\n\n\nNov 13\nLinear models\n\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 18, Nov 20\nHigh dimensional data\n\nMatrices in R, Applied Linear Algebra, Dimension Reduction\n\n\nNov 25\nMidterm 2\n\nMidterm 2: cover material from Sep 04-Nov 22\n\n\nDec 02, Dec 04\nMachine Learning\n\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nDec 09, Dec 11\nMachine Learning\n\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#problem-sets",
+    "href": "index.html#problem-sets",
+    "title": "BST 260 Introduction to Data Science",
+    "section": "Problem sets",
+    "text": "Problem sets\n\n\n\nProblem set\nTopic\nDue Date\nDifficulty\n\n\n\n\n01\nUnix, Quarto\nSep 11\neasy\n\n\n02\nR\nSep 19\neasy\n\n\n03\nTidyverse\nSep 27\nmedium\n\n\n04\nWrangling\nOct 4\nmedium\n\n\n05\nCovid 19 data visualization\nOct 11\nmedium\n\n\n06\nProbability\nOct 25\neasy\n\n\n07\nPredict the election\nNov 04\nhard\n\n\n08\nConfidence intervals for excess mortality\nNov 15\nhard\n\n\n09\nMatrices\nNov 22\neasy\n\n\n10\nDigit reading\nDec 13\nhard\n\n\nFinal Project\nYour choice\nDec 20\nhard",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#office-hour-times",
+    "href": "index.html#office-hour-times",
+    "title": "BST 260 Introduction to Data Science",
+    "section": "Office hour times",
+    "text": "Office hour times\n\n\n\nMeeting\nTime\nLocation\n\n\n\n\nRafael Irizarry\nMon 8:45-9:45AM\nKresge 203\n\n\nCorri Sept\nTue\n3:00-4:00PM\n\n\nNikhil Vytla\nWed\n2:00-3:00PM\n\n\nYuan Wang\nFri\n1:00-2:00PM",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#acknowledgments",
+    "href": "index.html#acknowledgments",
+    "title": "BST 260 Introduction to Data Science",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\nWe thank Maria Tackett and Mine Çetinkaya-Rundel for sharing their web page template, which we used in creating this website.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "slides/00-intro.html#general-information",
+    "href": "slides/00-intro.html#general-information",
+    "title": "Introduction",
+    "section": "General Information",
+    "text": "General Information\n\nBST 260 Introduction to Data Science\nInstructor: Rafael A. Irizarry\nTFs: Corri Sept, Nikhil Vytla, Yuan Wang\nMondays we have lectures, Wednesday we have labs.\nWe work on problem sets together, in lab."
+  },
+  {
+    "objectID": "slides/00-intro.html#course-description",
+    "href": "slides/00-intro.html#course-description",
+    "title": "Introduction",
+    "section": "Course Description",
+    "text": "Course Description\nLecture notes: https://datasciencelabs.github.io/2024/\n\nPlease read the syllabus!"
+  },
+  {
+    "objectID": "slides/00-intro.html#important-details",
+    "href": "slides/00-intro.html#important-details",
+    "title": "Introduction",
+    "section": "Important details",
+    "text": "Important details\n\nComplete readings before class.\nMidterms are in person. There are no makeups.\nMake sure you read messages sent via Canvas\nYou can select your own final project, but need approval.\nYou should start final project by October 23.\nHelp us pick office hours: https://forms.gle/GiQXqDTaeYVxaXd78"
+  },
+  {
+    "objectID": "slides/00-intro.html#whats-coming",
+    "href": "slides/00-intro.html#whats-coming",
+    "title": "Introduction",
+    "section": "What’s coming",
+    "text": "What’s coming\n\nUNIX/Linux shell.\nReproducible document preparation\nVersion control with git and GitHub\nR programming\nData wrangling with dplyr and data.table\nData visualization with ggplot2\nProbability theory, inference and modeling\nHigh-dimensional data techniques\nMachine learning"
+  },
+  {
+    "objectID": "slides/00-intro.html#lets-get-started",
+    "href": "slides/00-intro.html#lets-get-started",
+    "title": "Introduction",
+    "section": "Let’s get started",
+    "text": "Let’s get started\n\nInstall R.\nInstall RStudio.\nMake sure you have access to a terminal."
+  },
+  {
+    "objectID": "slides/R/06-tidyverse.html",
+    "href": "slides/R/06-tidyverse.html",
+    "title": "Tidyverse",
+    "section": "",
+    "text": "library(tidyverse)\nlibrary(dslabs)\n\nThe tidyverse makes data analysis simpler and code easier to read by sacrificing some flexibility. The general idea is define functions that perform the most common tasks and requiring that they take data frames as first argument and return a data frame: data frame in data frame out.\nAnother way it makes code more readable is using non standard evaluation. We will define when looking at examples.\n\n\nThis is tidy:\n\n\n      country year fertility\n1     Germany 1960      2.41\n2 South Korea 1960      6.16\n3     Germany 1961      2.44\n4 South Korea 1961      5.99\n5     Germany 1962      2.47\n6 South Korea 1962      5.79\n\n\nOriginally, the data was in the following format:\n\n\n      country 1960 1961 1962 1963 1964 1965 1966 1967 1968 1969 1970\n1     Germany 2.41 2.44 2.47 2.49 2.49 2.48 2.44 2.37 2.28 2.17 2.04\n2 South Korea 6.16 5.99 5.79 5.57 5.36 5.16 4.99 4.85 4.73 4.62 4.53\n\n\nNot tidy.\nPart of what we learn in the data wrangling part of the class is to make data tidy.\n\n\n\n\nmurders &lt;- mutate(murders, rate = total/population*100000)\n\nNotice that here we used total and population inside the function, which are objects that are not defined in our workspace. But why don’t we get an error? This is non-standard evaluation where the context is used to know what variable names means.\n\n\n\n\nfilter(murders, rate &lt;= 0.71)\n\n          state abb        region population total      rate\n1        Hawaii  HI          West    1360301     7 0.5145920\n2          Iowa  IA North Central    3046355    21 0.6893484\n3 New Hampshire  NH     Northeast    1316470     5 0.3798036\n4  North Dakota  ND North Central     672591     4 0.5947151\n5       Vermont  VT     Northeast     625741     2 0.3196211\n\n\n\n\n\n\nnew_table &lt;- select(murders, state, region, rate)\nfilter(new_table, rate &lt;= 0.71)\n\n          state        region      rate\n1        Hawaii          West 0.5145920\n2          Iowa North Central 0.6893484\n3 New Hampshire     Northeast 0.3798036\n4  North Dakota North Central 0.5947151\n5       Vermont     Northeast 0.3196211\n\n\n\n\n\nWe use the pipe to chain a series of operations… for example if we want to select columns and then filter rows we chain like this:\n\\[ \\mbox{original data }\n\\rightarrow \\mbox{ select }\n\\rightarrow \\mbox{ filter } \\]\nThe code looks like this:\n\nmurders |&gt; select(state, region, rate) |&gt; filter(rate &lt;= 0.71)\n\n          state        region      rate\n1        Hawaii          West 0.5145920\n2          Iowa North Central 0.6893484\n3 New Hampshire     Northeast 0.3798036\n4  North Dakota North Central 0.5947151\n5       Vermont     Northeast 0.3196211\n\n\nThe object on the left of the pipe is used as the first argument for the function on the right.\nThe second argument becomes the first, the third the second, and so on…\n\n16 |&gt; sqrt() |&gt; log(base = 2)\n\n[1] 2\n\n\n\n\n\nHere is how it works:\n\nmurders |&gt; summarize(avg = mean(rate))\n\n       avg\n1 2.779125\n\n\nLet’s compute murder rate for the US. Is the above it?\nNo the rate is NOT the average of rates.\n\nmurders |&gt; summarize(rate = sum(total)/sum(population)*100000)\n\n      rate\n1 3.034555\n\n\n\n\nWe want the median, minimum and max population size:\n\nmurders |&gt; summarize(median = median(population), min = min(population), max = max(population))\n\n   median    min      max\n1 4339367 563626 37253956\n\n\nWhy don’t we use quantiles?\n\nmurders |&gt; summarize(quantiles = quantile(population, c(0.5, 0, 1)))\n\nWarning: Returning more (or less) than 1 row per `summarise()` group was deprecated in\ndplyr 1.1.0.\nℹ Please use `reframe()` instead.\nℹ When switching from `summarise()` to `reframe()`, remember that `reframe()`\n  always returns an ungrouped data frame and adjust accordingly.\n\n\n  quantiles\n1   4339367\n2    563626\n3  37253956\n\n\nFor multiple summaries we use reframe\n\nmurders |&gt; reframe(quantiles = quantile(population, c(0.5, 0, 1)))\n\n  quantiles\n1   4339367\n2    563626\n3  37253956\n\n\nHowever, if we want a column per summary, as the summarize call above, we have to define a function that returns a data frame like this:\n\nmedian_min_max &lt;- function(x){\n  qs &lt;- quantile(x, c(0.5, 0, 1))\n  data.frame(median = qs[1], min = qs[2], max = qs[3])\n}\n\nThen we can call summarize as above:\n\nmurders |&gt; summarize(median_min_max(population))\n\n   median    min      max\n1 4339367 563626 37253956\n\n\n\n\n\nLet’s compute murder rate by region.\nTake a close look at this output? How is it different than the original?\n\nmurders |&gt; group_by(region)\n\n# A tibble: 51 × 6\n# Groups:   region [4]\n   state                abb   region    population total  rate\n   &lt;chr&gt;                &lt;chr&gt; &lt;fct&gt;          &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1 Alabama              AL    South        4779736   135  2.82\n 2 Alaska               AK    West          710231    19  2.68\n 3 Arizona              AZ    West         6392017   232  3.63\n 4 Arkansas             AR    South        2915918    93  3.19\n 5 California           CA    West        37253956  1257  3.37\n 6 Colorado             CO    West         5029196    65  1.29\n 7 Connecticut          CT    Northeast    3574097    97  2.71\n 8 Delaware             DE    South         897934    38  4.23\n 9 District of Columbia DC    South         601723    99 16.5 \n10 Florida              FL    South       19687653   669  3.40\n# ℹ 41 more rows\n\n\nNote the Groups: region [4] when we print the object. Although not immediately obvious from its appearance, this is now a special data frame called a grouped data frame, and dplyr functions, in particular summarize, will behave differently when acting on this object.\n\nmurders |&gt; group_by(region) |&gt; summarize(rate = sum(total) / sum(population) * 100000)\n\n# A tibble: 4 × 2\n  region         rate\n  &lt;fct&gt;         &lt;dbl&gt;\n1 Northeast      2.66\n2 South          3.63\n3 North Central  2.73\n4 West           2.66\n\n\nThe summarize function applies the summarization to each group separately.\nFor another example, let’s compute the median, minimum, and maximum population in the four regions of the country using the median_min_max defined above:\n\nmurders |&gt; group_by(region) |&gt; summarize(median_min_max(population))\n\n# A tibble: 4 × 4\n  region          median    min      max\n  &lt;fct&gt;            &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;\n1 Northeast     3574097  625741 19378102\n2 South         4625364  601723 25145561\n3 North Central 5495456. 672591 12830632\n4 West          2700551  563626 37253956\n\n\n\n\n\n\nYou can also summarize a variable but not collapse the dataset. We use mutate instead of summarize. Here is an example where we add a column with the population in each region and the number of states in the region, shown for each state. When we do this, we usually want to ungroup before continuing our analysis.\n\nmurders |&gt; group_by(region) |&gt; \n  mutate(region_pop = sum(population), n = n()) |&gt;\n  ungroup()\n\n# A tibble: 51 × 8\n   state                abb   region    population total  rate region_pop     n\n   &lt;chr&gt;                &lt;chr&gt; &lt;fct&gt;          &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;int&gt;\n 1 Alabama              AL    South        4779736   135  2.82  115674434    17\n 2 Alaska               AK    West          710231    19  2.68   71945553    13\n 3 Arizona              AZ    West         6392017   232  3.63   71945553    13\n 4 Arkansas             AR    South        2915918    93  3.19  115674434    17\n 5 California           CA    West        37253956  1257  3.37   71945553    13\n 6 Colorado             CO    West         5029196    65  1.29   71945553    13\n 7 Connecticut          CT    Northeast    3574097    97  2.71   55317240     9\n 8 Delaware             DE    South         897934    38  4.23  115674434    17\n 9 District of Columbia DC    South         601723    99 16.5   115674434    17\n10 Florida              FL    South       19687653   669  3.40  115674434    17\n# ℹ 41 more rows\n\n\n\n\nTidyverse function always returns a data frame. Even if its just one number.\n\nmurders |&gt; \n  summarize(rate = sum(total)/sum(population)*100000) |&gt;\n  class()\n\n[1] \"data.frame\"\n\n\nTo get a number use pull\n\nmurders |&gt; \n  summarize(rate = sum(total)/sum(population)*100000) |&gt;\n  pull(rate) \n\n[1] 3.034555\n\n\n\n\n\n\nStates order by rate\n\nmurders |&gt; arrange(rate) |&gt; head()\n\n          state abb        region population total      rate\n1       Vermont  VT     Northeast     625741     2 0.3196211\n2 New Hampshire  NH     Northeast    1316470     5 0.3798036\n3        Hawaii  HI          West    1360301     7 0.5145920\n4  North Dakota  ND North Central     672591     4 0.5947151\n5          Iowa  IA North Central    3046355    21 0.6893484\n6         Idaho  ID          West    1567582    12 0.7655102\n\n\nIf we want decreasing we can either use the negative or, for more readability, use desc:\n\nmurders |&gt; arrange(desc(rate)) |&gt; head()\n\n                 state abb        region population total      rate\n1 District of Columbia  DC         South     601723    99 16.452753\n2            Louisiana  LA         South    4533372   351  7.742581\n3             Missouri  MO North Central    5988927   321  5.359892\n4             Maryland  MD         South    5773552   293  5.074866\n5       South Carolina  SC         South    4625364   207  4.475323\n6             Delaware  DE         South     897934    38  4.231937\n\n\nWe can use two variables as well:\n\nmurders |&gt; arrange(region, desc(rate)) |&gt; head(11)\n\n                  state abb    region population total       rate\n1          Pennsylvania  PA Northeast   12702379   457  3.5977513\n2            New Jersey  NJ Northeast    8791894   246  2.7980319\n3           Connecticut  CT Northeast    3574097    97  2.7139722\n4              New York  NY Northeast   19378102   517  2.6679599\n5         Massachusetts  MA Northeast    6547629   118  1.8021791\n6          Rhode Island  RI Northeast    1052567    16  1.5200933\n7                 Maine  ME Northeast    1328361    11  0.8280881\n8         New Hampshire  NH Northeast    1316470     5  0.3798036\n9               Vermont  VT Northeast     625741     2  0.3196211\n10 District of Columbia  DC     South     601723    99 16.4527532\n11            Louisiana  LA     South    4533372   351  7.7425810\n\n\n\n\n\n\n\n\nLet’s redo the exercises from previous chapter but now with tidyverse:\n\nShow the subset of murders showing states with less than 1 per 100,000 deaths. Show all variables.\n\n\nmurders &lt;- mutate(murders, rate = total/population*10^5)\nfilter(murders, rate &lt; 1)\n\n           state abb        region population total      rate\n1         Hawaii  HI          West    1360301     7 0.5145920\n2          Idaho  ID          West    1567582    12 0.7655102\n3           Iowa  IA North Central    3046355    21 0.6893484\n4          Maine  ME     Northeast    1328361    11 0.8280881\n5      Minnesota  MN North Central    5303925    53 0.9992600\n6  New Hampshire  NH     Northeast    1316470     5 0.3798036\n7   North Dakota  ND North Central     672591     4 0.5947151\n8         Oregon  OR          West    3831074    36 0.9396843\n9   South Dakota  SD North Central     814180     8 0.9825837\n10          Utah  UT          West    2763885    22 0.7959810\n11       Vermont  VT     Northeast     625741     2 0.3196211\n12       Wyoming  WY          West     563626     5 0.8871131\n\n\n\nShow the subset of murders showing states with less than 1 per 100,000 deaths and in the West of the US. Don’t show the region variable.\n\n\nfilter(murders, rate &lt; 1 & region == \"West\")\n\n    state abb region population total      rate\n1  Hawaii  HI   West    1360301     7 0.5145920\n2   Idaho  ID   West    1567582    12 0.7655102\n3  Oregon  OR   West    3831074    36 0.9396843\n4    Utah  UT   West    2763885    22 0.7959810\n5 Wyoming  WY   West     563626     5 0.8871131\n\n\n\nShow the largest state with a rate less than 1 per 100,000.\n\n\nmurders |&gt; filter(rate &lt; 1) |&gt; slice_max(population)\n\n      state abb        region population total    rate\n1 Minnesota  MN North Central    5303925    53 0.99926\n\n\n\nShow the state with a population of more than 10 million with the lowest rate.\n\n\nmurders |&gt; filter(population &gt; 10^7) |&gt; slice_min(rate)\n\n     state abb    region population total    rate\n1 New York  NY Northeast   19378102   517 2.66796\n\n\n\nCompute the rate for each region of the US.\n\n\nmurders |&gt; group_by(region) |&gt; summarize(rate = sum(total)/sum(population)*10^5)\n\n# A tibble: 4 × 2\n  region         rate\n  &lt;fct&gt;         &lt;dbl&gt;\n1 Northeast      2.66\n2 South          3.63\n3 North Central  2.73\n4 West           2.66\n\n\nFor the next exercises we will be using the data from the survey collected by the United States National Center for Health Statistics (NCHS). This center has conducted a series of health and nutrition surveys since the 1960’s. Starting in 1999, about 5,000 individuals of all ages have been interviewed every year and they complete the health examination component of the survey. Part of the data is made available via the NHANES package. Once you install the NHANES package, you can load the data like this:\n\nlibrary(NHANES)\n\n\nCheck for consistency between Race1 and Race3. Do any rows have different entries?\n\n\nNHANES |&gt; filter(!is.na(Race1) & !is.na(Race3)) |&gt; \n  filter(as.character(Race1) != as.character(Race3)) |&gt;\n  count(Race1, Race3)\n\n# A tibble: 1 × 3\n  Race1 Race3     n\n  &lt;fct&gt; &lt;fct&gt; &lt;int&gt;\n1 Other Asian   288\n\n\n\nDefine a new race variable that has as few NA and Other as possible.\n\n\ndat &lt;- NHANES %&gt;% mutate(Race = Race3) |&gt;\n  mutate(Race = if_else(is.na(Race), Race1, Race))\n\n\nCompute proportion of individuals that smoked at the time of the survey, by race category and gender. Keep track of how many people answered the question. Order the result by the number that answered. Read the help file for NHANES carefully before doing this one. To be clear: what proportion of people who have smoked at any time in their life are smoking now.\n\n\ndat |&gt; group_by(Gender, Race) |&gt; \n  summarize(n = sum(!is.na(Smoke100)), \n            smoke = sum(SmokeNow == \"Yes\", na.rm = TRUE)) |&gt;\n  mutate(smoke = smoke/n) |&gt;\n  arrange(desc(n))\n\n`summarise()` has grouped output by 'Gender'. You can override using the\n`.groups` argument.\n\n\n# A tibble: 12 × 4\n# Groups:   Gender [2]\n   Gender Race         n  smoke\n   &lt;fct&gt;  &lt;fct&gt;    &lt;int&gt;  &lt;dbl&gt;\n 1 female White     2472 0.185 \n 2 male   White     2377 0.219 \n 3 female Black      442 0.204 \n 4 male   Black      379 0.301 \n 5 male   Mexican    339 0.212 \n 6 female Mexican    262 0.111 \n 7 female Hispanic   218 0.0963\n 8 male   Hispanic   198 0.278 \n 9 female Other      177 0.203 \n10 male   Other      162 0.309 \n11 female Asian      112 0.0357\n12 male   Asian       97 0.175 \n\n\n\nCreate a new dataset that combines the Mexican and Hispanic, and removes the Other category. Hint: use the function forcats::fct_collapse().\n\n\ndat &lt;- dat |&gt; \n  mutate(Race = forcats::fct_collapse(Race, Hispanic = c(\"Hispanic\", \"Mexican\"))) |&gt;\n  filter(Race != \"Other\") |&gt;\n  mutate(Race = droplevels(Race))\n\n\nRecompute proportion of individuals that smoke now by race category and gender. Order by rate of smokers.\n\n\ndat |&gt; group_by(Gender, Race) |&gt; \n  summarize(n = sum(!is.na(Smoke100)), smoke = sum(SmokeNow == \"Yes\", na.rm = TRUE)) |&gt;\n  mutate(smoke = smoke/n) |&gt;\n  arrange(desc(smoke))\n\n`summarise()` has grouped output by 'Gender'. You can override using the\n`.groups` argument.\n\n\n# A tibble: 8 × 4\n# Groups:   Gender [2]\n  Gender Race         n  smoke\n  &lt;fct&gt;  &lt;fct&gt;    &lt;int&gt;  &lt;dbl&gt;\n1 male   Black      379 0.301 \n2 male   Hispanic   537 0.236 \n3 male   White     2377 0.219 \n4 female Black      442 0.204 \n5 female White     2472 0.185 \n6 male   Asian       97 0.175 \n7 female Hispanic   480 0.104 \n8 female Asian      112 0.0357\n\n\n\nCompute the median age by race category and gender order by Age.\n\n\ndat |&gt; group_by(Gender, Race) |&gt;\n  summarize(Age = median(Age)) |&gt;\n  arrange(Gender, Age)\n\n`summarise()` has grouped output by 'Gender'. You can override using the\n`.groups` argument.\n\n\n# A tibble: 8 × 3\n# Groups:   Gender [2]\n  Gender Race       Age\n  &lt;fct&gt;  &lt;fct&gt;    &lt;dbl&gt;\n1 female Hispanic    27\n2 female Black       33\n3 female Asian       37\n4 female White       42\n5 male   Hispanic    28\n6 male   Black       30\n7 male   Asian       31\n8 male   White       40\n\n\n\nNow redo the smoking rate calculation by age group. But first, remove individuals with no group and remove any age groups for which less than 10 people answered the question. Within each age group and Gender order by percent that smokes.\n\n\nres &lt;- dat |&gt; \n  filter(!is.na(AgeDecade)) |&gt;\n  group_by(AgeDecade) |&gt; \n  mutate(n = sum(!is.na(Smoke100))) |&gt; \n  ungroup() |&gt;\n  filter(n &gt;= 10) |&gt;\n  group_by(AgeDecade, Gender, Race) |&gt;\n  summarize(n = sum(!is.na(Smoke100)), \n            smoke = sum(SmokeNow == \"Yes\", na.rm = TRUE), \n            .groups = \"drop\") |&gt; ## This is similar to running ungroup() in a next step\n  mutate(smoke = smoke/n) |&gt;\n  arrange(AgeDecade, Gender, desc(smoke))\n\n## Bonus: a plot\nres |&gt; ggplot(aes(AgeDecade, smoke, color = Race)) +\n  geom_point() + \n  geom_line() + \n  facet_wrap(~Gender)\n\n`geom_line()`: Each group consists of only one observation.\nℹ Do you need to adjust the group aesthetic?\n`geom_line()`: Each group consists of only one observation.\nℹ Do you need to adjust the group aesthetic?"
+  },
+  {
+    "objectID": "slides/R/06-tidyverse.html#tidy-data",
+    "href": "slides/R/06-tidyverse.html#tidy-data",
+    "title": "Tidyverse",
+    "section": "",
+    "text": "This is tidy:\n\n\n      country year fertility\n1     Germany 1960      2.41\n2 South Korea 1960      6.16\n3     Germany 1961      2.44\n4 South Korea 1961      5.99\n5     Germany 1962      2.47\n6 South Korea 1962      5.79\n\n\nOriginally, the data was in the following format:\n\n\n      country 1960 1961 1962 1963 1964 1965 1966 1967 1968 1969 1970\n1     Germany 2.41 2.44 2.47 2.49 2.49 2.48 2.44 2.37 2.28 2.17 2.04\n2 South Korea 6.16 5.99 5.79 5.57 5.36 5.16 4.99 4.85 4.73 4.62 4.53\n\n\nNot tidy.\nPart of what we learn in the data wrangling part of the class is to make data tidy."
+  },
+  {
+    "objectID": "slides/R/06-tidyverse.html#adding-a-column-with-mutate",
+    "href": "slides/R/06-tidyverse.html#adding-a-column-with-mutate",
+    "title": "Tidyverse",
+    "section": "",
+    "text": "murders &lt;- mutate(murders, rate = total/population*100000)\n\nNotice that here we used total and population inside the function, which are objects that are not defined in our workspace. But why don’t we get an error? This is non-standard evaluation where the context is used to know what variable names means."
+  },
+  {
+    "objectID": "slides/R/06-tidyverse.html#subsetting-with-filter",
+    "href": "slides/R/06-tidyverse.html#subsetting-with-filter",
+    "title": "Tidyverse",
+    "section": "",
+    "text": "filter(murders, rate &lt;= 0.71)\n\n          state abb        region population total      rate\n1        Hawaii  HI          West    1360301     7 0.5145920\n2          Iowa  IA North Central    3046355    21 0.6893484\n3 New Hampshire  NH     Northeast    1316470     5 0.3798036\n4  North Dakota  ND North Central     672591     4 0.5947151\n5       Vermont  VT     Northeast     625741     2 0.3196211"
+  },
+  {
+    "objectID": "slides/R/06-tidyverse.html#selecting-columns-with-select",
+    "href": "slides/R/06-tidyverse.html#selecting-columns-with-select",
+    "title": "Tidyverse",
+    "section": "",
+    "text": "new_table &lt;- select(murders, state, region, rate)\nfilter(new_table, rate &lt;= 0.71)\n\n          state        region      rate\n1        Hawaii          West 0.5145920\n2          Iowa North Central 0.6893484\n3 New Hampshire     Northeast 0.3798036\n4  North Dakota North Central 0.5947151\n5       Vermont     Northeast 0.3196211"
+  },
+  {
+    "objectID": "slides/R/06-tidyverse.html#the-pipe-or",
+    "href": "slides/R/06-tidyverse.html#the-pipe-or",
+    "title": "Tidyverse",
+    "section": "",
+    "text": "We use the pipe to chain a series of operations… for example if we want to select columns and then filter rows we chain like this:\n\\[ \\mbox{original data }\n\\rightarrow \\mbox{ select }\n\\rightarrow \\mbox{ filter } \\]\nThe code looks like this:\n\nmurders |&gt; select(state, region, rate) |&gt; filter(rate &lt;= 0.71)\n\n          state        region      rate\n1        Hawaii          West 0.5145920\n2          Iowa North Central 0.6893484\n3 New Hampshire     Northeast 0.3798036\n4  North Dakota North Central 0.5947151\n5       Vermont     Northeast 0.3196211\n\n\nThe object on the left of the pipe is used as the first argument for the function on the right.\nThe second argument becomes the first, the third the second, and so on…\n\n16 |&gt; sqrt() |&gt; log(base = 2)\n\n[1] 2"
+  },
+  {
+    "objectID": "slides/R/06-tidyverse.html#summarizing-data",
+    "href": "slides/R/06-tidyverse.html#summarizing-data",
+    "title": "Tidyverse",
+    "section": "",
+    "text": "Here is how it works:\n\nmurders |&gt; summarize(avg = mean(rate))\n\n       avg\n1 2.779125\n\n\nLet’s compute murder rate for the US. Is the above it?\nNo the rate is NOT the average of rates.\n\nmurders |&gt; summarize(rate = sum(total)/sum(population)*100000)\n\n      rate\n1 3.034555\n\n\n\n\nWe want the median, minimum and max population size:\n\nmurders |&gt; summarize(median = median(population), min = min(population), max = max(population))\n\n   median    min      max\n1 4339367 563626 37253956\n\n\nWhy don’t we use quantiles?\n\nmurders |&gt; summarize(quantiles = quantile(population, c(0.5, 0, 1)))\n\nWarning: Returning more (or less) than 1 row per `summarise()` group was deprecated in\ndplyr 1.1.0.\nℹ Please use `reframe()` instead.\nℹ When switching from `summarise()` to `reframe()`, remember that `reframe()`\n  always returns an ungrouped data frame and adjust accordingly.\n\n\n  quantiles\n1   4339367\n2    563626\n3  37253956\n\n\nFor multiple summaries we use reframe\n\nmurders |&gt; reframe(quantiles = quantile(population, c(0.5, 0, 1)))\n\n  quantiles\n1   4339367\n2    563626\n3  37253956\n\n\nHowever, if we want a column per summary, as the summarize call above, we have to define a function that returns a data frame like this:\n\nmedian_min_max &lt;- function(x){\n  qs &lt;- quantile(x, c(0.5, 0, 1))\n  data.frame(median = qs[1], min = qs[2], max = qs[3])\n}\n\nThen we can call summarize as above:\n\nmurders |&gt; summarize(median_min_max(population))\n\n   median    min      max\n1 4339367 563626 37253956\n\n\n\n\n\nLet’s compute murder rate by region.\nTake a close look at this output? How is it different than the original?\n\nmurders |&gt; group_by(region)\n\n# A tibble: 51 × 6\n# Groups:   region [4]\n   state                abb   region    population total  rate\n   &lt;chr&gt;                &lt;chr&gt; &lt;fct&gt;          &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1 Alabama              AL    South        4779736   135  2.82\n 2 Alaska               AK    West          710231    19  2.68\n 3 Arizona              AZ    West         6392017   232  3.63\n 4 Arkansas             AR    South        2915918    93  3.19\n 5 California           CA    West        37253956  1257  3.37\n 6 Colorado             CO    West         5029196    65  1.29\n 7 Connecticut          CT    Northeast    3574097    97  2.71\n 8 Delaware             DE    South         897934    38  4.23\n 9 District of Columbia DC    South         601723    99 16.5 \n10 Florida              FL    South       19687653   669  3.40\n# ℹ 41 more rows\n\n\nNote the Groups: region [4] when we print the object. Although not immediately obvious from its appearance, this is now a special data frame called a grouped data frame, and dplyr functions, in particular summarize, will behave differently when acting on this object.\n\nmurders |&gt; group_by(region) |&gt; summarize(rate = sum(total) / sum(population) * 100000)\n\n# A tibble: 4 × 2\n  region         rate\n  &lt;fct&gt;         &lt;dbl&gt;\n1 Northeast      2.66\n2 South          3.63\n3 North Central  2.73\n4 West           2.66\n\n\nThe summarize function applies the summarization to each group separately.\nFor another example, let’s compute the median, minimum, and maximum population in the four regions of the country using the median_min_max defined above:\n\nmurders |&gt; group_by(region) |&gt; summarize(median_min_max(population))\n\n# A tibble: 4 × 4\n  region          median    min      max\n  &lt;fct&gt;            &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;\n1 Northeast     3574097  625741 19378102\n2 South         4625364  601723 25145561\n3 North Central 5495456. 672591 12830632\n4 West          2700551  563626 37253956"
+  },
+  {
+    "objectID": "slides/R/06-tidyverse.html#ungroup",
+    "href": "slides/R/06-tidyverse.html#ungroup",
+    "title": "Tidyverse",
+    "section": "",
+    "text": "You can also summarize a variable but not collapse the dataset. We use mutate instead of summarize. Here is an example where we add a column with the population in each region and the number of states in the region, shown for each state. When we do this, we usually want to ungroup before continuing our analysis.\n\nmurders |&gt; group_by(region) |&gt; \n  mutate(region_pop = sum(population), n = n()) |&gt;\n  ungroup()\n\n# A tibble: 51 × 8\n   state                abb   region    population total  rate region_pop     n\n   &lt;chr&gt;                &lt;chr&gt; &lt;fct&gt;          &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;int&gt;\n 1 Alabama              AL    South        4779736   135  2.82  115674434    17\n 2 Alaska               AK    West          710231    19  2.68   71945553    13\n 3 Arizona              AZ    West         6392017   232  3.63   71945553    13\n 4 Arkansas             AR    South        2915918    93  3.19  115674434    17\n 5 California           CA    West        37253956  1257  3.37   71945553    13\n 6 Colorado             CO    West         5029196    65  1.29   71945553    13\n 7 Connecticut          CT    Northeast    3574097    97  2.71   55317240     9\n 8 Delaware             DE    South         897934    38  4.23  115674434    17\n 9 District of Columbia DC    South         601723    99 16.5   115674434    17\n10 Florida              FL    South       19687653   669  3.40  115674434    17\n# ℹ 41 more rows\n\n\n\n\nTidyverse function always returns a data frame. Even if its just one number.\n\nmurders |&gt; \n  summarize(rate = sum(total)/sum(population)*100000) |&gt;\n  class()\n\n[1] \"data.frame\"\n\n\nTo get a number use pull\n\nmurders |&gt; \n  summarize(rate = sum(total)/sum(population)*100000) |&gt;\n  pull(rate) \n\n[1] 3.034555"
+  },
+  {
+    "objectID": "slides/R/06-tidyverse.html#sorting-data-frames",
+    "href": "slides/R/06-tidyverse.html#sorting-data-frames",
+    "title": "Tidyverse",
+    "section": "",
+    "text": "States order by rate\n\nmurders |&gt; arrange(rate) |&gt; head()\n\n          state abb        region population total      rate\n1       Vermont  VT     Northeast     625741     2 0.3196211\n2 New Hampshire  NH     Northeast    1316470     5 0.3798036\n3        Hawaii  HI          West    1360301     7 0.5145920\n4  North Dakota  ND North Central     672591     4 0.5947151\n5          Iowa  IA North Central    3046355    21 0.6893484\n6         Idaho  ID          West    1567582    12 0.7655102\n\n\nIf we want decreasing we can either use the negative or, for more readability, use desc:\n\nmurders |&gt; arrange(desc(rate)) |&gt; head()\n\n                 state abb        region population total      rate\n1 District of Columbia  DC         South     601723    99 16.452753\n2            Louisiana  LA         South    4533372   351  7.742581\n3             Missouri  MO North Central    5988927   321  5.359892\n4             Maryland  MD         South    5773552   293  5.074866\n5       South Carolina  SC         South    4625364   207  4.475323\n6             Delaware  DE         South     897934    38  4.231937\n\n\nWe can use two variables as well:\n\nmurders |&gt; arrange(region, desc(rate)) |&gt; head(11)\n\n                  state abb    region population total       rate\n1          Pennsylvania  PA Northeast   12702379   457  3.5977513\n2            New Jersey  NJ Northeast    8791894   246  2.7980319\n3           Connecticut  CT Northeast    3574097    97  2.7139722\n4              New York  NY Northeast   19378102   517  2.6679599\n5         Massachusetts  MA Northeast    6547629   118  1.8021791\n6          Rhode Island  RI Northeast    1052567    16  1.5200933\n7                 Maine  ME Northeast    1328361    11  0.8280881\n8         New Hampshire  NH Northeast    1316470     5  0.3798036\n9               Vermont  VT Northeast     625741     2  0.3196211\n10 District of Columbia  DC     South     601723    99 16.4527532\n11            Louisiana  LA     South    4533372   351  7.7425810"
+  },
+  {
+    "objectID": "slides/R/06-tidyverse.html#exercises-1",
+    "href": "slides/R/06-tidyverse.html#exercises-1",
+    "title": "Tidyverse",
+    "section": "",
+    "text": "Let’s redo the exercises from previous chapter but now with tidyverse:\n\nShow the subset of murders showing states with less than 1 per 100,000 deaths. Show all variables.\n\n\nmurders &lt;- mutate(murders, rate = total/population*10^5)\nfilter(murders, rate &lt; 1)\n\n           state abb        region population total      rate\n1         Hawaii  HI          West    1360301     7 0.5145920\n2          Idaho  ID          West    1567582    12 0.7655102\n3           Iowa  IA North Central    3046355    21 0.6893484\n4          Maine  ME     Northeast    1328361    11 0.8280881\n5      Minnesota  MN North Central    5303925    53 0.9992600\n6  New Hampshire  NH     Northeast    1316470     5 0.3798036\n7   North Dakota  ND North Central     672591     4 0.5947151\n8         Oregon  OR          West    3831074    36 0.9396843\n9   South Dakota  SD North Central     814180     8 0.9825837\n10          Utah  UT          West    2763885    22 0.7959810\n11       Vermont  VT     Northeast     625741     2 0.3196211\n12       Wyoming  WY          West     563626     5 0.8871131\n\n\n\nShow the subset of murders showing states with less than 1 per 100,000 deaths and in the West of the US. Don’t show the region variable.\n\n\nfilter(murders, rate &lt; 1 & region == \"West\")\n\n    state abb region population total      rate\n1  Hawaii  HI   West    1360301     7 0.5145920\n2   Idaho  ID   West    1567582    12 0.7655102\n3  Oregon  OR   West    3831074    36 0.9396843\n4    Utah  UT   West    2763885    22 0.7959810\n5 Wyoming  WY   West     563626     5 0.8871131\n\n\n\nShow the largest state with a rate less than 1 per 100,000.\n\n\nmurders |&gt; filter(rate &lt; 1) |&gt; slice_max(population)\n\n      state abb        region population total    rate\n1 Minnesota  MN North Central    5303925    53 0.99926\n\n\n\nShow the state with a population of more than 10 million with the lowest rate.\n\n\nmurders |&gt; filter(population &gt; 10^7) |&gt; slice_min(rate)\n\n     state abb    region population total    rate\n1 New York  NY Northeast   19378102   517 2.66796\n\n\n\nCompute the rate for each region of the US.\n\n\nmurders |&gt; group_by(region) |&gt; summarize(rate = sum(total)/sum(population)*10^5)\n\n# A tibble: 4 × 2\n  region         rate\n  &lt;fct&gt;         &lt;dbl&gt;\n1 Northeast      2.66\n2 South          3.63\n3 North Central  2.73\n4 West           2.66\n\n\nFor the next exercises we will be using the data from the survey collected by the United States National Center for Health Statistics (NCHS). This center has conducted a series of health and nutrition surveys since the 1960’s. Starting in 1999, about 5,000 individuals of all ages have been interviewed every year and they complete the health examination component of the survey. Part of the data is made available via the NHANES package. Once you install the NHANES package, you can load the data like this:\n\nlibrary(NHANES)\n\n\nCheck for consistency between Race1 and Race3. Do any rows have different entries?\n\n\nNHANES |&gt; filter(!is.na(Race1) & !is.na(Race3)) |&gt; \n  filter(as.character(Race1) != as.character(Race3)) |&gt;\n  count(Race1, Race3)\n\n# A tibble: 1 × 3\n  Race1 Race3     n\n  &lt;fct&gt; &lt;fct&gt; &lt;int&gt;\n1 Other Asian   288\n\n\n\nDefine a new race variable that has as few NA and Other as possible.\n\n\ndat &lt;- NHANES %&gt;% mutate(Race = Race3) |&gt;\n  mutate(Race = if_else(is.na(Race), Race1, Race))\n\n\nCompute proportion of individuals that smoked at the time of the survey, by race category and gender. Keep track of how many people answered the question. Order the result by the number that answered. Read the help file for NHANES carefully before doing this one. To be clear: what proportion of people who have smoked at any time in their life are smoking now.\n\n\ndat |&gt; group_by(Gender, Race) |&gt; \n  summarize(n = sum(!is.na(Smoke100)), \n            smoke = sum(SmokeNow == \"Yes\", na.rm = TRUE)) |&gt;\n  mutate(smoke = smoke/n) |&gt;\n  arrange(desc(n))\n\n`summarise()` has grouped output by 'Gender'. You can override using the\n`.groups` argument.\n\n\n# A tibble: 12 × 4\n# Groups:   Gender [2]\n   Gender Race         n  smoke\n   &lt;fct&gt;  &lt;fct&gt;    &lt;int&gt;  &lt;dbl&gt;\n 1 female White     2472 0.185 \n 2 male   White     2377 0.219 \n 3 female Black      442 0.204 \n 4 male   Black      379 0.301 \n 5 male   Mexican    339 0.212 \n 6 female Mexican    262 0.111 \n 7 female Hispanic   218 0.0963\n 8 male   Hispanic   198 0.278 \n 9 female Other      177 0.203 \n10 male   Other      162 0.309 \n11 female Asian      112 0.0357\n12 male   Asian       97 0.175 \n\n\n\nCreate a new dataset that combines the Mexican and Hispanic, and removes the Other category. Hint: use the function forcats::fct_collapse().\n\n\ndat &lt;- dat |&gt; \n  mutate(Race = forcats::fct_collapse(Race, Hispanic = c(\"Hispanic\", \"Mexican\"))) |&gt;\n  filter(Race != \"Other\") |&gt;\n  mutate(Race = droplevels(Race))\n\n\nRecompute proportion of individuals that smoke now by race category and gender. Order by rate of smokers.\n\n\ndat |&gt; group_by(Gender, Race) |&gt; \n  summarize(n = sum(!is.na(Smoke100)), smoke = sum(SmokeNow == \"Yes\", na.rm = TRUE)) |&gt;\n  mutate(smoke = smoke/n) |&gt;\n  arrange(desc(smoke))\n\n`summarise()` has grouped output by 'Gender'. You can override using the\n`.groups` argument.\n\n\n# A tibble: 8 × 4\n# Groups:   Gender [2]\n  Gender Race         n  smoke\n  &lt;fct&gt;  &lt;fct&gt;    &lt;int&gt;  &lt;dbl&gt;\n1 male   Black      379 0.301 \n2 male   Hispanic   537 0.236 \n3 male   White     2377 0.219 \n4 female Black      442 0.204 \n5 female White     2472 0.185 \n6 male   Asian       97 0.175 \n7 female Hispanic   480 0.104 \n8 female Asian      112 0.0357\n\n\n\nCompute the median age by race category and gender order by Age.\n\n\ndat |&gt; group_by(Gender, Race) |&gt;\n  summarize(Age = median(Age)) |&gt;\n  arrange(Gender, Age)\n\n`summarise()` has grouped output by 'Gender'. You can override using the\n`.groups` argument.\n\n\n# A tibble: 8 × 3\n# Groups:   Gender [2]\n  Gender Race       Age\n  &lt;fct&gt;  &lt;fct&gt;    &lt;dbl&gt;\n1 female Hispanic    27\n2 female Black       33\n3 female Asian       37\n4 female White       42\n5 male   Hispanic    28\n6 male   Black       30\n7 male   Asian       31\n8 male   White       40\n\n\n\nNow redo the smoking rate calculation by age group. But first, remove individuals with no group and remove any age groups for which less than 10 people answered the question. Within each age group and Gender order by percent that smokes.\n\n\nres &lt;- dat |&gt; \n  filter(!is.na(AgeDecade)) |&gt;\n  group_by(AgeDecade) |&gt; \n  mutate(n = sum(!is.na(Smoke100))) |&gt; \n  ungroup() |&gt;\n  filter(n &gt;= 10) |&gt;\n  group_by(AgeDecade, Gender, Race) |&gt;\n  summarize(n = sum(!is.na(Smoke100)), \n            smoke = sum(SmokeNow == \"Yes\", na.rm = TRUE), \n            .groups = \"drop\") |&gt; ## This is similar to running ungroup() in a next step\n  mutate(smoke = smoke/n) |&gt;\n  arrange(AgeDecade, Gender, desc(smoke))\n\n## Bonus: a plot\nres |&gt; ggplot(aes(AgeDecade, smoke, color = Race)) +\n  geom_point() + \n  geom_line() + \n  facet_wrap(~Gender)\n\n`geom_line()`: Each group consists of only one observation.\nℹ Do you need to adjust the group aesthetic?\n`geom_line()`: Each group consists of only one observation.\nℹ Do you need to adjust the group aesthetic?"
   },
   {
     "objectID": "slides/productivity/02-rstudio.html#the-panes",

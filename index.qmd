@@ -43,7 +43,7 @@ Lecture slides, class notes, and problem sets are linked below. New material is 
 |:-------|:--------------|:---------|:----------|
 | [01](psets/pset-01-unix-quarto.qmd)   |  Unix, Quarto|Sep 11   | easy | 
 | [02](psets/pset-02-r-vectorization.qmd) |  R | Sep 19   |easy | 
-| 03          |  Tidyverse | Sep 29   |easy | 
+| 03          |  Tidyverse | Sep 27   |medium | 
 | 04          | Wrangling | Oct 4   | medium | 
 | 05          |  Covid 19 data visualization | Oct 11   |medium | 
 | 06          | Probability | Oct 25   | easy | 

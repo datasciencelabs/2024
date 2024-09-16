@@ -1,7 +1,7 @@
 ---
 title: "R Basics"
 keywords: "R"
-date: 2024-09-09
+date: 2024-09-16
 format:
   revealjs:
     theme: night
@@ -818,6 +818,42 @@ plot.ts
 * The function plot will call different functions depending on the class of the arguments.
 
 
+## Plots
+
+* Soon we will learn how to use the ggplot2 package to make plots.
+
+* R base does have functions for plotting though
+
+* Some you should know about are:
+
+    - `plot` - mainly for making scatterplots. 
+    - `lines` - add lines/curves to an existing plot.
+    - `hist` - to make a histogram.
+    - `boxplot` - makes boxplots.
+    - `image` - uses color to represent entries in a matrix.
+
+---
+
+## Plots
+
+* Although, in general, we recommend using ggplot2, R base plots are often better for quick exploratory plots.
+
+* For example, to make a histogram of values in `x` simply type:
+
+```{r}
+#| eval: false
+hist(x)
+```
+
+* To make a scatter plot of `y` versus `x` and then interpolate we type:
+
+```{r}
+#| eval: false
+plot(x,y)
+lines(x,y)
+```
+
+
 ## Vectorization 
 
 * We will be using the `murders` dataset in the **dslabs** package.
@@ -1091,40 +1127,5 @@ sapply(ns, s)
   
 * We will learn some of these as we go.
 
-
-## Plots
-
-* Soon we will learn how to use the ggplot2 package to make plots.
-
-* R base does have functions for plotting though
-
-* Some you should know about are:
-
-    - `plot` - mainly for making scatterplots. 
-    - `lines` - add lines/curves to an existing plot.
-    - `hist` - to make a histogram.
-    - `boxplot` - makes boxplots.
-    - `image` - uses color to represent entries in a matrix.
-
----
-
-## Plots
-
-* Although, in general, we recommend using ggplot2, R base plots are often better for quick exploratory plots.
-
-* For example, to make a histogram of values in `x` simply type:
-
-```{r}
-#| eval: false
-hist(x)
-```
-
-* To make a scatter plot of `y` versus `x` and then interpolate we type:
-
-```{r}
-#| eval: false
-plot(x,y)
-lines(x,y)
-```
 
 

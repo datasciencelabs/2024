@@ -1,5 +1,12 @@
 [
   {
+    "listing": "/psets.html",
+    "items": [
+      "/psets/pset-01-unix-quarto.html",
+      "/psets/pset-02-r-vectorization.html"
+    ]
+  },
+  {
     "listing": "/slides.html",
     "items": [
       "/slides/00-intro.html",
@@ -7,14 +14,8 @@
       "/slides/productivity/02-rstudio.html",
       "/slides/productivity/03-quarto.html",
       "/slides/productivity/04-git.html",
-      "/slides/R/05-r-basics.html"
-    ]
-  },
-  {
-    "listing": "/psets.html",
-    "items": [
-      "/psets/pset-01-unix-quarto.html",
-      "/psets/pset-02-r-vectorization.html"
+      "/slides/R/05-r-basics.html",
+      "/slides/R/06-tidyverse.html"
     ]
   }
 ]
