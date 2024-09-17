@@ -1,12 +1,5 @@
 [
   {
-    "listing": "/psets.html",
-    "items": [
-      "/psets/pset-01-unix-quarto.html",
-      "/psets/pset-02-r-vectorization.html"
-    ]
-  },
-  {
     "listing": "/slides.html",
     "items": [
       "/slides/00-intro.html",
@@ -15,7 +8,16 @@
       "/slides/productivity/03-quarto.html",
       "/slides/productivity/04-git.html",
       "/slides/R/05-r-basics.html",
-      "/slides/R/06-tidyverse.html"
+      "/slides/R/06-vectorization.html",
+      "/slides/R/07-tidyverse.html"
+    ]
+  },
+  {
+    "listing": "/psets.html",
+    "items": [
+      "/psets/pset-01-unix-quarto.html",
+      "/psets/pset-02-r-vectorization.html",
+      "/psets/pset-03-tidyverse.html"
     ]
   }
 ]

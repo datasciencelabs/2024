@@ -1,0 +1,436 @@
+---
+title: "Tidyverse"
+keywords: "R"
+date: 2024-09-23
+format:
+  revealjs:
+    theme: night
+execute: 
+  echo: true
+---
+
+## Tidyverse
+
+```{r}
+#| message: false
+
+library(tidyverse)
+```
+
+* The _tidyverse_ is not a package but a group of packages developed to work with each other.
+
+
+* The tidyverse makes data analysis simpler and code easier to read by sacrificing some flexibility. 
+
+
+* One way code is simplified by ensuring all functions take and return _tidy data_.
+
+--- 
+
+## Tidy data 
+
+* Stored in a data frame.
+
+* Each observation is exactly one row.
+
+* Variables are stored in columns.
+
+* Not all data can be represented this way, but a very large subset of data analysis challenges are based on tidy data.
+
+* Assuming data is tidy simplifies coding and frees up our minds for statistical thinking.
+
+--- 
+
+
+## Tidy data 
+
+* This is an example of a tidy dataset:
+
+```{r}
+#| echo: false
+
+library(dslabs)
+tidy_data <- gapminder |> 
+  filter(country %in% c("South Korea", "Germany") & !is.na(fertility)) |>
+  select(country, year, fertility)
+head(tidy_data, 6)
+```
+
+## Tidy data 
+
+* Originally, the data was in the following format:
+
+```{r, echo=FALSE, message=FALSE}
+path <- system.file("extdata", package = "dslabs")
+filename <- file.path(path, "fertility-two-countries-example.csv")
+wide_data <- read_csv(filename)
+select(wide_data, country, `1960`:`1970`) |> as.data.frame()
+```
+
+* This is **not** tidy.
+
+
+
+## Tidyverse packages
+
+* **tibble** - improves data frame class.
+
+* **readr** - import data.
+
+* **dplyr** - used to modify data frames.
+    
+* **ggplot2** - simplifies plotting.
+
+* **tidyr** - helps convert data into tidy format.
+
+* **stringr** - string processing.
+
+* **forcats** - utilities for categorical data.
+
+* **purrr** - tidy version of apply functions.
+
+## dplyr
+
+* In this lecture we focus on **dplyr**.
+
+* In particular the following functions:
+
+    - `mutate` 
+    
+    - `select`
+    
+    - `across`
+    
+    - `filter`
+    
+    - `group_by`
+    
+    - `summarize`
+
+
+--- 
+
+## Adding a column with `mutate`
+
+
+```{r, message=FALSE}
+murders <- mutate(murders, rate = total/population*100000)
+```
+
+* Notice that here we used `total` and `population` inside the function, which are objects that are **not** defined in our workspace.
+
+* This is known as non-standard evaluation where the context is used to know what variable names means.
+
+* Tidyverse extensively uses non-standard evaluation.
+
+* This can create confusion but it certainly simplifies code.
+
+--- 
+
+## Subsetting with `filter`
+
+```{r}
+filter(murders, rate <= 0.71)
+```
+
+--- 
+
+## Selecting columns with `select`
+
+```{r}
+new_table <- select(murders, state, region, rate)
+filter(new_table, rate <= 0.71)
+```
+
+--- 
+
+## Transforming variables
+
+* The function `mutate` can also be used to transform variables. 
+
+* For example, the following code takes the log transformation of the population variable:
+
+```{r}
+#| eval: false
+mutate(murders, population = log10(population))
+```
+
+--- 
+
+## Transforming variables
+
+* Often, we need to apply the same transformation to several variables. 
+
+* The function `across` facilitates the operation. 
+
+* For example if want to log transform both population and total murders we can use:
+
+```{r}
+#| eval: false
+mutate(murders, across(c(population, total), log10))
+```
+
+--- 
+
+## Transforming variables
+
+* The helper functions come in handy when using across. 
+
+* An example is if we want to apply the same transformation to all numeric variables:
+
+```{r}
+#| eval: false
+mutate(murders, across(where(is.numeric), log10))
+```
+
+* or all character variables:
+
+```{r}
+#| eval: false
+mutate(murders, across(where(is.character), tolower))
+```
+
+* There are several other useful helper functions.
+
+
+--- 
+
+## The pipe: `|>` or `%>%`
+
+* We use the pipe to chain a series of operations.
+
+* For example if we want to select columns and then filter rows we chain like this:
+
+$$ \mbox{original data }
+\rightarrow \mbox{ select }
+\rightarrow \mbox{ filter } $$
+
+
+--- 
+
+## The pipe: `|>` or `%>%`
+
+* The code looks like this:
+
+```{r}
+murders |> select(state, region, rate) |> filter(rate <= 0.71)
+```
+
+* The object on the left of the pipe is used as the first argument for the function on the right. 
+
+* The second argument becomes the first, the third the second, and so on...
+
+---
+
+
+## The pipe: `|>` or `%>%`
+
+* Here is a simple example:
+
+```{r}
+16 |> sqrt() |> log(base = 2)
+```
+
+---
+
+
+## Summarizing data
+
+* We use the **dplyr** `summarize` function, not to be confused with `summary` from R base.
+
+* Here is an example of how it works:
+
+```{r}
+murders |> summarize(avg = mean(rate))
+```
+
+* Let's compute murder rate for the US. Is the above it?
+
+--- 
+
+## Summarizing data
+
+* No, the rate is NOT the average of rates.
+
+* It is the total murders divided by total population:
+
+```{r}
+murders |> summarize(rate = sum(total)/sum(population)*100000)
+```
+
+--- 
+
+## Multiple summaries
+
+* Suppose we want the median, minimum and max population size:
+
+```{r}
+murders |> summarize(median = median(population), min = min(population), max = max(population))
+```
+
+* Why don't we use `quantiles`? 
+
+```{r}
+murders |> summarize(quantiles = quantile(population, c(0.5, 0, 1)))
+```
+
+
+--- 
+
+## Multiple summaries
+
+:::{.callout-warning}
+Using a function that returns more than one number within summairze will soon be deprecated.
+:::
+
+* For multiple summaries we use `reframe`:
+
+```{r}
+murders |> reframe(quantiles = quantile(population, c(0.5, 0, 1)))
+```
+
+--- 
+
+## Multiple summaries
+
+* However, if we want a column per summary, as when we called `min`, `median`, and `max` separately, 
+we have to define a function that returns a data frame like this:
+
+```{r}
+median_min_max <- function(x){
+  qs <- quantile(x, c(0.5, 0, 1))
+  data.frame(median = qs[1], min = qs[2], max = qs[3])
+}
+```
+
+* Then we can call `summarize`:
+
+```{r}
+murders |> summarize(median_min_max(population))
+```
+
+--- 
+
+## Group then summarize 
+
+* Let's compute murder rate by region.
+
+* Take a close look at this output? 
+
+```{r}
+murders |> group_by(region) |> head(4)
+```
+
+* Note the `Groups: region [4]` at the top.
+
+* This is a special data frame called a _grouped data frame_.
+
+--- 
+
+## Group then summarize  
+
+* In particular `summarize`, will behave differently when acting on this object. 
+
+```{r}
+murders |> 
+  group_by(region) |> 
+  summarize(rate = sum(total) / sum(population) * 100000)
+```
+
+* The `summarize` function applies the summarization to each group separately.
+
+--- 
+
+## Group then summarize 
+
+* For another example, let's compute the median, minimum, and maximum population in the four regions of the country using the `median_min_max` previously defined:
+
+
+```{r}
+murders |> group_by(region) |> summarize(median_min_max(population))
+```
+
+--- 
+
+## Group then summarize  
+
+* You can also summarize a variable but not collapse the dataset. 
+
+* We use `mutate` instead of `summarize`. 
+
+* Here is an example where we add a column with the population in each region and the number of states in the region, shown for each state. 
+
+```{r}
+#| eval: false
+murders |> group_by(region) |> 
+  mutate(region_pop = sum(population), n = n())
+```
+
+--- 
+
+## ungroup
+
+* When we do this, we usually want to ungroup before continuing our analysis. 
+
+```{r}
+#| eval: false
+murders |> group_by(region) |> 
+  mutate(region_pop = sum(population), n = n()) |>
+  ungroup()
+```
+
+* This avoids having a grouped data frame that we don't need.
+--- 
+
+## `pull`
+
+
+* Tidyverse function always returns a data frame. Even if its just one number.
+
+```{r}
+murders |> 
+  summarize(rate = sum(total)/sum(population)*100000) |>
+  class()
+```
+
+--- 
+
+## `pull`
+
+* To get a numberic use pull:
+
+```{r}
+murders |> 
+  summarize(rate = sum(total)/sum(population)*100000) |>
+  pull(rate) 
+```
+
+--- 
+
+## Sorting data frames
+
+* States order by rate
+
+```{r}
+murders |> arrange(rate) |> head()
+```
+
+--- 
+
+## Sorting data frames
+
+* If we want decreasing we can either use the negative or, for more readability, use `desc`:
+```{r}
+murders |> arrange(desc(rate)) |> head()
+```
+
+--- 
+
+## Sorting data frames
+
+* We can use two variables as well:
+
+```{r}
+murders |> arrange(region, desc(rate)) |> head(11)
+```
+

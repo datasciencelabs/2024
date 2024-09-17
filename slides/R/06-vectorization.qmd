@@ -1,0 +1,289 @@
+---
+title: "Vectorization"
+keywords: "R"
+date: 2024-09-18
+format:
+  revealjs:
+    theme: night
+execute: 
+  echo: true
+---
+
+
+## Vectorization 
+
+* We will be using the `murders` dataset in the **dslabs** package.
+
+* Includes data on 2010 gun murders for the US 50 states and DC. 
+
+* We will use it to answer questions such as "What is the state with lowest crime rate in the Western part of the US?"
+
+---
+
+## Vectorization
+
+* First, some simple examples of vectorization.
+
+* Let's convert the following heights in inches to meters:
+
+```{r}
+heights <- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)
+```
+
+* Rather than loop we use vectorization:
+
+```{r}
+heights*2.54/100
+```
+
+---
+
+## Vectorization
+
+* We can subtract a constant from each element of a vector.
+
+* This is convenient for computing residuals or deviations from an average:
+
+```{r}
+avg <- mean(heights)
+heights - avg 
+```
+
+---
+
+## Vectorization
+
+* This means we can compute standard units like this:
+
+```{r}
+s <- sd(heights)
+(heights - avg)/s
+```
+
+* There is actually a function, `scale`, that does this. We describe it soon.
+
+---
+
+## Vectorization
+
+* If we operate on two vectors, vectorization is componentwise.
+
+* Here is an example:
+
+```{r}
+heights <- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)
+error <- rnorm(length(heights), 0, 0.1)
+heights + error
+```
+
+---
+
+## Exercise
+
+
+* Add a column to the murders dataset with the murder rate.
+
+* Use murders per 100,000 persons as the unit.
+
+---
+
+
+## Functions that vectorize
+
+* Most arithmetic functions work on vectors.
+
+```{r}
+x <- 1:10
+sqrt(x)
+log(x)
+2^x
+```
+
+---
+
+## Functions that vectorize
+
+```{r}
+scale(heights)
+```
+
+provides the same results, 
+
+```{r}
+(heights - mean(heights))/sd(heights)
+```
+
+---
+
+## Functions that vectorize
+
+* But `scale` coerces to  a column matrix:
+
+```{r}
+class(scale(heights))
+```
+
+---
+
+## Functions that vectorize
+
+* The conditional function `if`-`else` does not vectorize. 
+
+* A particularly useful function is a  vectorized version `ifelse`. 
+
+* Here is an example:
+
+```{r}
+a <- c(0, 1, 2, -4, 5)
+ifelse(a > 0, 1/a, NA)
+```
+
+* Other conditional functions, such as `any` and `all`, do vectorize.
+
+---
+
+## Indexing
+
+* Vectorization also works for logical relationships:
+
+```{r}
+library(dslabs)
+ind <- murders$population < 10^6
+```
+
+* A convenient aspect of this is that you can subset a vector using this logical vector for indexing:
+
+```{r}
+murders$state[ind]
+```
+
+---
+
+## Indexing
+
+
+* You can also use vectorization to apply logical operators:
+
+```{r}
+ind <- murders$population < 10^6 & murders$region == "West"
+murders$state[ind]
+```
+
+---
+
+## `split`
+
+* `split` is a useful function to get indexes using a factor:
+
+```{r}
+inds <- with(murders, split(seq_along(region), region))
+murders$state[inds$West]
+```
+
+---
+
+## Functions for subsetting
+
+* The functions `which`, `match` and the operator `%in%` are 
+useful for sub-setting
+
+* To understand how they work it's best to use examples.
+
+
+---
+
+## which
+
+```{r}
+ind <- which(murders$state == "California")
+ind
+murders[ind,]
+```
+
+---
+
+## match
+
+```{r}
+ind <- match(c("New York", "Florida", "Texas"), murders$state)
+ind
+murders[ind,]
+```
+
+---
+
+## %in%
+
+
+```{r}
+ind <- which(murders$state %in% c("New York", "Florida", "Texas"))
+ind
+murders[ind,]
+```
+
+* Note this is similar to using match. 
+
+* But note the order is different.
+
+---
+
+## match versus %in%
+
+```{r}
+c("Boston", "Dakota", "Washington") %in% murders$state
+```
+
+```{r}
+match(c("Boston", "Dakota", "Washington"), murders$state)
+```
+
+```{r}
+match(murders$state, c("Boston", "Dakota", "Washington"))
+```
+
+## The apply functions
+
+* The apply functions let use the concept of vectorization with functions that don't vectorize.
+
+* Here is an example of a function that won't vectorize in a convenient way:
+
+```{r}
+s <- function(n){
+   return(sum(1:n))
+}
+```
+
+* Try it on a vector:
+
+```{r}
+ns <- c(25, 100, 1000)
+s(ns)
+```
+
+## The apply functions
+
+* We can use `sapply`, one of the apply functions:
+
+```{r}
+sapply(ns, s)
+```
+
+* `sapply` will work on any vector, including lists.
+
+## The apply functions
+
+* There are other apply functions:
+    
+    - `lapply` - returns a list. Convenient when the function returns something other than a number.
+    
+    - `tapply` - can apply to subsets defined by second variable.
+    
+    - `mapply` - multivariate version of `sapply`.
+    
+    - `apply` - applies function to rows or columns o matrix.
+  
+  
+* We will learn some of these as we go.
+
+
+

@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="">
+<meta name="dcterms.date" content="2024-09-27">
 
-<title>BST 260: Introduction to Data Science - Slides</title>
+<title>BST 260: Introduction to Data Science - Problem set 3</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,26 +21,58 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -68,35 +100,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-slides .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-keywords','listing-title','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-slides'] = new List('listing-slides', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -139,7 +142,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./slides.html">Slides</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Problem set 3</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -153,8 +156,8 @@ window.Quarto = {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main">
     <a href="https://github.com/datasciencelabs/2024" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
@@ -169,25 +172,25 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./slides.html" class="sidebar-item-text sidebar-link active">
+  <a href="../slides.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Slides</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./psets.html" class="sidebar-item-text sidebar-link">
+  <a href="../psets.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Problem Sets</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./syllabus.html" class="sidebar-item-text sidebar-link">
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
@@ -197,14 +200,21 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/datasciencelabs/2024/blob/main/psets/pset-03-tidyverse.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Slides</h1>
+<h1 class="title">Problem set 3</h1>
 </div>
 
 
@@ -212,6 +222,12 @@ window.Quarto = {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 27, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -221,119 +237,148 @@ window.Quarto = {
 </header>
 
 
-<div id="listing-slides" class="quarto-listing quarto-listing-container-table">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-Topic
-</th>
-<th>
-Title
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-listing-date-sort="1725422400000" data-listing-file-modified-sort="1725810076467" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="141" data-listing-title-sort="Introduction" data-listing-filename-sort="00-intro.qmd">
-<td>
-<span class="listing-keywords">First day</span>
-</td>
-<td>
-<a href="./slides/00-intro.html" class="title listing-title">Introduction</a>
-</td>
-<td>
-<span class="listing-date">Wed, Sep 04</span>
-</td>
-</tr>
-<tr data-index="1" data-listing-date-sort="1725422400000" data-listing-file-modified-sort="1725821614775" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="612" data-listing-title-sort="Unix" data-listing-filename-sort="01-unix.qmd">
-<td>
-<span class="listing-keywords">Productivity Tools</span>
-</td>
-<td>
-<a href="./slides/productivity/01-unix.html" class="title listing-title">Unix</a>
-</td>
-<td>
-<span class="listing-date">Wed, Sep 04</span>
-</td>
-</tr>
-<tr data-index="2" data-listing-date-sort="1725422400000" data-listing-file-modified-sort="1725821700668" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="101" data-listing-title-sort="RStudio" data-listing-filename-sort="02-rstudio.qmd">
-<td>
-<span class="listing-keywords">Productivity Tools</span>
-</td>
-<td>
-<a href="./slides/productivity/02-rstudio.html" class="title listing-title">RStudio</a>
-</td>
-<td>
-<span class="listing-date">Wed, Sep 04</span>
-</td>
-</tr>
-<tr data-index="3" data-listing-date-sort="1725854400000" data-listing-file-modified-sort="1725935877552" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="621" data-listing-title-sort="Quarto" data-listing-filename-sort="03-quarto.qmd">
-<td>
-<span class="listing-keywords">Productivity Tools</span>
-</td>
-<td>
-<a href="./slides/productivity/03-quarto.html" class="title listing-title">Quarto</a>
-</td>
-<td>
-<span class="listing-date">Mon, Sep 09</span>
-</td>
-</tr>
-<tr data-index="4" data-listing-date-sort="1725854400000" data-listing-file-modified-sort="1725897377788" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1428" data-listing-title-sort="Git and GitHub" data-listing-filename-sort="04-git.qmd">
-<td>
-<span class="listing-keywords">Productivity Tools</span>
-</td>
-<td>
-<a href="./slides/productivity/04-git.html" class="title listing-title">Git and GitHub</a>
-</td>
-<td>
-<span class="listing-date">Mon, Sep 09</span>
-</td>
-</tr>
-<tr data-index="5" data-listing-date-sort="1726459200000" data-listing-file-modified-sort="1726606277357" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1741" data-listing-title-sort="R Basics" data-listing-filename-sort="05-r-basics.qmd">
-<td>
-<span class="listing-keywords">R</span>
-</td>
-<td>
-<a href="./slides/R/05-r-basics.html" class="title listing-title">R Basics</a>
-</td>
-<td>
-<span class="listing-date">Mon, Sep 16</span>
-</td>
-</tr>
-<tr data-index="6" data-listing-date-sort="1726632000000" data-listing-file-modified-sort="1726606805352" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="561" data-listing-title-sort="Vectorization" data-listing-filename-sort="06-vectorization.qmd">
-<td>
-<span class="listing-keywords">R</span>
-</td>
-<td>
-<a href="./slides/R/06-vectorization.html" class="title listing-title">Vectorization</a>
-</td>
-<td>
-<span class="listing-date">Wed, Sep 18</span>
-</td>
-</tr>
-<tr data-index="7" data-listing-date-sort="1727064000000" data-listing-file-modified-sort="1726606124510" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1110" data-listing-title-sort="Tidyverse" data-listing-filename-sort="07-tidyverse.qmd">
-<td>
-<span class="listing-keywords">R</span>
-</td>
-<td>
-<a href="./slides/R/07-tidyverse.html" class="title listing-title">Tidyverse</a>
-</td>
-<td>
-<span class="listing-date">Mon, Sep 23</span>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
+<p>In these exercises, we will explore a subset of the NHANES dataset to investigate potential differences in systolic blood pressure across groups defined by self reported race.</p>
+<section id="instructions" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions">Instructions</h3>
+<ul>
+<li><p>For each exercise, we want you to write a single line of code using the pipe (<code>|&gt;</code>) to chain together multiple operations. This doesn’t mean the code must fit within 80 characters or be written on a single physical line, but rather that the entire sequence of operations can be executed as one continuous line of code without needing to assign intermediate values or create new variables.</p>
+<p>For example, these are three separate lines of code:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">100</span>; x <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x); <span class="fu">log10</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<pre><code>Whereas this is considered one line of code using the pipe:</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">100</span> <span class="sc">|&gt;</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sqrt</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">log10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>Generate an html document that shows the code for each exercise.</p></li>
+<li><p>For the exercises that ask to generate a graph, show the graph as well.</p></li>
+<li><p>For exercises that require you to display tabular results, use the <code>kable</code> function to format the output as a clean, readable table. Do not display the raw dataframe directly—only show the nicely formatted table using <code>kable</code>.</p></li>
+<li><p>Use only two significant digits for the numbers displayed in the tables.</p></li>
+<li><p>Submit both the html and the qmd files using Git.</p></li>
+<li><p>You will need the following libraries:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(NHANES)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>The <code>.qmd</code> file must be able to render properly on the TFs’ computers. They will already have the necessary packages installed, so there is no need to include code for installing packages. Just focus on writing the code that uses these packages.</li>
+</ul>
+</section>
+<section id="exercises" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h3>
+<ol type="1">
+<li>Filter the <code>NHANES</code> data to only include survey year 2011-2012. Save the resulting table in <code>dat</code>. This table should have 5,000 rows and 76 columns.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Compute the average and standard deviation (SD) for the <em>combined systolic blood pressure</em> (SBP) reading for males and females separately. Show us a data frame with two rows (female and male) and two columns (average and SD).</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Because of the large difference in the average between males and females, we will perform the rest of the analysis separately for males and females.</li>
+</ol>
+<p>Compute the average and SD for SBP for each race variable in column <code>Race3</code> for females and males separately. The resulting table should have four columns for sex, race, average, and SD, respectively, and 12 rows (one for each strata). Arrange the result from highest to lowest average.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li>Repeat the previous exercise but add two columns to the final table to show a 95% confidence interval. Specifically, add columns with the lower and upper bounds of the interval with names <code>lower</code> and <code>upper</code>, respectively. The formula for these values is</li>
+</ol>
+<p><span class="math display">\[
+\bar{X} \pm 1.96 \, s / \sqrt{n}
+\]</span> with <span class="math inline">\(\bar{X}\)</span> the sample average and <span class="math inline">\(s\)</span> the sample standard deviation. This table will simply add two more columns to the table generated in the previous exercise: one column for the lower and upper bound, respectively.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="do">## code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="5" type="1">
+<li>Make a graph of showing the results from the previous exercise. Specifically, plot the averages for each group as points and confidence intervals as error bars (use the geometry <code>geom_errorbar</code>). Order the groups from lowest to highest average (the average of the males and females averages). Use <code>facet_wrap</code> to make a separate plot for females and males. Label your axes with <em>Race</em> and <em>Average</em> respectively, add the title <em>Comparing systolic blood pressure across groups</em>, and the caption <em>Bars represent 95% confidence intervals</em>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="6" type="1">
+<li>In the plot above we see that the confidence intervals don’t overlap when comparing the <code>White</code> and <code>Mexican</code> groups. We also see a substantial difference between <code>Mexican</code> and <code>Hispnanic</code>. Before concluding that there is a difference between groups, we will explore if differences in age, a very common <em>confounder</em>, explain the differences.</li>
+</ol>
+<p>Create table like the one in the previous exercise but show the average SBP by sex and age group (<code>AgeDecade</code>). The the groups are order chronologically. As before make a separate plot for males and females. Make sure to filter our observations with no <code>AgeDecade</code> listed.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="do">## code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="7" type="1">
+<li>We note that for both males and females the SBP increases with age. To explore if age is indeed a confounder we need to check if the groups have different age distributions.</li>
+</ol>
+<p>Explore the age distributions of each <code>Race3</code> group to determine if the groups are comparable. Make a histogram of <code>Age</code> for each <code>Race3</code> group and stack them vertically. Generate two columns of graphs for males and females, respectively. In the histograms, create bins increments of 5 years up to 80.</p>
+<p>Below the graph, comment on what notice about the age distributions and how this can explain the difference between the <em>White</em> and <em>Mexican</em> groups.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="8" type="1">
+<li>Summarize the results shown in the graph by compute the median age for each <code>Race3</code> group and the percent of individuals that are younger than 18. Order the rows by median age. The resulting data frame should have 6 rows (one for each group) and three columns to denote group, median age, and children respectively.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="do">## code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Given these results provide an explanation for the difference in systolic pressure is lower when comparing the <code>White</code> and <code>Mexican</code> groups.</p>
+<ol start="9" type="1">
+<li>When the age distribution between two populations we can’t conclude that there are differences in SBP based just on the population averages. The observed differences are likely due to age differences rather than genetic differences. We will therefore stratify by group and then compare SBP. But before we do this, we might need redefine <code>dat</code> to avoid small groups.</li>
+</ol>
+<p>Write a function that computes the number of observations in each gender, age group and race combination. Show the groups with less than five observations. Make sure to remove the rows with no BPSysAve measurments before calculating the number of observations. Show a table with four columns representing gender, age strate, group, and the number of individuals in that group. Make sure to include combinations with 0 individuals (hint: use <code>complete</code>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="10" type="1">
+<li><p>Based on the observations made in the previous exercise, we will redefine <code>dat</code> but with the following:</p>
+<ul>
+<li>As before, include only survey year 2011-2012.</li>
+<li>Remove the observations with no age group reported.</li>
+<li>Remove the 0-9 age group.</li>
+<li>Combine the 60-69 and 70+ ageroups into a 60+ group.</li>
+<li>Remove observations reporting <code>Other</code> in <code>Race3</code>.</li>
+<li>Rename the variable <code>Race3</code> to <code>Race</code>.</li>
+</ul>
+<p>Hints:</p>
+<ul>
+<li>Note that the levels in <code>AgeDecade</code> start with a space.</li>
+<li>You can use the <code>fct_collapse</code> function in the <strong>forcats</strong> to combine factors.</li>
+</ul></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="do">## code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="11" type="1">
+<li>Crete a plot that shows the averege BPS for each age decade. Show the different race groups with color and lines joining them. Generate a two plots, one for males and one for females.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">## code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="12" type="1">
+<li>Based on the plot above pick two groups that you think are consistently different and remake the plot from the previous exercise but just for these two groups, add confidence intervals, and remove the lines. Put the confidence intervals for each age strata next to each other and use color to represent the two groups. Comment on your finding.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">## code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="13" type="1">
+<li>For the two groups that you selected above compute the difference in average BPS between the two groups for each age strata. Show a table with three columns representing age strata, difference for females, difference for males.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">## code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -750,4 +795,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/datasciencelabs/2024/blob/main/slides.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/datasciencelabs/2024/blob/main/psets/pset-03-tidyverse.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
