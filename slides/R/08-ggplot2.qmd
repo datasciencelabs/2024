@@ -219,7 +219,7 @@ p_test <- p + geom_text(aes(population/10^6, total), label = abb)
 
 will give you an error since `abb` is not found because it is outside of the `aes` function. 
 
-* The layer `geom_text` does not know where to find `abb` since it is a column name and not a global variable.
+* The layer `geom_text` does not know where to find `abb`: it's a column name and not a global variable.
 
 --- 
 
@@ -293,7 +293,7 @@ p + geom_point(size = 3) +
 
 ## Scales
 
-* Layers can define trasnformations:
+* Layers can define transformations:
 
 ```{r ggplot-example-9}
 #| code-line-numbers: "3-4"
@@ -403,9 +403,8 @@ p + geom_point(size = 3) +
 
 --- 
 
-## Categories as colors
+## Adding color
 
-Here is an exmaple of adding color:
 
 ```{r ggplot-example-11}
 #| code-line-numbers: "8"
@@ -423,9 +422,8 @@ murders |> ggplot(aes(population/10^6, total, label = abb)) +
 
 --- 
 
-## Categories as colors
+## A mapped color
 
-But if we want the color to relate to a variable, we need to include it in the map:
 
 ```{r ggplot-example-12}
 #| code-line-numbers: "8"
@@ -440,15 +438,11 @@ murders |> ggplot(aes(population/10^6, total, label = abb)) +
   geom_point(aes(col = region), size = 3)
 ```
 
-
+A legend is added automatically!
 
 --- 
 
-## Categories as colors
-
-* Note that a legend was created automatically!
-
-* This is how we change the name of the legend:
+## Change legend name
 
 ```{r  ggplot-example-12-1}
 #| code-line-numbers: "8"
@@ -483,9 +477,8 @@ r <- murders |>
 
 ---
 
-## Other adjustments
+## Add a line
 
-* Add a line with the `geom_abline` function:
 
 ```{r ggplot-example-13}
 #| code-line-numbers: "10"
@@ -502,11 +495,29 @@ murders |> ggplot(aes(population/10^6, total, label = abb)) +
   geom_abline(intercept = log10(r), lty = 2, color = "darkgrey")
 ```
 
+----
+
+## We are close!
+
+```{r we-are-very-close}
+#| echo: false
+murders |> ggplot(aes(population/10^6, total, label = abb)) +   
+  geom_text(nudge_x = 0.05) + 
+  scale_x_log10() +
+  scale_y_log10() +
+  labs(x = "Populations in millions (log scale)", 
+       y = "Total number of murders (log scale)", 
+       title = "US Gun Murders in 2010",
+       color = "Region") +
+  geom_point(aes(col = region), size = 3) +
+  geom_abline(intercept = log10(r), lty = 2, color = "darkgrey")
+
+```
+
 
 ## Other adjustments
 
 
-* We are very close now. 
 
 * To make the final adjustments we will save our current draft in `p` and add layers.
 
@@ -540,8 +551,7 @@ ds_theme_set()
 
 ## Add-on packages 
 
-
-* Among those are the `theme_economist` theme that we used. 
+**ggthemes** provides pre-designed themes.
 
 ```{r}
 library(ggthemes)
@@ -553,7 +563,7 @@ p + theme_economist()
 
 ## Add-on packages 
 
-* Here is `theme_fivethirtyeight()` theme
+Here is the FiveThirtyEight theme:
 
 ```{r}
 p + theme_fivethirtyeight()
@@ -564,7 +574,7 @@ p + theme_fivethirtyeight()
 
 ## Add-on packages 
 
-* And if you want to ruin the plot, give it the excel theme:
+If you want to ruin the plot use the excel theme:
 
 ```{r}
 p + theme_excel()
@@ -574,7 +584,7 @@ p + theme_excel()
 
 ## Add-on packages 
 
-* For more fun themes:
+**ThemePark** provides fun themes:
 
 ```{r}
 library(ThemePark)
@@ -585,6 +595,8 @@ p + theme_starwars()
 
 
 ## Add-on packages 
+
+This is a fan favorite:
 
 ```{r}
 p + theme_barbie()
@@ -601,7 +613,6 @@ p + theme_barbie()
 
 ## Putting it all together
 
-* Now that we are done testing, we can write one piece of code that produces our desired plot from scratch.
 
 ::: {.panel-tabset}
 
@@ -661,12 +672,36 @@ murders |> ggplot(aes(population/10^6, total, label = abb)) +
 
 ## Grids of plots
 
-There are often reasons to graph plots next to each other. The **gridExtra** package permits us to do that:
+* We often want to put plots next to each other. 
+
+* The **gridExtra** package permits us to do that:
+
+::: {.panel-tabset}
+
+## Code
+
+```{r, warning=FALSE, message=FALSE, fig.height=2.5, fig.width=5}
+#| eval: false
+library(gridExtra)
+p1 <- murders |> 
+  ggplot(aes(log10(population))) + 
+  geom_histogram()
+p2 <- murders |> 
+  gplot(aes(log10(population), log10(total))) + 
+  geom_point()
+grid.arrange(p1, p2, ncol = 2)
+```
+
+## Plot
 
 ```{r gridExtra-example, warning=FALSE, message=FALSE, fig.height=2.5, fig.width=5}
+#| echo: false
+
 library(gridExtra)
 p1 <- murders |> ggplot(aes(log10(population))) + geom_histogram()
 p2 <- murders |> ggplot(aes(log10(population), log10(total))) + geom_point()
 grid.arrange(p1, p2, ncol = 2)
 ```
 
+
+:::
