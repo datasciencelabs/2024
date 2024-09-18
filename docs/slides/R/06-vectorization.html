@@ -468,8 +468,8 @@
 <span id="cb8-2"><a></a>error <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fu">length</span>(heights), <span class="dv">0</span>, <span class="fl">0.1</span>)</span>
 <span id="cb8-3"><a></a>heights <span class="sc">+</span> error</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 69.13457 61.86424 65.90693 69.93476 69.82347 73.04641 67.01729 73.02947
- [9] 66.99574 69.96262</code></pre>
+<pre><code> [1] 69.02376 62.00053 65.80805 70.04393 69.93804 72.95957 67.05696 72.87048
+ [9] 67.02175 69.96904</code></pre>
 </div>
 </div>
 </section>
@@ -550,6 +550,7 @@ attr(,"scaled:scale")
 <h2>Functions that vectorize</h2>
 <ul>
 <li><p>The conditional function <code>if</code>-<code>else</code> does not vectorize.</p></li>
+<li><p>Functions such as <code>any</code> and <code>all</code>, covert vectors to logicals of lenght one needed for <code>if</code>-<code>else</code>.</p></li>
 <li><p>A particularly useful function is a vectorized version <code>ifelse</code>.</p></li>
 <li><p>Here is an example:</p></li>
 </ul>
@@ -560,9 +561,6 @@ attr(,"scaled:scale")
 <pre><code>[1]  NA 1.0 0.5  NA 0.2</code></pre>
 </div>
 </div>
-<ul>
-<li>Other conditional functions, such as <code>any</code> and <code>all</code>, do vectorize.</li>
-</ul>
 </section>
 <section id="indexing" class="slide level2">
 <h2>Indexing</h2>

@@ -5,16 +5,20 @@
     <lastmod>2024-09-08T18:55:33.218Z</lastmod>
   </url>
   <url>
-    <loc>http://datasciencelabs.github.io/2024/slides/productivity/01-unix.html</loc>
-    <lastmod>2024-09-08T18:53:34.775Z</lastmod>
+    <loc>http://datasciencelabs.github.io/2024/slides/productivity/04-git.html</loc>
+    <lastmod>2024-09-09T15:56:17.788Z</lastmod>
   </url>
   <url>
-    <loc>http://datasciencelabs.github.io/2024/slides/productivity/03-quarto.html</loc>
-    <lastmod>2024-09-10T02:37:57.552Z</lastmod>
+    <loc>http://datasciencelabs.github.io/2024/slides/productivity/02-rstudio.html</loc>
+    <lastmod>2024-09-08T18:55:00.668Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/R/08-ggplot2.html</loc>
+    <lastmod>2024-09-18T22:11:10.526Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/R/06-vectorization.html</loc>
-    <lastmod>2024-09-17T21:00:05.352Z</lastmod>
+    <lastmod>2024-09-18T17:43:09.163Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/00-intro.html</loc>
@@ -22,11 +26,11 @@
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/index.html</loc>
-    <lastmod>2024-09-17T21:37:18.134Z</lastmod>
+    <lastmod>2024-09-18T22:12:06.706Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/psets/pset-02-r-vectorization.html</loc>
-    <lastmod>2024-09-10T19:10:07.289Z</lastmod>
+    <lastmod>2024-09-18T17:25:37.742Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/psets/pset-01-unix-quarto.html</loc>
@@ -53,11 +57,15 @@
     <lastmod>2024-09-17T20:48:44.510Z</lastmod>
   </url>
   <url>
-    <loc>http://datasciencelabs.github.io/2024/slides/productivity/02-rstudio.html</loc>
-    <lastmod>2024-09-08T18:55:00.668Z</lastmod>
+    <loc>http://datasciencelabs.github.io/2024/slides/productivity/03-quarto.html</loc>
+    <lastmod>2024-09-10T02:37:57.552Z</lastmod>
   </url>
   <url>
-    <loc>http://datasciencelabs.github.io/2024/slides/productivity/04-git.html</loc>
-    <lastmod>2024-09-09T15:56:17.788Z</lastmod>
+    <loc>http://datasciencelabs.github.io/2024/slides/productivity/01-unix.html</loc>
+    <lastmod>2024-09-08T18:53:34.775Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/lab-notes/pset-02-r-vectorization.html</loc>
+    <lastmod>2024-09-18T17:24:03.520Z</lastmod>
   </url>
 </urlset>

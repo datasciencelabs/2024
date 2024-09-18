@@ -120,228 +120,578 @@
     ]
   },
   {
-    "objectID": "slides/productivity/01-unix.html#naming-convention",
-    "href": "slides/productivity/01-unix.html#naming-convention",
-    "title": "Unix",
-    "section": "Naming convention",
-    "text": "Naming convention\n\nIn general you want to name your files in a way that is related to their contents and specifies how they relate to other files.\nThe Smithsonian Data Management Best Practices has “five precepts of file naming and organization”"
+    "objectID": "slides/productivity/04-git.html#goal-for-the-day",
+    "href": "slides/productivity/04-git.html#goal-for-the-day",
+    "title": "Git and GitHub",
+    "section": "Goal for the day",
+    "text": "Goal for the day\n\nCreate a repository\npush something to the repository\nconnect RStudio to GitHub"
   },
   {
-    "objectID": "slides/productivity/01-unix.html#five-precepts-of-file-naming-and-organization",
-    "href": "slides/productivity/01-unix.html#five-precepts-of-file-naming-and-organization",
-    "title": "Unix",
-    "section": "Five precepts of file naming and organization",
-    "text": "Five precepts of file naming and organization\n\nHave a distinctive, human-readable name that gives an indication of the content.\nFollow a consistent pattern that is machine-friendly.\nOrganize files into directories (when necessary) that follow a consistent pattern.\nAvoid repetition of semantic elements among file and directory names.\nHave a file extension that matches the file format (no changing extensions!)\n\nFor specific recommendations we highly recommend you follow The Tidyverse Style Guide"
+    "objectID": "slides/productivity/04-git.html#do-you-have-git",
+    "href": "slides/productivity/04-git.html#do-you-have-git",
+    "title": "Git and GitHub",
+    "section": "Do you have git?",
+    "text": "Do you have git?\nBefore we start:\n\nMake sure you have Git installed.\nOpen a terminal and type:\n\n\ngit --version\n\nIf not installed\n\non a Mac, follow the instructions after typing the above.\non Windows follow these instructions"
   },
   {
-    "objectID": "slides/productivity/01-unix.html#the-terminal",
-    "href": "slides/productivity/01-unix.html#the-terminal",
-    "title": "Unix",
-    "section": "The terminal",
-    "text": "The terminal\n\nInstead of clicking, dragging, and dropping to organize our files and folders, we will be typing Unix commands into the terminal.\nThe way we do this is similar to how we type commands into the R console, but instead of generating plots and statistical summaries, we will be organizing files on our system."
+    "objectID": "slides/productivity/04-git.html#motivation",
+    "href": "slides/productivity/04-git.html#motivation",
+    "title": "Git and GitHub",
+    "section": "Motivation",
+    "text": "Motivation\nWe want to avoid this:\n\nPosted by rjkb041 on r/ProgrammerHumor"
   },
   {
-    "objectID": "slides/productivity/01-unix.html#the-terminal-1",
-    "href": "slides/productivity/01-unix.html#the-terminal-1",
-    "title": "Unix",
-    "section": "The terminal",
-    "text": "The terminal\n\nThe terminal is integrated into Mac and Linux systems, but Windows users will have to install an emulator. Once you have a terminal open, you can start typing commands.\nYou should see a blinking cursor at the spot where what you type will show up. This position is called the command line."
+    "objectID": "slides/productivity/04-git.html#motivation-1",
+    "href": "slides/productivity/04-git.html#motivation-1",
+    "title": "Git and GitHub",
+    "section": "Motivation",
+    "text": "Motivation\n\nThis is particularly true when more than one person is collaborating and editing the file.\nEven more important when there are multiple files, as there is in software development, and to some extend data analysis."
   },
   {
-    "objectID": "slides/productivity/01-unix.html#the-home-directory",
-    "href": "slides/productivity/01-unix.html#the-home-directory",
-    "title": "Unix",
-    "section": "The home directory",
-    "text": "The home directory"
+    "objectID": "slides/productivity/04-git.html#motivation-2",
+    "href": "slides/productivity/04-git.html#motivation-2",
+    "title": "Git and GitHub",
+    "section": "Motivation",
+    "text": "Motivation\n\nGit is a version control system that provides a systematic approach to keeping versions of files.\n\n\nPosted on devrant.com/ by bhimanshukalra"
   },
   {
-    "objectID": "slides/productivity/01-unix.html#windows",
-    "href": "slides/productivity/01-unix.html#windows",
-    "title": "Unix",
-    "section": "Windows",
-    "text": "Windows\nThe structure on Windows looks something like this:"
+    "objectID": "slides/productivity/04-git.html#motivation-3",
+    "href": "slides/productivity/04-git.html#motivation-3",
+    "title": "Git and GitHub",
+    "section": "Motivation",
+    "text": "Motivation\nBut we have to learn some things.\n\nFrom Meme Git Compilation by Lulu Ilmaknun Qurotaini"
   },
   {
-    "objectID": "slides/productivity/01-unix.html#mac",
-    "href": "slides/productivity/01-unix.html#mac",
-    "title": "Unix",
-    "section": "Mac",
-    "text": "Mac\nAnd on MacOS something like this:"
+    "objectID": "slides/productivity/04-git.html#why-use-git-and-github",
+    "href": "slides/productivity/04-git.html#why-use-git-and-github",
+    "title": "Git and GitHub",
+    "section": "Why use Git and GitHub?",
+    "text": "Why use Git and GitHub?\n\nSharing.\nCollaborating.\nVersion control.\n\nWe focus on the sharing aspects of Git and GitHub, but introduce some of the basics that permit you to collaborate and use version control."
   },
   {
-    "objectID": "slides/productivity/01-unix.html#working-directory",
-    "href": "slides/productivity/01-unix.html#working-directory",
-    "title": "Unix",
-    "section": "Working directory",
-    "text": "Working directory\n\nThe working directory is the directly you are currently in. Later we will see that we can move to other directories using the command line.\nIt’s similar to clicking on folders.\nYou can see your working directory using the Unix command pwd\n\nIn R we can use getwd()"
+    "objectID": "slides/productivity/04-git.html#what-is-git",
+    "href": "slides/productivity/04-git.html#what-is-git",
+    "title": "Git and GitHub",
+    "section": "What is Git?",
+    "text": "What is Git?"
   },
   {
-    "objectID": "slides/productivity/01-unix.html#paths",
-    "href": "slides/productivity/01-unix.html#paths",
-    "title": "Unix",
-    "section": "Paths",
-    "text": "Paths\n\nThis string returned in previous command is full path to working directory.\nThe full path to your home directory is stored in an environment variable.\nYou can see it like this echo $HOME"
+    "objectID": "slides/productivity/04-git.html#what-is-github",
+    "href": "slides/productivity/04-git.html#what-is-github",
+    "title": "Git and GitHub",
+    "section": "What is GitHub?",
+    "text": "What is GitHub?\n\nDescribed a social network for software developers.\nBasically, it’s a service that hosts the remote repository (repo) on the web.\nThis facilitates collaboration and sharing greatly."
   },
   {
-    "objectID": "slides/productivity/01-unix.html#paths-1",
-    "href": "slides/productivity/01-unix.html#paths-1",
-    "title": "Unix",
-    "section": "Paths",
-    "text": "Paths\n\nIn Unix, we use the shorthand ~ as a nickname for your home directory\nExample: the full path for docs (in image above) can be written like this ~/docs.\nMost terminals will show the path to your working directory right on the command line.\nLet’s open a terminal window and see if the working directory is listed."
+    "objectID": "slides/productivity/04-git.html#what-is-github-1",
+    "href": "slides/productivity/04-git.html#what-is-github-1",
+    "title": "Git and GitHub",
+    "section": "What is GitHub?",
+    "text": "What is GitHub?\nThere many other features such as\n\nRecognition system: reward, badges and stars.\nYou can host web pages, like the class notes for example.\nPermits contributions via forks and pull requests.\nIssue tracking\nAutomation tools."
   },
   {
-    "objectID": "slides/productivity/01-unix.html#unix-commands",
-    "href": "slides/productivity/01-unix.html#unix-commands",
-    "title": "Unix",
-    "section": "Unix commands",
-    "text": "Unix commands\n\nls: Listing directory content\nmkdir and rmdir: make and remove a directory\ncd: navigating the filesystem by changing directories\npwd: see your workding directory\nmv: moving files\ncp: copying files\nrm: removing files\nless: looking at a file"
+    "objectID": "slides/productivity/04-git.html#what-is-github-2",
+    "href": "slides/productivity/04-git.html#what-is-github-2",
+    "title": "Git and GitHub",
+    "section": "What is GitHub?",
+    "text": "What is GitHub?\n\nThe main tool behind GitHub is Git.\nSimilar to how the main tool behind RStudio is R."
   },
   {
-    "objectID": "slides/productivity/01-unix.html#autocomplete",
-    "href": "slides/productivity/01-unix.html#autocomplete",
-    "title": "Unix",
-    "section": "Autocomplete",
-    "text": "Autocomplete\n\nIn Unix you can auto-complete by hitting tab.\nThis means that we can type cd d then hit tab.\nUnix will either auto-complete if docs is the only directory/file starting with d or show you the options.\nTry it out! Using Unix without auto-complete will make it unbearable."
+    "objectID": "slides/productivity/04-git.html#github-accounts",
+    "href": "slides/productivity/04-git.html#github-accounts",
+    "title": "Git and GitHub",
+    "section": "GitHub accounts",
+    "text": "GitHub accounts\n\nPick a professional sounding name.\nConsider adding a profile README.md.\nInstructions are here.\nExample here."
   },
   {
-    "objectID": "slides/productivity/01-unix.html#text-editors",
-    "href": "slides/productivity/01-unix.html#text-editors",
-    "title": "Unix",
-    "section": "Text editors",
-    "text": "Text editors\nCommand-line text editors are essential tools, especially for system administrators, developers, and other users who frequently work in a terminal environment. Here are some of the most popular command-line text editors:\n\nNano\nPico\nVi or Vim\nEmacs"
+    "objectID": "slides/productivity/04-git.html#repositories",
+    "href": "slides/productivity/04-git.html#repositories",
+    "title": "Git and GitHub",
+    "section": "Repositories",
+    "text": "Repositories\n\nWe are ready to create a GitHub repository (repo).\nYou will have at least two copies of your code: one on your computer and one on GitHub.\nIf you add collaborators to this repo, then each will have a copy on their computer.\nThe GitHub copy is considered the main (previously called master) copy that everybody syncs to.\nGit will help you keep all the different copies synced."
   },
   {
-    "objectID": "slides/productivity/01-unix.html#other-very-useful-commands-you-should-learn",
-    "href": "slides/productivity/01-unix.html#other-very-useful-commands-you-should-learn",
-    "title": "Unix",
-    "section": "Other very useful commands you should learn",
-    "text": "Other very useful commands you should learn\n\ncurl - download data from the internet.\ntar - archive files and subdirectories of a directory into one file.\nssh - connect to another computer.\nfind - search for files by filename in your system.\ngrep - search for patterns in a file.\nawk/sed - These are two very powerful commands that permit you to find specific strings in files and change them."
+    "objectID": "slides/productivity/04-git.html#repositories-1",
+    "href": "slides/productivity/04-git.html#repositories-1",
+    "title": "Git and GitHub",
+    "section": "Repositories",
+    "text": "Repositories\n\nLet’s go make one on GitHub…\nThen create a directory on your computer, this will be the local repo, and connect it to the Github repository.\nFirst copy and paste the location of your git repository. It should look something like this:\n\nhttps://github.com/your-username/your-repo-name.git"
   },
   {
-    "objectID": "slides/productivity/01-unix.html#resources",
-    "href": "slides/productivity/01-unix.html#resources",
-    "title": "Unix",
-    "section": "Resources",
-    "text": "Resources\nTo get started.\n\nhttps://www.codecademy.com/learn/learn-the-command-line\nhttps://www.edx.org/course/introduction-linux-linuxfoundationx-lfs101x-1\nhttps://www.coursera.org/learn/unix"
+    "objectID": "slides/productivity/04-git.html#connect-git-and-github",
+    "href": "slides/productivity/04-git.html#connect-git-and-github",
+    "title": "Git and GitHub",
+    "section": "Connect Git and GitHub",
+    "text": "Connect Git and GitHub\n\nWhen accessing GitHub you need credentials to verify your identity.\nThere are two ways to connect: HTTPS or SSH, each requiring different credentials.\nWe recommend using HTTPS, which uses a Personal Access Token (PAT).\nNote that your GitHub website password isn’t your access token."
   },
   {
-    "objectID": "slides/productivity/03-quarto.html#the-header",
-    "href": "slides/productivity/03-quarto.html#the-header",
-    "title": "Quarto",
-    "section": "The header",
-    "text": "The header\n\nStart a new empty document.\nAt the top you see:\n\n\n---\ntitle: \"Untitled\"\n---\n\n\nThe things between the --- is the YAML header.\nYou will see it used throughout the Quarto guide."
+    "objectID": "slides/productivity/04-git.html#connect-git-and-github-1",
+    "href": "slides/productivity/04-git.html#connect-git-and-github-1",
+    "title": "Git and GitHub",
+    "section": "Connect Git and GitHub",
+    "text": "Connect Git and GitHub\n\nDetailed instructions are here.\nCarefully follow the instructions provided by GitHub.\nWhen setting permissions for the token, choose non-expiring and select the repo option in the scopes section.\nOnce you complete these steps, GitHub will display your token—a lengthy string of characters.\nImmediately copy this token to your clipboard. This is the only time GitHub will show it to you."
   },
   {
-    "objectID": "slides/productivity/03-quarto.html#text-formating",
-    "href": "slides/productivity/03-quarto.html#text-formating",
-    "title": "Quarto",
-    "section": "Text formating",
-    "text": "Text formating\n*italics* or _italics_ = italics\n**bold** = bold\n***bold italics*** = bold italics\n~~strikethrough~~ = strikethrough\n`code` = code"
+    "objectID": "slides/productivity/04-git.html#generate-a-token",
+    "href": "slides/productivity/04-git.html#generate-a-token",
+    "title": "Git and GitHub",
+    "section": "Generate a token:",
+    "text": "Generate a token:\n\nFor security, save this token in a password manager. This ensures you can access it if needed later on.\nWhen git prompts you to enter your password, paste the token you’ve copied. After this, password prompts should no longer appear.\nIf you ever need the token again, retrieve it from your password manager.\n\nMore details available from Happy Git and GitHub for the use."
   },
   {
-    "objectID": "slides/productivity/03-quarto.html#text-formating-1",
-    "href": "slides/productivity/03-quarto.html#text-formating-1",
-    "title": "Quarto",
-    "section": "Text formating",
-    "text": "Text formating\nThis:\n```\nline 1\nline 2\n```\nshows code chunks:\nline 1\nline 2"
+    "objectID": "slides/productivity/04-git.html#connect-git-and-github-2",
+    "href": "slides/productivity/04-git.html#connect-git-and-github-2",
+    "title": "Git and GitHub",
+    "section": "Connect Git and GitHub",
+    "text": "Connect Git and GitHub\n\nThe next step is to let Git know who we are on Github.\nTo to this type the following two commands in our terminal window:\n\n\ngit config --global user.name \"Your Name\"\ngit config --global user.mail \"your@email.com\""
   },
   {
-    "objectID": "slides/productivity/03-quarto.html#links",
-    "href": "slides/productivity/03-quarto.html#links",
-    "title": "Quarto",
-    "section": "Links",
-    "text": "Links\n\nShow the link and add link: &lt;https://quarto.org/docs/guide/&gt;\nAdd link to text: [Quarto Guide](https://quarto.org/docs/guide/)\n\nLooks like this:\nhttps://quarto.org/docs/guide/\nQuarto Guide"
+    "objectID": "slides/productivity/04-git.html#connect-git-and-github-3",
+    "href": "slides/productivity/04-git.html#connect-git-and-github-3",
+    "title": "Git and GitHub",
+    "section": "Connect Git and GitHub",
+    "text": "Connect Git and GitHub\n\nThis will change the Git configuration in way that anytime you use Git, it will know this information.\nNote that you need to use the email account that you used to open your GitHub account."
   },
   {
-    "objectID": "slides/productivity/03-quarto.html#images",
-    "href": "slides/productivity/03-quarto.html#images",
-    "title": "Quarto",
-    "section": "Images",
-    "text": "Images\n![My caption](https://datasciencedojo.com/wp-content/uploads/11-1.jpg)\nShows the plot and caption:\n\nMy captionThe image can also be a local file."
+    "objectID": "slides/productivity/04-git.html#connect-git-and-github-4",
+    "href": "slides/productivity/04-git.html#connect-git-and-github-4",
+    "title": "Git and GitHub",
+    "section": "Connect Git and GitHub",
+    "text": "Connect Git and GitHub\nTo connect working directory to the GitHub repo\n\ninitialize the directory:\n\n\ngit init\n\n\nLet Git know what is the remote repository.\n\n\ngit remote add origin &lt;remote-url&gt;\n\nNow the two are connected.\n\n\n\n\n\n\nNote\n\n\norigin is a nickname we will use for the remote. We can call it something else, but everybody calls it origin so best to stick with that."
   },
   {
-    "objectID": "slides/productivity/03-quarto.html#lists",
-    "href": "slides/productivity/03-quarto.html#lists",
-    "title": "Quarto",
-    "section": "Lists",
-    "text": "Lists\nBullets:\n-   bullet 1\n    -   sub-bullet 1\n    -   sub-bullet 2\n-   bullet 2\nLooks like this:\n\nbullet 1\n\nsub-bullet 1\nsub-bullet 2\n\nbullet 2"
+    "objectID": "slides/productivity/04-git.html#overview-of-git",
+    "href": "slides/productivity/04-git.html#overview-of-git",
+    "title": "Git and GitHub",
+    "section": "Overview of Git",
+    "text": "Overview of Git\nThe main actions in Git are to:\n\npull changes from the remote repo.\nadd files, or as we say in the Git lingo stage files.\ncommit changes to the local repo.\npush changes to the remote repo."
   },
   {
-    "objectID": "slides/productivity/03-quarto.html#lists-1",
-    "href": "slides/productivity/03-quarto.html#lists-1",
-    "title": "Quarto",
-    "section": "Lists",
-    "text": "Lists\nOrdered list:\n1.  Item 1\n2.  Item 2\nLooks like this:\n\nItem 1\nItem 2"
+    "objectID": "slides/productivity/04-git.html#the-four-areas-of-git",
+    "href": "slides/productivity/04-git.html#the-four-areas-of-git",
+    "title": "Git and GitHub",
+    "section": "The four areas of Git",
+    "text": "The four areas of Git"
   },
   {
-    "objectID": "slides/productivity/03-quarto.html#equations",
-    "href": "slides/productivity/03-quarto.html#equations",
-    "title": "Quarto",
-    "section": "Equations",
-    "text": "Equations\n\n\n\n\n\n\n\nNote\n\n\nIf you are going to write technical report, you definitely want to learn LaTeX.\nOnce you learn LaTeX you will never want to use an equation editor again.\nThere are many online tutorials, like this one.\nChatGPT is great at LaTeX"
+    "objectID": "slides/productivity/04-git.html#status",
+    "href": "slides/productivity/04-git.html#status",
+    "title": "Git and GitHub",
+    "section": "Status",
+    "text": "Status\n\n\ngit status filename"
   },
   {
-    "objectID": "slides/productivity/03-quarto.html#equations-1",
-    "href": "slides/productivity/03-quarto.html#equations-1",
-    "title": "Quarto",
-    "section": "Equations",
-    "text": "Equations\nExamples:\n\nInline: $Y_i = \\beta_0 + \\beta_1 x_i + \\varepsilon_i$ looks like this \\(Y_i = \\beta_0 + \\beta_1 x_i + \\varepsilon_i\\)\nDisplay math:\n\n$$\n\\mathbf{Y} = \\mathbf{X\\beta} + \\mathbf{\\varepsilon}\n$$\nlooks like this:\n\\[\n\\mathbf{Y} = \\mathbf{X\\beta} + \\mathbf{\\varepsilon}\n\\]"
+    "objectID": "slides/productivity/04-git.html#add",
+    "href": "slides/productivity/04-git.html#add",
+    "title": "Git and GitHub",
+    "section": "Add",
+    "text": "Add\nUse git add to put file to staging area.\n\n\ngit add &lt;filename&gt;\n\nWe say that this file has been staged. Check to see what happened:\n\ngit status &lt;filename&gt;"
   },
   {
-    "objectID": "slides/productivity/03-quarto.html#computations",
-    "href": "slides/productivity/03-quarto.html#computations",
-    "title": "Quarto",
-    "section": "Computations",
-    "text": "Computations\n\nThe main reason we use Quarto is because we can include code and execute the code when compiling the document.\nIn R we refer to them as R chunks.\nThis applies to plots as well; the plot will be placed in that position.\n\n\n\n\n\n\n\nNote\n\n\nTo add your own R chunks, you can type the characters above quickly with the key binding command-option-I on the Mac and Ctrl-Alt-I on Windows."
+    "objectID": "slides/productivity/04-git.html#commit",
+    "href": "slides/productivity/04-git.html#commit",
+    "title": "Git and GitHub",
+    "section": "Commit",
+    "text": "Commit\n\nTo move all the staged files to the local repository we use git commit.\n\n\n\ngit commit -m \"must add comment\"\n\n\nOnce committed the files are tracked and a copy of this version is kept going forward.\nThis is like adding V1 to your filename."
   },
   {
-    "objectID": "slides/productivity/03-quarto.html#computations-1",
-    "href": "slides/productivity/03-quarto.html#computations-1",
-    "title": "Quarto",
-    "section": "Computations",
-    "text": "Computations\nWe can write something like this:\n```{r}\nx &lt;- 1\ny &lt;- 2\nx + y\n```"
+    "objectID": "slides/productivity/04-git.html#commit-1",
+    "href": "slides/productivity/04-git.html#commit-1",
+    "title": "Git and GitHub",
+    "section": "Commit",
+    "text": "Commit\n\n\n\n\n\n\nNote\n\n\nYou can commit files directly without using add by explicitely writing the files at the end of the commit:\n\n\n\n\ngit commit -m \"must add comment\" &lt;filename&gt;"
   },
   {
-    "objectID": "slides/productivity/03-quarto.html#computations-2",
-    "href": "slides/productivity/03-quarto.html#computations-2",
-    "title": "Quarto",
-    "section": "Computations",
-    "text": "Computations\nIt look slike this:\n\nx &lt;- 1\ny &lt;- 2\nx + y\n\n[1] 3\n\n\nNote that it was evaluated and the result is shown."
+    "objectID": "slides/productivity/04-git.html#push",
+    "href": "slides/productivity/04-git.html#push",
+    "title": "Git and GitHub",
+    "section": "Push",
+    "text": "Push\n\nTo move to upstream repo we use git push\n\n\n\ngit push -u origin main\n\n\nThe -u flag sets the upstream repo.\nBy using this flag, going forward you can simply use git push to push changes.\nSo going forward we can just type:\n\n\ngit push"
   },
   {
-    "objectID": "slides/productivity/03-quarto.html#computations-3",
-    "href": "slides/productivity/03-quarto.html#computations-3",
-    "title": "Quarto",
-    "section": "Computations",
-    "text": "Computations\n\nBy default, the code and result will show up as well.\nYou can send arguments to control the behavior with |#\nFor example, to avoid showing code in the final document, you can use the argument echo: FALSE.\n\n```{r}\n#| echo: false\nx &lt;- 1\ny &lt;- 2\nx + y\n```"
+    "objectID": "slides/productivity/04-git.html#push-1",
+    "href": "slides/productivity/04-git.html#push-1",
+    "title": "Git and GitHub",
+    "section": "Push",
+    "text": "Push\n\nWhen using git push we need to be careful as if collaborating this will affect the work of others.\nIt might also create a conflict.\n\n\nPosted by andortang on Nothing is Impossible!"
   },
   {
-    "objectID": "slides/productivity/03-quarto.html#computations-4",
-    "href": "slides/productivity/03-quarto.html#computations-4",
-    "title": "Quarto",
-    "section": "Computations",
-    "text": "Computations\n\nThere are many options (auto-complete shows them).\nFor example, to avoid the the code running you can use eval: FALSE.\nTo avoid showing warnings warning: FALSE, to avoid showing messages message: FALSE.\n\n\n\n\n\n\n\nNote\n\n\nIf you want to apply an option globally, these can be set globally in the header.\nexecute:\n  echo: false"
+    "objectID": "slides/productivity/04-git.html#fetch",
+    "href": "slides/productivity/04-git.html#fetch",
+    "title": "Git and GitHub",
+    "section": "Fetch",
+    "text": "Fetch\n\nTo update our local repository to the remote one we use\n\n\ngit fetch"
   },
   {
-    "objectID": "slides/productivity/03-quarto.html#computations-5",
-    "href": "slides/productivity/03-quarto.html#computations-5",
-    "title": "Quarto",
-    "section": "Computations",
-    "text": "Computations\n\nWe recommend getting into the habit of labeling code chunks:\n\n```{r}\n#| label: one-plus-two\nx &lt;- 1\ny &lt;- 2\nx + y\n```\n\nHelps with debugging\nGives meaningful names to generated images."
+    "objectID": "slides/productivity/04-git.html#merge",
+    "href": "slides/productivity/04-git.html#merge",
+    "title": "Git and GitHub",
+    "section": "Merge",
+    "text": "Merge\n\nOnce we are sure this is good, we can merge with our local files:\n\n\ngit merge"
   },
   {
-    "objectID": "slides/productivity/03-quarto.html#more-on-markdown",
-    "href": "slides/productivity/03-quarto.html#more-on-markdown",
-    "title": "Quarto",
-    "section": "More on markdown",
-    "text": "More on markdown\nThere is a lot more you can do with R markdown. We highly recommend you continue learning as you gain more experience writing reports in R. There are many free resources on the internet including:\n\nRStudio’s tutorial: https://quarto.org/docs/get-started/hello/rstudio.html\nThe knitR book: https://yihui.name/knitr/\nPandoc’s Markdown in-depth documentation\nGuide for academic reports"
+    "objectID": "slides/productivity/04-git.html#pull",
+    "href": "slides/productivity/04-git.html#pull",
+    "title": "Git and GitHub",
+    "section": "Pull",
+    "text": "Pull\n\nI rarely use fetch and merge and instead use pull which does both of these in one step\n\n\ngit pull"
   },
   {
-    "objectID": "slides/productivity/03-quarto.html#quarto-render",
-    "href": "slides/productivity/03-quarto.html#quarto-render",
-    "title": "Quarto",
-    "section": "quarto render",
-    "text": "quarto render\n\nRStudio provides the Render button that makes it easier to compile the document.\nYou can also type quarto render filename.qmd on the command line. This offers many options.\nYou can produce html, pdf, or word documents.\nYou can specify the default in the YAML header using: format: html, format: pdf,format: docx, or format: gfm (gfm stands for GitHub flavored markdown, a convenient way to share your reports)."
+    "objectID": "slides/productivity/04-git.html#checkout",
+    "href": "slides/productivity/04-git.html#checkout",
+    "title": "Git and GitHub",
+    "section": "Checkout",
+    "text": "Checkout\n\nIf you want to pull down a specific file you from the remote repo you can use:\n\n\ngit checkout filename\n\n\nI use this when I make changes but decide I want to go back to original version on remote repo.\n\n\n\n\n\n\n\nWarning\n\n\nIf you have a newer version in your local repository this will create a conflict. It won’t let you do it. If you are sure you want to get rid of your local copy you can remove it and then use checkout."
+  },
+  {
+    "objectID": "slides/productivity/04-git.html#checkout-1",
+    "href": "slides/productivity/04-git.html#checkout-1",
+    "title": "Git and GitHub",
+    "section": "Checkout",
+    "text": "Checkout\n\nYou can also use checkout to obtain older version:\n\n\ngit checkout &lt;commit-id&gt; &lt;filename&gt;\n\n\nYou can get the commit-id either on the GitHub webpage or using\n\n\ngit log filename"
+  },
+  {
+    "objectID": "slides/productivity/04-git.html#reset",
+    "href": "slides/productivity/04-git.html#reset",
+    "title": "Git and GitHub",
+    "section": "Reset",
+    "text": "Reset\n\nWhat if I commit and realize it was a mistake?\n\n\ngit reset HEAD~1\n\nundos the commit and unstages the files, but keeps your local copies. I use this on very often.\n\nThere are many wasy of using get reset and it covers most scenarios.\nChatGPT and stackoverflow are great resources to learn more."
+  },
+  {
+    "objectID": "slides/productivity/04-git.html#branches",
+    "href": "slides/productivity/04-git.html#branches",
+    "title": "Git and GitHub",
+    "section": "Branches",
+    "text": "Branches\n\nWe are just sratching the surface of Git.\nOne advanced feature to be aware of is that you can have several branches, useful for working in parallel or testing stuff out that might not make the main repo.\n\n\nArt by: Allison Horst"
+  },
+  {
+    "objectID": "slides/productivity/04-git.html#branches-1",
+    "href": "slides/productivity/04-git.html#branches-1",
+    "title": "Git and GitHub",
+    "section": "Branches",
+    "text": "Branches\n\nWe wont go over this, but we might need to use these two related commands:\n\n\ngit remote -v\ngit brach"
+  },
+  {
+    "objectID": "slides/productivity/04-git.html#clone",
+    "href": "slides/productivity/04-git.html#clone",
+    "title": "Git and GitHub",
+    "section": "Clone",
+    "text": "Clone\n\nAnother common command is git clone.\nIt let’s download an entire repo, including version history.\n\n\ngit clone &lt;repo-url&gt;"
+  },
+  {
+    "objectID": "slides/productivity/04-git.html#using-git-in-rstudio",
+    "href": "slides/productivity/04-git.html#using-git-in-rstudio",
+    "title": "Git and GitHub",
+    "section": "Using Git in RStudio",
+    "text": "Using Git in RStudio\n\nGo to file, new project, version control, and follow the instructions.\nThen notice the Git tab in the preferences."
+  },
+  {
+    "objectID": "slides/productivity/02-rstudio.html#the-panes",
+    "href": "slides/productivity/02-rstudio.html#the-panes",
+    "title": "RStudio",
+    "section": "The panes",
+    "text": "The panes"
+  },
+  {
+    "objectID": "slides/productivity/02-rstudio.html#the-basics",
+    "href": "slides/productivity/02-rstudio.html#the-basics",
+    "title": "RStudio",
+    "section": "The Basics",
+    "text": "The Basics\nLet’s try a few things together:\n\nOpen a new R script file.\nLearn tab complete.\nRun commands while editing scripts.\nRun the entire script.\nMake a plot.\nChange options to never save workspace.\nChange IDE appearance."
+  },
+  {
+    "objectID": "slides/productivity/02-rstudio.html#projects",
+    "href": "slides/productivity/02-rstudio.html#projects",
+    "title": "RStudio",
+    "section": "Projects",
+    "text": "Projects\nLet’s try this together:\n\nStart new project in new directory.\nStart new project in existing directory.\nChange projects."
+  },
+  {
+    "objectID": "slides/productivity/02-rstudio.html#type-of-editor",
+    "href": "slides/productivity/02-rstudio.html#type-of-editor",
+    "title": "RStudio",
+    "section": "Type of editor",
+    "text": "Type of editor\nLet’s examine the two types of editors available:\n\nSource - See the actual code (WYSIWYG)\nVisual - Partial preview of final document.\n\nNote: You can state your preference in a the header:\neditor: source\n\nWe learn about headers in the Quarto lecture."
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#ggplot2",
+    "href": "slides/R/08-ggplot2.html#ggplot2",
+    "title": "ggplot2",
+    "section": "ggplot2",
+    "text": "ggplot2\nThe code in this lecture assumes these three libraries are loaded:\n\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(dslabs)"
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#the-components-of-a-graph",
+    "href": "slides/R/08-ggplot2.html#the-components-of-a-graph",
+    "title": "ggplot2",
+    "section": "The components of a graph",
+    "text": "The components of a graph\nIn today’s lecture we recreate this:"
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#the-components-of-a-graph-1",
+    "href": "slides/R/08-ggplot2.html#the-components-of-a-graph-1",
+    "title": "ggplot2",
+    "section": "The components of a graph",
+    "text": "The components of a graph\n\ngg stands for grammar of graphics.\nAnalogy: we learn verbs and nouns to construct sentences.\nThe first step in learning ggplot2 is breaking a graph apart into components.\nLet’s break down the plot we want to recreate while introducing some ggplot2 terminology."
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#the-components-of-a-graph-2",
+    "href": "slides/R/08-ggplot2.html#the-components-of-a-graph-2",
+    "title": "ggplot2",
+    "section": "The components of a graph",
+    "text": "The components of a graph\n\nThe main three components to note are:\n\nData: The US murders data table is being summarized. We refer to this as the data component.\n\nGeometry: The plot above is a scatterplot. This is referred to as the geometry component.\nAesthetic mapping: How we map visual cues to information provided by the dataset."
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#aesthetic-mapping",
+    "href": "slides/R/08-ggplot2.html#aesthetic-mapping",
+    "title": "ggplot2",
+    "section": "Aesthetic mapping",
+    "text": "Aesthetic mapping\n\nThe two most important cues in the plot we are recreating are the point positions on the x-axis and y-axis.\nEach point represents a different observation, and we map data about these observations to visual cues like x- and y-scale.\nColor is another visual cue that we map to region.\nHow we define the mapping depends on what geometry we are using."
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#the-components-of-a-graph-3",
+    "href": "slides/R/08-ggplot2.html#the-components-of-a-graph-3",
+    "title": "ggplot2",
+    "section": "The components of a graph",
+    "text": "The components of a graph\n\nWe also note that:\n\nThe points are labeled with the state abbreviations.\nThe range of the x-axis and y-axis appears to be defined by the range of the data.\nAxes are in the log-scales.\nThere are labels, a title, a legend, and we use the style of The Economist magazine.\n\nWe will now construct the plot, piece by piece."
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#ggplot-objects",
+    "href": "slides/R/08-ggplot2.html#ggplot-objects",
+    "title": "ggplot2",
+    "section": "ggplot objects",
+    "text": "ggplot objects\n\nStart by defining the dataset:\n\n\nggplot(data = murders)\n\n\nWe can also use the pipe:\n\n\nmurders |&gt; ggplot()\n\n\nWe call also assign the output to a variable\n\n\np &lt;- ggplot(data = murders)\nclass(p)\n\n[1] \"gg\"     \"ggplot\""
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#ggplot-objects-1",
+    "href": "slides/R/08-ggplot2.html#ggplot-objects-1",
+    "title": "ggplot2",
+    "section": "ggplot objects",
+    "text": "ggplot objects\nTo see the plot we can print it:\n\nprint(p)"
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#geometries",
+    "href": "slides/R/08-ggplot2.html#geometries",
+    "title": "ggplot2",
+    "section": "Geometries",
+    "text": "Geometries\n\nWe create graphs by adding layers.\nLayers define geometries, compute summary statistics, define what scales to use, or even change styles.\nTo add layers, we use the symbol +.\nIn general, a line of code will look like this:\n\n\nDATA |&gt; ggplot() + LAYER 1 + LAYER 2 + ... + LAYER N\n\n\nUsually, the first added layer defines the geometry."
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#geometries-1",
+    "href": "slides/R/08-ggplot2.html#geometries-1",
+    "title": "ggplot2",
+    "section": "Geometries",
+    "text": "Geometries\n\nSo if we want to make a scatterplot, what geometry do we use?\nLet’s look at the cheat sheet: https://rstudio.github.io/cheatsheets/data-visualization.pdf"
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#aesthetic-mappings",
+    "href": "slides/R/08-ggplot2.html#aesthetic-mappings",
+    "title": "ggplot2",
+    "section": "Aesthetic mappings",
+    "text": "Aesthetic mappings\n\nTo make a scatter plot we use geom_points.\nThe help file tells us this is how we use it:\n\n\nmurders |&gt; ggplot() + geom_point(aes(x = population/10^6, y = total))"
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#aesthetic-mappings-1",
+    "href": "slides/R/08-ggplot2.html#aesthetic-mappings-1",
+    "title": "ggplot2",
+    "section": "Aesthetic mappings",
+    "text": "Aesthetic mappings\n\nSince we defined p earlier, we can add a layer like this:\n\n\np + geom_point(aes(population/10^6, total))\n\n\n\nNote we are no longer using x= and y =."
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#layers",
+    "href": "slides/R/08-ggplot2.html#layers",
+    "title": "ggplot2",
+    "section": "Layers",
+    "text": "Layers\n\nTo add text we use geom_text:\n\n\np + geom_point(aes(population/10^6, total)) +\n  geom_text(aes(population/10^6, total, label = abb))"
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#layers-1",
+    "href": "slides/R/08-ggplot2.html#layers-1",
+    "title": "ggplot2",
+    "section": "Layers",
+    "text": "Layers\n\nAs an example of the unique behavior of aes note that this call:\n\n\np_test &lt;- p + geom_text(aes(population/10^6, total, label = abb))\n\nis fine, whereas this call:\n\np_test &lt;- p + geom_text(aes(population/10^6, total), label = abb) \n\nwill give you an error since abb is not found because it is outside of the aes function.\n\nThe layer geom_text does not know where to find abb: it’s a column name and not a global variable."
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#tinkering-with-arguments",
+    "href": "slides/R/08-ggplot2.html#tinkering-with-arguments",
+    "title": "ggplot2",
+    "section": "Tinkering with arguments",
+    "text": "Tinkering with arguments\n\np + geom_point(aes(population/10^6, total), size = 3) +\n  geom_text(aes(population/10^6, total, label = abb))\n\n\n\nsize can be an aesthetic mapping, but here it is not, so all points get bigger."
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#tinkering-with-arguments-1",
+    "href": "slides/R/08-ggplot2.html#tinkering-with-arguments-1",
+    "title": "ggplot2",
+    "section": "Tinkering with arguments",
+    "text": "Tinkering with arguments\n\np + geom_point(aes(population/10^6, total), size = 3) +\n  geom_text(aes(population/10^6, total, label = abb), nudge_x = 1.5)\n\n\n\nnudge_x is not an aesthetic mapping."
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#global-versus-local-mappings",
+    "href": "slides/R/08-ggplot2.html#global-versus-local-mappings",
+    "title": "ggplot2",
+    "section": "Global versus local mappings",
+    "text": "Global versus local mappings\n\nNote that in we can define a global aes in the ggplot function:\n\n\nargs(ggplot)\n\nfunction (data = NULL, mapping = aes(), ..., environment = parent.frame()) \nNULL\n\n\n\nWe refer to this as the global mapping."
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#global-versus-local-mappings-1",
+    "href": "slides/R/08-ggplot2.html#global-versus-local-mappings-1",
+    "title": "ggplot2",
+    "section": "Global versus local mappings",
+    "text": "Global versus local mappings\n\nAll the layers will assume the global mapping unless we explicitly define another one.\n\n\np &lt;- murders |&gt; ggplot(aes(population/10^6, total, label = abb))\np + geom_point(size = 3) + geom_text(nudge_x = 1.5)\n\n\n\nThe two layers use the global mapping."
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#global-versus-local-mappings-2",
+    "href": "slides/R/08-ggplot2.html#global-versus-local-mappings-2",
+    "title": "ggplot2",
+    "section": "Global versus local mappings",
+    "text": "Global versus local mappings\n\nWe can override the global aes by defining one in the geometry functions:\n\n\np + geom_point(size = 3) +  \n  geom_text(aes(x = 10, y = 800, label = \"Hello there!\"))"
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#scales",
+    "href": "slides/R/08-ggplot2.html#scales",
+    "title": "ggplot2",
+    "section": "Scales",
+    "text": "Scales\n\nLayers can define transformations:\n\n\np + geom_point(size = 3) +  \n  geom_text(nudge_x = 0.05) + \n  scale_x_continuous(trans = \"log10\") +\n  scale_y_continuous(trans = \"log10\")"
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#scales-1",
+    "href": "slides/R/08-ggplot2.html#scales-1",
+    "title": "ggplot2",
+    "section": "Scales",
+    "text": "Scales\n\nThis particular transformation is so common that ggplot2 provides the specialized functions:\n\n\np + geom_point(size = 3) +  \n  geom_text(nudge_x = 0.05) + \n  scale_x_log10() +\n  scale_y_log10()"
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#labels-and-titles",
+    "href": "slides/R/08-ggplot2.html#labels-and-titles",
+    "title": "ggplot2",
+    "section": "Labels and titles",
+    "text": "Labels and titles\n\nThere are layers for adding labels and titles:\n\n\np + geom_point(size = 3) +  \n  geom_text(nudge_x = 0.05) + \n  scale_x_log10() +\n  scale_y_log10() +\n  xlab(\"Populations in millions (log scale)\") + \n  ylab(\"Total number of murders (log scale)\") +\n  ggtitle(\"US Gun Murders in 2010\")"
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#labels-and-titles-1",
+    "href": "slides/R/08-ggplot2.html#labels-and-titles-1",
+    "title": "ggplot2",
+    "section": "Labels and titles",
+    "text": "Labels and titles\n\nWe can also use the labs function:\n\n\np + geom_point(size = 3) +  \n  geom_text(nudge_x = 0.05) + \n  scale_x_log10() +\n  scale_y_log10() +\n  labs(x = \"Populations in millions (log scale)\", \n       y = \"Total number of murders (log scale)\", \n       title = \"US Gun Murders in 2010\")\n\n\nThis produces the same graph as in the previous slide."
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#almost-there",
+    "href": "slides/R/08-ggplot2.html#almost-there",
+    "title": "ggplot2",
+    "section": "Almost there",
+    "text": "Almost there\n\nTargetCurrent draftCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\np + geom_point(size = 3) +  \n  geom_text(nudge_x = 0.05) + \n  scale_x_log10() +\n  scale_y_log10() +\n  labs(x = \"Populations in millions (log scale)\", \n       y = \"Total number of murders (log scale)\", \n       title = \"US Gun Murders in 2010\")"
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#adding-color",
+    "href": "slides/R/08-ggplot2.html#adding-color",
+    "title": "ggplot2",
+    "section": "Adding color",
+    "text": "Adding color\n\nmurders |&gt; ggplot(aes(population/10^6, total, label = abb)) +   \n  geom_text(nudge_x = 0.05) + \n  scale_x_log10() +\n  scale_y_log10() +\n  labs(x = \"Populations in millions (log scale)\", \n       y = \"Total number of murders (log scale)\", \n       title = \"US Gun Murders in 2010\") +\n  geom_point(size = 3, color = \"blue\")"
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#a-mapped-color",
+    "href": "slides/R/08-ggplot2.html#a-mapped-color",
+    "title": "ggplot2",
+    "section": "A mapped color",
+    "text": "A mapped color\n\nmurders |&gt; ggplot(aes(population/10^6, total, label = abb)) +   \n  geom_text(nudge_x = 0.05) + \n  scale_x_log10() +\n  scale_y_log10() +\n  labs(x = \"Populations in millions (log scale)\", \n       y = \"Total number of murders (log scale)\", \n       title = \"US Gun Murders in 2010\") +\n  geom_point(aes(col = region), size = 3)\n\n\nA legend is added automatically!"
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#change-legend-name",
+    "href": "slides/R/08-ggplot2.html#change-legend-name",
+    "title": "ggplot2",
+    "section": "Change legend name",
+    "text": "Change legend name\n\nmurders |&gt; ggplot(aes(population/10^6, total, label = abb)) +   \n  geom_text(nudge_x = 0.05) + \n  scale_x_log10() +\n  scale_y_log10() +\n  labs(x = \"Populations in millions (log scale)\", \n       y = \"Total number of murders (log scale)\", \n       title = \"US Gun Murders in 2010\",\n       color = \"Region\") +\n  geom_point(aes(col = region), size = 3)"
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#other-adjustments",
+    "href": "slides/R/08-ggplot2.html#other-adjustments",
+    "title": "ggplot2",
+    "section": "Other adjustments",
+    "text": "Other adjustments\n\nWe want to add a line with intercept the US rate.\nLets compute that\n\n\nr &lt;- murders |&gt; \n  summarize(rate = sum(total) /  sum(population) * 10^6) |&gt; \n  pull(rate)"
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#add-a-line",
+    "href": "slides/R/08-ggplot2.html#add-a-line",
+    "title": "ggplot2",
+    "section": "Add a line",
+    "text": "Add a line\n\nmurders |&gt; ggplot(aes(population/10^6, total, label = abb)) +   \n  geom_text(nudge_x = 0.05) + \n  scale_x_log10() +\n  scale_y_log10() +\n  labs(x = \"Populations in millions (log scale)\", \n       y = \"Total number of murders (log scale)\", \n       title = \"US Gun Murders in 2010\",\n       color = \"Region\") +\n  geom_point(aes(col = region), size = 3) +\n  geom_abline(intercept = log10(r), lty = 2, color = \"darkgrey\")"
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#we-are-close",
+    "href": "slides/R/08-ggplot2.html#we-are-close",
+    "title": "ggplot2",
+    "section": "We are close!",
+    "text": "We are close!"
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#other-adjustments-1",
+    "href": "slides/R/08-ggplot2.html#other-adjustments-1",
+    "title": "ggplot2",
+    "section": "Other adjustments",
+    "text": "Other adjustments\n\nTo make the final adjustments we will save our current draft in p and add layers.\n\n\np &lt;- murders |&gt; ggplot(aes(population/10^6, total, label = abb)) +   \n  geom_text(nudge_x = 0.05) + \n  scale_x_log10() +\n  scale_y_log10() +\n  labs(x = \"Populations in millions (log scale)\", \n       y = \"Total number of murders (log scale)\", \n       title = \"US Gun Murders in 2010\",\n       color = \"Region\") +\n  geom_point(aes(col = region), size = 3) +\n  geom_abline(intercept = log10(r), lty = 2, color = \"darkgrey\")"
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#add-on-packages",
+    "href": "slides/R/08-ggplot2.html#add-on-packages",
+    "title": "ggplot2",
+    "section": "Add-on packages",
+    "text": "Add-on packages\n\nThe dslabs package can define the look used in the textbook:\n\n\nds_theme_set()\n\n\nMany other themes are added by the package ggthemes."
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#add-on-packages-1",
+    "href": "slides/R/08-ggplot2.html#add-on-packages-1",
+    "title": "ggplot2",
+    "section": "Add-on packages",
+    "text": "Add-on packages\nggthemes provides pre-designed themes.\n\nlibrary(ggthemes)\np + theme_economist()"
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#add-on-packages-2",
+    "href": "slides/R/08-ggplot2.html#add-on-packages-2",
+    "title": "ggplot2",
+    "section": "Add-on packages",
+    "text": "Add-on packages\nHere is the FiveThirtyEight theme:\n\np + theme_fivethirtyeight()"
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#add-on-packages-3",
+    "href": "slides/R/08-ggplot2.html#add-on-packages-3",
+    "title": "ggplot2",
+    "section": "Add-on packages",
+    "text": "Add-on packages\nIf you want to ruin the plot use the excel theme:\n\np + theme_excel()"
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#add-on-packages-4",
+    "href": "slides/R/08-ggplot2.html#add-on-packages-4",
+    "title": "ggplot2",
+    "section": "Add-on packages",
+    "text": "Add-on packages\nThemePark provides fun themes:\n\nlibrary(ThemePark)\np + theme_starwars()"
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#add-on-packages-5",
+    "href": "slides/R/08-ggplot2.html#add-on-packages-5",
+    "title": "ggplot2",
+    "section": "Add-on packages",
+    "text": "Add-on packages\nThis is a fan favorite:\n\np + theme_barbie()"
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#add-on-packages-6",
+    "href": "slides/R/08-ggplot2.html#add-on-packages-6",
+    "title": "ggplot2",
+    "section": "Add-on packages",
+    "text": "Add-on packages\n\nTo avoid the state abbreviations being on top of each other we can use the ggrepel package.\nWe change the layer geom_text(nudge_x = 0.05) to geom_text_repel()"
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#putting-it-all-together",
+    "href": "slides/R/08-ggplot2.html#putting-it-all-together",
+    "title": "ggplot2",
+    "section": "Putting it all together",
+    "text": "Putting it all together\n\nCodePlot\n\n\n\nlibrary(ggthemes)\nlibrary(ggrepel)\n\nr &lt;- murders |&gt; \n  summarize(rate = sum(total) /  sum(population) * 10^6) |&gt;\n  pull(rate)\n\nmurders |&gt; ggplot(aes(population/10^6, total, label = abb)) +   \n  geom_abline(intercept = log10(r), lty = 2, color = \"darkgrey\") +\n  geom_point(aes(col = region), size = 3) +\n  geom_text_repel() + \n  scale_x_log10() +\n  scale_y_log10() +\n  labs(x = \"Populations in millions (log scale)\", \n       y = \"Total number of murders (log scale)\", \n       title = \"US Gun Murders in 2010\",\n       color = \"Region\") +\n  theme_economist()"
+  },
+  {
+    "objectID": "slides/R/08-ggplot2.html#grids-of-plots",
+    "href": "slides/R/08-ggplot2.html#grids-of-plots",
+    "title": "ggplot2",
+    "section": "Grids of plots",
+    "text": "Grids of plots\n\nWe often want to put plots next to each other.\nThe gridExtra package permits us to do that:\n\n\nCodePlot\n\n\n\nlibrary(gridExtra)\np1 &lt;- murders |&gt; \n  ggplot(aes(log10(population))) + \n  geom_histogram()\np2 &lt;- murders |&gt; \n  gplot(aes(log10(population), log10(total))) + \n  geom_point()\ngrid.arrange(p1, p2, ncol = 2)"
   },
   {
     "objectID": "slides/R/06-vectorization.html#vectorization",
@@ -376,7 +726,7 @@
     "href": "slides/R/06-vectorization.html#vectorization-4",
     "title": "Vectorization",
     "section": "Vectorization",
-    "text": "Vectorization\n\nIf we operate on two vectors, vectorization is componentwise.\nHere is an example:\n\n\nheights &lt;- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)\nerror &lt;- rnorm(length(heights), 0, 0.1)\nheights + error\n\n [1] 69.13457 61.86424 65.90693 69.93476 69.82347 73.04641 67.01729 73.02947\n [9] 66.99574 69.96262"
+    "text": "Vectorization\n\nIf we operate on two vectors, vectorization is componentwise.\nHere is an example:\n\n\nheights &lt;- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)\nerror &lt;- rnorm(length(heights), 0, 0.1)\nheights + error\n\n [1] 69.02376 62.00053 65.80805 70.04393 69.93804 72.95957 67.05696 72.87048\n [9] 67.02175 69.96904"
   },
   {
     "objectID": "slides/R/06-vectorization.html#exercise",
@@ -411,7 +761,7 @@
     "href": "slides/R/06-vectorization.html#functions-that-vectorize-3",
     "title": "Vectorization",
     "section": "Functions that vectorize",
-    "text": "Functions that vectorize\n\nThe conditional function if-else does not vectorize.\nA particularly useful function is a vectorized version ifelse.\nHere is an example:\n\n\na &lt;- c(0, 1, 2, -4, 5)\nifelse(a &gt; 0, 1/a, NA)\n\n[1]  NA 1.0 0.5  NA 0.2\n\n\n\nOther conditional functions, such as any and all, do vectorize."
+    "text": "Functions that vectorize\n\nThe conditional function if-else does not vectorize.\nFunctions such as any and all, covert vectors to logicals of lenght one needed for if-else.\nA particularly useful function is a vectorized version ifelse.\nHere is an example:\n\n\na &lt;- c(0, 1, 2, -4, 5)\nifelse(a &gt; 0, 1/a, NA)\n\n[1]  NA 1.0 0.5  NA 0.2"
   },
   {
     "objectID": "slides/R/06-vectorization.html#indexing",
@@ -550,7 +900,7 @@
     "href": "index.html#lectures",
     "title": "BST 260 Introduction to Data Science",
     "section": "Lectures",
-    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09, Sep 11\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git\n\n\nSep 16, Sep 19\nR\nR basics, Vectorization\nR Basics, Vectorization\n\n\nSep 23\nR\nTidyverse\ndplyr, ggplot2\n\n\nSep 25\nWrangling\n\nImporting data, dates and times, Locales, Reshaping Data, Joining Tables, Extracting data from the web\n\n\nSep 30, Oct 02\nData visualization\n\nDistributions, Dataviz Principles\n\n\nOct 07, Oct 09\nProbability\n\nMonte Carlo, Random Variables & CLT\n\n\nOct 16\nMidterm 1\n\nCovers material from Sep 04-Oct 11\n\n\nOct 21, Oct 23\nInference\n\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\n\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\n\nRegression, Multivariate Regression\n\n\nNov 13\nLinear models\n\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 18, Nov 20\nHigh dimensional data\n\nMatrices in R, Applied Linear Algebra, Dimension Reduction\n\n\nNov 25\nMidterm 2\n\nMidterm 2: cover material from Sep 04-Nov 22\n\n\nDec 02, Dec 04\nMachine Learning\n\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nDec 09, Dec 11\nMachine Learning\n\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
+    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09, Sep 11\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git\n\n\nSep 16, Sep 19\nR\nR basics, Vectorization\nR Basics, Vectorization\n\n\nSep 23\nR\nTidyverse, ggplot2\ndplyr, ggplot2\n\n\nSep 25\nWrangling\n\nImporting data, dates and times, Locales, Reshaping Data, Joining Tables, Extracting data from the web\n\n\nSep 30, Oct 02\nData visualization\n\nDistributions, Dataviz Principles\n\n\nOct 07, Oct 09\nProbability\n\nMonte Carlo, Random Variables & CLT\n\n\nOct 16\nMidterm 1\n\nCovers material from Sep 04-Oct 11\n\n\nOct 21, Oct 23\nInference\n\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\n\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\n\nRegression, Multivariate Regression\n\n\nNov 13\nLinear models\n\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 18, Nov 20\nHigh dimensional data\n\nMatrices in R, Applied Linear Algebra, Dimension Reduction\n\n\nNov 25\nMidterm 2\n\nMidterm 2: cover material from Sep 04-Nov 22\n\n\nDec 02, Dec 04\nMachine Learning\n\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nDec 09, Dec 11\nMachine Learning\n\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
     "crumbs": [
       "Home"
     ]
@@ -611,7 +961,7 @@
     "href": "slides.html",
     "title": "Slides",
     "section": "",
-    "text": "Topic\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nFirst day\n\n\nIntroduction\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nUnix\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nRStudio\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nQuarto\n\n\nMon, Sep 09\n\n\n\n\nProductivity Tools\n\n\nGit and GitHub\n\n\nMon, Sep 09\n\n\n\n\nR\n\n\nR Basics\n\n\nMon, Sep 16\n\n\n\n\nR\n\n\nVectorization\n\n\nWed, Sep 18\n\n\n\n\nR\n\n\nTidyverse\n\n\nMon, Sep 23\n\n\n\n\n\nNo matching items",
+    "text": "Topic\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nFirst day\n\n\nIntroduction\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nUnix\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nRStudio\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nQuarto\n\n\nMon, Sep 09\n\n\n\n\nProductivity Tools\n\n\nGit and GitHub\n\n\nMon, Sep 09\n\n\n\n\nR\n\n\nR Basics\n\n\nMon, Sep 16\n\n\n\n\nR\n\n\nVectorization\n\n\nWed, Sep 18\n\n\n\n\nR\n\n\nTidyverse\n\n\nMon, Sep 23\n\n\n\n\nR\n\n\nggplot2\n\n\nWed, Sep 25\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Slides"
     ]
@@ -827,7 +1177,7 @@
     "href": "slides/R/05-r-basics.html#factors-3",
     "title": "R Basics",
     "section": "Factors",
-    "text": "Factors\nExercise: How can we make this go much faster?\n\nsystem.time({levels(y) &lt;- tolower(levels(y))})\n\n   user  system elapsed \n  0.019   0.001   0.019"
+    "text": "Factors\nExercise: How can we make this go much faster?\n\nsystem.time({levels(y) &lt;- tolower(levels(y))})\n\n   user  system elapsed \n  0.018   0.000   0.019"
   },
   {
     "objectID": "slides/R/05-r-basics.html#factors-can-be-confusing",
@@ -1229,297 +1579,234 @@
     "text": "Sorting data frames\n\nWe can use two variables as well:\n\n\nmurders |&gt; arrange(region, desc(rate)) |&gt; head(11)\n\n                  state abb    region population total       rate\n1          Pennsylvania  PA Northeast   12702379   457  3.5977513\n2            New Jersey  NJ Northeast    8791894   246  2.7980319\n3           Connecticut  CT Northeast    3574097    97  2.7139722\n4              New York  NY Northeast   19378102   517  2.6679599\n5         Massachusetts  MA Northeast    6547629   118  1.8021791\n6          Rhode Island  RI Northeast    1052567    16  1.5200933\n7                 Maine  ME Northeast    1328361    11  0.8280881\n8         New Hampshire  NH Northeast    1316470     5  0.3798036\n9               Vermont  VT Northeast     625741     2  0.3196211\n10 District of Columbia  DC     South     601723    99 16.4527532\n11            Louisiana  LA     South    4533372   351  7.7425810"
   },
   {
-    "objectID": "slides/productivity/02-rstudio.html#the-panes",
-    "href": "slides/productivity/02-rstudio.html#the-panes",
-    "title": "RStudio",
-    "section": "The panes",
-    "text": "The panes"
+    "objectID": "slides/productivity/03-quarto.html#the-header",
+    "href": "slides/productivity/03-quarto.html#the-header",
+    "title": "Quarto",
+    "section": "The header",
+    "text": "The header\n\nStart a new empty document.\nAt the top you see:\n\n\n---\ntitle: \"Untitled\"\n---\n\n\nThe things between the --- is the YAML header.\nYou will see it used throughout the Quarto guide."
   },
   {
-    "objectID": "slides/productivity/02-rstudio.html#the-basics",
-    "href": "slides/productivity/02-rstudio.html#the-basics",
-    "title": "RStudio",
-    "section": "The Basics",
-    "text": "The Basics\nLet’s try a few things together:\n\nOpen a new R script file.\nLearn tab complete.\nRun commands while editing scripts.\nRun the entire script.\nMake a plot.\nChange options to never save workspace.\nChange IDE appearance."
+    "objectID": "slides/productivity/03-quarto.html#text-formating",
+    "href": "slides/productivity/03-quarto.html#text-formating",
+    "title": "Quarto",
+    "section": "Text formating",
+    "text": "Text formating\n*italics* or _italics_ = italics\n**bold** = bold\n***bold italics*** = bold italics\n~~strikethrough~~ = strikethrough\n`code` = code"
   },
   {
-    "objectID": "slides/productivity/02-rstudio.html#projects",
-    "href": "slides/productivity/02-rstudio.html#projects",
-    "title": "RStudio",
-    "section": "Projects",
-    "text": "Projects\nLet’s try this together:\n\nStart new project in new directory.\nStart new project in existing directory.\nChange projects."
+    "objectID": "slides/productivity/03-quarto.html#text-formating-1",
+    "href": "slides/productivity/03-quarto.html#text-formating-1",
+    "title": "Quarto",
+    "section": "Text formating",
+    "text": "Text formating\nThis:\n```\nline 1\nline 2\n```\nshows code chunks:\nline 1\nline 2"
   },
   {
-    "objectID": "slides/productivity/02-rstudio.html#type-of-editor",
-    "href": "slides/productivity/02-rstudio.html#type-of-editor",
-    "title": "RStudio",
-    "section": "Type of editor",
-    "text": "Type of editor\nLet’s examine the two types of editors available:\n\nSource - See the actual code (WYSIWYG)\nVisual - Partial preview of final document.\n\nNote: You can state your preference in a the header:\neditor: source\n\nWe learn about headers in the Quarto lecture."
+    "objectID": "slides/productivity/03-quarto.html#links",
+    "href": "slides/productivity/03-quarto.html#links",
+    "title": "Quarto",
+    "section": "Links",
+    "text": "Links\n\nShow the link and add link: &lt;https://quarto.org/docs/guide/&gt;\nAdd link to text: [Quarto Guide](https://quarto.org/docs/guide/)\n\nLooks like this:\nhttps://quarto.org/docs/guide/\nQuarto Guide"
   },
   {
-    "objectID": "slides/productivity/04-git.html#goal-for-the-day",
-    "href": "slides/productivity/04-git.html#goal-for-the-day",
-    "title": "Git and GitHub",
-    "section": "Goal for the day",
-    "text": "Goal for the day\n\nCreate a repository\npush something to the repository\nconnect RStudio to GitHub"
+    "objectID": "slides/productivity/03-quarto.html#images",
+    "href": "slides/productivity/03-quarto.html#images",
+    "title": "Quarto",
+    "section": "Images",
+    "text": "Images\n![My caption](https://datasciencedojo.com/wp-content/uploads/11-1.jpg)\nShows the plot and caption:\n\nMy captionThe image can also be a local file."
   },
   {
-    "objectID": "slides/productivity/04-git.html#do-you-have-git",
-    "href": "slides/productivity/04-git.html#do-you-have-git",
-    "title": "Git and GitHub",
-    "section": "Do you have git?",
-    "text": "Do you have git?\nBefore we start:\n\nMake sure you have Git installed.\nOpen a terminal and type:\n\n\ngit --version\n\nIf not installed\n\non a Mac, follow the instructions after typing the above.\non Windows follow these instructions"
+    "objectID": "slides/productivity/03-quarto.html#lists",
+    "href": "slides/productivity/03-quarto.html#lists",
+    "title": "Quarto",
+    "section": "Lists",
+    "text": "Lists\nBullets:\n-   bullet 1\n    -   sub-bullet 1\n    -   sub-bullet 2\n-   bullet 2\nLooks like this:\n\nbullet 1\n\nsub-bullet 1\nsub-bullet 2\n\nbullet 2"
   },
   {
-    "objectID": "slides/productivity/04-git.html#motivation",
-    "href": "slides/productivity/04-git.html#motivation",
-    "title": "Git and GitHub",
-    "section": "Motivation",
-    "text": "Motivation\nWe want to avoid this:\n\nPosted by rjkb041 on r/ProgrammerHumor"
+    "objectID": "slides/productivity/03-quarto.html#lists-1",
+    "href": "slides/productivity/03-quarto.html#lists-1",
+    "title": "Quarto",
+    "section": "Lists",
+    "text": "Lists\nOrdered list:\n1.  Item 1\n2.  Item 2\nLooks like this:\n\nItem 1\nItem 2"
   },
   {
-    "objectID": "slides/productivity/04-git.html#motivation-1",
-    "href": "slides/productivity/04-git.html#motivation-1",
-    "title": "Git and GitHub",
-    "section": "Motivation",
-    "text": "Motivation\n\nThis is particularly true when more than one person is collaborating and editing the file.\nEven more important when there are multiple files, as there is in software development, and to some extend data analysis."
+    "objectID": "slides/productivity/03-quarto.html#equations",
+    "href": "slides/productivity/03-quarto.html#equations",
+    "title": "Quarto",
+    "section": "Equations",
+    "text": "Equations\n\n\n\n\n\n\n\nNote\n\n\nIf you are going to write technical report, you definitely want to learn LaTeX.\nOnce you learn LaTeX you will never want to use an equation editor again.\nThere are many online tutorials, like this one.\nChatGPT is great at LaTeX"
   },
   {
-    "objectID": "slides/productivity/04-git.html#motivation-2",
-    "href": "slides/productivity/04-git.html#motivation-2",
-    "title": "Git and GitHub",
-    "section": "Motivation",
-    "text": "Motivation\n\nGit is a version control system that provides a systematic approach to keeping versions of files.\n\n\nPosted on devrant.com/ by bhimanshukalra"
+    "objectID": "slides/productivity/03-quarto.html#equations-1",
+    "href": "slides/productivity/03-quarto.html#equations-1",
+    "title": "Quarto",
+    "section": "Equations",
+    "text": "Equations\nExamples:\n\nInline: $Y_i = \\beta_0 + \\beta_1 x_i + \\varepsilon_i$ looks like this \\(Y_i = \\beta_0 + \\beta_1 x_i + \\varepsilon_i\\)\nDisplay math:\n\n$$\n\\mathbf{Y} = \\mathbf{X\\beta} + \\mathbf{\\varepsilon}\n$$\nlooks like this:\n\\[\n\\mathbf{Y} = \\mathbf{X\\beta} + \\mathbf{\\varepsilon}\n\\]"
   },
   {
-    "objectID": "slides/productivity/04-git.html#motivation-3",
-    "href": "slides/productivity/04-git.html#motivation-3",
-    "title": "Git and GitHub",
-    "section": "Motivation",
-    "text": "Motivation\nBut we have to learn some things.\n\nFrom Meme Git Compilation by Lulu Ilmaknun Qurotaini"
+    "objectID": "slides/productivity/03-quarto.html#computations",
+    "href": "slides/productivity/03-quarto.html#computations",
+    "title": "Quarto",
+    "section": "Computations",
+    "text": "Computations\n\nThe main reason we use Quarto is because we can include code and execute the code when compiling the document.\nIn R we refer to them as R chunks.\nThis applies to plots as well; the plot will be placed in that position.\n\n\n\n\n\n\n\nNote\n\n\nTo add your own R chunks, you can type the characters above quickly with the key binding command-option-I on the Mac and Ctrl-Alt-I on Windows."
   },
   {
-    "objectID": "slides/productivity/04-git.html#why-use-git-and-github",
-    "href": "slides/productivity/04-git.html#why-use-git-and-github",
-    "title": "Git and GitHub",
-    "section": "Why use Git and GitHub?",
-    "text": "Why use Git and GitHub?\n\nSharing.\nCollaborating.\nVersion control.\n\nWe focus on the sharing aspects of Git and GitHub, but introduce some of the basics that permit you to collaborate and use version control."
+    "objectID": "slides/productivity/03-quarto.html#computations-1",
+    "href": "slides/productivity/03-quarto.html#computations-1",
+    "title": "Quarto",
+    "section": "Computations",
+    "text": "Computations\nWe can write something like this:\n```{r}\nx &lt;- 1\ny &lt;- 2\nx + y\n```"
   },
   {
-    "objectID": "slides/productivity/04-git.html#what-is-git",
-    "href": "slides/productivity/04-git.html#what-is-git",
-    "title": "Git and GitHub",
-    "section": "What is Git?",
-    "text": "What is Git?"
+    "objectID": "slides/productivity/03-quarto.html#computations-2",
+    "href": "slides/productivity/03-quarto.html#computations-2",
+    "title": "Quarto",
+    "section": "Computations",
+    "text": "Computations\nIt look slike this:\n\nx &lt;- 1\ny &lt;- 2\nx + y\n\n[1] 3\n\n\nNote that it was evaluated and the result is shown."
   },
   {
-    "objectID": "slides/productivity/04-git.html#what-is-github",
-    "href": "slides/productivity/04-git.html#what-is-github",
-    "title": "Git and GitHub",
-    "section": "What is GitHub?",
-    "text": "What is GitHub?\n\nDescribed a social network for software developers.\nBasically, it’s a service that hosts the remote repository (repo) on the web.\nThis facilitates collaboration and sharing greatly."
+    "objectID": "slides/productivity/03-quarto.html#computations-3",
+    "href": "slides/productivity/03-quarto.html#computations-3",
+    "title": "Quarto",
+    "section": "Computations",
+    "text": "Computations\n\nBy default, the code and result will show up as well.\nYou can send arguments to control the behavior with |#\nFor example, to avoid showing code in the final document, you can use the argument echo: FALSE.\n\n```{r}\n#| echo: false\nx &lt;- 1\ny &lt;- 2\nx + y\n```"
   },
   {
-    "objectID": "slides/productivity/04-git.html#what-is-github-1",
-    "href": "slides/productivity/04-git.html#what-is-github-1",
-    "title": "Git and GitHub",
-    "section": "What is GitHub?",
-    "text": "What is GitHub?\nThere many other features such as\n\nRecognition system: reward, badges and stars.\nYou can host web pages, like the class notes for example.\nPermits contributions via forks and pull requests.\nIssue tracking\nAutomation tools."
+    "objectID": "slides/productivity/03-quarto.html#computations-4",
+    "href": "slides/productivity/03-quarto.html#computations-4",
+    "title": "Quarto",
+    "section": "Computations",
+    "text": "Computations\n\nThere are many options (auto-complete shows them).\nFor example, to avoid the the code running you can use eval: FALSE.\nTo avoid showing warnings warning: FALSE, to avoid showing messages message: FALSE.\n\n\n\n\n\n\n\nNote\n\n\nIf you want to apply an option globally, these can be set globally in the header.\nexecute:\n  echo: false"
   },
   {
-    "objectID": "slides/productivity/04-git.html#what-is-github-2",
-    "href": "slides/productivity/04-git.html#what-is-github-2",
-    "title": "Git and GitHub",
-    "section": "What is GitHub?",
-    "text": "What is GitHub?\n\nThe main tool behind GitHub is Git.\nSimilar to how the main tool behind RStudio is R."
+    "objectID": "slides/productivity/03-quarto.html#computations-5",
+    "href": "slides/productivity/03-quarto.html#computations-5",
+    "title": "Quarto",
+    "section": "Computations",
+    "text": "Computations\n\nWe recommend getting into the habit of labeling code chunks:\n\n```{r}\n#| label: one-plus-two\nx &lt;- 1\ny &lt;- 2\nx + y\n```\n\nHelps with debugging\nGives meaningful names to generated images."
   },
   {
-    "objectID": "slides/productivity/04-git.html#github-accounts",
-    "href": "slides/productivity/04-git.html#github-accounts",
-    "title": "Git and GitHub",
-    "section": "GitHub accounts",
-    "text": "GitHub accounts\n\nPick a professional sounding name.\nConsider adding a profile README.md.\nInstructions are here.\nExample here."
+    "objectID": "slides/productivity/03-quarto.html#more-on-markdown",
+    "href": "slides/productivity/03-quarto.html#more-on-markdown",
+    "title": "Quarto",
+    "section": "More on markdown",
+    "text": "More on markdown\nThere is a lot more you can do with R markdown. We highly recommend you continue learning as you gain more experience writing reports in R. There are many free resources on the internet including:\n\nRStudio’s tutorial: https://quarto.org/docs/get-started/hello/rstudio.html\nThe knitR book: https://yihui.name/knitr/\nPandoc’s Markdown in-depth documentation\nGuide for academic reports"
   },
   {
-    "objectID": "slides/productivity/04-git.html#repositories",
-    "href": "slides/productivity/04-git.html#repositories",
-    "title": "Git and GitHub",
-    "section": "Repositories",
-    "text": "Repositories\n\nWe are ready to create a GitHub repository (repo).\nYou will have at least two copies of your code: one on your computer and one on GitHub.\nIf you add collaborators to this repo, then each will have a copy on their computer.\nThe GitHub copy is considered the main (previously called master) copy that everybody syncs to.\nGit will help you keep all the different copies synced."
+    "objectID": "slides/productivity/03-quarto.html#quarto-render",
+    "href": "slides/productivity/03-quarto.html#quarto-render",
+    "title": "Quarto",
+    "section": "quarto render",
+    "text": "quarto render\n\nRStudio provides the Render button that makes it easier to compile the document.\nYou can also type quarto render filename.qmd on the command line. This offers many options.\nYou can produce html, pdf, or word documents.\nYou can specify the default in the YAML header using: format: html, format: pdf,format: docx, or format: gfm (gfm stands for GitHub flavored markdown, a convenient way to share your reports)."
   },
   {
-    "objectID": "slides/productivity/04-git.html#repositories-1",
-    "href": "slides/productivity/04-git.html#repositories-1",
-    "title": "Git and GitHub",
-    "section": "Repositories",
-    "text": "Repositories\n\nLet’s go make one on GitHub…\nThen create a directory on your computer, this will be the local repo, and connect it to the Github repository.\nFirst copy and paste the location of your git repository. It should look something like this:\n\nhttps://github.com/your-username/your-repo-name.git"
+    "objectID": "slides/productivity/01-unix.html#naming-convention",
+    "href": "slides/productivity/01-unix.html#naming-convention",
+    "title": "Unix",
+    "section": "Naming convention",
+    "text": "Naming convention\n\nIn general you want to name your files in a way that is related to their contents and specifies how they relate to other files.\nThe Smithsonian Data Management Best Practices has “five precepts of file naming and organization”"
   },
   {
-    "objectID": "slides/productivity/04-git.html#connect-git-and-github",
-    "href": "slides/productivity/04-git.html#connect-git-and-github",
-    "title": "Git and GitHub",
-    "section": "Connect Git and GitHub",
-    "text": "Connect Git and GitHub\n\nWhen accessing GitHub you need credentials to verify your identity.\nThere are two ways to connect: HTTPS or SSH, each requiring different credentials.\nWe recommend using HTTPS, which uses a Personal Access Token (PAT).\nNote that your GitHub website password isn’t your access token."
+    "objectID": "slides/productivity/01-unix.html#five-precepts-of-file-naming-and-organization",
+    "href": "slides/productivity/01-unix.html#five-precepts-of-file-naming-and-organization",
+    "title": "Unix",
+    "section": "Five precepts of file naming and organization",
+    "text": "Five precepts of file naming and organization\n\nHave a distinctive, human-readable name that gives an indication of the content.\nFollow a consistent pattern that is machine-friendly.\nOrganize files into directories (when necessary) that follow a consistent pattern.\nAvoid repetition of semantic elements among file and directory names.\nHave a file extension that matches the file format (no changing extensions!)\n\nFor specific recommendations we highly recommend you follow The Tidyverse Style Guide"
   },
   {
-    "objectID": "slides/productivity/04-git.html#connect-git-and-github-1",
-    "href": "slides/productivity/04-git.html#connect-git-and-github-1",
-    "title": "Git and GitHub",
-    "section": "Connect Git and GitHub",
-    "text": "Connect Git and GitHub\n\nDetailed instructions are here.\nCarefully follow the instructions provided by GitHub.\nWhen setting permissions for the token, choose non-expiring and select the repo option in the scopes section.\nOnce you complete these steps, GitHub will display your token—a lengthy string of characters.\nImmediately copy this token to your clipboard. This is the only time GitHub will show it to you."
+    "objectID": "slides/productivity/01-unix.html#the-terminal",
+    "href": "slides/productivity/01-unix.html#the-terminal",
+    "title": "Unix",
+    "section": "The terminal",
+    "text": "The terminal\n\nInstead of clicking, dragging, and dropping to organize our files and folders, we will be typing Unix commands into the terminal.\nThe way we do this is similar to how we type commands into the R console, but instead of generating plots and statistical summaries, we will be organizing files on our system."
   },
   {
-    "objectID": "slides/productivity/04-git.html#generate-a-token",
-    "href": "slides/productivity/04-git.html#generate-a-token",
-    "title": "Git and GitHub",
-    "section": "Generate a token:",
-    "text": "Generate a token:\n\nFor security, save this token in a password manager. This ensures you can access it if needed later on.\nWhen git prompts you to enter your password, paste the token you’ve copied. After this, password prompts should no longer appear.\nIf you ever need the token again, retrieve it from your password manager.\n\nMore details available from Happy Git and GitHub for the use."
+    "objectID": "slides/productivity/01-unix.html#the-terminal-1",
+    "href": "slides/productivity/01-unix.html#the-terminal-1",
+    "title": "Unix",
+    "section": "The terminal",
+    "text": "The terminal\n\nThe terminal is integrated into Mac and Linux systems, but Windows users will have to install an emulator. Once you have a terminal open, you can start typing commands.\nYou should see a blinking cursor at the spot where what you type will show up. This position is called the command line."
   },
   {
-    "objectID": "slides/productivity/04-git.html#connect-git-and-github-2",
-    "href": "slides/productivity/04-git.html#connect-git-and-github-2",
-    "title": "Git and GitHub",
-    "section": "Connect Git and GitHub",
-    "text": "Connect Git and GitHub\n\nThe next step is to let Git know who we are on Github.\nTo to this type the following two commands in our terminal window:\n\n\ngit config --global user.name \"Your Name\"\ngit config --global user.mail \"your@email.com\""
+    "objectID": "slides/productivity/01-unix.html#the-home-directory",
+    "href": "slides/productivity/01-unix.html#the-home-directory",
+    "title": "Unix",
+    "section": "The home directory",
+    "text": "The home directory"
   },
   {
-    "objectID": "slides/productivity/04-git.html#connect-git-and-github-3",
-    "href": "slides/productivity/04-git.html#connect-git-and-github-3",
-    "title": "Git and GitHub",
-    "section": "Connect Git and GitHub",
-    "text": "Connect Git and GitHub\n\nThis will change the Git configuration in way that anytime you use Git, it will know this information.\nNote that you need to use the email account that you used to open your GitHub account."
+    "objectID": "slides/productivity/01-unix.html#windows",
+    "href": "slides/productivity/01-unix.html#windows",
+    "title": "Unix",
+    "section": "Windows",
+    "text": "Windows\nThe structure on Windows looks something like this:"
   },
   {
-    "objectID": "slides/productivity/04-git.html#connect-git-and-github-4",
-    "href": "slides/productivity/04-git.html#connect-git-and-github-4",
-    "title": "Git and GitHub",
-    "section": "Connect Git and GitHub",
-    "text": "Connect Git and GitHub\nTo connect working directory to the GitHub repo\n\ninitialize the directory:\n\n\ngit init\n\n\nLet Git know what is the remote repository.\n\n\ngit remote add origin &lt;remote-url&gt;\n\nNow the two are connected.\n\n\n\n\n\n\nNote\n\n\norigin is a nickname we will use for the remote. We can call it something else, but everybody calls it origin so best to stick with that."
+    "objectID": "slides/productivity/01-unix.html#mac",
+    "href": "slides/productivity/01-unix.html#mac",
+    "title": "Unix",
+    "section": "Mac",
+    "text": "Mac\nAnd on MacOS something like this:"
   },
   {
-    "objectID": "slides/productivity/04-git.html#overview-of-git",
-    "href": "slides/productivity/04-git.html#overview-of-git",
-    "title": "Git and GitHub",
-    "section": "Overview of Git",
-    "text": "Overview of Git\nThe main actions in Git are to:\n\npull changes from the remote repo.\nadd files, or as we say in the Git lingo stage files.\ncommit changes to the local repo.\npush changes to the remote repo."
+    "objectID": "slides/productivity/01-unix.html#working-directory",
+    "href": "slides/productivity/01-unix.html#working-directory",
+    "title": "Unix",
+    "section": "Working directory",
+    "text": "Working directory\n\nThe working directory is the directly you are currently in. Later we will see that we can move to other directories using the command line.\nIt’s similar to clicking on folders.\nYou can see your working directory using the Unix command pwd\n\nIn R we can use getwd()"
   },
   {
-    "objectID": "slides/productivity/04-git.html#the-four-areas-of-git",
-    "href": "slides/productivity/04-git.html#the-four-areas-of-git",
-    "title": "Git and GitHub",
-    "section": "The four areas of Git",
-    "text": "The four areas of Git"
+    "objectID": "slides/productivity/01-unix.html#paths",
+    "href": "slides/productivity/01-unix.html#paths",
+    "title": "Unix",
+    "section": "Paths",
+    "text": "Paths\n\nThis string returned in previous command is full path to working directory.\nThe full path to your home directory is stored in an environment variable.\nYou can see it like this echo $HOME"
   },
   {
-    "objectID": "slides/productivity/04-git.html#status",
-    "href": "slides/productivity/04-git.html#status",
-    "title": "Git and GitHub",
-    "section": "Status",
-    "text": "Status\n\n\ngit status filename"
+    "objectID": "slides/productivity/01-unix.html#paths-1",
+    "href": "slides/productivity/01-unix.html#paths-1",
+    "title": "Unix",
+    "section": "Paths",
+    "text": "Paths\n\nIn Unix, we use the shorthand ~ as a nickname for your home directory\nExample: the full path for docs (in image above) can be written like this ~/docs.\nMost terminals will show the path to your working directory right on the command line.\nLet’s open a terminal window and see if the working directory is listed."
   },
   {
-    "objectID": "slides/productivity/04-git.html#add",
-    "href": "slides/productivity/04-git.html#add",
-    "title": "Git and GitHub",
-    "section": "Add",
-    "text": "Add\nUse git add to put file to staging area.\n\n\ngit add &lt;filename&gt;\n\nWe say that this file has been staged. Check to see what happened:\n\ngit status &lt;filename&gt;"
+    "objectID": "slides/productivity/01-unix.html#unix-commands",
+    "href": "slides/productivity/01-unix.html#unix-commands",
+    "title": "Unix",
+    "section": "Unix commands",
+    "text": "Unix commands\n\nls: Listing directory content\nmkdir and rmdir: make and remove a directory\ncd: navigating the filesystem by changing directories\npwd: see your workding directory\nmv: moving files\ncp: copying files\nrm: removing files\nless: looking at a file"
   },
   {
-    "objectID": "slides/productivity/04-git.html#commit",
-    "href": "slides/productivity/04-git.html#commit",
-    "title": "Git and GitHub",
-    "section": "Commit",
-    "text": "Commit\n\nTo move all the staged files to the local repository we use git commit.\n\n\n\ngit commit -m \"must add comment\"\n\n\nOnce committed the files are tracked and a copy of this version is kept going forward.\nThis is like adding V1 to your filename."
+    "objectID": "slides/productivity/01-unix.html#autocomplete",
+    "href": "slides/productivity/01-unix.html#autocomplete",
+    "title": "Unix",
+    "section": "Autocomplete",
+    "text": "Autocomplete\n\nIn Unix you can auto-complete by hitting tab.\nThis means that we can type cd d then hit tab.\nUnix will either auto-complete if docs is the only directory/file starting with d or show you the options.\nTry it out! Using Unix without auto-complete will make it unbearable."
   },
   {
-    "objectID": "slides/productivity/04-git.html#commit-1",
-    "href": "slides/productivity/04-git.html#commit-1",
-    "title": "Git and GitHub",
-    "section": "Commit",
-    "text": "Commit\n\n\n\n\n\n\nNote\n\n\nYou can commit files directly without using add by explicitely writing the files at the end of the commit:\n\n\n\n\ngit commit -m \"must add comment\" &lt;filename&gt;"
+    "objectID": "slides/productivity/01-unix.html#text-editors",
+    "href": "slides/productivity/01-unix.html#text-editors",
+    "title": "Unix",
+    "section": "Text editors",
+    "text": "Text editors\nCommand-line text editors are essential tools, especially for system administrators, developers, and other users who frequently work in a terminal environment. Here are some of the most popular command-line text editors:\n\nNano\nPico\nVi or Vim\nEmacs"
   },
   {
-    "objectID": "slides/productivity/04-git.html#push",
-    "href": "slides/productivity/04-git.html#push",
-    "title": "Git and GitHub",
-    "section": "Push",
-    "text": "Push\n\nTo move to upstream repo we use git push\n\n\n\ngit push -u origin main\n\n\nThe -u flag sets the upstream repo.\nBy using this flag, going forward you can simply use git push to push changes.\nSo going forward we can just type:\n\n\ngit push"
+    "objectID": "slides/productivity/01-unix.html#other-very-useful-commands-you-should-learn",
+    "href": "slides/productivity/01-unix.html#other-very-useful-commands-you-should-learn",
+    "title": "Unix",
+    "section": "Other very useful commands you should learn",
+    "text": "Other very useful commands you should learn\n\ncurl - download data from the internet.\ntar - archive files and subdirectories of a directory into one file.\nssh - connect to another computer.\nfind - search for files by filename in your system.\ngrep - search for patterns in a file.\nawk/sed - These are two very powerful commands that permit you to find specific strings in files and change them."
   },
   {
-    "objectID": "slides/productivity/04-git.html#push-1",
-    "href": "slides/productivity/04-git.html#push-1",
-    "title": "Git and GitHub",
-    "section": "Push",
-    "text": "Push\n\nWhen using git push we need to be careful as if collaborating this will affect the work of others.\nIt might also create a conflict.\n\n\nPosted by andortang on Nothing is Impossible!"
+    "objectID": "slides/productivity/01-unix.html#resources",
+    "href": "slides/productivity/01-unix.html#resources",
+    "title": "Unix",
+    "section": "Resources",
+    "text": "Resources\nTo get started.\n\nhttps://www.codecademy.com/learn/learn-the-command-line\nhttps://www.edx.org/course/introduction-linux-linuxfoundationx-lfs101x-1\nhttps://www.coursera.org/learn/unix"
   },
   {
-    "objectID": "slides/productivity/04-git.html#fetch",
-    "href": "slides/productivity/04-git.html#fetch",
-    "title": "Git and GitHub",
-    "section": "Fetch",
-    "text": "Fetch\n\nTo update our local repository to the remote one we use\n\n\ngit fetch"
-  },
-  {
-    "objectID": "slides/productivity/04-git.html#merge",
-    "href": "slides/productivity/04-git.html#merge",
-    "title": "Git and GitHub",
-    "section": "Merge",
-    "text": "Merge\n\nOnce we are sure this is good, we can merge with our local files:\n\n\ngit merge"
-  },
-  {
-    "objectID": "slides/productivity/04-git.html#pull",
-    "href": "slides/productivity/04-git.html#pull",
-    "title": "Git and GitHub",
-    "section": "Pull",
-    "text": "Pull\n\nI rarely use fetch and merge and instead use pull which does both of these in one step\n\n\ngit pull"
-  },
-  {
-    "objectID": "slides/productivity/04-git.html#checkout",
-    "href": "slides/productivity/04-git.html#checkout",
-    "title": "Git and GitHub",
-    "section": "Checkout",
-    "text": "Checkout\n\nIf you want to pull down a specific file you from the remote repo you can use:\n\n\ngit checkout filename\n\n\nI use this when I make changes but decide I want to go back to original version on remote repo.\n\n\n\n\n\n\n\nWarning\n\n\nIf you have a newer version in your local repository this will create a conflict. It won’t let you do it. If you are sure you want to get rid of your local copy you can remove it and then use checkout."
-  },
-  {
-    "objectID": "slides/productivity/04-git.html#checkout-1",
-    "href": "slides/productivity/04-git.html#checkout-1",
-    "title": "Git and GitHub",
-    "section": "Checkout",
-    "text": "Checkout\n\nYou can also use checkout to obtain older version:\n\n\ngit checkout &lt;commit-id&gt; &lt;filename&gt;\n\n\nYou can get the commit-id either on the GitHub webpage or using\n\n\ngit log filename"
-  },
-  {
-    "objectID": "slides/productivity/04-git.html#reset",
-    "href": "slides/productivity/04-git.html#reset",
-    "title": "Git and GitHub",
-    "section": "Reset",
-    "text": "Reset\n\nWhat if I commit and realize it was a mistake?\n\n\ngit reset HEAD~1\n\nundos the commit and unstages the files, but keeps your local copies. I use this on very often.\n\nThere are many wasy of using get reset and it covers most scenarios.\nChatGPT and stackoverflow are great resources to learn more."
-  },
-  {
-    "objectID": "slides/productivity/04-git.html#branches",
-    "href": "slides/productivity/04-git.html#branches",
-    "title": "Git and GitHub",
-    "section": "Branches",
-    "text": "Branches\n\nWe are just sratching the surface of Git.\nOne advanced feature to be aware of is that you can have several branches, useful for working in parallel or testing stuff out that might not make the main repo.\n\n\nArt by: Allison Horst"
-  },
-  {
-    "objectID": "slides/productivity/04-git.html#branches-1",
-    "href": "slides/productivity/04-git.html#branches-1",
-    "title": "Git and GitHub",
-    "section": "Branches",
-    "text": "Branches\n\nWe wont go over this, but we might need to use these two related commands:\n\n\ngit remote -v\ngit brach"
-  },
-  {
-    "objectID": "slides/productivity/04-git.html#clone",
-    "href": "slides/productivity/04-git.html#clone",
-    "title": "Git and GitHub",
-    "section": "Clone",
-    "text": "Clone\n\nAnother common command is git clone.\nIt let’s download an entire repo, including version history.\n\n\ngit clone &lt;repo-url&gt;"
-  },
-  {
-    "objectID": "slides/productivity/04-git.html#using-git-in-rstudio",
-    "href": "slides/productivity/04-git.html#using-git-in-rstudio",
-    "title": "Git and GitHub",
-    "section": "Using Git in RStudio",
-    "text": "Using Git in RStudio\n\nGo to file, new project, version control, and follow the instructions.\nThen notice the Git tab in the preferences."
+    "objectID": "lab-notes/pset-02-r-vectorization.html",
+    "href": "lab-notes/pset-02-r-vectorization.html",
+    "title": "Problem set 2",
+    "section": "",
+    "text": "For these exercises, do not load any packages other than dslabs.\nMake sure to use vectorization whenever possible.\n\nWhat is the sum of the first 100 positive integers? Use the functions seq and sum to compute the sum with R for any n.\n\n\n# Your code here\n\n\nLoad the US murders dataset from the dslabs package. Use the function str to examine the structure of the murders object. What are the column names used by the data frame for these five variables? Show the subset of murders showing states with less than 1 per 100,000 deaths. Show all variables.\n\n\nlibrary(dslabs)\nstr(murders)\n\n'data.frame':   51 obs. of  5 variables:\n $ state     : chr  \"Alabama\" \"Alaska\" \"Arizona\" \"Arkansas\" ...\n $ abb       : chr  \"AL\" \"AK\" \"AZ\" \"AR\" ...\n $ region    : Factor w/ 4 levels \"Northeast\",\"South\",..: 2 4 4 2 4 4 1 2 2 2 ...\n $ population: num  4779736 710231 6392017 2915918 37253956 ...\n $ total     : num  135 19 232 93 1257 ...\n\n\n\nmurders$rate &lt;- with(murders, total/population*10^5)\nmurders[murders$rate &lt; 1,]\n\n           state abb        region population total      rate\n12        Hawaii  HI          West    1360301     7 0.5145920\n13         Idaho  ID          West    1567582    12 0.7655102\n16          Iowa  IA North Central    3046355    21 0.6893484\n20         Maine  ME     Northeast    1328361    11 0.8280881\n24     Minnesota  MN North Central    5303925    53 0.9992600\n30 New Hampshire  NH     Northeast    1316470     5 0.3798036\n35  North Dakota  ND North Central     672591     4 0.5947151\n38        Oregon  OR          West    3831074    36 0.9396843\n42  South Dakota  SD North Central     814180     8 0.9825837\n45          Utah  UT          West    2763885    22 0.7959810\n46       Vermont  VT     Northeast     625741     2 0.3196211\n51       Wyoming  WY          West     563626     5 0.8871131\n\n\n\nShow the subset of murders showing states with less than 1 per 100,000 deaths and in the West of the US. Don’t show the region variable.\n\n\nmurders[murders$rate &lt; 1 & murders$region == \"West\",-3]\n\n     state abb population total      rate\n12  Hawaii  HI    1360301     7 0.5145920\n13   Idaho  ID    1567582    12 0.7655102\n38  Oregon  OR    3831074    36 0.9396843\n45    Utah  UT    2763885    22 0.7959810\n51 Wyoming  WY     563626     5 0.8871131\n\n\n\nShow the largest state with a rate less than 1 per 100,000.\n\n\nres &lt;- murders[murders$rate &lt; 1,]\nres$state[which.max(res$population)]\n\n[1] \"Minnesota\"\n\n\n\nShow the state with a population of more than 10 million with the lowest rate.\n\n\nres &lt;- murders[murders$population &gt; 10^7,]\nres$state[which.min(res$rate)]\n\n[1] \"New York\"\n\n\n\nCompute the rate for each region of the US.\n\n\ninds &lt;- split(1:nrow(murders), murders$region)\n\nsapply(inds, function(ind){\n  sum(murders$total[ind])/sum(murders$population[ind])*10^5\n})\n\n    Northeast         South North Central          West \n     2.655592      3.626558      2.731334      2.656175 \n\ninds &lt;- split(1:nrow(murders), murders$region)\n\ntot &lt;- tapply(murders$total, murders$region, sum)\npop &lt;- tapply(murders$population, murders$region, sum)\n\nrate &lt;- tot/pop\nprint(rate)\n\n    Northeast         South North Central          West \n 2.655592e-05  3.626558e-05  2.731334e-05  2.656175e-05 \n\nsapply(inds, function(ind){\n  sum(murders$total[ind])/sum(murders$population[ind])*10^5\n})\n\n    Northeast         South North Central          West \n     2.655592      3.626558      2.731334      2.656175 \n\n\n\nCreate a vector of numbers that starts at 6, does not pass 55, and adds numbers in increments of 4/7: 6, 6 + 4/7, 6 + 8/7, and so on. How many numbers does the list have? Hint: use seq and length.\n\n\n# Your code here\n\n\nMake this data frame:\n\n\ntemp &lt;- c(35, 88, 42, 84, 81, 30)\ncity &lt;- c(\"Beijing\", \"Lagos\", \"Paris\", \"Rio de Janeiro\", \n          \"San Juan\", \"Toronto\")\ncity_temps &lt;- data.frame(name = city, temperature = temp)\n\nConvert the temperatures to Celsius.\n\n# Your code here\n\n\nWrite a function euler that compute the following sum for any \\(n\\):\n\n\\[\nS_n = 1+1/2^2 + 1/3^2 + \\dots 1/n^2\n\\]\n\n# Your code here\n\n\nShow that as \\(n\\) gets bigger we get closer \\(\\pi^2/6\\) by plotting \\(S_n\\) versus \\(n\\) with a horizontal dashed line at \\(\\pi^2/6\\).\n\n\n# Your code here\n\n\nUse the %in% operator and the predefined object state.abb to create a logical vector that answers the question: which of the following are actual abbreviations: MA, ME, MI, MO, MU?\n\n\nx &lt;- c(\"MA\", \"ME\", \"MI\", \"MO\", \"MU\")\nx[x %in% state.abb]\n\n[1] \"MA\" \"ME\" \"MI\" \"MO\"\n\n\n\nExtend the code you used in the previous exercise to report the one entry that is not an actual abbreviation. Hint: use the ! operator, which turns FALSE into TRUE and vice versa, then which to obtain an index.\n\n\n# Your code here\n\n\nIn the murders dataset, use match to show all variables for New York, California, and Texas, in that order.\n\n\nx &lt;- c(\"NY\", \"CA\", \"TX\")\nmurders[match(x,murders$abb),]\n\n        state abb    region population total     rate\n33   New York  NY Northeast   19378102   517 2.667960\n5  California  CA      West   37253956  1257 3.374138\n44      Texas  TX     South   25145561   805 3.201360\n\n\n\nWrite a function called vandermonde_helper that for any \\(x\\) and \\(n\\), returns the vector \\((1, x, x^2, x^3, \\dots, x^n)\\). Show the results for \\(x=3\\) and \\(n=5\\).\n\n\n# Your code here\n\n\nCreate a vector using:\n\n\nn &lt;- 10000\np &lt;- 0.5\nset.seed(2024-9-6)\nx &lt;- sample(c(0,1), n, prob = c(1 - p, p), replace = TRUE)\n\nCompute the length of each stretch of 1s and then plot the distribution of these values. Check to see if the distribution follows a geometric distribution as the theory predicts. Do not use a loop!\n\nd &lt;- diff(c(0,x,0))\nst &lt;- which(d == 1)\nen &lt;- which(d == -1)\nl &lt;- en - st \nhist(l)\n\n\n\n\n\n\n\ntb &lt;- table(l)/length(l)\nk &lt;- as.numeric(names(tb))\nps &lt;- as.numeric(tb)\nplot(k, ps, type = \"h\")\nlines(k, p^k)"
   }
 ]

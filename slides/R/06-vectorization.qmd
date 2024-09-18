@@ -129,6 +129,8 @@ class(scale(heights))
 
 * The conditional function `if`-`else` does not vectorize. 
 
+* Functions such as `any` and `all`, covert vectors to logicals of lenght one needed for `if`-`else`.
+
 * A particularly useful function is a  vectorized version `ifelse`. 
 
 * Here is an example:
@@ -137,8 +139,6 @@ class(scale(heights))
 a <- c(0, 1, 2, -4, 5)
 ifelse(a > 0, 1/a, NA)
 ```
-
-* Other conditional functions, such as `any` and `all`, do vectorize.
 
 ---
 
