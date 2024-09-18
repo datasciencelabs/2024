@@ -1,0 +1,672 @@
+---
+title: "ggplot2"
+keywords: "R"
+date: 2024-09-25
+format:
+  revealjs:
+    theme: night
+execute: 
+  echo: true
+fig-align: center
+---
+
+
+## ggplot2
+
+The code in this lecture assumes these three libraries are loaded:
+
+```{r, message=FALSE, warning=FALSE, cache=FALSE}
+library(dplyr)
+library(ggplot2)
+library(dslabs)
+```
+
+---
+
+## The components of a graph
+
+In today's lecture we recreate this:
+
+```{r ggplot-example-plot, echo=FALSE}
+library(dslabs)
+library(ggthemes)
+library(ggrepel)
+
+r <- murders |> 
+  summarize(pop = sum(population), tot = sum(total)) |> 
+  mutate(rate = tot/pop*10^6) |> pull(rate)
+
+target <- murders |> ggplot(aes(x = population/10^6, y = total, label = abb)) +  
+  geom_abline(intercept = log10(r), lty = 2, col = "darkgrey") +
+  geom_point(aes(color = region), size = 3) +
+  geom_text_repel() + 
+  scale_x_log10() +
+  scale_y_log10() +
+  xlab("Populations in millions (log scale)") + 
+  ylab("Total number of murders (log scale)") +
+  ggtitle("US Gun Murders in 2010") +
+  scale_color_discrete(name = "Region") +
+  theme_economist()
+
+print(target)
+```
+
+---
+
+## The components of a graph
+
+* gg stands for grammar of graphics.
+
+* Analogy: we learn verbs and nouns to construct sentences.
+
+* The first step in learning **ggplot2** is breaking a graph apart into components. 
+
+* Let's break down the plot we want to recreate while introducing some **ggplot2** terminology. 
+
+
+---
+
+## The components of a graph
+
+* The main three components to note are:
+    -   **Data**: The US murders data table is being summarized. We refer to this as the **data** component.    
+    -   **Geometry**: The plot above is a scatterplot. This is referred to as the **geometry** component. 
+    -   **Aesthetic mapping**: How we map  visual cues to information provided by the dataset. 
+    
+---
+
+## Aesthetic mapping
+    
+* The two most important cues in the plot we are recreating are the point positions on the x-axis and y-axis.
+* Each point represents a different observation, and we *map* data about these observations to visual cues like x- and y-scale. 
+* Color is another visual cue that we map to region. 
+* How we define the mapping depends on what **geometry** we are using.
+
+---
+
+## The components of a graph
+
+* We also note that:
+    -   The points are labeled with the state abbreviations.
+    -   The range of the x-axis and y-axis appears to be defined by the range of the data. 
+    - Axes are in the log-scales.
+    -   There are labels, a title, a legend, and we use the style of The Economist magazine.
+
+* We will now construct the plot, piece by piece.
+
+---
+
+## `ggplot` objects
+
+```{r, echo=FALSE}
+theme_set(theme_grey()) ## to imitate what happens without setting a theme
+```
+
+* Start by defining the dataset:
+
+```{r ggplot-example-1, eval=FALSE}
+ggplot(data = murders)
+```
+
+
+* We can also use the pipe:
+
+```{r}
+#| eval: false
+murders |> ggplot()
+```
+
+* We call also assign the output to a variable
+
+```{r}
+p <- ggplot(data = murders)
+class(p)
+```
+
+
+---
+
+## `ggplot` objects
+
+
+To see the plot we can print it:
+```{r  ggplot-example-2}
+print(p) 
+```
+
+---
+
+## Geometries
+
+* We create graphs by adding *layers*. 
+
+* Layers define geometries, compute summary statistics, define what scales to use, or even change styles. 
+
+* To add layers, we use the symbol `+`. 
+
+* In general, a line of code will look like this:
+
+```{r}
+#| eval: false
+#| code-line-numbers: false
+DATA |> ggplot() + LAYER 1 + LAYER 2 + ... + LAYER N
+```
+
+* Usually, the first added layer defines the geometry. 
+
+---
+
+## Geometries
+
+
+* So if we want to make a scatterplot, what geometry do we use?
+
+* Let's look at the cheat sheet: <https://rstudio.github.io/cheatsheets/data-visualization.pdf>
+
+
+---
+
+## Aesthetic mappings
+
+* To make a scatter plot we use `geom_points`. 
+
+* The help file tells us this is how we use it:
+
+```{r ggplot-example-2-1}
+murders |> ggplot() + geom_point(aes(x = population/10^6, y = total))
+```
+
+---
+
+## Aesthetic mappings
+
+* Since we defined `p` earlier, we can add a layer like this:
+
+```{r ggplot-example-3}
+p + geom_point(aes(population/10^6, total))
+```
+
+* Note we are no longer using `x= ` and `y =`.
+
+---
+
+## Layers
+
+* To add text we use `geom_text`:
+
+```{r  ggplot-example-4}
+#| code-line-numbers: "2"
+
+p + geom_point(aes(population/10^6, total)) +
+  geom_text(aes(population/10^6, total, label = abb))
+```
+
+---
+
+## Layers
+
+* As an example of the unique behavior of `aes` note that this call:
+
+```{r, eval=FALSE}
+p_test <- p + geom_text(aes(population/10^6, total, label = abb))
+```
+
+is fine, whereas this call:
+
+```{r, eval=FALSE}
+p_test <- p + geom_text(aes(population/10^6, total), label = abb) 
+```
+
+will give you an error since `abb` is not found because it is outside of the `aes` function. 
+
+* The layer `geom_text` does not know where to find `abb` since it is a column name and not a global variable.
+
+--- 
+
+## Tinkering with arguments
+
+
+```{r ggplot-example-5}
+#| code-line-numbers: "1"
+
+p + geom_point(aes(population/10^6, total), size = 3) +
+  geom_text(aes(population/10^6, total, label = abb))
+```
+
+* `size` can be an aesthetic mapping, but here it is not, so all points get bigger. 
+
+
+--- 
+
+## Tinkering with arguments
+
+```{r ggplot-example-6}
+#| code-line-numbers: "2"
+
+p + geom_point(aes(population/10^6, total), size = 3) +
+  geom_text(aes(population/10^6, total, label = abb), nudge_x = 1.5)
+```
+
+* `nudge_x` is not an aesthetic mapping.
+
+
+--- 
+
+## Global versus local mappings
+
+* Note that in we can define a global `aes` in the `ggplot` function:
+
+```{r}
+args(ggplot)
+```
+
+
+* We refer to this as the _global_ mapping.
+
+--- 
+
+## Global versus local  mappings
+
+* All the layers will assume the global mapping unless we explicitly define another one.
+
+
+```{r ggplot-example-7}
+p <- murders |> ggplot(aes(population/10^6, total, label = abb))
+p + geom_point(size = 3) + geom_text(nudge_x = 1.5)
+```
+
+* The two layers use the global mapping.
+--- 
+
+## Global versus local mappings
+
+* We can override the global `aes` by defining one in the geometry functions:
+
+```{r ggplot-example-8}
+#| code-line-numbers: "2"
+
+p + geom_point(size = 3) +  
+  geom_text(aes(x = 10, y = 800, label = "Hello there!"))
+```
+
+---
+
+## Scales
+
+* Layers can define trasnformations:
+
+```{r ggplot-example-9}
+#| code-line-numbers: "3-4"
+
+p + geom_point(size = 3) +  
+  geom_text(nudge_x = 0.05) + 
+  scale_x_continuous(trans = "log10") +
+  scale_y_continuous(trans = "log10") 
+```
+
+---
+
+## Scales
+
+* This particular transformation is so common that **ggplot2** provides the specialized functions:
+
+
+```{r, eval=FALSE}
+#| code-line-numbers: "3-4"
+
+p + geom_point(size = 3) +  
+  geom_text(nudge_x = 0.05) + 
+  scale_x_log10() +
+  scale_y_log10() 
+```
+
+---
+
+## Labels and titles
+
+* There are layers for adding labels and titles:
+
+```{r ggplot-example-10}
+#| code-line-numbers: "5-7"
+
+p + geom_point(size = 3) +  
+  geom_text(nudge_x = 0.05) + 
+  scale_x_log10() +
+  scale_y_log10() +
+  xlab("Populations in millions (log scale)") + 
+  ylab("Total number of murders (log scale)") +
+  ggtitle("US Gun Murders in 2010")
+```
+
+---
+
+## Labels and titles
+
+* We can also use the `labs` function:
+
+```{r}
+#| eval: false
+#| code-line-numbers: "5-7"
+
+p + geom_point(size = 3) +  
+  geom_text(nudge_x = 0.05) + 
+  scale_x_log10() +
+  scale_y_log10() +
+  labs(x = "Populations in millions (log scale)", 
+       y = "Total number of murders (log scale)", 
+       title = "US Gun Murders in 2010")
+```
+
+* This produces the same graph as in the previous slide.
+---
+
+## Almost there
+
+::: {.panel-tabset}
+
+## Target
+
+```{r allmost-there-1}
+#| echo: false
+print(target)
+```
+
+## Current draft
+
+```{r  allmost-there-2}
+#| echo: false
+p + geom_point(size = 3) +  
+  geom_text(nudge_x = 0.05) + 
+  scale_x_log10() +
+  scale_y_log10() +
+  labs(x = "Populations in millions (log scale)", 
+       y = "Total number of murders (log scale)", 
+       title = "US Gun Murders in 2010")
+```
+
+## Code
+
+
+```{r}
+#| eval: false
+p + geom_point(size = 3) +  
+  geom_text(nudge_x = 0.05) + 
+  scale_x_log10() +
+  scale_y_log10() +
+  labs(x = "Populations in millions (log scale)", 
+       y = "Total number of murders (log scale)", 
+       title = "US Gun Murders in 2010")
+```
+
+
+:::
+
+--- 
+
+## Categories as colors
+
+Here is an exmaple of adding color:
+
+```{r ggplot-example-11}
+#| code-line-numbers: "8"
+
+murders |> ggplot(aes(population/10^6, total, label = abb)) +   
+  geom_text(nudge_x = 0.05) + 
+  scale_x_log10() +
+  scale_y_log10() +
+  labs(x = "Populations in millions (log scale)", 
+       y = "Total number of murders (log scale)", 
+       title = "US Gun Murders in 2010") +
+  geom_point(size = 3, color = "blue")
+```
+
+
+--- 
+
+## Categories as colors
+
+But if we want the color to relate to a variable, we need to include it in the map:
+
+```{r ggplot-example-12}
+#| code-line-numbers: "8"
+
+murders |> ggplot(aes(population/10^6, total, label = abb)) +   
+  geom_text(nudge_x = 0.05) + 
+  scale_x_log10() +
+  scale_y_log10() +
+  labs(x = "Populations in millions (log scale)", 
+       y = "Total number of murders (log scale)", 
+       title = "US Gun Murders in 2010") +
+  geom_point(aes(col = region), size = 3)
+```
+
+
+
+--- 
+
+## Categories as colors
+
+* Note that a legend was created automatically!
+
+* This is how we change the name of the legend:
+
+```{r  ggplot-example-12-1}
+#| code-line-numbers: "8"
+
+murders |> ggplot(aes(population/10^6, total, label = abb)) +   
+  geom_text(nudge_x = 0.05) + 
+  scale_x_log10() +
+  scale_y_log10() +
+  labs(x = "Populations in millions (log scale)", 
+       y = "Total number of murders (log scale)", 
+       title = "US Gun Murders in 2010",
+       color = "Region") +
+  geom_point(aes(col = region), size = 3)
+```
+
+---
+
+
+
+## Other adjustments
+
+
+* We want to add a line with intercept the US rate. 
+
+* Lets compute that
+
+```{r}
+r <- murders |> 
+  summarize(rate = sum(total) /  sum(population) * 10^6) |> 
+  pull(rate)
+```
+
+---
+
+## Other adjustments
+
+* Add a line with the `geom_abline` function:
+
+```{r ggplot-example-13}
+#| code-line-numbers: "10"
+
+murders |> ggplot(aes(population/10^6, total, label = abb)) +   
+  geom_text(nudge_x = 0.05) + 
+  scale_x_log10() +
+  scale_y_log10() +
+  labs(x = "Populations in millions (log scale)", 
+       y = "Total number of murders (log scale)", 
+       title = "US Gun Murders in 2010",
+       color = "Region") +
+  geom_point(aes(col = region), size = 3) +
+  geom_abline(intercept = log10(r), lty = 2, color = "darkgrey")
+```
+
+
+## Other adjustments
+
+
+* We are very close now. 
+
+* To make the final adjustments we will save our current draft in `p` and add layers.
+
+```{r}
+p <- murders |> ggplot(aes(population/10^6, total, label = abb)) +   
+  geom_text(nudge_x = 0.05) + 
+  scale_x_log10() +
+  scale_y_log10() +
+  labs(x = "Populations in millions (log scale)", 
+       y = "Total number of murders (log scale)", 
+       title = "US Gun Murders in 2010",
+       color = "Region") +
+  geom_point(aes(col = region), size = 3) +
+  geom_abline(intercept = log10(r), lty = 2, color = "darkgrey")
+
+```
+
+---
+
+## Add-on packages 
+
+* The __dslabs__ package can define the look used in the textbook:
+
+```{r}
+ds_theme_set()
+```
+
+* Many other themes are added by the package **ggthemes**.
+
+---
+
+## Add-on packages 
+
+
+* Among those are the `theme_economist` theme that we used. 
+
+```{r}
+library(ggthemes)
+p + theme_economist()
+```
+
+---
+
+
+## Add-on packages 
+
+* Here is `theme_fivethirtyeight()` theme
+
+```{r}
+p + theme_fivethirtyeight()
+```
+
+---
+
+
+## Add-on packages 
+
+* And if you want to ruin the plot, give it the excel theme:
+
+```{r}
+p + theme_excel()
+```
+
+---
+
+## Add-on packages 
+
+* For more fun themes:
+
+```{r}
+library(ThemePark)
+p + theme_starwars()
+```
+
+---
+
+
+## Add-on packages 
+
+```{r}
+p + theme_barbie()
+```
+
+## Add-on packages 
+
+* To avoid the state abbreviations being on top of each other we can use the **ggrepel** package.
+
+* We change the layer `geom_text(nudge_x = 0.05)` to ` geom_text_repel() `
+
+
+---
+
+## Putting it all together
+
+* Now that we are done testing, we can write one piece of code that produces our desired plot from scratch.
+
+::: {.panel-tabset}
+
+## Code
+
+```{r}
+#| eval: false
+  
+library(ggthemes)
+library(ggrepel)
+
+r <- murders |> 
+  summarize(rate = sum(total) /  sum(population) * 10^6) |>
+  pull(rate)
+
+murders |> ggplot(aes(population/10^6, total, label = abb)) +   
+  geom_abline(intercept = log10(r), lty = 2, color = "darkgrey") +
+  geom_point(aes(col = region), size = 3) +
+  geom_text_repel() + 
+  scale_x_log10() +
+  scale_y_log10() +
+  labs(x = "Populations in millions (log scale)", 
+       y = "Total number of murders (log scale)", 
+       title = "US Gun Murders in 2010",
+       color = "Region") +
+  theme_economist()
+```
+
+## Plot
+
+```{r final-ggplot-example}
+#| echo: false
+  
+library(ggthemes)
+library(ggrepel)
+
+r <- murders |> 
+  summarize(rate = sum(total) /  sum(population) * 10^6) |>
+  pull(rate)
+
+murders |> ggplot(aes(population/10^6, total, label = abb)) +   
+  geom_abline(intercept = log10(r), lty = 2, color = "darkgrey") +
+  geom_point(aes(col = region), size = 3) +
+  geom_text_repel() + 
+  scale_x_log10() +
+  scale_y_log10() +
+  labs(x = "Populations in millions (log scale)", 
+       y = "Total number of murders (log scale)", 
+       title = "US Gun Murders in 2010",
+       color = "Region") +
+  theme_economist()
+```
+
+:::
+
+---
+
+## Grids of plots
+
+There are often reasons to graph plots next to each other. The **gridExtra** package permits us to do that:
+
+```{r gridExtra-example, warning=FALSE, message=FALSE, fig.height=2.5, fig.width=5}
+library(gridExtra)
+p1 <- murders |> ggplot(aes(log10(population))) + geom_histogram()
+p2 <- murders |> ggplot(aes(log10(population), log10(total))) + geom_point()
+grid.arrange(p1, p2, ncol = 2)
+```
+
