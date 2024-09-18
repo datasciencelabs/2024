@@ -7,7 +7,6 @@ format:
     theme: night
 execute: 
   echo: true
-fig-align: center
 ---
 
 
@@ -553,7 +552,7 @@ ds_theme_set()
 
 **ggthemes** provides pre-designed themes.
 
-```{r}
+```{r economist}
 library(ggthemes)
 p + theme_economist()
 ```
@@ -565,7 +564,7 @@ p + theme_economist()
 
 Here is the FiveThirtyEight theme:
 
-```{r}
+```{r fivethirtyeight}
 p + theme_fivethirtyeight()
 ```
 
@@ -576,7 +575,7 @@ p + theme_fivethirtyeight()
 
 If you want to ruin the plot use the excel theme:
 
-```{r}
+```{r excel}
 p + theme_excel()
 ```
 
@@ -586,7 +585,7 @@ p + theme_excel()
 
 **ThemePark** provides fun themes:
 
-```{r}
+```{r starwars}
 library(ThemePark)
 p + theme_starwars()
 ```
@@ -598,7 +597,7 @@ p + theme_starwars()
 
 This is a fan favorite:
 
-```{r}
+```{r barbie}
 p + theme_barbie()
 ```
 
