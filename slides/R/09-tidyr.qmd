@@ -1,0 +1,234 @@
+---
+title: "Tidying data"
+keywords: "R"
+date: 2024-09-25
+format:
+  revealjs:
+    theme: night
+execute: 
+  echo: true
+---
+
+## Tidying data 
+
+
+* We will a _wide format dataset_ as an example:
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse) 
+library(dslabs)
+path <- system.file("extdata", package = "dslabs")
+filename <- file.path(path, "fertility-two-countries-example.csv")
+wide_data <- read_csv(filename)
+select(wide_data, 1:10)
+```
+
+---
+
+## `pivot_longer`
+
+* One of the most used functions in **tidyr** is `pivot_longer`.
+
+* The first argument is a data frame, the one that will be converted. 
+
+* We want to reshape rows represents a fertility observation.
+
+* We need three columns to store the year, country, and the observed value.
+
+---
+
+## `pivot_longer`
+
+* In its current form, data from different years are in different columns with the year values stored in the column names. 
+
+* The `names_to` and `values_to` argument tell `pivot_longer` the column names we want to assign to the columns containing the current column names and observations, respectively.
+
+* The default names are `name` and `value`, in our case a better choice is `year` and `fertility`. 
+
+---
+
+## `pivot_longer`
+
+
+* Through `cols`, the second argument, we specify the columns containing observed values; these are the columns that will be *pivoted*. 
+
+* The default is to pivot all columns so, in most cases, we have to specify the columns. In our example we want columns `1960`, `1961` up to `2015`.
+
+---
+
+## `pivot_longer`
+
+The code to pivot the fertility data therefore looks like this:
+
+```{r}
+new_tidy_data <- wide_data |>
+  pivot_longer(`1960`:`2015`, names_to = "year", values_to = "fertility")
+head(new_tidy_data)
+```
+
+* Data have been converted to tidy format with columns `year` and `fertility`.
+
+
+
+
+---
+
+## `pivot_longer`
+
+
+* A quicker way to write this code is to specify which column will **not** include in the pivot:
+
+```{r}
+new_tidy_data <- wide_data |>
+  pivot_longer(-country, names_to = "year", values_to = "fertility")
+```
+
+
+---
+
+## `pivot_longer`
+
+* Now that the data is tidy, we can use it with other *tidyverse* functions, such **ggplot2**: 
+
+```{r fertility-year-check}
+new_tidy_data |> 
+  mutate(year = as.numeric(year)) |>
+  ggplot(aes(year, fertility, color = country)) + 
+  geom_line()
+```
+
+---
+
+## `pivot_wider`
+
+* It is sometimes useful for data wrangling purposes to convert tidy data into wide data. 
+
+* We often use this as an intermediate step in tidying up data. 
+
+* The `pivot_wider` function is basically the inverse of `pivot_longer`. 
+
+---
+
+## `pivot_wider`
+
+* The first argument is for the data, but since we are using the pipe, we don't show it. 
+
+* The `names_from` argument tells `pivot_wider` which variable will be used as the column names. 
+
+* The `values_from` argument specifies which variable to use to fill out the cells.
+
+---
+
+## `pivot_wider`
+
+Here is some example code
+```{r}
+new_wide_data <- new_tidy_data |> 
+  pivot_wider(names_from = year, values_from = fertility)
+select(new_wide_data, country, `1960`:`1967`)
+```
+
+Similar to `pivot_wider`, `names_from` and `values_from` default to `name` and `value`.
+
+--- 
+
+## Example
+
+We now demonstrate with a more complex example in which we have to use both `pivot_longer` and `pivot_wider` to tidy the data.
+
+```{r, message=FALSE}
+path <- system.file("extdata", package = "dslabs")
+
+filename <- "life-expectancy-and-fertility-two-countries-example.csv"
+filename <-  file.path(path, filename)
+
+raw_dat <- read_csv(filename)
+select(raw_dat, 1:5)
+```
+
+---
+
+## Example
+
+* Note that the data is in wide format. 
+
+* Also that this table includes values for two variables, fertility and life expectancy, with the column name encoding which column represents which variable. 
+
+* Encoding information in the column names is not recommended but, unfortunately, it is quite common. 
+
+
+---
+
+## Example
+
+* We start with the `pivot_longer` function, but we should no longer use the column name `year` for the new column since it also contains the variable type. 
+
+* We will call it `name`, the default, for now:
+
+```{r}
+raw_dat |> pivot_longer(-country) |> head()
+```
+
+
+---
+
+## Example
+
+* The result is not exactly what we refer to as tidy since each observation is associated with two, not one, rows.
+
+* We want to have the values from the two variables, fertility and life expectancy, in two separate columns. 
+
+* The first challenge to achieve this is to separate the `name` column into the year and the variable type. 
+
+
+---
+
+## Example
+
+* Encoding multiple variables in a column name is such a common problem that the **tidyr** package includes function to separate these columns into two or more:  
+
+```{r}
+raw_dat |> 
+  pivot_longer(-country) |> 
+  separate_wider_delim(name, delim = "_",  names = c("year", "name"), 
+                       too_many = "merge") |>
+  head()
+```
+
+---
+
+## Example
+
+* But we are not done yet.
+
+* We need to create a column for each variable and change `year` to a number. 
+
+* As we learned, the `pivot_wider` function can do this.
+
+---
+
+## Example
+
+
+```{r}
+dat <- raw_dat |> 
+  pivot_longer(-country) |> 
+  separate_wider_delim(name, delim = "_", 
+                       names = c("year", "name"), 
+                       too_many = "merge") |>
+  pivot_wider() |>
+  mutate(year = as.integer(year))
+head(dat)
+```
+
+---
+
+## Example
+
+The data is now is now in tidy form and we can use with other packages:
+
+```{r}
+p1 <- dat |> ggplot(aes(year, fertility, color = country)) + geom_line(show.legend = FALSE)
+p2 <- dat |> ggplot(aes(year, life_expectancy, color = country)) + geom_line()
+gridExtra::grid.arrange(p1, p2, ncol = 2, widths = c(3,4))
+```

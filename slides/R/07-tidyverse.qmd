@@ -91,7 +91,7 @@ select(wide_data, country, `1960`:`1970`) |> as.data.frame()
 
 ## dplyr
 
-* In this lecture we focus on **dplyr**.
+* In this lecture we focus mainly on **dplyr**.
 
 * In particular the following functions:
 
@@ -280,7 +280,7 @@ murders |> summarize(quantiles = quantile(population, c(0.5, 0, 1)))
 ## Multiple summaries
 
 :::{.callout-warning}
-Using a function that returns more than one number within summairze will soon be deprecated.
+Using a function that returns more than one number within summarize will soon be deprecated.
 :::
 
 * For multiple summaries we use `reframe`:
@@ -397,7 +397,7 @@ murders |>
 
 ## `pull`
 
-* To get a numberic use pull:
+* To get a numeric use pull:
 
 ```{r}
 murders |> 
@@ -433,4 +433,3 @@ murders |> arrange(desc(rate)) |> head()
 ```{r}
 murders |> arrange(region, desc(rate)) |> head(11)
 ```
-

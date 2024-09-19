@@ -10,9 +10,9 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.555">
 
-  <meta name="dcterms.date" content="2024-09-18">
+  <meta name="dcterms.date" content="2024-09-25">
   <meta name="keywords" content="R">
-  <title>BST 260: Introduction to Data Science - Vectorization</title>
+  <title>BST 260: Introduction to Data Science - Tidying data</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -392,359 +392,262 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Vectorization</h1>
+  <h1 class="title">Tidying data</h1>
 
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">2024-09-18</p>
+  <p class="date">2024-09-25</p>
 </section>
-<section id="vectorization" class="slide level2">
-<h2>Vectorization</h2>
+<section id="tidying-data" class="slide level2">
+<h2>Tidying data</h2>
 <ul>
-<li><p>We will be using the <code>murders</code> dataset in the <strong>dslabs</strong> package.</p></li>
-<li><p>Includes data on 2010 gun murders for the US 50 states and DC.</p></li>
-<li><p>We will use it to answer questions such as “What is the state with lowest crime rate in the Western part of the US?”</p></li>
-</ul>
-</section>
-<section id="vectorization-1" class="slide level2">
-<h2>Vectorization</h2>
-<ul>
-<li><p>First, some simple examples of vectorization.</p></li>
-<li><p>Let’s convert the following heights in inches to meters:</p></li>
+<li>We will a <em>wide format dataset</em> as an example:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>heights <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">69</span>, <span class="dv">62</span>, <span class="dv">66</span>, <span class="dv">70</span>, <span class="dv">70</span>, <span class="dv">73</span>, <span class="dv">67</span>, <span class="dv">73</span>, <span class="dv">67</span>, <span class="dv">70</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>Rather than loop we use vectorization:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>heights<span class="sc">*</span><span class="fl">2.54</span><span class="sc">/</span><span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse) </span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(dslabs)</span>
+<span id="cb1-3"><a></a>path <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">"extdata"</span>, <span class="at">package =</span> <span class="st">"dslabs"</span>)</span>
+<span id="cb1-4"><a></a>filename <span class="ot">&lt;-</span> <span class="fu">file.path</span>(path, <span class="st">"fertility-two-countries-example.csv"</span>)</span>
+<span id="cb1-5"><a></a>wide_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(filename)</span>
+<span id="cb1-6"><a></a><span class="fu">select</span>(wide_data, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 1.7526 1.5748 1.6764 1.7780 1.7780 1.8542 1.7018 1.8542 1.7018 1.7780</code></pre>
+<pre><code># A tibble: 2 × 10
+  country     `1960` `1961` `1962` `1963` `1964` `1965` `1966` `1967` `1968`
+  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1 Germany       2.41   2.44   2.47   2.49   2.49   2.48   2.44   2.37   2.28
+2 South Korea   6.16   5.99   5.79   5.57   5.36   5.16   4.99   4.85   4.73</code></pre>
 </div>
 </div>
 </section>
-<section id="vectorization-2" class="slide level2">
-<h2>Vectorization</h2>
+<section id="pivot_longer" class="slide level2">
+<h2><code>pivot_longer</code></h2>
 <ul>
-<li><p>We can subtract a constant from each element of a vector.</p></li>
-<li><p>This is convenient for computing residuals or deviations from an average:</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>avg <span class="ot">&lt;-</span> <span class="fu">mean</span>(heights)</span>
-<span id="cb4-2"><a></a>heights <span class="sc">-</span> avg </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1]  0.3 -6.7 -2.7  1.3  1.3  4.3 -1.7  4.3 -1.7  1.3</code></pre>
-</div>
-</div>
-</section>
-<section id="vectorization-3" class="slide level2">
-<h2>Vectorization</h2>
-<ul>
-<li>This means we can compute standard units like this:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>s <span class="ot">&lt;-</span> <span class="fu">sd</span>(heights)</span>
-<span id="cb6-2"><a></a>(heights <span class="sc">-</span> avg)<span class="sc">/</span>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1]  0.08995503 -2.00899575 -0.80959530  0.38980515  0.38980515  1.28935548
- [7] -0.50974519  1.28935548 -0.50974519  0.38980515</code></pre>
-</div>
-</div>
-<ul>
-<li>There is actually a function, <code>scale</code>, that does this. We describe it soon.</li>
+<li><p>One of the most used functions in <strong>tidyr</strong> is <code>pivot_longer</code>.</p></li>
+<li><p>The first argument is a data frame, the one that will be converted.</p></li>
+<li><p>We want to reshape rows represents a fertility observation.</p></li>
+<li><p>We need three columns to store the year, country, and the observed value.</p></li>
 </ul>
 </section>
-<section id="vectorization-4" class="slide level2">
-<h2>Vectorization</h2>
+<section id="pivot_longer-1" class="slide level2">
+<h2><code>pivot_longer</code></h2>
 <ul>
-<li><p>If we operate on two vectors, vectorization is componentwise.</p></li>
-<li><p>Here is an example:</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>heights <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">69</span>, <span class="dv">62</span>, <span class="dv">66</span>, <span class="dv">70</span>, <span class="dv">70</span>, <span class="dv">73</span>, <span class="dv">67</span>, <span class="dv">73</span>, <span class="dv">67</span>, <span class="dv">70</span>)</span>
-<span id="cb8-2"><a></a>error <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fu">length</span>(heights), <span class="dv">0</span>, <span class="fl">0.1</span>)</span>
-<span id="cb8-3"><a></a>heights <span class="sc">+</span> error</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] 69.09155 61.96405 65.99856 69.98623 69.83695 72.95678 67.05027 72.93318
- [9] 67.04960 70.06563</code></pre>
-</div>
-</div>
-</section>
-<section id="exercise" class="slide level2">
-<h2>Exercise</h2>
-<ul>
-<li><p>Add a column to the murders dataset with the murder rate.</p></li>
-<li><p>Use murders per 100,000 persons as the unit.</p></li>
+<li><p>In its current form, data from different years are in different columns with the year values stored in the column names.</p></li>
+<li><p>The <code>names_to</code> and <code>values_to</code> argument tell <code>pivot_longer</code> the column names we want to assign to the columns containing the current column names and observations, respectively.</p></li>
+<li><p>The default names are <code>name</code> and <code>value</code>, in our case a better choice is <code>year</code> and <code>fertility</code>.</p></li>
 </ul>
 </section>
-<section id="functions-that-vectorize" class="slide level2">
-<h2>Functions that vectorize</h2>
+<section id="pivot_longer-2" class="slide level2">
+<h2><code>pivot_longer</code></h2>
 <ul>
-<li>Most arithmetic functions work on vectors.</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb10-2"><a></a><span class="fu">sqrt</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] 1.000000 1.414214 1.732051 2.000000 2.236068 2.449490 2.645751 2.828427
- [9] 3.000000 3.162278</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">log</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.0000000 0.6931472 1.0986123 1.3862944 1.6094379 1.7917595 1.9459101
- [8] 2.0794415 2.1972246 2.3025851</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="dv">2</span><span class="sc">^</span>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1]    2    4    8   16   32   64  128  256  512 1024</code></pre>
-</div>
-</div>
-</section>
-<section id="functions-that-vectorize-1" class="slide level2">
-<h2>Functions that vectorize</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">scale</span>(heights)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>             [,1]
- [1,]  0.08995503
- [2,] -2.00899575
- [3,] -0.80959530
- [4,]  0.38980515
- [5,]  0.38980515
- [6,]  1.28935548
- [7,] -0.50974519
- [8,]  1.28935548
- [9,] -0.50974519
-[10,]  0.38980515
-attr(,"scaled:center")
-[1] 68.7
-attr(,"scaled:scale")
-[1] 3.335</code></pre>
-</div>
-</div>
-<p>provides the same results,</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>(heights <span class="sc">-</span> <span class="fu">mean</span>(heights))<span class="sc">/</span><span class="fu">sd</span>(heights)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1]  0.08995503 -2.00899575 -0.80959530  0.38980515  0.38980515  1.28935548
- [7] -0.50974519  1.28935548 -0.50974519  0.38980515</code></pre>
-</div>
-</div>
-</section>
-<section id="functions-that-vectorize-2" class="slide level2">
-<h2>Functions that vectorize</h2>
-<ul>
-<li>But <code>scale</code> coerces to a column matrix:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">class</span>(<span class="fu">scale</span>(heights))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "matrix" "array" </code></pre>
-</div>
-</div>
-</section>
-<section id="functions-that-vectorize-3" class="slide level2">
-<h2>Functions that vectorize</h2>
-<ul>
-<li><p>The conditional function <code>if</code>-<code>else</code> does not vectorize.</p></li>
-<li><p>Functions such as <code>any</code> and <code>all</code>, covert vectors to logicals of lenght one needed for <code>if</code>-<code>else</code>.</p></li>
-<li><p>A particularly useful function is a vectorized version <code>ifelse</code>.</p></li>
-<li><p>Here is an example:</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">4</span>, <span class="dv">5</span>)</span>
-<span id="cb22-2"><a></a><span class="fu">ifelse</span>(a <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="dv">1</span><span class="sc">/</span>a, <span class="cn">NA</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1]  NA 1.0 0.5  NA 0.2</code></pre>
-</div>
-</div>
-</section>
-<section id="indexing" class="slide level2">
-<h2>Indexing</h2>
-<ul>
-<li>Vectorization also works for logical relationships:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">library</span>(dslabs)</span>
-<span id="cb24-2"><a></a>ind <span class="ot">&lt;-</span> murders<span class="sc">$</span>population <span class="sc">&lt;</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>A convenient aspect of this is that you can subset a vector using this logical vector for indexing:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>murders<span class="sc">$</span>state[ind]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Alaska"               "Delaware"             "District of Columbia"
-[4] "Montana"              "North Dakota"         "South Dakota"        
-[7] "Vermont"              "Wyoming"             </code></pre>
-</div>
-</div>
-</section>
-<section id="indexing-1" class="slide level2">
-<h2>Indexing</h2>
-<ul>
-<li>You can also use vectorization to apply logical operators:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>ind <span class="ot">&lt;-</span> murders<span class="sc">$</span>population <span class="sc">&lt;</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">6</span> <span class="sc">&amp;</span> murders<span class="sc">$</span>region <span class="sc">==</span> <span class="st">"West"</span></span>
-<span id="cb27-2"><a></a>murders<span class="sc">$</span>state[ind]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Alaska"  "Montana" "Wyoming"</code></pre>
-</div>
-</div>
-</section>
-<section id="split" class="slide level2">
-<h2><code>split</code></h2>
-<ul>
-<li><code>split</code> is a useful function to get indexes using a factor:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>inds <span class="ot">&lt;-</span> <span class="fu">with</span>(murders, <span class="fu">split</span>(<span class="fu">seq_along</span>(region), region))</span>
-<span id="cb29-2"><a></a>murders<span class="sc">$</span>state[inds<span class="sc">$</span>West]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "Alaska"     "Arizona"    "California" "Colorado"   "Hawaii"    
- [6] "Idaho"      "Montana"    "Nevada"     "New Mexico" "Oregon"    
-[11] "Utah"       "Washington" "Wyoming"   </code></pre>
-</div>
-</div>
-</section>
-<section id="functions-for-subsetting" class="slide level2">
-<h2>Functions for subsetting</h2>
-<ul>
-<li><p>The functions <code>which</code>, <code>match</code> and the operator <code>%in%</code> are useful for sub-setting</p></li>
-<li><p>To understand how they work it’s best to use examples.</p></li>
+<li><p>Through <code>cols</code>, the second argument, we specify the columns containing observed values; these are the columns that will be <em>pivoted</em>.</p></li>
+<li><p>The default is to pivot all columns so, in most cases, we have to specify the columns. In our example we want columns <code>1960</code>, <code>1961</code> up to <code>2015</code>.</p></li>
 </ul>
 </section>
-<section id="which" class="slide level2">
-<h2>which</h2>
+<section id="pivot_longer-3" class="slide level2">
+<h2><code>pivot_longer</code></h2>
+<p>The code to pivot the fertility data therefore looks like this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>ind <span class="ot">&lt;-</span> <span class="fu">which</span>(murders<span class="sc">$</span>state <span class="sc">==</span> <span class="st">"California"</span>)</span>
-<span id="cb31-2"><a></a>ind</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>new_tidy_data <span class="ot">&lt;-</span> wide_data <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a></a>  <span class="fu">pivot_longer</span>(<span class="st">`</span><span class="at">1960</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2015</span><span class="st">`</span>, <span class="at">names_to =</span> <span class="st">"year"</span>, <span class="at">values_to =</span> <span class="st">"fertility"</span>)</span>
+<span id="cb3-3"><a></a><span class="fu">head</span>(new_tidy_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 5</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>murders[ind,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>       state abb region population total
-5 California  CA   West   37253956  1257</code></pre>
-</div>
-</div>
-</section>
-<section id="match" class="slide level2">
-<h2>match</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>ind <span class="ot">&lt;-</span> <span class="fu">match</span>(<span class="fu">c</span>(<span class="st">"New York"</span>, <span class="st">"Florida"</span>, <span class="st">"Texas"</span>), murders<span class="sc">$</span>state)</span>
-<span id="cb35-2"><a></a>ind</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 33 10 44</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>murders[ind,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>      state abb    region population total
-33 New York  NY Northeast   19378102   517
-10  Florida  FL     South   19687653   669
-44    Texas  TX     South   25145561   805</code></pre>
-</div>
-</div>
-</section>
-<section id="in" class="slide level2">
-<h2>%in%</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>ind <span class="ot">&lt;-</span> <span class="fu">which</span>(murders<span class="sc">$</span>state <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"New York"</span>, <span class="st">"Florida"</span>, <span class="st">"Texas"</span>))</span>
-<span id="cb39-2"><a></a>ind</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 10 33 44</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>murders[ind,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>      state abb    region population total
-10  Florida  FL     South   19687653   669
-33 New York  NY Northeast   19378102   517
-44    Texas  TX     South   25145561   805</code></pre>
+<pre><code># A tibble: 6 × 3
+  country year  fertility
+  &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;
+1 Germany 1960       2.41
+2 Germany 1961       2.44
+3 Germany 1962       2.47
+4 Germany 1963       2.49
+5 Germany 1964       2.49
+6 Germany 1965       2.48</code></pre>
 </div>
 </div>
 <ul>
-<li><p>Note this is similar to using match.</p></li>
-<li><p>But note the order is different.</p></li>
+<li>Data have been converted to tidy format with columns <code>year</code> and <code>fertility</code>.</li>
 </ul>
 </section>
-<section id="match-versus-in" class="slide level2">
-<h2>match versus %in%</h2>
+<section id="pivot_longer-4" class="slide level2">
+<h2><code>pivot_longer</code></h2>
+<ul>
+<li>A quicker way to write this code is to specify which column will <strong>not</strong> include in the pivot:</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a><span class="fu">c</span>(<span class="st">"Boston"</span>, <span class="st">"Dakota"</span>, <span class="st">"Washington"</span>) <span class="sc">%in%</span> murders<span class="sc">$</span>state</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE FALSE  TRUE</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a><span class="fu">match</span>(<span class="fu">c</span>(<span class="st">"Boston"</span>, <span class="st">"Dakota"</span>, <span class="st">"Washington"</span>), murders<span class="sc">$</span>state)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] NA NA 48</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a><span class="fu">match</span>(murders<span class="sc">$</span>state, <span class="fu">c</span>(<span class="st">"Boston"</span>, <span class="st">"Dakota"</span>, <span class="st">"Washington"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
-[26] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA  3 NA NA
-[51] NA</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>new_tidy_data <span class="ot">&lt;-</span> wide_data <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>country, <span class="at">names_to =</span> <span class="st">"year"</span>, <span class="at">values_to =</span> <span class="st">"fertility"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="the-apply-functions" class="slide level2">
-<h2>The apply functions</h2>
+<section id="pivot_longer-5" class="slide level2">
+<h2><code>pivot_longer</code></h2>
 <ul>
-<li><p>The apply functions let use the concept of vectorization with functions that don’t vectorize.</p></li>
-<li><p>Here is an example of a function that won’t vectorize in a convenient way:</p></li>
+<li>Now that the data is tidy, we can use it with other <em>tidyverse</em> functions, such <strong>ggplot2</strong>:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a>s <span class="ot">&lt;-</span> <span class="cf">function</span>(n){</span>
-<span id="cb49-2"><a></a>   <span class="fu">return</span>(<span class="fu">sum</span>(<span class="dv">1</span><span class="sc">:</span>n))</span>
-<span id="cb49-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>Try it on a vector:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a></a>ns <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">100</span>, <span class="dv">1000</span>)</span>
-<span id="cb50-2"><a></a><span class="fu">s</span>(ns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 325</code></pre>
-</div>
-</div>
-</section>
-<section id="the-apply-functions-1" class="slide level2">
-<h2>The apply functions</h2>
-<ul>
-<li>We can use <code>sapply</code>, one of the apply functions:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a></a><span class="fu">sapply</span>(ns, s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1]    325   5050 500500</code></pre>
-</div>
-</div>
-<ul>
-<li><code>sapply</code> will work on any vector, including lists.</li>
-</ul>
-</section>
-<section id="the-apply-functions-2" class="slide level2">
-<h2>The apply functions</h2>
-<ul>
-<li><p>There are other apply functions:</p>
-<ul>
-<li><p><code>lapply</code> - returns a list. Convenient when the function returns something other than a number.</p></li>
-<li><p><code>tapply</code> - can apply to subsets defined by second variable.</p></li>
-<li><p><code>mapply</code> - multivariate version of <code>sapply</code>.</p></li>
-<li><p><code>apply</code> - applies function to rows or columns o matrix.</p></li>
-</ul></li>
-<li><p>We will learn some of these as we go.</p></li>
-</ul>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>new_tidy_data <span class="sc">|&gt;</span> </span>
+<span id="cb6-2"><a></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.numeric</span>(year)) <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, fertility, <span class="at">color =</span> country)) <span class="sc">+</span> </span>
+<span id="cb6-4"><a></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
-<div class="quarto-auto-generated-content">
+</div>
+<img data-src="09-tidyr_files/figure-revealjs/fertility-year-check-1.png" width="960" class="r-stretch"></section>
+<section id="pivot_wider" class="slide level2">
+<h2><code>pivot_wider</code></h2>
+<ul>
+<li><p>It is sometimes useful for data wrangling purposes to convert tidy data into wide data.</p></li>
+<li><p>We often use this as an intermediate step in tidying up data.</p></li>
+<li><p>The <code>pivot_wider</code> function is basically the inverse of <code>pivot_longer</code>.</p></li>
+</ul>
+</section>
+<section id="pivot_wider-1" class="slide level2">
+<h2><code>pivot_wider</code></h2>
+<ul>
+<li><p>The first argument is for the data, but since we are using the pipe, we don’t show it.</p></li>
+<li><p>The <code>names_from</code> argument tells <code>pivot_wider</code> which variable will be used as the column names.</p></li>
+<li><p>The <code>values_from</code> argument specifies which variable to use to fill out the cells.</p></li>
+</ul>
+</section>
+<section id="pivot_wider-2" class="slide level2">
+<h2><code>pivot_wider</code></h2>
+<p>Here is some example code</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>new_wide_data <span class="ot">&lt;-</span> new_tidy_data <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> year, <span class="at">values_from =</span> fertility)</span>
+<span id="cb7-3"><a></a><span class="fu">select</span>(new_wide_data, country, <span class="st">`</span><span class="at">1960</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">1967</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 9
+  country     `1960` `1961` `1962` `1963` `1964` `1965` `1966` `1967`
+  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1 Germany       2.41   2.44   2.47   2.49   2.49   2.48   2.44   2.37
+2 South Korea   6.16   5.99   5.79   5.57   5.36   5.16   4.99   4.85</code></pre>
+</div>
+</div>
+<p>Similar to <code>pivot_wider</code>, <code>names_from</code> and <code>values_from</code> default to <code>name</code> and <code>value</code>.</p>
+</section>
+<section id="example" class="slide level2">
+<h2>Example</h2>
+<p>We now demonstrate with a more complex example in which we have to use both <code>pivot_longer</code> and <code>pivot_wider</code> to tidy the data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>path <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">"extdata"</span>, <span class="at">package =</span> <span class="st">"dslabs"</span>)</span>
+<span id="cb9-2"><a></a></span>
+<span id="cb9-3"><a></a>filename <span class="ot">&lt;-</span> <span class="st">"life-expectancy-and-fertility-two-countries-example.csv"</span></span>
+<span id="cb9-4"><a></a>filename <span class="ot">&lt;-</span>  <span class="fu">file.path</span>(path, filename)</span>
+<span id="cb9-5"><a></a></span>
+<span id="cb9-6"><a></a>raw_dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(filename)</span>
+<span id="cb9-7"><a></a><span class="fu">select</span>(raw_dat, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 5
+  country     `1960_fertility` `1960_life_expectancy` `1961_fertility`
+  &lt;chr&gt;                  &lt;dbl&gt;                  &lt;dbl&gt;            &lt;dbl&gt;
+1 Germany                 2.41                   69.3             2.44
+2 South Korea             6.16                   53.0             5.99
+# ℹ 1 more variable: `1961_life_expectancy` &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="example-1" class="slide level2">
+<h2>Example</h2>
+<ul>
+<li><p>Note that the data is in wide format.</p></li>
+<li><p>Also that this table includes values for two variables, fertility and life expectancy, with the column name encoding which column represents which variable.</p></li>
+<li><p>Encoding information in the column names is not recommended but, unfortunately, it is quite common.</p></li>
+</ul>
+</section>
+<section id="example-2" class="slide level2">
+<h2>Example</h2>
+<ul>
+<li><p>We start with the <code>pivot_longer</code> function, but we should no longer use the column name <code>year</code> for the new column since it also contains the variable type.</p></li>
+<li><p>We will call it <code>name</code>, the default, for now:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>raw_dat <span class="sc">|&gt;</span> <span class="fu">pivot_longer</span>(<span class="sc">-</span>country) <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  country name                 value
+  &lt;chr&gt;   &lt;chr&gt;                &lt;dbl&gt;
+1 Germany 1960_fertility        2.41
+2 Germany 1960_life_expectancy 69.3 
+3 Germany 1961_fertility        2.44
+4 Germany 1961_life_expectancy 69.8 
+5 Germany 1962_fertility        2.47
+6 Germany 1962_life_expectancy 70.0 </code></pre>
+</div>
+</div>
+</section>
+<section id="example-3" class="slide level2">
+<h2>Example</h2>
+<ul>
+<li><p>The result is not exactly what we refer to as tidy since each observation is associated with two, not one, rows.</p></li>
+<li><p>We want to have the values from the two variables, fertility and life expectancy, in two separate columns.</p></li>
+<li><p>The first challenge to achieve this is to separate the <code>name</code> column into the year and the variable type.</p></li>
+</ul>
+</section>
+<section id="example-4" class="slide level2">
+<h2>Example</h2>
+<ul>
+<li>Encoding multiple variables in a column name is such a common problem that the <strong>tidyr</strong> package includes function to separate these columns into two or more:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>raw_dat <span class="sc">|&gt;</span> </span>
+<span id="cb13-2"><a></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>country) <span class="sc">|&gt;</span> </span>
+<span id="cb13-3"><a></a>  <span class="fu">separate_wider_delim</span>(name, <span class="at">delim =</span> <span class="st">"_"</span>,  <span class="at">names =</span> <span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"name"</span>), </span>
+<span id="cb13-4"><a></a>                       <span class="at">too_many =</span> <span class="st">"merge"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb13-5"><a></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country year  name            value
+  &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;           &lt;dbl&gt;
+1 Germany 1960  fertility        2.41
+2 Germany 1960  life_expectancy 69.3 
+3 Germany 1961  fertility        2.44
+4 Germany 1961  life_expectancy 69.8 
+5 Germany 1962  fertility        2.47
+6 Germany 1962  life_expectancy 70.0 </code></pre>
+</div>
+</div>
+</section>
+<section id="example-5" class="slide level2">
+<h2>Example</h2>
+<ul>
+<li><p>But we are not done yet.</p></li>
+<li><p>We need to create a column for each variable and change <code>year</code> to a number.</p></li>
+<li><p>As we learned, the <code>pivot_wider</code> function can do this.</p></li>
+</ul>
+</section>
+<section id="example-6" class="slide level2">
+<h2>Example</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>dat <span class="ot">&lt;-</span> raw_dat <span class="sc">|&gt;</span> </span>
+<span id="cb15-2"><a></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>country) <span class="sc">|&gt;</span> </span>
+<span id="cb15-3"><a></a>  <span class="fu">separate_wider_delim</span>(name, <span class="at">delim =</span> <span class="st">"_"</span>, </span>
+<span id="cb15-4"><a></a>                       <span class="at">names =</span> <span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"name"</span>), </span>
+<span id="cb15-5"><a></a>                       <span class="at">too_many =</span> <span class="st">"merge"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-6"><a></a>  <span class="fu">pivot_wider</span>() <span class="sc">|&gt;</span></span>
+<span id="cb15-7"><a></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.integer</span>(year))</span>
+<span id="cb15-8"><a></a><span class="fu">head</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country  year fertility life_expectancy
+  &lt;chr&gt;   &lt;int&gt;     &lt;dbl&gt;           &lt;dbl&gt;
+1 Germany  1960      2.41            69.3
+2 Germany  1961      2.44            69.8
+3 Germany  1962      2.47            70.0
+4 Germany  1963      2.49            70.1
+5 Germany  1964      2.49            70.7
+6 Germany  1965      2.48            70.6</code></pre>
+</div>
+</div>
+</section>
+<section id="example-7" class="slide level2">
+<h2>Example</h2>
+<p>The data is now is now in tidy form and we can use with other packages:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>p1 <span class="ot">&lt;-</span> dat <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, fertility, <span class="at">color =</span> country)) <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb17-2"><a></a>p2 <span class="ot">&lt;-</span> dat <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, life_expectancy, <span class="at">color =</span> country)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span>
+<span id="cb17-3"><a></a>gridExtra<span class="sc">::</span><span class="fu">grid.arrange</span>(p1, p2, <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">widths =</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+
+<img data-src="09-tidyr_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"><div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
