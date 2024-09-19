@@ -726,7 +726,7 @@
     "href": "slides/R/06-vectorization.html#vectorization-4",
     "title": "Vectorization",
     "section": "Vectorization",
-    "text": "Vectorization\n\nIf we operate on two vectors, vectorization is componentwise.\nHere is an example:\n\n\nheights &lt;- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)\nerror &lt;- rnorm(length(heights), 0, 0.1)\nheights + error\n\n [1] 68.94636 62.14095 66.05827 69.87003 69.86374 73.19377 66.91847 72.92181\n [9] 66.96854 69.97012"
+    "text": "Vectorization\n\nIf we operate on two vectors, vectorization is componentwise.\nHere is an example:\n\n\nheights &lt;- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)\nerror &lt;- rnorm(length(heights), 0, 0.1)\nheights + error\n\n [1] 68.89940 62.03499 65.90181 70.12897 70.13028 72.94672 66.92967 72.98505\n [9] 67.10696 70.07523"
   },
   {
     "objectID": "slides/R/06-vectorization.html#exercise",
@@ -839,142 +839,6 @@
     "title": "Vectorization",
     "section": "The apply functions",
     "text": "The apply functions\n\nThere are other apply functions:\n\nlapply - returns a list. Convenient when the function returns something other than a number.\ntapply - can apply to subsets defined by second variable.\nmapply - multivariate version of sapply.\napply - applies function to rows or columns o matrix.\n\nWe will learn some of these as we go."
-  },
-  {
-    "objectID": "slides/00-intro.html#general-information",
-    "href": "slides/00-intro.html#general-information",
-    "title": "Introduction",
-    "section": "General Information",
-    "text": "General Information\n\nBST 260 Introduction to Data Science\nInstructor: Rafael A. Irizarry\nTFs: Corri Sept, Nikhil Vytla, Yuan Wang\nMondays we have lectures, Wednesday we have labs.\nWe work on problem sets together, in lab."
-  },
-  {
-    "objectID": "slides/00-intro.html#course-description",
-    "href": "slides/00-intro.html#course-description",
-    "title": "Introduction",
-    "section": "Course Description",
-    "text": "Course Description\nLecture notes: https://datasciencelabs.github.io/2024/\n\nPlease read the syllabus!"
-  },
-  {
-    "objectID": "slides/00-intro.html#important-details",
-    "href": "slides/00-intro.html#important-details",
-    "title": "Introduction",
-    "section": "Important details",
-    "text": "Important details\n\nComplete readings before class.\nMidterms are in person. There are no makeups.\nMake sure you read messages sent via Canvas\nYou can select your own final project, but need approval.\nYou should start final project by October 23.\nHelp us pick office hours: https://forms.gle/GiQXqDTaeYVxaXd78"
-  },
-  {
-    "objectID": "slides/00-intro.html#whats-coming",
-    "href": "slides/00-intro.html#whats-coming",
-    "title": "Introduction",
-    "section": "What’s coming",
-    "text": "What’s coming\n\nUNIX/Linux shell.\nReproducible document preparation\nVersion control with git and GitHub\nR programming\nData wrangling with dplyr and data.table\nData visualization with ggplot2\nProbability theory, inference and modeling\nHigh-dimensional data techniques\nMachine learning"
-  },
-  {
-    "objectID": "slides/00-intro.html#lets-get-started",
-    "href": "slides/00-intro.html#lets-get-started",
-    "title": "Introduction",
-    "section": "Let’s get started",
-    "text": "Let’s get started\n\nInstall R.\nInstall RStudio.\nMake sure you have access to a terminal."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "BST 260 Introduction to Data Science",
-    "section": "",
-    "text": "Instructor: Rafael A.Irizarry\nTeaching fellows: Corri Sept, Nikhil Vytla, and Yuan Wang\nLocation: Kresge 202A and 202B, Harvard School of Public Health\nDate and time: Mon & Wed 9.45 - 11:15am\nTextbooks: https://github.com/rafalab/dsbook-part-1, https://github.com/rafalab/dsbook-part-2\nSlack: https://bst260fall2024.slack.com/\nCanvas: https://canvas.harvard.edu/courses/143922/pages/Course%20Information\nGitHub repo: https://github.com/datasciencelabs/2024\nRemember to read the syllabus, listen to SD.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#course-information",
-    "href": "index.html#course-information",
-    "title": "BST 260 Introduction to Data Science",
-    "section": "",
-    "text": "Instructor: Rafael A.Irizarry\nTeaching fellows: Corri Sept, Nikhil Vytla, and Yuan Wang\nLocation: Kresge 202A and 202B, Harvard School of Public Health\nDate and time: Mon & Wed 9.45 - 11:15am\nTextbooks: https://github.com/rafalab/dsbook-part-1, https://github.com/rafalab/dsbook-part-2\nSlack: https://bst260fall2024.slack.com/\nCanvas: https://canvas.harvard.edu/courses/143922/pages/Course%20Information\nGitHub repo: https://github.com/datasciencelabs/2024\nRemember to read the syllabus, listen to SD.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#lectures",
-    "href": "index.html#lectures",
-    "title": "BST 260 Introduction to Data Science",
-    "section": "Lectures",
-    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09, Sep 11\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git\n\n\nSep 16, Sep 19\nR\nR basics, Vectorization\nR Basics, Vectorization\n\n\nSep 23\nR\nTidyverse, ggplot2\ndplyr, ggplot2\n\n\nSep 25\nWrangling\n\nImporting data, dates and times, Locales, Reshaping Data, Joining Tables, Extracting data from the web\n\n\nSep 30, Oct 02\nData visualization\n\nDistributions, Dataviz Principles\n\n\nOct 07, Oct 09\nProbability\n\nMonte Carlo, Random Variables & CLT\n\n\nOct 16\nMidterm 1\n\nCovers material from Sep 04-Oct 11\n\n\nOct 21, Oct 23\nInference\n\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\n\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\n\nRegression, Multivariate Regression\n\n\nNov 13\nLinear models\n\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 18, Nov 20\nHigh dimensional data\n\nMatrices in R, Applied Linear Algebra, Dimension Reduction\n\n\nNov 25\nMidterm 2\n\nMidterm 2: cover material from Sep 04-Nov 22\n\n\nDec 02, Dec 04\nMachine Learning\n\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nDec 09, Dec 11\nMachine Learning\n\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#problem-sets",
-    "href": "index.html#problem-sets",
-    "title": "BST 260 Introduction to Data Science",
-    "section": "Problem sets",
-    "text": "Problem sets\n\n\n\nProblem set\nTopic\nDue Date\nDifficulty\n\n\n\n\n01\nUnix, Quarto\nSep 11\neasy\n\n\n02\nR\nSep 19\neasy\n\n\n03\nTidyverse\nSep 27\nmedium\n\n\n04\nWrangling\nOct 4\nmedium\n\n\n05\nCovid 19 data visualization\nOct 11\nmedium\n\n\n06\nProbability\nOct 25\neasy\n\n\n07\nPredict the election\nNov 04\nhard\n\n\n08\nConfidence intervals for excess mortality\nNov 15\nhard\n\n\n09\nMatrices\nNov 22\neasy\n\n\n10\nDigit reading\nDec 13\nhard\n\n\nFinal Project\nYour choice\nDec 20\nhard",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#office-hour-times",
-    "href": "index.html#office-hour-times",
-    "title": "BST 260 Introduction to Data Science",
-    "section": "Office hour times",
-    "text": "Office hour times\n\n\n\nMeeting\nTime\nLocation\n\n\n\n\nRafael Irizarry\nMon 8:45-9:45AM\nKresge 203\n\n\nCorri Sept\nTue\n3:00-4:00PM\n\n\nNikhil Vytla\nWed\n2:00-3:00PM\n\n\nYuan Wang\nFri\n1:00-2:00PM",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#acknowledgments",
-    "href": "index.html#acknowledgments",
-    "title": "BST 260 Introduction to Data Science",
-    "section": "Acknowledgments",
-    "text": "Acknowledgments\nWe thank Maria Tackett and Mine Çetinkaya-Rundel for sharing their web page template, which we used in creating this website.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "psets/pset-02-r-vectorization.html",
-    "href": "psets/pset-02-r-vectorization.html",
-    "title": "Problem set 2",
-    "section": "",
-    "text": "For these exercises, do not load any packages other than dslabs.\nMake sure to use vectorization whenever possible.\n\nWhat is the sum of the first 100 positive integers? Use the functions seq and sum to compute the sum with R for any n.\n\n\n# Your code here\n\n\nLoad the US murders dataset from the dslabs package. Use the function str to examine the structure of the murders object. What are the column names used by the data frame for these five variables? Show the subset of murders showing states with less than 1 per 100,000 deaths. Show all variables.\n\n\nlibrary(dslabs)\nstr(murders)\n\n'data.frame':   51 obs. of  5 variables:\n $ state     : chr  \"Alabama\" \"Alaska\" \"Arizona\" \"Arkansas\" ...\n $ abb       : chr  \"AL\" \"AK\" \"AZ\" \"AR\" ...\n $ region    : Factor w/ 4 levels \"Northeast\",\"South\",..: 2 4 4 2 4 4 1 2 2 2 ...\n $ population: num  4779736 710231 6392017 2915918 37253956 ...\n $ total     : num  135 19 232 93 1257 ...\n\n\n\n# Your code here\n\n\nShow the subset of murders showing states with less than 1 per 100,000 deaths and in the West of the US. Don’t show the region variable.\n\n\n# Your code here\n\n\nShow the largest state with a rate less than 1 per 100,000.\n\n\n# Your code here\n\n\nShow the state with a population of more than 10 million with the lowest rate.\n\n\n# Your code here\n\n\nCompute the rate for each region of the US.\n\n\n# Your code here\n\n\nCreate a vector of numbers that starts at 6, does not pass 55, and adds numbers in increments of 4/7: 6, 6 + 4/7, 6 + 8/7, and so on. How many numbers does the list have? Hint: use seq and length.\n\n\n# Your code here\n\n\nMake this data frame:\n\n\ntemp &lt;- c(35, 88, 42, 84, 81, 30)\ncity &lt;- c(\"Beijing\", \"Lagos\", \"Paris\", \"Rio de Janeiro\", \n          \"San Juan\", \"Toronto\")\ncity_temps &lt;- data.frame(name = city, temperature = temp)\n\nConvert the temperatures to Celsius.\n\n# Your code here\n\n\nWrite a function euler that compute the following sum for any \\(n\\):\n\n\\[\nS_n = 1+1/2^2 + 1/3^2 + \\dots 1/n^2\n\\]\n\n# Your code here\n\n\nShow that as \\(n\\) gets bigger we get closer \\(\\pi^2/6\\) by plotting \\(S_n\\) versus \\(n\\) with a horizontal dashed line at \\(\\pi^2/6\\).\n\n\n# Your code here\n\n\nUse the %in% operator and the predefined object state.abb to create a logical vector that answers the question: which of the following are actual abbreviations: MA, ME, MI, MO, MU?\n\n\n# Your code here\n\n\nExtend the code you used in the previous exercise to report the one entry that is not an actual abbreviation. Hint: use the ! operator, which turns FALSE into TRUE and vice versa, then which to obtain an index.\n\n\n# Your code here\n\n\nIn the murders dataset, use %in% to show all variables for New York, California, and Texas, in that order.\n\n\n# Your code here\n\n\nWrite a function called vandermonde_helper that for any \\(x\\) and \\(n\\), returns the vector \\((1, x, x^2, x^3, \\dots, x^n)\\). Show the results for \\(x=3\\) and \\(n=5\\).\n\n\n# Your code here\n\n\nCreate a vector using:\n\n\nn &lt;- 10000\np &lt;- 0.5\nset.seed(2024-9-6)\nx &lt;- sample(c(0,1), n, prob = c(1 - p, p), replace = TRUE)\n\nCompute the length of each stretch of 1s and then plot the distribution of these values. Check to see if the distribution follows a geometric distribution as the theory predicts. Do not use a loop!\n\n# Your code here"
-  },
-  {
-    "objectID": "psets/pset-01-unix-quarto.html",
-    "href": "psets/pset-01-unix-quarto.html",
-    "title": "Problem set 1",
-    "section": "",
-    "text": "After finishing the homework, you are to turn in all the code to GitHub using git.\n\nStart an RStudio project. Pick a good name following a naming convention. Start a Quarto document called beginning.qmd.\nCreate a directory called img and save a screen shot of your RStudio session for the project. Include your screenshot in the Quarto document.\nNext, in your Quarto document, define variables \\(a=1, b=-1, c=-2\\) and print out the solutions to \\(f(x) = ax^2+bx+c=0\\). Do not report complex solutions, only real numbers.\nInclude a graph of \\(f(x)\\) versus \\(x\\) for \\(x \\in (-5,5)\\).\n\n\nx &lt;- seq(-5, 5, length = 100)\n# Hint: Use the plot function\n\n\nCreate a directory called docs. Use the command quarto render to create a PDF and save it to the docs directory. Show us the command you typed:\n\n# Your code here\n\nUse Unix to create a directory called data in the project home directory. Include the Unix command you used to create the directory.\n\n# Your code here\n\nUse a terminal-based text editor to create a file coefs.txt in the data directory and save three coefficients, 1 -1 -2 for example. Show us the Unix commands you used to achieve this:\n\n# Your code here\n\nMake a directory called code. Use Unix to copy the file beginning.qmd to a file called quadratic.qmd in the code directory. Show us the Unix commands you used.\n\n# Your code here\n\nEdit the quadratic.qmd file to read in a, b, and c from the file coefs.txt. Make sure to use a relative path when reading the file. As before, print out the solutions to \\(f(x) = ax^2+bx+c=0\\). Do not report complex solutions, only real numbers.\nChange the path of the file you are reading to the full path you get when you type file.path(getwd(), \"data/coefs.txt\"). Confirm that the file still renders. Then move the entire pset-01-rmarkdown project to a directory called RtmpyDknq4. Does the file render? Change the path back to a relative path and see if it renders."
-  },
-  {
-    "objectID": "psets/pset-03-tidyverse.html",
-    "href": "psets/pset-03-tidyverse.html",
-    "title": "Problem set 3",
-    "section": "",
-    "text": "In these exercises, we will explore a subset of the NHANES dataset to investigate potential differences in systolic blood pressure across groups defined by self reported race.\n\nInstructions\n\nFor each exercise, we want you to write a single line of code using the pipe (|&gt;) to chain together multiple operations. This doesn’t mean the code must fit within 80 characters or be written on a single physical line, but rather that the entire sequence of operations can be executed as one continuous line of code without needing to assign intermediate values or create new variables.\nFor example, these are three separate lines of code:\n\n\nx &lt;- 100; x &lt;- sqrt(x); log10(x)\n\nWhereas this is considered one line of code using the pipe:\n\n100 |&gt; \n  sqrt() |&gt; \n  log10()\n\n\nGenerate an html document that shows the code for each exercise.\nFor the exercises that ask to generate a graph, show the graph as well.\nFor exercises that require you to display tabular results, use the kable function to format the output as a clean, readable table. Do not display the raw dataframe directly—only show the nicely formatted table using kable.\nUse only two significant digits for the numbers displayed in the tables.\nSubmit both the html and the qmd files using Git.\nYou will need the following libraries:\n\n\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(forcats)\nlibrary(ggplot2)\nlibrary(knitr)\nlibrary(NHANES)\noptions(digits = 2)\n\n\nThe .qmd file must be able to render properly on the TFs’ computers. They will already have the necessary packages installed, so there is no need to include code for installing packages. Just focus on writing the code that uses these packages.\n\n\n\nExercises\n\nFilter the NHANES data to only include survey year 2011-2012. Save the resulting table in dat. This table should have 5,000 rows and 76 columns.\n\n\n## code here\n\n\nCompute the average and standard deviation (SD) for the combined systolic blood pressure (SBP) reading for males and females separately. Show us a data frame with two rows (female and male) and two columns (average and SD).\n\n\n## code here\n\n\nBecause of the large difference in the average between males and females, we will perform the rest of the analysis separately for males and females.\n\nCompute the average and SD for SBP for each race variable in column Race3 for females and males separately. The resulting table should have four columns for sex, race, average, and SD, respectively, and 12 rows (one for each strata). Arrange the result from highest to lowest average.\n\n## code here\n\n\nRepeat the previous exercise but add two columns to the final table to show a 95% confidence interval. Specifically, add columns with the lower and upper bounds of the interval with names lower and upper, respectively. The formula for these values is\n\n\\[\n\\bar{X} \\pm 1.96 \\, s / \\sqrt{n}\n\\] with \\(\\bar{X}\\) the sample average and \\(s\\) the sample standard deviation. This table will simply add two more columns to the table generated in the previous exercise: one column for the lower and upper bound, respectively.\n\n## code here\n\n\nMake a graph of showing the results from the previous exercise. Specifically, plot the averages for each group as points and confidence intervals as error bars (use the geometry geom_errorbar). Order the groups from lowest to highest average (the average of the males and females averages). Use facet_wrap to make a separate plot for females and males. Label your axes with Race and Average respectively, add the title Comparing systolic blood pressure across groups, and the caption Bars represent 95% confidence intervals.\n\n\n## code here\n\n\nIn the plot above we see that the confidence intervals don’t overlap when comparing the White and Mexican groups. We also see a substantial difference between Mexican and Hispnanic. Before concluding that there is a difference between groups, we will explore if differences in age, a very common confounder, explain the differences.\n\nCreate table like the one in the previous exercise but show the average SBP by sex and age group (AgeDecade). The the groups are order chronologically. As before make a separate plot for males and females. Make sure to filter our observations with no AgeDecade listed.\n\n## code here\n\n\nWe note that for both males and females the SBP increases with age. To explore if age is indeed a confounder we need to check if the groups have different age distributions.\n\nExplore the age distributions of each Race3 group to determine if the groups are comparable. Make a histogram of Age for each Race3 group and stack them vertically. Generate two columns of graphs for males and females, respectively. In the histograms, create bins increments of 5 years up to 80.\nBelow the graph, comment on what notice about the age distributions and how this can explain the difference between the White and Mexican groups.\n\n## code here\n\n\nSummarize the results shown in the graph by compute the median age for each Race3 group and the percent of individuals that are younger than 18. Order the rows by median age. The resulting data frame should have 6 rows (one for each group) and three columns to denote group, median age, and children respectively.\n\n\n## code here\n\nGiven these results provide an explanation for the difference in systolic pressure is lower when comparing the White and Mexican groups.\n\nWhen the age distribution between two populations we can’t conclude that there are differences in SBP based just on the population averages. The observed differences are likely due to age differences rather than genetic differences. We will therefore stratify by group and then compare SBP. But before we do this, we might need redefine dat to avoid small groups.\n\nWrite a function that computes the number of observations in each gender, age group and race combination. Show the groups with less than five observations. Make sure to remove the rows with no BPSysAve measurments before calculating the number of observations. Show a table with four columns representing gender, age strate, group, and the number of individuals in that group. Make sure to include combinations with 0 individuals (hint: use complete).\n\n## code here\n\n\nBased on the observations made in the previous exercise, we will redefine dat but with the following:\n\nAs before, include only survey year 2011-2012.\nRemove the observations with no age group reported.\nRemove the 0-9 age group.\nCombine the 60-69 and 70+ ageroups into a 60+ group.\nRemove observations reporting Other in Race3.\nRename the variable Race3 to Race.\n\nHints:\n\nNote that the levels in AgeDecade start with a space.\nYou can use the fct_collapse function in the forcats to combine factors.\n\n\n\n## code here\n\n\nCrete a plot that shows the averege BPS for each age decade. Show the different race groups with color and lines joining them. Generate a two plots, one for males and one for females.\n\n\n## code here\n\n\nBased on the plot above pick two groups that you think are consistently different and remake the plot from the previous exercise but just for these two groups, add confidence intervals, and remove the lines. Put the confidence intervals for each age strata next to each other and use color to represent the two groups. Comment on your finding.\n\n\n## code here\n\n\nFor the two groups that you selected above compute the difference in average BPS between the two groups for each age strata. Show a table with three columns representing age strata, difference for females, difference for males.\n\n\n## code here"
-  },
-  {
-    "objectID": "slides.html",
-    "href": "slides.html",
-    "title": "Slides",
-    "section": "",
-    "text": "Topic\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nFirst day\n\n\nIntroduction\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nUnix\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nRStudio\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nQuarto\n\n\nMon, Sep 09\n\n\n\n\nProductivity Tools\n\n\nGit and GitHub\n\n\nMon, Sep 09\n\n\n\n\nR\n\n\nR Basics\n\n\nMon, Sep 16\n\n\n\n\nR\n\n\nVectorization\n\n\nWed, Sep 18\n\n\n\n\nR\n\n\nTidyverse\n\n\nMon, Sep 23\n\n\n\n\nR\n\n\nggplot2\n\n\nWed, Sep 25\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Slides"
-    ]
-  },
-  {
-    "objectID": "psets.html",
-    "href": "psets.html",
-    "title": "Problem Sets",
-    "section": "",
-    "text": "Topic\n\n\nDue date (at 11:59 PM)\n\n\n\n\n\n\nProblem set 1\n\n\nWed, Sep 11\n\n\n\n\nProblem set 2\n\n\nThu, Sep 19\n\n\n\n\nProblem set 3\n\n\nFri, Sep 27\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Problem Sets"
-    ]
   },
   {
     "objectID": "slides/R/05-r-basics.html#packages",
@@ -1177,7 +1041,7 @@
     "href": "slides/R/05-r-basics.html#factors-3",
     "title": "R Basics",
     "section": "Factors",
-    "text": "Factors\nExercise: How can we make this go much faster?\n\nsystem.time({levels(y) &lt;- tolower(levels(y))})\n\n   user  system elapsed \n  0.018   0.000   0.019"
+    "text": "Factors\nExercise: How can we make this go much faster?\n\nsystem.time({levels(y) &lt;- tolower(levels(y))})\n\n   user  system elapsed \n  0.019   0.000   0.019"
   },
   {
     "objectID": "slides/R/05-r-basics.html#factors-can-be-confusing",
@@ -1369,6 +1233,268 @@
     "text": "Plots\n\nAlthough, in general, we recommend using ggplot2, R base plots are often better for quick exploratory plots.\nFor example, to make a histogram of values in x simply type:\n\n\nhist(x)\n\n\nTo make a scatter plot of y versus x and then interpolate we type:\n\n\nplot(x,y)\nlines(x,y)"
   },
   {
+    "objectID": "psets.html",
+    "href": "psets.html",
+    "title": "Problem Sets",
+    "section": "",
+    "text": "Topic\n\n\nDue date (at 11:59 PM)\n\n\n\n\n\n\nProblem set 1\n\n\nWed, Sep 11\n\n\n\n\nProblem set 2\n\n\nThu, Sep 19\n\n\n\n\nProblem set 3\n\n\nFri, Sep 27\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Problem Sets"
+    ]
+  },
+  {
+    "objectID": "slides.html",
+    "href": "slides.html",
+    "title": "Slides",
+    "section": "",
+    "text": "Topic\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nFirst day\n\n\nIntroduction\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nUnix\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nRStudio\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nQuarto\n\n\nMon, Sep 09\n\n\n\n\nProductivity Tools\n\n\nGit and GitHub\n\n\nMon, Sep 09\n\n\n\n\nR\n\n\nR Basics\n\n\nMon, Sep 16\n\n\n\n\nR\n\n\nVectorization\n\n\nWed, Sep 18\n\n\n\n\nR\n\n\nTidyverse\n\n\nMon, Sep 23\n\n\n\n\nR\n\n\nggplot2\n\n\nMon, Sep 23\n\n\n\n\nR\n\n\nTidying data\n\n\nWed, Sep 25\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Slides"
+    ]
+  },
+  {
+    "objectID": "psets/pset-03-tidyverse.html",
+    "href": "psets/pset-03-tidyverse.html",
+    "title": "Problem set 3",
+    "section": "",
+    "text": "In these exercises, we will explore a subset of the NHANES dataset to investigate potential differences in systolic blood pressure across groups defined by self reported race.\n\nInstructions\n\nFor each exercise, we want you to write a single line of code using the pipe (|&gt;) to chain together multiple operations. This doesn’t mean the code must fit within 80 characters or be written on a single physical line, but rather that the entire sequence of operations can be executed as one continuous line of code without needing to assign intermediate values or create new variables.\nFor example, these are three separate lines of code:\n\n\nx &lt;- 100; x &lt;- sqrt(x); log10(x)\n\nWhereas this is considered one line of code using the pipe:\n\n100 |&gt; \n  sqrt() |&gt; \n  log10()\n\n\nGenerate an html document that shows the code for each exercise.\nFor the exercises that ask to generate a graph, show the graph as well.\nFor exercises that require you to display tabular results, use the kable function to format the output as a clean, readable table. Do not display the raw dataframe directly—only show the nicely formatted table using kable.\nUse only two significant digits for the numbers displayed in the tables.\nSubmit both the html and the qmd files using Git.\nYou will need the following libraries:\n\n\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(forcats)\nlibrary(ggplot2)\nlibrary(knitr)\nlibrary(NHANES)\noptions(digits = 2)\n\n\nThe .qmd file must be able to render properly on the TFs’ computers. They will already have the necessary packages installed, so there is no need to include code for installing packages. Just focus on writing the code that uses these packages.\n\n\n\nExercises\n\nFilter the NHANES data to only include survey year 2011-2012. Save the resulting table in dat. This table should have 5,000 rows and 76 columns.\n\n\n## code here\n\n\nCompute the average and standard deviation (SD) for the combined systolic blood pressure (SBP) reading for males and females separately. Show us a data frame with two rows (female and male) and two columns (average and SD).\n\n\n## code here\n\n\nBecause of the large difference in the average between males and females, we will perform the rest of the analysis separately for males and females.\n\nCompute the average and SD for SBP for each race variable in column Race3 for females and males separately. The resulting table should have four columns for sex, race, average, and SD, respectively, and 12 rows (one for each strata). Arrange the result from highest to lowest average.\n\n## code here\n\n\nRepeat the previous exercise but add two columns to the final table to show a 95% confidence interval. Specifically, add columns with the lower and upper bounds of the interval with names lower and upper, respectively. The formula for these values is\n\n\\[\n\\bar{X} \\pm 1.96 \\, s / \\sqrt{n}\n\\] with \\(\\bar{X}\\) the sample average and \\(s\\) the sample standard deviation. This table will simply add two more columns to the table generated in the previous exercise: one column for the lower and upper bound, respectively.\n\n## code here\n\n\nMake a graph of showing the results from the previous exercise. Specifically, plot the averages for each group as points and confidence intervals as error bars (use the geometry geom_errorbar). Order the groups from lowest to highest average (the average of the males and females averages). Use facet_wrap to make a separate plot for females and males. Label your axes with Race and Average respectively, add the title Comparing systolic blood pressure across groups, and the caption Bars represent 95% confidence intervals.\n\n\n## code here\n\n\nIn the plot above we see that the confidence intervals don’t overlap when comparing the White and Mexican groups. We also see a substantial difference between Mexican and Hispnanic. Before concluding that there is a difference between groups, we will explore if differences in age, a very common confounder, explain the differences.\n\nCreate table like the one in the previous exercise but show the average SBP by sex and age group (AgeDecade). The the groups are order chronologically. As before make a separate plot for males and females. Make sure to filter our observations with no AgeDecade listed.\n\n## code here\n\n\nWe note that for both males and females the SBP increases with age. To explore if age is indeed a confounder we need to check if the groups have different age distributions.\n\nExplore the age distributions of each Race3 group to determine if the groups are comparable. Make a histogram of Age for each Race3 group and stack them vertically. Generate two columns of graphs for males and females, respectively. In the histograms, create bins increments of 5 years up to 80.\nBelow the graph, comment on what notice about the age distributions and how this can explain the difference between the White and Mexican groups.\n\n## code here\n\n\nSummarize the results shown in the graph by compute the median age for each Race3 group and the percent of individuals that are younger than 18. Order the rows by median age. The resulting data frame should have 6 rows (one for each group) and three columns to denote group, median age, and children respectively.\n\n\n## code here\n\nGiven these results provide an explanation for the difference in systolic pressure is lower when comparing the White and Mexican groups.\n\nWhen the age distribution between two populations we can’t conclude that there are differences in SBP based just on the population averages. The observed differences are likely due to age differences rather than genetic differences. We will therefore stratify by group and then compare SBP. But before we do this, we might need redefine dat to avoid small groups.\n\nWrite a function that computes the number of observations in each gender, age group and race combination. Show the groups with less than five observations. Make sure to remove the rows with no BPSysAve measurments before calculating the number of observations. Show a table with four columns representing gender, age strate, group, and the number of individuals in that group. Make sure to include combinations with 0 individuals (hint: use complete).\n\n## code here\n\n\nBased on the observations made in the previous exercise, we will redefine dat but with the following:\n\nAs before, include only survey year 2011-2012.\nRemove the observations with no age group reported.\nRemove the 0-9 age group.\nCombine the 60-69 and 70+ ageroups into a 60+ group.\nRemove observations reporting Other in Race3.\nRename the variable Race3 to Race.\n\nHints:\n\nNote that the levels in AgeDecade start with a space.\nYou can use the fct_collapse function in the forcats to combine factors.\n\n\n\n## code here\n\n\nCrete a plot that shows the averege BPS for each age decade. Show the different race groups with color and lines joining them. Generate a two plots, one for males and one for females.\n\n\n## code here\n\n\nBased on the plot above pick two groups that you think are consistently different and remake the plot from the previous exercise but just for these two groups, add confidence intervals, and remove the lines. Put the confidence intervals for each age strata next to each other and use color to represent the two groups. Comment on your finding.\n\n\n## code here\n\n\nFor the two groups that you selected above compute the difference in average BPS between the two groups for each age strata. Show a table with three columns representing age strata, difference for females, difference for males.\n\n\n## code here"
+  },
+  {
+    "objectID": "psets/pset-01-unix-quarto.html",
+    "href": "psets/pset-01-unix-quarto.html",
+    "title": "Problem set 1",
+    "section": "",
+    "text": "After finishing the homework, you are to turn in all the code to GitHub using git.\n\nStart an RStudio project. Pick a good name following a naming convention. Start a Quarto document called beginning.qmd.\nCreate a directory called img and save a screen shot of your RStudio session for the project. Include your screenshot in the Quarto document.\nNext, in your Quarto document, define variables \\(a=1, b=-1, c=-2\\) and print out the solutions to \\(f(x) = ax^2+bx+c=0\\). Do not report complex solutions, only real numbers.\nInclude a graph of \\(f(x)\\) versus \\(x\\) for \\(x \\in (-5,5)\\).\n\n\nx &lt;- seq(-5, 5, length = 100)\n# Hint: Use the plot function\n\n\nCreate a directory called docs. Use the command quarto render to create a PDF and save it to the docs directory. Show us the command you typed:\n\n# Your code here\n\nUse Unix to create a directory called data in the project home directory. Include the Unix command you used to create the directory.\n\n# Your code here\n\nUse a terminal-based text editor to create a file coefs.txt in the data directory and save three coefficients, 1 -1 -2 for example. Show us the Unix commands you used to achieve this:\n\n# Your code here\n\nMake a directory called code. Use Unix to copy the file beginning.qmd to a file called quadratic.qmd in the code directory. Show us the Unix commands you used.\n\n# Your code here\n\nEdit the quadratic.qmd file to read in a, b, and c from the file coefs.txt. Make sure to use a relative path when reading the file. As before, print out the solutions to \\(f(x) = ax^2+bx+c=0\\). Do not report complex solutions, only real numbers.\nChange the path of the file you are reading to the full path you get when you type file.path(getwd(), \"data/coefs.txt\"). Confirm that the file still renders. Then move the entire pset-01-rmarkdown project to a directory called RtmpyDknq4. Does the file render? Change the path back to a relative path and see if it renders."
+  },
+  {
+    "objectID": "psets/pset-02-r-vectorization.html",
+    "href": "psets/pset-02-r-vectorization.html",
+    "title": "Problem set 2",
+    "section": "",
+    "text": "For these exercises, do not load any packages other than dslabs.\nMake sure to use vectorization whenever possible.\n\nWhat is the sum of the first 100 positive integers? Use the functions seq and sum to compute the sum with R for any n.\n\n\n# Your code here\n\n\nLoad the US murders dataset from the dslabs package. Use the function str to examine the structure of the murders object. What are the column names used by the data frame for these five variables? Show the subset of murders showing states with less than 1 per 100,000 deaths. Show all variables.\n\n\nlibrary(dslabs)\nstr(murders)\n\n'data.frame':   51 obs. of  5 variables:\n $ state     : chr  \"Alabama\" \"Alaska\" \"Arizona\" \"Arkansas\" ...\n $ abb       : chr  \"AL\" \"AK\" \"AZ\" \"AR\" ...\n $ region    : Factor w/ 4 levels \"Northeast\",\"South\",..: 2 4 4 2 4 4 1 2 2 2 ...\n $ population: num  4779736 710231 6392017 2915918 37253956 ...\n $ total     : num  135 19 232 93 1257 ...\n\n\n\n# Your code here\n\n\nShow the subset of murders showing states with less than 1 per 100,000 deaths and in the West of the US. Don’t show the region variable.\n\n\n# Your code here\n\n\nShow the largest state with a rate less than 1 per 100,000.\n\n\n# Your code here\n\n\nShow the state with a population of more than 10 million with the lowest rate.\n\n\n# Your code here\n\n\nCompute the rate for each region of the US.\n\n\n# Your code here\n\n\nCreate a vector of numbers that starts at 6, does not pass 55, and adds numbers in increments of 4/7: 6, 6 + 4/7, 6 + 8/7, and so on. How many numbers does the list have? Hint: use seq and length.\n\n\n# Your code here\n\n\nMake this data frame:\n\n\ntemp &lt;- c(35, 88, 42, 84, 81, 30)\ncity &lt;- c(\"Beijing\", \"Lagos\", \"Paris\", \"Rio de Janeiro\", \n          \"San Juan\", \"Toronto\")\ncity_temps &lt;- data.frame(name = city, temperature = temp)\n\nConvert the temperatures to Celsius.\n\n# Your code here\n\n\nWrite a function euler that compute the following sum for any \\(n\\):\n\n\\[\nS_n = 1+1/2^2 + 1/3^2 + \\dots 1/n^2\n\\]\n\n# Your code here\n\n\nShow that as \\(n\\) gets bigger we get closer \\(\\pi^2/6\\) by plotting \\(S_n\\) versus \\(n\\) with a horizontal dashed line at \\(\\pi^2/6\\).\n\n\n# Your code here\n\n\nUse the %in% operator and the predefined object state.abb to create a logical vector that answers the question: which of the following are actual abbreviations: MA, ME, MI, MO, MU?\n\n\n# Your code here\n\n\nExtend the code you used in the previous exercise to report the one entry that is not an actual abbreviation. Hint: use the ! operator, which turns FALSE into TRUE and vice versa, then which to obtain an index.\n\n\n# Your code here\n\n\nIn the murders dataset, use %in% to show all variables for New York, California, and Texas, in that order.\n\n\n# Your code here\n\n\nWrite a function called vandermonde_helper that for any \\(x\\) and \\(n\\), returns the vector \\((1, x, x^2, x^3, \\dots, x^n)\\). Show the results for \\(x=3\\) and \\(n=5\\).\n\n\n# Your code here\n\n\nCreate a vector using:\n\n\nn &lt;- 10000\np &lt;- 0.5\nset.seed(2024-9-6)\nx &lt;- sample(c(0,1), n, prob = c(1 - p, p), replace = TRUE)\n\nCompute the length of each stretch of 1s and then plot the distribution of these values. Check to see if the distribution follows a geometric distribution as the theory predicts. Do not use a loop!\n\n# Your code here"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "BST 260 Introduction to Data Science",
+    "section": "",
+    "text": "Instructor: Rafael A.Irizarry\nTeaching fellows: Corri Sept, Nikhil Vytla, and Yuan Wang\nLocation: Kresge 202A and 202B, Harvard School of Public Health\nDate and time: Mon & Wed 9.45 - 11:15am\nTextbooks: https://github.com/rafalab/dsbook-part-1, https://github.com/rafalab/dsbook-part-2\nSlack: https://bst260fall2024.slack.com/\nCanvas: https://canvas.harvard.edu/courses/143922/pages/Course%20Information\nGitHub repo: https://github.com/datasciencelabs/2024\nRemember to read the syllabus, listen to SD.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#course-information",
+    "href": "index.html#course-information",
+    "title": "BST 260 Introduction to Data Science",
+    "section": "",
+    "text": "Instructor: Rafael A.Irizarry\nTeaching fellows: Corri Sept, Nikhil Vytla, and Yuan Wang\nLocation: Kresge 202A and 202B, Harvard School of Public Health\nDate and time: Mon & Wed 9.45 - 11:15am\nTextbooks: https://github.com/rafalab/dsbook-part-1, https://github.com/rafalab/dsbook-part-2\nSlack: https://bst260fall2024.slack.com/\nCanvas: https://canvas.harvard.edu/courses/143922/pages/Course%20Information\nGitHub repo: https://github.com/datasciencelabs/2024\nRemember to read the syllabus, listen to SD.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#lectures",
+    "href": "index.html#lectures",
+    "title": "BST 260 Introduction to Data Science",
+    "section": "Lectures",
+    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09, Sep 11\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git\n\n\nSep 16, Sep 19\nR\nR basics, Vectorization\nR Basics, Vectorization\n\n\nSep 23\nR\nTidyverse, ggplot2\ndplyr, ggplot2\n\n\nSep 25\nR\nTyding data\nReshaping Data\n\n\nSep 30\nWrangling\n\nImporting data, dates and times, Locales, Joining Tables, Extracting data from the web\n\n\nOct 02\nData visualization\n\nDistributions, Dataviz Principles\n\n\nOct 07, Oct 09\nProbability\n\nMonte Carlo, Random Variables & CLT\n\n\nOct 16\nMidterm 1\n\nCovers material from Sep 04-Oct 11\n\n\nOct 21, Oct 23\nInference\n\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\n\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\n\nRegression, Multivariate Regression\n\n\nNov 13\nLinear models\n\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 18, Nov 20\nHigh dimensional data\n\nMatrices in R, Applied Linear Algebra, Dimension Reduction\n\n\nNov 25\nMidterm 2\n\nMidterm 2: cover material from Sep 04-Nov 22\n\n\nDec 02, Dec 04\nMachine Learning\n\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nDec 09, Dec 11\nMachine Learning\n\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#problem-sets",
+    "href": "index.html#problem-sets",
+    "title": "BST 260 Introduction to Data Science",
+    "section": "Problem sets",
+    "text": "Problem sets\n\n\n\nProblem set\nTopic\nDue Date\nDifficulty\n\n\n\n\n01\nUnix, Quarto\nSep 11\neasy\n\n\n02\nR\nSep 19\neasy\n\n\n03\nTidyverse\nSep 27\nmedium\n\n\n04\nWrangling\nOct 4\nmedium\n\n\n05\nCovid 19 data visualization\nOct 11\nmedium\n\n\n06\nProbability\nOct 25\neasy\n\n\n07\nPredict the election\nNov 04\nhard\n\n\n08\nConfidence intervals for excess mortality\nNov 15\nhard\n\n\n09\nMatrices\nNov 22\neasy\n\n\n10\nDigit reading\nDec 13\nhard\n\n\nFinal Project\nYour choice\nDec 20\nhard",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#office-hour-times",
+    "href": "index.html#office-hour-times",
+    "title": "BST 260 Introduction to Data Science",
+    "section": "Office hour times",
+    "text": "Office hour times\n\n\n\nMeeting\nTime\nLocation\n\n\n\n\nRafael Irizarry\nMon 8:45-9:45AM\nKresge 203\n\n\nCorri Sept\nTue\n3:00-4:00PM\n\n\nNikhil Vytla\nWed\n2:00-3:00PM\n\n\nYuan Wang\nFri\n1:00-2:00PM",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#acknowledgments",
+    "href": "index.html#acknowledgments",
+    "title": "BST 260 Introduction to Data Science",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\nWe thank Maria Tackett and Mine Çetinkaya-Rundel for sharing their web page template, which we used in creating this website.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "slides/00-intro.html#general-information",
+    "href": "slides/00-intro.html#general-information",
+    "title": "Introduction",
+    "section": "General Information",
+    "text": "General Information\n\nBST 260 Introduction to Data Science\nInstructor: Rafael A. Irizarry\nTFs: Corri Sept, Nikhil Vytla, Yuan Wang\nMondays we have lectures, Wednesday we have labs.\nWe work on problem sets together, in lab."
+  },
+  {
+    "objectID": "slides/00-intro.html#course-description",
+    "href": "slides/00-intro.html#course-description",
+    "title": "Introduction",
+    "section": "Course Description",
+    "text": "Course Description\nLecture notes: https://datasciencelabs.github.io/2024/\n\nPlease read the syllabus!"
+  },
+  {
+    "objectID": "slides/00-intro.html#important-details",
+    "href": "slides/00-intro.html#important-details",
+    "title": "Introduction",
+    "section": "Important details",
+    "text": "Important details\n\nComplete readings before class.\nMidterms are in person. There are no makeups.\nMake sure you read messages sent via Canvas\nYou can select your own final project, but need approval.\nYou should start final project by October 23.\nHelp us pick office hours: https://forms.gle/GiQXqDTaeYVxaXd78"
+  },
+  {
+    "objectID": "slides/00-intro.html#whats-coming",
+    "href": "slides/00-intro.html#whats-coming",
+    "title": "Introduction",
+    "section": "What’s coming",
+    "text": "What’s coming\n\nUNIX/Linux shell.\nReproducible document preparation\nVersion control with git and GitHub\nR programming\nData wrangling with dplyr and data.table\nData visualization with ggplot2\nProbability theory, inference and modeling\nHigh-dimensional data techniques\nMachine learning"
+  },
+  {
+    "objectID": "slides/00-intro.html#lets-get-started",
+    "href": "slides/00-intro.html#lets-get-started",
+    "title": "Introduction",
+    "section": "Let’s get started",
+    "text": "Let’s get started\n\nInstall R.\nInstall RStudio.\nMake sure you have access to a terminal."
+  },
+  {
+    "objectID": "slides/R/09-tidyr.html#tidying-data",
+    "href": "slides/R/09-tidyr.html#tidying-data",
+    "title": "Tidying data",
+    "section": "Tidying data",
+    "text": "Tidying data\n\nWe will a wide format dataset as an example:\n\n\nlibrary(tidyverse) \nlibrary(dslabs)\npath &lt;- system.file(\"extdata\", package = \"dslabs\")\nfilename &lt;- file.path(path, \"fertility-two-countries-example.csv\")\nwide_data &lt;- read_csv(filename)\nselect(wide_data, 1:10)\n\n# A tibble: 2 × 10\n  country     `1960` `1961` `1962` `1963` `1964` `1965` `1966` `1967` `1968`\n  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;\n1 Germany       2.41   2.44   2.47   2.49   2.49   2.48   2.44   2.37   2.28\n2 South Korea   6.16   5.99   5.79   5.57   5.36   5.16   4.99   4.85   4.73"
+  },
+  {
+    "objectID": "slides/R/09-tidyr.html#pivot_longer",
+    "href": "slides/R/09-tidyr.html#pivot_longer",
+    "title": "Tidying data",
+    "section": "pivot_longer",
+    "text": "pivot_longer\n\nOne of the most used functions in tidyr is pivot_longer.\nThe first argument is a data frame, the one that will be converted.\nWe want to reshape rows represents a fertility observation.\nWe need three columns to store the year, country, and the observed value."
+  },
+  {
+    "objectID": "slides/R/09-tidyr.html#pivot_longer-1",
+    "href": "slides/R/09-tidyr.html#pivot_longer-1",
+    "title": "Tidying data",
+    "section": "pivot_longer",
+    "text": "pivot_longer\n\nIn its current form, data from different years are in different columns with the year values stored in the column names.\nThe names_to and values_to argument tell pivot_longer the column names we want to assign to the columns containing the current column names and observations, respectively.\nThe default names are name and value, in our case a better choice is year and fertility."
+  },
+  {
+    "objectID": "slides/R/09-tidyr.html#pivot_longer-2",
+    "href": "slides/R/09-tidyr.html#pivot_longer-2",
+    "title": "Tidying data",
+    "section": "pivot_longer",
+    "text": "pivot_longer\n\nThrough cols, the second argument, we specify the columns containing observed values; these are the columns that will be pivoted.\nThe default is to pivot all columns so, in most cases, we have to specify the columns. In our example we want columns 1960, 1961 up to 2015."
+  },
+  {
+    "objectID": "slides/R/09-tidyr.html#pivot_longer-3",
+    "href": "slides/R/09-tidyr.html#pivot_longer-3",
+    "title": "Tidying data",
+    "section": "pivot_longer",
+    "text": "pivot_longer\nThe code to pivot the fertility data therefore looks like this:\n\nnew_tidy_data &lt;- wide_data |&gt;\n  pivot_longer(`1960`:`2015`, names_to = \"year\", values_to = \"fertility\")\nhead(new_tidy_data)\n\n# A tibble: 6 × 3\n  country year  fertility\n  &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;\n1 Germany 1960       2.41\n2 Germany 1961       2.44\n3 Germany 1962       2.47\n4 Germany 1963       2.49\n5 Germany 1964       2.49\n6 Germany 1965       2.48\n\n\n\nData have been converted to tidy format with columns year and fertility."
+  },
+  {
+    "objectID": "slides/R/09-tidyr.html#pivot_longer-4",
+    "href": "slides/R/09-tidyr.html#pivot_longer-4",
+    "title": "Tidying data",
+    "section": "pivot_longer",
+    "text": "pivot_longer\n\nA quicker way to write this code is to specify which column will not include in the pivot:\n\n\nnew_tidy_data &lt;- wide_data |&gt;\n  pivot_longer(-country, names_to = \"year\", values_to = \"fertility\")"
+  },
+  {
+    "objectID": "slides/R/09-tidyr.html#pivot_longer-5",
+    "href": "slides/R/09-tidyr.html#pivot_longer-5",
+    "title": "Tidying data",
+    "section": "pivot_longer",
+    "text": "pivot_longer\n\nNow that the data is tidy, we can use it with other tidyverse functions, such ggplot2:\n\n\nnew_tidy_data |&gt; \n  mutate(year = as.numeric(year)) |&gt;\n  ggplot(aes(year, fertility, color = country)) + \n  geom_line()"
+  },
+  {
+    "objectID": "slides/R/09-tidyr.html#pivot_wider",
+    "href": "slides/R/09-tidyr.html#pivot_wider",
+    "title": "Tidying data",
+    "section": "pivot_wider",
+    "text": "pivot_wider\n\nIt is sometimes useful for data wrangling purposes to convert tidy data into wide data.\nWe often use this as an intermediate step in tidying up data.\nThe pivot_wider function is basically the inverse of pivot_longer."
+  },
+  {
+    "objectID": "slides/R/09-tidyr.html#pivot_wider-1",
+    "href": "slides/R/09-tidyr.html#pivot_wider-1",
+    "title": "Tidying data",
+    "section": "pivot_wider",
+    "text": "pivot_wider\n\nThe first argument is for the data, but since we are using the pipe, we don’t show it.\nThe names_from argument tells pivot_wider which variable will be used as the column names.\nThe values_from argument specifies which variable to use to fill out the cells."
+  },
+  {
+    "objectID": "slides/R/09-tidyr.html#pivot_wider-2",
+    "href": "slides/R/09-tidyr.html#pivot_wider-2",
+    "title": "Tidying data",
+    "section": "pivot_wider",
+    "text": "pivot_wider\nHere is some example code\n\nnew_wide_data &lt;- new_tidy_data |&gt; \n  pivot_wider(names_from = year, values_from = fertility)\nselect(new_wide_data, country, `1960`:`1967`)\n\n# A tibble: 2 × 9\n  country     `1960` `1961` `1962` `1963` `1964` `1965` `1966` `1967`\n  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;\n1 Germany       2.41   2.44   2.47   2.49   2.49   2.48   2.44   2.37\n2 South Korea   6.16   5.99   5.79   5.57   5.36   5.16   4.99   4.85\n\n\nSimilar to pivot_wider, names_from and values_from default to name and value."
+  },
+  {
+    "objectID": "slides/R/09-tidyr.html#example",
+    "href": "slides/R/09-tidyr.html#example",
+    "title": "Tidying data",
+    "section": "Example",
+    "text": "Example\nWe now demonstrate with a more complex example in which we have to use both pivot_longer and pivot_wider to tidy the data.\n\npath &lt;- system.file(\"extdata\", package = \"dslabs\")\n\nfilename &lt;- \"life-expectancy-and-fertility-two-countries-example.csv\"\nfilename &lt;-  file.path(path, filename)\n\nraw_dat &lt;- read_csv(filename)\nselect(raw_dat, 1:5)\n\n# A tibble: 2 × 5\n  country     `1960_fertility` `1960_life_expectancy` `1961_fertility`\n  &lt;chr&gt;                  &lt;dbl&gt;                  &lt;dbl&gt;            &lt;dbl&gt;\n1 Germany                 2.41                   69.3             2.44\n2 South Korea             6.16                   53.0             5.99\n# ℹ 1 more variable: `1961_life_expectancy` &lt;dbl&gt;"
+  },
+  {
+    "objectID": "slides/R/09-tidyr.html#example-1",
+    "href": "slides/R/09-tidyr.html#example-1",
+    "title": "Tidying data",
+    "section": "Example",
+    "text": "Example\n\nNote that the data is in wide format.\nAlso that this table includes values for two variables, fertility and life expectancy, with the column name encoding which column represents which variable.\nEncoding information in the column names is not recommended but, unfortunately, it is quite common."
+  },
+  {
+    "objectID": "slides/R/09-tidyr.html#example-2",
+    "href": "slides/R/09-tidyr.html#example-2",
+    "title": "Tidying data",
+    "section": "Example",
+    "text": "Example\n\nWe start with the pivot_longer function, but we should no longer use the column name year for the new column since it also contains the variable type.\nWe will call it name, the default, for now:\n\n\nraw_dat |&gt; pivot_longer(-country) |&gt; head()\n\n# A tibble: 6 × 3\n  country name                 value\n  &lt;chr&gt;   &lt;chr&gt;                &lt;dbl&gt;\n1 Germany 1960_fertility        2.41\n2 Germany 1960_life_expectancy 69.3 \n3 Germany 1961_fertility        2.44\n4 Germany 1961_life_expectancy 69.8 \n5 Germany 1962_fertility        2.47\n6 Germany 1962_life_expectancy 70.0"
+  },
+  {
+    "objectID": "slides/R/09-tidyr.html#example-3",
+    "href": "slides/R/09-tidyr.html#example-3",
+    "title": "Tidying data",
+    "section": "Example",
+    "text": "Example\n\nThe result is not exactly what we refer to as tidy since each observation is associated with two, not one, rows.\nWe want to have the values from the two variables, fertility and life expectancy, in two separate columns.\nThe first challenge to achieve this is to separate the name column into the year and the variable type."
+  },
+  {
+    "objectID": "slides/R/09-tidyr.html#example-4",
+    "href": "slides/R/09-tidyr.html#example-4",
+    "title": "Tidying data",
+    "section": "Example",
+    "text": "Example\n\nEncoding multiple variables in a column name is such a common problem that the tidyr package includes function to separate these columns into two or more:\n\n\nraw_dat |&gt; \n  pivot_longer(-country) |&gt; \n  separate_wider_delim(name, delim = \"_\",  names = c(\"year\", \"name\"), \n                       too_many = \"merge\") |&gt;\n  head()\n\n# A tibble: 6 × 4\n  country year  name            value\n  &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;           &lt;dbl&gt;\n1 Germany 1960  fertility        2.41\n2 Germany 1960  life_expectancy 69.3 \n3 Germany 1961  fertility        2.44\n4 Germany 1961  life_expectancy 69.8 \n5 Germany 1962  fertility        2.47\n6 Germany 1962  life_expectancy 70.0"
+  },
+  {
+    "objectID": "slides/R/09-tidyr.html#example-5",
+    "href": "slides/R/09-tidyr.html#example-5",
+    "title": "Tidying data",
+    "section": "Example",
+    "text": "Example\n\nBut we are not done yet.\nWe need to create a column for each variable and change year to a number.\nAs we learned, the pivot_wider function can do this."
+  },
+  {
+    "objectID": "slides/R/09-tidyr.html#example-6",
+    "href": "slides/R/09-tidyr.html#example-6",
+    "title": "Tidying data",
+    "section": "Example",
+    "text": "Example\n\ndat &lt;- raw_dat |&gt; \n  pivot_longer(-country) |&gt; \n  separate_wider_delim(name, delim = \"_\", \n                       names = c(\"year\", \"name\"), \n                       too_many = \"merge\") |&gt;\n  pivot_wider() |&gt;\n  mutate(year = as.integer(year))\nhead(dat)\n\n# A tibble: 6 × 4\n  country  year fertility life_expectancy\n  &lt;chr&gt;   &lt;int&gt;     &lt;dbl&gt;           &lt;dbl&gt;\n1 Germany  1960      2.41            69.3\n2 Germany  1961      2.44            69.8\n3 Germany  1962      2.47            70.0\n4 Germany  1963      2.49            70.1\n5 Germany  1964      2.49            70.7\n6 Germany  1965      2.48            70.6"
+  },
+  {
+    "objectID": "slides/R/09-tidyr.html#example-7",
+    "href": "slides/R/09-tidyr.html#example-7",
+    "title": "Tidying data",
+    "section": "Example",
+    "text": "Example\nThe data is now is now in tidy form and we can use with other packages:\n\np1 &lt;- dat |&gt; ggplot(aes(year, fertility, color = country)) + geom_line(show.legend = FALSE)\np2 &lt;- dat |&gt; ggplot(aes(year, life_expectancy, color = country)) + geom_line()\ngridExtra::grid.arrange(p1, p2, ncol = 2, widths = c(3,4))"
+  },
+  {
     "objectID": "slides/R/07-tidyverse.html#tidyverse",
     "href": "slides/R/07-tidyverse.html#tidyverse",
     "title": "Tidyverse",
@@ -1408,7 +1534,7 @@
     "href": "slides/R/07-tidyverse.html#dplyr",
     "title": "Tidyverse",
     "section": "dplyr",
-    "text": "dplyr\n\nIn this lecture we focus on dplyr.\nIn particular the following functions:\n\nmutate\nselect\nacross\nfilter\ngroup_by\nsummarize"
+    "text": "dplyr\n\nIn this lecture we focus mainly on dplyr.\nIn particular the following functions:\n\nmutate\nselect\nacross\nfilter\ngroup_by\nsummarize"
   },
   {
     "objectID": "slides/R/07-tidyverse.html#adding-a-column-with-mutate",
@@ -1499,7 +1625,7 @@
     "href": "slides/R/07-tidyverse.html#multiple-summaries-1",
     "title": "Tidyverse",
     "section": "Multiple summaries",
-    "text": "Multiple summaries\n\n\n\n\n\n\nWarning\n\n\nUsing a function that returns more than one number within summairze will soon be deprecated.\n\n\n\n\nFor multiple summaries we use reframe:\n\n\nmurders |&gt; reframe(quantiles = quantile(population, c(0.5, 0, 1)))\n\n  quantiles\n1   4339367\n2    563626\n3  37253956"
+    "text": "Multiple summaries\n\n\n\n\n\n\nWarning\n\n\nUsing a function that returns more than one number within summarize will soon be deprecated.\n\n\n\n\nFor multiple summaries we use reframe:\n\n\nmurders |&gt; reframe(quantiles = quantile(population, c(0.5, 0, 1)))\n\n  quantiles\n1   4339367\n2    563626\n3  37253956"
   },
   {
     "objectID": "slides/R/07-tidyverse.html#multiple-summaries-2",
@@ -1555,7 +1681,7 @@
     "href": "slides/R/07-tidyverse.html#pull-1",
     "title": "Tidyverse",
     "section": "pull",
-    "text": "pull\n\nTo get a numberic use pull:\n\n\nmurders |&gt; \n  summarize(rate = sum(total)/sum(population)*100000) |&gt;\n  pull(rate) \n\n[1] 3.034555"
+    "text": "pull\n\nTo get a numeric use pull:\n\n\nmurders |&gt; \n  summarize(rate = sum(total)/sum(population)*100000) |&gt;\n  pull(rate) \n\n[1] 3.034555"
   },
   {
     "objectID": "slides/R/07-tidyverse.html#sorting-data-frames",
