@@ -1,42 +1,53 @@
 [
   {
     "region": [1],
+    "region_name": "New England",
     "states": ["Connecticut", "Maine", "Massachusetts", "New Hampshire", "Rhode Island", "Vermont"]
   },
   {
     "region": [2],
+    "region_name": "New York and New Jersey, Puerto Rico, Virgin Islands",
     "states": ["New Jersey", "New York", "Puerto Rico", "Virgin Islands"]
   },
   {
     "region": [3],
+    "region_name": "Mid-Atlantic",
     "states": ["Delaware", "District of Columbia", "Maryland", "Pennsylvania", "Virginia", "West Virginia"]
   },
   {
     "region": [4],
+    "region_name": "Southeast",
     "states": ["Alabama", "Florida", "Georgia", "Kentucky", "Mississippi", "North Carolina", "South Carolina", "Tennessee"]
   },
   {
     "region": [5],
+    "region_name": "Midwest",
     "states": ["Illinois", "Indiana", "Michigan", "Minnesota", "Ohio", "Wisconsin"]
   },
   {
     "region": [6],
+    "region_name": "South Central",
     "states": ["Arkansas", "Louisiana", "New Mexico", "Oklahoma", "Texas"]
   },
   {
     "region": [7],
+    "region_name": "Central Plains",
     "states": ["Iowa", "Kansas", "Missouri", "Nebraska"]
   },
   {
     "region": [8],
+    "region_name": "Mountain States",
     "states": ["Colorado", "Montana", "North Dakota", "South Dakota", "Utah", "Wyoming"]
   },
   {
     "region": [9],
+    "region_name": "Pacific",
     "states": ["Arizona", "California", "Hawaii", "Nevada", "American Samoa", "Commonwealth of the Northern Mariana Islands", "Federated States of Micronesia", "Guam", "Marshall Islands", "Republic of Palau"]
   },
   {
     "region": [10],
+    "region_name": "Pacific Northwest",
     "states": ["Alaska", "Idaho", "Oregon", "Washington"]
   }
 ]
+
