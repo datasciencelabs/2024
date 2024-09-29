@@ -1,0 +1,42 @@
+[
+  {
+    "region": [1],
+    "states": ["Connecticut", "Maine", "Massachusetts", "New Hampshire", "Rhode Island", "Vermont"]
+  },
+  {
+    "region": [2],
+    "states": ["New Jersey", "New York", "Puerto Rico", "Virgin Islands"]
+  },
+  {
+    "region": [3],
+    "states": ["Delaware", "District of Columbia", "Maryland", "Pennsylvania", "Virginia", "West Virginia"]
+  },
+  {
+    "region": [4],
+    "states": ["Alabama", "Florida", "Georgia", "Kentucky", "Mississippi", "North Carolina", "South Carolina", "Tennessee"]
+  },
+  {
+    "region": [5],
+    "states": ["Illinois", "Indiana", "Michigan", "Minnesota", "Ohio", "Wisconsin"]
+  },
+  {
+    "region": [6],
+    "states": ["Arkansas", "Louisiana", "New Mexico", "Oklahoma", "Texas"]
+  },
+  {
+    "region": [7],
+    "states": ["Iowa", "Kansas", "Missouri", "Nebraska"]
+  },
+  {
+    "region": [8],
+    "states": ["Colorado", "Montana", "North Dakota", "South Dakota", "Utah", "Wyoming"]
+  },
+  {
+    "region": [9],
+    "states": ["Arizona", "California", "Hawaii", "Nevada", "American Samoa", "Commonwealth of the Northern Mariana Islands", "Federated States of Micronesia", "Guam", "Marshall Islands", "Republic of Palau"]
+  },
+  {
+    "region": [10],
+    "states": ["Alaska", "Idaho", "Oregon", "Washington"]
+  }
+]
