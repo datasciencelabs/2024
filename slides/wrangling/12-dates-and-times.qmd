@@ -1,0 +1,342 @@
+---
+title: "Dates And Times"
+keywords: "Wrangling"
+date: 2024-09-30
+format:
+  revealjs:
+    theme: night
+execute: 
+  echo: true
+---
+
+## Parsing dates and times
+
+- We have described three main types of vectors: numeric, character, and logical.
+
+- When analyzing data, we often encounter variables that are dates.
+
+- Although we can represent a date with a string, for example `November 2, 2017`, once we pick a reference day, referred to as the _epoch_ by computer programmers, they can be converted to numbers by calculating the number of days since the epoch.
+
+- In R and Unix, the epoch is defined as January 1, 1970.
+
+
+
+## Parsing dates and times
+
+
+- If I tell you it's November 2, 2017, you know what this means immediately.
+
+- If I tell you it's day 17,204, you will be quite confused.
+
+- Similar problems arise with times and even more complications can appear due to time zones.
+
+- For this reason, R defines a data type just for dates and times.
+
+
+
+## The date data type
+
+- We can see an example of the data type R uses for data here:
+
+```{r,  message=FALSE, warning=FALSE} 
+library(tidyverse) 
+library(dslabs) 
+polls_us_election_2016$startdate |> head() 
+``` 
+
+- The dates look like strings, but they are not:
+
+```{r} 
+class(polls_us_election_2016$startdate) 
+``` 
+
+## The date data type
+
+- Look at what happens when we convert them to numbers:
+
+```{r} 
+as.numeric(polls_us_election_2016$startdate) |> head() 
+``` 
+
+- It turns them into days since the epoch.
+
+
+
+
+## The date data type
+
+- `as.Date` converts characters into dates.
+
+- So to see that the epoch is day 0 we can type.
+
+```{r} 
+as.Date("1970-01-01") |> as.numeric() 
+``` 
+
+- Plotting functions, such as those in ggplot, are aware of the date format.
+
+## The date data type
+
+- Scatterplots use the numeric representation to assign positions, but include the string in the labels:
+
+```{r rawpolls-vs-time} 
+polls_us_election_2016 |> 
+  filter(startdate >= make_date(2016, 6, 1)) |>
+  filter(pollster == "Ipsos" & state == "U.S.") |> 
+  ggplot(aes(startdate, rawpoll_clinton)) + 
+  geom_line() 
+``` 
+
+
+## The date data type
+
+:::{.panel-tabset}
+
+## Code
+
+**ggplot** offers convenient functions to change labels:
+
+```{r} 
+#| eval: false
+polls_us_election_2016 |> 
+  filter(startdate >= make_date(2016, 6, 1)) |>
+  filter(pollster == "Ipsos" & state == "U.S.") |> 
+  ggplot(aes(startdate, rawpoll_clinton)) + 
+  geom_line() +
+  scale_x_date(date_breaks = "2 weeks", date_labels = "%b %d") + 
+  geom_vline(xintercept = as.Date("2016-10-28"), linetype = "dashed")
+``` 
+
+## Plot
+
+```{r rawpolls-vs-time-2} 
+#| echo: false
+polls_us_election_2016 |> 
+  filter(startdate >= make_date(2016, 6, 1)) |>
+  filter(pollster == "Ipsos" & state == "U.S.") |> 
+  ggplot(aes(startdate, rawpoll_clinton)) + 
+  geom_line() +
+  scale_x_date(date_breaks = "2 weeks", date_labels = "%b %d") + 
+  geom_vline(xintercept = as.Date("2016-10-28"), linetype = "dashed")
+``` 
+
+:::
+
+
+
+## The lubridate package
+
+- The __lubridate__ package provides tools to work with date and times.
+
+```{r, warning=FALSE, message=FALSE, cache=FALSE} 
+library(lubridate) 
+``` 
+
+- We will take a random sample of dates to show some of the useful things one can do:
+
+```{r} 
+set.seed(2002) 
+dates <- sample(polls_us_election_2016$startdate, 10) |> sort() 
+dates 
+``` 
+
+## The lubridate package
+
+- The functions `year`, `month` and `day` extract those values:
+
+```{r} 
+tibble(date = dates, month = month(dates), day = day(dates), year = year(dates)) 
+``` 
+
+
+
+## The lubridate package
+
+- We can also extract the month labels:
+
+```{r} 
+month(dates, label = TRUE) 
+``` 
+
+## The lubridate package
+
+
+- Another useful set of functions are the _parsers_ that convert strings into dates.
+
+- The function `ymd` assumes the dates are in the format YYYY-MM-DD and tries to parse as well as possible.
+
+```{r} 
+x <- c(20090101, "2009-01-02", "2009 01 03", "2009-1-4", 
+       "2009-1, 5", "Created on 2009 1 6", "200901 !!! 07") 
+ymd(x) 
+``` 
+
+
+
+## The lubridate package
+
+- A further complication comes from the fact that dates often come in different formats in which the order of year, month, and day are different.
+
+- The preferred format is to show year (with all four digits), month (two digits), and then day, or what is called the ISO 8601.
+
+- Specifically we use YYYY-MM-DD so that if we order the string, it will be ordered by date.
+
+- You can see the function `ymd` returns them in this format.
+
+
+
+## The lubridate package
+
+- But, what if you encounter dates such as "09/01/02"? This could be September 1, 2002 or January 2, 2009 or January 9, 2002.
+
+- In these cases, examining the entire vector of dates will help you determine what format it is by process of elimination.
+
+- Once you know, you can use the many parses provided by __lubridate__.
+
+- For example, if the string is:
+
+```{r} 
+x <- "09/01/02" 
+``` 
+
+
+
+## The lubridate package
+
+- The `ymd` function assumes the first entry is the year, the second is the month, and the third is the day, so it converts it to:
+
+```{r} 
+ymd(x) 
+``` 
+
+## The lubridate package
+
+- The `mdy` function assumes the first entry is the month, then the day, then the year:
+
+```{r} 
+mdy(x) 
+``` 
+
+## The lubridate package
+
+- The _lubridate_ package provides a function for every possibility.
+
+- Here is the other common one:
+
+```{r} 
+dmy(x) 
+``` 
+
+## The lubridate package
+
+- The __lubridate__ package is also useful for dealing with times.
+
+- In base R, you can get the current time typing `Sys.time()`.
+
+- The __lubridate__ package provides a slightly more advanced function, `now`, that permits you to define the time zone:
+
+```{r} 
+now() 
+now("GMT") 
+``` 
+
+## The lubridate package
+
+- You can see all the available time zones with:
+
+```{r}
+OlsonNames()
+```
+
+
+## The lubridate package
+
+- We can also extract hours, minutes, and seconds:
+
+```{r} 
+now() |> hour() 
+now() |> minute() 
+now() |> second() 
+``` 
+
+## The lubridate package
+
+- The package also includes a function to parse strings into times as well as parsers for time objects that include dates:
+
+```{r} 
+x <- c("12:34:56") 
+hms(x) 
+x <- "Nov/2/2012 12:34:56" 
+mdy_hms(x) 
+``` 
+
+
+
+
+## The lubridate package
+
+
+- The `make_date` function can be used to quickly create a date object.
+
+- For example, to create an date object representing, for example, July 6, 2019 we write:
+
+```{r} 
+make_date(2019, 7, 6) 
+``` 
+
+
+
+## The lubridate package
+
+- We can use it to make vectors of dates.
+
+* To make a vector of January 1 for the 80s we write:
+
+```{r} 
+make_date(1980:1989) 
+``` 
+
+## The lubridate package
+
+- Another very useful function is `round_date`.
+
+- It can be used to _round_ dates to nearest year, quarter,  month, week, day, hour, minutes, or seconds.
+
+## The lubridate package
+
+
+:::{.panel-tabset}
+
+## Code
+
+- Example: if we want to group all the polls by week of the year we can do the following:
+
+```{r} 
+#| eval: false
+polls_us_election_2016 |>  
+  mutate(week = round_date(startdate, "week")) |> 
+  group_by(week) |> 
+  summarize(margin = mean(rawpoll_clinton - rawpoll_trump)) |> 
+  ggplot(aes(week, margin)) + 
+  geom_point() 
+``` 
+
+## Plot
+
+```{r poll-margin-versus-week} 
+#| echo: false
+polls_us_election_2016 |>  
+  mutate(week = round_date(startdate, "week")) |> 
+  group_by(week) |> 
+  summarize(margin = mean(rawpoll_clinton - rawpoll_trump)) |> 
+  ggplot(aes(week, margin)) + 
+  geom_point() 
+``` 
+
+:::
+
+## Final pointers
+
+- You should be aware the there are useful function for computing operations on time such a `difftime`, `time_length`, and `interval`.
+
+-  We don't cover it here but be aware that  The **data.table** package includes some of the same functionality as **lubridate**.

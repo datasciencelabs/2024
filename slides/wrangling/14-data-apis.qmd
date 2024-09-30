@@ -1,0 +1,237 @@
+---
+title: "Data APIs"
+keywords: "Wrangling"
+date: 2024-09-30
+format:
+  revealjs:
+    theme: night
+execute: 
+  echo: true
+---
+
+## Data APIs
+
+- An Application Programming Interface (API) is a set of rules and protocols that allows different software entities to communicate with each other.
+
+- It defines methods and data formats that software components should use when requesting and exchanging information.
+
+- APIs play a crucial role in enabling the integration that make today's software so interconnected and versatile.
+
+
+## Types and concepts
+
+
+The main APIs related to retrieving data are:
+
+* **Web Services** - Often built using protocols like HTTP/HTTPS.
+
+* **Database APIs** - Enable communication between an application and a database, SQL-based calls for example.
+
+Here we focus on **Web Services** since it more common among public resources such CDC and the US Census.
+
+## Key concepts 
+
+
+- **Endpoints**: Usually a URL where API can be accessed.
+
+- **Methods**: Actions that can be performed, for example HTTP methods like GET, POST, PUT, or DELETE.
+
+- **Request**: Asking the API to perform a function.
+
+- **Response**: The data it returns.
+
+- **Rate Limits**: Restrictions on calls to API.
+
+- **Authentication and Authorization**: Methods include _API keys_, _OAuth_, or _Jason Web Tokens_ (JWT).
+
+- **Data Formats**: Many web APIs exchange data in a specific format, often JSON or CSV.
+
+
+
+
+## JSON
+
+- Sharing data on the internet has become more and more common.
+
+- Unfortunately, providers use different formats, which makes wrangling harder.
+
+- Yet there are some standards that are also becoming more common.
+
+- A format that is widely being adopted is the JavaScript Object Notation or JSON.
+
+- Because this format is very general, it is nothing like a spreadsheet.
+
+
+## JSON
+
+- JSON files look like code you use to define a list:
+
+```{r, echo=FALSE, message=FALSE} 
+library(dplyr)
+library(jsonlite) 
+example <- data.frame(name = c("Miguel", "Sofia", "Aya", "Cheng"),  
+                      student_id = 1:4, exam_1 = c(85, 94, 87, 90), exam_2 = c(86, 93, 88, 91)) 
+json <- toJSON(example, pretty = TRUE)  
+json 
+``` 
+
+- The file above actually represents a data frame.
+
+
+
+
+## JSON
+
+- We can use the function `fromJSON` from the __jsonlite__ package to read files.
+
+- Here is an example providing information Nobel prize winners:
+
+```{r} 
+library(jsonlite) 
+nobel <- fromJSON("http://api.nobelprize.org/v1/prize.json") 
+``` 
+
+- This downloads a JSON file and reads into a list:
+
+```{r}
+class(nobel)
+```
+
+## JSON   
+
+The JSON parsers have arguments that make the list components into vectors and lists into data frames when possible:
+
+*  `simplifyVector`
+
+* `simplifyDataFrame`
+
+* `simplifyMatrix`
+
+* `flatten`
+
+
+## JSON
+
+* The object is rather complicated. The `prizes` component includes a list of data frames with information about Nobel Laureates:
+
+```{r} 
+nobel$prizes |> 
+  filter(category == "literature" & year == "1971") |>  
+  pull(laureates) |> 
+  first() |> 
+  select(id, firstname, surname) 
+``` 
+
+
+## The httr2 package
+
+- HTTPS is the most widely used protocol for data sharing through the internet.
+
+- The **httr2** package provides functions to work with HTTPS requests.
+
+- One of the core functions in this package is `request`, which is used to form request to send to web services.
+
+- The `req_perform` function sends the request.
+
+- This `request` function forms an HTTP GET request to the specified URL.
+
+
+## The httr2 package
+
+- Typically, HTTP GET requests are used to retrieve information from a server based on the provided URL.
+
+- The function returns an object of class `response`.
+
+- This object contains all the details of the server's response, including status code, headers, and content.
+
+- You can then use other **httr2** functions to extract or interpret information from this response.
+
+- Let's say you want to retrieve COVID-19 deaths by state from the CDC.
+
+
+
+## The httr2 package
+
+- By visiting their data catalog <https://data.cdc.gov> you can search for datasets and find that the data is provided through this API:
+
+```{r} 
+url <- "https://data.cdc.gov/resource/muzy-jte6.csv" 
+``` 
+
+- We can then make create and perform a request like this:
+
+```{r} 
+library(httr2) 
+response <- request(url) |> req_perform() 
+``` 
+
+## The httr2 package
+
+- We can see the results of the request by looking at the returned object.
+
+```{r} 
+#| message: true
+response
+``` 
+
+
+
+## The httr2 package
+
+- To extract the body, which is where the data are, we can use `resp_body_string` and send the result, a comma delimited string, to `read_csv`.
+
+```{r} 
+#| message: false 
+library(readr) 
+tab <- response |> resp_body_string() |> read_csv() 
+``` 
+
+- We note that the returned object is only `r nrow(tab)` entries.
+
+- API often limit how much you can download.
+
+
+
+## The httr2 package
+
+- The documentation for this [API](https://dev.socrata.com/docs/queries/) explains that we can change this limit through the.
+
+- `$limit` parameters.
+
+- We can use the `req_url_path_append` to add this to our request:
+
+```{r} 
+response <- request(url) |>  
+  req_url_path_append("?$limit=100000") |>  
+  req_perform()  
+``` 
+
+- The CDC service returns data in csv format but a more common format used by web services is JSON.
+
+
+
+## The httr2 package
+
+- The CDC also provides data in json format through:
+
+```{r} 
+url <- "https://data.cdc.gov/resource/muzy-jte6.json" 
+``` 
+
+- To extract the data table we use the `fromJSON` function from the **jsonlite** package.
+
+```{r} 
+tab <- request(url) |>  
+   req_perform() |>  
+   resp_body_json(simplifyDataFrame = TRUE) 
+``` 
+
+- When working with APIs, it's essential to check the API's documentation for rate limits, required headers, or authentication methods.
+
+
+## The httr2 package
+
+- The `httr2` package provides tools to handle these requirements, such as setting headers or authentication parameters.
+
+
+

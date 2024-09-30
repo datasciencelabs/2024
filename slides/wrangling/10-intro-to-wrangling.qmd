@@ -1,0 +1,79 @@
+---
+title: "Introduction to Wrangling"
+keywords: "Wrangling"
+date: 2024-09-30
+format:
+  revealjs:
+    theme: night
+execute: 
+  echo: true
+---
+
+## Data Wrangling
+
+- The two datasets used in the problem sets are already tidy data frames.
+
+- However, very rarely in a data science project is data already available in this form.
+
+- Much more typical is for the data to be in a file, a database, or extracted from a document, including web pages, tweets, or PDFs.
+
+- As a result, data might be _unstructured_ in complex ways.
+
+## Data Wrangling
+
+- _Data wrangling_ is what we call the process of structuring data from it's original state into a form that permits us to focus on analysis.
+
+- Tidy data is an example of a form that permits us to focus on analysis.
+
+- We focus on tidy data as a target, but we can have other forms as targets, such as matrices.
+
+## Data Wrangling
+
+Data wrangling can involve several complicated steps such as:
+
+- extracting data from a file,
+- converting nested key-value pairs into a data frame, 
+- integrating data from different source, and
+- constructing requests for data bases.
+
+## Data Wrangling
+
+Today we briefly discuss five concepts/tools considered essential for data wrangling:
+
+* Importing data from files
+
+* RESTful APIs
+
+* Joining tables
+
+* html parsing
+
+* working with dates and times
+
+* locales
+
+## Data Wrangling
+
+* We barely scratch the surface on these topics.
+
+* Rarely are all these relevant for a single analysis.
+
+* You will likely face them all at some point.
+
+* Lecture goal is to make you aware of challenges, tools to tackle them, and help you learn how to learn more.
+
+## Further learning
+
+* SQL widely used in data-intensive industries to manage and manipulate large databases.
+
+* In R, **dplyr** functions like `filter`, `select`, and the `joins` we will learn this week, mirror SQL operations.
+
+* By learning **dplyr**, you've already covered many key SQL concepts and makes the transition to SQL easier.
+
+* Recommended SQL Resources: [W3Schools](https://www.w3schools.com/sql/), [Codecademy](https://www.codecademy.com/learn/learn-sql), [Khan Academy](https://www.khanacademy.org/computing/computer-programming/sql), and [SQLZoo](https://sqlzoo.net/)
+
+
+
+
+
+

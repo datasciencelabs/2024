@@ -12,7 +12,7 @@
 
   <meta name="dcterms.date" content="2024-09-30">
   <meta name="keywords" content="Wrangling">
-  <title>BST 260: Introduction to Data Science – Importing files</title>
+  <title>BST 260: Introduction to Data Science – Locales</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -392,372 +392,86 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Importing files</h1>
+  <h1 class="title">Locales</h1>
 
 <div class="quarto-title-authors">
 </div>
 
   <p class="date">2024-09-30</p>
 </section>
-<section id="importing-data" class="slide level2">
-<h2>Importing data</h2>
+<section id="locales" class="slide level2">
+<h2>Locales</h2>
 <ul>
-<li><p>One of the most common ways of storing and sharing data is through electronic <strong>spreadsheets</strong>.</p></li>
-<li><p>A spreadsheet is a file version of a data frame.</p></li>
-<li><p>But there are many ways to store spreadsheets in files.</p></li>
+<li>Computer settings change depending on language and location, and being unaware of this possibility can make certain data wrangling challenges difficult to overcome.</li>
 </ul>
 </section>
-<section id="importing-data-1" class="slide level2">
-<h2>Importing data</h2>
-<p>To import data we need to:</p>
+<section id="locales-1" class="slide level2">
+<h2>Locales</h2>
 <ul>
-<li><p>Identify the file’s location.</p></li>
-<li><p>Know what function or <em>parsers</em> to use.</p></li>
-</ul>
-<p>For the second step it helps to know the file type and <em>encoding</em>.</p>
-</section>
-<section id="file-types" class="slide level2">
-<h2>File types</h2>
-<ul>
-<li><p>Files can generally be classified into two categories: <strong>text</strong> and <strong>binary</strong>.</p></li>
-<li><p>We describe the most widely used format for storing data for both these types and learn how to identify them.</p></li>
+<li><p>The purpose of <em>locales</em> is to group together common settings that can affect:</p>
+<ol type="1">
+<li><p>Month and day names, which are necessary for interpreting dates.</p></li>
+<li><p>The standard date format.</p></li>
+<li><p>The default time zone.</p></li>
+<li><p>Character encoding, vital for reading non-ASCII characters.</p></li>
+<li><p>The symbols for decimals and number groupings, important for interpreting numerical values.</p></li>
+</ol></li>
 </ul>
 </section>
-<section id="text-files" class="slide level2">
-<h2>Text files</h2>
+<section id="locales-2" class="slide level2">
+<h2>Locales</h2>
 <ul>
-<li><p>You have already worked with text files: R scripts and Quarto files, for example.</p></li>
-<li><p><strong>dslabs</strong> offers examples:</p></li>
+<li><p>In R, a <em>locale</em> refers to a suite of settings that dictate how the system should behave with respect to cultural conventions.</p></li>
+<li><p>These affect the way data is formatted and presented, including date formatting, currency symbols, decimal separators, and other related aspects.</p></li>
+<li><p>Locales in R affect several areas, including how character vectors are sorted.</p></li>
+<li><p>Additionally, errors, warnings, and other messages might be translated into languages other than English based on the locale.</p></li>
+</ul>
+</section>
+<section id="locales-in-r" class="slide level2">
+<h2>Locales in R</h2>
+<ul>
+<li>To access the current locale settings in R, you can use the <code>Sys.getlocale()</code> function:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>dir <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="at">package =</span> <span class="st">"dslabs"</span>) </span>
-<span id="cb1-2"><a></a>file_path <span class="ot">&lt;-</span> <span class="fu">file.path</span>(dir, <span class="st">"extdata/murders.csv"</span>) </span>
-<span id="cb1-3"><a></a><span class="fu">file.copy</span>(file_path, <span class="st">"murders.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">Sys.getlocale</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
+<pre><code>[1] "en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8"</code></pre>
 </div>
 </div>
 </section>
-<section id="text-files-1" class="slide level2">
-<h2>Text files</h2>
+<section id="locales-in-r-1" class="slide level2">
+<h2>Locales in R</h2>
 <ul>
-<li><p>An advantage of text files is that we can easily “look” at them without having to purchase any kind of special software or follow complicated instructions.</p></li>
-<li><p>Exercise:</p>
+<li><p>To set a specific locale, use the <code>Sys.setlocale()</code> function.</p></li>
+<li><p>For example, to set the locale to US English:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">Sys.setlocale</span>(<span class="st">"LC_ALL"</span>, <span class="st">"en_US.UTF-8"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8"</code></pre>
+</div>
+</div>
 <ul>
-<li>copy <code>murders.csv</code> into your working directory and examine it with <code>less</code>.</li>
-<li>Then try the <em>Open file</em> RStudio tool.</li>
+<li>The exact string to use for setting the locale (like “en_US.UTF-8”) can depend on your operating system and its configuration.</li>
+</ul>
+</section>
+<section id="locales-in-r-2" class="slide level2">
+<h2>Locales in R</h2>
+<ul>
+<li><p><code>LC_ALL</code> refers to all locale categories.</p></li>
+<li><p>R breaks down the locale into categories:</p>
+<ul>
+<li><p><code>LC_COLLATE</code>: for string collation.</p></li>
+<li><p><code>LC_TIME</code>: date and time formatting.</p></li>
+<li><p><code>LC_MONETARY</code>: currency formatting.</p></li>
+<li><p><code>LC_MESSAGES</code>: system message translations.</p></li>
+<li><p><code>LC_NUMERIC</code>: number formatting.</p></li>
 </ul></li>
+<li><p>You can set the locale for each category individually if you don’t want to use <code>LC_ALL</code>.</p></li>
 </ul>
 </section>
-<section id="text-files-2" class="slide level2">
-<h2>Text files</h2>
-<ul>
-<li><p>Line breaks are used to separate rows and a <em>delimiter</em> to separate columns within a row.</p></li>
-<li><p>The most common delimiters are comma (<code>,</code>), semicolon (<code>;</code>), space (<code></code>), and tab (<code>\t</code>).</p></li>
-<li><p>Different parsers are used to read these files, so we need to know what delimiter was used.</p></li>
-<li><p>In some cases, the delimiter can be inferred from file suffix: <code>csv</code>, <code>tsv</code>, for example.</p></li>
-<li><p>But we recommend looking at the file rather than inferring from the suffix.</p></li>
-</ul>
-</section>
-<section id="text-files-3" class="slide level2">
-<h2>Text files</h2>
-<ul>
-<li>In R, you can look at any number of lines from within R using the <code>readLines</code> function:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">readLines</span>(<span class="st">"murders.csv"</span>, <span class="at">n =</span> <span class="dv">3</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "state,abb,region,population,total" "Alabama,AL,South,4779736,135"     
-[3] "Alaska,AK,West,710231,19"         </code></pre>
-</div>
-</div>
-</section>
-<section id="binary-files" class="slide level2">
-<h2>Binary files</h2>
-<ul>
-<li><p>Opening image files such as jpg or png in a text editor or using <code>readLines</code> in R will not show comprehensible content: these are <em>binary</em> files.</p></li>
-<li><p>Unlike text files, which are designed for human readability and have standardized conventions, binary files have many formats specific to their data type.</p></li>
-<li><p>While R’s <code>readBin</code> function can process any binary file, interpreting the output necessitates a thorough understanding of the file’s structure.</p></li>
-<li><p>We focus on the the most prevalent binary formats for spreadsheets: Microsoft Excel xls and xlsx.</p></li>
-</ul>
-</section>
-<section id="r-base-parsers" class="slide level2">
-<h2>R Base Parsers</h2>
-<p>Here example of useful R base parsers:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"murders.csv"</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span>
-<span id="cb5-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"murders.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="readr-parsers" class="slide level2">
-<h2>readr Parsers</h2>
-<p><strong>readr</strong> provides alternatives that produce tibbles:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">library</span>(readr)</span>
-<span id="cb6-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"murders.csv"</span>)</span>
-<span id="cb6-3"><a></a>x <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"murders.csv"</span>, <span class="at">delim =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Notice the messages produced.</p>
-</section>
-<section id="readr-parsers-1" class="slide level2">
-<h2>readr Parsers</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 64%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Function</th>
-<th>Format</th>
-<th>Suffix</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>read_table</td>
-<td>white space separated values</td>
-<td>txt</td>
-</tr>
-<tr class="even">
-<td>read_csv</td>
-<td>comma separated values</td>
-<td>csv</td>
-</tr>
-<tr class="odd">
-<td>read_csv2</td>
-<td>semicolon separated values</td>
-<td>csv</td>
-</tr>
-<tr class="even">
-<td>read_tsv</td>
-<td>tab separated values</td>
-<td>tsv</td>
-</tr>
-<tr class="odd">
-<td>read_delim</td>
-<td>must define delimiter</td>
-<td>txt</td>
-</tr>
-<tr class="even">
-<td>read_lines</td>
-<td>similar to <code>readLines</code></td>
-<td>any file</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="readxl-parsers" class="slide level2">
-<h2>readxl Parsers</h2>
-<p>For Excel files you can use the <strong>readxl</strong> package.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">library</span>(readxl)</span>
-<span id="cb7-2"><a></a>fn <span class="ot">&lt;-</span> <span class="fu">file.path</span>(dir, <span class="st">"extdata/2010_bigfive_regents.xls"</span>) </span>
-<span id="cb7-3"><a></a>y <span class="ot">&lt;-</span> <span class="fu">read_xls</span>(fn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="readxl-parsers-1" class="slide level2">
-<h2>readxl Parsers</h2>
-<p>You can read specific sheets and see them using</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">excel_sheets</span>(fn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Sheet1" "Sheet2" "Sheet3"</code></pre>
-</div>
-</div>
-<p>Note that <code>read_xls</code> has a sheet argument.</p>
-</section>
-<section id="readxl-parsers-2" class="slide level2">
-<h2>readxl Parsers</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 64%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Function</th>
-<th>Format</th>
-<th>Suffix</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>read_excel</td>
-<td>auto detect the format</td>
-<td>xls, xlsx</td>
-</tr>
-<tr class="even">
-<td>read_xls</td>
-<td>original format</td>
-<td>xls</td>
-</tr>
-<tr class="odd">
-<td>read_xlsx</td>
-<td>new format</td>
-<td>xlsx</td>
-</tr>
-<tr class="even">
-<td>excel_sheets</td>
-<td>detects sheets</td>
-<td>xls, xlsx</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="data.table-parsers" class="slide level2">
-<h2>data.table Parsers</h2>
-<p>The <strong>data.table</strong> package provide a very fast parser:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">library</span>(data.table)</span>
-<span id="cb10-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"murders.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Note: It returns a file in <code>data.table</code> format which we have mentioned but not explained.</p>
-</section>
-<section id="scan" class="slide level2">
-<h2>scan</h2>
-<ul>
-<li><p>The <code>scan</code> function is the most general parser.</p></li>
-<li><p>It will read in any text file and return a vector so you are on your own coverting it to a data frame.</p></li>
-<li><p>Because it returns a vector, you need to tell it in advance what data type to expect:</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">scan</span>(<span class="st">"murders.csv"</span>, <span class="at">what =</span> <span class="st">"c"</span>, <span class="at">sep =</span> <span class="st">","</span>, <span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "state"      "abb"        "region"     "population" "total"     
- [6] "Alabama"    "AL"         "South"      "4779736"    "135"       </code></pre>
-</div>
-</div>
-<ul>
-<li>It can also be used to read from the console. Try typing <code>scan()</code>. Hit return to stop.</li>
-</ul>
-</section>
-<section id="encoding" class="slide level2">
-<h2>Encoding</h2>
-<ul>
-<li><p>Computer translates everything into 0s and 1s.</p></li>
-<li><p>ASCII is an <em>encoding</em> system that assigns specific numbers to characters.</p></li>
-<li><p>Using 7 bits, ASCII can represent <span class="math inline">\(2^7 = 128\)</span> unique symbols, sufficient for all English keyboard characters.</p></li>
-<li><p>However, many global languages contain characters outside ASCII’s range.</p></li>
-</ul>
-</section>
-<section id="encoding-1" class="slide level2">
-<h2>Encoding</h2>
-<ul>
-<li><p>For instance, the é in “México” isn’t in ASCII’s catalog.</p></li>
-<li><p>To address this, broader encodings emerged.</p></li>
-<li><p>Unicode offers variations using 8, 16, or 32 bits, known as UTF-8, UTF-16, and UTF-32.</p></li>
-<li><p>RStudio typically uses UTF-8 as its default.</p></li>
-<li><p>Notably, ASCII is a subset of UTF-8, meaning that if a file is ASCII-encoded, presuming it’s UTF-8 encoded won’t cause issues.</p></li>
-</ul>
-</section>
-<section id="encoding-2" class="slide level2">
-<h2>Encoding</h2>
-<ul>
-<li><p>However, there other encodings, such as ISO-8859-1 (also known as Latin-1) developed for the western European languages, Big5 for Traditional Chinese, and ISO-8859-6 for Arabic.</p></li>
-<li><p>Take a look at this file:</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>fn <span class="ot">&lt;-</span> <span class="st">"calificaciones.csv"</span> </span>
-<span id="cb13-2"><a></a><span class="fu">file.copy</span>(<span class="fu">file.path</span>(<span class="fu">system.file</span>(<span class="st">"extdata"</span>, <span class="at">package =</span> <span class="st">"dslabs"</span>), fn), fn) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">readLines</span>(fn, <span class="at">n =</span> <span class="dv">1</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "\"nombre\",\"f.n.\",\"estampa\",\"puntuaci\xf3n\""</code></pre>
-</div>
-</div>
-</section>
-<section id="encoding-3" class="slide level2">
-<h2>Encoding</h2>
-<ul>
-<li><p>The <strong>readr</strong> parsers permit us to specify an encoding.</p></li>
-<li><p>It also includes a function that tries to guess the encoding:</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">guess_encoding</span>(<span class="st">"murders.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 2
-  encoding confidence
-  &lt;chr&gt;         &lt;dbl&gt;
-1 ASCII             1</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">guess_encoding</span>(<span class="st">"calificaciones.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 2
-  encoding   confidence
-  &lt;chr&gt;           &lt;dbl&gt;
-1 ISO-8859-1       0.92
-2 ISO-8859-2       0.72
-3 ISO-8859-9       0.53</code></pre>
-</div>
-</div>
-</section>
-<section id="encoding-4" class="slide level2">
-<h2>Encoding</h2>
-<ul>
-<li>Once we know the encoding we can specify it through the <code>locale</code> argument:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"calificaciones.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb21-2"><a></a>                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>We learn about locales in later.</li>
-</ul>
-</section>
-<section id="encoding-5" class="slide level2">
-<h2>Encoding</h2>
-<ul>
-<li>We can now see that the characters in the header were read in correctly:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>dat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 7 × 4
-  nombre   f.n.                     estampa             puntuación
-  &lt;chr&gt;    &lt;chr&gt;                    &lt;dttm&gt;                   &lt;dbl&gt;
-1 Beyoncé  04 de septiembre de 1981 2023-09-22 02:11:02        875
-2 Blümchen 20 de abril de 1980      2023-09-22 03:23:05        990
-3 João     10 de junio de 1931      2023-09-21 22:43:28        989
-4 López    24 de julio de 1969      2023-09-22 01:06:59        887
-5 Ñengo    15 de diciembre de 1981  2023-09-21 23:35:37        931
-6 Plácido  24 de enero de 1941      2023-09-21 23:17:21        887
-7 Thalía   26 de agosto de 1971     2023-09-21 23:08:02        830</code></pre>
-</div>
-</div>
-</section>
-<section id="downloading-files" class="slide level2">
-<h2>Downloading files</h2>
-<ul>
-<li><p>A common place for data to reside is on the internet.</p></li>
-<li><p>We can download these files and then import them.</p></li>
-<li><p>We can also read them directly from the web.</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>url <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"https://raw.githubusercontent.com/"</span>, </span>
-<span id="cb24-2"><a></a>              <span class="st">"rafalab/dslabs/master/inst/extdata/murders.csv"</span>) </span>
-<span id="cb24-3"><a></a>x <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(url) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="downloading-files-1" class="slide level2">
-<h2>Downloading files</h2>
-<ul>
-<li>If you want a local copy, you can use `download.file:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">download.file</span>(url, <span class="st">"murders.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li><p>This will download the file and save it on your system with the name <code>murders.csv</code>.</p></li>
-<li><p>Note You can use any name here, not necessarily <code>murders.csv</code>.</p></li>
-</ul>
-</section>
-<section id="downloading-files-2" class="slide level2">
-<h2>Downloading files</h2>
+<section id="locales-in-r-3" class="slide level2">
+<h2>Locales in R</h2>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -767,18 +481,239 @@
 <p><strong>Warning</strong></p>
 </div>
 <div class="callout-content">
-<p>The function <code>download.file</code> overwrites existing files without warning.</p>
+<ul>
+<li><p>We have shown tools to control locales.</p></li>
+<li><p>These settings are important because they affect how your data looks and behaves.</p></li>
+<li><p>However, not all of these settings are available on every computer; their availability depends on what kind of computer you have and how it’s set up.</p></li>
+<li><p>Changing these settings, especially <code>LC_NUMERIC</code>, can lead to unexpected problems when you’re working with numbers in R.</p></li>
+<li><p>These locale settings only last as long as one R session.</p></li>
+</ul>
 </div>
+</div>
+</div>
+</section>
+<section id="the-locale-function" class="slide level2">
+<h2>The <code>locale</code> function</h2>
+<ul>
+<li>The <strong>readr</strong> package includes a <code>locale()</code> function that can be used to learn or change the current locale from within R:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">library</span>(readr) </span>
+<span id="cb5-2"><a></a><span class="fu">locale</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;locale&gt;
+Numbers:  123,456.78
+Formats:  %AD / %AT
+Timezone: UTC
+Encoding: UTF-8
+&lt;date_names&gt;
+Days:   Sunday (Sun), Monday (Mon), Tuesday (Tue), Wednesday (Wed), Thursday
+        (Thu), Friday (Fri), Saturday (Sat)
+Months: January (Jan), February (Feb), March (Mar), April (Apr), May (May),
+        June (Jun), July (Jul), August (Aug), September (Sep), October
+        (Oct), November (Nov), December (Dec)
+AM/PM:  AM/PM</code></pre>
+</div>
+</div>
+</section>
+<section id="the-locale-function-1" class="slide level2">
+<h2>The <code>locale</code> function</h2>
+<ul>
+<li>You can see all the locales available on your system by typing:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">system</span>(<span class="st">"locale -a"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="the-locale-function-2" class="slide level2">
+<h2>The <code>locale</code> function</h2>
+<ul>
+<li>Here is what you obtain if you change the dates locale to Spanish:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">locale</span>(<span class="at">date_names =</span> <span class="st">"es"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;locale&gt;
+Numbers:  123,456.78
+Formats:  %AD / %AT
+Timezone: UTC
+Encoding: UTF-8
+&lt;date_names&gt;
+Days:   domingo (dom.), lunes (lun.), martes (mar.), miércoles (mié.), jueves
+        (jue.), viernes (vie.), sábado (sáb.)
+Months: enero (ene.), febrero (feb.), marzo (mar.), abril (abr.), mayo (may.),
+        junio (jun.), julio (jul.), agosto (ago.), septiembre (sept.),
+        octubre (oct.), noviembre (nov.), diciembre (dic.)
+AM/PM:  a. m./p. m.</code></pre>
+</div>
+</div>
+</section>
+<section id="example" class="slide level2">
+<h2>Example</h2>
+<ul>
+<li>Earlier we noted that reading the file:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>fn <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="fu">system.file</span>(<span class="st">"extdata"</span>, <span class="at">package =</span> <span class="st">"dslabs"</span>), <span class="st">"calificaciones.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>had a encoding different than UTF-8, the default.</li>
+</ul>
+</section>
+<section id="example-1" class="slide level2">
+<h2>Example</h2>
+<ul>
+<li>We used <code>guess_encoding</code> to determine the correct one:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">guess_encoding</span>(fn)<span class="sc">$</span>encoding[<span class="dv">1</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "ISO-8859-1"</code></pre>
 </div>
 </div>
 <ul>
-<li>Two functions that are sometimes useful when downloading data from the internet are <code>tempdir</code> and <code>tempfile</code>.</li>
+<li>and used the <code>locale</code> function to change this and read in this encoding instead:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>tmp_filename <span class="ot">&lt;-</span> <span class="fu">tempfile</span>() </span>
-<span id="cb26-2"><a></a><span class="fu">download.file</span>(url, tmp_filename) </span>
-<span id="cb26-3"><a></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(tmp_filename) </span>
-<span id="cb26-4"><a></a><span class="fu">file.remove</span>(tmp_filename) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(fn, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="example-2" class="slide level2">
+<h2>Example</h2>
+<ul>
+<li>This file provides homework assignment scores for seven students. Columns represent the name, date of birth, the time they submitted their assignment, and their score:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">read_lines</span>(fn, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "\"nombre\",\"f.n.\",\"estampa\",\"puntuación\""                       
+[2] "\"Beyoncé\",\"04 de septiembre de 1981\",2023-09-22 02:11:02,\"87,5\""
+[3] "\"Blümchen\",\"20 de abril de 1980\",2023-09-22 03:23:05,\"99,0\""    
+[4] "\"João\",\"10 de junio de 1931\",2023-09-21 22:43:28,\"98,9\""        
+[5] "\"López\",\"24 de julio de 1969\",2023-09-22 01:06:59,\"88,7\""       
+[6] "\"Ñengo\",\"15 de diciembre de 1981\",2023-09-21 23:35:37,\"93,1\""   
+[7] "\"Plácido\",\"24 de enero de 1941\",2023-09-21 23:17:21,\"88,7\""     
+[8] "\"Thalía\",\"26 de agosto de 1971\",2023-09-21 23:08:02,\"83,0\""     </code></pre>
+</div>
+</div>
+</section>
+<section id="example-3" class="slide level2">
+<h2>Example</h2>
+<ul>
+<li><p>As an illustrative example, we will write code to compute the students age and check if they turned in their assignment by the deadline of September 21, 2023, before midnight.</p></li>
+<li><p>We can read in the file with correct encoding like this:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(fn, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="example-4" class="slide level2">
+<h2>Example</h2>
+<ul>
+<li>However, notice that the last column, which is supposed to contain exam scores between 0 and 100, shows numbers larger than 800:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>dat<span class="sc">$</span>puntuación </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 875 990 989 887 931 887 830</code></pre>
+</div>
+</div>
+</section>
+<section id="example-5" class="slide level2">
+<h2>Example</h2>
+<ul>
+<li><p>This happens because the scores in the file use the European decimal point, which confuses <code>read_csv</code>.</p></li>
+<li><p>To address this issue, we can also change the encoding to use European decimals, which fixes the problem:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(fn, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>, </span>
+<span id="cb19-2"><a></a>                                    <span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>)) </span>
+<span id="cb19-3"><a></a>dat<span class="sc">$</span>puntuación </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 87.5 99.0 98.9 88.7 93.1 88.7 83.0</code></pre>
+</div>
+</div>
+</section>
+<section id="example-6" class="slide level2">
+<h2>Example</h2>
+<ul>
+<li>Now, to compute the student ages, let’s try changing the submission times to date format:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">library</span>(lubridate) </span>
+<span id="cb21-2"><a></a><span class="fu">dmy</span>(dat<span class="sc">$</span>f.n.) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA NA NA NA NA NA NA</code></pre>
+</div>
+</div>
+<ul>
+<li><p>Nothing gets converted correctly.</p></li>
+<li><p>This is because the dates are in Spanish.</p></li>
+</ul>
+</section>
+<section id="example-7" class="slide level2">
+<h2>Example</h2>
+<p>We can change the locale to use Spanish as the language for dates:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">parse_date</span>(dat<span class="sc">$</span>f.n., <span class="at">format =</span> <span class="st">"%d de %B de %Y"</span>, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">date_names =</span> <span class="st">"es"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "1981-09-04" "1980-04-20" "1931-06-10" "1969-07-24" "1981-12-15"
+[6] "1941-01-24" "1971-08-26"</code></pre>
+</div>
+</div>
+</section>
+<section id="example-8" class="slide level2">
+<h2>Example</h2>
+<p>We can also reread the file using the correct locales:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(fn, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">date_names =</span> <span class="st">"es"</span>, </span>
+<span id="cb25-2"><a></a>                                    <span class="at">date_format =</span> <span class="st">"%d de %B de %Y"</span>, </span>
+<span id="cb25-3"><a></a>                                    <span class="at">decimal_mark =</span> <span class="st">","</span>, </span>
+<span id="cb25-4"><a></a>                                    <span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="example-9" class="slide level2">
+<h2>Example</h2>
+<p>Computing the students’ ages is now straightforward:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="fu">time_length</span>(<span class="fu">today</span>() <span class="sc">-</span> dat<span class="sc">$</span>f.n., <span class="at">unit =</span> <span class="st">"years"</span>) <span class="sc">|&gt;</span> <span class="fu">floor</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 43 44 93 55 42 83 53</code></pre>
+</div>
+</div>
+</section>
+<section id="example-10" class="slide level2">
+<h2>Example</h2>
+<ul>
+<li>Let’s check which students turned in their homework past the deadline of September 22:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>dat<span class="sc">$</span>estampa <span class="sc">&gt;=</span> <span class="fu">make_date</span>(<span class="dv">2023</span>, <span class="dv">9</span>, <span class="dv">22</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  TRUE  TRUE FALSE  TRUE FALSE FALSE FALSE</code></pre>
+</div>
+</div>
+<ul>
+<li><p>We see that two students where late.</p></li>
+<li><p>However, with times we have to be particularly careful as some functions default to the UTC timezone:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="fu">tz</span>(dat<span class="sc">$</span>estampa) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "UTC"</code></pre>
+</div>
+</div>
+</section>
+<section id="example-11" class="slide level2">
+<h2>Example</h2>
+<ul>
+<li>If we change to the timezone to Eastern Standard Time (EST), we see no one was late:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a><span class="fu">with_tz</span>(dat<span class="sc">$</span>estampa, <span class="at">tz =</span>  <span class="st">"EST"</span>) <span class="sc">&gt;=</span> <span class="fu">make_date</span>(<span class="dv">2023</span>, <span class="dv">9</span>, <span class="dv">22</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+</div>
 </div>
 
 <div class="quarto-auto-generated-content">

@@ -20,7 +20,14 @@
       "/slides/R/06-vectorization.html",
       "/slides/R/07-tidyverse.html",
       "/slides/R/08-ggplot2.html",
-      "/slides/R/09-tidyr.html"
+      "/slides/R/09-tidyr.html",
+      "/slides/wrangling/10-intro-to-wrangling.html",
+      "/slides/wrangling/11-importing-files.html",
+      "/slides/wrangling/12-dates-and-times.html",
+      "/slides/wrangling/13-locales.html",
+      "/slides/wrangling/14-data-apis.html",
+      "/slides/wrangling/15-web-scraping.html",
+      "/slides/wrangling/16-joining-tables.html"
     ]
   }
 ]

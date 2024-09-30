@@ -1,0 +1,244 @@
+---
+title: "Web Scraping"
+keywords: "Wrangling"
+date: 2024-09-30
+format:
+  revealjs:
+    theme: night
+execute: 
+  echo: true
+---
+
+## Scraping HTML
+
+- The data we need to answer a question is not always in a spreadsheet ready for us to read.
+
+- For example, the US murders dataset we used in the R Basics chapter originally comes from this Wikipedia page:
+
+```{r} 
+url <- paste0("https://en.wikipedia.org/w/index.php?title=", 
+              "Gun_violence_in_the_United_States_by_state", 
+              "&direction=prev&oldid=810166167") 
+``` 
+
+## Scraping HTML
+
+- You can see the data table when you visit the webpage:
+
+![](https://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/img/murders-data-wiki-page.png).
+
+- _Web scraping_, or _web harvesting_, is the term we use to describe the process of extracting data from a website.
+
+
+## Scraping HTML
+
+- The reason we can do this is because the information used by a browser to render webpages is received as a text file from a server.
+
+- The text is code written in hyper text markup language (HTML).
+
+- Every browser has a way to show the html source code for a page, each one different.
+
+- On Chrome, you can use Control-U on a PC and command+alt+U on a Mac.
+
+
+
+
+## Scraping HTML
+
+
+![](https://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/img/html-code.png).
+
+
+## HTML
+
+- Because this code is accessible, we can download the HTML file, import it into R, and then write programs to extract the information we need from the page.
+
+- However, once we look at HTML code, this might seem like a daunting task.
+
+- But we will show you some convenient tools to facilitate the process.
+
+
+
+## HTML
+
+- To get an idea of how it works, here are a few lines of code from the Wikipedia page that provides the US murders data:
+
+
+``` 
+<table class="wikitable sortable"> 
+<tr> 
+<th>State</th> 
+<th><a href="/wiki/List_of_U.S._states_and_territories_by_population"  
+title="List of U.S. states and territories by population">Population</a><br /> 
+<small>(total inhabitants)</small><br /> 
+<small>(2015)</small> <sup id="cite_ref-1" class="reference"> 
+<a href="#cite_note-1">[1]</a></sup></th> 
+<th>Murders and Nonnegligent 
+<p>Manslaughter<br /> 
+<small>(total deaths)</small><br /> 
+<small>(2015)</small> <sup id="cite_ref-2" class="reference"> 
+<a href="#cite_note-2">[2]</a></sup></p> 
+</th> 
+<th>Murder and Nonnegligent 
+<p>Manslaughter Rate<br /> 
+<small>(per 100,000 inhabitants)</small><br /> 
+<small>(2015)</small></p> 
+</th> 
+</tr> 
+<tr> 
+<td><a href="/wiki/Alabama" title="Alabama">Alabama</a></td> 
+<td>4,853,875</td> 
+<td>348</td> 
+<td>7.2</td> 
+</tr> 
+<tr> 
+<td><a href="/wiki/Alaska" title="Alaska">Alaska</a></td> 
+<td>737,709</td> 
+<td>59</td> 
+<td>8.0</td> 
+</tr> 
+<tr> 
+``` 
+
+
+
+## HTML
+
+- You can actually see the data, except data values are surrounded by html code such as `<td>`.
+
+- We can also see a pattern of how it is stored.
+
+- If you know HTML, you can write programs that leverage knowledge of these patterns to extract what we want.
+
+- We also take advantage of a language widely used to make webpages look "pretty" called Cascading Style Sheets (CSS).
+
+
+
+## HTML
+
+- Although we provide tools that make it possible to scrape data without knowing HTML, it is useful to learn some HTML and CSS.
+
+- Not only does this improve your scraping skills, but it might come in handy if you are creating a webpage to showcase your work.
+
+- There are plenty of online courses and tutorials for learning these.
+
+- Two examples are [Codeacademy](https://www.codecademy.com/learn/learn-html) and [W3schools](https://www.w3schools.com/).
+
+
+
+## The rvest package
+
+- The __tidyverse__ provides a web harvesting package called __rvest__.
+
+- The first step using this package is to import the webpage into R.
+
+- The package makes this quite simple:
+
+```{r, message=FALSE, warning=FALSE} 
+library(tidyverse) 
+library(rvest) 
+h <- read_html(url) 
+``` 
+
+- Note that the entire Murders in the US Wikipedia webpage is now contained in `h`.
+
+
+
+## The rvest package
+
+- The class of this object is:
+
+```{r} 
+class(h) 
+``` 
+
+- The __rvest__ package is actually more general; it handles XML documents.
+
+- XML is a general markup language (that's what the ML stands for) that can be used to represent any kind of data.
+
+- HTML is a specific type of XML specifically developed for representing webpages.
+
+
+
+## The rvest package
+
+- Now, how do we extract the table from the object `h`? If you were to print `h`,  we would see information about the object that is not very informative.
+
+- We can see all the code that defines the downloaded webpage using the `html_text` function like this:
+
+```{r, eval=FALSE} 
+html_text(h) 
+``` 
+
+## The rvest package
+
+- We don't show the output here because it includes thousands of characters.
+
+- But if we look at it, we can see the data we are after are stored in an HTML table: you can see this in this line of the HTML code above `<table class="wikitable sortable">`.
+
+
+
+## The rvest package
+
+- The different parts of an HTML document, often defined with a message in between  `<` and `>`  are referred to as _nodes_.
+
+- The __rvest__ package includes functions to extract nodes of an HTML document: `html_nodes` extracts all nodes of different types and `html_node` extracts the first one.
+
+## The rvest package
+
+- To extract the tables from the html code we use:
+
+```{r}  
+tab <- h |> html_nodes("table") 
+``` 
+
+- Now, instead of the entire webpage, we just have the html code for the tables in the page:
+
+
+
+## The rvest package
+
+```{r} 
+tab 
+``` 
+
+- The table we are interested is the first one:
+
+```{r} 
+tab[[1]] 
+``` 
+
+## The rvest package
+
+- This is clearly not a tidy dataset, not even a data frame.
+
+- In the code above, you can definitely see a pattern and writing code to extract just the data is very doable.
+
+- In fact, __rvest__ includes a function just for converting HTML tables into data frames:
+
+```{r} 
+tab <- tab[[1]] |> html_table() 
+class(tab) 
+``` 
+
+
+
+## The rvest package
+
+- We can now make the data frame:
+
+```{r} 
+tab <- tab |> 
+  setNames(c("state", "population", "total", "murder_rate")) |>
+  mutate(across(c(population, total), parse_number))
+head(tab) 
+``` 
+
+
+
+## CSS selectors
+
+- <https://rvest.tidyverse.org/articles/selectorgadget.html>] 
+
+- <https://www.analyticsvidhya.com/blog/2017/03/beginners-guide-on-web-scraping-in-r-using-rvest-with-hands-on-knowledge/>
+

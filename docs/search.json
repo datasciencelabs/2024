@@ -1247,7 +1247,7 @@
     "href": "slides.html",
     "title": "Slides",
     "section": "",
-    "text": "Topic\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nFirst day\n\n\nIntroduction\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nUnix\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nRStudio\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nQuarto\n\n\nMon, Sep 09\n\n\n\n\nProductivity Tools\n\n\nGit and GitHub\n\n\nMon, Sep 09\n\n\n\n\nR\n\n\nR Basics\n\n\nMon, Sep 16\n\n\n\n\nR\n\n\nVectorization\n\n\nWed, Sep 18\n\n\n\n\nR\n\n\nTidyverse\n\n\nMon, Sep 23\n\n\n\n\nR\n\n\nggplot2\n\n\nMon, Sep 23\n\n\n\n\nR\n\n\nTidying data\n\n\nWed, Sep 25\n\n\n\n\n\nNo matching items",
+    "text": "Topic\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nFirst day\n\n\nIntroduction\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nUnix\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nRStudio\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nQuarto\n\n\nMon, Sep 09\n\n\n\n\nProductivity Tools\n\n\nGit and GitHub\n\n\nMon, Sep 09\n\n\n\n\nR\n\n\nR Basics\n\n\nMon, Sep 16\n\n\n\n\nR\n\n\nVectorization\n\n\nWed, Sep 18\n\n\n\n\nR\n\n\nTidyverse\n\n\nMon, Sep 23\n\n\n\n\nR\n\n\nggplot2\n\n\nMon, Sep 23\n\n\n\n\nR\n\n\nTidying data\n\n\nWed, Sep 25\n\n\n\n\nWrangling\n\n\nIntroduction to Wrangling\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nImporting files\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nDates And Times\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nLocales\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nData APIs\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nWeb Scraping\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nJoining Tables\n\n\nMon, Sep 30\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Slides"
     ]
@@ -1298,7 +1298,7 @@
     "href": "index.html#lectures",
     "title": "BST 260 Introduction to Data Science",
     "section": "Lectures",
-    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09, Sep 11\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git\n\n\nSep 16, Sep 19\nR\nR basics, Vectorization\nR Basics, Vectorization\n\n\nSep 23\nR\nTidyverse, ggplot2\ndplyr, ggplot2\n\n\nSep 25\nR\nTyding data\nReshaping Data\n\n\nSep 30\nWrangling\n\nImporting data, dates and times, Locales, Joining Tables, Extracting data from the web\n\n\nOct 02\nData visualization\n\nDistributions, Dataviz Principles\n\n\nOct 07, Oct 09\nProbability\n\nMonte Carlo, Random Variables & CLT\n\n\nOct 16\nMidterm 1\n\nCovers material from Sep 04-Oct 11\n\n\nOct 21, Oct 23\nInference\n\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\n\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\n\nRegression, Multivariate Regression\n\n\nNov 13\nLinear models\n\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 18, Nov 20\nHigh dimensional data\n\nMatrices in R, Applied Linear Algebra, Dimension Reduction\n\n\nNov 25\nMidterm 2\n\nMidterm 2: cover material from Sep 04-Nov 22\n\n\nDec 02, Dec 04\nMachine Learning\n\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nDec 09, Dec 11\nMachine Learning\n\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
+    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09, Sep 11\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git\n\n\nSep 16, Sep 19\nR\nR basics, Vectorization\nR Basics, Vectorization\n\n\nSep 23\nR\nTidyverse, ggplot2\ndplyr, ggplot2\n\n\nSep 25\nR\nTyding data\nReshaping Data\n\n\nSep 30\nWrangling\nIntro, Data Importing, Dates and Times, Locales, Data APIs, Web scraping, Joining tables\nImporting data, dates and times, Locales, Joining Tables, Extracting data from the web\n\n\nOct 02\nData visualization\n\nDistributions, Dataviz Principles\n\n\nOct 07, Oct 09\nProbability\n\nMonte Carlo, Random Variables & CLT\n\n\nOct 16\nMidterm 1\n\nCovers material from Sep 04-Oct 11\n\n\nOct 21, Oct 23\nInference\n\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\n\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\n\nRegression, Multivariate Regression\n\n\nNov 13\nLinear models\n\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 18, Nov 20\nHigh dimensional data\n\nMatrices in R, Applied Linear Algebra, Dimension Reduction\n\n\nNov 25\nMidterm 2\n\nMidterm 2: cover material from Sep 04-Nov 22\n\n\nDec 02, Dec 04\nMachine Learning\n\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nDec 09, Dec 11\nMachine Learning\n\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
     "crumbs": [
       "Home"
     ]
@@ -2218,42 +2218,42 @@
   {
     "objectID": "slides/wrangling/10-intro-to-wrangling.html#data-wrangling",
     "href": "slides/wrangling/10-intro-to-wrangling.html#data-wrangling",
-    "title": "Wrangling",
+    "title": "Introduction to Wrangling",
     "section": "Data Wrangling",
     "text": "Data Wrangling\n\nThe two datasets used in the problem sets are already tidy data frames.\nHowever, very rarely in a data science project is data already available in this form.\nMuch more typical is for the data to be in a file, a database, or extracted from a document, including web pages, tweets, or PDFs.\nAs a result, data might be unstructured in complex ways."
   },
   {
     "objectID": "slides/wrangling/10-intro-to-wrangling.html#data-wrangling-1",
     "href": "slides/wrangling/10-intro-to-wrangling.html#data-wrangling-1",
-    "title": "Wrangling",
+    "title": "Introduction to Wrangling",
     "section": "Data Wrangling",
     "text": "Data Wrangling\n\nData wrangling is what we call the process of structuring data from it’s original state into a form that permits us to focus on analysis.\nTidy data is an example of a form that permits us to focus on analysis.\nWe focus on tidy data as a target, but we can have other forms as targets, such as matrices."
   },
   {
     "objectID": "slides/wrangling/10-intro-to-wrangling.html#data-wrangling-2",
     "href": "slides/wrangling/10-intro-to-wrangling.html#data-wrangling-2",
-    "title": "Wrangling",
+    "title": "Introduction to Wrangling",
     "section": "Data Wrangling",
     "text": "Data Wrangling\nData wrangling can involve several complicated steps such as:\n\nextracting data from a file,\nconverting nested key-value pairs into a data frame,\nintegrating data from different source, and\nconstructing requests for data bases."
   },
   {
     "objectID": "slides/wrangling/10-intro-to-wrangling.html#data-wrangling-3",
     "href": "slides/wrangling/10-intro-to-wrangling.html#data-wrangling-3",
-    "title": "Wrangling",
+    "title": "Introduction to Wrangling",
     "section": "Data Wrangling",
     "text": "Data Wrangling\nToday we briefly discuss five concepts/tools considered essential for data wrangling:\n\nImporting data from files\nRESTful APIs\nJoining tables\nhtml parsing\nworking with dates and times\nlocales"
   },
   {
     "objectID": "slides/wrangling/10-intro-to-wrangling.html#data-wrangling-4",
     "href": "slides/wrangling/10-intro-to-wrangling.html#data-wrangling-4",
-    "title": "Wrangling",
+    "title": "Introduction to Wrangling",
     "section": "Data Wrangling",
     "text": "Data Wrangling\n\nWe barely scratch the surface on these topics.\nRarely are all these relevant for a single analysis.\nYou will likely face them all at some point.\nLecture goal is to make you aware of challenges, tools to tackle them, and help you learn how to learn more."
   },
   {
     "objectID": "slides/wrangling/10-intro-to-wrangling.html#further-learning",
     "href": "slides/wrangling/10-intro-to-wrangling.html#further-learning",
-    "title": "Wrangling",
+    "title": "Introduction to Wrangling",
     "section": "Further learning",
     "text": "Further learning\n\nSQL widely used in data-intensive industries to manage and manipulate large databases.\nIn R, dplyr functions like filter, select, and the joins we will learn this week, mirror SQL operations.\nBy learning dplyr, you’ve already covered many key SQL concepts and makes the transition to SQL easier.\nRecommended SQL Resources: W3Schools, Codecademy, Khan Academy, and SQLZoo"
   },
@@ -2297,14 +2297,14 @@
     "href": "slides/wrangling/12-data-apis.html#json-3",
     "title": "Data APIs",
     "section": "JSON",
-    "text": "JSON\n\nThe object is rather complicated. The prizes component includes a list of data frames with information about Nobel Laureates:\n\n\nnobel$prizes |&gt; \n  filter(category == \"literature\" & year == \"1971\") |&gt;  \n  pull(laureates) |&gt; \n  first() |&gt; \n  select(id, firstname, surname) \n\n   id firstname surname\n1 645     Pablo  Neruda"
+    "text": "JSON\nThe JSON parsers have arguments that make the list components into vectors and lists into data frames when possible:\n\nsimplifyVector\nsimplifyDataFrame\nsimplifyMatrix\nflatten"
   },
   {
     "objectID": "slides/wrangling/12-data-apis.html#json-4",
     "href": "slides/wrangling/12-data-apis.html#json-4",
     "title": "Data APIs",
     "section": "JSON",
-    "text": "JSON\n\nYou can learn much more by examining tutorials and help files from the jsonlite package.\nThis package is intended for relatively simple tasks such as converting data into tables.\nFor more flexibility, we recommend the rjson package."
+    "text": "JSON\n\nThe object is rather complicated. The prizes component includes a list of data frames with information about Nobel Laureates:\n\n\nnobel$prizes |&gt; \n  filter(category == \"literature\" & year == \"1971\") |&gt;  \n  pull(laureates) |&gt; \n  first() |&gt; \n  select(id, firstname, surname) \n\n   id firstname surname\n1 645     Pablo  Neruda"
   },
   {
     "objectID": "slides/wrangling/12-data-apis.html#data-apis",
@@ -2332,35 +2332,35 @@
     "href": "slides/wrangling/12-data-apis.html#the-httr2-package-2",
     "title": "Data APIs",
     "section": "The httr2 package",
-    "text": "The httr2 package\n\nBy visiting their data catalog1 you can search for datasets and find that the data is provided through this API:\n\n\nurl &lt;- \"https://data.cdc.gov/resource/muzy-jte6.csv\" \n\n\nWe can then make create and perform a request like this:\n\n\nlibrary(httr2) \nresponse &lt;- request(url) |&gt; req_perform() \n\n\nWe can see the results of the request by looking at the returned object.\n\n\nresponse \n\nhttps://data.cdc.gov"
+    "text": "The httr2 package\n\nBy visiting their data catalog https://data.cdc.gov you can search for datasets and find that the data is provided through this API:\n\n\nurl &lt;- \"https://data.cdc.gov/resource/muzy-jte6.csv\" \n\n\nWe can then make create and perform a request like this:\n\n\nlibrary(httr2) \nresponse &lt;- request(url) |&gt; req_perform()"
   },
   {
     "objectID": "slides/wrangling/12-data-apis.html#the-httr2-package-3",
     "href": "slides/wrangling/12-data-apis.html#the-httr2-package-3",
     "title": "Data APIs",
     "section": "The httr2 package",
-    "text": "The httr2 package\n\nTo extract the body, which is where the data are, we can use resp_body_string and send the result, a comma delimited string, to read_csv.\n\n\nlibrary(readr) \ntab &lt;- response |&gt; resp_body_string() |&gt; read_csv() \n\n\nWe note that the returned object is only 1000 entries.\nAPI often limit how much you can download."
+    "text": "The httr2 package\n\nWe can see the results of the request by looking at the returned object.\n\n\nresponse\n\n&lt;httr2_response&gt;\n\n\nGET https://data.cdc.gov/resource/muzy-jte6.csv\n\n\nStatus: 200 OK\n\n\nContent-Type: text/csv\n\n\nBody: In memory (210808 bytes)"
   },
   {
     "objectID": "slides/wrangling/12-data-apis.html#the-httr2-package-4",
     "href": "slides/wrangling/12-data-apis.html#the-httr2-package-4",
     "title": "Data APIs",
     "section": "The httr2 package",
-    "text": "The httr2 package\n\nThe documentation for this API1 explains that we can change this limit through the.\n$limit parameters.\nWe can use the req_url_path_append to add this to our request:\n\n\nresponse &lt;- request(url) |&gt;  \n  req_url_path_append(\"?$limit=100000\") |&gt;  \n  req_perform()  \n\n\nThe CDC service returns data in csv format but a more common format used by web services is JSON.\n\nhttps://dev.socrata.com/docs/queries/"
+    "text": "The httr2 package\n\nTo extract the body, which is where the data are, we can use resp_body_string and send the result, a comma delimited string, to read_csv.\n\n\nlibrary(readr) \ntab &lt;- response |&gt; resp_body_string() |&gt; read_csv() \n\n\nWe note that the returned object is only 1000 entries.\nAPI often limit how much you can download."
   },
   {
     "objectID": "slides/wrangling/12-data-apis.html#the-httr2-package-5",
     "href": "slides/wrangling/12-data-apis.html#the-httr2-package-5",
     "title": "Data APIs",
     "section": "The httr2 package",
-    "text": "The httr2 package\n\nThe CDC also provides data in json format through a the url:\n\n\nurl &lt;- \"https://data.cdc.gov/resource/muzy-jte6.json\" \n\n\nTo extract the data table we use the fromJSON function from the jsonlite package.\n\n\ntab &lt;- request(url) |&gt;  \n   req_perform() |&gt;  \n   resp_body_string() |&gt;  \n   fromJSON(flatten = TRUE) \n\n\nWhen working with APIs, it’s essential to check the API’s documentation for rate limits, required headers, or authentication methods."
+    "text": "The httr2 package\n\nThe documentation for this API explains that we can change this limit through the.\n$limit parameters.\nWe can use the req_url_path_append to add this to our request:\n\n\nresponse &lt;- request(url) |&gt;  \n  req_url_path_append(\"?$limit=100000\") |&gt;  \n  req_perform()  \n\n\nThe CDC service returns data in csv format but a more common format used by web services is JSON."
   },
   {
     "objectID": "slides/wrangling/12-data-apis.html#the-httr2-package-6",
     "href": "slides/wrangling/12-data-apis.html#the-httr2-package-6",
     "title": "Data APIs",
     "section": "The httr2 package",
-    "text": "The httr2 package\n\nThe httr2 package provides tools to handle these requirements, such as setting headers or authentication parameters."
+    "text": "The httr2 package\n\nThe CDC also provides data in json format through:\n\n\nurl &lt;- \"https://data.cdc.gov/resource/muzy-jte6.json\" \n\n\nTo extract the data table we use the fromJSON function from the jsonlite package.\n\n\ntab &lt;- request(url) |&gt;  \n   req_perform() |&gt;  \n   resp_body_json(simplifyDataFrame = TRUE) \n\n\nWhen working with APIs, it’s essential to check the API’s documentation for rate limits, required headers, or authentication methods."
   },
   {
     "objectID": "slides/wrangling/12-data-apis.html#going-further",
@@ -2375,5 +2375,1650 @@
     "title": "Problem set 4",
     "section": "",
     "text": "In the next problem set, we plan to explore the relationship between COVID-19 death rates and vaccination rates across US states by visually examining their correlation. This analysis will involve gathering COVID-19 related data from the CDC’s API and then extensively processing it to merge the various datasets. Since the population sizes of states vary significantly, we will focus on comparing rates rather than absolute numbers. To facilitate this, we will also source population data from the US Census to accurately calculate these rates.\nIn this problem set we will learn how to extract and wrangle data from the data US Census and CDC APIs.\n\nGet an API key from the US Census at https://api.census.gov/data/key_signup.html. You can’t share this public key. But your code has to run on a TFs computer. Assume the TF will have a file in their working directory named census-key.R with the following one line of code:\n\ncensus_key &lt;- \"A_CENSUS_KEY_THAT_WORKS\"\nWrite a first line of code for your problem set that defines census_key by running the code in the file census-key.R.\n\n## Your code here\n\n\nThe US Census API User Guide provides details on how to leverage this valuable resource. We are interested in vintage population estimates for years 2021 and 2022. From the documentation we find that the endpoint is:\n\n\nurl &lt;- \"https://api.census.gov/data/2021/pep/population\"\n\nUse the httr2 package to construct the following GET request.\nhttps://api.census.gov/data/2021/pep/population?get=POP_2020,POP_2021,NAME&for=state:*&key=YOURKEYHERE\nCreate an object called request of class httr2_request with this URL as an endpoint. Hint: Print out request to check that the URL matches what we want.\n\nlibrary(httr2)\n#request &lt;- \n\n\nMake a request to the US Census API using the request object. Save the response to and object named response. Check the response status of your request and make sure it was successful. You can learn about status codes here.\n\n\n#response &lt;- \n\n\nUse a function from the httr2 package to determine the content type of your response.\n\n\n# Your code here\n\n\nUse just one line of code and one function to extract the data into a matrix. Hints: 1) Use the resp_body_json function. 2) The first row of the matrix will be the variable names and this OK as we will fix in the next exercise.\n\n\n#population &lt;- \n\n\nExamine the population matrix you just created. Notice that 1) it is not tidy, 2) the column types are not what we want, and 3) the first row is a header. Convert population to a tidy dataset. Remove the state ID column and change the name of the column with state names to state_name. Add a column with state abbreviations called state. Make sure you assign the abbreviations for DC and PR correctly. Hint: Use the janitor package to make the first row the header.\n\n\nlibrary(tidyverse)\nlibrary(janitor)\n#population &lt;- population |&gt; ## Use janitor row to names function\n  # convert to tibble\n  # remove stat column\n  # rename state column to state_name\n  # use pivot_longer to tidy\n  # remove POP_ from year\n  # parese all relevant colunns to numeric\n  # add state abbreviations using state.abb variable\n  # use case_when to add abbreviations for DC and PR\n\n\nAs a check, make a barplot of states’ 2021 and 2022 populations. Show the state names in the y-axis ordered by population size. Hint: You will need to use reorder and use facet_wrap.\n\n\n# population |&gt; \n  # reorder state\n  # assign aesthetic mapping\n  # use geom_col to plot barplot\n  # flip coordinates\n  # facet by year\n\n\nThe following URL:\n\n\nurl &lt;- \"https://github.com/datasciencelabs/2024/raw/refs/heads/main/data/regions.json\"\n\npoints to a JSON file that lists the states in the 10 Public Health Service (PHS) defined by CDC. We want to add these regions to the population dataset. To facilitate this create a data frame called regions that has two columns state_name, region, region_name. One of the regions has a long name. Change it to something shorter.\n\nlibrary(jsonlite)\nlibrary(purrr)\nurl &lt;- \"https://github.com/datasciencelabs/2024/raw/refs/heads/main/data/regions.json\"\n# regions &lt;- use jsonlit JSON parser \n# regions &lt;- convert list to data frame. You can use map_df in purrr package \n\n\nAdd a region and region name columns to the population data frame.\n\n\n# population &lt;- \n\n\nFrom reading https://data.cdc.gov/ we learn the endpoint https://data.cdc.gov/resource/pwn4-m3yp.json provides state level data from SARS-COV2 cases. Use the httr2 tools you have learned to download this into a data frame. Is all the data there? If not, comment on why.\n\n\napi &lt;- \"https://data.cdc.gov/resource/pwn4-m3yp.json\"\n# cases_raw &lt;- \n\nWe see exactly 1,000 rows. We should be seeing over \\(52 \\times 3\\) rows per state.\n\nThe reason you see exactly 1,000 rows is because CDC has a default limit. You can change this limit by adding $limit=10000000000 to the request. Rewrite the previous request to ensure that you receive all the data. Then wrangle the resulting data frame to produce a data frame with columns state, date (should be the end date) and cases. Make sure the cases are numeric and the dates are in Date ISO-8601 format.\n\n\napi &lt;- \"https://data.cdc.gov/resource/pwn4-m3yp.json\"\n# cases_raw &lt;- \n\n\nFor 2020 and 2021, make a time series plot of cases per 100,000 versus time for each state. Stratify the plot by region name. Make sure to label you graph appropriately.\n\n\n#cases |&gt;"
+  },
+  {
+    "objectID": "slides/wrangling/12-data-apis.html#the-httr2-package-7",
+    "href": "slides/wrangling/12-data-apis.html#the-httr2-package-7",
+    "title": "Data APIs",
+    "section": "The httr2 package",
+    "text": "The httr2 package\n\nThe httr2 package provides tools to handle these requirements, such as setting headers or authentication parameters."
+  },
+  {
+    "objectID": "slides/wrangling/13-web-scraping.html#scraping-html",
+    "href": "slides/wrangling/13-web-scraping.html#scraping-html",
+    "title": "Web Scraping",
+    "section": "Scraping HTML",
+    "text": "Scraping HTML\n\nThe data we need to answer a question is not always in a spreadsheet ready for us to read.\nFor example, the US murders dataset we used in the R Basics chapter originally comes from this Wikipedia page:\n\n\nurl &lt;- paste0(\"https://en.wikipedia.org/w/index.php?title=\", \n              \"Gun_violence_in_the_United_States_by_state\", \n              \"&direction=prev&oldid=810166167\")"
+  },
+  {
+    "objectID": "slides/wrangling/13-web-scraping.html#scraping-html-1",
+    "href": "slides/wrangling/13-web-scraping.html#scraping-html-1",
+    "title": "Web Scraping",
+    "section": "Scraping HTML",
+    "text": "Scraping HTML\n\nYou can see the data table when you visit the webpage:\n\n.\n\nWeb scraping, or web harvesting, is the term we use to describe the process of extracting data from a website."
+  },
+  {
+    "objectID": "slides/wrangling/13-web-scraping.html#scraping-html-2",
+    "href": "slides/wrangling/13-web-scraping.html#scraping-html-2",
+    "title": "Web Scraping",
+    "section": "Scraping HTML",
+    "text": "Scraping HTML\n\nThe reason we can do this is because the information used by a browser to render webpages is received as a text file from a server.\nThe text is code written in hyper text markup language (HTML).\nEvery browser has a way to show the html source code for a page, each one different.\nOn Chrome, you can use Control-U on a PC and command+alt+U on a Mac."
+  },
+  {
+    "objectID": "slides/wrangling/13-web-scraping.html#scraping-html-3",
+    "href": "slides/wrangling/13-web-scraping.html#scraping-html-3",
+    "title": "Web Scraping",
+    "section": "Scraping HTML",
+    "text": "Scraping HTML\n."
+  },
+  {
+    "objectID": "slides/wrangling/13-web-scraping.html#html",
+    "href": "slides/wrangling/13-web-scraping.html#html",
+    "title": "Web Scraping",
+    "section": "HTML",
+    "text": "HTML\n\nBecause this code is accessible, we can download the HTML file, import it into R, and then write programs to extract the information we need from the page.\nHowever, once we look at HTML code, this might seem like a daunting task.\nBut we will show you some convenient tools to facilitate the process."
+  },
+  {
+    "objectID": "slides/wrangling/13-web-scraping.html#html-1",
+    "href": "slides/wrangling/13-web-scraping.html#html-1",
+    "title": "Web Scraping",
+    "section": "HTML",
+    "text": "HTML\n\nTo get an idea of how it works, here are a few lines of code from the Wikipedia page that provides the US murders data:\n\n&lt;table class=\"wikitable sortable\"&gt; \n&lt;tr&gt; \n&lt;th&gt;State&lt;/th&gt; \n&lt;th&gt;&lt;a href=\"/wiki/List_of_U.S._states_and_territories_by_population\"  \ntitle=\"List of U.S. states and territories by population\"&gt;Population&lt;/a&gt;&lt;br /&gt; \n&lt;small&gt;(total inhabitants)&lt;/small&gt;&lt;br /&gt; \n&lt;small&gt;(2015)&lt;/small&gt; &lt;sup id=\"cite_ref-1\" class=\"reference\"&gt; \n&lt;a href=\"#cite_note-1\"&gt;[1]&lt;/a&gt;&lt;/sup&gt;&lt;/th&gt; \n&lt;th&gt;Murders and Nonnegligent \n&lt;p&gt;Manslaughter&lt;br /&gt; \n&lt;small&gt;(total deaths)&lt;/small&gt;&lt;br /&gt; \n&lt;small&gt;(2015)&lt;/small&gt; &lt;sup id=\"cite_ref-2\" class=\"reference\"&gt; \n&lt;a href=\"#cite_note-2\"&gt;[2]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt; \n&lt;/th&gt; \n&lt;th&gt;Murder and Nonnegligent \n&lt;p&gt;Manslaughter Rate&lt;br /&gt; \n&lt;small&gt;(per 100,000 inhabitants)&lt;/small&gt;&lt;br /&gt; \n&lt;small&gt;(2015)&lt;/small&gt;&lt;/p&gt; \n&lt;/th&gt; \n&lt;/tr&gt; \n&lt;tr&gt; \n&lt;td&gt;&lt;a href=\"/wiki/Alabama\" title=\"Alabama\"&gt;Alabama&lt;/a&gt;&lt;/td&gt; \n&lt;td&gt;4,853,875&lt;/td&gt; \n&lt;td&gt;348&lt;/td&gt; \n&lt;td&gt;7.2&lt;/td&gt; \n&lt;/tr&gt; \n&lt;tr&gt; \n&lt;td&gt;&lt;a href=\"/wiki/Alaska\" title=\"Alaska\"&gt;Alaska&lt;/a&gt;&lt;/td&gt; \n&lt;td&gt;737,709&lt;/td&gt; \n&lt;td&gt;59&lt;/td&gt; \n&lt;td&gt;8.0&lt;/td&gt; \n&lt;/tr&gt; \n&lt;tr&gt;"
+  },
+  {
+    "objectID": "slides/wrangling/13-web-scraping.html#html-2",
+    "href": "slides/wrangling/13-web-scraping.html#html-2",
+    "title": "Web Scraping",
+    "section": "HTML",
+    "text": "HTML\n\nYou can actually see the data, except data values are surrounded by html code such as &lt;td&gt;.\nWe can also see a pattern of how it is stored.\nIf you know HTML, you can write programs that leverage knowledge of these patterns to extract what we want.\nWe also take advantage of a language widely used to make webpages look “pretty” called Cascading Style Sheets (CSS)."
+  },
+  {
+    "objectID": "slides/wrangling/13-web-scraping.html#html-3",
+    "href": "slides/wrangling/13-web-scraping.html#html-3",
+    "title": "Web Scraping",
+    "section": "HTML",
+    "text": "HTML\n\nAlthough we provide tools that make it possible to scrape data without knowing HTML, it is useful to learn some HTML and CSS.\nNot only does this improve your scraping skills, but it might come in handy if you are creating a webpage to showcase your work.\nThere are plenty of online courses and tutorials for learning these.\nTwo examples are Codeacademy and W3schools."
+  },
+  {
+    "objectID": "slides/wrangling/13-web-scraping.html#the-rvest-package",
+    "href": "slides/wrangling/13-web-scraping.html#the-rvest-package",
+    "title": "Web Scraping",
+    "section": "The rvest package",
+    "text": "The rvest package\n\nThe tidyverse provides a web harvesting package called rvest.\nThe first step using this package is to import the webpage into R.\nThe package makes this quite simple:\n\n\nlibrary(tidyverse) \nlibrary(rvest) \nh &lt;- read_html(url) \n\n\nNote that the entire Murders in the US Wikipedia webpage is now contained in h."
+  },
+  {
+    "objectID": "slides/wrangling/13-web-scraping.html#the-rvest-package-1",
+    "href": "slides/wrangling/13-web-scraping.html#the-rvest-package-1",
+    "title": "Web Scraping",
+    "section": "The rvest package",
+    "text": "The rvest package\n\nThe class of this object is:\n\n\nclass(h) \n\n[1] \"xml_document\" \"xml_node\"    \n\n\n\nThe rvest package is actually more general; it handles XML documents.\nXML is a general markup language (that’s what the ML stands for) that can be used to represent any kind of data.\nHTML is a specific type of XML specifically developed for representing webpages."
+  },
+  {
+    "objectID": "slides/wrangling/13-web-scraping.html#the-rvest-package-2",
+    "href": "slides/wrangling/13-web-scraping.html#the-rvest-package-2",
+    "title": "Web Scraping",
+    "section": "The rvest package",
+    "text": "The rvest package\n\nNow, how do we extract the table from the object h? If you were to print h, we would see information about the object that is not very informative.\nWe can see all the code that defines the downloaded webpage using the html_text function like this:\n\n\nhtml_text(h)"
+  },
+  {
+    "objectID": "slides/wrangling/13-web-scraping.html#the-rvest-package-3",
+    "href": "slides/wrangling/13-web-scraping.html#the-rvest-package-3",
+    "title": "Web Scraping",
+    "section": "The rvest package",
+    "text": "The rvest package\n\nWe don’t show the output here because it includes thousands of characters.\nBut if we look at it, we can see the data we are after are stored in an HTML table: you can see this in this line of the HTML code above &lt;table class=\"wikitable sortable\"&gt;."
+  },
+  {
+    "objectID": "slides/wrangling/13-web-scraping.html#the-rvest-package-4",
+    "href": "slides/wrangling/13-web-scraping.html#the-rvest-package-4",
+    "title": "Web Scraping",
+    "section": "The rvest package",
+    "text": "The rvest package\n\nThe different parts of an HTML document, often defined with a message in between &lt; and &gt; are referred to as nodes.\nThe rvest package includes functions to extract nodes of an HTML document: html_nodes extracts all nodes of different types and html_node extracts the first one."
+  },
+  {
+    "objectID": "slides/wrangling/13-web-scraping.html#the-rvest-package-5",
+    "href": "slides/wrangling/13-web-scraping.html#the-rvest-package-5",
+    "title": "Web Scraping",
+    "section": "The rvest package",
+    "text": "The rvest package\n\nTo extract the tables from the html code we use:\n\n\ntab &lt;- h |&gt; html_nodes(\"table\") \n\n\nNow, instead of the entire webpage, we just have the html code for the tables in the page:"
+  },
+  {
+    "objectID": "slides/wrangling/13-web-scraping.html#css-selectors",
+    "href": "slides/wrangling/13-web-scraping.html#css-selectors",
+    "title": "Web Scraping",
+    "section": "CSS selectors",
+    "text": "CSS selectors\n\nhttps://rvest.tidyverse.org/articles/selectorgadget.html]\nhttps://www.analyticsvidhya.com/blog/2017/03/beginners-guide-on-web-scraping-in-r-using-rvest-with-hands-on-knowledge/"
+  },
+  {
+    "objectID": "slides/wrangling/13-web-scraping.html#the-rvest-package-6",
+    "href": "slides/wrangling/13-web-scraping.html#the-rvest-package-6",
+    "title": "Web Scraping",
+    "section": "The rvest package",
+    "text": "The rvest package\n\ntab \n\n{xml_nodeset (2)}\n[1] &lt;table class=\"wikitable sortable\"&gt;&lt;tbody&gt;\\n&lt;tr&gt;\\n&lt;th&gt;State\\n&lt;/th&gt;\\n&lt;th&gt;\\n ...\n[2] &lt;table class=\"nowraplinks hlist mw-collapsible mw-collapsed navbox-inner\" ...\n\n\n\nThe table we are interested is the first one:\n\n\ntab[[1]] \n\n{html_node}\n&lt;table class=\"wikitable sortable\"&gt;\n[1] &lt;tbody&gt;\\n&lt;tr&gt;\\n&lt;th&gt;State\\n&lt;/th&gt;\\n&lt;th&gt;\\n&lt;a href=\"/wiki/List_of_U.S._states ..."
+  },
+  {
+    "objectID": "slides/wrangling/13-web-scraping.html#the-rvest-package-7",
+    "href": "slides/wrangling/13-web-scraping.html#the-rvest-package-7",
+    "title": "Web Scraping",
+    "section": "The rvest package",
+    "text": "The rvest package\n\nThis is clearly not a tidy dataset, not even a data frame.\nIn the code above, you can definitely see a pattern and writing code to extract just the data is very doable.\nIn fact, rvest includes a function just for converting HTML tables into data frames:\n\n\ntab &lt;- tab[[1]] |&gt; html_table() \nclass(tab) \n\n[1] \"tbl_df\"     \"tbl\"        \"data.frame\""
+  },
+  {
+    "objectID": "slides/wrangling/13-web-scraping.html#the-rvest-package-8",
+    "href": "slides/wrangling/13-web-scraping.html#the-rvest-package-8",
+    "title": "Web Scraping",
+    "section": "The rvest package",
+    "text": "The rvest package\n\nWe can now make the data frame:\n\n\ntab &lt;- tab |&gt; \n  setNames(c(\"state\", \"population\", \"total\", \"murder_rate\")) |&gt;\n  mutate(across(c(population, total), parse_number))\nhead(tab) \n\n# A tibble: 6 × 4\n  state      population total murder_rate\n  &lt;chr&gt;           &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;\n1 Alabama       4853875   348         7.2\n2 Alaska         737709    59         8  \n3 Arizona       6817565   309         4.5\n4 Arkansas      2977853   181         6.1\n5 California   38993940  1861         4.8\n6 Colorado      5448819   176         3.2"
+  },
+  {
+    "objectID": "slides/wrangling/14-dates-and-times.html#parsing-dates-and-times",
+    "href": "slides/wrangling/14-dates-and-times.html#parsing-dates-and-times",
+    "title": "Dates And Times",
+    "section": "Parsing dates and times",
+    "text": "Parsing dates and times\n\nWe have described three main types of vectors: numeric, character, and logical.\nWhen analyzing data, we often encounter variables that are dates.\nAlthough we can represent a date with a string, for example November 2, 2017, once we pick a reference day, referred to as the epoch by computer programmers, they can be converted to numbers by calculating the number of days since the epoch.\nIn R and Unix, the epoch is defined as January 1, 1970."
+  },
+  {
+    "objectID": "slides/wrangling/14-dates-and-times.html#parsing-dates-and-times-1",
+    "href": "slides/wrangling/14-dates-and-times.html#parsing-dates-and-times-1",
+    "title": "Dates And Times",
+    "section": "Parsing dates and times",
+    "text": "Parsing dates and times\n\nSo, for example, January 2, 1970 is day 1, December 31, 1969 is day -1, and November 2, 2017, is day 17,204.\nNow how should we represent dates and times when analyzing data in R? We could just use days since the epoch, but then it is almost impossible to interpret.\nIf I tell you it’s November 2, 2017, you know what this means immediately.\nIf I tell you it’s day 17,204, you will be quite confused.\nSimilar problems arise with times and even more complications can appear due to time zones.\nFor this reason, R defines a data type just for dates and times."
+  },
+  {
+    "objectID": "slides/wrangling/14-dates-and-times.html#the-date-data-type",
+    "href": "slides/wrangling/14-dates-and-times.html#the-date-data-type",
+    "title": "Dates And Times",
+    "section": "The date data type",
+    "text": "The date data type\n\nWe can see an example of the data type R uses for data here:\n\n\nlibrary(tidyverse) \nlibrary(dslabs) \npolls_us_election_2016$startdate |&gt; head() \n\n[1] \"2016-11-03\" \"2016-11-01\" \"2016-11-02\" \"2016-11-04\" \"2016-11-03\"\n[6] \"2016-11-03\"\n\n\n\nThe dates look like strings, but they are not:\n\n\nclass(polls_us_election_2016$startdate) \n\n[1] \"Date\"\n\n\n\nLook at what happens when we convert them to numbers:\n\n\nas.numeric(polls_us_election_2016$startdate) |&gt; head() \n\n[1] 17108 17106 17107 17109 17108 17108\n\n\n\nIt turns them into days since the epoch.\nThe as.Date function can convert a character into a date."
+  },
+  {
+    "objectID": "slides/wrangling/14-dates-and-times.html#the-date-data-type-1",
+    "href": "slides/wrangling/14-dates-and-times.html#the-date-data-type-1",
+    "title": "Dates And Times",
+    "section": "The date data type",
+    "text": "The date data type\n\nSo to see that the epoch is day 0 we can type.\n\n\nas.Date(\"1970-01-01\") |&gt; as.numeric() \n\n[1] 0\n\n\n\nPlotting functions, such as those in ggplot, are aware of the date format.\nThis means that, for example, a scatterplot can use the numeric representation to decide on the position of the point, but include the string in the labels:\n\n\npolls_us_election_2016 |&gt; filter(pollster == \"Ipsos\" & state == \"U.S.\") |&gt; \n  ggplot(aes(startdate, rawpoll_trump)) + \n  geom_line()"
+  },
+  {
+    "objectID": "slides/wrangling/14-dates-and-times.html#the-date-data-type-2",
+    "href": "slides/wrangling/14-dates-and-times.html#the-date-data-type-2",
+    "title": "Dates And Times",
+    "section": "The date data type",
+    "text": "The date data type"
+  },
+  {
+    "objectID": "slides/wrangling/14-dates-and-times.html#the-date-data-type-3",
+    "href": "slides/wrangling/14-dates-and-times.html#the-date-data-type-3",
+    "title": "Dates And Times",
+    "section": "The date data type",
+    "text": "The date data type\n\nNote in particular that the month names are displayed, a very convenient feature."
+  },
+  {
+    "objectID": "slides/wrangling/14-dates-and-times.html#the-lubridate-package",
+    "href": "slides/wrangling/14-dates-and-times.html#the-lubridate-package",
+    "title": "Dates And Times",
+    "section": "The lubridate package",
+    "text": "The lubridate package\n\nThe lubridate package provides tools to work with date and times.\n\n\nlibrary(lubridate) \n\n\nWe will take a random sample of dates to show some of the useful things one can do:\n\n\nset.seed(2002) \ndates &lt;- sample(polls_us_election_2016$startdate, 10) |&gt; sort() \ndates \n\n [1] \"2016-05-31\" \"2016-08-08\" \"2016-08-19\" \"2016-09-22\" \"2016-09-27\"\n [6] \"2016-10-12\" \"2016-10-24\" \"2016-10-26\" \"2016-10-29\" \"2016-10-30\"\n\n\n\nThe functions year, month and day extract those values:\n\n\ntibble(date = dates, month = month(dates), day = day(dates), year = year(dates)) \n\n# A tibble: 10 × 4\n   date       month   day  year\n   &lt;date&gt;     &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt;\n 1 2016-05-31     5    31  2016\n 2 2016-08-08     8     8  2016\n 3 2016-08-19     8    19  2016\n 4 2016-09-22     9    22  2016\n 5 2016-09-27     9    27  2016\n 6 2016-10-12    10    12  2016\n 7 2016-10-24    10    24  2016\n 8 2016-10-26    10    26  2016\n 9 2016-10-29    10    29  2016\n10 2016-10-30    10    30  2016"
+  },
+  {
+    "objectID": "slides/wrangling/14-dates-and-times.html#the-lubridate-package-1",
+    "href": "slides/wrangling/14-dates-and-times.html#the-lubridate-package-1",
+    "title": "Dates And Times",
+    "section": "The lubridate package",
+    "text": "The lubridate package\n\nWe can also extract the month labels:\n\n\nmonth(dates, label = TRUE) \n\n\n\n [1] May Aug Aug Sep Sep Oct Oct Oct Oct Oct\n12 Levels: Jan &lt; Feb &lt; Mar &lt; Apr &lt; May &lt; Jun &lt; Jul &lt; Aug &lt; Sep &lt; ... &lt; Dec\n\n\n\nAnother useful set of functions are the parsers that convert strings into dates.\nThe function ymd assumes the dates are in the format YYYY-MM-DD and tries to parse as well as possible.\n\n\nx &lt;- c(20090101, \"2009-01-02\", \"2009 01 03\", \"2009-1-4\", \n       \"2009-1, 5\", \"Created on 2009 1 6\", \"200901 !!! 07\") \nymd(x) \n\n[1] \"2009-01-01\" \"2009-01-02\" \"2009-01-03\" \"2009-01-04\" \"2009-01-05\"\n[6] \"2009-01-06\" \"2009-01-07\""
+  },
+  {
+    "objectID": "slides/wrangling/14-dates-and-times.html#the-lubridate-package-2",
+    "href": "slides/wrangling/14-dates-and-times.html#the-lubridate-package-2",
+    "title": "Dates And Times",
+    "section": "The lubridate package",
+    "text": "The lubridate package\n\nA further complication comes from the fact that dates often come in different formats in which the order of year, month, and day are different.\nThe preferred format is to show year (with all four digits), month (two digits), and then day, or what is called the ISO 8601.\nSpecifically we use YYYY-MM-DD so that if we order the string, it will be ordered by date.\nYou can see the function ymd returns them in this format."
+  },
+  {
+    "objectID": "slides/wrangling/14-dates-and-times.html#the-lubridate-package-3",
+    "href": "slides/wrangling/14-dates-and-times.html#the-lubridate-package-3",
+    "title": "Dates And Times",
+    "section": "The lubridate package",
+    "text": "The lubridate package\n\nBut, what if you encounter dates such as “09/01/02”? This could be September 1, 2002 or January 2, 2009 or January 9, 2002.\nIn these cases, examining the entire vector of dates will help you determine what format it is by process of elimination.\nOnce you know, you can use the many parses provided by lubridate.\nFor example, if the string is:\n\n\nx &lt;- \"09/01/02\""
+  },
+  {
+    "objectID": "slides/wrangling/14-dates-and-times.html#the-lubridate-package-4",
+    "href": "slides/wrangling/14-dates-and-times.html#the-lubridate-package-4",
+    "title": "Dates And Times",
+    "section": "The lubridate package",
+    "text": "The lubridate package\n\nThe ymd function assumes the first entry is the year, the second is the month, and the third is the day, so it converts it to:\n\n\nymd(x) \n\n[1] \"2009-01-02\"\n\n\n\nThe mdy function assumes the first entry is the month, then the day, then the year:\n\n\nmdy(x) \n\n[1] \"2002-09-01\"\n\n\n\nThe lubridate package provides a function for every possibility.\nHere is the other common one:"
+  },
+  {
+    "objectID": "slides/wrangling/14-dates-and-times.html#the-lubridate-package-5",
+    "href": "slides/wrangling/14-dates-and-times.html#the-lubridate-package-5",
+    "title": "Dates And Times",
+    "section": "The lubridate package",
+    "text": "The lubridate package\n\ndmy(x) \n\n[1] \"2002-01-09\"\n\n\n\nThe lubridate package is also useful for dealing with times.\nIn base R, you can get the current time typing Sys.time().\nThe lubridate package provides a slightly more advanced function, now, that permits you to define the time zone:\n\n\nnow() \n\n[1] \"2024-09-30 01:18:05 EDT\"\n\nnow(\"GMT\") \n\n[1] \"2024-09-30 05:18:05 GMT\"\n\n\n\nYou can see all the available time zones with OlsonNames() function."
+  },
+  {
+    "objectID": "slides/wrangling/14-dates-and-times.html#the-lubridate-package-6",
+    "href": "slides/wrangling/14-dates-and-times.html#the-lubridate-package-6",
+    "title": "Dates And Times",
+    "section": "The lubridate package",
+    "text": "The lubridate package\n\nWe can also extract hours, minutes, and seconds:\n\n\nnow() |&gt; hour() \n\n[1] 1\n\nnow() |&gt; minute() \n\n[1] 18\n\nnow() |&gt; second() \n\n[1] 5.151428\n\n\n\nThe package also includes a function to parse strings into times as well as parsers for time objects that include dates:\n\n\nx &lt;- c(\"12:34:56\") \nhms(x) \n\n[1] \"12H 34M 56S\"\n\nx &lt;- \"Nov/2/2012 12:34:56\" \nmdy_hms(x) \n\n[1] \"2012-11-02 12:34:56 UTC\"\n\n\n\nThis package has many other useful functions."
+  },
+  {
+    "objectID": "slides/wrangling/14-dates-and-times.html#the-lubridate-package-7",
+    "href": "slides/wrangling/14-dates-and-times.html#the-lubridate-package-7",
+    "title": "Dates And Times",
+    "section": "The lubridate package",
+    "text": "The lubridate package\n\nWe describe two of these here that we find particularly useful.\nThe make_date function can be used to quickly create a date object.\nIt can take up to seven arguments: year, month, day, hour, minute, seconds, and time zone defaulting to the epoch values on UTC time.\nTo create an date object representing, for example, July 6, 2019 we write:\n\n\nmake_date(2019, 7, 6) \n\n[1] \"2019-07-06\""
+  },
+  {
+    "objectID": "slides/wrangling/14-dates-and-times.html#the-lubridate-package-8",
+    "href": "slides/wrangling/14-dates-and-times.html#the-lubridate-package-8",
+    "title": "Dates And Times",
+    "section": "The lubridate package",
+    "text": "The lubridate package\n\nTo make a vector of January 1 for the 80s we write:\n\n\nmake_date(1980:1989) \n\n [1] \"1980-01-01\" \"1981-01-01\" \"1982-01-01\" \"1983-01-01\" \"1984-01-01\"\n [6] \"1985-01-01\" \"1986-01-01\" \"1987-01-01\" \"1988-01-01\" \"1989-01-01\"\n\n\n\nAnother very useful function is round_date.\nIt can be used to round dates to nearest year, quarter, month, week, day, hour, minutes, or seconds.\nSo if we want to group all the polls by week of the year we can do the following:\n\n\npolls_us_election_2016 |&gt;  \n  mutate(week = round_date(startdate, \"week\")) |&gt; \n  group_by(week) |&gt; \n  summarize(margin = mean(rawpoll_clinton - rawpoll_trump)) |&gt; \n  ggplot(aes(week, margin)) + \n  geom_point()"
+  },
+  {
+    "objectID": "slides/wrangling/14-dates-and-times.html#the-lubridate-package-9",
+    "href": "slides/wrangling/14-dates-and-times.html#the-lubridate-package-9",
+    "title": "Dates And Times",
+    "section": "The lubridate package",
+    "text": "The lubridate package"
+  },
+  {
+    "objectID": "slides/wrangling/14-dates-and-times.html#the-lubridate-package-10",
+    "href": "slides/wrangling/14-dates-and-times.html#the-lubridate-package-10",
+    "title": "Dates And Times",
+    "section": "The lubridate package",
+    "text": "The lubridate package\n\nFinally, you should be aware the there are useful function for computing operations on time such a difftime, time_length, and interval."
+  },
+  {
+    "objectID": "slides/wrangling/14-dates-and-times.html#dates-and-times-with-data.table",
+    "href": "slides/wrangling/14-dates-and-times.html#dates-and-times-with-data.table",
+    "title": "Dates And Times",
+    "section": "Dates and times with data.table",
+    "text": "Dates and times with data.table\n\nThe data.table package includes some of the same functionality as lubridate.\nFor example, it includes the month, and year functions that are the same as those in lubridate.\nThe equilvalent of lubridate’s day is mday:\n\n\nlibrary(data.table) \nst &lt;- as.Date(\"2024-03-04\") \nday(st) \n\n[1] 4\n\nmday(st) \n\n[1] 4\n\n\n\nOther similar functions included in data.table are second, minute, hour, yday, wday, week,"
+  },
+  {
+    "objectID": "slides/wrangling/14-dates-and-times.html#dates-and-times-with-data.table-1",
+    "href": "slides/wrangling/14-dates-and-times.html#dates-and-times-with-data.table-1",
+    "title": "Dates And Times",
+    "section": "Dates and times with data.table",
+    "text": "Dates and times with data.table\n\nisoweek and quarter.\nThe package also includes the classes IDate and ITime, which store dates and times more efficiently that lubridate and base R.\nThis convenient for large files with date stamps.\nYou can convert dates in the usual R format: using as.IDate and as.ITime.\nYou can see this by using the object.size function:"
+  },
+  {
+    "objectID": "slides/wrangling/14-dates-and-times.html#dates-and-times-with-data.table-2",
+    "href": "slides/wrangling/14-dates-and-times.html#dates-and-times-with-data.table-2",
+    "title": "Dates And Times",
+    "section": "Dates and times with data.table",
+    "text": "Dates and times with data.table\n\nobject.size(polls_us_election_2016$startdate) \n\n33936 bytes\n\nobject.size(as.IDate(polls_us_election_2016$startdate)) \n\n17168 bytes"
+  },
+  {
+    "objectID": "slides/wrangling/15-joining-tables.html#joining-tables",
+    "href": "slides/wrangling/15-joining-tables.html#joining-tables",
+    "title": "Joining Tables",
+    "section": "Joining tables",
+    "text": "Joining tables\n\nThe information we need for a given analysis may not be just in one table.\nHere we use a simple examples to illustrate the general challenge of combining tables.\nSuppose we want to explore the relationship between population size for US states and electoral votes.\nWe have the population size in this table:\n\n\nlibrary(tidyverse) \nlibrary(dslabs) \nhead(murders) \n\n       state abb region population total\n1    Alabama  AL  South    4779736   135\n2     Alaska  AK   West     710231    19\n3    Arizona  AZ   West    6392017   232\n4   Arkansas  AR  South    2915918    93\n5 California  CA   West   37253956  1257\n6   Colorado  CO   West    5029196    65"
+  },
+  {
+    "objectID": "slides/wrangling/15-joining-tables.html#joining-tables-1",
+    "href": "slides/wrangling/15-joining-tables.html#joining-tables-1",
+    "title": "Joining Tables",
+    "section": "Joining tables",
+    "text": "Joining tables\n\nand electoral votes in this one:\n\n\nhead(results_us_election_2016) \n\n         state electoral_votes clinton trump others\n1   California              55    61.7  31.6    6.7\n2        Texas              38    43.2  52.2    4.5\n3      Florida              29    47.8  49.0    3.2\n4     New York              29    59.0  36.5    4.5\n5     Illinois              20    55.8  38.8    5.4\n6 Pennsylvania              20    47.9  48.6    3.6\n\n\n\nJust concatenating these two tables together will not work since the order of the states is not the same.\n\n\nidentical(results_us_election_2016$state, murders$state) \n\n[1] FALSE\n\n\n\nThe join functions, described below, are designed to handle this challenge."
+  },
+  {
+    "objectID": "slides/wrangling/15-joining-tables.html#joins",
+    "href": "slides/wrangling/15-joining-tables.html#joins",
+    "title": "Joining Tables",
+    "section": "Joins",
+    "text": "Joins\n\nThe join functions in the dplyr package make sure that the tables are combined so that matching rows are together.\nIf you know SQL, you will see that the approach and syntax is very similar.\nThe general idea is that one needs to identify one or more columns that will serve to match the two tables.\nThen a new table with the combined information is returned.\nNotice what happens if we join the two tables above by state using left_join (we will remove the others column and rename electoral_votes so that the tables fit on the page):"
+  },
+  {
+    "objectID": "slides/wrangling/15-joining-tables.html#joins-1",
+    "href": "slides/wrangling/15-joining-tables.html#joins-1",
+    "title": "Joining Tables",
+    "section": "Joins",
+    "text": "Joins\n\ntab &lt;- left_join(murders, results_us_election_2016, by = \"state\") |&gt; \n  select(-others) |&gt; rename(ev = electoral_votes) \nhead(tab) \n\n       state abb region population total ev clinton trump\n1    Alabama  AL  South    4779736   135  9    34.4  62.1\n2     Alaska  AK   West     710231    19  3    36.6  51.3\n3    Arizona  AZ   West    6392017   232 11    45.1  48.7\n4   Arkansas  AR  South    2915918    93  6    33.7  60.6\n5 California  CA   West   37253956  1257 55    61.7  31.6\n6   Colorado  CO   West    5029196    65  9    48.2  43.3\n\n\n\nThe data has been successfully joined and we can now, for example, make a plot to explore the relationship:"
+  },
+  {
+    "objectID": "slides/wrangling/15-joining-tables.html#joins-2",
+    "href": "slides/wrangling/15-joining-tables.html#joins-2",
+    "title": "Joining Tables",
+    "section": "Joins",
+    "text": "Joins"
+  },
+  {
+    "objectID": "slides/wrangling/15-joining-tables.html#joins-3",
+    "href": "slides/wrangling/15-joining-tables.html#joins-3",
+    "title": "Joining Tables",
+    "section": "Joins",
+    "text": "Joins\n\nWe see the relationship is close to linear with about 2 electoral votes for every million persons, but with very small states getting higher ratios.\nIn practice, it is not always the case that each row in one table has a matching row in the other.\nFor this reason, we have several versions of join.\nTo illustrate this challenge, we will take subsets of the tables above.\nWe create the tables tab1 and tab2 so that they have some states in common but not all:"
+  },
+  {
+    "objectID": "slides/wrangling/15-joining-tables.html#joins-4",
+    "href": "slides/wrangling/15-joining-tables.html#joins-4",
+    "title": "Joining Tables",
+    "section": "Joins",
+    "text": "Joins\n\ntab_1 &lt;- slice(murders, 1:6) |&gt; select(state, population) \ntab_2 &lt;- results_us_election_2016 |&gt;  \n  filter(state %in% c(\"Alabama\", \"Alaska\", \"Arizona\",  \n                    \"California\", \"Connecticut\", \"Delaware\")) |&gt;  \n  select(state, electoral_votes) |&gt; rename(ev = electoral_votes) \n\n\nWe will use these two tables as examples in the next sections."
+  },
+  {
+    "objectID": "slides/wrangling/15-joining-tables.html#left-join",
+    "href": "slides/wrangling/15-joining-tables.html#left-join",
+    "title": "Joining Tables",
+    "section": "Left join",
+    "text": "Left join\n\nSuppose we want a table like tab_1, but adding electoral votes to whatever states we have available.\nFor this, we use left_join with tab_1 as the first argument.\nWe specify which column to use to match with the by argument.\n\n\nleft_join(tab_1, tab_2, by = \"state\") \n\n       state population ev\n1    Alabama    4779736  9\n2     Alaska     710231  3\n3    Arizona    6392017 11\n4   Arkansas    2915918 NA\n5 California   37253956 55\n6   Colorado    5029196 NA\n\n\n\nNote that NAs are added to the two states not appearing in tab_2."
+  },
+  {
+    "objectID": "slides/wrangling/15-joining-tables.html#left-join-1",
+    "href": "slides/wrangling/15-joining-tables.html#left-join-1",
+    "title": "Joining Tables",
+    "section": "Left join",
+    "text": "Left join\n\nAlso, notice that this function, as well as all the other joins, can receive the first arguments through the pipe:\n\n\ntab_1 |&gt; left_join(tab_2, by = \"state\")"
+  },
+  {
+    "objectID": "slides/wrangling/15-joining-tables.html#right-join",
+    "href": "slides/wrangling/15-joining-tables.html#right-join",
+    "title": "Joining Tables",
+    "section": "Right join",
+    "text": "Right join\n\nIf instead of a table with the same rows as first table, we want one with the same rows as second table, we can use right_join:\n\n\ntab_1 |&gt; right_join(tab_2, by = \"state\") \n\n        state population ev\n1     Alabama    4779736  9\n2      Alaska     710231  3\n3     Arizona    6392017 11\n4  California   37253956 55\n5 Connecticut         NA  7\n6    Delaware         NA  3\n\n\n\nNow the NAs are in the column coming from tab_1."
+  },
+  {
+    "objectID": "slides/wrangling/15-joining-tables.html#inner-join",
+    "href": "slides/wrangling/15-joining-tables.html#inner-join",
+    "title": "Joining Tables",
+    "section": "Inner join",
+    "text": "Inner join\n\nIf we want to keep only the rows that have information in both tables, we use inner_join.\nYou can think of this as an intersection:\n\n\ninner_join(tab_1, tab_2, by = \"state\") \n\n       state population ev\n1    Alabama    4779736  9\n2     Alaska     710231  3\n3    Arizona    6392017 11\n4 California   37253956 55"
+  },
+  {
+    "objectID": "slides/wrangling/15-joining-tables.html#full-join",
+    "href": "slides/wrangling/15-joining-tables.html#full-join",
+    "title": "Joining Tables",
+    "section": "Full join",
+    "text": "Full join\n\nIf we want to keep all the rows and fill the missing parts with NAs, we can use full_join.\nYou can think of this as a union:\n\n\nfull_join(tab_1, tab_2, by = \"state\") \n\n        state population ev\n1     Alabama    4779736  9\n2      Alaska     710231  3\n3     Arizona    6392017 11\n4    Arkansas    2915918 NA\n5  California   37253956 55\n6    Colorado    5029196 NA\n7 Connecticut         NA  7\n8    Delaware         NA  3"
+  },
+  {
+    "objectID": "slides/wrangling/15-joining-tables.html#semi-join",
+    "href": "slides/wrangling/15-joining-tables.html#semi-join",
+    "title": "Joining Tables",
+    "section": "Semi join",
+    "text": "Semi join\n\nThe semi_join function lets us keep the part of first table for which we have information in the second.\nIt does not add the columns of the second:\n\n\nsemi_join(tab_1, tab_2, by = \"state\") \n\n       state population\n1    Alabama    4779736\n2     Alaska     710231\n3    Arizona    6392017\n4 California   37253956"
+  },
+  {
+    "objectID": "slides/wrangling/15-joining-tables.html#anti-join",
+    "href": "slides/wrangling/15-joining-tables.html#anti-join",
+    "title": "Joining Tables",
+    "section": "Anti join",
+    "text": "Anti join\n\nThe function anti_join is the opposite of semi_join.\nIt keeps the elements of the first table for which there is no information in the second:\n\n\nanti_join(tab_1, tab_2, by = \"state\") \n\n     state population\n1 Arkansas    2915918\n2 Colorado    5029196"
+  },
+  {
+    "objectID": "slides/wrangling/15-joining-tables.html#anti-join-1",
+    "href": "slides/wrangling/15-joining-tables.html#anti-join-1",
+    "title": "Joining Tables",
+    "section": "Anti join",
+    "text": "Anti join\n\nCC-BY-4.0 license1.\nCropped from original.).\n\nhttps://github.com/rstudio/cheatsheets/blob/master/LICENSE"
+  },
+  {
+    "objectID": "slides/wrangling/15-joining-tables.html#binding",
+    "href": "slides/wrangling/15-joining-tables.html#binding",
+    "title": "Joining Tables",
+    "section": "Binding",
+    "text": "Binding\n\nAlthough we have yet to use it in this book, another common way in which datasets are combined is by binding them.\nUnlike the join function, the binding functions do not try to match by a variable, but instead simply combine datasets.\nIf the datasets don’t match by the appropriate dimensions, one obtains an error."
+  },
+  {
+    "objectID": "slides/wrangling/15-joining-tables.html#binding-columns",
+    "href": "slides/wrangling/15-joining-tables.html#binding-columns",
+    "title": "Joining Tables",
+    "section": "Binding columns",
+    "text": "Binding columns\n\nThe dplyr function bind_cols binds two objects by making them columns in a tibble.\nFor example, we quickly want to make a data frame consisting of numbers we can use.\n\n\nbind_cols(a = 1:3, b = 4:6) \n\n# A tibble: 3 × 2\n      a     b\n  &lt;int&gt; &lt;int&gt;\n1     1     4\n2     2     5\n3     3     6\n\n\n\nThis function requires that we assign names to the columns.\nHere we chose a and b.\nNote that there is an R-base function cbind with the exact same functionality."
+  },
+  {
+    "objectID": "slides/wrangling/15-joining-tables.html#binding-columns-1",
+    "href": "slides/wrangling/15-joining-tables.html#binding-columns-1",
+    "title": "Joining Tables",
+    "section": "Binding columns",
+    "text": "Binding columns\n\nAn important difference is that cbind can create different types of objects, while bind_cols always produces a data frame.\nbind_cols can also bind two different data frames.\nFor example, here we break up the tab data frame and then bind them back together:\n\n\ntab_1 &lt;- tab[, 1:3] \ntab_2 &lt;- tab[, 4:6] \ntab_3 &lt;- tab[, 7:8] \nnew_tab &lt;- bind_cols(tab_1, tab_2, tab_3) \nhead(new_tab) \n\n       state abb region population total ev clinton trump\n1    Alabama  AL  South    4779736   135  9    34.4  62.1\n2     Alaska  AK   West     710231    19  3    36.6  51.3\n3    Arizona  AZ   West    6392017   232 11    45.1  48.7\n4   Arkansas  AR  South    2915918    93  6    33.7  60.6\n5 California  CA   West   37253956  1257 55    61.7  31.6\n6   Colorado  CO   West    5029196    65  9    48.2  43.3"
+  },
+  {
+    "objectID": "slides/wrangling/15-joining-tables.html#binding-by-rows",
+    "href": "slides/wrangling/15-joining-tables.html#binding-by-rows",
+    "title": "Joining Tables",
+    "section": "Binding by rows",
+    "text": "Binding by rows\n\nThe bind_rows function is similar to bind_cols, but binds rows instead of columns:\n\n\ntab_1 &lt;- tab[1:2,] \ntab_2 &lt;- tab[3:4,] \nbind_rows(tab_1, tab_2) \n\n     state abb region population total ev clinton trump\n1  Alabama  AL  South    4779736   135  9    34.4  62.1\n2   Alaska  AK   West     710231    19  3    36.6  51.3\n3  Arizona  AZ   West    6392017   232 11    45.1  48.7\n4 Arkansas  AR  South    2915918    93  6    33.7  60.6\n\n\n\nThis is based on an R-base function rbind."
+  },
+  {
+    "objectID": "slides/wrangling/15-joining-tables.html#set-operators",
+    "href": "slides/wrangling/15-joining-tables.html#set-operators",
+    "title": "Joining Tables",
+    "section": "Set operators",
+    "text": "Set operators\n\nAnother set of commands useful for combining datasets are the set operators.\nWhen applied to vectors, these behave as their names suggest.\nExamples are intersect, union, setdiff, and setequal.\nHowever, if the tidyverse, or more specifically dplyr, is loaded, these functions can be used on data frames as opposed to just on vectors."
+  },
+  {
+    "objectID": "slides/wrangling/15-joining-tables.html#intersect",
+    "href": "slides/wrangling/15-joining-tables.html#intersect",
+    "title": "Joining Tables",
+    "section": "Intersect",
+    "text": "Intersect\n\nYou can take intersections of vectors of any type, such as numeric:\n\n\nintersect(1:10, 6:15) \n\n[1]  6  7  8  9 10\n\n\n\nor characters:\n\n\nintersect(c(\"a\",\"b\",\"c\"), c(\"b\",\"c\",\"d\")) \n\n[1] \"b\" \"c\"\n\n\n\nThe dplyr package includes an intersect function that can be applied to tables with the same column names.\nThis function returns the rows in common between two tables."
+  },
+  {
+    "objectID": "slides/wrangling/15-joining-tables.html#intersect-1",
+    "href": "slides/wrangling/15-joining-tables.html#intersect-1",
+    "title": "Joining Tables",
+    "section": "Intersect",
+    "text": "Intersect\n\nTo make sure we use the dplyr version of intersect rather than the base R version, we can use dplyr::intersect like this:\n\n\ntab_1 &lt;- tab[1:5,] \ntab_2 &lt;- tab[3:7,] \ndplyr::intersect(tab_1, tab_2) \n\n       state abb region population total ev clinton trump\n1    Arizona  AZ   West    6392017   232 11    45.1  48.7\n2   Arkansas  AR  South    2915918    93  6    33.7  60.6\n3 California  CA   West   37253956  1257 55    61.7  31.6"
+  },
+  {
+    "objectID": "slides/wrangling/15-joining-tables.html#union",
+    "href": "slides/wrangling/15-joining-tables.html#union",
+    "title": "Joining Tables",
+    "section": "Union",
+    "text": "Union\n\nSimilarly union takes the union of vectors.\nFor example:\n\n\nunion(1:10, 6:15) \n\n [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15\n\nunion(c(\"a\",\"b\",\"c\"), c(\"b\",\"c\",\"d\")) \n\n[1] \"a\" \"b\" \"c\" \"d\"\n\n\n\nThe dplyr package includes a version of union that combines all the rows of two tables with the same column names.\n\n\ntab_1 &lt;- tab[1:5,] \ntab_2 &lt;- tab[3:7,] \ndplyr::union(tab_1, tab_2)  \n\n        state abb    region population total ev clinton trump\n1     Alabama  AL     South    4779736   135  9    34.4  62.1\n2      Alaska  AK      West     710231    19  3    36.6  51.3\n3     Arizona  AZ      West    6392017   232 11    45.1  48.7\n4    Arkansas  AR     South    2915918    93  6    33.7  60.6\n5  California  CA      West   37253956  1257 55    61.7  31.6\n6    Colorado  CO      West    5029196    65  9    48.2  43.3\n7 Connecticut  CT Northeast    3574097    97  7    54.6  40.9"
+  },
+  {
+    "objectID": "slides/wrangling/15-joining-tables.html#setdiff",
+    "href": "slides/wrangling/15-joining-tables.html#setdiff",
+    "title": "Joining Tables",
+    "section": "setdiff",
+    "text": "setdiff\n\nThe set difference between a first and second argument can be obtained with setdiff.\nUnlike intersect and union, this function is not symmetric:\n\n\nsetdiff(1:10, 6:15) \n\n[1] 1 2 3 4 5\n\nsetdiff(6:15, 1:10) \n\n[1] 11 12 13 14 15\n\n\n\nAs with the functions shown above, dplyr has a version for data frames:\n\n\ntab_1 &lt;- tab[1:5,] \ntab_2 &lt;- tab[3:7,] \ndplyr::setdiff(tab_1, tab_2) \n\n    state abb region population total ev clinton trump\n1 Alabama  AL  South    4779736   135  9    34.4  62.1\n2  Alaska  AK   West     710231    19  3    36.6  51.3"
+  },
+  {
+    "objectID": "slides/wrangling/15-joining-tables.html#setequal",
+    "href": "slides/wrangling/15-joining-tables.html#setequal",
+    "title": "Joining Tables",
+    "section": "setequal",
+    "text": "setequal\n\nFinally, the function setequal tells us if two sets are the same, regardless of order.\nSo notice that:\n\n\nsetequal(1:5, 1:6) \n\n[1] FALSE\n\n\n\nbut:\n\n\nsetequal(1:5, 5:1) \n\n[1] TRUE\n\n\n\nThe dplyr version checks whether data frames are equal, regardless of order of rows or columns:\n\n\ndplyr::setequal(tab_1, tab_2) \n\n[1] FALSE"
+  },
+  {
+    "objectID": "slides/wrangling/15-joining-tables.html#joining-with-data.table",
+    "href": "slides/wrangling/15-joining-tables.html#joining-with-data.table",
+    "title": "Joining Tables",
+    "section": "Joining with data.table",
+    "text": "Joining with data.table\n\nThe data.table package includes merge, a very efficient function for joining tables.\nIn tidyverse we joined two tables with left_join:\n\n\ntab &lt;- left_join(murders, results_us_election_2016, by = \"state\")  \n\n\nIn data.table the merge functions works similarly:\n\n\nlibrary(data.table) \ntab &lt;- merge(murders, results_us_election_2016, by = \"state\", all.x = TRUE)"
+  },
+  {
+    "objectID": "slides/wrangling/15-joining-tables.html#joining-with-data.table-1",
+    "href": "slides/wrangling/15-joining-tables.html#joining-with-data.table-1",
+    "title": "Joining Tables",
+    "section": "Joining with data.table",
+    "text": "Joining with data.table\n\nInstead of defining different functions for the different type of joins, merge uses the the logical arguments all (full join), all.x (left join), and all.y (right join)."
+  },
+  {
+    "objectID": "slides/wrangling/15-joining-tables.html#joins-5",
+    "href": "slides/wrangling/15-joining-tables.html#joins-5",
+    "title": "Joining Tables",
+    "section": "Joins",
+    "text": "Joins\n."
+  },
+  {
+    "objectID": "slides/wrangling/15-locales.html#locales",
+    "href": "slides/wrangling/15-locales.html#locales",
+    "title": "Locales",
+    "section": "Locales",
+    "text": "Locales\n\nComputer settings change depending on language and location, and being unaware of this possibility can make certain data wrangling challenges difficult to overcome.\nThe purpose of locales is to group together common settings that can affect:\n\nMonth and day names, which are necessary for interpreting dates.\nThe standard date format, also necessary for interpreting dates."
+  },
+  {
+    "objectID": "slides/wrangling/15-locales.html#locales-1",
+    "href": "slides/wrangling/15-locales.html#locales-1",
+    "title": "Locales",
+    "section": "Locales",
+    "text": "Locales\n\nThe default time zone, essential for interpreting date-times.\nCharacter encoding, vital for reading non-ASCII characters.\nThe symbols for decimals and number groupings, important for interpreting numerical values.\n\n\nIn R, a locale refers to a suite of settings that dictate how the system should behave with respect to cultural conventions."
+  },
+  {
+    "objectID": "slides/wrangling/15-locales.html#locales-2",
+    "href": "slides/wrangling/15-locales.html#locales-2",
+    "title": "Locales",
+    "section": "Locales",
+    "text": "Locales\n\nThese settings affect the way data is formatted and presented, encompassing details such as date formatting, currency symbols, decimal separators, and other related aspects.\nLocales in R affect several areas, including how character vectors are sorted, and date, number, and currency formatting.\nAdditionally, errors, warnings, and other messages might be translated into languages other than English based on the locale."
+  },
+  {
+    "objectID": "slides/wrangling/15-locales.html#locales-in-r",
+    "href": "slides/wrangling/15-locales.html#locales-in-r",
+    "title": "Locales",
+    "section": "Locales in R",
+    "text": "Locales in R\n\nTo access the current locale settings in R, you can use the Sys.getlocale() function:\n\n\nSys.getlocale() \n\n[1] \"en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8\"\n\n\n\nTo set a specific locale, use the Sys.setlocale() function.\nFor example, to set the locale to US English:\n\n\nSys.setlocale(\"LC_ALL\", \"en_US.UTF-8\") \n\n[1] \"en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8\"\n\n\n\nThe exact string to use for setting the locale (like “en_US.UTF-8”) can depend on your operating system and its configuration."
+  },
+  {
+    "objectID": "slides/wrangling/15-locales.html#locales-in-r-1",
+    "href": "slides/wrangling/15-locales.html#locales-in-r-1",
+    "title": "Locales",
+    "section": "Locales in R",
+    "text": "Locales in R\n\nThe LC_ALL used in the above code refers to all locale categories.\nR, like many systems, breaks down the locale into categories, each responsible for different aspects listed below.\n\nLC_COLLATE: for string collation.\n\n\nLC_TIME: date and time formatting.\n\n\nLC_MONETARY: currency formatting.\n\n\nLC_MESSAGES: system message translations."
+  },
+  {
+    "objectID": "slides/wrangling/15-locales.html#locales-in-r-2",
+    "href": "slides/wrangling/15-locales.html#locales-in-r-2",
+    "title": "Locales",
+    "section": "Locales in R",
+    "text": "Locales in R\n\n\nLC_NUMERIC: number formatting.\n\nYou can set the locale for each category individually if you don’t want to change everything with LC_ALL."
+  },
+  {
+    "objectID": "slides/wrangling/15-locales.html#the-locale-function",
+    "href": "slides/wrangling/15-locales.html#the-locale-function",
+    "title": "Locales",
+    "section": "The locale function",
+    "text": "The locale function\n\nThe readr package includes a locale() function that can be used to learn or change the current locale from within R:\n\n\nlibrary(readr) \nlocale() \n\n&lt;locale&gt;\nNumbers:  123,456.78\nFormats:  %AD / %AT\nTimezone: UTC\nEncoding: UTF-8\n&lt;date_names&gt;\nDays:   Sunday (Sun), Monday (Mon), Tuesday (Tue), Wednesday (Wed), Thursday\n        (Thu), Friday (Fri), Saturday (Sat)\nMonths: January (Jan), February (Feb), March (Mar), April (Apr), May (May),\n        June (Jun), July (Jul), August (Aug), September (Sep), October\n        (Oct), November (Nov), December (Dec)\nAM/PM:  AM/PM\n\n\n\nYou can see all the locales available on your system by typing:\n\n\nsystem(\"locale -a\")"
+  },
+  {
+    "objectID": "slides/wrangling/15-locales.html#the-locale-function-1",
+    "href": "slides/wrangling/15-locales.html#the-locale-function-1",
+    "title": "Locales",
+    "section": "The locale function",
+    "text": "The locale function\n\nHere is what you obtain if you change the dates locale to Spanish:\n\n\nlocale(date_names = \"es\") \n\n&lt;locale&gt;\nNumbers:  123,456.78\nFormats:  %AD / %AT\nTimezone: UTC\nEncoding: UTF-8\n&lt;date_names&gt;\nDays:   domingo (dom.), lunes (lun.), martes (mar.), miércoles (mié.), jueves\n        (jue.), viernes (vie.), sábado (sáb.)\nMonths: enero (ene.), febrero (feb.), marzo (mar.), abril (abr.), mayo (may.),\n        junio (jun.), julio (jul.), agosto (ago.), septiembre (sept.),\n        octubre (oct.), noviembre (nov.), diciembre (dic.)\nAM/PM:  a. m./p. m."
+  },
+  {
+    "objectID": "slides/wrangling/15-locales.html#example-wrangling-a-spanish-dataset",
+    "href": "slides/wrangling/15-locales.html#example-wrangling-a-spanish-dataset",
+    "title": "Locales",
+    "section": "Example: wrangling a Spanish dataset",
+    "text": "Example: wrangling a Spanish dataset\n\nIn ?@sec-reader, we noted that reading the file:\n\n\nfn &lt;- file.path(system.file(\"extdata\", package = \"dslabs\"), \"calificaciones.csv\") \n\n\nhad a encoding different than UTF-8, the default.\nWe used guess_encoding to determine the correct one:\n\n\nguess_encoding(fn)$encoding[1] \n\n[1] \"ISO-8859-1\"\n\n\n\nand used the locale function to change this and read in this encoding instead:\n\n\ndat &lt;- read_csv(fn, locale = locale(encoding = \"ISO-8859-1\"))"
+  },
+  {
+    "objectID": "slides/wrangling/15-locales.html#example-wrangling-a-spanish-dataset-1",
+    "href": "slides/wrangling/15-locales.html#example-wrangling-a-spanish-dataset-1",
+    "title": "Locales",
+    "section": "Example: wrangling a Spanish dataset",
+    "text": "Example: wrangling a Spanish dataset\n\nThis file provides homework assignment scores for seven students.\nThe columns represent the student name, their date of birth, the time they submitted their assignment, and the score they obtained, respectively.\nYou can see the entire file using read_lines:\n\n\nread_lines(fn, locale = locale(encoding = \"ISO-8859-1\")) \n\n[1] \"\\\"nombre\\\",\\\"f.n.\\\",\\\"estampa\\\",\\\"puntuación\\\"\"                       \n[2] \"\\\"Beyoncé\\\",\\\"04 de septiembre de 1981\\\",2023-09-22 02:11:02,\\\"87,5\\\"\"\n[3] \"\\\"Blümchen\\\",\\\"20 de abril de 1980\\\",2023-09-22 03:23:05,\\\"99,0\\\"\"    \n[4] \"\\\"João\\\",\\\"10 de junio de 1931\\\",2023-09-21 22:43:28,\\\"98,9\\\"\"        \n[5] \"\\\"López\\\",\\\"24 de julio de 1969\\\",2023-09-22 01:06:59,\\\"88,7\\\"\"       \n[6] \"\\\"Ñengo\\\",\\\"15 de diciembre de 1981\\\",2023-09-21 23:35:37,\\\"93,1\\\"\"   \n[7] \"\\\"Plácido\\\",\\\"24 de enero de 1941\\\",2023-09-21 23:17:21,\\\"88,7\\\"\"     \n[8] \"\\\"Thalía\\\",\\\"26 de agosto de 1971\\\",2023-09-21 23:08:02,\\\"83,0\\\"\"     \n\n\n\nAs an illustrative example, we will write code to compute the students age and check if they turned in their assignment by the deadline of September 21, 2023, before midnight."
+  },
+  {
+    "objectID": "slides/wrangling/15-locales.html#example-wrangling-a-spanish-dataset-2",
+    "href": "slides/wrangling/15-locales.html#example-wrangling-a-spanish-dataset-2",
+    "title": "Locales",
+    "section": "Example: wrangling a Spanish dataset",
+    "text": "Example: wrangling a Spanish dataset\n\nWe can read in the file with correct encoding like this:\n\n\ndat &lt;- read_csv(fn, locale = locale(encoding = \"ISO-8859-1\")) \n\n\nHowever, notice that the last column, which is supposed to contain exam scores between 0 and 100, shows numbers larger than 800:\n\n\ndat$puntuación \n\n[1] 875 990 989 887 931 887 830\n\n\n\nThis happens because the scores in the file use the European decimal point, which confuses read_csv.\nTo address this issue, we can also change the encoding to use European decimals, which fixes the problem:"
+  },
+  {
+    "objectID": "slides/wrangling/15-locales.html#example-wrangling-a-spanish-dataset-3",
+    "href": "slides/wrangling/15-locales.html#example-wrangling-a-spanish-dataset-3",
+    "title": "Locales",
+    "section": "Example: wrangling a Spanish dataset",
+    "text": "Example: wrangling a Spanish dataset\n\ndat &lt;- read_csv(fn, locale = locale(decimal_mark = \",\", \n                                    encoding = \"ISO-8859-1\")) \ndat$puntuación \n\n[1] 87.5 99.0 98.9 88.7 93.1 88.7 83.0\n\n\n\nNow, to compute the student ages, let’s try changing the submission times to date format:\n\n\nlibrary(lubridate) \ndmy(dat$f.n.) \n\n[1] NA NA NA NA NA NA NA\n\n\n\nNothing gets converted correctly.\nThis is because the dates are in Spanish.\nWe can change the locale to use Spanish as the language for dates:"
+  },
+  {
+    "objectID": "slides/wrangling/15-locales.html#example-wrangling-a-spanish-dataset-4",
+    "href": "slides/wrangling/15-locales.html#example-wrangling-a-spanish-dataset-4",
+    "title": "Locales",
+    "section": "Example: wrangling a Spanish dataset",
+    "text": "Example: wrangling a Spanish dataset\n\nparse_date(dat$f.n., format = \"%d de %B de %Y\", locale = locale(date_names = \"es\")) \n\n[1] \"1981-09-04\" \"1980-04-20\" \"1931-06-10\" \"1969-07-24\" \"1981-12-15\"\n[6] \"1941-01-24\" \"1971-08-26\"\n\n\n\nWe can also reread the file using the correct locales:\n\n\ndat &lt;- read_csv(fn, locale = locale(date_names = \"es\", \n                                    date_format = \"%d de %B de %Y\", \n                                    decimal_mark = \",\", \n                                    encoding = \"ISO-8859-1\")) \n\n\nComputing the students’ ages is now straightforward:\n\n\ntime_length(today() - dat$f.n., unit = \"years\") |&gt; floor() \n\n[1] 43 44 93 55 42 83 53\n\n\n\nFinally, let’s check which students turned in their homework past the deadline of September 22:\n\n\ndat$estampa &gt;= make_date(2023, 9, 22) \n\n[1]  TRUE  TRUE FALSE  TRUE FALSE FALSE FALSE"
+  },
+  {
+    "objectID": "slides/wrangling/15-locales.html#example-wrangling-a-spanish-dataset-5",
+    "href": "slides/wrangling/15-locales.html#example-wrangling-a-spanish-dataset-5",
+    "title": "Locales",
+    "section": "Example: wrangling a Spanish dataset",
+    "text": "Example: wrangling a Spanish dataset\n\nWe see that two students where late.\nHowever, with times we have to be particularly careful as some functions default to the UTC timezone:\n\n\ntz(dat$estampa) \n\n[1] \"UTC\"\n\n\n\nIf we change to the timezone to Eastern Standard Time (EST), we see no one was late:\n\n\nwith_tz(dat$estampa, tz =  \"EST\") &gt;= make_date(2023, 9, 22) \n\n[1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE"
+  },
+  {
+    "objectID": "slides/wrangling/15-locales.html#example",
+    "href": "slides/wrangling/15-locales.html#example",
+    "title": "Locales",
+    "section": "Example",
+    "text": "Example\n\nIn ?@sec-reader, we noted that reading the file:\n\n\nfn &lt;- file.path(system.file(\"extdata\", package = \"dslabs\"), \"calificaciones.csv\") \n\n\nhad a encoding different than UTF-8, the default.\nWe used guess_encoding to determine the correct one:\n\n\nguess_encoding(fn)$encoding[1] \n\n[1] \"ISO-8859-1\"\n\n\n\nand used the locale function to change this and read in this encoding instead:\n\n\ndat &lt;- read_csv(fn, locale = locale(encoding = \"ISO-8859-1\"))"
+  },
+  {
+    "objectID": "slides/wrangling/15-locales.html#example-1",
+    "href": "slides/wrangling/15-locales.html#example-1",
+    "title": "Locales",
+    "section": "Example",
+    "text": "Example\n\nThis file provides homework assignment scores for seven students.\nThe columns represent the student name, their date of birth, the time they submitted their assignment, and the score they obtained, respectively.\nYou can see the entire file using read_lines:\n\n\nread_lines(fn, locale = locale(encoding = \"ISO-8859-1\")) \n\n[1] \"\\\"nombre\\\",\\\"f.n.\\\",\\\"estampa\\\",\\\"puntuación\\\"\"                       \n[2] \"\\\"Beyoncé\\\",\\\"04 de septiembre de 1981\\\",2023-09-22 02:11:02,\\\"87,5\\\"\"\n[3] \"\\\"Blümchen\\\",\\\"20 de abril de 1980\\\",2023-09-22 03:23:05,\\\"99,0\\\"\"    \n[4] \"\\\"João\\\",\\\"10 de junio de 1931\\\",2023-09-21 22:43:28,\\\"98,9\\\"\"        \n[5] \"\\\"López\\\",\\\"24 de julio de 1969\\\",2023-09-22 01:06:59,\\\"88,7\\\"\"       \n[6] \"\\\"Ñengo\\\",\\\"15 de diciembre de 1981\\\",2023-09-21 23:35:37,\\\"93,1\\\"\"   \n[7] \"\\\"Plácido\\\",\\\"24 de enero de 1941\\\",2023-09-21 23:17:21,\\\"88,7\\\"\"     \n[8] \"\\\"Thalía\\\",\\\"26 de agosto de 1971\\\",2023-09-21 23:08:02,\\\"83,0\\\"\"     \n\n\n\nAs an illustrative example, we will write code to compute the students age and check if they turned in their assignment by the deadline of September 21, 2023, before midnight."
+  },
+  {
+    "objectID": "slides/wrangling/15-locales.html#example-2",
+    "href": "slides/wrangling/15-locales.html#example-2",
+    "title": "Locales",
+    "section": "Example",
+    "text": "Example\n\nWe can read in the file with correct encoding like this:\n\n\ndat &lt;- read_csv(fn, locale = locale(encoding = \"ISO-8859-1\")) \n\n\nHowever, notice that the last column, which is supposed to contain exam scores between 0 and 100, shows numbers larger than 800:\n\n\ndat$puntuación \n\n[1] 875 990 989 887 931 887 830\n\n\n\nThis happens because the scores in the file use the European decimal point, which confuses read_csv.\nTo address this issue, we can also change the encoding to use European decimals, which fixes the problem:"
+  },
+  {
+    "objectID": "slides/wrangling/15-locales.html#example-3",
+    "href": "slides/wrangling/15-locales.html#example-3",
+    "title": "Locales",
+    "section": "Example",
+    "text": "Example\n\ndat &lt;- read_csv(fn, locale = locale(decimal_mark = \",\", \n                                    encoding = \"ISO-8859-1\")) \ndat$puntuación \n\n[1] 87.5 99.0 98.9 88.7 93.1 88.7 83.0\n\n\n\nNow, to compute the student ages, let’s try changing the submission times to date format:\n\n\nlibrary(lubridate) \ndmy(dat$f.n.) \n\n[1] NA NA NA NA NA NA NA\n\n\n\nNothing gets converted correctly.\nThis is because the dates are in Spanish.\nWe can change the locale to use Spanish as the language for dates:"
+  },
+  {
+    "objectID": "slides/wrangling/15-locales.html#example-4",
+    "href": "slides/wrangling/15-locales.html#example-4",
+    "title": "Locales",
+    "section": "Example",
+    "text": "Example\n\nparse_date(dat$f.n., format = \"%d de %B de %Y\", locale = locale(date_names = \"es\")) \n\n[1] \"1981-09-04\" \"1980-04-20\" \"1931-06-10\" \"1969-07-24\" \"1981-12-15\"\n[6] \"1941-01-24\" \"1971-08-26\"\n\n\n\nWe can also reread the file using the correct locales:\n\n\ndat &lt;- read_csv(fn, locale = locale(date_names = \"es\", \n                                    date_format = \"%d de %B de %Y\", \n                                    decimal_mark = \",\", \n                                    encoding = \"ISO-8859-1\")) \n\n\nComputing the students’ ages is now straightforward:\n\n\ntime_length(today() - dat$f.n., unit = \"years\") |&gt; floor() \n\n[1] 43 44 93 55 42 83 53\n\n\n\nFinally, let’s check which students turned in their homework past the deadline of September 22:\n\n\ndat$estampa &gt;= make_date(2023, 9, 22) \n\n[1]  TRUE  TRUE FALSE  TRUE FALSE FALSE FALSE"
+  },
+  {
+    "objectID": "slides/wrangling/15-locales.html#example-5",
+    "href": "slides/wrangling/15-locales.html#example-5",
+    "title": "Locales",
+    "section": "Example",
+    "text": "Example\n\nWe see that two students where late.\nHowever, with times we have to be particularly careful as some functions default to the UTC timezone:\n\n\ntz(dat$estampa) \n\n[1] \"UTC\"\n\n\n\nIf we change to the timezone to Eastern Standard Time (EST), we see no one was late:\n\n\nwith_tz(dat$estampa, tz =  \"EST\") &gt;= make_date(2023, 9, 22) \n\n[1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE"
+  },
+  {
+    "objectID": "slides/wrangling/11-importing-files.html#importing-data",
+    "href": "slides/wrangling/11-importing-files.html#importing-data",
+    "title": "Importing files",
+    "section": "Importing data",
+    "text": "Importing data\n\nOne of the most common ways of storing and sharing data is through electronic spreadsheets.\nA spreadsheet is a file version of a data frame.\nBut there are many ways to store spreadsheets in files."
+  },
+  {
+    "objectID": "slides/wrangling/11-importing-files.html#importing-data-1",
+    "href": "slides/wrangling/11-importing-files.html#importing-data-1",
+    "title": "Importing files",
+    "section": "Importing data",
+    "text": "Importing data\nTo import data we need to:\n\nIdentify the file’s location.\nKnow what function or parsers to use.\n\nFor the second step it helps to know the file type and encoding."
+  },
+  {
+    "objectID": "slides/wrangling/11-importing-files.html#file-types",
+    "href": "slides/wrangling/11-importing-files.html#file-types",
+    "title": "Importing files",
+    "section": "File types",
+    "text": "File types\n\nFiles can generally be classified into two categories: text and binary.\nWe describe the most widely used format for storing data for both these types and learn how to identify them."
+  },
+  {
+    "objectID": "slides/wrangling/11-importing-files.html#text-files",
+    "href": "slides/wrangling/11-importing-files.html#text-files",
+    "title": "Importing files",
+    "section": "Text files",
+    "text": "Text files\n\nYou have already worked with text files: R scripts and Quarto files, for example.\ndslabs offers examples:\n\n\ndir &lt;- system.file(package = \"dslabs\") \nfile_path &lt;- file.path(dir, \"extdata/murders.csv\") \nfile.copy(file_path, \"murders.csv\") \n\n[1] TRUE"
+  },
+  {
+    "objectID": "slides/wrangling/11-importing-files.html#text-files-1",
+    "href": "slides/wrangling/11-importing-files.html#text-files-1",
+    "title": "Importing files",
+    "section": "Text files",
+    "text": "Text files\n\nAn advantage of text files is that we can easily “look” at them without having to purchase any kind of special software or follow complicated instructions.\nExercise:\n\ncopy murders.csv into your working directory and examine it with less.\nThen try the Open file RStudio tool."
+  },
+  {
+    "objectID": "slides/wrangling/11-importing-files.html#text-files-2",
+    "href": "slides/wrangling/11-importing-files.html#text-files-2",
+    "title": "Importing files",
+    "section": "Text files",
+    "text": "Text files\n\nLine breaks are used to separate rows and a delimiter to separate columns within a row.\nThe most common delimiters are comma (,), semicolon (;), space (), and tab (\\t).\nDifferent parsers are used to read these files, so we need to know what delimiter was used.\nIn some cases, the delimiter can be inferred from file suffix: csv, tsv, for example.\nBut we recommend looking at the file rather than inferring from the suffix."
+  },
+  {
+    "objectID": "slides/wrangling/11-importing-files.html#text-files-3",
+    "href": "slides/wrangling/11-importing-files.html#text-files-3",
+    "title": "Importing files",
+    "section": "Text files",
+    "text": "Text files\n\nIn R, you can look at any number of lines from within R using the readLines function:\n\n\nreadLines(\"murders.csv\", n = 3) \n\n[1] \"state,abb,region,population,total\" \"Alabama,AL,South,4779736,135\"     \n[3] \"Alaska,AK,West,710231,19\""
+  },
+  {
+    "objectID": "slides/wrangling/11-importing-files.html#binary-files",
+    "href": "slides/wrangling/11-importing-files.html#binary-files",
+    "title": "Importing files",
+    "section": "Binary files",
+    "text": "Binary files\n\nOpening image files such as jpg or png in a text editor or using readLines in R will not show comprehensible content: these are binary files.\nUnlike text files, which are designed for human readability and have standardized conventions, binary files have many formats specific to their data type.\nWhile R’s readBin function can process any binary file, interpreting the output necessitates a thorough understanding of the file’s structure.\nWe focus on the the most prevalent binary formats for spreadsheets: Microsoft Excel xls and xlsx."
+  },
+  {
+    "objectID": "slides/wrangling/11-importing-files.html#r-base-parsers",
+    "href": "slides/wrangling/11-importing-files.html#r-base-parsers",
+    "title": "Importing files",
+    "section": "R Base Parsers",
+    "text": "R Base Parsers\nHere example of useful R base parsers:\n\nx &lt;- read.table(\"murders.csv\", sep = \"\\t\")\nx &lt;- read.csv(\"murders.csv\")"
+  },
+  {
+    "objectID": "slides/wrangling/11-importing-files.html#readr-parsers",
+    "href": "slides/wrangling/11-importing-files.html#readr-parsers",
+    "title": "Importing files",
+    "section": "readr Parsers",
+    "text": "readr Parsers\nreadr provides alternatives that produce tibbles:\n\nlibrary(readr)\nx &lt;- read_csv(\"murders.csv\")\nx &lt;- read_delim(\"murders.csv\", delim = \"\\t\")\n\nNotice the messages produced."
+  },
+  {
+    "objectID": "slides/wrangling/11-importing-files.html#readr-parsers-1",
+    "href": "slides/wrangling/11-importing-files.html#readr-parsers-1",
+    "title": "Importing files",
+    "section": "readr Parsers",
+    "text": "readr Parsers\n\n\n\n\n\n\n\n\nFunction\nFormat\nSuffix\n\n\n\n\nread_table\nwhite space separated values\ntxt\n\n\nread_csv\ncomma separated values\ncsv\n\n\nread_csv2\nsemicolon separated values\ncsv\n\n\nread_tsv\ntab separated values\ntsv\n\n\nread_delim\nmust define delimiter\ntxt\n\n\nread_lines\nsimilar to readLines\nany file"
+  },
+  {
+    "objectID": "slides/wrangling/11-importing-files.html#readxl-parsers",
+    "href": "slides/wrangling/11-importing-files.html#readxl-parsers",
+    "title": "Importing files",
+    "section": "readxl Parsers",
+    "text": "readxl Parsers\nFor Excel files you can use the readxl package.\n\nlibrary(readxl)\nfn &lt;- file.path(dir, \"extdata/2010_bigfive_regents.xls\") \ny &lt;- read_xls(fn)"
+  },
+  {
+    "objectID": "slides/wrangling/11-importing-files.html#readxl-parsers-1",
+    "href": "slides/wrangling/11-importing-files.html#readxl-parsers-1",
+    "title": "Importing files",
+    "section": "readxl Parsers",
+    "text": "readxl Parsers\nYou can read specific sheets and see them using\n\nexcel_sheets(fn)\n\n[1] \"Sheet1\" \"Sheet2\" \"Sheet3\"\n\n\nNote that read_xls has a sheet argument."
+  },
+  {
+    "objectID": "slides/wrangling/11-importing-files.html#readxl-parsers-2",
+    "href": "slides/wrangling/11-importing-files.html#readxl-parsers-2",
+    "title": "Importing files",
+    "section": "readxl Parsers",
+    "text": "readxl Parsers\n\n\n\n\n\n\n\n\nFunction\nFormat\nSuffix\n\n\n\n\nread_excel\nauto detect the format\nxls, xlsx\n\n\nread_xls\noriginal format\nxls\n\n\nread_xlsx\nnew format\nxlsx\n\n\nexcel_sheets\ndetects sheets\nxls, xlsx"
+  },
+  {
+    "objectID": "slides/wrangling/11-importing-files.html#data.table-parsers",
+    "href": "slides/wrangling/11-importing-files.html#data.table-parsers",
+    "title": "Importing files",
+    "section": "data.table Parsers",
+    "text": "data.table Parsers\nThe data.table package provide a very fast parser:\n\nlibrary(data.table)\nx &lt;- fread(\"murders.csv\")\n\nNote: It returns a file in data.table format which we have mentioned but not explained."
+  },
+  {
+    "objectID": "slides/wrangling/11-importing-files.html#scan",
+    "href": "slides/wrangling/11-importing-files.html#scan",
+    "title": "Importing files",
+    "section": "scan",
+    "text": "scan\n\nThe scan function is the most general parser.\nIt will read in any text file and return a vector so you are on your own coverting it to a data frame.\nBecause it returns a vector, you need to tell it in advance what data type to expect:\n\n\nscan(\"murders.csv\", what = \"c\", sep = \",\", n = 10)\n\n [1] \"state\"      \"abb\"        \"region\"     \"population\" \"total\"     \n [6] \"Alabama\"    \"AL\"         \"South\"      \"4779736\"    \"135\"       \n\n\n\nIt can also be used to read from the console. Try typing scan(). Hit return to stop."
+  },
+  {
+    "objectID": "slides/wrangling/11-importing-files.html#encoding",
+    "href": "slides/wrangling/11-importing-files.html#encoding",
+    "title": "Importing files",
+    "section": "Encoding",
+    "text": "Encoding\n\nComputer translates everything into 0s and 1s.\nASCII is an encoding system that assigns specific numbers to characters.\nUsing 7 bits, ASCII can represent \\(2^7 = 128\\) unique symbols, sufficient for all English keyboard characters.\nHowever, many global languages contain characters outside ASCII’s range."
+  },
+  {
+    "objectID": "slides/wrangling/11-importing-files.html#encoding-1",
+    "href": "slides/wrangling/11-importing-files.html#encoding-1",
+    "title": "Importing files",
+    "section": "Encoding",
+    "text": "Encoding\n\nFor instance, the é in “México” isn’t in ASCII’s catalog.\nTo address this, broader encodings emerged.\nUnicode offers variations using 8, 16, or 32 bits, known as UTF-8, UTF-16, and UTF-32.\nRStudio typically uses UTF-8 as its default.\nNotably, ASCII is a subset of UTF-8, meaning that if a file is ASCII-encoded, presuming it’s UTF-8 encoded won’t cause issues."
+  },
+  {
+    "objectID": "slides/wrangling/11-importing-files.html#encoding-2",
+    "href": "slides/wrangling/11-importing-files.html#encoding-2",
+    "title": "Importing files",
+    "section": "Encoding",
+    "text": "Encoding\n\nHowever, there other encodings, such as ISO-8859-1 (also known as Latin-1) developed for the western European languages, Big5 for Traditional Chinese, and ISO-8859-6 for Arabic.\nTake a look at this file:\n\n\nfn &lt;- \"calificaciones.csv\" \nfile.copy(file.path(system.file(\"extdata\", package = \"dslabs\"), fn), fn) \n\n[1] TRUE\n\nreadLines(fn, n = 1) \n\n[1] \"\\\"nombre\\\",\\\"f.n.\\\",\\\"estampa\\\",\\\"puntuaci\\xf3n\\\"\""
+  },
+  {
+    "objectID": "slides/wrangling/11-importing-files.html#encoding-3",
+    "href": "slides/wrangling/11-importing-files.html#encoding-3",
+    "title": "Importing files",
+    "section": "Encoding",
+    "text": "Encoding\n\nThe readr parsers permit us to specify an encoding.\nIt also includes a function that tries to guess the encoding:\n\n\nguess_encoding(\"murders.csv\") \n\n# A tibble: 1 × 2\n  encoding confidence\n  &lt;chr&gt;         &lt;dbl&gt;\n1 ASCII             1\n\nguess_encoding(\"calificaciones.csv\") \n\n# A tibble: 3 × 2\n  encoding   confidence\n  &lt;chr&gt;           &lt;dbl&gt;\n1 ISO-8859-1       0.92\n2 ISO-8859-2       0.72\n3 ISO-8859-9       0.53"
+  },
+  {
+    "objectID": "slides/wrangling/11-importing-files.html#encoding-4",
+    "href": "slides/wrangling/11-importing-files.html#encoding-4",
+    "title": "Importing files",
+    "section": "Encoding",
+    "text": "Encoding\n\nOnce we know the encoding we can specify it through the locale argument:\n\n\ndat &lt;- read_csv(\"calificaciones.csv\", show_col_types = FALSE, \n                locale = locale(encoding = \"ISO-8859-1\")) \n\n\nWe learn about locales in later."
+  },
+  {
+    "objectID": "slides/wrangling/11-importing-files.html#encoding-5",
+    "href": "slides/wrangling/11-importing-files.html#encoding-5",
+    "title": "Importing files",
+    "section": "Encoding",
+    "text": "Encoding\n\nWe can now see that the characters in the header were read in correctly:\n\n\ndat\n\n# A tibble: 7 × 4\n  nombre   f.n.                     estampa             puntuación\n  &lt;chr&gt;    &lt;chr&gt;                    &lt;dttm&gt;                   &lt;dbl&gt;\n1 Beyoncé  04 de septiembre de 1981 2023-09-22 02:11:02        875\n2 Blümchen 20 de abril de 1980      2023-09-22 03:23:05        990\n3 João     10 de junio de 1931      2023-09-21 22:43:28        989\n4 López    24 de julio de 1969      2023-09-22 01:06:59        887\n5 Ñengo    15 de diciembre de 1981  2023-09-21 23:35:37        931\n6 Plácido  24 de enero de 1941      2023-09-21 23:17:21        887\n7 Thalía   26 de agosto de 1971     2023-09-21 23:08:02        830"
+  },
+  {
+    "objectID": "slides/wrangling/11-importing-files.html#downloading-files",
+    "href": "slides/wrangling/11-importing-files.html#downloading-files",
+    "title": "Importing files",
+    "section": "Downloading files",
+    "text": "Downloading files\n\nA common place for data to reside is on the internet.\nWe can download these files and then import them.\nWe can also read them directly from the web.\n\n\nurl &lt;- paste0(\"https://raw.githubusercontent.com/\", \n              \"rafalab/dslabs/master/inst/extdata/murders.csv\") \nx &lt;- read.csv(url)"
+  },
+  {
+    "objectID": "slides/wrangling/11-importing-files.html#downloading-files-1",
+    "href": "slides/wrangling/11-importing-files.html#downloading-files-1",
+    "title": "Importing files",
+    "section": "Downloading files",
+    "text": "Downloading files\n\nIf you want a local copy, you can use `download.file:\n\n\ndownload.file(url, \"murders.csv\") \n\n\nThis will download the file and save it on your system with the name murders.csv.\nNote You can use any name here, not necessarily murders.csv."
+  },
+  {
+    "objectID": "slides/wrangling/11-importing-files.html#downloading-files-2",
+    "href": "slides/wrangling/11-importing-files.html#downloading-files-2",
+    "title": "Importing files",
+    "section": "Downloading files",
+    "text": "Downloading files\n\n\n\n\n\n\nWarning\n\n\nThe function download.file overwrites existing files without warning.\n\n\n\n\nTwo functions that are sometimes useful when downloading data from the internet are tempdir and tempfile.\n\n\ntmp_filename &lt;- tempfile() \ndownload.file(url, tmp_filename) \ndat &lt;- read_csv(tmp_filename) \nfile.remove(tmp_filename)"
+  },
+  {
+    "objectID": "slides/wrangling/12-dates-and-times.html#parsing-dates-and-times",
+    "href": "slides/wrangling/12-dates-and-times.html#parsing-dates-and-times",
+    "title": "Dates And Times",
+    "section": "Parsing dates and times",
+    "text": "Parsing dates and times\n\nWe have described three main types of vectors: numeric, character, and logical.\nWhen analyzing data, we often encounter variables that are dates.\nAlthough we can represent a date with a string, for example November 2, 2017, once we pick a reference day, referred to as the epoch by computer programmers, they can be converted to numbers by calculating the number of days since the epoch.\nIn R and Unix, the epoch is defined as January 1, 1970."
+  },
+  {
+    "objectID": "slides/wrangling/12-dates-and-times.html#parsing-dates-and-times-1",
+    "href": "slides/wrangling/12-dates-and-times.html#parsing-dates-and-times-1",
+    "title": "Dates And Times",
+    "section": "Parsing dates and times",
+    "text": "Parsing dates and times\n\nIf I tell you it’s November 2, 2017, you know what this means immediately.\nIf I tell you it’s day 17,204, you will be quite confused.\nSimilar problems arise with times and even more complications can appear due to time zones.\nFor this reason, R defines a data type just for dates and times."
+  },
+  {
+    "objectID": "slides/wrangling/12-dates-and-times.html#the-date-data-type",
+    "href": "slides/wrangling/12-dates-and-times.html#the-date-data-type",
+    "title": "Dates And Times",
+    "section": "The date data type",
+    "text": "The date data type\n\nWe can see an example of the data type R uses for data here:\n\n\nlibrary(tidyverse) \nlibrary(dslabs) \npolls_us_election_2016$startdate |&gt; head() \n\n[1] \"2016-11-03\" \"2016-11-01\" \"2016-11-02\" \"2016-11-04\" \"2016-11-03\"\n[6] \"2016-11-03\"\n\n\n\nThe dates look like strings, but they are not:\n\n\nclass(polls_us_election_2016$startdate) \n\n[1] \"Date\""
+  },
+  {
+    "objectID": "slides/wrangling/12-dates-and-times.html#the-date-data-type-1",
+    "href": "slides/wrangling/12-dates-and-times.html#the-date-data-type-1",
+    "title": "Dates And Times",
+    "section": "The date data type",
+    "text": "The date data type\n\nLook at what happens when we convert them to numbers:\n\n\nas.numeric(polls_us_election_2016$startdate) |&gt; head() \n\n[1] 17108 17106 17107 17109 17108 17108\n\n\n\nIt turns them into days since the epoch."
+  },
+  {
+    "objectID": "slides/wrangling/12-dates-and-times.html#the-date-data-type-2",
+    "href": "slides/wrangling/12-dates-and-times.html#the-date-data-type-2",
+    "title": "Dates And Times",
+    "section": "The date data type",
+    "text": "The date data type\n\nas.Date converts characters into dates.\nSo to see that the epoch is day 0 we can type.\n\n\nas.Date(\"1970-01-01\") |&gt; as.numeric() \n\n[1] 0\n\n\n\nPlotting functions, such as those in ggplot, are aware of the date format."
+  },
+  {
+    "objectID": "slides/wrangling/12-dates-and-times.html#the-date-data-type-3",
+    "href": "slides/wrangling/12-dates-and-times.html#the-date-data-type-3",
+    "title": "Dates And Times",
+    "section": "The date data type",
+    "text": "The date data type\n\nScatterplots use the numeric representation to assign positions, but include the string in the labels:\n\n\npolls_us_election_2016 |&gt; \n  filter(startdate &gt;= make_date(2016, 6, 1)) |&gt;\n  filter(pollster == \"Ipsos\" & state == \"U.S.\") |&gt; \n  ggplot(aes(startdate, rawpoll_clinton)) + \n  geom_line()"
+  },
+  {
+    "objectID": "slides/wrangling/12-dates-and-times.html#the-lubridate-package",
+    "href": "slides/wrangling/12-dates-and-times.html#the-lubridate-package",
+    "title": "Dates And Times",
+    "section": "The lubridate package",
+    "text": "The lubridate package\n\nThe lubridate package provides tools to work with date and times.\n\n\nlibrary(lubridate) \n\n\nWe will take a random sample of dates to show some of the useful things one can do:\n\n\nset.seed(2002) \ndates &lt;- sample(polls_us_election_2016$startdate, 10) |&gt; sort() \ndates \n\n [1] \"2016-05-31\" \"2016-08-08\" \"2016-08-19\" \"2016-09-22\" \"2016-09-27\"\n [6] \"2016-10-12\" \"2016-10-24\" \"2016-10-26\" \"2016-10-29\" \"2016-10-30\""
+  },
+  {
+    "objectID": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-1",
+    "href": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-1",
+    "title": "Dates And Times",
+    "section": "The lubridate package",
+    "text": "The lubridate package\n\nThe functions year, month and day extract those values:\n\n\ntibble(date = dates, month = month(dates), day = day(dates), year = year(dates)) \n\n# A tibble: 10 × 4\n   date       month   day  year\n   &lt;date&gt;     &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt;\n 1 2016-05-31     5    31  2016\n 2 2016-08-08     8     8  2016\n 3 2016-08-19     8    19  2016\n 4 2016-09-22     9    22  2016\n 5 2016-09-27     9    27  2016\n 6 2016-10-12    10    12  2016\n 7 2016-10-24    10    24  2016\n 8 2016-10-26    10    26  2016\n 9 2016-10-29    10    29  2016\n10 2016-10-30    10    30  2016"
+  },
+  {
+    "objectID": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-2",
+    "href": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-2",
+    "title": "Dates And Times",
+    "section": "The lubridate package",
+    "text": "The lubridate package\n\nWe can also extract the month labels:\n\n\nmonth(dates, label = TRUE) \n\n [1] May Aug Aug Sep Sep Oct Oct Oct Oct Oct\n12 Levels: Jan &lt; Feb &lt; Mar &lt; Apr &lt; May &lt; Jun &lt; Jul &lt; Aug &lt; Sep &lt; ... &lt; Dec"
+  },
+  {
+    "objectID": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-3",
+    "href": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-3",
+    "title": "Dates And Times",
+    "section": "The lubridate package",
+    "text": "The lubridate package\n\nAnother useful set of functions are the parsers that convert strings into dates.\nThe function ymd assumes the dates are in the format YYYY-MM-DD and tries to parse as well as possible.\n\n\nx &lt;- c(20090101, \"2009-01-02\", \"2009 01 03\", \"2009-1-4\", \n       \"2009-1, 5\", \"Created on 2009 1 6\", \"200901 !!! 07\") \nymd(x) \n\n[1] \"2009-01-01\" \"2009-01-02\" \"2009-01-03\" \"2009-01-04\" \"2009-01-05\"\n[6] \"2009-01-06\" \"2009-01-07\""
+  },
+  {
+    "objectID": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-4",
+    "href": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-4",
+    "title": "Dates And Times",
+    "section": "The lubridate package",
+    "text": "The lubridate package\n\nA further complication comes from the fact that dates often come in different formats in which the order of year, month, and day are different.\nThe preferred format is to show year (with all four digits), month (two digits), and then day, or what is called the ISO 8601.\nSpecifically we use YYYY-MM-DD so that if we order the string, it will be ordered by date.\nYou can see the function ymd returns them in this format."
+  },
+  {
+    "objectID": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-5",
+    "href": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-5",
+    "title": "Dates And Times",
+    "section": "The lubridate package",
+    "text": "The lubridate package\n\nBut, what if you encounter dates such as “09/01/02”? This could be September 1, 2002 or January 2, 2009 or January 9, 2002.\nIn these cases, examining the entire vector of dates will help you determine what format it is by process of elimination.\nOnce you know, you can use the many parses provided by lubridate.\nFor example, if the string is:\n\n\nx &lt;- \"09/01/02\""
+  },
+  {
+    "objectID": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-6",
+    "href": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-6",
+    "title": "Dates And Times",
+    "section": "The lubridate package",
+    "text": "The lubridate package\n\nThe ymd function assumes the first entry is the year, the second is the month, and the third is the day, so it converts it to:\n\n\nymd(x) \n\n[1] \"2009-01-02\""
+  },
+  {
+    "objectID": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-7",
+    "href": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-7",
+    "title": "Dates And Times",
+    "section": "The lubridate package",
+    "text": "The lubridate package\n\nThe mdy function assumes the first entry is the month, then the day, then the year:\n\n\nmdy(x) \n\n[1] \"2002-09-01\""
+  },
+  {
+    "objectID": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-8",
+    "href": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-8",
+    "title": "Dates And Times",
+    "section": "The lubridate package",
+    "text": "The lubridate package\n\nThe lubridate package provides a function for every possibility.\nHere is the other common one:\n\n\ndmy(x) \n\n[1] \"2002-01-09\""
+  },
+  {
+    "objectID": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-9",
+    "href": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-9",
+    "title": "Dates And Times",
+    "section": "The lubridate package",
+    "text": "The lubridate package\n\nThe lubridate package is also useful for dealing with times.\nIn base R, you can get the current time typing Sys.time().\nThe lubridate package provides a slightly more advanced function, now, that permits you to define the time zone:\n\n\nnow() \n\n[1] \"2024-09-30 09:45:57 EDT\"\n\nnow(\"GMT\") \n\n[1] \"2024-09-30 13:45:57 GMT\""
+  },
+  {
+    "objectID": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-10",
+    "href": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-10",
+    "title": "Dates And Times",
+    "section": "The lubridate package",
+    "text": "The lubridate package\n\nYou can see all the available time zones with:\n\n\nOlsonNames()\n\n  [1] \"Africa/Abidjan\"                   \"Africa/Accra\"                    \n  [3] \"Africa/Addis_Ababa\"               \"Africa/Algiers\"                  \n  [5] \"Africa/Asmara\"                    \"Africa/Asmera\"                   \n  [7] \"Africa/Bamako\"                    \"Africa/Bangui\"                   \n  [9] \"Africa/Banjul\"                    \"Africa/Bissau\"                   \n [11] \"Africa/Blantyre\"                  \"Africa/Brazzaville\"              \n [13] \"Africa/Bujumbura\"                 \"Africa/Cairo\"                    \n [15] \"Africa/Casablanca\"                \"Africa/Ceuta\"                    \n [17] \"Africa/Conakry\"                   \"Africa/Dakar\"                    \n [19] \"Africa/Dar_es_Salaam\"             \"Africa/Djibouti\"                 \n [21] \"Africa/Douala\"                    \"Africa/El_Aaiun\"                 \n [23] \"Africa/Freetown\"                  \"Africa/Gaborone\"                 \n [25] \"Africa/Harare\"                    \"Africa/Johannesburg\"             \n [27] \"Africa/Juba\"                      \"Africa/Kampala\"                  \n [29] \"Africa/Khartoum\"                  \"Africa/Kigali\"                   \n [31] \"Africa/Kinshasa\"                  \"Africa/Lagos\"                    \n [33] \"Africa/Libreville\"                \"Africa/Lome\"                     \n [35] \"Africa/Luanda\"                    \"Africa/Lubumbashi\"               \n [37] \"Africa/Lusaka\"                    \"Africa/Malabo\"                   \n [39] \"Africa/Maputo\"                    \"Africa/Maseru\"                   \n [41] \"Africa/Mbabane\"                   \"Africa/Mogadishu\"                \n [43] \"Africa/Monrovia\"                  \"Africa/Nairobi\"                  \n [45] \"Africa/Ndjamena\"                  \"Africa/Niamey\"                   \n [47] \"Africa/Nouakchott\"                \"Africa/Ouagadougou\"              \n [49] \"Africa/Porto-Novo\"                \"Africa/Sao_Tome\"                 \n [51] \"Africa/Timbuktu\"                  \"Africa/Tripoli\"                  \n [53] \"Africa/Tunis\"                     \"Africa/Windhoek\"                 \n [55] \"America/Adak\"                     \"America/Anchorage\"               \n [57] \"America/Anguilla\"                 \"America/Antigua\"                 \n [59] \"America/Araguaina\"                \"America/Argentina/Buenos_Aires\"  \n [61] \"America/Argentina/Catamarca\"      \"America/Argentina/ComodRivadavia\"\n [63] \"America/Argentina/Cordoba\"        \"America/Argentina/Jujuy\"         \n [65] \"America/Argentina/La_Rioja\"       \"America/Argentina/Mendoza\"       \n [67] \"America/Argentina/Rio_Gallegos\"   \"America/Argentina/Salta\"         \n [69] \"America/Argentina/San_Juan\"       \"America/Argentina/San_Luis\"      \n [71] \"America/Argentina/Tucuman\"        \"America/Argentina/Ushuaia\"       \n [73] \"America/Aruba\"                    \"America/Asuncion\"                \n [75] \"America/Atikokan\"                 \"America/Atka\"                    \n [77] \"America/Bahia\"                    \"America/Bahia_Banderas\"          \n [79] \"America/Barbados\"                 \"America/Belem\"                   \n [81] \"America/Belize\"                   \"America/Blanc-Sablon\"            \n [83] \"America/Boa_Vista\"                \"America/Bogota\"                  \n [85] \"America/Boise\"                    \"America/Buenos_Aires\"            \n [87] \"America/Cambridge_Bay\"            \"America/Campo_Grande\"            \n [89] \"America/Cancun\"                   \"America/Caracas\"                 \n [91] \"America/Catamarca\"                \"America/Cayenne\"                 \n [93] \"America/Cayman\"                   \"America/Chicago\"                 \n [95] \"America/Chihuahua\"                \"America/Ciudad_Juarez\"           \n [97] \"America/Coral_Harbour\"            \"America/Cordoba\"                 \n [99] \"America/Costa_Rica\"               \"America/Creston\"                 \n[101] \"America/Cuiaba\"                   \"America/Curacao\"                 \n[103] \"America/Danmarkshavn\"             \"America/Dawson\"                  \n[105] \"America/Dawson_Creek\"             \"America/Denver\"                  \n[107] \"America/Detroit\"                  \"America/Dominica\"                \n[109] \"America/Edmonton\"                 \"America/Eirunepe\"                \n[111] \"America/El_Salvador\"              \"America/Ensenada\"                \n[113] \"America/Fort_Nelson\"              \"America/Fort_Wayne\"              \n[115] \"America/Fortaleza\"                \"America/Glace_Bay\"               \n[117] \"America/Godthab\"                  \"America/Goose_Bay\"               \n[119] \"America/Grand_Turk\"               \"America/Grenada\"                 \n[121] \"America/Guadeloupe\"               \"America/Guatemala\"               \n[123] \"America/Guayaquil\"                \"America/Guyana\"                  \n[125] \"America/Halifax\"                  \"America/Havana\"                  \n[127] \"America/Hermosillo\"               \"America/Indiana/Indianapolis\"    \n[129] \"America/Indiana/Knox\"             \"America/Indiana/Marengo\"         \n[131] \"America/Indiana/Petersburg\"       \"America/Indiana/Tell_City\"       \n[133] \"America/Indiana/Vevay\"            \"America/Indiana/Vincennes\"       \n[135] \"America/Indiana/Winamac\"          \"America/Indianapolis\"            \n[137] \"America/Inuvik\"                   \"America/Iqaluit\"                 \n[139] \"America/Jamaica\"                  \"America/Jujuy\"                   \n[141] \"America/Juneau\"                   \"America/Kentucky/Louisville\"     \n[143] \"America/Kentucky/Monticello\"      \"America/Knox_IN\"                 \n[145] \"America/Kralendijk\"               \"America/La_Paz\"                  \n[147] \"America/Lima\"                     \"America/Los_Angeles\"             \n[149] \"America/Louisville\"               \"America/Lower_Princes\"           \n[151] \"America/Maceio\"                   \"America/Managua\"                 \n[153] \"America/Manaus\"                   \"America/Marigot\"                 \n[155] \"America/Martinique\"               \"America/Matamoros\"               \n[157] \"America/Mazatlan\"                 \"America/Mendoza\"                 \n[159] \"America/Menominee\"                \"America/Merida\"                  \n[161] \"America/Metlakatla\"               \"America/Mexico_City\"             \n[163] \"America/Miquelon\"                 \"America/Moncton\"                 \n[165] \"America/Monterrey\"                \"America/Montevideo\"              \n[167] \"America/Montreal\"                 \"America/Montserrat\"              \n[169] \"America/Nassau\"                   \"America/New_York\"                \n[171] \"America/Nipigon\"                  \"America/Nome\"                    \n[173] \"America/Noronha\"                  \"America/North_Dakota/Beulah\"     \n[175] \"America/North_Dakota/Center\"      \"America/North_Dakota/New_Salem\"  \n[177] \"America/Nuuk\"                     \"America/Ojinaga\"                 \n[179] \"America/Panama\"                   \"America/Pangnirtung\"             \n[181] \"America/Paramaribo\"               \"America/Phoenix\"                 \n[183] \"America/Port_of_Spain\"            \"America/Port-au-Prince\"          \n[185] \"America/Porto_Acre\"               \"America/Porto_Velho\"             \n[187] \"America/Puerto_Rico\"              \"America/Punta_Arenas\"            \n[189] \"America/Rainy_River\"              \"America/Rankin_Inlet\"            \n[191] \"America/Recife\"                   \"America/Regina\"                  \n[193] \"America/Resolute\"                 \"America/Rio_Branco\"              \n[195] \"America/Rosario\"                  \"America/Santa_Isabel\"            \n[197] \"America/Santarem\"                 \"America/Santiago\"                \n[199] \"America/Santo_Domingo\"            \"America/Sao_Paulo\"               \n[201] \"America/Scoresbysund\"             \"America/Shiprock\"                \n[203] \"America/Sitka\"                    \"America/St_Barthelemy\"           \n[205] \"America/St_Johns\"                 \"America/St_Kitts\"                \n[207] \"America/St_Lucia\"                 \"America/St_Thomas\"               \n[209] \"America/St_Vincent\"               \"America/Swift_Current\"           \n[211] \"America/Tegucigalpa\"              \"America/Thule\"                   \n[213] \"America/Thunder_Bay\"              \"America/Tijuana\"                 \n[215] \"America/Toronto\"                  \"America/Tortola\"                 \n[217] \"America/Vancouver\"                \"America/Virgin\"                  \n[219] \"America/Whitehorse\"               \"America/Winnipeg\"                \n[221] \"America/Yakutat\"                  \"America/Yellowknife\"             \n[223] \"Antarctica/Casey\"                 \"Antarctica/Davis\"                \n[225] \"Antarctica/DumontDUrville\"        \"Antarctica/Macquarie\"            \n[227] \"Antarctica/Mawson\"                \"Antarctica/McMurdo\"              \n[229] \"Antarctica/Palmer\"                \"Antarctica/Rothera\"              \n[231] \"Antarctica/South_Pole\"            \"Antarctica/Syowa\"                \n[233] \"Antarctica/Troll\"                 \"Antarctica/Vostok\"               \n[235] \"Arctic/Longyearbyen\"              \"Asia/Aden\"                       \n[237] \"Asia/Almaty\"                      \"Asia/Amman\"                      \n[239] \"Asia/Anadyr\"                      \"Asia/Aqtau\"                      \n[241] \"Asia/Aqtobe\"                      \"Asia/Ashgabat\"                   \n[243] \"Asia/Ashkhabad\"                   \"Asia/Atyrau\"                     \n[245] \"Asia/Baghdad\"                     \"Asia/Bahrain\"                    \n[247] \"Asia/Baku\"                        \"Asia/Bangkok\"                    \n[249] \"Asia/Barnaul\"                     \"Asia/Beirut\"                     \n[251] \"Asia/Bishkek\"                     \"Asia/Brunei\"                     \n[253] \"Asia/Calcutta\"                    \"Asia/Chita\"                      \n[255] \"Asia/Choibalsan\"                  \"Asia/Chongqing\"                  \n[257] \"Asia/Chungking\"                   \"Asia/Colombo\"                    \n[259] \"Asia/Dacca\"                       \"Asia/Damascus\"                   \n[261] \"Asia/Dhaka\"                       \"Asia/Dili\"                       \n[263] \"Asia/Dubai\"                       \"Asia/Dushanbe\"                   \n[265] \"Asia/Famagusta\"                   \"Asia/Gaza\"                       \n[267] \"Asia/Harbin\"                      \"Asia/Hebron\"                     \n[269] \"Asia/Ho_Chi_Minh\"                 \"Asia/Hong_Kong\"                  \n[271] \"Asia/Hovd\"                        \"Asia/Irkutsk\"                    \n[273] \"Asia/Istanbul\"                    \"Asia/Jakarta\"                    \n[275] \"Asia/Jayapura\"                    \"Asia/Jerusalem\"                  \n[277] \"Asia/Kabul\"                       \"Asia/Kamchatka\"                  \n[279] \"Asia/Karachi\"                     \"Asia/Kashgar\"                    \n[281] \"Asia/Kathmandu\"                   \"Asia/Katmandu\"                   \n[283] \"Asia/Khandyga\"                    \"Asia/Kolkata\"                    \n[285] \"Asia/Krasnoyarsk\"                 \"Asia/Kuala_Lumpur\"               \n[287] \"Asia/Kuching\"                     \"Asia/Kuwait\"                     \n[289] \"Asia/Macao\"                       \"Asia/Macau\"                      \n[291] \"Asia/Magadan\"                     \"Asia/Makassar\"                   \n[293] \"Asia/Manila\"                      \"Asia/Muscat\"                     \n[295] \"Asia/Nicosia\"                     \"Asia/Novokuznetsk\"               \n[297] \"Asia/Novosibirsk\"                 \"Asia/Omsk\"                       \n[299] \"Asia/Oral\"                        \"Asia/Phnom_Penh\"                 \n[301] \"Asia/Pontianak\"                   \"Asia/Pyongyang\"                  \n[303] \"Asia/Qatar\"                       \"Asia/Qostanay\"                   \n[305] \"Asia/Qyzylorda\"                   \"Asia/Rangoon\"                    \n[307] \"Asia/Riyadh\"                      \"Asia/Saigon\"                     \n[309] \"Asia/Sakhalin\"                    \"Asia/Samarkand\"                  \n[311] \"Asia/Seoul\"                       \"Asia/Shanghai\"                   \n[313] \"Asia/Singapore\"                   \"Asia/Srednekolymsk\"              \n[315] \"Asia/Taipei\"                      \"Asia/Tashkent\"                   \n[317] \"Asia/Tbilisi\"                     \"Asia/Tehran\"                     \n[319] \"Asia/Tel_Aviv\"                    \"Asia/Thimbu\"                     \n[321] \"Asia/Thimphu\"                     \"Asia/Tokyo\"                      \n[323] \"Asia/Tomsk\"                       \"Asia/Ujung_Pandang\"              \n[325] \"Asia/Ulaanbaatar\"                 \"Asia/Ulan_Bator\"                 \n[327] \"Asia/Urumqi\"                      \"Asia/Ust-Nera\"                   \n[329] \"Asia/Vientiane\"                   \"Asia/Vladivostok\"                \n[331] \"Asia/Yakutsk\"                     \"Asia/Yangon\"                     \n[333] \"Asia/Yekaterinburg\"               \"Asia/Yerevan\"                    \n[335] \"Atlantic/Azores\"                  \"Atlantic/Bermuda\"                \n[337] \"Atlantic/Canary\"                  \"Atlantic/Cape_Verde\"             \n[339] \"Atlantic/Faeroe\"                  \"Atlantic/Faroe\"                  \n[341] \"Atlantic/Jan_Mayen\"               \"Atlantic/Madeira\"                \n[343] \"Atlantic/Reykjavik\"               \"Atlantic/South_Georgia\"          \n[345] \"Atlantic/St_Helena\"               \"Atlantic/Stanley\"                \n[347] \"Australia/ACT\"                    \"Australia/Adelaide\"              \n[349] \"Australia/Brisbane\"               \"Australia/Broken_Hill\"           \n[351] \"Australia/Canberra\"               \"Australia/Currie\"                \n[353] \"Australia/Darwin\"                 \"Australia/Eucla\"                 \n[355] \"Australia/Hobart\"                 \"Australia/LHI\"                   \n[357] \"Australia/Lindeman\"               \"Australia/Lord_Howe\"             \n[359] \"Australia/Melbourne\"              \"Australia/North\"                 \n[361] \"Australia/NSW\"                    \"Australia/Perth\"                 \n[363] \"Australia/Queensland\"             \"Australia/South\"                 \n[365] \"Australia/Sydney\"                 \"Australia/Tasmania\"              \n[367] \"Australia/Victoria\"               \"Australia/West\"                  \n[369] \"Australia/Yancowinna\"             \"Brazil/Acre\"                     \n[371] \"Brazil/DeNoronha\"                 \"Brazil/East\"                     \n[373] \"Brazil/West\"                      \"Canada/Atlantic\"                 \n[375] \"Canada/Central\"                   \"Canada/Eastern\"                  \n[377] \"Canada/Mountain\"                  \"Canada/Newfoundland\"             \n[379] \"Canada/Pacific\"                   \"Canada/Saskatchewan\"             \n[381] \"Canada/Yukon\"                     \"CET\"                             \n[383] \"Chile/Continental\"                \"Chile/EasterIsland\"              \n[385] \"CST6CDT\"                          \"Cuba\"                            \n[387] \"EET\"                              \"Egypt\"                           \n[389] \"Eire\"                             \"EST\"                             \n[391] \"EST5EDT\"                          \"Etc/GMT\"                         \n[393] \"Etc/GMT-0\"                        \"Etc/GMT-1\"                       \n[395] \"Etc/GMT-10\"                       \"Etc/GMT-11\"                      \n[397] \"Etc/GMT-12\"                       \"Etc/GMT-13\"                      \n[399] \"Etc/GMT-14\"                       \"Etc/GMT-2\"                       \n[401] \"Etc/GMT-3\"                        \"Etc/GMT-4\"                       \n[403] \"Etc/GMT-5\"                        \"Etc/GMT-6\"                       \n[405] \"Etc/GMT-7\"                        \"Etc/GMT-8\"                       \n[407] \"Etc/GMT-9\"                        \"Etc/GMT+0\"                       \n[409] \"Etc/GMT+1\"                        \"Etc/GMT+10\"                      \n[411] \"Etc/GMT+11\"                       \"Etc/GMT+12\"                      \n[413] \"Etc/GMT+2\"                        \"Etc/GMT+3\"                       \n[415] \"Etc/GMT+4\"                        \"Etc/GMT+5\"                       \n[417] \"Etc/GMT+6\"                        \"Etc/GMT+7\"                       \n[419] \"Etc/GMT+8\"                        \"Etc/GMT+9\"                       \n[421] \"Etc/GMT0\"                         \"Etc/Greenwich\"                   \n[423] \"Etc/UCT\"                          \"Etc/Universal\"                   \n[425] \"Etc/UTC\"                          \"Etc/Zulu\"                        \n[427] \"Europe/Amsterdam\"                 \"Europe/Andorra\"                  \n[429] \"Europe/Astrakhan\"                 \"Europe/Athens\"                   \n[431] \"Europe/Belfast\"                   \"Europe/Belgrade\"                 \n[433] \"Europe/Berlin\"                    \"Europe/Bratislava\"               \n[435] \"Europe/Brussels\"                  \"Europe/Bucharest\"                \n[437] \"Europe/Budapest\"                  \"Europe/Busingen\"                 \n[439] \"Europe/Chisinau\"                  \"Europe/Copenhagen\"               \n[441] \"Europe/Dublin\"                    \"Europe/Gibraltar\"                \n[443] \"Europe/Guernsey\"                  \"Europe/Helsinki\"                 \n[445] \"Europe/Isle_of_Man\"               \"Europe/Istanbul\"                 \n[447] \"Europe/Jersey\"                    \"Europe/Kaliningrad\"              \n[449] \"Europe/Kiev\"                      \"Europe/Kirov\"                    \n[451] \"Europe/Kyiv\"                      \"Europe/Lisbon\"                   \n[453] \"Europe/Ljubljana\"                 \"Europe/London\"                   \n[455] \"Europe/Luxembourg\"                \"Europe/Madrid\"                   \n[457] \"Europe/Malta\"                     \"Europe/Mariehamn\"                \n[459] \"Europe/Minsk\"                     \"Europe/Monaco\"                   \n[461] \"Europe/Moscow\"                    \"Europe/Nicosia\"                  \n[463] \"Europe/Oslo\"                      \"Europe/Paris\"                    \n[465] \"Europe/Podgorica\"                 \"Europe/Prague\"                   \n[467] \"Europe/Riga\"                      \"Europe/Rome\"                     \n[469] \"Europe/Samara\"                    \"Europe/San_Marino\"               \n[471] \"Europe/Sarajevo\"                  \"Europe/Saratov\"                  \n[473] \"Europe/Simferopol\"                \"Europe/Skopje\"                   \n[475] \"Europe/Sofia\"                     \"Europe/Stockholm\"                \n[477] \"Europe/Tallinn\"                   \"Europe/Tirane\"                   \n[479] \"Europe/Tiraspol\"                  \"Europe/Ulyanovsk\"                \n[481] \"Europe/Uzhgorod\"                  \"Europe/Vaduz\"                    \n[483] \"Europe/Vatican\"                   \"Europe/Vienna\"                   \n[485] \"Europe/Vilnius\"                   \"Europe/Volgograd\"                \n[487] \"Europe/Warsaw\"                    \"Europe/Zagreb\"                   \n[489] \"Europe/Zaporozhye\"                \"Europe/Zurich\"                   \n[491] \"Factory\"                          \"GB\"                              \n[493] \"GB-Eire\"                          \"GMT\"                             \n[495] \"GMT-0\"                            \"GMT+0\"                           \n[497] \"GMT0\"                             \"Greenwich\"                       \n[499] \"Hongkong\"                         \"HST\"                             \n[501] \"Iceland\"                          \"Indian/Antananarivo\"             \n[503] \"Indian/Chagos\"                    \"Indian/Christmas\"                \n[505] \"Indian/Cocos\"                     \"Indian/Comoro\"                   \n[507] \"Indian/Kerguelen\"                 \"Indian/Mahe\"                     \n[509] \"Indian/Maldives\"                  \"Indian/Mauritius\"                \n[511] \"Indian/Mayotte\"                   \"Indian/Reunion\"                  \n[513] \"Iran\"                             \"Israel\"                          \n[515] \"Jamaica\"                          \"Japan\"                           \n[517] \"Kwajalein\"                        \"Libya\"                           \n[519] \"MET\"                              \"Mexico/BajaNorte\"                \n[521] \"Mexico/BajaSur\"                   \"Mexico/General\"                  \n[523] \"MST\"                              \"MST7MDT\"                         \n[525] \"Navajo\"                           \"NZ\"                              \n[527] \"NZ-CHAT\"                          \"Pacific/Apia\"                    \n[529] \"Pacific/Auckland\"                 \"Pacific/Bougainville\"            \n[531] \"Pacific/Chatham\"                  \"Pacific/Chuuk\"                   \n[533] \"Pacific/Easter\"                   \"Pacific/Efate\"                   \n[535] \"Pacific/Enderbury\"                \"Pacific/Fakaofo\"                 \n[537] \"Pacific/Fiji\"                     \"Pacific/Funafuti\"                \n[539] \"Pacific/Galapagos\"                \"Pacific/Gambier\"                 \n[541] \"Pacific/Guadalcanal\"              \"Pacific/Guam\"                    \n[543] \"Pacific/Honolulu\"                 \"Pacific/Johnston\"                \n[545] \"Pacific/Kanton\"                   \"Pacific/Kiritimati\"              \n[547] \"Pacific/Kosrae\"                   \"Pacific/Kwajalein\"               \n[549] \"Pacific/Majuro\"                   \"Pacific/Marquesas\"               \n[551] \"Pacific/Midway\"                   \"Pacific/Nauru\"                   \n[553] \"Pacific/Niue\"                     \"Pacific/Norfolk\"                 \n[555] \"Pacific/Noumea\"                   \"Pacific/Pago_Pago\"               \n[557] \"Pacific/Palau\"                    \"Pacific/Pitcairn\"                \n[559] \"Pacific/Pohnpei\"                  \"Pacific/Ponape\"                  \n[561] \"Pacific/Port_Moresby\"             \"Pacific/Rarotonga\"               \n[563] \"Pacific/Saipan\"                   \"Pacific/Samoa\"                   \n[565] \"Pacific/Tahiti\"                   \"Pacific/Tarawa\"                  \n[567] \"Pacific/Tongatapu\"                \"Pacific/Truk\"                    \n[569] \"Pacific/Wake\"                     \"Pacific/Wallis\"                  \n[571] \"Pacific/Yap\"                      \"Poland\"                          \n[573] \"Portugal\"                         \"PRC\"                             \n[575] \"PST8PDT\"                          \"ROC\"                             \n[577] \"ROK\"                              \"Singapore\"                       \n[579] \"Turkey\"                           \"UCT\"                             \n[581] \"Universal\"                        \"US/Alaska\"                       \n[583] \"US/Aleutian\"                      \"US/Arizona\"                      \n[585] \"US/Central\"                       \"US/East-Indiana\"                 \n[587] \"US/Eastern\"                       \"US/Hawaii\"                       \n[589] \"US/Indiana-Starke\"                \"US/Michigan\"                     \n[591] \"US/Mountain\"                      \"US/Pacific\"                      \n[593] \"US/Samoa\"                         \"UTC\"                             \n[595] \"W-SU\"                             \"WET\"                             \n[597] \"Zulu\"                            \nattr(,\"Version\")\n[1] \"2024a\""
+  },
+  {
+    "objectID": "slides/wrangling/12-dates-and-times.html#dates-and-times-with-data.table",
+    "href": "slides/wrangling/12-dates-and-times.html#dates-and-times-with-data.table",
+    "title": "Dates And Times",
+    "section": "Dates and times with data.table",
+    "text": "Dates and times with data.table\n\nThe data.table package includes some of the same functionality as lubridate.\nFor example, it includes the month, and year functions that are the same as those in lubridate.\nThe equilvalent of lubridate’s day is mday:\n\n\nlibrary(data.table) \nst &lt;- as.Date(\"2024-03-04\") \nday(st) \n\n[1] 4\n\nmday(st) \n\n[1] 4\n\n\n\nOther similar functions included in data.table are second, minute, hour, yday, wday, week,"
+  },
+  {
+    "objectID": "slides/wrangling/12-dates-and-times.html#dates-and-times-with-data.table-1",
+    "href": "slides/wrangling/12-dates-and-times.html#dates-and-times-with-data.table-1",
+    "title": "Dates And Times",
+    "section": "Dates and times with data.table",
+    "text": "Dates and times with data.table\n\nisoweek and quarter.\nThe package also includes the classes IDate and ITime, which store dates and times more efficiently that lubridate and base R.\nThis convenient for large files with date stamps.\nYou can convert dates in the usual R format: using as.IDate and as.ITime.\nYou can see this by using the object.size function:"
+  },
+  {
+    "objectID": "slides/wrangling/12-dates-and-times.html#dates-and-times-with-data.table-2",
+    "href": "slides/wrangling/12-dates-and-times.html#dates-and-times-with-data.table-2",
+    "title": "Dates And Times",
+    "section": "Dates and times with data.table",
+    "text": "Dates and times with data.table\n\nobject.size(polls_us_election_2016$startdate) \n\n33936 bytes\n\nobject.size(as.IDate(polls_us_election_2016$startdate)) \n\n17168 bytes"
+  },
+  {
+    "objectID": "slides/wrangling/12-dates-and-times.html#the-date-data-type-4",
+    "href": "slides/wrangling/12-dates-and-times.html#the-date-data-type-4",
+    "title": "Dates And Times",
+    "section": "The date data type",
+    "text": "The date data type\n\nCodePlot\n\n\nggplot offers convenient functions to change labels:\n\npolls_us_election_2016 |&gt; \n  filter(startdate &gt;= make_date(2016, 6, 1)) |&gt;\n  filter(pollster == \"Ipsos\" & state == \"U.S.\") |&gt; \n  ggplot(aes(startdate, rawpoll_clinton)) + \n  geom_line() +\n  scale_x_date(date_breaks = \"2 weeks\", date_labels = \"%b %d\") + \n  geom_vline(xintercept = as.Date(\"2016-10-28\"), linetype = \"dashed\")"
+  },
+  {
+    "objectID": "slides/wrangling/12-dates-and-times.html#the-date-data-type-5",
+    "href": "slides/wrangling/12-dates-and-times.html#the-date-data-type-5",
+    "title": "Dates And Times",
+    "section": "The date data type",
+    "text": "The date data type\n\nNote in particular that the month names are displayed, a very convenient feature."
+  },
+  {
+    "objectID": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-11",
+    "href": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-11",
+    "title": "Dates And Times",
+    "section": "The lubridate package",
+    "text": "The lubridate package\n\nWe can also extract hours, minutes, and seconds:\n\n\nnow() |&gt; hour() \n\n[1] 9\n\nnow() |&gt; minute() \n\n[1] 45\n\nnow() |&gt; second() \n\n[1] 57.89021"
+  },
+  {
+    "objectID": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-12",
+    "href": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-12",
+    "title": "Dates And Times",
+    "section": "The lubridate package",
+    "text": "The lubridate package\n\nThe package also includes a function to parse strings into times as well as parsers for time objects that include dates:\n\n\nx &lt;- c(\"12:34:56\") \nhms(x) \n\n[1] \"12H 34M 56S\"\n\nx &lt;- \"Nov/2/2012 12:34:56\" \nmdy_hms(x) \n\n[1] \"2012-11-02 12:34:56 UTC\""
+  },
+  {
+    "objectID": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-13",
+    "href": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-13",
+    "title": "Dates And Times",
+    "section": "The lubridate package",
+    "text": "The lubridate package\n\nThe make_date function can be used to quickly create a date object.\nFor example, to create an date object representing, for example, July 6, 2019 we write:\n\n\nmake_date(2019, 7, 6) \n\n[1] \"2019-07-06\""
+  },
+  {
+    "objectID": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-14",
+    "href": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-14",
+    "title": "Dates And Times",
+    "section": "The lubridate package",
+    "text": "The lubridate package\n\nWe can use it to make vectors of dates.\nTo make a vector of January 1 for the 80s we write:\n\n\nmake_date(1980:1989) \n\n [1] \"1980-01-01\" \"1981-01-01\" \"1982-01-01\" \"1983-01-01\" \"1984-01-01\"\n [6] \"1985-01-01\" \"1986-01-01\" \"1987-01-01\" \"1988-01-01\" \"1989-01-01\""
+  },
+  {
+    "objectID": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-15",
+    "href": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-15",
+    "title": "Dates And Times",
+    "section": "The lubridate package",
+    "text": "The lubridate package\n\nAnother very useful function is round_date.\nIt can be used to round dates to nearest year, quarter, month, week, day, hour, minutes, or seconds."
+  },
+  {
+    "objectID": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-16",
+    "href": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-16",
+    "title": "Dates And Times",
+    "section": "The lubridate package",
+    "text": "The lubridate package\n\nCodePlot\n\n\n\nExample: if we want to group all the polls by week of the year we can do the following:\n\n\npolls_us_election_2016 |&gt;  \n  mutate(week = round_date(startdate, \"week\")) |&gt; \n  group_by(week) |&gt; \n  summarize(margin = mean(rawpoll_clinton - rawpoll_trump)) |&gt; \n  ggplot(aes(week, margin)) + \n  geom_point()"
+  },
+  {
+    "objectID": "slides/wrangling/12-dates-and-times.html#final-pointers",
+    "href": "slides/wrangling/12-dates-and-times.html#final-pointers",
+    "title": "Dates And Times",
+    "section": "Final pointers",
+    "text": "Final pointers\n\nYou should be aware the there are useful function for computing operations on time such a difftime, time_length, and interval.\nWe don’t cover it here but be aware that The data.table package includes some of the same functionality as lubridate."
+  },
+  {
+    "objectID": "slides/wrangling/13-locales.html#locales",
+    "href": "slides/wrangling/13-locales.html#locales",
+    "title": "Locales",
+    "section": "Locales",
+    "text": "Locales\n\nComputer settings change depending on language and location, and being unaware of this possibility can make certain data wrangling challenges difficult to overcome."
+  },
+  {
+    "objectID": "slides/wrangling/13-locales.html#locales-1",
+    "href": "slides/wrangling/13-locales.html#locales-1",
+    "title": "Locales",
+    "section": "Locales",
+    "text": "Locales\n\nThe purpose of locales is to group together common settings that can affect:\n\nMonth and day names, which are necessary for interpreting dates.\nThe standard date format.\nThe default time zone.\nCharacter encoding, vital for reading non-ASCII characters.\nThe symbols for decimals and number groupings, important for interpreting numerical values."
+  },
+  {
+    "objectID": "slides/wrangling/13-locales.html#locales-2",
+    "href": "slides/wrangling/13-locales.html#locales-2",
+    "title": "Locales",
+    "section": "Locales",
+    "text": "Locales\n\nIn R, a locale refers to a suite of settings that dictate how the system should behave with respect to cultural conventions.\nThese affect the way data is formatted and presented, including date formatting, currency symbols, decimal separators, and other related aspects.\nLocales in R affect several areas, including how character vectors are sorted.\nAdditionally, errors, warnings, and other messages might be translated into languages other than English based on the locale."
+  },
+  {
+    "objectID": "slides/wrangling/13-locales.html#locales-in-r",
+    "href": "slides/wrangling/13-locales.html#locales-in-r",
+    "title": "Locales",
+    "section": "Locales in R",
+    "text": "Locales in R\n\nTo access the current locale settings in R, you can use the Sys.getlocale() function:\n\n\nSys.getlocale() \n\n[1] \"en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8\""
+  },
+  {
+    "objectID": "slides/wrangling/13-locales.html#locales-in-r-1",
+    "href": "slides/wrangling/13-locales.html#locales-in-r-1",
+    "title": "Locales",
+    "section": "Locales in R",
+    "text": "Locales in R\n\nTo set a specific locale, use the Sys.setlocale() function.\nFor example, to set the locale to US English:\n\n\nSys.setlocale(\"LC_ALL\", \"en_US.UTF-8\") \n\n[1] \"en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8\"\n\n\n\nThe exact string to use for setting the locale (like “en_US.UTF-8”) can depend on your operating system and its configuration."
+  },
+  {
+    "objectID": "slides/wrangling/13-locales.html#locales-in-r-2",
+    "href": "slides/wrangling/13-locales.html#locales-in-r-2",
+    "title": "Locales",
+    "section": "Locales in R",
+    "text": "Locales in R\n\nLC_ALL refers to all locale categories.\nR breaks down the locale into categories:\n\nLC_COLLATE: for string collation.\nLC_TIME: date and time formatting.\nLC_MONETARY: currency formatting.\nLC_MESSAGES: system message translations.\nLC_NUMERIC: number formatting.\n\nYou can set the locale for each category individually if you don’t want to use LC_ALL."
+  },
+  {
+    "objectID": "slides/wrangling/13-locales.html#the-locale-function",
+    "href": "slides/wrangling/13-locales.html#the-locale-function",
+    "title": "Locales",
+    "section": "The locale function",
+    "text": "The locale function\n\nThe readr package includes a locale() function that can be used to learn or change the current locale from within R:\n\n\nlibrary(readr) \nlocale() \n\n&lt;locale&gt;\nNumbers:  123,456.78\nFormats:  %AD / %AT\nTimezone: UTC\nEncoding: UTF-8\n&lt;date_names&gt;\nDays:   Sunday (Sun), Monday (Mon), Tuesday (Tue), Wednesday (Wed), Thursday\n        (Thu), Friday (Fri), Saturday (Sat)\nMonths: January (Jan), February (Feb), March (Mar), April (Apr), May (May),\n        June (Jun), July (Jul), August (Aug), September (Sep), October\n        (Oct), November (Nov), December (Dec)\nAM/PM:  AM/PM"
+  },
+  {
+    "objectID": "slides/wrangling/13-locales.html#the-locale-function-1",
+    "href": "slides/wrangling/13-locales.html#the-locale-function-1",
+    "title": "Locales",
+    "section": "The locale function",
+    "text": "The locale function\n\nYou can see all the locales available on your system by typing:\n\n\nsystem(\"locale -a\")"
+  },
+  {
+    "objectID": "slides/wrangling/13-locales.html#example",
+    "href": "slides/wrangling/13-locales.html#example",
+    "title": "Locales",
+    "section": "Example",
+    "text": "Example\n\nEarlier we noted that reading the file:\n\n\nfn &lt;- file.path(system.file(\"extdata\", package = \"dslabs\"), \"calificaciones.csv\") \n\n\nhad a encoding different than UTF-8, the default."
+  },
+  {
+    "objectID": "slides/wrangling/13-locales.html#example-1",
+    "href": "slides/wrangling/13-locales.html#example-1",
+    "title": "Locales",
+    "section": "Example",
+    "text": "Example\n\nWe used guess_encoding to determine the correct one:\n\n\nguess_encoding(fn)$encoding[1] \n\n[1] \"ISO-8859-1\"\n\n\n\nand used the locale function to change this and read in this encoding instead:\n\n\ndat &lt;- read_csv(fn, locale = locale(encoding = \"ISO-8859-1\"))"
+  },
+  {
+    "objectID": "slides/wrangling/13-locales.html#example-2",
+    "href": "slides/wrangling/13-locales.html#example-2",
+    "title": "Locales",
+    "section": "Example",
+    "text": "Example\n\nThis file provides homework assignment scores for seven students. Columns represent the name, date of birth, the time they submitted their assignment, and their score:\n\n\nread_lines(fn, locale = locale(encoding = \"ISO-8859-1\")) \n\n[1] \"\\\"nombre\\\",\\\"f.n.\\\",\\\"estampa\\\",\\\"puntuación\\\"\"                       \n[2] \"\\\"Beyoncé\\\",\\\"04 de septiembre de 1981\\\",2023-09-22 02:11:02,\\\"87,5\\\"\"\n[3] \"\\\"Blümchen\\\",\\\"20 de abril de 1980\\\",2023-09-22 03:23:05,\\\"99,0\\\"\"    \n[4] \"\\\"João\\\",\\\"10 de junio de 1931\\\",2023-09-21 22:43:28,\\\"98,9\\\"\"        \n[5] \"\\\"López\\\",\\\"24 de julio de 1969\\\",2023-09-22 01:06:59,\\\"88,7\\\"\"       \n[6] \"\\\"Ñengo\\\",\\\"15 de diciembre de 1981\\\",2023-09-21 23:35:37,\\\"93,1\\\"\"   \n[7] \"\\\"Plácido\\\",\\\"24 de enero de 1941\\\",2023-09-21 23:17:21,\\\"88,7\\\"\"     \n[8] \"\\\"Thalía\\\",\\\"26 de agosto de 1971\\\",2023-09-21 23:08:02,\\\"83,0\\\"\""
+  },
+  {
+    "objectID": "slides/wrangling/13-locales.html#example-3",
+    "href": "slides/wrangling/13-locales.html#example-3",
+    "title": "Locales",
+    "section": "Example",
+    "text": "Example\n\nAs an illustrative example, we will write code to compute the students age and check if they turned in their assignment by the deadline of September 21, 2023, before midnight.\nWe can read in the file with correct encoding like this:\n\n\ndat &lt;- read_csv(fn, locale = locale(encoding = \"ISO-8859-1\"))"
+  },
+  {
+    "objectID": "slides/wrangling/13-locales.html#example-4",
+    "href": "slides/wrangling/13-locales.html#example-4",
+    "title": "Locales",
+    "section": "Example",
+    "text": "Example\n\nHowever, notice that the last column, which is supposed to contain exam scores between 0 and 100, shows numbers larger than 800:\n\n\ndat$puntuación \n\n[1] 875 990 989 887 931 887 830"
+  },
+  {
+    "objectID": "slides/wrangling/13-locales.html#example-5",
+    "href": "slides/wrangling/13-locales.html#example-5",
+    "title": "Locales",
+    "section": "Example",
+    "text": "Example\n\nThis happens because the scores in the file use the European decimal point, which confuses read_csv.\nTo address this issue, we can also change the encoding to use European decimals, which fixes the problem:\n\n\ndat &lt;- read_csv(fn, locale = locale(decimal_mark = \",\", \n                                    encoding = \"ISO-8859-1\")) \ndat$puntuación \n\n[1] 87.5 99.0 98.9 88.7 93.1 88.7 83.0"
+  },
+  {
+    "objectID": "slides/wrangling/13-locales.html#locales-in-r-3",
+    "href": "slides/wrangling/13-locales.html#locales-in-r-3",
+    "title": "Locales",
+    "section": "Locales in R",
+    "text": "Locales in R\n\n\n\n\n\n\nWarning\n\n\n\nWe have shown tools to control locales.\nThese settings are important because they affect how your data looks and behaves.\nHowever, not all of these settings are available on every computer; their availability depends on what kind of computer you have and how it’s set up.\nChanging these settings, especially LC_NUMERIC, can lead to unexpected problems when you’re working with numbers in R.\nThese locale settings only last as long as one R session."
+  },
+  {
+    "objectID": "slides/wrangling/13-locales.html#the-locale-function-2",
+    "href": "slides/wrangling/13-locales.html#the-locale-function-2",
+    "title": "Locales",
+    "section": "The locale function",
+    "text": "The locale function\n\nHere is what you obtain if you change the dates locale to Spanish:\n\n\nlocale(date_names = \"es\") \n\n&lt;locale&gt;\nNumbers:  123,456.78\nFormats:  %AD / %AT\nTimezone: UTC\nEncoding: UTF-8\n&lt;date_names&gt;\nDays:   domingo (dom.), lunes (lun.), martes (mar.), miércoles (mié.), jueves\n        (jue.), viernes (vie.), sábado (sáb.)\nMonths: enero (ene.), febrero (feb.), marzo (mar.), abril (abr.), mayo (may.),\n        junio (jun.), julio (jul.), agosto (ago.), septiembre (sept.),\n        octubre (oct.), noviembre (nov.), diciembre (dic.)\nAM/PM:  a. m./p. m."
+  },
+  {
+    "objectID": "slides/wrangling/13-locales.html#example-6",
+    "href": "slides/wrangling/13-locales.html#example-6",
+    "title": "Locales",
+    "section": "Example",
+    "text": "Example\n\nNow, to compute the student ages, let’s try changing the submission times to date format:\n\n\nlibrary(lubridate) \ndmy(dat$f.n.) \n\n[1] NA NA NA NA NA NA NA\n\n\n\nNothing gets converted correctly.\nThis is because the dates are in Spanish."
+  },
+  {
+    "objectID": "slides/wrangling/13-locales.html#example-7",
+    "href": "slides/wrangling/13-locales.html#example-7",
+    "title": "Locales",
+    "section": "Example",
+    "text": "Example\nWe can change the locale to use Spanish as the language for dates:\n\nparse_date(dat$f.n., format = \"%d de %B de %Y\", locale = locale(date_names = \"es\")) \n\n[1] \"1981-09-04\" \"1980-04-20\" \"1931-06-10\" \"1969-07-24\" \"1981-12-15\"\n[6] \"1941-01-24\" \"1971-08-26\""
+  },
+  {
+    "objectID": "slides/wrangling/13-locales.html#example-8",
+    "href": "slides/wrangling/13-locales.html#example-8",
+    "title": "Locales",
+    "section": "Example",
+    "text": "Example\nWe can also reread the file using the correct locales:\n\ndat &lt;- read_csv(fn, locale = locale(date_names = \"es\", \n                                    date_format = \"%d de %B de %Y\", \n                                    decimal_mark = \",\", \n                                    encoding = \"ISO-8859-1\"))"
+  },
+  {
+    "objectID": "slides/wrangling/13-locales.html#example-9",
+    "href": "slides/wrangling/13-locales.html#example-9",
+    "title": "Locales",
+    "section": "Example",
+    "text": "Example\nComputing the students’ ages is now straightforward:\n\ntime_length(today() - dat$f.n., unit = \"years\") |&gt; floor() \n\n[1] 43 44 93 55 42 83 53"
+  },
+  {
+    "objectID": "slides/wrangling/13-locales.html#example-10",
+    "href": "slides/wrangling/13-locales.html#example-10",
+    "title": "Locales",
+    "section": "Example",
+    "text": "Example\n\nLet’s check which students turned in their homework past the deadline of September 22:\n\n\ndat$estampa &gt;= make_date(2023, 9, 22) \n\n[1]  TRUE  TRUE FALSE  TRUE FALSE FALSE FALSE\n\n\n\nWe see that two students where late.\nHowever, with times we have to be particularly careful as some functions default to the UTC timezone:\n\n\ntz(dat$estampa) \n\n[1] \"UTC\""
+  },
+  {
+    "objectID": "slides/wrangling/13-locales.html#example-11",
+    "href": "slides/wrangling/13-locales.html#example-11",
+    "title": "Locales",
+    "section": "Example",
+    "text": "Example\n\nIf we change to the timezone to Eastern Standard Time (EST), we see no one was late:\n\n\nwith_tz(dat$estampa, tz =  \"EST\") &gt;= make_date(2023, 9, 22) \n\n[1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE"
+  },
+  {
+    "objectID": "slides/wrangling/15-web-scraping.html#scraping-html",
+    "href": "slides/wrangling/15-web-scraping.html#scraping-html",
+    "title": "Web Scraping",
+    "section": "Scraping HTML",
+    "text": "Scraping HTML\n\nThe data we need to answer a question is not always in a spreadsheet ready for us to read.\nFor example, the US murders dataset we used in the R Basics chapter originally comes from this Wikipedia page:\n\n\nurl &lt;- paste0(\"https://en.wikipedia.org/w/index.php?title=\", \n              \"Gun_violence_in_the_United_States_by_state\", \n              \"&direction=prev&oldid=810166167\")"
+  },
+  {
+    "objectID": "slides/wrangling/15-web-scraping.html#scraping-html-1",
+    "href": "slides/wrangling/15-web-scraping.html#scraping-html-1",
+    "title": "Web Scraping",
+    "section": "Scraping HTML",
+    "text": "Scraping HTML\n\nYou can see the data table when you visit the webpage:\n\n.\n\nWeb scraping, or web harvesting, is the term we use to describe the process of extracting data from a website."
+  },
+  {
+    "objectID": "slides/wrangling/15-web-scraping.html#scraping-html-2",
+    "href": "slides/wrangling/15-web-scraping.html#scraping-html-2",
+    "title": "Web Scraping",
+    "section": "Scraping HTML",
+    "text": "Scraping HTML\n\nThe reason we can do this is because the information used by a browser to render webpages is received as a text file from a server.\nThe text is code written in hyper text markup language (HTML).\nEvery browser has a way to show the html source code for a page, each one different.\nOn Chrome, you can use Control-U on a PC and command+alt+U on a Mac."
+  },
+  {
+    "objectID": "slides/wrangling/15-web-scraping.html#scraping-html-3",
+    "href": "slides/wrangling/15-web-scraping.html#scraping-html-3",
+    "title": "Web Scraping",
+    "section": "Scraping HTML",
+    "text": "Scraping HTML\n."
+  },
+  {
+    "objectID": "slides/wrangling/15-web-scraping.html#html",
+    "href": "slides/wrangling/15-web-scraping.html#html",
+    "title": "Web Scraping",
+    "section": "HTML",
+    "text": "HTML\n\nBecause this code is accessible, we can download the HTML file, import it into R, and then write programs to extract the information we need from the page.\nHowever, once we look at HTML code, this might seem like a daunting task.\nBut we will show you some convenient tools to facilitate the process."
+  },
+  {
+    "objectID": "slides/wrangling/15-web-scraping.html#html-1",
+    "href": "slides/wrangling/15-web-scraping.html#html-1",
+    "title": "Web Scraping",
+    "section": "HTML",
+    "text": "HTML\n\nTo get an idea of how it works, here are a few lines of code from the Wikipedia page that provides the US murders data:\n\n&lt;table class=\"wikitable sortable\"&gt; \n&lt;tr&gt; \n&lt;th&gt;State&lt;/th&gt; \n&lt;th&gt;&lt;a href=\"/wiki/List_of_U.S._states_and_territories_by_population\"  \ntitle=\"List of U.S. states and territories by population\"&gt;Population&lt;/a&gt;&lt;br /&gt; \n&lt;small&gt;(total inhabitants)&lt;/small&gt;&lt;br /&gt; \n&lt;small&gt;(2015)&lt;/small&gt; &lt;sup id=\"cite_ref-1\" class=\"reference\"&gt; \n&lt;a href=\"#cite_note-1\"&gt;[1]&lt;/a&gt;&lt;/sup&gt;&lt;/th&gt; \n&lt;th&gt;Murders and Nonnegligent \n&lt;p&gt;Manslaughter&lt;br /&gt; \n&lt;small&gt;(total deaths)&lt;/small&gt;&lt;br /&gt; \n&lt;small&gt;(2015)&lt;/small&gt; &lt;sup id=\"cite_ref-2\" class=\"reference\"&gt; \n&lt;a href=\"#cite_note-2\"&gt;[2]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt; \n&lt;/th&gt; \n&lt;th&gt;Murder and Nonnegligent \n&lt;p&gt;Manslaughter Rate&lt;br /&gt; \n&lt;small&gt;(per 100,000 inhabitants)&lt;/small&gt;&lt;br /&gt; \n&lt;small&gt;(2015)&lt;/small&gt;&lt;/p&gt; \n&lt;/th&gt; \n&lt;/tr&gt; \n&lt;tr&gt; \n&lt;td&gt;&lt;a href=\"/wiki/Alabama\" title=\"Alabama\"&gt;Alabama&lt;/a&gt;&lt;/td&gt; \n&lt;td&gt;4,853,875&lt;/td&gt; \n&lt;td&gt;348&lt;/td&gt; \n&lt;td&gt;7.2&lt;/td&gt; \n&lt;/tr&gt; \n&lt;tr&gt; \n&lt;td&gt;&lt;a href=\"/wiki/Alaska\" title=\"Alaska\"&gt;Alaska&lt;/a&gt;&lt;/td&gt; \n&lt;td&gt;737,709&lt;/td&gt; \n&lt;td&gt;59&lt;/td&gt; \n&lt;td&gt;8.0&lt;/td&gt; \n&lt;/tr&gt; \n&lt;tr&gt;"
+  },
+  {
+    "objectID": "slides/wrangling/15-web-scraping.html#html-2",
+    "href": "slides/wrangling/15-web-scraping.html#html-2",
+    "title": "Web Scraping",
+    "section": "HTML",
+    "text": "HTML\n\nYou can actually see the data, except data values are surrounded by html code such as &lt;td&gt;.\nWe can also see a pattern of how it is stored.\nIf you know HTML, you can write programs that leverage knowledge of these patterns to extract what we want.\nWe also take advantage of a language widely used to make webpages look “pretty” called Cascading Style Sheets (CSS)."
+  },
+  {
+    "objectID": "slides/wrangling/15-web-scraping.html#html-3",
+    "href": "slides/wrangling/15-web-scraping.html#html-3",
+    "title": "Web Scraping",
+    "section": "HTML",
+    "text": "HTML\n\nAlthough we provide tools that make it possible to scrape data without knowing HTML, it is useful to learn some HTML and CSS.\nNot only does this improve your scraping skills, but it might come in handy if you are creating a webpage to showcase your work.\nThere are plenty of online courses and tutorials for learning these.\nTwo examples are Codeacademy and W3schools."
+  },
+  {
+    "objectID": "slides/wrangling/15-web-scraping.html#the-rvest-package",
+    "href": "slides/wrangling/15-web-scraping.html#the-rvest-package",
+    "title": "Web Scraping",
+    "section": "The rvest package",
+    "text": "The rvest package\n\nThe tidyverse provides a web harvesting package called rvest.\nThe first step using this package is to import the webpage into R.\nThe package makes this quite simple:\n\n\nlibrary(tidyverse) \nlibrary(rvest) \nh &lt;- read_html(url) \n\n\nNote that the entire Murders in the US Wikipedia webpage is now contained in h."
+  },
+  {
+    "objectID": "slides/wrangling/15-web-scraping.html#the-rvest-package-1",
+    "href": "slides/wrangling/15-web-scraping.html#the-rvest-package-1",
+    "title": "Web Scraping",
+    "section": "The rvest package",
+    "text": "The rvest package\n\nThe class of this object is:\n\n\nclass(h) \n\n[1] \"xml_document\" \"xml_node\"    \n\n\n\nThe rvest package is actually more general; it handles XML documents.\nXML is a general markup language (that’s what the ML stands for) that can be used to represent any kind of data.\nHTML is a specific type of XML specifically developed for representing webpages."
+  },
+  {
+    "objectID": "slides/wrangling/15-web-scraping.html#the-rvest-package-2",
+    "href": "slides/wrangling/15-web-scraping.html#the-rvest-package-2",
+    "title": "Web Scraping",
+    "section": "The rvest package",
+    "text": "The rvest package\n\nNow, how do we extract the table from the object h? If you were to print h, we would see information about the object that is not very informative.\nWe can see all the code that defines the downloaded webpage using the html_text function like this:\n\n\nhtml_text(h)"
+  },
+  {
+    "objectID": "slides/wrangling/15-web-scraping.html#the-rvest-package-3",
+    "href": "slides/wrangling/15-web-scraping.html#the-rvest-package-3",
+    "title": "Web Scraping",
+    "section": "The rvest package",
+    "text": "The rvest package\n\nWe don’t show the output here because it includes thousands of characters.\nBut if we look at it, we can see the data we are after are stored in an HTML table: you can see this in this line of the HTML code above &lt;table class=\"wikitable sortable\"&gt;."
+  },
+  {
+    "objectID": "slides/wrangling/15-web-scraping.html#the-rvest-package-4",
+    "href": "slides/wrangling/15-web-scraping.html#the-rvest-package-4",
+    "title": "Web Scraping",
+    "section": "The rvest package",
+    "text": "The rvest package\n\nThe different parts of an HTML document, often defined with a message in between &lt; and &gt; are referred to as nodes.\nThe rvest package includes functions to extract nodes of an HTML document: html_nodes extracts all nodes of different types and html_node extracts the first one."
+  },
+  {
+    "objectID": "slides/wrangling/15-web-scraping.html#the-rvest-package-5",
+    "href": "slides/wrangling/15-web-scraping.html#the-rvest-package-5",
+    "title": "Web Scraping",
+    "section": "The rvest package",
+    "text": "The rvest package\n\nTo extract the tables from the html code we use:\n\n\ntab &lt;- h |&gt; html_nodes(\"table\") \n\n\nNow, instead of the entire webpage, we just have the html code for the tables in the page:"
+  },
+  {
+    "objectID": "slides/wrangling/15-web-scraping.html#the-rvest-package-6",
+    "href": "slides/wrangling/15-web-scraping.html#the-rvest-package-6",
+    "title": "Web Scraping",
+    "section": "The rvest package",
+    "text": "The rvest package\n\ntab \n\n{xml_nodeset (2)}\n[1] &lt;table class=\"wikitable sortable\"&gt;&lt;tbody&gt;\\n&lt;tr&gt;\\n&lt;th&gt;State\\n&lt;/th&gt;\\n&lt;th&gt;\\n ...\n[2] &lt;table class=\"nowraplinks hlist mw-collapsible mw-collapsed navbox-inner\" ...\n\n\n\nThe table we are interested is the first one:\n\n\ntab[[1]] \n\n{html_node}\n&lt;table class=\"wikitable sortable\"&gt;\n[1] &lt;tbody&gt;\\n&lt;tr&gt;\\n&lt;th&gt;State\\n&lt;/th&gt;\\n&lt;th&gt;\\n&lt;a href=\"/wiki/List_of_U.S._states ..."
+  },
+  {
+    "objectID": "slides/wrangling/15-web-scraping.html#the-rvest-package-7",
+    "href": "slides/wrangling/15-web-scraping.html#the-rvest-package-7",
+    "title": "Web Scraping",
+    "section": "The rvest package",
+    "text": "The rvest package\n\nThis is clearly not a tidy dataset, not even a data frame.\nIn the code above, you can definitely see a pattern and writing code to extract just the data is very doable.\nIn fact, rvest includes a function just for converting HTML tables into data frames:\n\n\ntab &lt;- tab[[1]] |&gt; html_table() \nclass(tab) \n\n[1] \"tbl_df\"     \"tbl\"        \"data.frame\""
+  },
+  {
+    "objectID": "slides/wrangling/15-web-scraping.html#the-rvest-package-8",
+    "href": "slides/wrangling/15-web-scraping.html#the-rvest-package-8",
+    "title": "Web Scraping",
+    "section": "The rvest package",
+    "text": "The rvest package\n\nWe can now make the data frame:\n\n\ntab &lt;- tab |&gt; \n  setNames(c(\"state\", \"population\", \"total\", \"murder_rate\")) |&gt;\n  mutate(across(c(population, total), parse_number))\nhead(tab) \n\n# A tibble: 6 × 4\n  state      population total murder_rate\n  &lt;chr&gt;           &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;\n1 Alabama       4853875   348         7.2\n2 Alaska         737709    59         8  \n3 Arizona       6817565   309         4.5\n4 Arkansas      2977853   181         6.1\n5 California   38993940  1861         4.8\n6 Colorado      5448819   176         3.2"
+  },
+  {
+    "objectID": "slides/wrangling/15-web-scraping.html#css-selectors",
+    "href": "slides/wrangling/15-web-scraping.html#css-selectors",
+    "title": "Web Scraping",
+    "section": "CSS selectors",
+    "text": "CSS selectors\n\nhttps://rvest.tidyverse.org/articles/selectorgadget.html]\nhttps://www.analyticsvidhya.com/blog/2017/03/beginners-guide-on-web-scraping-in-r-using-rvest-with-hands-on-knowledge/"
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#joining-tables",
+    "href": "slides/wrangling/16-joining-tables.html#joining-tables",
+    "title": "Joining Tables",
+    "section": "Joining tables",
+    "text": "Joining tables\n\nThe information we need for a given analysis may not be just in one table.\nHere we use a simple examples to illustrate the general challenge of combining tables."
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#joining-tables-1",
+    "href": "slides/wrangling/16-joining-tables.html#joining-tables-1",
+    "title": "Joining Tables",
+    "section": "Joining tables",
+    "text": "Joining tables\n\nSuppose we want to explore the relationship between population size for US states and electoral votes.\nWe have the population size in this table:\n\n\nlibrary(tidyverse) \nlibrary(dslabs) \nhead(murders) \n\n       state abb region population total\n1    Alabama  AL  South    4779736   135\n2     Alaska  AK   West     710231    19\n3    Arizona  AZ   West    6392017   232\n4   Arkansas  AR  South    2915918    93\n5 California  CA   West   37253956  1257\n6   Colorado  CO   West    5029196    65"
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#joins",
+    "href": "slides/wrangling/16-joining-tables.html#joins",
+    "title": "Joining Tables",
+    "section": "Joins",
+    "text": "Joins\n\nThe join functions are designed to handle this challenge.\nThe join functions in the dplyr package make sure that the tables are combined so that matching rows are together.\nThe general idea is that one needs to identify one or more columns that will serve to match the two tables.\nA new table with the combined information is returned."
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#joins-1",
+    "href": "slides/wrangling/16-joining-tables.html#joins-1",
+    "title": "Joining Tables",
+    "section": "Joins",
+    "text": "Joins\n\nNotice what happens if we join the two tables above by state using left_join:\n\n\ntab &lt;- left_join(murders, results_us_election_2016, by = \"state\") |&gt; \n  select(-others) |&gt; rename(ev = electoral_votes) \nhead(tab) \n\n       state abb region population total ev clinton trump\n1    Alabama  AL  South    4779736   135  9    34.4  62.1\n2     Alaska  AK   West     710231    19  3    36.6  51.3\n3    Arizona  AZ   West    6392017   232 11    45.1  48.7\n4   Arkansas  AR  South    2915918    93  6    33.7  60.6\n5 California  CA   West   37253956  1257 55    61.7  31.6\n6   Colorado  CO   West    5029196    65  9    48.2  43.3"
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#joins-2",
+    "href": "slides/wrangling/16-joining-tables.html#joins-2",
+    "title": "Joining Tables",
+    "section": "Joins",
+    "text": "Joins\n\nThe data has been successfully joined and we can now, for example, make a plot to explore the relationship:"
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#joins-3",
+    "href": "slides/wrangling/16-joining-tables.html#joins-3",
+    "title": "Joining Tables",
+    "section": "Joins",
+    "text": "Joins\n\nWe see the relationship is close to linear with about 2 electoral votes for every million persons, but with very small states getting higher ratios.\nIn practice, it is not always the case that each row in one table has a matching row in the other.\nFor this reason, we have several versions of join.\nTo illustrate this challenge, we will take subsets of the tables above."
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#joins-4",
+    "href": "slides/wrangling/16-joining-tables.html#joins-4",
+    "title": "Joining Tables",
+    "section": "Joins",
+    "text": "Joins\n.\nNote: These names are based on SQL."
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#left-join",
+    "href": "slides/wrangling/16-joining-tables.html#left-join",
+    "title": "Joining Tables",
+    "section": "Left join",
+    "text": "Left join\n\nSuppose we want a table like tab_1, but adding electoral votes to whatever states we have available.\nFor this, we use left_join with tab_1 as the first argument.\nWe specify which column to use to match with the by argument.\n\n\nleft_join(tab_1, tab_2, by = \"state\") \n\n       state population ev\n1    Alabama    4779736  9\n2     Alaska     710231  3\n3    Arizona    6392017 11\n4   Arkansas    2915918 NA\n5 California   37253956 55\n6   Colorado    5029196 NA\n\n\n\nNote that NAs are added to the two states not appearing in tab_2."
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#left-join-1",
+    "href": "slides/wrangling/16-joining-tables.html#left-join-1",
+    "title": "Joining Tables",
+    "section": "Left join",
+    "text": "Left join\n\nAlso, notice that this function, as well as all the other joins, can receive the first arguments through the pipe:\n\n\ntab_1 |&gt; left_join(tab_2, by = \"state\")"
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#right-join",
+    "href": "slides/wrangling/16-joining-tables.html#right-join",
+    "title": "Joining Tables",
+    "section": "Right join",
+    "text": "Right join\n\nIf instead of a table with the same rows as first table, we want one with the same rows as second table, we can use right_join:\n\n\ntab_1 |&gt; right_join(tab_2, by = \"state\") \n\n        state population ev\n1     Alabama    4779736  9\n2      Alaska     710231  3\n3     Arizona    6392017 11\n4  California   37253956 55\n5 Connecticut         NA  7\n6    Delaware         NA  3\n\n\n\nNow the NAs are in the column coming from tab_1."
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#inner-join",
+    "href": "slides/wrangling/16-joining-tables.html#inner-join",
+    "title": "Joining Tables",
+    "section": "Inner join",
+    "text": "Inner join\n\nIf we want to keep only the rows that have information in both tables, we use inner_join.\nYou can think of this as an intersection:\n\n\ninner_join(tab_1, tab_2, by = \"state\") \n\n       state population ev\n1    Alabama    4779736  9\n2     Alaska     710231  3\n3    Arizona    6392017 11\n4 California   37253956 55"
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#full-join",
+    "href": "slides/wrangling/16-joining-tables.html#full-join",
+    "title": "Joining Tables",
+    "section": "Full join",
+    "text": "Full join\n\nIf we want to keep all the rows and fill the missing parts with NAs, we can use full_join.\nYou can think of this as a union:\n\n\nfull_join(tab_1, tab_2, by = \"state\") \n\n        state population ev\n1     Alabama    4779736  9\n2      Alaska     710231  3\n3     Arizona    6392017 11\n4    Arkansas    2915918 NA\n5  California   37253956 55\n6    Colorado    5029196 NA\n7 Connecticut         NA  7\n8    Delaware         NA  3"
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#semi-join",
+    "href": "slides/wrangling/16-joining-tables.html#semi-join",
+    "title": "Joining Tables",
+    "section": "Semi join",
+    "text": "Semi join\n\nThe semi_join function lets us keep the part of first table for which we have information in the second.\nIt does not add the columns of the second:\n\n\nsemi_join(tab_1, tab_2, by = \"state\") \n\n       state population\n1    Alabama    4779736\n2     Alaska     710231\n3    Arizona    6392017\n4 California   37253956"
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#anti-join",
+    "href": "slides/wrangling/16-joining-tables.html#anti-join",
+    "title": "Joining Tables",
+    "section": "Anti join",
+    "text": "Anti join\n\nThe function anti_join is the opposite of semi_join.\nIt keeps the elements of the first table for which there is no information in the second:\n\n\nanti_join(tab_1, tab_2, by = \"state\") \n\n     state population\n1 Arkansas    2915918\n2 Colorado    5029196"
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#joins-5",
+    "href": "slides/wrangling/16-joining-tables.html#joins-5",
+    "title": "Joining Tables",
+    "section": "Joins",
+    "text": "Joins\n\nWe create the tables tab1 and tab2 so that they have some states in common but not all:\n\n\ntab_1 &lt;- slice(murders, 1:6) |&gt; select(state, population) \ntab_2 &lt;- results_us_election_2016 |&gt;  \n  filter(state %in% c(\"Alabama\", \"Alaska\", \"Arizona\",  \n                    \"California\", \"Connecticut\", \"Delaware\")) |&gt;  \n  select(state, electoral_votes) |&gt; rename(ev = electoral_votes) \n\n\nWe will use these two tables as examples in the next sections."
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#binding",
+    "href": "slides/wrangling/16-joining-tables.html#binding",
+    "title": "Joining Tables",
+    "section": "Binding",
+    "text": "Binding\n\nAlthough we have yet to use it in this book, another common way in which datasets are combined is by binding them.\nUnlike the join function, the binding functions do not try to match by a variable, but instead simply combine datasets.\nIf the datasets don’t match by the appropriate dimensions, one obtains an error."
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#binding-columns",
+    "href": "slides/wrangling/16-joining-tables.html#binding-columns",
+    "title": "Joining Tables",
+    "section": "Binding columns",
+    "text": "Binding columns\n\nThe dplyr function bind_cols binds two objects by making them columns in a tibble.\n\n\nbind_cols(a = 1:3, b = 4:6) \n\n# A tibble: 3 × 2\n      a     b\n  &lt;int&gt; &lt;int&gt;\n1     1     4\n2     2     5\n3     3     6\n\n\n\nThis function requires that we assign names to the columns. Here we chose a and b.\nNote that there is an R-base function cbind with the exact same functionality."
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#binding-columns-1",
+    "href": "slides/wrangling/16-joining-tables.html#binding-columns-1",
+    "title": "Joining Tables",
+    "section": "Binding columns",
+    "text": "Binding columns\n\nAn important difference is that cbind can create different types of objects, while bind_cols always produces a data frame.\nbind_cols can also bind two different data frames."
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#binding-by-rows",
+    "href": "slides/wrangling/16-joining-tables.html#binding-by-rows",
+    "title": "Joining Tables",
+    "section": "Binding by rows",
+    "text": "Binding by rows\n\nThe bind_rows function is similar to bind_cols, but binds rows instead of columns:\n\n\ntab_1 &lt;- tab[1:2,] \ntab_2 &lt;- tab[3:4,] \nbind_rows(tab_1, tab_2) \n\n     state abb region population total ev clinton trump\n1  Alabama  AL  South    4779736   135  9    34.4  62.1\n2   Alaska  AK   West     710231    19  3    36.6  51.3\n3  Arizona  AZ   West    6392017   232 11    45.1  48.7\n4 Arkansas  AR  South    2915918    93  6    33.7  60.6\n\n\n\nThis is based on an R-base function rbind."
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#set-operators",
+    "href": "slides/wrangling/16-joining-tables.html#set-operators",
+    "title": "Joining Tables",
+    "section": "Set operators",
+    "text": "Set operators\n\nAnother set of commands useful for combining datasets are the set operators.\nWhen applied to vectors, these behave as their names suggest.\nExamples are intersect, union, setdiff, and setequal.\nHowever, if the tidyverse, or more specifically dplyr, is loaded, these functions can be used on data frames as opposed to just on vectors."
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#intersect",
+    "href": "slides/wrangling/16-joining-tables.html#intersect",
+    "title": "Joining Tables",
+    "section": "Intersect",
+    "text": "Intersect\n\nYou can take intersections of vectors of any type, such as numeric:\n\n\nintersect(1:10, 6:15) \n\n[1]  6  7  8  9 10\n\n\n\nor characters:\n\n\nintersect(c(\"a\",\"b\",\"c\"), c(\"b\",\"c\",\"d\")) \n\n[1] \"b\" \"c\"\n\n\n\ndplyr includes an intersect function that can be applied to tables with the same column names.\nThis function returns the rows in common between two tables."
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#intersect-1",
+    "href": "slides/wrangling/16-joining-tables.html#intersect-1",
+    "title": "Joining Tables",
+    "section": "Intersect",
+    "text": "Intersect\n\nTo make sure we use the dplyr version of intersect rather than the base R version, we can use dplyr::intersect like this:\n\n\ntab_1 &lt;- tab[1:5,] \ntab_2 &lt;- tab[3:7,] \ndplyr::intersect(tab_1, tab_2) \n\n       state abb region population total ev clinton trump\n1    Arizona  AZ   West    6392017   232 11    45.1  48.7\n2   Arkansas  AR  South    2915918    93  6    33.7  60.6\n3 California  CA   West   37253956  1257 55    61.7  31.6"
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#union",
+    "href": "slides/wrangling/16-joining-tables.html#union",
+    "title": "Joining Tables",
+    "section": "Union",
+    "text": "Union\n\nSimilarly union takes the union of vectors.\nFor example:\n\n\nunion(1:10, 6:15) \n\n [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15\n\nunion(c(\"a\",\"b\",\"c\"), c(\"b\",\"c\",\"d\")) \n\n[1] \"a\" \"b\" \"c\" \"d\""
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#setdiff",
+    "href": "slides/wrangling/16-joining-tables.html#setdiff",
+    "title": "Joining Tables",
+    "section": "setdiff",
+    "text": "setdiff\n\nThe set difference between a first and second argument can be obtained with setdiff.\nUnlike intersect and union, this function is not symmetric:\n\n\nsetdiff(1:10, 6:15) \n\n[1] 1 2 3 4 5\n\nsetdiff(6:15, 1:10) \n\n[1] 11 12 13 14 15"
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#setequal",
+    "href": "slides/wrangling/16-joining-tables.html#setequal",
+    "title": "Joining Tables",
+    "section": "setequal",
+    "text": "setequal\n\nFinally, the function setequal tells us if two sets are the same, regardless of order.\nSo notice that:\n\n\nsetequal(1:5, 1:6) \n\n[1] FALSE\n\n\n\nbut:\n\n\nsetequal(1:5, 5:1) \n\n[1] TRUE"
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#joining-with-data.table",
+    "href": "slides/wrangling/16-joining-tables.html#joining-with-data.table",
+    "title": "Joining Tables",
+    "section": "Joining with data.table",
+    "text": "Joining with data.table\n\nThe data.table package includes merge, a very efficient function for joining tables.\nIn tidyverse we joined two tables with left_join:\n\n\ntab &lt;- left_join(murders, results_us_election_2016, by = \"state\")"
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#joining-with-data.table-1",
+    "href": "slides/wrangling/16-joining-tables.html#joining-with-data.table-1",
+    "title": "Joining Tables",
+    "section": "Joining with data.table",
+    "text": "Joining with data.table\n\nIn data.table the merge functions works similarly:\n\n\nlibrary(data.table) \ntab &lt;- merge(murders, results_us_election_2016, by = \"state\", all.x = TRUE)"
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#joining-tables-2",
+    "href": "slides/wrangling/16-joining-tables.html#joining-tables-2",
+    "title": "Joining Tables",
+    "section": "Joining tables",
+    "text": "Joining tables\n\nand electoral votes in this one:\n\n\nhead(results_us_election_2016) \n\n         state electoral_votes clinton trump others\n1   California              55    61.7  31.6    6.7\n2        Texas              38    43.2  52.2    4.5\n3      Florida              29    47.8  49.0    3.2\n4     New York              29    59.0  36.5    4.5\n5     Illinois              20    55.8  38.8    5.4\n6 Pennsylvania              20    47.9  48.6    3.6"
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#joining-tables-3",
+    "href": "slides/wrangling/16-joining-tables.html#joining-tables-3",
+    "title": "Joining Tables",
+    "section": "Joining tables",
+    "text": "Joining tables\n\nJust concatenating these two tables together will not work since the order of the states is not the same.\n\n\nidentical(results_us_election_2016$state, murders$state) \n\n[1] FALSE"
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#binding-columns-2",
+    "href": "slides/wrangling/16-joining-tables.html#binding-columns-2",
+    "title": "Joining Tables",
+    "section": "Binding columns",
+    "text": "Binding columns\n\nFor example, here we break up the tab data frame and then bind them back together:\n\n\ntab_1 &lt;- tab[, 1:3] \ntab_2 &lt;- tab[, 4:6] \ntab_3 &lt;- tab[, 7:8] \nnew_tab &lt;- bind_cols(tab_1, tab_2, tab_3) \nhead(new_tab) \n\n       state abb region population total ev clinton trump\n1    Alabama  AL  South    4779736   135  9    34.4  62.1\n2     Alaska  AK   West     710231    19  3    36.6  51.3\n3    Arizona  AZ   West    6392017   232 11    45.1  48.7\n4   Arkansas  AR  South    2915918    93  6    33.7  60.6\n5 California  CA   West   37253956  1257 55    61.7  31.6\n6   Colorado  CO   West    5029196    65  9    48.2  43.3"
+  },
+  {
+    "objectID": "slides/wrangling/11-importing-files.html",
+    "href": "slides/wrangling/11-importing-files.html",
+    "title": "Importing files",
+    "section": "",
+    "text": "One of the most common ways of storing and sharing data is through electronic spreadsheets.\nA spreadsheet is a file version of a data frame.\nBut there are many ways to store spreadsheets in files."
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html",
+    "href": "slides/wrangling/16-joining-tables.html",
+    "title": "Joining Tables",
+    "section": "",
+    "text": "The information we need for a given analysis may not be just in one table.\nHere we use a simple examples to illustrate the general challenge of combining tables."
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#union-1",
+    "href": "slides/wrangling/16-joining-tables.html#union-1",
+    "title": "Joining Tables",
+    "section": "Union",
+    "text": "Union\n\ndplyr includes a version of union that combines all the rows of two tables with the same column names.\n\n\ntab_1 &lt;- tab[1:5,] \ntab_2 &lt;- tab[3:7,] \ndplyr::union(tab_1, tab_2)  \n\n        state abb    region population total ev clinton trump\n1     Alabama  AL     South    4779736   135  9    34.4  62.1\n2      Alaska  AK      West     710231    19  3    36.6  51.3\n3     Arizona  AZ      West    6392017   232 11    45.1  48.7\n4    Arkansas  AR     South    2915918    93  6    33.7  60.6\n5  California  CA      West   37253956  1257 55    61.7  31.6\n6    Colorado  CO      West    5029196    65  9    48.2  43.3\n7 Connecticut  CT Northeast    3574097    97  7    54.6  40.9"
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#setdiff-1",
+    "href": "slides/wrangling/16-joining-tables.html#setdiff-1",
+    "title": "Joining Tables",
+    "section": "setdiff",
+    "text": "setdiff\n\nAs with the functions shown above, dplyr has a version for data frames:\n\n\ntab_1 &lt;- tab[1:5,] \ntab_2 &lt;- tab[3:7,] \ndplyr::setdiff(tab_1, tab_2) \n\n    state abb region population total ev clinton trump\n1 Alabama  AL  South    4779736   135  9    34.4  62.1\n2  Alaska  AK   West     710231    19  3    36.6  51.3"
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#setequal-1",
+    "href": "slides/wrangling/16-joining-tables.html#setequal-1",
+    "title": "Joining Tables",
+    "section": "setequal",
+    "text": "setequal\n\nThe dplyr version checks whether data frames are equal, regardless of order of rows or columns:\n\n\ndplyr::setequal(tab_1, tab_2) \n\n[1] FALSE"
+  },
+  {
+    "objectID": "slides/wrangling/16-joining-tables.html#joining-with-data.table-2",
+    "href": "slides/wrangling/16-joining-tables.html#joining-with-data.table-2",
+    "title": "Joining Tables",
+    "section": "Joining with data.table",
+    "text": "Joining with data.table\n\nInstead of defining different functions for the different type of joins, merge uses the the logical arguments all (full join), all.x (left join), and all.y (right join)."
+  },
+  {
+    "objectID": "slides/wrangling/14-data-apis.html",
+    "href": "slides/wrangling/14-data-apis.html",
+    "title": "Data APIs",
+    "section": "",
+    "text": "An Application Programming Interface (API) is a set of rules and protocols that allows different software entities to communicate with each other.\nIt defines methods and data formats that software components should use when requesting and exchanging information.\nAPIs play a crucial role in enabling the integration that make today’s software so interconnected and versatile."
+  },
+  {
+    "objectID": "slides/wrangling/14-data-apis.html#data-apis",
+    "href": "slides/wrangling/14-data-apis.html#data-apis",
+    "title": "Data APIs",
+    "section": "Data APIs",
+    "text": "Data APIs\n\nAn Application Programming Interface (API) is a set of rules and protocols that allows different software entities to communicate with each other.\nIt defines methods and data formats that software components should use when requesting and exchanging information.\nAPIs play a crucial role in enabling the integration that make today’s software so interconnected and versatile."
+  },
+  {
+    "objectID": "slides/wrangling/14-data-apis.html#types-and-concepts",
+    "href": "slides/wrangling/14-data-apis.html#types-and-concepts",
+    "title": "Data APIs",
+    "section": "Types and concepts",
+    "text": "Types and concepts\nThe main APIs related to retrieving data are:\n\nWeb Services - Often built using protocols like HTTP/HTTPS.\nDatabase APIs - Enable communication between an application and a database, SQL-based calls for example.\n\nHere we focus on Web Services since it more common among public resources such CDC and the US Census."
+  },
+  {
+    "objectID": "slides/wrangling/14-data-apis.html#key-concepts",
+    "href": "slides/wrangling/14-data-apis.html#key-concepts",
+    "title": "Data APIs",
+    "section": "Key concepts",
+    "text": "Key concepts\n\nEndpoints: Usually a URL where API can be accessed.\nMethods: Actions that can be performed, for example HTTP methods like GET, POST, PUT, or DELETE.\nRequest: Asking the API to perform a function.\nResponse: The data it returns.\nRate Limits: Restrictions on calls to API.\nAuthentication and Authorization: Methods include API keys, OAuth, or Jason Web Tokens (JWT).\nData Formats: Many web APIs exchange data in a specific format, often JSON or CSV."
+  },
+  {
+    "objectID": "slides/wrangling/14-data-apis.html#json",
+    "href": "slides/wrangling/14-data-apis.html#json",
+    "title": "Data APIs",
+    "section": "JSON",
+    "text": "JSON\n\nSharing data on the internet has become more and more common.\nUnfortunately, providers use different formats, which makes wrangling harder.\nYet there are some standards that are also becoming more common.\nA format that is widely being adopted is the JavaScript Object Notation or JSON.\nBecause this format is very general, it is nothing like a spreadsheet."
+  },
+  {
+    "objectID": "slides/wrangling/14-data-apis.html#json-1",
+    "href": "slides/wrangling/14-data-apis.html#json-1",
+    "title": "Data APIs",
+    "section": "JSON",
+    "text": "JSON\n\nJSON files look like code you use to define a list:\n\n\n\n[\n  {\n    \"name\": \"Miguel\",\n    \"student_id\": 1,\n    \"exam_1\": 85,\n    \"exam_2\": 86\n  },\n  {\n    \"name\": \"Sofia\",\n    \"student_id\": 2,\n    \"exam_1\": 94,\n    \"exam_2\": 93\n  },\n  {\n    \"name\": \"Aya\",\n    \"student_id\": 3,\n    \"exam_1\": 87,\n    \"exam_2\": 88\n  },\n  {\n    \"name\": \"Cheng\",\n    \"student_id\": 4,\n    \"exam_1\": 90,\n    \"exam_2\": 91\n  }\n] \n\n\n\nThe file above actually represents a data frame."
+  },
+  {
+    "objectID": "slides/wrangling/14-data-apis.html#json-2",
+    "href": "slides/wrangling/14-data-apis.html#json-2",
+    "title": "Data APIs",
+    "section": "JSON",
+    "text": "JSON\n\nWe can use the function fromJSON from the jsonlite package to read files.\nHere is an example providing information Nobel prize winners:\n\n\nlibrary(jsonlite) \nnobel &lt;- fromJSON(\"http://api.nobelprize.org/v1/prize.json\") \n\n\nThis downloads a JSON file and reads into a list:\n\n\nclass(nobel)\n\n[1] \"list\""
+  },
+  {
+    "objectID": "slides/wrangling/14-data-apis.html#json-3",
+    "href": "slides/wrangling/14-data-apis.html#json-3",
+    "title": "Data APIs",
+    "section": "JSON",
+    "text": "JSON\nThe JSON parsers have arguments that make the list components into vectors and lists into data frames when possible:\n\nsimplifyVector\nsimplifyDataFrame\nsimplifyMatrix\nflatten"
+  },
+  {
+    "objectID": "slides/wrangling/14-data-apis.html#json-4",
+    "href": "slides/wrangling/14-data-apis.html#json-4",
+    "title": "Data APIs",
+    "section": "JSON",
+    "text": "JSON\n\nThe object is rather complicated. The prizes component includes a list of data frames with information about Nobel Laureates:\n\n\nnobel$prizes |&gt; \n  filter(category == \"literature\" & year == \"1971\") |&gt;  \n  pull(laureates) |&gt; \n  first() |&gt; \n  select(id, firstname, surname) \n\n   id firstname surname\n1 645     Pablo  Neruda"
+  },
+  {
+    "objectID": "slides/wrangling/14-data-apis.html#the-httr2-package",
+    "href": "slides/wrangling/14-data-apis.html#the-httr2-package",
+    "title": "Data APIs",
+    "section": "The httr2 package",
+    "text": "The httr2 package\n\nHTTPS is the most widely used protocol for data sharing through the internet.\nThe httr2 package provides functions to work with HTTPS requests.\nOne of the core functions in this package is request, which is used to form request to send to web services.\nThe req_perform function sends the request.\nThis request function forms an HTTP GET request to the specified URL."
+  },
+  {
+    "objectID": "slides/wrangling/14-data-apis.html#the-httr2-package-1",
+    "href": "slides/wrangling/14-data-apis.html#the-httr2-package-1",
+    "title": "Data APIs",
+    "section": "The httr2 package",
+    "text": "The httr2 package\n\nTypically, HTTP GET requests are used to retrieve information from a server based on the provided URL.\nThe function returns an object of class response.\nThis object contains all the details of the server’s response, including status code, headers, and content.\nYou can then use other httr2 functions to extract or interpret information from this response.\nLet’s say you want to retrieve COVID-19 deaths by state from the CDC."
+  },
+  {
+    "objectID": "slides/wrangling/14-data-apis.html#the-httr2-package-2",
+    "href": "slides/wrangling/14-data-apis.html#the-httr2-package-2",
+    "title": "Data APIs",
+    "section": "The httr2 package",
+    "text": "The httr2 package\n\nBy visiting their data catalog https://data.cdc.gov you can search for datasets and find that the data is provided through this API:\n\n\nurl &lt;- \"https://data.cdc.gov/resource/muzy-jte6.csv\" \n\n\nWe can then make create and perform a request like this:\n\n\nlibrary(httr2) \nresponse &lt;- request(url) |&gt; req_perform()"
+  },
+  {
+    "objectID": "slides/wrangling/14-data-apis.html#the-httr2-package-3",
+    "href": "slides/wrangling/14-data-apis.html#the-httr2-package-3",
+    "title": "Data APIs",
+    "section": "The httr2 package",
+    "text": "The httr2 package\n\nWe can see the results of the request by looking at the returned object.\n\n\nresponse\n\n&lt;httr2_response&gt;\n\n\nGET https://data.cdc.gov/resource/muzy-jte6.csv\n\n\nStatus: 200 OK\n\n\nContent-Type: text/csv\n\n\nBody: In memory (210808 bytes)"
+  },
+  {
+    "objectID": "slides/wrangling/14-data-apis.html#the-httr2-package-4",
+    "href": "slides/wrangling/14-data-apis.html#the-httr2-package-4",
+    "title": "Data APIs",
+    "section": "The httr2 package",
+    "text": "The httr2 package\n\nTo extract the body, which is where the data are, we can use resp_body_string and send the result, a comma delimited string, to read_csv.\n\n\nlibrary(readr) \ntab &lt;- response |&gt; resp_body_string() |&gt; read_csv() \n\n\nWe note that the returned object is only 1000 entries.\nAPI often limit how much you can download."
+  },
+  {
+    "objectID": "slides/wrangling/14-data-apis.html#the-httr2-package-5",
+    "href": "slides/wrangling/14-data-apis.html#the-httr2-package-5",
+    "title": "Data APIs",
+    "section": "The httr2 package",
+    "text": "The httr2 package\n\nThe documentation for this API explains that we can change this limit through the.\n$limit parameters.\nWe can use the req_url_path_append to add this to our request:\n\n\nresponse &lt;- request(url) |&gt;  \n  req_url_path_append(\"?$limit=100000\") |&gt;  \n  req_perform()  \n\n\nThe CDC service returns data in csv format but a more common format used by web services is JSON."
+  },
+  {
+    "objectID": "slides/wrangling/14-data-apis.html#the-httr2-package-6",
+    "href": "slides/wrangling/14-data-apis.html#the-httr2-package-6",
+    "title": "Data APIs",
+    "section": "The httr2 package",
+    "text": "The httr2 package\n\nThe CDC also provides data in json format through:\n\n\nurl &lt;- \"https://data.cdc.gov/resource/muzy-jte6.json\" \n\n\nTo extract the data table we use the fromJSON function from the jsonlite package.\n\n\ntab &lt;- request(url) |&gt;  \n   req_perform() |&gt;  \n   resp_body_json(simplifyDataFrame = TRUE) \n\n\nWhen working with APIs, it’s essential to check the API’s documentation for rate limits, required headers, or authentication methods."
+  },
+  {
+    "objectID": "slides/wrangling/14-data-apis.html#the-httr2-package-7",
+    "href": "slides/wrangling/14-data-apis.html#the-httr2-package-7",
+    "title": "Data APIs",
+    "section": "The httr2 package",
+    "text": "The httr2 package\n\nThe httr2 package provides tools to handle these requirements, such as setting headers or authentication parameters."
+  },
+  {
+    "objectID": "slides/wrangling/15-web-scraping.html",
+    "href": "slides/wrangling/15-web-scraping.html",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "The data we need to answer a question is not always in a spreadsheet ready for us to read.\nFor example, the US murders dataset we used in the R Basics chapter originally comes from this Wikipedia page:\n\n\nurl &lt;- paste0(\"https://en.wikipedia.org/w/index.php?title=\", \n              \"Gun_violence_in_the_United_States_by_state\", \n              \"&direction=prev&oldid=810166167\")"
   }
 ]

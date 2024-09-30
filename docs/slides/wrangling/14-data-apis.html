@@ -12,7 +12,7 @@
 
   <meta name="dcterms.date" content="2024-09-30">
   <meta name="keywords" content="Wrangling">
-  <title>BST 260: Introduction to Data Science – Importing files</title>
+  <title>BST 260: Introduction to Data Science – Data APIs</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -392,394 +392,253 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Importing files</h1>
+  <h1 class="title">Data APIs</h1>
 
 <div class="quarto-title-authors">
 </div>
 
   <p class="date">2024-09-30</p>
 </section>
-<section id="importing-data" class="slide level2">
-<h2>Importing data</h2>
+<section id="data-apis" class="slide level2">
+<h2>Data APIs</h2>
 <ul>
-<li><p>One of the most common ways of storing and sharing data is through electronic <strong>spreadsheets</strong>.</p></li>
-<li><p>A spreadsheet is a file version of a data frame.</p></li>
-<li><p>But there are many ways to store spreadsheets in files.</p></li>
+<li><p>An Application Programming Interface (API) is a set of rules and protocols that allows different software entities to communicate with each other.</p></li>
+<li><p>It defines methods and data formats that software components should use when requesting and exchanging information.</p></li>
+<li><p>APIs play a crucial role in enabling the integration that make today’s software so interconnected and versatile.</p></li>
 </ul>
 </section>
-<section id="importing-data-1" class="slide level2">
-<h2>Importing data</h2>
-<p>To import data we need to:</p>
+<section id="types-and-concepts" class="slide level2">
+<h2>Types and concepts</h2>
+<p>The main APIs related to retrieving data are:</p>
 <ul>
-<li><p>Identify the file’s location.</p></li>
-<li><p>Know what function or <em>parsers</em> to use.</p></li>
+<li><p><strong>Web Services</strong> - Often built using protocols like HTTP/HTTPS.</p></li>
+<li><p><strong>Database APIs</strong> - Enable communication between an application and a database, SQL-based calls for example.</p></li>
 </ul>
-<p>For the second step it helps to know the file type and <em>encoding</em>.</p>
+<p>Here we focus on <strong>Web Services</strong> since it more common among public resources such CDC and the US Census.</p>
 </section>
-<section id="file-types" class="slide level2">
-<h2>File types</h2>
+<section id="key-concepts" class="slide level2">
+<h2>Key concepts</h2>
 <ul>
-<li><p>Files can generally be classified into two categories: <strong>text</strong> and <strong>binary</strong>.</p></li>
-<li><p>We describe the most widely used format for storing data for both these types and learn how to identify them.</p></li>
+<li><p><strong>Endpoints</strong>: Usually a URL where API can be accessed.</p></li>
+<li><p><strong>Methods</strong>: Actions that can be performed, for example HTTP methods like GET, POST, PUT, or DELETE.</p></li>
+<li><p><strong>Request</strong>: Asking the API to perform a function.</p></li>
+<li><p><strong>Response</strong>: The data it returns.</p></li>
+<li><p><strong>Rate Limits</strong>: Restrictions on calls to API.</p></li>
+<li><p><strong>Authentication and Authorization</strong>: Methods include <em>API keys</em>, <em>OAuth</em>, or <em>Jason Web Tokens</em> (JWT).</p></li>
+<li><p><strong>Data Formats</strong>: Many web APIs exchange data in a specific format, often JSON or CSV.</p></li>
 </ul>
 </section>
-<section id="text-files" class="slide level2">
-<h2>Text files</h2>
+<section id="json" class="slide level2">
+<h2>JSON</h2>
 <ul>
-<li><p>You have already worked with text files: R scripts and Quarto files, for example.</p></li>
-<li><p><strong>dslabs</strong> offers examples:</p></li>
+<li><p>Sharing data on the internet has become more and more common.</p></li>
+<li><p>Unfortunately, providers use different formats, which makes wrangling harder.</p></li>
+<li><p>Yet there are some standards that are also becoming more common.</p></li>
+<li><p>A format that is widely being adopted is the JavaScript Object Notation or JSON.</p></li>
+<li><p>Because this format is very general, it is nothing like a spreadsheet.</p></li>
+</ul>
+</section>
+<section id="json-1" class="slide level2">
+<h2>JSON</h2>
+<ul>
+<li>JSON files look like code you use to define a list:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>dir <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="at">package =</span> <span class="st">"dslabs"</span>) </span>
-<span id="cb1-2"><a></a>file_path <span class="ot">&lt;-</span> <span class="fu">file.path</span>(dir, <span class="st">"extdata/murders.csv"</span>) </span>
-<span id="cb1-3"><a></a><span class="fu">file.copy</span>(file_path, <span class="st">"murders.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
+<pre><code>[
+  {
+    "name": "Miguel",
+    "student_id": 1,
+    "exam_1": 85,
+    "exam_2": 86
+  },
+  {
+    "name": "Sofia",
+    "student_id": 2,
+    "exam_1": 94,
+    "exam_2": 93
+  },
+  {
+    "name": "Aya",
+    "student_id": 3,
+    "exam_1": 87,
+    "exam_2": 88
+  },
+  {
+    "name": "Cheng",
+    "student_id": 4,
+    "exam_1": 90,
+    "exam_2": 91
+  }
+] </code></pre>
 </div>
 </div>
-</section>
-<section id="text-files-1" class="slide level2">
-<h2>Text files</h2>
 <ul>
-<li><p>An advantage of text files is that we can easily “look” at them without having to purchase any kind of special software or follow complicated instructions.</p></li>
-<li><p>Exercise:</p>
-<ul>
-<li>copy <code>murders.csv</code> into your working directory and examine it with <code>less</code>.</li>
-<li>Then try the <em>Open file</em> RStudio tool.</li>
-</ul></li>
+<li>The file above actually represents a data frame.</li>
 </ul>
 </section>
-<section id="text-files-2" class="slide level2">
-<h2>Text files</h2>
+<section id="json-2" class="slide level2">
+<h2>JSON</h2>
 <ul>
-<li><p>Line breaks are used to separate rows and a <em>delimiter</em> to separate columns within a row.</p></li>
-<li><p>The most common delimiters are comma (<code>,</code>), semicolon (<code>;</code>), space (<code></code>), and tab (<code>\t</code>).</p></li>
-<li><p>Different parsers are used to read these files, so we need to know what delimiter was used.</p></li>
-<li><p>In some cases, the delimiter can be inferred from file suffix: <code>csv</code>, <code>tsv</code>, for example.</p></li>
-<li><p>But we recommend looking at the file rather than inferring from the suffix.</p></li>
-</ul>
-</section>
-<section id="text-files-3" class="slide level2">
-<h2>Text files</h2>
-<ul>
-<li>In R, you can look at any number of lines from within R using the <code>readLines</code> function:</li>
+<li><p>We can use the function <code>fromJSON</code> from the <strong>jsonlite</strong> package to read files.</p></li>
+<li><p>Here is an example providing information Nobel prize winners:</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">readLines</span>(<span class="st">"murders.csv"</span>, <span class="at">n =</span> <span class="dv">3</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(jsonlite) </span>
+<span id="cb2-2"><a></a>nobel <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="st">"http://api.nobelprize.org/v1/prize.json"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>This downloads a JSON file and reads into a list:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">class</span>(nobel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "state,abb,region,population,total" "Alabama,AL,South,4779736,135"     
-[3] "Alaska,AK,West,710231,19"         </code></pre>
+<pre><code>[1] "list"</code></pre>
 </div>
 </div>
 </section>
-<section id="binary-files" class="slide level2">
-<h2>Binary files</h2>
+<section id="json-3" class="slide level2">
+<h2>JSON</h2>
+<p>The JSON parsers have arguments that make the list components into vectors and lists into data frames when possible:</p>
 <ul>
-<li><p>Opening image files such as jpg or png in a text editor or using <code>readLines</code> in R will not show comprehensible content: these are <em>binary</em> files.</p></li>
-<li><p>Unlike text files, which are designed for human readability and have standardized conventions, binary files have many formats specific to their data type.</p></li>
-<li><p>While R’s <code>readBin</code> function can process any binary file, interpreting the output necessitates a thorough understanding of the file’s structure.</p></li>
-<li><p>We focus on the the most prevalent binary formats for spreadsheets: Microsoft Excel xls and xlsx.</p></li>
+<li><p><code>simplifyVector</code></p></li>
+<li><p><code>simplifyDataFrame</code></p></li>
+<li><p><code>simplifyMatrix</code></p></li>
+<li><p><code>flatten</code></p></li>
 </ul>
 </section>
-<section id="r-base-parsers" class="slide level2">
-<h2>R Base Parsers</h2>
-<p>Here example of useful R base parsers:</p>
+<section id="json-4" class="slide level2">
+<h2>JSON</h2>
+<ul>
+<li>The object is rather complicated. The <code>prizes</code> component includes a list of data frames with information about Nobel Laureates:</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"murders.csv"</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span>
-<span id="cb5-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"murders.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="readr-parsers" class="slide level2">
-<h2>readr Parsers</h2>
-<p><strong>readr</strong> provides alternatives that produce tibbles:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">library</span>(readr)</span>
-<span id="cb6-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"murders.csv"</span>)</span>
-<span id="cb6-3"><a></a>x <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"murders.csv"</span>, <span class="at">delim =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Notice the messages produced.</p>
-</section>
-<section id="readr-parsers-1" class="slide level2">
-<h2>readr Parsers</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 64%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Function</th>
-<th>Format</th>
-<th>Suffix</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>read_table</td>
-<td>white space separated values</td>
-<td>txt</td>
-</tr>
-<tr class="even">
-<td>read_csv</td>
-<td>comma separated values</td>
-<td>csv</td>
-</tr>
-<tr class="odd">
-<td>read_csv2</td>
-<td>semicolon separated values</td>
-<td>csv</td>
-</tr>
-<tr class="even">
-<td>read_tsv</td>
-<td>tab separated values</td>
-<td>tsv</td>
-</tr>
-<tr class="odd">
-<td>read_delim</td>
-<td>must define delimiter</td>
-<td>txt</td>
-</tr>
-<tr class="even">
-<td>read_lines</td>
-<td>similar to <code>readLines</code></td>
-<td>any file</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="readxl-parsers" class="slide level2">
-<h2>readxl Parsers</h2>
-<p>For Excel files you can use the <strong>readxl</strong> package.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">library</span>(readxl)</span>
-<span id="cb7-2"><a></a>fn <span class="ot">&lt;-</span> <span class="fu">file.path</span>(dir, <span class="st">"extdata/2010_bigfive_regents.xls"</span>) </span>
-<span id="cb7-3"><a></a>y <span class="ot">&lt;-</span> <span class="fu">read_xls</span>(fn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="readxl-parsers-1" class="slide level2">
-<h2>readxl Parsers</h2>
-<p>You can read specific sheets and see them using</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">excel_sheets</span>(fn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>nobel<span class="sc">$</span>prizes <span class="sc">|&gt;</span> </span>
+<span id="cb5-2"><a></a>  <span class="fu">filter</span>(category <span class="sc">==</span> <span class="st">"literature"</span> <span class="sc">&amp;</span> year <span class="sc">==</span> <span class="st">"1971"</span>) <span class="sc">|&gt;</span>  </span>
+<span id="cb5-3"><a></a>  <span class="fu">pull</span>(laureates) <span class="sc">|&gt;</span> </span>
+<span id="cb5-4"><a></a>  <span class="fu">first</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb5-5"><a></a>  <span class="fu">select</span>(id, firstname, surname) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Sheet1" "Sheet2" "Sheet3"</code></pre>
+<pre><code>   id firstname surname
+1 645     Pablo  Neruda</code></pre>
 </div>
 </div>
-<p>Note that <code>read_xls</code> has a sheet argument.</p>
 </section>
-<section id="readxl-parsers-2" class="slide level2">
-<h2>readxl Parsers</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 64%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Function</th>
-<th>Format</th>
-<th>Suffix</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>read_excel</td>
-<td>auto detect the format</td>
-<td>xls, xlsx</td>
-</tr>
-<tr class="even">
-<td>read_xls</td>
-<td>original format</td>
-<td>xls</td>
-</tr>
-<tr class="odd">
-<td>read_xlsx</td>
-<td>new format</td>
-<td>xlsx</td>
-</tr>
-<tr class="even">
-<td>excel_sheets</td>
-<td>detects sheets</td>
-<td>xls, xlsx</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="data.table-parsers" class="slide level2">
-<h2>data.table Parsers</h2>
-<p>The <strong>data.table</strong> package provide a very fast parser:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">library</span>(data.table)</span>
-<span id="cb10-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"murders.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Note: It returns a file in <code>data.table</code> format which we have mentioned but not explained.</p>
-</section>
-<section id="scan" class="slide level2">
-<h2>scan</h2>
+<section id="the-httr2-package" class="slide level2">
+<h2>The httr2 package</h2>
 <ul>
-<li><p>The <code>scan</code> function is the most general parser.</p></li>
-<li><p>It will read in any text file and return a vector so you are on your own coverting it to a data frame.</p></li>
-<li><p>Because it returns a vector, you need to tell it in advance what data type to expect:</p></li>
+<li><p>HTTPS is the most widely used protocol for data sharing through the internet.</p></li>
+<li><p>The <strong>httr2</strong> package provides functions to work with HTTPS requests.</p></li>
+<li><p>One of the core functions in this package is <code>request</code>, which is used to form request to send to web services.</p></li>
+<li><p>The <code>req_perform</code> function sends the request.</p></li>
+<li><p>This <code>request</code> function forms an HTTP GET request to the specified URL.</p></li>
+</ul>
+</section>
+<section id="the-httr2-package-1" class="slide level2">
+<h2>The httr2 package</h2>
+<ul>
+<li><p>Typically, HTTP GET requests are used to retrieve information from a server based on the provided URL.</p></li>
+<li><p>The function returns an object of class <code>response</code>.</p></li>
+<li><p>This object contains all the details of the server’s response, including status code, headers, and content.</p></li>
+<li><p>You can then use other <strong>httr2</strong> functions to extract or interpret information from this response.</p></li>
+<li><p>Let’s say you want to retrieve COVID-19 deaths by state from the CDC.</p></li>
+</ul>
+</section>
+<section id="the-httr2-package-2" class="slide level2">
+<h2>The httr2 package</h2>
+<ul>
+<li>By visiting their data catalog <a href="https://data.cdc.gov" class="uri">https://data.cdc.gov</a> you can search for datasets and find that the data is provided through this API:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">scan</span>(<span class="st">"murders.csv"</span>, <span class="at">what =</span> <span class="st">"c"</span>, <span class="at">sep =</span> <span class="st">","</span>, <span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "state"      "abb"        "region"     "population" "total"     
- [6] "Alabama"    "AL"         "South"      "4779736"    "135"       </code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>url <span class="ot">&lt;-</span> <span class="st">"https://data.cdc.gov/resource/muzy-jte6.csv"</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li>It can also be used to read from the console. Try typing <code>scan()</code>. Hit return to stop.</li>
-</ul>
-</section>
-<section id="encoding" class="slide level2">
-<h2>Encoding</h2>
-<ul>
-<li><p>Computer translates everything into 0s and 1s.</p></li>
-<li><p>ASCII is an <em>encoding</em> system that assigns specific numbers to characters.</p></li>
-<li><p>Using 7 bits, ASCII can represent <span class="math inline">\(2^7 = 128\)</span> unique symbols, sufficient for all English keyboard characters.</p></li>
-<li><p>However, many global languages contain characters outside ASCII’s range.</p></li>
-</ul>
-</section>
-<section id="encoding-1" class="slide level2">
-<h2>Encoding</h2>
-<ul>
-<li><p>For instance, the é in “México” isn’t in ASCII’s catalog.</p></li>
-<li><p>To address this, broader encodings emerged.</p></li>
-<li><p>Unicode offers variations using 8, 16, or 32 bits, known as UTF-8, UTF-16, and UTF-32.</p></li>
-<li><p>RStudio typically uses UTF-8 as its default.</p></li>
-<li><p>Notably, ASCII is a subset of UTF-8, meaning that if a file is ASCII-encoded, presuming it’s UTF-8 encoded won’t cause issues.</p></li>
-</ul>
-</section>
-<section id="encoding-2" class="slide level2">
-<h2>Encoding</h2>
-<ul>
-<li><p>However, there other encodings, such as ISO-8859-1 (also known as Latin-1) developed for the western European languages, Big5 for Traditional Chinese, and ISO-8859-6 for Arabic.</p></li>
-<li><p>Take a look at this file:</p></li>
+<li>We can then make create and perform a request like this:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>fn <span class="ot">&lt;-</span> <span class="st">"calificaciones.csv"</span> </span>
-<span id="cb13-2"><a></a><span class="fu">file.copy</span>(<span class="fu">file.path</span>(<span class="fu">system.file</span>(<span class="st">"extdata"</span>, <span class="at">package =</span> <span class="st">"dslabs"</span>), fn), fn) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">library</span>(httr2) </span>
+<span id="cb8-2"><a></a>response <span class="ot">&lt;-</span> <span class="fu">request</span>(url) <span class="sc">|&gt;</span> <span class="fu">req_perform</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">readLines</span>(fn, <span class="at">n =</span> <span class="dv">1</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "\"nombre\",\"f.n.\",\"estampa\",\"puntuaci\xf3n\""</code></pre>
+</section>
+<section id="the-httr2-package-3" class="slide level2">
+<h2>The httr2 package</h2>
+<ul>
+<li>We can see the results of the request by looking at the returned object.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>response</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>&lt;httr2_response&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>GET https://data.cdc.gov/resource/muzy-jte6.csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Status: 200 OK</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Content-Type: text/csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Body: In memory (210808 bytes)</code></pre>
 </div>
 </div>
 </section>
-<section id="encoding-3" class="slide level2">
-<h2>Encoding</h2>
+<section id="the-httr2-package-4" class="slide level2">
+<h2>The httr2 package</h2>
 <ul>
-<li><p>The <strong>readr</strong> parsers permit us to specify an encoding.</p></li>
-<li><p>It also includes a function that tries to guess the encoding:</p></li>
+<li>To extract the body, which is where the data are, we can use <code>resp_body_string</code> and send the result, a comma delimited string, to <code>read_csv</code>.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">guess_encoding</span>(<span class="st">"murders.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 2
-  encoding confidence
-  &lt;chr&gt;         &lt;dbl&gt;
-1 ASCII             1</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">guess_encoding</span>(<span class="st">"calificaciones.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 2
-  encoding   confidence
-  &lt;chr&gt;           &lt;dbl&gt;
-1 ISO-8859-1       0.92
-2 ISO-8859-2       0.72
-3 ISO-8859-9       0.53</code></pre>
-</div>
-</div>
-</section>
-<section id="encoding-4" class="slide level2">
-<h2>Encoding</h2>
-<ul>
-<li>Once we know the encoding we can specify it through the <code>locale</code> argument:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"calificaciones.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb21-2"><a></a>                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">library</span>(readr) </span>
+<span id="cb15-2"><a></a>tab <span class="ot">&lt;-</span> response <span class="sc">|&gt;</span> <span class="fu">resp_body_string</span>() <span class="sc">|&gt;</span> <span class="fu">read_csv</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li>We learn about locales in later.</li>
+<li><p>We note that the returned object is only 1000 entries.</p></li>
+<li><p>API often limit how much you can download.</p></li>
 </ul>
 </section>
-<section id="encoding-5" class="slide level2">
-<h2>Encoding</h2>
+<section id="the-httr2-package-5" class="slide level2">
+<h2>The httr2 package</h2>
 <ul>
-<li>We can now see that the characters in the header were read in correctly:</li>
+<li><p>The documentation for this <a href="https://dev.socrata.com/docs/queries/">API</a> explains that we can change this limit through the.</p></li>
+<li><p><code>$limit</code> parameters.</p></li>
+<li><p>We can use the <code>req_url_path_append</code> to add this to our request:</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>dat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 7 × 4
-  nombre   f.n.                     estampa             puntuación
-  &lt;chr&gt;    &lt;chr&gt;                    &lt;dttm&gt;                   &lt;dbl&gt;
-1 Beyoncé  04 de septiembre de 1981 2023-09-22 02:11:02        875
-2 Blümchen 20 de abril de 1980      2023-09-22 03:23:05        990
-3 João     10 de junio de 1931      2023-09-21 22:43:28        989
-4 López    24 de julio de 1969      2023-09-22 01:06:59        887
-5 Ñengo    15 de diciembre de 1981  2023-09-21 23:35:37        931
-6 Plácido  24 de enero de 1941      2023-09-21 23:17:21        887
-7 Thalía   26 de agosto de 1971     2023-09-21 23:08:02        830</code></pre>
-</div>
-</div>
-</section>
-<section id="downloading-files" class="slide level2">
-<h2>Downloading files</h2>
-<ul>
-<li><p>A common place for data to reside is on the internet.</p></li>
-<li><p>We can download these files and then import them.</p></li>
-<li><p>We can also read them directly from the web.</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>url <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"https://raw.githubusercontent.com/"</span>, </span>
-<span id="cb24-2"><a></a>              <span class="st">"rafalab/dslabs/master/inst/extdata/murders.csv"</span>) </span>
-<span id="cb24-3"><a></a>x <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(url) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="downloading-files-1" class="slide level2">
-<h2>Downloading files</h2>
-<ul>
-<li>If you want a local copy, you can use `download.file:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">download.file</span>(url, <span class="st">"murders.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>response <span class="ot">&lt;-</span> <span class="fu">request</span>(url) <span class="sc">|&gt;</span>  </span>
+<span id="cb16-2"><a></a>  <span class="fu">req_url_path_append</span>(<span class="st">"?$limit=100000"</span>) <span class="sc">|&gt;</span>  </span>
+<span id="cb16-3"><a></a>  <span class="fu">req_perform</span>()  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li><p>This will download the file and save it on your system with the name <code>murders.csv</code>.</p></li>
-<li><p>Note You can use any name here, not necessarily <code>murders.csv</code>.</p></li>
+<li>The CDC service returns data in csv format but a more common format used by web services is JSON.</li>
 </ul>
 </section>
-<section id="downloading-files-2" class="slide level2">
-<h2>Downloading files</h2>
-<div class="callout callout-warning callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Warning</strong></p>
-</div>
-<div class="callout-content">
-<p>The function <code>download.file</code> overwrites existing files without warning.</p>
-</div>
-</div>
-</div>
+<section id="the-httr2-package-6" class="slide level2">
+<h2>The httr2 package</h2>
 <ul>
-<li>Two functions that are sometimes useful when downloading data from the internet are <code>tempdir</code> and <code>tempfile</code>.</li>
+<li>The CDC also provides data in json format through:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>tmp_filename <span class="ot">&lt;-</span> <span class="fu">tempfile</span>() </span>
-<span id="cb26-2"><a></a><span class="fu">download.file</span>(url, tmp_filename) </span>
-<span id="cb26-3"><a></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(tmp_filename) </span>
-<span id="cb26-4"><a></a><span class="fu">file.remove</span>(tmp_filename) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>url <span class="ot">&lt;-</span> <span class="st">"https://data.cdc.gov/resource/muzy-jte6.json"</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<ul>
+<li>To extract the data table we use the <code>fromJSON</code> function from the <strong>jsonlite</strong> package.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>tab <span class="ot">&lt;-</span> <span class="fu">request</span>(url) <span class="sc">|&gt;</span>  </span>
+<span id="cb18-2"><a></a>   <span class="fu">req_perform</span>() <span class="sc">|&gt;</span>  </span>
+<span id="cb18-3"><a></a>   <span class="fu">resp_body_json</span>(<span class="at">simplifyDataFrame =</span> <span class="cn">TRUE</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>When working with APIs, it’s essential to check the API’s documentation for rate limits, required headers, or authentication methods.</li>
+</ul>
+</section>
+<section id="the-httr2-package-7" class="slide level2">
+<h2>The httr2 package</h2>
+<ul>
+<li>The <code>httr2</code> package provides tools to handle these requirements, such as setting headers or authentication parameters.</li>
+</ul>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">

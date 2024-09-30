@@ -30,7 +30,7 @@
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides.html</loc>
-    <lastmod>2024-09-14T19:02:20.129Z</lastmod>
+    <lastmod>2024-09-30T13:39:22.279Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/psets/pset-03-tidyverse.html</loc>
@@ -46,7 +46,7 @@
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/index.html</loc>
-    <lastmod>2024-09-30T03:51:24.847Z</lastmod>
+    <lastmod>2024-09-30T13:44:34.396Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/00-intro.html</loc>
@@ -78,14 +78,54 @@
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/wrangling/10-intro-to-wrangling.html</loc>
-    <lastmod>2024-09-28T00:48:32.669Z</lastmod>
+    <lastmod>2024-09-28T00:51:31.283Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/wrangling/12-data-apis.html</loc>
-    <lastmod>2024-09-29T16:01:15.057Z</lastmod>
+    <lastmod>2024-09-30T05:02:26.641Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/psets/pset-04-wrangling.html</loc>
     <lastmod>2024-09-30T04:08:45.754Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/wrangling/13-web-scraping.html</loc>
+    <lastmod>2024-09-30T05:15:34.029Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/wrangling/14-dates-and-times.html</loc>
+    <lastmod>2024-09-30T05:18:03.596Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/wrangling/15-joining-tables.html</loc>
+    <lastmod>2024-09-30T05:21:29.429Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/wrangling/15-locales.html</loc>
+    <lastmod>2024-09-30T05:25:10.582Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/wrangling/11-importing-files.html</loc>
+    <lastmod>2024-09-30T12:25:09.188Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/wrangling/12-dates-and-times.html</loc>
+    <lastmod>2024-09-30T13:16:36.664Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/wrangling/13-locales.html</loc>
+    <lastmod>2024-09-30T13:28:26.961Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/wrangling/15-web-scraping.html</loc>
+    <lastmod>2024-09-30T13:30:41.295Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/wrangling/16-joining-tables.html</loc>
+    <lastmod>2024-09-30T13:38:55.454Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/wrangling/14-data-apis.html</loc>
+    <lastmod>2024-09-30T05:03:06.959Z</lastmod>
   </url>
 </urlset>

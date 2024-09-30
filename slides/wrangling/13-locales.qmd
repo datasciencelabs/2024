@@ -1,0 +1,261 @@
+---
+title: "Locales"
+keywords: "Wrangling"
+date: 2024-09-30
+format:
+  revealjs:
+    theme: night
+execute: 
+  echo: true
+---
+
+## Locales
+
+- Computer settings change depending on language and location, and being unaware of this possibility can make certain data wrangling challenges difficult to overcome.
+
+## Locales
+
+- The purpose of _locales_ is to group together common settings that can affect:
+
+  1. Month and day names, which are necessary for interpreting dates.
+
+  2. The standard date format.
+
+  3. The default time zone.
+
+  4. Character encoding, vital for reading non-ASCII characters.
+
+  5. The symbols for decimals and number groupings, important for interpreting numerical values.
+
+## Locales
+
+- In R, a _locale_ refers to a suite of settings that dictate how the system should behave with respect to cultural conventions.
+
+- These affect the way data is formatted and presented, including date formatting, currency symbols, decimal separators, and other related aspects.
+
+- Locales in R affect several areas, including how character vectors are sorted.
+
+- Additionally,  errors, warnings, and other messages might be translated into languages other than English based on the locale.
+
+
+
+## Locales in R
+
+- To access the current locale settings in R, you can use the `Sys.getlocale()` function:
+
+```{r} 
+Sys.getlocale() 
+``` 
+
+## Locales in R
+
+- To set a specific locale, use the `Sys.setlocale()` function.
+
+- For example, to set the locale to US English:
+
+```{r} 
+Sys.setlocale("LC_ALL", "en_US.UTF-8") 
+``` 
+
+- The exact string to use for setting the locale (like "en_US.UTF-8") can depend on your operating system and its configuration.
+
+
+
+## Locales in R
+
+- `LC_ALL`  refers to all locale categories.
+
+- R breaks down the locale into categories:
+
+    - `LC_COLLATE`: for string collation.
+
+    - `LC_TIME`: date and time formatting.
+
+    - `LC_MONETARY`: currency formatting.
+
+    - `LC_MESSAGES`: system message translations.
+
+    - `LC_NUMERIC`: number formatting.
+
+- You can set the locale for each category individually if you don't want to use `LC_ALL`.
+
+## Locales in R
+
+
+:::{.callout-warning}
+
+- We have shown tools to control locales.
+
+- These settings are important because they affect how your data looks and behaves.
+
+
+- However, not all of these settings are available on every computer; their availability depends on what kind of computer you have and how it's set up.
+
+- Changing these settings, especially `LC_NUMERIC`, can lead to unexpected problems when you're working with numbers in R.
+
+
+- These locale settings only last as long as one R session.
+
+:::
+
+
+
+## The `locale` function
+
+- The **readr** package includes a `locale()` function that can be used to learn or change the current locale from within R:
+
+```{r} 
+library(readr) 
+locale() 
+``` 
+
+## The `locale` function
+
+- You can see all the locales available on your system by typing:
+
+```{r} 
+#| eval: false 
+system("locale -a") 
+``` 
+
+
+
+## The `locale` function
+
+- Here is what you obtain if you change the dates locale to Spanish:
+
+```{r} 
+locale(date_names = "es") 
+``` 
+
+
+## Example
+
+- Earlier we noted that reading the file:
+
+```{r} 
+fn <- file.path(system.file("extdata", package = "dslabs"), "calificaciones.csv") 
+``` 
+
+- had a encoding different than UTF-8, the default.
+
+## Example
+
+- We used `guess_encoding` to determine the correct one:
+
+```{r} 
+guess_encoding(fn)$encoding[1] 
+``` 
+
+- and used the `locale` function to change this and read in this encoding instead:
+
+```{r} 
+#| eval: false 
+dat <- read_csv(fn, locale = locale(encoding = "ISO-8859-1")) 
+``` 
+
+
+
+## Example
+
+- This file provides homework assignment scores for seven students. Columns represent the name, date of birth, the time they submitted their assignment, and their score:
+
+```{r} 
+read_lines(fn, locale = locale(encoding = "ISO-8859-1")) 
+``` 
+
+## Example
+
+- As an illustrative example, we will write code to compute the students age and check if they turned in their assignment by the deadline of September 21, 2023, before midnight.
+
+- We can read in the file with correct encoding like this:
+
+```{r} 
+dat <- read_csv(fn, locale = locale(encoding = "ISO-8859-1")) 
+``` 
+
+## Example
+
+- However, notice that the last column, which is supposed to contain exam scores between 0 and 100, shows numbers larger than 800:
+
+```{r} 
+dat$puntuación 
+``` 
+
+## Example
+
+- This happens because the scores in the file use the European decimal point, which confuses `read_csv`.
+
+- To address this issue, we can also change the encoding to use European decimals, which fixes the problem:
+
+```{r} 
+dat <- read_csv(fn, locale = locale(decimal_mark = ",", 
+                                    encoding = "ISO-8859-1")) 
+dat$puntuación 
+``` 
+
+## Example
+
+- Now, to compute the student ages, let's try changing the submission times to date format:
+
+```{r} 
+library(lubridate) 
+dmy(dat$f.n.) 
+``` 
+
+- Nothing gets converted correctly.
+
+- This is because the dates are in Spanish.
+
+## Example
+
+We can change the locale to use Spanish as the language for dates:
+
+```{r} 
+parse_date(dat$f.n., format = "%d de %B de %Y", locale = locale(date_names = "es")) 
+``` 
+
+## Example
+
+We can also reread the file using the correct locales:
+
+```{r} 
+dat <- read_csv(fn, locale = locale(date_names = "es", 
+                                    date_format = "%d de %B de %Y", 
+                                    decimal_mark = ",", 
+                                    encoding = "ISO-8859-1")) 
+``` 
+
+## Example
+
+Computing the students' ages is now straightforward:
+
+```{r} 
+time_length(today() - dat$f.n., unit = "years") |> floor() 
+``` 
+
+## Example
+
+- Let's check which students turned in their homework past the deadline of September 22:
+
+```{r} 
+dat$estampa >= make_date(2023, 9, 22) 
+``` 
+
+- We see that two students where late.
+
+
+- However, with times we have to be particularly careful as some functions default to the UTC timezone:
+
+```{r} 
+tz(dat$estampa) 
+``` 
+
+## Example
+
+- If we change to the timezone to Eastern Standard Time (EST), we see no one was late:
+
+```{r} 
+with_tz(dat$estampa, tz =  "EST") >= make_date(2023, 9, 22) 
+``` 
+

@@ -12,7 +12,7 @@
 
   <meta name="dcterms.date" content="2024-09-30">
   <meta name="keywords" content="Wrangling">
-  <title>BST 260: Introduction to Data Science – Importing files</title>
+  <title>BST 260: Introduction to Data Science – Dates And Times</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -392,393 +392,377 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Importing files</h1>
+  <h1 class="title">Dates And Times</h1>
 
 <div class="quarto-title-authors">
 </div>
 
   <p class="date">2024-09-30</p>
 </section>
-<section id="importing-data" class="slide level2">
-<h2>Importing data</h2>
+<section id="parsing-dates-and-times" class="slide level2">
+<h2>Parsing dates and times</h2>
 <ul>
-<li><p>One of the most common ways of storing and sharing data is through electronic <strong>spreadsheets</strong>.</p></li>
-<li><p>A spreadsheet is a file version of a data frame.</p></li>
-<li><p>But there are many ways to store spreadsheets in files.</p></li>
+<li><p>We have described three main types of vectors: numeric, character, and logical.</p></li>
+<li><p>When analyzing data, we often encounter variables that are dates.</p></li>
+<li><p>Although we can represent a date with a string, for example <code>November 2, 2017</code>, once we pick a reference day, referred to as the <em>epoch</em> by computer programmers, they can be converted to numbers by calculating the number of days since the epoch.</p></li>
+<li><p>In R and Unix, the epoch is defined as January 1, 1970.</p></li>
 </ul>
 </section>
-<section id="importing-data-1" class="slide level2">
-<h2>Importing data</h2>
-<p>To import data we need to:</p>
+<section id="parsing-dates-and-times-1" class="slide level2">
+<h2>Parsing dates and times</h2>
 <ul>
-<li><p>Identify the file’s location.</p></li>
-<li><p>Know what function or <em>parsers</em> to use.</p></li>
-</ul>
-<p>For the second step it helps to know the file type and <em>encoding</em>.</p>
-</section>
-<section id="file-types" class="slide level2">
-<h2>File types</h2>
-<ul>
-<li><p>Files can generally be classified into two categories: <strong>text</strong> and <strong>binary</strong>.</p></li>
-<li><p>We describe the most widely used format for storing data for both these types and learn how to identify them.</p></li>
+<li><p>So, for example, January 2, 1970 is day 1, December 31, 1969 is day -1, and November 2, 2017, is day 17,204.</p></li>
+<li><p>Now how should we represent dates and times when analyzing data in R? We could just use days since the epoch, but then it is almost impossible to interpret.</p></li>
+<li><p>If I tell you it’s November 2, 2017, you know what this means immediately.</p></li>
+<li><p>If I tell you it’s day 17,204, you will be quite confused.</p></li>
+<li><p>Similar problems arise with times and even more complications can appear due to time zones.</p></li>
+<li><p>For this reason, R defines a data type just for dates and times.</p></li>
 </ul>
 </section>
-<section id="text-files" class="slide level2">
-<h2>Text files</h2>
+<section id="the-date-data-type" class="slide level2">
+<h2>The date data type</h2>
 <ul>
-<li><p>You have already worked with text files: R scripts and Quarto files, for example.</p></li>
-<li><p><strong>dslabs</strong> offers examples:</p></li>
+<li>We can see an example of the data type R uses for data here:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>dir <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="at">package =</span> <span class="st">"dslabs"</span>) </span>
-<span id="cb1-2"><a></a>file_path <span class="ot">&lt;-</span> <span class="fu">file.path</span>(dir, <span class="st">"extdata/murders.csv"</span>) </span>
-<span id="cb1-3"><a></a><span class="fu">file.copy</span>(file_path, <span class="st">"murders.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse) </span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(dslabs) </span>
+<span id="cb1-3"><a></a>polls_us_election_2016<span class="sc">$</span>startdate <span class="sc">|&gt;</span> <span class="fu">head</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
+<pre><code>[1] "2016-11-03" "2016-11-01" "2016-11-02" "2016-11-04" "2016-11-03"
+[6] "2016-11-03"</code></pre>
 </div>
 </div>
-</section>
-<section id="text-files-1" class="slide level2">
-<h2>Text files</h2>
 <ul>
-<li><p>An advantage of text files is that we can easily “look” at them without having to purchase any kind of special software or follow complicated instructions.</p></li>
-<li><p>Exercise:</p>
-<ul>
-<li>copy <code>murders.csv</code> into your working directory and examine it with <code>less</code>.</li>
-<li>Then try the <em>Open file</em> RStudio tool.</li>
-</ul></li>
-</ul>
-</section>
-<section id="text-files-2" class="slide level2">
-<h2>Text files</h2>
-<ul>
-<li><p>Line breaks are used to separate rows and a <em>delimiter</em> to separate columns within a row.</p></li>
-<li><p>The most common delimiters are comma (<code>,</code>), semicolon (<code>;</code>), space (<code></code>), and tab (<code>\t</code>).</p></li>
-<li><p>Different parsers are used to read these files, so we need to know what delimiter was used.</p></li>
-<li><p>In some cases, the delimiter can be inferred from file suffix: <code>csv</code>, <code>tsv</code>, for example.</p></li>
-<li><p>But we recommend looking at the file rather than inferring from the suffix.</p></li>
-</ul>
-</section>
-<section id="text-files-3" class="slide level2">
-<h2>Text files</h2>
-<ul>
-<li>In R, you can look at any number of lines from within R using the <code>readLines</code> function:</li>
+<li>The dates look like strings, but they are not:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">readLines</span>(<span class="st">"murders.csv"</span>, <span class="at">n =</span> <span class="dv">3</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">class</span>(polls_us_election_2016<span class="sc">$</span>startdate) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "state,abb,region,population,total" "Alabama,AL,South,4779736,135"     
-[3] "Alaska,AK,West,710231,19"         </code></pre>
+<pre><code>[1] "Date"</code></pre>
 </div>
 </div>
-</section>
-<section id="binary-files" class="slide level2">
-<h2>Binary files</h2>
 <ul>
-<li><p>Opening image files such as jpg or png in a text editor or using <code>readLines</code> in R will not show comprehensible content: these are <em>binary</em> files.</p></li>
-<li><p>Unlike text files, which are designed for human readability and have standardized conventions, binary files have many formats specific to their data type.</p></li>
-<li><p>While R’s <code>readBin</code> function can process any binary file, interpreting the output necessitates a thorough understanding of the file’s structure.</p></li>
-<li><p>We focus on the the most prevalent binary formats for spreadsheets: Microsoft Excel xls and xlsx.</p></li>
+<li>Look at what happens when we convert them to numbers:</li>
 </ul>
-</section>
-<section id="r-base-parsers" class="slide level2">
-<h2>R Base Parsers</h2>
-<p>Here example of useful R base parsers:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"murders.csv"</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span>
-<span id="cb5-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"murders.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="readr-parsers" class="slide level2">
-<h2>readr Parsers</h2>
-<p><strong>readr</strong> provides alternatives that produce tibbles:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">library</span>(readr)</span>
-<span id="cb6-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"murders.csv"</span>)</span>
-<span id="cb6-3"><a></a>x <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"murders.csv"</span>, <span class="at">delim =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Notice the messages produced.</p>
-</section>
-<section id="readr-parsers-1" class="slide level2">
-<h2>readr Parsers</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 64%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Function</th>
-<th>Format</th>
-<th>Suffix</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>read_table</td>
-<td>white space separated values</td>
-<td>txt</td>
-</tr>
-<tr class="even">
-<td>read_csv</td>
-<td>comma separated values</td>
-<td>csv</td>
-</tr>
-<tr class="odd">
-<td>read_csv2</td>
-<td>semicolon separated values</td>
-<td>csv</td>
-</tr>
-<tr class="even">
-<td>read_tsv</td>
-<td>tab separated values</td>
-<td>tsv</td>
-</tr>
-<tr class="odd">
-<td>read_delim</td>
-<td>must define delimiter</td>
-<td>txt</td>
-</tr>
-<tr class="even">
-<td>read_lines</td>
-<td>similar to <code>readLines</code></td>
-<td>any file</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="readxl-parsers" class="slide level2">
-<h2>readxl Parsers</h2>
-<p>For Excel files you can use the <strong>readxl</strong> package.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">library</span>(readxl)</span>
-<span id="cb7-2"><a></a>fn <span class="ot">&lt;-</span> <span class="fu">file.path</span>(dir, <span class="st">"extdata/2010_bigfive_regents.xls"</span>) </span>
-<span id="cb7-3"><a></a>y <span class="ot">&lt;-</span> <span class="fu">read_xls</span>(fn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="readxl-parsers-1" class="slide level2">
-<h2>readxl Parsers</h2>
-<p>You can read specific sheets and see them using</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">excel_sheets</span>(fn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">as.numeric</span>(polls_us_election_2016<span class="sc">$</span>startdate) <span class="sc">|&gt;</span> <span class="fu">head</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Sheet1" "Sheet2" "Sheet3"</code></pre>
+<pre><code>[1] 17108 17106 17107 17109 17108 17108</code></pre>
 </div>
 </div>
-<p>Note that <code>read_xls</code> has a sheet argument.</p>
-</section>
-<section id="readxl-parsers-2" class="slide level2">
-<h2>readxl Parsers</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 64%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Function</th>
-<th>Format</th>
-<th>Suffix</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>read_excel</td>
-<td>auto detect the format</td>
-<td>xls, xlsx</td>
-</tr>
-<tr class="even">
-<td>read_xls</td>
-<td>original format</td>
-<td>xls</td>
-</tr>
-<tr class="odd">
-<td>read_xlsx</td>
-<td>new format</td>
-<td>xlsx</td>
-</tr>
-<tr class="even">
-<td>excel_sheets</td>
-<td>detects sheets</td>
-<td>xls, xlsx</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="data.table-parsers" class="slide level2">
-<h2>data.table Parsers</h2>
-<p>The <strong>data.table</strong> package provide a very fast parser:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">library</span>(data.table)</span>
-<span id="cb10-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"murders.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Note: It returns a file in <code>data.table</code> format which we have mentioned but not explained.</p>
-</section>
-<section id="scan" class="slide level2">
-<h2>scan</h2>
 <ul>
-<li><p>The <code>scan</code> function is the most general parser.</p></li>
-<li><p>It will read in any text file and return a vector so you are on your own coverting it to a data frame.</p></li>
-<li><p>Because it returns a vector, you need to tell it in advance what data type to expect:</p></li>
+<li><p>It turns them into days since the epoch.</p></li>
+<li><p>The <code>as.Date</code> function can convert a character into a date.</p></li>
+</ul>
+</section>
+<section id="the-date-data-type-1" class="slide level2">
+<h2>The date data type</h2>
+<ul>
+<li>So to see that the epoch is day 0 we can type.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">scan</span>(<span class="st">"murders.csv"</span>, <span class="at">what =</span> <span class="st">"c"</span>, <span class="at">sep =</span> <span class="st">","</span>, <span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">as.Date</span>(<span class="st">"1970-01-01"</span>) <span class="sc">|&gt;</span> <span class="fu">as.numeric</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "state"      "abb"        "region"     "population" "total"     
- [6] "Alabama"    "AL"         "South"      "4779736"    "135"       </code></pre>
+<pre><code>[1] 0</code></pre>
 </div>
 </div>
 <ul>
-<li>It can also be used to read from the console. Try typing <code>scan()</code>. Hit return to stop.</li>
-</ul>
-</section>
-<section id="encoding" class="slide level2">
-<h2>Encoding</h2>
-<ul>
-<li><p>Computer translates everything into 0s and 1s.</p></li>
-<li><p>ASCII is an <em>encoding</em> system that assigns specific numbers to characters.</p></li>
-<li><p>Using 7 bits, ASCII can represent <span class="math inline">\(2^7 = 128\)</span> unique symbols, sufficient for all English keyboard characters.</p></li>
-<li><p>However, many global languages contain characters outside ASCII’s range.</p></li>
-</ul>
-</section>
-<section id="encoding-1" class="slide level2">
-<h2>Encoding</h2>
-<ul>
-<li><p>For instance, the é in “México” isn’t in ASCII’s catalog.</p></li>
-<li><p>To address this, broader encodings emerged.</p></li>
-<li><p>Unicode offers variations using 8, 16, or 32 bits, known as UTF-8, UTF-16, and UTF-32.</p></li>
-<li><p>RStudio typically uses UTF-8 as its default.</p></li>
-<li><p>Notably, ASCII is a subset of UTF-8, meaning that if a file is ASCII-encoded, presuming it’s UTF-8 encoded won’t cause issues.</p></li>
-</ul>
-</section>
-<section id="encoding-2" class="slide level2">
-<h2>Encoding</h2>
-<ul>
-<li><p>However, there other encodings, such as ISO-8859-1 (also known as Latin-1) developed for the western European languages, Big5 for Traditional Chinese, and ISO-8859-6 for Arabic.</p></li>
-<li><p>Take a look at this file:</p></li>
+<li><p>Plotting functions, such as those in ggplot, are aware of the date format.</p></li>
+<li><p>This means that, for example, a scatterplot can use the numeric representation to decide on the position of the point, but include the string in the labels:</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>fn <span class="ot">&lt;-</span> <span class="st">"calificaciones.csv"</span> </span>
-<span id="cb13-2"><a></a><span class="fu">file.copy</span>(<span class="fu">file.path</span>(<span class="fu">system.file</span>(<span class="st">"extdata"</span>, <span class="at">package =</span> <span class="st">"dslabs"</span>), fn), fn) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>polls_us_election_2016 <span class="sc">|&gt;</span> <span class="fu">filter</span>(pollster <span class="sc">==</span> <span class="st">"Ipsos"</span> <span class="sc">&amp;</span> state <span class="sc">==</span> <span class="st">"U.S."</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(startdate, rawpoll_trump)) <span class="sc">+</span> </span>
+<span id="cb9-3"><a></a>  <span class="fu">geom_line</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="the-date-data-type-2" class="slide level2">
+<h2>The date data type</h2>
+
+<img data-src="14-dates-and-times_files/figure-revealjs/rawpolls-vs-time-run-1.png" width="960" class="r-stretch"></section>
+<section id="the-date-data-type-3" class="slide level2">
+<h2>The date data type</h2>
+<ul>
+<li>Note in particular that the month names are displayed, a very convenient feature.</li>
+</ul>
+</section>
+<section id="the-lubridate-package" class="slide level2">
+<h2>The lubridate package</h2>
+<ul>
+<li>The <strong>lubridate</strong> package provides tools to work with date and times.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">library</span>(lubridate) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>We will take a random sample of dates to show some of the useful things one can do:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">set.seed</span>(<span class="dv">2002</span>) </span>
+<span id="cb11-2"><a></a>dates <span class="ot">&lt;-</span> <span class="fu">sample</span>(polls_us_election_2016<span class="sc">$</span>startdate, <span class="dv">10</span>) <span class="sc">|&gt;</span> <span class="fu">sort</span>() </span>
+<span id="cb11-3"><a></a>dates </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
+<pre><code> [1] "2016-05-31" "2016-08-08" "2016-08-19" "2016-09-22" "2016-09-27"
+ [6] "2016-10-12" "2016-10-24" "2016-10-26" "2016-10-29" "2016-10-30"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">readLines</span>(fn, <span class="at">n =</span> <span class="dv">1</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>The functions <code>year</code>, <code>month</code> and <code>day</code> extract those values:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">tibble</span>(<span class="at">date =</span> dates, <span class="at">month =</span> <span class="fu">month</span>(dates), <span class="at">day =</span> <span class="fu">day</span>(dates), <span class="at">year =</span> <span class="fu">year</span>(dates)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "\"nombre\",\"f.n.\",\"estampa\",\"puntuaci\xf3n\""</code></pre>
+<pre><code># A tibble: 10 × 4
+   date       month   day  year
+   &lt;date&gt;     &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt;
+ 1 2016-05-31     5    31  2016
+ 2 2016-08-08     8     8  2016
+ 3 2016-08-19     8    19  2016
+ 4 2016-09-22     9    22  2016
+ 5 2016-09-27     9    27  2016
+ 6 2016-10-12    10    12  2016
+ 7 2016-10-24    10    24  2016
+ 8 2016-10-26    10    26  2016
+ 9 2016-10-29    10    29  2016
+10 2016-10-30    10    30  2016</code></pre>
 </div>
 </div>
 </section>
-<section id="encoding-3" class="slide level2">
-<h2>Encoding</h2>
+<section id="the-lubridate-package-1" class="slide level2">
+<h2>The lubridate package</h2>
 <ul>
-<li><p>The <strong>readr</strong> parsers permit us to specify an encoding.</p></li>
-<li><p>It also includes a function that tries to guess the encoding:</p></li>
+<li>We can also extract the month labels:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">guess_encoding</span>(<span class="st">"murders.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">month</span>(dates, <span class="at">label =</span> <span class="cn">TRUE</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 2
-  encoding confidence
-  &lt;chr&gt;         &lt;dbl&gt;
-1 ASCII             1</code></pre>
+<pre><code> [1] May Aug Aug Sep Sep Oct Oct Oct Oct Oct
+12 Levels: Jan &lt; Feb &lt; Mar &lt; Apr &lt; May &lt; Jun &lt; Jul &lt; Aug &lt; Sep &lt; ... &lt; Dec</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">guess_encoding</span>(<span class="st">"calificaciones.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>Another useful set of functions are the <em>parsers</em> that convert strings into dates.</p></li>
+<li><p>The function <code>ymd</code> assumes the dates are in the format YYYY-MM-DD and tries to parse as well as possible.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20090101</span>, <span class="st">"2009-01-02"</span>, <span class="st">"2009 01 03"</span>, <span class="st">"2009-1-4"</span>, </span>
+<span id="cb17-2"><a></a>       <span class="st">"2009-1, 5"</span>, <span class="st">"Created on 2009 1 6"</span>, <span class="st">"200901 !!! 07"</span>) </span>
+<span id="cb17-3"><a></a><span class="fu">ymd</span>(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 2
-  encoding   confidence
-  &lt;chr&gt;           &lt;dbl&gt;
-1 ISO-8859-1       0.92
-2 ISO-8859-2       0.72
-3 ISO-8859-9       0.53</code></pre>
+<pre><code>[1] "2009-01-01" "2009-01-02" "2009-01-03" "2009-01-04" "2009-01-05"
+[6] "2009-01-06" "2009-01-07"</code></pre>
 </div>
 </div>
 </section>
-<section id="encoding-4" class="slide level2">
-<h2>Encoding</h2>
+<section id="the-lubridate-package-2" class="slide level2">
+<h2>The lubridate package</h2>
 <ul>
-<li>Once we know the encoding we can specify it through the <code>locale</code> argument:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"calificaciones.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb21-2"><a></a>                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>We learn about locales in later.</li>
+<li><p>A further complication comes from the fact that dates often come in different formats in which the order of year, month, and day are different.</p></li>
+<li><p>The preferred format is to show year (with all four digits), month (two digits), and then day, or what is called the ISO 8601.</p></li>
+<li><p>Specifically we use YYYY-MM-DD so that if we order the string, it will be ordered by date.</p></li>
+<li><p>You can see the function <code>ymd</code> returns them in this format.</p></li>
 </ul>
 </section>
-<section id="encoding-5" class="slide level2">
-<h2>Encoding</h2>
+<section id="the-lubridate-package-3" class="slide level2">
+<h2>The lubridate package</h2>
 <ul>
-<li>We can now see that the characters in the header were read in correctly:</li>
+<li><p>But, what if you encounter dates such as “09/01/02”? This could be September 1, 2002 or January 2, 2009 or January 9, 2002.</p></li>
+<li><p>In these cases, examining the entire vector of dates will help you determine what format it is by process of elimination.</p></li>
+<li><p>Once you know, you can use the many parses provided by <strong>lubridate</strong>.</p></li>
+<li><p>For example, if the string is:</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>dat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>x <span class="ot">&lt;-</span> <span class="st">"09/01/02"</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="the-lubridate-package-4" class="slide level2">
+<h2>The lubridate package</h2>
+<ul>
+<li>The <code>ymd</code> function assumes the first entry is the year, the second is the month, and the third is the day, so it converts it to:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">ymd</span>(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 7 × 4
-  nombre   f.n.                     estampa             puntuación
-  &lt;chr&gt;    &lt;chr&gt;                    &lt;dttm&gt;                   &lt;dbl&gt;
-1 Beyoncé  04 de septiembre de 1981 2023-09-22 02:11:02        875
-2 Blümchen 20 de abril de 1980      2023-09-22 03:23:05        990
-3 João     10 de junio de 1931      2023-09-21 22:43:28        989
-4 López    24 de julio de 1969      2023-09-22 01:06:59        887
-5 Ñengo    15 de diciembre de 1981  2023-09-21 23:35:37        931
-6 Plácido  24 de enero de 1941      2023-09-21 23:17:21        887
-7 Thalía   26 de agosto de 1971     2023-09-21 23:08:02        830</code></pre>
+<pre><code>[1] "2009-01-02"</code></pre>
+</div>
+</div>
+<ul>
+<li>The <code>mdy</code> function assumes the first entry is the month, then the day, then the year:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">mdy</span>(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2002-09-01"</code></pre>
+</div>
+</div>
+<ul>
+<li><p>The <em>lubridate</em> package provides a function for every possibility.</p></li>
+<li><p>Here is the other common one:</p></li>
+</ul>
+</section>
+<section id="the-lubridate-package-5" class="slide level2">
+<h2>The lubridate package</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">dmy</span>(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2002-01-09"</code></pre>
+</div>
+</div>
+<ul>
+<li><p>The <strong>lubridate</strong> package is also useful for dealing with times.</p></li>
+<li><p>In base R, you can get the current time typing <code>Sys.time()</code>.</p></li>
+<li><p>The <strong>lubridate</strong> package provides a slightly more advanced function, <code>now</code>, that permits you to define the time zone:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="fu">now</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2024-09-30 01:18:05 EDT"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="fu">now</span>(<span class="st">"GMT"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2024-09-30 05:18:05 GMT"</code></pre>
+</div>
+</div>
+<ul>
+<li>You can see all the available time zones with <code>OlsonNames()</code> function.</li>
+</ul>
+</section>
+<section id="the-lubridate-package-6" class="slide level2">
+<h2>The lubridate package</h2>
+<ul>
+<li>We can also extract hours, minutes, and seconds:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="fu">now</span>() <span class="sc">|&gt;</span> <span class="fu">hour</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a><span class="fu">now</span>() <span class="sc">|&gt;</span> <span class="fu">minute</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 18</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="fu">now</span>() <span class="sc">|&gt;</span> <span class="fu">second</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.151428</code></pre>
+</div>
+</div>
+<ul>
+<li>The package also includes a function to parse strings into times as well as parsers for time objects that include dates:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"12:34:56"</span>) </span>
+<span id="cb36-2"><a></a><span class="fu">hms</span>(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "12H 34M 56S"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a>x <span class="ot">&lt;-</span> <span class="st">"Nov/2/2012 12:34:56"</span> </span>
+<span id="cb38-2"><a></a><span class="fu">mdy_hms</span>(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2012-11-02 12:34:56 UTC"</code></pre>
+</div>
+</div>
+<ul>
+<li>This package has many other useful functions.</li>
+</ul>
+</section>
+<section id="the-lubridate-package-7" class="slide level2">
+<h2>The lubridate package</h2>
+<ul>
+<li><p>We describe two of these here that we find particularly useful.</p></li>
+<li><p>The <code>make_date</code> function can be used to quickly create a date object.</p></li>
+<li><p>It can take up to seven arguments: year, month, day, hour, minute, seconds, and time zone defaulting to the epoch values on UTC time.</p></li>
+<li><p>To create an date object representing, for example, July 6, 2019 we write:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a><span class="fu">make_date</span>(<span class="dv">2019</span>, <span class="dv">7</span>, <span class="dv">6</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2019-07-06"</code></pre>
 </div>
 </div>
 </section>
-<section id="downloading-files" class="slide level2">
-<h2>Downloading files</h2>
+<section id="the-lubridate-package-8" class="slide level2">
+<h2>The lubridate package</h2>
 <ul>
-<li><p>A common place for data to reside is on the internet.</p></li>
-<li><p>We can download these files and then import them.</p></li>
-<li><p>We can also read them directly from the web.</p></li>
+<li>To make a vector of January 1 for the 80s we write:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>url <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"https://raw.githubusercontent.com/"</span>, </span>
-<span id="cb24-2"><a></a>              <span class="st">"rafalab/dslabs/master/inst/extdata/murders.csv"</span>) </span>
-<span id="cb24-3"><a></a>x <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(url) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a><span class="fu">make_date</span>(<span class="dv">1980</span><span class="sc">:</span><span class="dv">1989</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "1980-01-01" "1981-01-01" "1982-01-01" "1983-01-01" "1984-01-01"
+ [6] "1985-01-01" "1986-01-01" "1987-01-01" "1988-01-01" "1989-01-01"</code></pre>
+</div>
+</div>
+<ul>
+<li><p>Another very useful function is <code>round_date</code>.</p></li>
+<li><p>It can be used to <em>round</em> dates to nearest year, quarter, month, week, day, hour, minutes, or seconds.</p></li>
+<li><p>So if we want to group all the polls by week of the year we can do the following:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a>polls_us_election_2016 <span class="sc">|&gt;</span>  </span>
+<span id="cb44-2"><a></a>  <span class="fu">mutate</span>(<span class="at">week =</span> <span class="fu">round_date</span>(startdate, <span class="st">"week"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb44-3"><a></a>  <span class="fu">group_by</span>(week) <span class="sc">|&gt;</span> </span>
+<span id="cb44-4"><a></a>  <span class="fu">summarize</span>(<span class="at">margin =</span> <span class="fu">mean</span>(rawpoll_clinton <span class="sc">-</span> rawpoll_trump)) <span class="sc">|&gt;</span> </span>
+<span id="cb44-5"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(week, margin)) <span class="sc">+</span> </span>
+<span id="cb44-6"><a></a>  <span class="fu">geom_point</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="downloading-files-1" class="slide level2">
-<h2>Downloading files</h2>
+<section id="the-lubridate-package-9" class="slide level2">
+<h2>The lubridate package</h2>
+
+<img data-src="14-dates-and-times_files/figure-revealjs/poll-margin-versus-week-run-1.png" width="960" class="r-stretch"></section>
+<section id="the-lubridate-package-10" class="slide level2">
+<h2>The lubridate package</h2>
 <ul>
-<li>If you want a local copy, you can use `download.file:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">download.file</span>(url, <span class="st">"murders.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li><p>This will download the file and save it on your system with the name <code>murders.csv</code>.</p></li>
-<li><p>Note You can use any name here, not necessarily <code>murders.csv</code>.</p></li>
+<li>Finally, you should be aware the there are useful function for computing operations on time such a <code>difftime</code>, <code>time_length</code>, and <code>interval</code>.</li>
 </ul>
 </section>
-<section id="downloading-files-2" class="slide level2">
-<h2>Downloading files</h2>
-<div class="callout callout-warning callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="dates-and-times-with-data.table" class="slide level2">
+<h2>Dates and times with data.table</h2>
+<ul>
+<li><p>The <strong>data.table</strong> package includes some of the same functionality as <strong>lubridate</strong>.</p></li>
+<li><p>For example, it includes the <code>month</code>, and <code>year</code> functions that are the same as those in <strong>lubridate</strong>.</p></li>
+<li><p>The equilvalent of <strong>lubridate</strong>’s <code>day</code> is <code>mday</code>:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a><span class="fu">library</span>(data.table) </span>
+<span id="cb45-2"><a></a>st <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">"2024-03-04"</span>) </span>
+<span id="cb45-3"><a></a><span class="fu">day</span>(st) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
 </div>
-<p><strong>Warning</strong></p>
-</div>
-<div class="callout-content">
-<p>The function <code>download.file</code> overwrites existing files without warning.</p>
-</div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a><span class="fu">mday</span>(st) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
 </div>
 </div>
 <ul>
-<li>Two functions that are sometimes useful when downloading data from the internet are <code>tempdir</code> and <code>tempfile</code>.</li>
+<li>Other similar functions included in <strong>data.table</strong> are <code>second</code>, <code>minute</code>, <code>hour</code>, <code>yday</code>, <code>wday</code>, <code>week</code>,</li>
 </ul>
+</section>
+<section id="dates-and-times-with-data.table-1" class="slide level2">
+<h2>Dates and times with data.table</h2>
+<ul>
+<li><p><code>isoweek</code> and <code>quarter</code>.</p></li>
+<li><p>The package also includes the classes <code>IDate</code> and <code>ITime</code>, which store dates and times more efficiently that <code>lubridate</code> and base R.</p></li>
+<li><p>This convenient for large files with date stamps.</p></li>
+<li><p>You can convert dates in the usual R format: using <code>as.IDate</code> and <code>as.ITime</code>.</p></li>
+<li><p>You can see this by using the <code>object.size</code> function:</p></li>
+</ul>
+</section>
+<section id="dates-and-times-with-data.table-2" class="slide level2">
+<h2>Dates and times with data.table</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>tmp_filename <span class="ot">&lt;-</span> <span class="fu">tempfile</span>() </span>
-<span id="cb26-2"><a></a><span class="fu">download.file</span>(url, tmp_filename) </span>
-<span id="cb26-3"><a></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(tmp_filename) </span>
-<span id="cb26-4"><a></a><span class="fu">file.remove</span>(tmp_filename) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a><span class="fu">object.size</span>(polls_us_election_2016<span class="sc">$</span>startdate) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>33936 bytes</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a><span class="fu">object.size</span>(<span class="fu">as.IDate</span>(polls_us_election_2016<span class="sc">$</span>startdate)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>17168 bytes</code></pre>
+</div>
 </div>
 
 <div class="quarto-auto-generated-content">

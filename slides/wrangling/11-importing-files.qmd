@@ -1,0 +1,313 @@
+---
+title: "Importing files"
+keywords: "Wrangling"
+date: 2024-09-30
+format:
+  revealjs:
+    theme: night
+execute: 
+  echo: true
+---
+
+## Importing data
+
+
+- One of the most common ways of storing and sharing data is through electronic **spreadsheets**.
+
+- A spreadsheet is a file version of a data frame.
+
+- But there are many ways to store spreadsheets in files.
+
+## Importing data
+
+To import data we need to:
+
+- Identify the file's location.
+
+- Know what function or _parsers_ to use.
+
+For the second step it helps to know the file type and _encoding_.
+
+
+## File types
+
+- Files can generally be classified into two categories: **text** and **binary**.
+
+- We describe the most widely used format for storing data for both these types and learn how to identify them.
+
+
+
+## Text files
+
+- You have already worked with text files: R scripts and Quarto files, for example.
+
+- **dslabs** offers examples:
+
+```{r}
+#| echo: false
+. <- file.remove("murders.csv")
+```
+
+```{r}
+dir <- system.file(package = "dslabs") 
+file_path <- file.path(dir, "extdata/murders.csv") 
+file.copy(file_path, "murders.csv") 
+```
+
+## Text files
+
+* An advantage of text files is that we can easily "look" at them without having to purchase any kind of special software or follow complicated instructions.
+
+* Exercise: 
+    - copy `murders.csv` into your working directory and examine it with `less`.
+    - Then try the _Open file_ RStudio tool.
+
+## Text files
+
+
+- Line breaks are used to separate rows and a _delimiter_ to separate columns within a row.
+
+- The most common delimiters are comma (`,`), semicolon (`;`), space (` `), and tab (`\t`).
+
+- Different parsers are used to read these files, so we need to know what delimiter was used.
+
+- In some cases, the delimiter can be inferred from file suffix: `csv`, `tsv`, for example.
+
+- But we recommend looking at the file rather than inferring from the suffix.
+
+
+
+## Text files
+
+- In R, you can look at any number of lines from within R using the `readLines` function:
+
+```{r} 
+readLines("murders.csv", n = 3) 
+``` 
+
+
+## Binary files
+
+- Opening image files such as jpg or png in a text editor or using `readLines` in R will not show comprehensible content: these are _binary_ files.
+
+- Unlike text files, which are designed for human readability and have standardized conventions, binary files have many formats specific to their data type.
+
+- While R's `readBin` function can process any binary file, interpreting the output necessitates a thorough understanding of the file's structure.
+
+- We focus on the the most prevalent binary formats for spreadsheets: Microsoft Excel xls and xlsx.
+
+## R Base Parsers
+
+Here example of useful R base parsers:
+
+```{r}
+#| message: false
+#| warning: false
+x <- read.table("murders.csv", sep = "\t")
+x <- read.csv("murders.csv")
+```
+
+
+## readr Parsers
+
+**readr**  provides alternatives that produce tibbles:
+
+```{r}
+#| message: false
+#| warning: false
+library(readr)
+x <- read_csv("murders.csv")
+x <- read_delim("murders.csv", delim = "\t")
+```
+
+Notice the messages produced.
+
+## readr Parsers
+
+| Function  | Format                                           | Suffix |
+|-----------|--------------------------------------------------|----------------| 
+| read_table| white space separated values | txt | 
+| read_csv | comma separated values |  csv | 
+| read_csv2 | semicolon separated values | csv | 
+| read_tsv | tab separated values | tsv | 
+| read_delim | must define delimiter | txt | 
+| read_lines | similar to `readLines` | any file |
+
+
+## readxl Parsers
+
+For Excel files you can use the **readxl** package.
+
+```{r}
+library(readxl)
+fn <- file.path(dir, "extdata/2010_bigfive_regents.xls") 
+y <- read_xls(fn)
+```
+
+## readxl Parsers
+
+You can read specific sheets and see them using
+
+```{r}
+excel_sheets(fn)
+```
+
+Note that `read_xls` has a sheet argument.
+
+
+## readxl Parsers
+
+
+| Function  | Format                                           | Suffix |
+|-----------|--------------------------------------------------|----------------|  
+| read_excel | auto detect the format | xls, xlsx| 
+| read_xls | original format |  xls | 
+| read_xlsx | new format | xlsx | 
+| excel_sheets | detects sheets | xls, xlsx| 
+
+
+## data.table Parsers
+
+The **data.table** package provide a very fast parser:
+
+```{r}
+library(data.table)
+x <- fread("murders.csv")
+```
+
+Note: It returns a file in `data.table` format which we have mentioned but not explained.
+
+## scan
+
+* The `scan` function is the most general parser. 
+
+* It will read in any text file and return a vector so you are on your own coverting it to a data frame.
+
+* Because it returns a vector, you need to tell it in advance what data type to expect:
+
+```{r}
+scan("murders.csv", what = "c", sep = ",", n = 10)
+```
+
+* It can also be used to read from the console. Try typing `scan()`. Hit return to stop.
+
+## Encoding
+
+- Computer translates everything into 0s and 1s.
+
+- ASCII is an _encoding_ system that assigns specific numbers to characters.
+
+- Using 7 bits, ASCII can represent $2^7 = 128$ unique symbols, sufficient for all English keyboard characters.
+
+- However, many global languages contain characters outside ASCII's range.
+
+
+
+## Encoding
+
+- For instance, the é in "México" isn't in ASCII's catalog.
+
+- To address this, broader encodings  emerged.
+
+- Unicode offers variations using 8, 16, or 32 bits, known as UTF-8, UTF-16, and UTF-32.
+
+- RStudio typically uses UTF-8 as its default.
+
+- Notably, ASCII is a subset of UTF-8, meaning that if a file is ASCII-encoded, presuming it's UTF-8 encoded won't cause issues.
+
+
+
+## Encoding
+
+- However, there other encodings, such as ISO-8859-1 (also known as Latin-1) developed for the western European languages, Big5 for Traditional Chinese, and ISO-8859-6 for Arabic.
+
+- Take a look at this file:
+
+```{r} 
+#| cache: false 
+fn <- "calificaciones.csv" 
+file.copy(file.path(system.file("extdata", package = "dslabs"), fn), fn) 
+readLines(fn, n = 1) 
+``` 
+
+
+## Encoding
+
+- The __readr__ parsers permit us to specify an encoding.
+
+- It also includes a function that tries to guess the encoding:
+
+```{r} 
+guess_encoding("murders.csv") 
+guess_encoding("calificaciones.csv") 
+``` 
+
+## Encoding
+
+- Once we know the encoding we can specify it through the `locale` argument:
+
+```{r} 
+dat <- read_csv("calificaciones.csv", show_col_types = FALSE, 
+                locale = locale(encoding = "ISO-8859-1")) 
+``` 
+
+- We learn about locales in later.
+
+## Encoding
+
+- We can now see that the characters in the header were read in correctly:
+
+```{r} 
+dat
+``` 
+
+
+## Downloading files
+
+- A common place for data to reside is on the internet.
+
+- We can download these files and then import them.
+
+- We can also read them directly from the web.
+
+
+```{r} 
+url <- paste0("https://raw.githubusercontent.com/", 
+              "rafalab/dslabs/master/inst/extdata/murders.csv") 
+x <- read.csv(url) 
+``` 
+
+## Downloading files
+
+- If you want a local copy, you can use `download.file:
+
+```{r} 
+download.file(url, "murders.csv") 
+``` 
+
+- This will download the file and save it on your system with the name `murders.csv`.
+
+- Note You can use any name here, not necessarily `murders.csv`.
+
+## Downloading files
+
+:::{.callout-warning}
+The function `download.file` overwrites existing files without warning.
+:::
+
+- Two functions that are sometimes useful when downloading data from the internet are `tempdir` and `tempfile`.
+
+```{r} 
+#| eval: false
+
+tmp_filename <- tempfile() 
+download.file(url, tmp_filename) 
+dat <- read_csv(tmp_filename) 
+file.remove(tmp_filename) 
+``` 
+
+```{r}
+#| echo: false
+if (file.exists("murders.csv")) { . <- file.remove("murders.csv")}
+if (file.exists("calificaciones.csv" )) { . <- file.remove("calificaciones.csv") }
+```

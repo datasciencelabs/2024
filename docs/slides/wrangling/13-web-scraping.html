@@ -12,7 +12,7 @@
 
   <meta name="dcterms.date" content="2024-09-30">
   <meta name="keywords" content="Wrangling">
-  <title>BST 260: Introduction to Data Science – Importing files</title>
+  <title>BST 260: Introduction to Data Science – Web Scraping</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -392,394 +392,248 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Importing files</h1>
+  <h1 class="title">Web Scraping</h1>
 
 <div class="quarto-title-authors">
 </div>
 
   <p class="date">2024-09-30</p>
 </section>
-<section id="importing-data" class="slide level2">
-<h2>Importing data</h2>
+<section id="scraping-html" class="slide level2">
+<h2>Scraping HTML</h2>
 <ul>
-<li><p>One of the most common ways of storing and sharing data is through electronic <strong>spreadsheets</strong>.</p></li>
-<li><p>A spreadsheet is a file version of a data frame.</p></li>
-<li><p>But there are many ways to store spreadsheets in files.</p></li>
-</ul>
-</section>
-<section id="importing-data-1" class="slide level2">
-<h2>Importing data</h2>
-<p>To import data we need to:</p>
-<ul>
-<li><p>Identify the file’s location.</p></li>
-<li><p>Know what function or <em>parsers</em> to use.</p></li>
-</ul>
-<p>For the second step it helps to know the file type and <em>encoding</em>.</p>
-</section>
-<section id="file-types" class="slide level2">
-<h2>File types</h2>
-<ul>
-<li><p>Files can generally be classified into two categories: <strong>text</strong> and <strong>binary</strong>.</p></li>
-<li><p>We describe the most widely used format for storing data for both these types and learn how to identify them.</p></li>
-</ul>
-</section>
-<section id="text-files" class="slide level2">
-<h2>Text files</h2>
-<ul>
-<li><p>You have already worked with text files: R scripts and Quarto files, for example.</p></li>
-<li><p><strong>dslabs</strong> offers examples:</p></li>
+<li><p>The data we need to answer a question is not always in a spreadsheet ready for us to read.</p></li>
+<li><p>For example, the US murders dataset we used in the R Basics chapter originally comes from this Wikipedia page:</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>dir <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="at">package =</span> <span class="st">"dslabs"</span>) </span>
-<span id="cb1-2"><a></a>file_path <span class="ot">&lt;-</span> <span class="fu">file.path</span>(dir, <span class="st">"extdata/murders.csv"</span>) </span>
-<span id="cb1-3"><a></a><span class="fu">file.copy</span>(file_path, <span class="st">"murders.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>url <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"https://en.wikipedia.org/w/index.php?title="</span>, </span>
+<span id="cb1-2"><a></a>              <span class="st">"Gun_violence_in_the_United_States_by_state"</span>, </span>
+<span id="cb1-3"><a></a>              <span class="st">"&amp;direction=prev&amp;oldid=810166167"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="scraping-html-1" class="slide level2">
+<h2>Scraping HTML</h2>
+<ul>
+<li>You can see the data table when you visit the webpage:</li>
+</ul>
+<p><img data-src="https://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/img/murders-data-wiki-page.png">.</p>
+<ul>
+<li><em>Web scraping</em>, or <em>web harvesting</em>, is the term we use to describe the process of extracting data from a website.</li>
+</ul>
+</section>
+<section id="scraping-html-2" class="slide level2">
+<h2>Scraping HTML</h2>
+<ul>
+<li><p>The reason we can do this is because the information used by a browser to render webpages is received as a text file from a server.</p></li>
+<li><p>The text is code written in hyper text markup language (HTML).</p></li>
+<li><p>Every browser has a way to show the html source code for a page, each one different.</p></li>
+<li><p>On Chrome, you can use Control-U on a PC and command+alt+U on a Mac.</p></li>
+</ul>
+</section>
+<section id="scraping-html-3" class="slide level2">
+<h2>Scraping HTML</h2>
+<p><img data-src="https://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/img/html-code.png">.</p>
+</section>
+<section id="html" class="slide level2">
+<h2>HTML</h2>
+<ul>
+<li><p>Because this code is accessible, we can download the HTML file, import it into R, and then write programs to extract the information we need from the page.</p></li>
+<li><p>However, once we look at HTML code, this might seem like a daunting task.</p></li>
+<li><p>But we will show you some convenient tools to facilitate the process.</p></li>
+</ul>
+</section>
+<section id="html-1" class="slide level2">
+<h2>HTML</h2>
+<ul>
+<li>To get an idea of how it works, here are a few lines of code from the Wikipedia page that provides the US murders data:</li>
+</ul>
+<pre><code>&lt;table class="wikitable sortable"&gt; 
+&lt;tr&gt; 
+&lt;th&gt;State&lt;/th&gt; 
+&lt;th&gt;&lt;a href="/wiki/List_of_U.S._states_and_territories_by_population"  
+title="List of U.S. states and territories by population"&gt;Population&lt;/a&gt;&lt;br /&gt; 
+&lt;small&gt;(total inhabitants)&lt;/small&gt;&lt;br /&gt; 
+&lt;small&gt;(2015)&lt;/small&gt; &lt;sup id="cite_ref-1" class="reference"&gt; 
+&lt;a href="#cite_note-1"&gt;[1]&lt;/a&gt;&lt;/sup&gt;&lt;/th&gt; 
+&lt;th&gt;Murders and Nonnegligent 
+&lt;p&gt;Manslaughter&lt;br /&gt; 
+&lt;small&gt;(total deaths)&lt;/small&gt;&lt;br /&gt; 
+&lt;small&gt;(2015)&lt;/small&gt; &lt;sup id="cite_ref-2" class="reference"&gt; 
+&lt;a href="#cite_note-2"&gt;[2]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt; 
+&lt;/th&gt; 
+&lt;th&gt;Murder and Nonnegligent 
+&lt;p&gt;Manslaughter Rate&lt;br /&gt; 
+&lt;small&gt;(per 100,000 inhabitants)&lt;/small&gt;&lt;br /&gt; 
+&lt;small&gt;(2015)&lt;/small&gt;&lt;/p&gt; 
+&lt;/th&gt; 
+&lt;/tr&gt; 
+&lt;tr&gt; 
+&lt;td&gt;&lt;a href="/wiki/Alabama" title="Alabama"&gt;Alabama&lt;/a&gt;&lt;/td&gt; 
+&lt;td&gt;4,853,875&lt;/td&gt; 
+&lt;td&gt;348&lt;/td&gt; 
+&lt;td&gt;7.2&lt;/td&gt; 
+&lt;/tr&gt; 
+&lt;tr&gt; 
+&lt;td&gt;&lt;a href="/wiki/Alaska" title="Alaska"&gt;Alaska&lt;/a&gt;&lt;/td&gt; 
+&lt;td&gt;737,709&lt;/td&gt; 
+&lt;td&gt;59&lt;/td&gt; 
+&lt;td&gt;8.0&lt;/td&gt; 
+&lt;/tr&gt; 
+&lt;tr&gt; </code></pre>
+</section>
+<section id="html-2" class="slide level2">
+<h2>HTML</h2>
+<ul>
+<li><p>You can actually see the data, except data values are surrounded by html code such as <code>&lt;td&gt;</code>.</p></li>
+<li><p>We can also see a pattern of how it is stored.</p></li>
+<li><p>If you know HTML, you can write programs that leverage knowledge of these patterns to extract what we want.</p></li>
+<li><p>We also take advantage of a language widely used to make webpages look “pretty” called Cascading Style Sheets (CSS).</p></li>
+</ul>
+</section>
+<section id="html-3" class="slide level2">
+<h2>HTML</h2>
+<ul>
+<li><p>Although we provide tools that make it possible to scrape data without knowing HTML, it is useful to learn some HTML and CSS.</p></li>
+<li><p>Not only does this improve your scraping skills, but it might come in handy if you are creating a webpage to showcase your work.</p></li>
+<li><p>There are plenty of online courses and tutorials for learning these.</p></li>
+<li><p>Two examples are <a href="https://www.codecademy.com/learn/learn-html">Codeacademy</a> and <a href="https://www.w3schools.com/">W3schools</a>.</p></li>
+</ul>
+</section>
+<section id="the-rvest-package" class="slide level2">
+<h2>The rvest package</h2>
+<ul>
+<li><p>The <strong>tidyverse</strong> provides a web harvesting package called <strong>rvest</strong>.</p></li>
+<li><p>The first step using this package is to import the webpage into R.</p></li>
+<li><p>The package makes this quite simple:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(tidyverse) </span>
+<span id="cb3-2"><a></a><span class="fu">library</span>(rvest) </span>
+<span id="cb3-3"><a></a>h <span class="ot">&lt;-</span> <span class="fu">read_html</span>(url) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Note that the entire Murders in the US Wikipedia webpage is now contained in <code>h</code>.</li>
+</ul>
+</section>
+<section id="the-rvest-package-1" class="slide level2">
+<h2>The rvest package</h2>
+<ul>
+<li>The class of this object is:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">class</span>(h) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
+<pre><code>[1] "xml_document" "xml_node"    </code></pre>
 </div>
 </div>
-</section>
-<section id="text-files-1" class="slide level2">
-<h2>Text files</h2>
 <ul>
-<li><p>An advantage of text files is that we can easily “look” at them without having to purchase any kind of special software or follow complicated instructions.</p></li>
-<li><p>Exercise:</p>
-<ul>
-<li>copy <code>murders.csv</code> into your working directory and examine it with <code>less</code>.</li>
-<li>Then try the <em>Open file</em> RStudio tool.</li>
-</ul></li>
+<li><p>The <strong>rvest</strong> package is actually more general; it handles XML documents.</p></li>
+<li><p>XML is a general markup language (that’s what the ML stands for) that can be used to represent any kind of data.</p></li>
+<li><p>HTML is a specific type of XML specifically developed for representing webpages.</p></li>
 </ul>
 </section>
-<section id="text-files-2" class="slide level2">
-<h2>Text files</h2>
+<section id="the-rvest-package-2" class="slide level2">
+<h2>The rvest package</h2>
 <ul>
-<li><p>Line breaks are used to separate rows and a <em>delimiter</em> to separate columns within a row.</p></li>
-<li><p>The most common delimiters are comma (<code>,</code>), semicolon (<code>;</code>), space (<code></code>), and tab (<code>\t</code>).</p></li>
-<li><p>Different parsers are used to read these files, so we need to know what delimiter was used.</p></li>
-<li><p>In some cases, the delimiter can be inferred from file suffix: <code>csv</code>, <code>tsv</code>, for example.</p></li>
-<li><p>But we recommend looking at the file rather than inferring from the suffix.</p></li>
-</ul>
-</section>
-<section id="text-files-3" class="slide level2">
-<h2>Text files</h2>
-<ul>
-<li>In R, you can look at any number of lines from within R using the <code>readLines</code> function:</li>
+<li><p>Now, how do we extract the table from the object <code>h</code>? If you were to print <code>h</code>, we would see information about the object that is not very informative.</p></li>
+<li><p>We can see all the code that defines the downloaded webpage using the <code>html_text</code> function like this:</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">readLines</span>(<span class="st">"murders.csv"</span>, <span class="at">n =</span> <span class="dv">3</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">html_text</span>(h) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="the-rvest-package-3" class="slide level2">
+<h2>The rvest package</h2>
+<ul>
+<li><p>We don’t show the output here because it includes thousands of characters.</p></li>
+<li><p>But if we look at it, we can see the data we are after are stored in an HTML table: you can see this in this line of the HTML code above <code>&lt;table class="wikitable sortable"&gt;</code>.</p></li>
+</ul>
+</section>
+<section id="the-rvest-package-4" class="slide level2">
+<h2>The rvest package</h2>
+<ul>
+<li><p>The different parts of an HTML document, often defined with a message in between <code>&lt;</code> and <code>&gt;</code> are referred to as <em>nodes</em>.</p></li>
+<li><p>The <strong>rvest</strong> package includes functions to extract nodes of an HTML document: <code>html_nodes</code> extracts all nodes of different types and <code>html_node</code> extracts the first one.</p></li>
+</ul>
+</section>
+<section id="the-rvest-package-5" class="slide level2">
+<h2>The rvest package</h2>
+<ul>
+<li>To extract the tables from the html code we use:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>tab <span class="ot">&lt;-</span> h <span class="sc">|&gt;</span> <span class="fu">html_nodes</span>(<span class="st">"table"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Now, instead of the entire webpage, we just have the html code for the tables in the page:</li>
+</ul>
+</section>
+<section id="the-rvest-package-6" class="slide level2">
+<h2>The rvest package</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>tab </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "state,abb,region,population,total" "Alabama,AL,South,4779736,135"     
-[3] "Alaska,AK,West,710231,19"         </code></pre>
+<pre><code>{xml_nodeset (2)}
+[1] &lt;table class="wikitable sortable"&gt;&lt;tbody&gt;\n&lt;tr&gt;\n&lt;th&gt;State\n&lt;/th&gt;\n&lt;th&gt;\n ...
+[2] &lt;table class="nowraplinks hlist mw-collapsible mw-collapsed navbox-inner" ...</code></pre>
 </div>
 </div>
-</section>
-<section id="binary-files" class="slide level2">
-<h2>Binary files</h2>
 <ul>
-<li><p>Opening image files such as jpg or png in a text editor or using <code>readLines</code> in R will not show comprehensible content: these are <em>binary</em> files.</p></li>
-<li><p>Unlike text files, which are designed for human readability and have standardized conventions, binary files have many formats specific to their data type.</p></li>
-<li><p>While R’s <code>readBin</code> function can process any binary file, interpreting the output necessitates a thorough understanding of the file’s structure.</p></li>
-<li><p>We focus on the the most prevalent binary formats for spreadsheets: Microsoft Excel xls and xlsx.</p></li>
+<li>The table we are interested is the first one:</li>
 </ul>
-</section>
-<section id="r-base-parsers" class="slide level2">
-<h2>R Base Parsers</h2>
-<p>Here example of useful R base parsers:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"murders.csv"</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span>
-<span id="cb5-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"murders.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="readr-parsers" class="slide level2">
-<h2>readr Parsers</h2>
-<p><strong>readr</strong> provides alternatives that produce tibbles:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">library</span>(readr)</span>
-<span id="cb6-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"murders.csv"</span>)</span>
-<span id="cb6-3"><a></a>x <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"murders.csv"</span>, <span class="at">delim =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Notice the messages produced.</p>
-</section>
-<section id="readr-parsers-1" class="slide level2">
-<h2>readr Parsers</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 64%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Function</th>
-<th>Format</th>
-<th>Suffix</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>read_table</td>
-<td>white space separated values</td>
-<td>txt</td>
-</tr>
-<tr class="even">
-<td>read_csv</td>
-<td>comma separated values</td>
-<td>csv</td>
-</tr>
-<tr class="odd">
-<td>read_csv2</td>
-<td>semicolon separated values</td>
-<td>csv</td>
-</tr>
-<tr class="even">
-<td>read_tsv</td>
-<td>tab separated values</td>
-<td>tsv</td>
-</tr>
-<tr class="odd">
-<td>read_delim</td>
-<td>must define delimiter</td>
-<td>txt</td>
-</tr>
-<tr class="even">
-<td>read_lines</td>
-<td>similar to <code>readLines</code></td>
-<td>any file</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="readxl-parsers" class="slide level2">
-<h2>readxl Parsers</h2>
-<p>For Excel files you can use the <strong>readxl</strong> package.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">library</span>(readxl)</span>
-<span id="cb7-2"><a></a>fn <span class="ot">&lt;-</span> <span class="fu">file.path</span>(dir, <span class="st">"extdata/2010_bigfive_regents.xls"</span>) </span>
-<span id="cb7-3"><a></a>y <span class="ot">&lt;-</span> <span class="fu">read_xls</span>(fn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="readxl-parsers-1" class="slide level2">
-<h2>readxl Parsers</h2>
-<p>You can read specific sheets and see them using</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">excel_sheets</span>(fn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>tab[[<span class="dv">1</span>]] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Sheet1" "Sheet2" "Sheet3"</code></pre>
+<pre><code>{html_node}
+&lt;table class="wikitable sortable"&gt;
+[1] &lt;tbody&gt;\n&lt;tr&gt;\n&lt;th&gt;State\n&lt;/th&gt;\n&lt;th&gt;\n&lt;a href="/wiki/List_of_U.S._states ...</code></pre>
 </div>
 </div>
-<p>Note that <code>read_xls</code> has a sheet argument.</p>
 </section>
-<section id="readxl-parsers-2" class="slide level2">
-<h2>readxl Parsers</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 64%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Function</th>
-<th>Format</th>
-<th>Suffix</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>read_excel</td>
-<td>auto detect the format</td>
-<td>xls, xlsx</td>
-</tr>
-<tr class="even">
-<td>read_xls</td>
-<td>original format</td>
-<td>xls</td>
-</tr>
-<tr class="odd">
-<td>read_xlsx</td>
-<td>new format</td>
-<td>xlsx</td>
-</tr>
-<tr class="even">
-<td>excel_sheets</td>
-<td>detects sheets</td>
-<td>xls, xlsx</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="data.table-parsers" class="slide level2">
-<h2>data.table Parsers</h2>
-<p>The <strong>data.table</strong> package provide a very fast parser:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">library</span>(data.table)</span>
-<span id="cb10-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"murders.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Note: It returns a file in <code>data.table</code> format which we have mentioned but not explained.</p>
-</section>
-<section id="scan" class="slide level2">
-<h2>scan</h2>
+<section id="the-rvest-package-7" class="slide level2">
+<h2>The rvest package</h2>
 <ul>
-<li><p>The <code>scan</code> function is the most general parser.</p></li>
-<li><p>It will read in any text file and return a vector so you are on your own coverting it to a data frame.</p></li>
-<li><p>Because it returns a vector, you need to tell it in advance what data type to expect:</p></li>
+<li><p>This is clearly not a tidy dataset, not even a data frame.</p></li>
+<li><p>In the code above, you can definitely see a pattern and writing code to extract just the data is very doable.</p></li>
+<li><p>In fact, <strong>rvest</strong> includes a function just for converting HTML tables into data frames:</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">scan</span>(<span class="st">"murders.csv"</span>, <span class="at">what =</span> <span class="st">"c"</span>, <span class="at">sep =</span> <span class="st">","</span>, <span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>tab <span class="ot">&lt;-</span> tab[[<span class="dv">1</span>]] <span class="sc">|&gt;</span> <span class="fu">html_table</span>() </span>
+<span id="cb12-2"><a></a><span class="fu">class</span>(tab) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "state"      "abb"        "region"     "population" "total"     
- [6] "Alabama"    "AL"         "South"      "4779736"    "135"       </code></pre>
+<pre><code>[1] "tbl_df"     "tbl"        "data.frame"</code></pre>
 </div>
 </div>
-<ul>
-<li>It can also be used to read from the console. Try typing <code>scan()</code>. Hit return to stop.</li>
-</ul>
 </section>
-<section id="encoding" class="slide level2">
-<h2>Encoding</h2>
+<section id="the-rvest-package-8" class="slide level2">
+<h2>The rvest package</h2>
 <ul>
-<li><p>Computer translates everything into 0s and 1s.</p></li>
-<li><p>ASCII is an <em>encoding</em> system that assigns specific numbers to characters.</p></li>
-<li><p>Using 7 bits, ASCII can represent <span class="math inline">\(2^7 = 128\)</span> unique symbols, sufficient for all English keyboard characters.</p></li>
-<li><p>However, many global languages contain characters outside ASCII’s range.</p></li>
-</ul>
-</section>
-<section id="encoding-1" class="slide level2">
-<h2>Encoding</h2>
-<ul>
-<li><p>For instance, the é in “México” isn’t in ASCII’s catalog.</p></li>
-<li><p>To address this, broader encodings emerged.</p></li>
-<li><p>Unicode offers variations using 8, 16, or 32 bits, known as UTF-8, UTF-16, and UTF-32.</p></li>
-<li><p>RStudio typically uses UTF-8 as its default.</p></li>
-<li><p>Notably, ASCII is a subset of UTF-8, meaning that if a file is ASCII-encoded, presuming it’s UTF-8 encoded won’t cause issues.</p></li>
-</ul>
-</section>
-<section id="encoding-2" class="slide level2">
-<h2>Encoding</h2>
-<ul>
-<li><p>However, there other encodings, such as ISO-8859-1 (also known as Latin-1) developed for the western European languages, Big5 for Traditional Chinese, and ISO-8859-6 for Arabic.</p></li>
-<li><p>Take a look at this file:</p></li>
+<li>We can now make the data frame:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>fn <span class="ot">&lt;-</span> <span class="st">"calificaciones.csv"</span> </span>
-<span id="cb13-2"><a></a><span class="fu">file.copy</span>(<span class="fu">file.path</span>(<span class="fu">system.file</span>(<span class="st">"extdata"</span>, <span class="at">package =</span> <span class="st">"dslabs"</span>), fn), fn) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>tab <span class="ot">&lt;-</span> tab <span class="sc">|&gt;</span> </span>
+<span id="cb14-2"><a></a>  <span class="fu">setNames</span>(<span class="fu">c</span>(<span class="st">"state"</span>, <span class="st">"population"</span>, <span class="st">"total"</span>, <span class="st">"murder_rate"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(population, total), parse_number))</span>
+<span id="cb14-4"><a></a><span class="fu">head</span>(tab) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">readLines</span>(fn, <span class="at">n =</span> <span class="dv">1</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "\"nombre\",\"f.n.\",\"estampa\",\"puntuaci\xf3n\""</code></pre>
-</div>
-</div>
-</section>
-<section id="encoding-3" class="slide level2">
-<h2>Encoding</h2>
-<ul>
-<li><p>The <strong>readr</strong> parsers permit us to specify an encoding.</p></li>
-<li><p>It also includes a function that tries to guess the encoding:</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">guess_encoding</span>(<span class="st">"murders.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 2
-  encoding confidence
-  &lt;chr&gt;         &lt;dbl&gt;
-1 ASCII             1</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">guess_encoding</span>(<span class="st">"calificaciones.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 2
-  encoding   confidence
-  &lt;chr&gt;           &lt;dbl&gt;
-1 ISO-8859-1       0.92
-2 ISO-8859-2       0.72
-3 ISO-8859-9       0.53</code></pre>
+<pre><code># A tibble: 6 × 4
+  state      population total murder_rate
+  &lt;chr&gt;           &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;
+1 Alabama       4853875   348         7.2
+2 Alaska         737709    59         8  
+3 Arizona       6817565   309         4.5
+4 Arkansas      2977853   181         6.1
+5 California   38993940  1861         4.8
+6 Colorado      5448819   176         3.2</code></pre>
 </div>
 </div>
 </section>
-<section id="encoding-4" class="slide level2">
-<h2>Encoding</h2>
+<section id="css-selectors" class="slide level2">
+<h2>CSS selectors</h2>
 <ul>
-<li>Once we know the encoding we can specify it through the <code>locale</code> argument:</li>
+<li><p><a href="https://rvest.tidyverse.org/articles/selectorgadget.html" class="uri">https://rvest.tidyverse.org/articles/selectorgadget.html</a>]</p></li>
+<li><p><a href="https://www.analyticsvidhya.com/blog/2017/03/beginners-guide-on-web-scraping-in-r-using-rvest-with-hands-on-knowledge/" class="uri">https://www.analyticsvidhya.com/blog/2017/03/beginners-guide-on-web-scraping-in-r-using-rvest-with-hands-on-knowledge/</a></p></li>
 </ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"calificaciones.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb21-2"><a></a>                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>We learn about locales in later.</li>
-</ul>
-</section>
-<section id="encoding-5" class="slide level2">
-<h2>Encoding</h2>
-<ul>
-<li>We can now see that the characters in the header were read in correctly:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>dat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 7 × 4
-  nombre   f.n.                     estampa             puntuación
-  &lt;chr&gt;    &lt;chr&gt;                    &lt;dttm&gt;                   &lt;dbl&gt;
-1 Beyoncé  04 de septiembre de 1981 2023-09-22 02:11:02        875
-2 Blümchen 20 de abril de 1980      2023-09-22 03:23:05        990
-3 João     10 de junio de 1931      2023-09-21 22:43:28        989
-4 López    24 de julio de 1969      2023-09-22 01:06:59        887
-5 Ñengo    15 de diciembre de 1981  2023-09-21 23:35:37        931
-6 Plácido  24 de enero de 1941      2023-09-21 23:17:21        887
-7 Thalía   26 de agosto de 1971     2023-09-21 23:08:02        830</code></pre>
-</div>
-</div>
-</section>
-<section id="downloading-files" class="slide level2">
-<h2>Downloading files</h2>
-<ul>
-<li><p>A common place for data to reside is on the internet.</p></li>
-<li><p>We can download these files and then import them.</p></li>
-<li><p>We can also read them directly from the web.</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>url <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"https://raw.githubusercontent.com/"</span>, </span>
-<span id="cb24-2"><a></a>              <span class="st">"rafalab/dslabs/master/inst/extdata/murders.csv"</span>) </span>
-<span id="cb24-3"><a></a>x <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(url) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="downloading-files-1" class="slide level2">
-<h2>Downloading files</h2>
-<ul>
-<li>If you want a local copy, you can use `download.file:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">download.file</span>(url, <span class="st">"murders.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li><p>This will download the file and save it on your system with the name <code>murders.csv</code>.</p></li>
-<li><p>Note You can use any name here, not necessarily <code>murders.csv</code>.</p></li>
-</ul>
-</section>
-<section id="downloading-files-2" class="slide level2">
-<h2>Downloading files</h2>
-<div class="callout callout-warning callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Warning</strong></p>
-</div>
-<div class="callout-content">
-<p>The function <code>download.file</code> overwrites existing files without warning.</p>
-</div>
-</div>
-</div>
-<ul>
-<li>Two functions that are sometimes useful when downloading data from the internet are <code>tempdir</code> and <code>tempfile</code>.</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>tmp_filename <span class="ot">&lt;-</span> <span class="fu">tempfile</span>() </span>
-<span id="cb26-2"><a></a><span class="fu">download.file</span>(url, tmp_filename) </span>
-<span id="cb26-3"><a></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(tmp_filename) </span>
-<span id="cb26-4"><a></a><span class="fu">file.remove</span>(tmp_filename) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
