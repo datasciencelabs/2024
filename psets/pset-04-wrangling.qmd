@@ -37,6 +37,8 @@ Create an object called `request` of class `httr2_request` with this URL as an e
 Hint: Print out `request` to check that the URL matches what we want.
 
 ```{r}
+#| message: false
+#| warning: false
 library(httr2)
 #request <- 
 ```
@@ -100,6 +102,8 @@ url <- "https://github.com/datasciencelabs/2024/raw/refs/heads/main/data/regions
 points to a JSON file that lists the states in the 10 Public Health Service (PHS) defined by CDC. We want to add these regions to the `population` dataset. To facilitate this create a data frame called `regions` that has two columns `state_name`, `region`, `region_name`. One of the regions has a long name. Change it to something shorter.
 
 ```{r}
+#| message: false
+#| warning: false
 library(jsonlite)
 library(purrr)
 url <- "https://github.com/datasciencelabs/2024/raw/refs/heads/main/data/regions.json"
