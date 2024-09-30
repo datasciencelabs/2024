@@ -1,0 +1,142 @@
+---
+title: Problem set 4
+date: 2024-10-04
+---
+
+In the next problem set, we plan to explore the relationship between COVID-19 death rates and vaccination rates across US states by visually examining their correlation. This analysis will involve gathering COVID-19 related data from the CDC's API and then extensively processing it to merge the various datasets. Since the population sizes of states vary significantly, we will focus on comparing rates rather than absolute numbers. To facilitate this, we will also source population data from the US Census to accurately calculate these rates. 
+
+In this problem set we will learn how to extract and wrangle data from the data US Census and CDC APIs.
+
+1. Get an API key from the US Census at <https://api.census.gov/data/key_signup.html>. You can't share this public key. But your code has to run on a TFs computer. Assume the TF will have a file in their working directory named `census-key.R` with the following one line of code:
+
+```
+census_key <- "A_CENSUS_KEY_THAT_WORKS"
+```
+
+Write a first line of code for your problem set that defines `census_key` by running the code in the file `census-key.R`.
+
+```{r}
+## Your code here
+```
+
+2. The [US Census API User Guide](https://www.census.gov/content/dam/Census/data/developers/api-user-guide/api-user-guide.pdf)
+provides details on how to leverage this valuable resource. We are interested in vintage population estimates for years 2021 and 2022. From the documentation we find that the _endpoint_ is:
+
+
+```{r}
+url <- "https://api.census.gov/data/2021/pep/population"
+```
+
+Use the **httr2** package to construct the following GET request.
+
+```
+https://api.census.gov/data/2021/pep/population?get=POP_2020,POP_2021,NAME&for=state:*&key=YOURKEYHERE
+```
+
+Create an object called `request` of class `httr2_request` with this URL as an endpoint.
+Hint: Print out `request` to check that the URL matches what we want.
+
+```{r}
+library(httr2)
+#request <- 
+```
+
+3. Make a request to the US Census API using the `request` object. Save the response to and object named `response`. Check the response status of your request and make sure it was successful. You can learn about _status codes_ [here](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes).
+
+
+```{r}
+#response <- 
+```
+
+4. Use a function from the **httr2** package to determine the content type of your response.
+
+```{r}
+# Your code here
+```
+
+5. Use just one line of code and one function to extract the data into a matrix. 
+Hints: 1) Use the `resp_body_json` function. 2) The first row of the matrix will be the variable names and this OK as we will fix in the next exercise.
+
+```{r}
+#population <- 
+```
+
+6. Examine the `population` matrix you just created. Notice that 1) it is not tidy, 2) the column types are not what we want, and 3) the first row is a header. Convert `population` to a tidy dataset. Remove the state ID column and change the name of the column with state names to `state_name`. Add a column with state abbreviations called `state`. Make sure you assign the abbreviations for DC and PR correctly. Hint: Use the **janitor** package to make the first row the header. 
+
+```{r}
+#| message: false
+#| warning: false
+library(tidyverse)
+library(janitor)
+#population <- population |> ## Use janitor row to names function
+  # convert to tibble
+  # remove stat column
+  # rename state column to state_name
+  # use pivot_longer to tidy
+  # remove POP_ from year
+  # parese all relevant colunns to numeric
+  # add state abbreviations using state.abb variable
+  # use case_when to add abbreviations for DC and PR
+```
+
+7. As a check, make a barplot of states' 2021 and 2022 populations. Show the state names in the y-axis ordered by population size.  Hint: You will need to use `reorder` and use `facet_wrap`.
+
+```{r}
+# population |> 
+  # reorder state
+  # assign aesthetic mapping
+  # use geom_col to plot barplot
+  # flip coordinates
+  # facet by year
+```
+
+
+8. The following URL:
+
+```{r}
+url <- "https://github.com/datasciencelabs/2024/raw/refs/heads/main/data/regions.json"
+```
+
+points to a JSON file that lists the states in the 10 Public Health Service (PHS) defined by CDC. We want to add these regions to the `population` dataset. To facilitate this create a data frame called `regions` that has two columns `state_name`, `region`, `region_name`. One of the regions has a long name. Change it to something shorter.
+
+```{r}
+library(jsonlite)
+library(purrr)
+url <- "https://github.com/datasciencelabs/2024/raw/refs/heads/main/data/regions.json"
+# regions <- use jsonlit JSON parser 
+# regions <- convert list to data frame. You can use map_df in purrr package 
+```
+
+9. Add a region and region name columns to the `population` data frame.
+
+```{r}
+# population <- 
+```
+
+
+10. From reading <https://data.cdc.gov/> we learn the endpoint `https://data.cdc.gov/resource/pwn4-m3yp.json` provides state level data from SARS-COV2 cases. Use the **httr2** tools you have learned to download this into a data frame. Is all the data there? If not, comment on why.
+
+
+```{r}
+api <- "https://data.cdc.gov/resource/pwn4-m3yp.json"
+# cases_raw <- 
+```
+
+We see exactly 1,000 rows. We should be seeing over $52 \times 3$ rows per state.
+
+11. The reason you see exactly 1,000 rows is because CDC has a default limit. You can change this limit by adding `$limit=10000000000` to the request. Rewrite the previous request to ensure that you receive all the data. Then wrangle the resulting data frame to produce a data frame with columns `state`, `date` (should be the end date) and `cases`. Make sure the cases are numeric and the dates are in `Date` ISO-8601 format.
+
+```{r}
+api <- "https://data.cdc.gov/resource/pwn4-m3yp.json"
+# cases_raw <- 
+```
+
+
+12. For 2020 and 2021, make a time series plot of cases per 100,000 versus time for each state. Stratify the plot by region name. Make sure to label you graph appropriately. 
+
+```{r}
+#cases |> 
+```
+
+
+

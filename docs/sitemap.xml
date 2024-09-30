@@ -34,7 +34,7 @@
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/psets/pset-03-tidyverse.html</loc>
-    <lastmod>2024-09-17T21:39:15.980Z</lastmod>
+    <lastmod>2024-09-30T03:44:55.951Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/psets/pset-01-unix-quarto.html</loc>
@@ -46,7 +46,7 @@
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/index.html</loc>
-    <lastmod>2024-09-19T03:02:40.961Z</lastmod>
+    <lastmod>2024-09-30T03:51:24.847Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/00-intro.html</loc>
@@ -71,5 +71,21 @@
   <url>
     <loc>http://datasciencelabs.github.io/2024/lab-notes/pset-02-r-vectorization.html</loc>
     <lastmod>2024-09-18T17:24:03.520Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/wrangling/10-wrangling.html</loc>
+    <lastmod>2024-09-27T18:26:12.876Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/wrangling/10-intro-to-wrangling.html</loc>
+    <lastmod>2024-09-28T00:48:32.669Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/wrangling/12-data-apis.html</loc>
+    <lastmod>2024-09-29T16:01:15.057Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/psets/pset-04-wrangling.html</loc>
+    <lastmod>2024-09-30T03:50:05.760Z</lastmod>
   </url>
 </urlset>

@@ -6,9 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-09-27">
+<meta name="dcterms.date" content="2024-09-30">
+<meta name="keywords" content="Wrangling">
 
-<title>Problem set 3 – BST 260: Introduction to Data Science</title>
+<title>Data APIs – BST 260: Introduction to Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,21 +59,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -101,35 +102,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -142,7 +114,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Problem set 3</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Data APIs</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -156,8 +128,8 @@ window.Quarto = {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main">
     <a href="https://github.com/datasciencelabs/2024" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
@@ -172,25 +144,25 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../slides.html" class="sidebar-item-text sidebar-link">
+  <a href="../../slides.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Slides</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../psets.html" class="sidebar-item-text sidebar-link">
+  <a href="../../psets.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Problem Sets</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+  <a href="../../syllabus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
@@ -204,17 +176,30 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#data-apis" id="toc-data-apis" class="nav-link active" data-scroll-target="#data-apis">Data APIs</a></li>
+  <li><a href="#types-and-concepts" id="toc-types-and-concepts" class="nav-link" data-scroll-target="#types-and-concepts">Types and concepts</a></li>
+  <li><a href="#key-concepts" id="toc-key-concepts" class="nav-link" data-scroll-target="#key-concepts">Key concepts</a></li>
+  <li><a href="#json" id="toc-json" class="nav-link" data-scroll-target="#json">JSON</a></li>
+  <li><a href="#json-1" id="toc-json-1" class="nav-link" data-scroll-target="#json-1">JSON</a></li>
+  <li><a href="#json-2" id="toc-json-2" class="nav-link" data-scroll-target="#json-2">JSON</a></li>
+  <li><a href="#json-3" id="toc-json-3" class="nav-link" data-scroll-target="#json-3">JSON</a></li>
+  <li><a href="#the-httr2-package" id="toc-the-httr2-package" class="nav-link" data-scroll-target="#the-httr2-package">The httr2 package</a></li>
+  <li><a href="#the-httr2-package-1" id="toc-the-httr2-package-1" class="nav-link" data-scroll-target="#the-httr2-package-1">The httr2 package</a></li>
+  <li><a href="#the-httr2-package-2" id="toc-the-httr2-package-2" class="nav-link" data-scroll-target="#the-httr2-package-2">The httr2 package</a></li>
+  <li><a href="#the-httr2-package-3" id="toc-the-httr2-package-3" class="nav-link" data-scroll-target="#the-httr2-package-3">The httr2 package</a></li>
+  <li><a href="#the-httr2-package-4" id="toc-the-httr2-package-4" class="nav-link" data-scroll-target="#the-httr2-package-4">The httr2 package</a></li>
+  <li><a href="#the-httr2-package-5" id="toc-the-httr2-package-5" class="nav-link" data-scroll-target="#the-httr2-package-5">The httr2 package</a></li>
+  <li><a href="#the-httr2-package-6" id="toc-the-httr2-package-6" class="nav-link" data-scroll-target="#the-httr2-package-6">The httr2 package</a></li>
+  <li><a href="#going-further" id="toc-going-further" class="nav-link" data-scroll-target="#going-further">Going further</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/datasciencelabs/2024/blob/main/psets/pset-03-tidyverse.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/datasciencelabs/2024/blob/main/slides/wrangling/12-data-apis.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="12-data-apis.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Problem set 3</h1>
+<h1 class="title">Data APIs</h1>
 </div>
 
 
@@ -225,7 +210,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 27, 2024</p>
+      <p class="date">September 30, 2024</p>
     </div>
   </div>
   
@@ -233,154 +218,263 @@ window.Quarto = {
   </div>
   
 
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>Wrangling</p>
+  </div>
+</div>
 
 </header>
 
 
-<p>In these exercises, we will explore a subset of the NHANES dataset to investigate potential differences in systolic blood pressure across groups defined by self reported race.</p>
-<section id="instructions" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="instructions">Instructions</h3>
+<section id="data-apis" class="level2">
+<h2 class="anchored" data-anchor-id="data-apis">Data APIs</h2>
 <ul>
-<li><p>For each exercise, we want you to write a single line of code using the pipe (<code>|&gt;</code>) to chain together multiple operations. This doesn’t mean the code must fit within 80 characters or be written on a single physical line, but rather that the entire sequence of operations can be executed as one continuous line of code without needing to assign intermediate values or create new variables.</p>
-<p>For example, these are three separate lines of code:</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">100</span>; x <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x); <span class="fu">log10</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<pre><code>Whereas this is considered one line of code using the pipe:</code></pre>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">100</span> <span class="sc">|&gt;</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sqrt</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">log10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li><p>Generate an html document that shows the code for each exercise.</p></li>
-<li><p>For the exercises that ask to generate a graph, show the graph as well.</p></li>
-<li><p>For exercises that require you to display tabular results, use the <code>kable</code> function to format the output as a clean, readable table. Do not display the raw dataframe directly—only show the nicely formatted table using <code>kable</code>.</p></li>
-<li><p>Use only two significant digits for the numbers displayed in the tables.</p></li>
-<li><p>Submit both the html and the qmd files using Git.</p></li>
-<li><p>You will need the following libraries:</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(NHANES)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>The <code>.qmd</code> file must be able to render properly on the TFs’ computers. They will already have the necessary packages installed, so there is no need to include code for installing packages. Just focus on writing the code that uses these packages.</li>
+<li><p>An Application Programming Interface (API) is a set of rules and protocols that allows different software entities to communicate with each other.</p></li>
+<li><p>It defines methods and data formats that software components should use when requesting and exchanging information.</p></li>
+<li><p>APIs play a crucial role in enabling the integration that make today’s software so interconnected and versatile.</p></li>
 </ul>
 </section>
-<section id="exercises" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h3>
-<ol type="1">
-<li>Filter the <code>NHANES</code> data to only include survey year 2011-2012. Save the resulting table in <code>dat</code>. This table should have 5,000 rows and 76 columns.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="2" type="1">
-<li>Compute the average and standard deviation (SD) for the <em>combined systolic blood pressure</em> (SBP) reading for males and females separately. Show us a data frame with two rows (female and male) and two columns (average and SD).</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="3" type="1">
-<li>Because of the large difference in the average between males and females, we will perform the rest of the analysis separately for males and females.</li>
-</ol>
-<p>Compute the average and SD for SBP for each race variable in column <code>Race3</code> for females and males separately. The resulting table should have four columns for sex, race, average, and SD, respectively, and 12 rows (one for each strata). Arrange the result from highest to lowest average.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="4" type="1">
-<li>Repeat the previous exercise but add two columns to the final table to show a 95% confidence interval. Specifically, add columns with the lower and upper bounds of the interval with names <code>lower</code> and <code>upper</code>, respectively. The formula for these values is</li>
-</ol>
-<p><span class="math display">\[
-\bar{X} \pm 1.96 \, s / \sqrt{n}
-\]</span> with <span class="math inline">\(\bar{X}\)</span> the sample average and <span class="math inline">\(s\)</span> the sample standard deviation. This table will simply add two more columns to the table generated in the previous exercise: one column for the lower and upper bound, respectively.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="do">## code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="5" type="1">
-<li>Make a graph of showing the results from the previous exercise. Specifically, plot the averages for each group as points and confidence intervals as error bars (use the geometry <code>geom_errorbar</code>). Order the groups from lowest to highest average (the average of the males and females averages). Use <code>facet_wrap</code> to make a separate plot for females and males. Label your axes with <em>Race</em> and <em>Average</em> respectively, add the title <em>Comparing systolic blood pressure across groups</em>, and the caption <em>Bars represent 95% confidence intervals</em>.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="6" type="1">
-<li>In the plot above we see that the confidence intervals don’t overlap when comparing the <code>White</code> and <code>Mexican</code> groups. We also see a substantial difference between <code>Mexican</code> and <code>Hispnanic</code>. Before concluding that there is a difference between groups, we will explore if differences in age, a very common <em>confounder</em>, explain the differences.</li>
-</ol>
-<p>Create table like the one in the previous exercise but show the average SBP by sex and age group (<code>AgeDecade</code>). The the groups are order chronologically. As before make a separate plot for males and females. Make sure to filter our observations with no <code>AgeDecade</code> listed.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="do">## code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="7" type="1">
-<li>We note that for both males and females the SBP increases with age. To explore if age is indeed a confounder we need to check if the groups have different age distributions.</li>
-</ol>
-<p>Explore the age distributions of each <code>Race3</code> group to determine if the groups are comparable. Make a histogram of <code>Age</code> for each <code>Race3</code> group and stack them vertically. Generate two columns of graphs for males and females, respectively. In the histograms, create bins increments of 5 years up to 80.</p>
-<p>Below the graph, comment on what notice about the age distributions and how this can explain the difference between the <em>White</em> and <em>Mexican</em> groups.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="8" type="1">
-<li>Summarize the results shown in the graph by compute the median age for each <code>Race3</code> group and the percent of individuals that are younger than 18. Order the rows by median age. The resulting data frame should have 6 rows (one for each group) and three columns to denote group, median age, and children respectively.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="do">## code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Given these results provide an explanation for the difference in systolic pressure is lower when comparing the <code>White</code> and <code>Mexican</code> groups.</p>
-<ol start="9" type="1">
-<li>When the age distribution between two populations we can’t conclude that there are differences in SBP based just on the population averages. The observed differences are likely due to age differences rather than genetic differences. We will therefore stratify by group and then compare SBP. But before we do this, we might need redefine <code>dat</code> to avoid small groups.</li>
-</ol>
-<p>Write a function that computes the number of observations in each gender, age group and race combination. Show the groups with less than five observations. Make sure to remove the rows with no BPSysAve measurments before calculating the number of observations. Show a table with four columns representing gender, age strate, group, and the number of individuals in that group. Make sure to include combinations with 0 individuals (hint: use <code>complete</code>).</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="10" type="1">
-<li><p>Based on the observations made in the previous exercise, we will redefine <code>dat</code> but with the following:</p>
+<section id="types-and-concepts" class="level2">
+<h2 class="anchored" data-anchor-id="types-and-concepts">Types and concepts</h2>
+<p>The main APIs related to retrieving data are:</p>
 <ul>
-<li>As before, include only survey year 2011-2012.</li>
-<li>Remove the observations with no age group reported.</li>
-<li>Remove the 0-9 age group.</li>
-<li>Combine the 60-69 and 70+ ageroups into a 60+ group.</li>
-<li>Remove observations reporting <code>Other</code> in <code>Race3</code>.</li>
-<li>Rename the variable <code>Race3</code> to <code>Race</code>.</li>
+<li><p><strong>Web Services</strong> - Often built using protocols like HTTP/HTTPS.</p></li>
+<li><p><strong>Database APIs</strong> - Enable communication between an application and a database, SQL-based calls for example.</p></li>
 </ul>
-<p>Hints:</p>
+<p>Here we focus on <strong>Web Services</strong> since it more common among public resources such CDC and the US Census.</p>
+</section>
+<section id="key-concepts" class="level2">
+<h2 class="anchored" data-anchor-id="key-concepts">Key concepts</h2>
 <ul>
-<li>Note that the levels in <code>AgeDecade</code> start with a space.</li>
-<li>You can use the <code>fct_collapse</code> function in the <strong>forcats</strong> to combine factors.</li>
-</ul></li>
-</ol>
+<li><p><strong>Endpoints</strong>: Usually a URL where API can be accessed.</p></li>
+<li><p><strong>Methods</strong>: Actions that can be performed, for example HTTP methods like GET, POST, PUT, or DELETE.</p></li>
+<li><p><strong>Request</strong>: Asking the API to perform a function.</p></li>
+<li><p><strong>Response</strong>: The data it returns.</p></li>
+<li><p><strong>Rate Limits</strong>: Restrictions on calls to API.</p></li>
+<li><p><strong>Authentication and Authorization</strong>: Methods include <em>API keys</em>, <em>OAuth</em>, or <em>Jason Web Tokens</em> (JWT).</p></li>
+<li><p><strong>Data Formats</strong>: Many web APIs exchange data in a specific format, often JSON or CSV.</p></li>
+</ul>
+</section>
+<section id="json" class="level2">
+<h2 class="anchored" data-anchor-id="json">JSON</h2>
+<ul>
+<li><p>Sharing data on the internet has become more and more common.</p></li>
+<li><p>Unfortunately, providers use different formats, which makes wrangling harder.</p></li>
+<li><p>Yet there are some standards that are also becoming more common.</p></li>
+<li><p>A format that is widely being adopted is the JavaScript Object Notation or JSON.</p></li>
+<li><p>Because this format is very general, it is nothing like a spreadsheet.</p></li>
+</ul>
+</section>
+<section id="json-1" class="level2">
+<h2 class="anchored" data-anchor-id="json-1">JSON</h2>
+<ul>
+<li>JSON files look like code you use to define a list:</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="do">## code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[
+  {
+    "name": "Miguel",
+    "student_id": 1,
+    "exam_1": 85,
+    "exam_2": 86
+  },
+  {
+    "name": "Sofia",
+    "student_id": 2,
+    "exam_1": 94,
+    "exam_2": 93
+  },
+  {
+    "name": "Aya",
+    "student_id": 3,
+    "exam_1": 87,
+    "exam_2": 88
+  },
+  {
+    "name": "Cheng",
+    "student_id": 4,
+    "exam_1": 90,
+    "exam_2": 91
+  }
+] </code></pre>
 </div>
-<ol start="11" type="1">
-<li>Crete a plot that shows the averege BPS for each age decade. Show the different race groups with color and lines joining them. Generate a two plots, one for males and one for females.</li>
-</ol>
+</div>
+<ul>
+<li>The file above actually represents a data frame.</li>
+</ul>
+</section>
+<section id="json-2" class="level2">
+<h2 class="anchored" data-anchor-id="json-2">JSON</h2>
+<ul>
+<li><p>We can use the function <code>fromJSON</code> from the <strong>jsonlite</strong> package to read files.</p></li>
+<li><p>Here is an example providing information Nobel prize winners:</p></li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">## code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite) </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>nobel <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="st">"http://api.nobelprize.org/v1/prize.json"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<ol start="12" type="1">
-<li>Based on the plot above pick two groups that you think are consistently different and remake the plot from the previous exercise but just for these two groups, add confidence intervals, and remove the lines. Put the confidence intervals for each age strata next to each other and use color to represent the two groups. Comment on your finding.</li>
-</ol>
+<ul>
+<li>This downloads a JSON file and reads into a list:</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">## code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(nobel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "list"</code></pre>
 </div>
-<ol start="13" type="1">
-<li>For the two groups that you selected above compute the difference in average BPS between the two groups for each age strata. Show a table with three columns representing age strata, difference for females, difference for males.</li>
-</ol>
+</div>
+</section>
+<section id="json-3" class="level2">
+<h2 class="anchored" data-anchor-id="json-3">JSON</h2>
+<ul>
+<li>The object is rather complicated. The <code>prizes</code> component includes a list of data frames with information about Nobel Laureates:</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">## code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>nobel<span class="sc">$</span>prizes <span class="sc">|&gt;</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(category <span class="sc">==</span> <span class="st">"literature"</span> <span class="sc">&amp;</span> year <span class="sc">==</span> <span class="st">"1971"</span>) <span class="sc">|&gt;</span>  </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(laureates) <span class="sc">|&gt;</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">first</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, firstname, surname) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   id firstname surname
+1 645     Pablo  Neruda</code></pre>
 </div>
+</div>
+</section>
+<section id="the-httr2-package" class="level2">
+<h2 class="anchored" data-anchor-id="the-httr2-package">The httr2 package</h2>
+<ul>
+<li><p>HTTPS is the most widely used protocol for data sharing through the internet.</p></li>
+<li><p>The <strong>httr2</strong> package provides functions to work with HTTPS requests.</p></li>
+<li><p>One of the core functions in this package is <code>request</code>, which is used to form request to send to web services.</p></li>
+<li><p>The <code>req_perform</code> function sends the request.</p></li>
+<li><p>This <code>request</code> function forms an HTTP GET request to the specified URL.</p></li>
+</ul>
+</section>
+<section id="the-httr2-package-1" class="level2">
+<h2 class="anchored" data-anchor-id="the-httr2-package-1">The httr2 package</h2>
+<ul>
+<li><p>Typically, HTTP GET requests are used to retrieve information from a server based on the provided URL.</p></li>
+<li><p>The function returns an object of class <code>response</code>.</p></li>
+<li><p>This object contains all the details of the server’s response, including status code, headers, and content.</p></li>
+<li><p>You can then use other <strong>httr2</strong> functions to extract or interpret information from this response.</p></li>
+<li><p>Let’s say you want to retrieve COVID-19 deaths by state from the CDC.</p></li>
+</ul>
+</section>
+<section id="the-httr2-package-2" class="level2">
+<h2 class="anchored" data-anchor-id="the-httr2-package-2">The httr2 package</h2>
+<ul>
+<li>By visiting their data catalog<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> you can search for datasets and find that the data is provided through this API:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://data.cdc.gov/resource/muzy-jte6.csv"</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>We can then make create and perform a request like this:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr2) </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>response <span class="ot">&lt;-</span> <span class="fu">request</span>(url) <span class="sc">|&gt;</span> <span class="fu">req_perform</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>We can see the results of the request by looking at the returned object.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>response </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>&lt;httr2_response&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>GET https://data.cdc.gov/resource/muzy-jte6.csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Status: 200 OK</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Content-Type: text/csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Body: In memory (210808 bytes)</code></pre>
+</div>
+</div>
+</section>
+<section id="the-httr2-package-3" class="level2">
+<h2 class="anchored" data-anchor-id="the-httr2-package-3">The httr2 package</h2>
+<ul>
+<li>To extract the body, which is where the data are, we can use <code>resp_body_string</code> and send the result, a comma delimited string, to <code>read_csv</code>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr) </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> response <span class="sc">|&gt;</span> <span class="fu">resp_body_string</span>() <span class="sc">|&gt;</span> <span class="fu">read_csv</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>We note that the returned object is only 1000 entries.</p></li>
+<li><p>API often limit how much you can download.</p></li>
+</ul>
+</section>
+<section id="the-httr2-package-4" class="level2">
+<h2 class="anchored" data-anchor-id="the-httr2-package-4">The httr2 package</h2>
+<ul>
+<li><p>The documentation for this API<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> explains that we can change this limit through the.</p></li>
+<li><p><code>$limit</code> parameters.</p></li>
+<li><p>We can use the <code>req_url_path_append</code> to add this to our request:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>response <span class="ot">&lt;-</span> <span class="fu">request</span>(url) <span class="sc">|&gt;</span>  </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">req_url_path_append</span>(<span class="st">"?$limit=100000"</span>) <span class="sc">|&gt;</span>  </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">req_perform</span>()  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>The CDC service returns data in csv format but a more common format used by web services is JSON.</li>
+</ul>
+</section>
+<section id="the-httr2-package-5" class="level2">
+<h2 class="anchored" data-anchor-id="the-httr2-package-5">The httr2 package</h2>
+<ul>
+<li>The CDC also provides data in json format through a the url:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://data.cdc.gov/resource/muzy-jte6.json"</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>To extract the data table we use the <code>fromJSON</code> function from the <strong>jsonlite</strong> package.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">request</span>(url) <span class="sc">|&gt;</span>  </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">req_perform</span>() <span class="sc">|&gt;</span>  </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">resp_body_string</span>() <span class="sc">|&gt;</span>  </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">fromJSON</span>(<span class="at">flatten =</span> <span class="cn">TRUE</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>When working with APIs, it’s essential to check the API’s documentation for rate limits, required headers, or authentication methods.</li>
+</ul>
+</section>
+<section id="the-httr2-package-6" class="level2">
+<h2 class="anchored" data-anchor-id="the-httr2-package-6">The httr2 package</h2>
+<ul>
+<li>The <code>httr2</code> package provides tools to handle these requirements, such as setting headers or authentication parameters.</li>
+</ul>
+</section>
+<section id="going-further" class="level2">
+<h2 class="anchored" data-anchor-id="going-further">Going further</h2>
+<ul>
+<li><p>SQL</p></li>
+<li><p>CSS selectors</p></li>
+</ul>
 
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p><a href="https://data.cdc.gov" class="uri">https://data.cdc.gov</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><a href="https://dev.socrata.com/docs/queries/" class="uri">https://dev.socrata.com/docs/queries/</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -806,4 +900,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/datasciencelabs/2024/blob/main/psets/pset-03-tidyverse.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/datasciencelabs/2024/blob/main/slides/wrangling/12-data-apis.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>

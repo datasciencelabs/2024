@@ -1237,7 +1237,7 @@
     "href": "psets.html",
     "title": "Problem Sets",
     "section": "",
-    "text": "Topic\n\n\nDue date (at 11:59 PM)\n\n\n\n\n\n\nProblem set 1\n\n\nWed, Sep 11\n\n\n\n\nProblem set 2\n\n\nThu, Sep 19\n\n\n\n\nProblem set 3\n\n\nFri, Sep 27\n\n\n\n\n\nNo matching items",
+    "text": "Topic\n\n\nDue date (at 11:59 PM)\n\n\n\n\n\n\nProblem set 1\n\n\nWed, Sep 11\n\n\n\n\nProblem set 2\n\n\nThu, Sep 19\n\n\n\n\nProblem set 3\n\n\nFri, Sep 27\n\n\n\n\nProblem set 4\n\n\nFri, Oct 04\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Problem Sets"
     ]
@@ -1934,5 +1934,446 @@
     "title": "Problem set 2",
     "section": "",
     "text": "For these exercises, do not load any packages other than dslabs.\nMake sure to use vectorization whenever possible.\n\nWhat is the sum of the first 100 positive integers? Use the functions seq and sum to compute the sum with R for any n.\n\n\n# Your code here\n\n\nLoad the US murders dataset from the dslabs package. Use the function str to examine the structure of the murders object. What are the column names used by the data frame for these five variables? Show the subset of murders showing states with less than 1 per 100,000 deaths. Show all variables.\n\n\nlibrary(dslabs)\nstr(murders)\n\n'data.frame':   51 obs. of  5 variables:\n $ state     : chr  \"Alabama\" \"Alaska\" \"Arizona\" \"Arkansas\" ...\n $ abb       : chr  \"AL\" \"AK\" \"AZ\" \"AR\" ...\n $ region    : Factor w/ 4 levels \"Northeast\",\"South\",..: 2 4 4 2 4 4 1 2 2 2 ...\n $ population: num  4779736 710231 6392017 2915918 37253956 ...\n $ total     : num  135 19 232 93 1257 ...\n\n\n\nmurders$rate &lt;- with(murders, total/population*10^5)\nmurders[murders$rate &lt; 1,]\n\n           state abb        region population total      rate\n12        Hawaii  HI          West    1360301     7 0.5145920\n13         Idaho  ID          West    1567582    12 0.7655102\n16          Iowa  IA North Central    3046355    21 0.6893484\n20         Maine  ME     Northeast    1328361    11 0.8280881\n24     Minnesota  MN North Central    5303925    53 0.9992600\n30 New Hampshire  NH     Northeast    1316470     5 0.3798036\n35  North Dakota  ND North Central     672591     4 0.5947151\n38        Oregon  OR          West    3831074    36 0.9396843\n42  South Dakota  SD North Central     814180     8 0.9825837\n45          Utah  UT          West    2763885    22 0.7959810\n46       Vermont  VT     Northeast     625741     2 0.3196211\n51       Wyoming  WY          West     563626     5 0.8871131\n\n\n\nShow the subset of murders showing states with less than 1 per 100,000 deaths and in the West of the US. Don’t show the region variable.\n\n\nmurders[murders$rate &lt; 1 & murders$region == \"West\",-3]\n\n     state abb population total      rate\n12  Hawaii  HI    1360301     7 0.5145920\n13   Idaho  ID    1567582    12 0.7655102\n38  Oregon  OR    3831074    36 0.9396843\n45    Utah  UT    2763885    22 0.7959810\n51 Wyoming  WY     563626     5 0.8871131\n\n\n\nShow the largest state with a rate less than 1 per 100,000.\n\n\nres &lt;- murders[murders$rate &lt; 1,]\nres$state[which.max(res$population)]\n\n[1] \"Minnesota\"\n\n\n\nShow the state with a population of more than 10 million with the lowest rate.\n\n\nres &lt;- murders[murders$population &gt; 10^7,]\nres$state[which.min(res$rate)]\n\n[1] \"New York\"\n\n\n\nCompute the rate for each region of the US.\n\n\ninds &lt;- split(1:nrow(murders), murders$region)\n\nsapply(inds, function(ind){\n  sum(murders$total[ind])/sum(murders$population[ind])*10^5\n})\n\n    Northeast         South North Central          West \n     2.655592      3.626558      2.731334      2.656175 \n\ninds &lt;- split(1:nrow(murders), murders$region)\n\ntot &lt;- tapply(murders$total, murders$region, sum)\npop &lt;- tapply(murders$population, murders$region, sum)\n\nrate &lt;- tot/pop\nprint(rate)\n\n    Northeast         South North Central          West \n 2.655592e-05  3.626558e-05  2.731334e-05  2.656175e-05 \n\nsapply(inds, function(ind){\n  sum(murders$total[ind])/sum(murders$population[ind])*10^5\n})\n\n    Northeast         South North Central          West \n     2.655592      3.626558      2.731334      2.656175 \n\n\n\nCreate a vector of numbers that starts at 6, does not pass 55, and adds numbers in increments of 4/7: 6, 6 + 4/7, 6 + 8/7, and so on. How many numbers does the list have? Hint: use seq and length.\n\n\n# Your code here\n\n\nMake this data frame:\n\n\ntemp &lt;- c(35, 88, 42, 84, 81, 30)\ncity &lt;- c(\"Beijing\", \"Lagos\", \"Paris\", \"Rio de Janeiro\", \n          \"San Juan\", \"Toronto\")\ncity_temps &lt;- data.frame(name = city, temperature = temp)\n\nConvert the temperatures to Celsius.\n\n# Your code here\n\n\nWrite a function euler that compute the following sum for any \\(n\\):\n\n\\[\nS_n = 1+1/2^2 + 1/3^2 + \\dots 1/n^2\n\\]\n\n# Your code here\n\n\nShow that as \\(n\\) gets bigger we get closer \\(\\pi^2/6\\) by plotting \\(S_n\\) versus \\(n\\) with a horizontal dashed line at \\(\\pi^2/6\\).\n\n\n# Your code here\n\n\nUse the %in% operator and the predefined object state.abb to create a logical vector that answers the question: which of the following are actual abbreviations: MA, ME, MI, MO, MU?\n\n\nx &lt;- c(\"MA\", \"ME\", \"MI\", \"MO\", \"MU\")\nx[x %in% state.abb]\n\n[1] \"MA\" \"ME\" \"MI\" \"MO\"\n\n\n\nExtend the code you used in the previous exercise to report the one entry that is not an actual abbreviation. Hint: use the ! operator, which turns FALSE into TRUE and vice versa, then which to obtain an index.\n\n\n# Your code here\n\n\nIn the murders dataset, use match to show all variables for New York, California, and Texas, in that order.\n\n\nx &lt;- c(\"NY\", \"CA\", \"TX\")\nmurders[match(x,murders$abb),]\n\n        state abb    region population total     rate\n33   New York  NY Northeast   19378102   517 2.667960\n5  California  CA      West   37253956  1257 3.374138\n44      Texas  TX     South   25145561   805 3.201360\n\n\n\nWrite a function called vandermonde_helper that for any \\(x\\) and \\(n\\), returns the vector \\((1, x, x^2, x^3, \\dots, x^n)\\). Show the results for \\(x=3\\) and \\(n=5\\).\n\n\n# Your code here\n\n\nCreate a vector using:\n\n\nn &lt;- 10000\np &lt;- 0.5\nset.seed(2024-9-6)\nx &lt;- sample(c(0,1), n, prob = c(1 - p, p), replace = TRUE)\n\nCompute the length of each stretch of 1s and then plot the distribution of these values. Check to see if the distribution follows a geometric distribution as the theory predicts. Do not use a loop!\n\nd &lt;- diff(c(0,x,0))\nst &lt;- which(d == 1)\nen &lt;- which(d == -1)\nl &lt;- en - st \nhist(l)\n\n\n\n\n\n\n\ntb &lt;- table(l)/length(l)\nk &lt;- as.numeric(names(tb))\nps &lt;- as.numeric(tb)\nplot(k, ps, type = \"h\")\nlines(k, p^k)"
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#data-wrangling",
+    "href": "slides/wrangling/10-wrangling.html#data-wrangling",
+    "title": "Wrangling",
+    "section": "Data Wrangling",
+    "text": "Data Wrangling\n\nThe two datasets used in the problem sets are already tidy data frames.\nHowever, very rarely in a data science project is data already available in this form.\nMuch more typical is for the data to be in a file, a database, or extracted from a document, including web pages, tweets, or PDFs.\nAs a result, data might be unstructured in complex ways."
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#data-wrangling-1",
+    "href": "slides/wrangling/10-wrangling.html#data-wrangling-1",
+    "title": "Wrangling",
+    "section": "Data Wrangling",
+    "text": "Data Wrangling\n\nData wrangling is what we call the process of structuring data from it’s original state into a form that permits us to focus on analysis.\nTidy data is an example of a form that permits us to focus on analysis.\nWe focus on tidy data as a target, but we can have other forms as targets, such as matrices."
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#data-wrangling-2",
+    "href": "slides/wrangling/10-wrangling.html#data-wrangling-2",
+    "title": "Wrangling",
+    "section": "Data Wrangling",
+    "text": "Data Wrangling\nData wrangling can involve several complicated steps such as:\n\nextracting data from a file,\nconverting nested key-value pairs into a data frame,\nintegrating data from different source, and\nconstructing requests for data bases."
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#data-wrangling-3",
+    "href": "slides/wrangling/10-wrangling.html#data-wrangling-3",
+    "title": "Wrangling",
+    "section": "Data Wrangling",
+    "text": "Data Wrangling\nToday we briefly discuss five concepts/tools considered essential for data wrangling:\n\nImporting data from files\nRESTful APIs\nJoining tables\nhtml parsing\nworking with dates and times\nlocales"
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#data-wrangling-4",
+    "href": "slides/wrangling/10-wrangling.html#data-wrangling-4",
+    "title": "Wrangling",
+    "section": "Data Wrangling",
+    "text": "Data Wrangling\n\nWe barely scratch the surface on these topics.\nRarely are all these relevant for a single analysis.\nYou will likely face them all at some point.\nLecture goal is to make you aware of challenges, tools to tackle them, and help you learn how to learn more."
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#importing-data",
+    "href": "slides/wrangling/10-wrangling.html#importing-data",
+    "title": "Wrangling",
+    "section": "Importing data",
+    "text": "Importing data\n\nOne of the most common ways of storing and sharing data is through electronic spreadsheets.\nA spreadsheet is a file version of a data frame.\nWhen saving such a table to a computer file, one needs a way to define when a new row or column ends and the other begins.\nThis defines the cells in which single values are stored."
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#importing-data-1",
+    "href": "slides/wrangling/10-wrangling.html#importing-data-1",
+    "title": "Wrangling",
+    "section": "Importing data",
+    "text": "Importing data\nTo import data we need to:\n\nIdentify the file’s location.\nKnow what function or parsers to use.\n\nFor the second step it helps to know the file type and encoding."
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#file-types",
+    "href": "slides/wrangling/10-wrangling.html#file-types",
+    "title": "Wrangling",
+    "section": "File types",
+    "text": "File types\n\nFiles can generally be classified into two categories: text and binary.\nWe describe the most widely used format for storing data for both these types and learn how to identify them."
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#text-files",
+    "href": "slides/wrangling/10-wrangling.html#text-files",
+    "title": "Wrangling",
+    "section": "Text files",
+    "text": "Text files\n\nYou have already worked with text files: R scripts and Quarto files, for example.\ndslabs offers examples:\n\n\ndir &lt;- system.file(package = \"dslabs\") \nfile_path &lt;- file.path(dir, \"extdata/murders.csv\") \nfile.copy(file_path, \"murders.csv\") \n\n[1] TRUE"
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#text-files-1",
+    "href": "slides/wrangling/10-wrangling.html#text-files-1",
+    "title": "Wrangling",
+    "section": "Text files",
+    "text": "Text files\n\nAn advantage of text files is that we can easily “look” at them without having to purchase any kind of special software or follow complicated instructions.\nExercise:\n\ncopy murders.csv into your working directory and examine it with less.\nThen try the Open file RStudio tool."
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#text-files-2",
+    "href": "slides/wrangling/10-wrangling.html#text-files-2",
+    "title": "Wrangling",
+    "section": "Text files",
+    "text": "Text files\n\nLine breaks are used to separate rows and a delimiter to separate columns within a row.\nThe most common delimiters are comma (,), semicolon (;), space (), and tab (\\t).\nDifferent parsers are used to read these files, so we need to know what delimiter was used.\nIn some cases, the delimiter can be inferred from file suffix: csv, tsv, for example.\nBut we recommend looking at the file rather than inferring from the suffix."
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#text-files-3",
+    "href": "slides/wrangling/10-wrangling.html#text-files-3",
+    "title": "Wrangling",
+    "section": "Text files",
+    "text": "Text files\n\nIn R, you can look at any number of lines from within R using the readLines function:\n\n\nreadLines(\"murders.csv\", n = 3) \n\n[1] \"state,abb,region,population,total\" \"Alabama,AL,South,4779736,135\"     \n[3] \"Alaska,AK,West,710231,19\""
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#text-files-4",
+    "href": "slides/wrangling/10-wrangling.html#text-files-4",
+    "title": "Wrangling",
+    "section": "Text files",
+    "text": "Text files\n\nThe scan function is the most general parser.\nIt defaults to reading for numbers, but can be used for anything:\n\n\nscan(\"murders.csv\", what = \"c\", sep = \",\", n = 10)\n\n [1] \"state\"      \"abb\"        \"region\"     \"population\" \"total\"     \n [6] \"Alabama\"    \"AL\"         \"South\"      \"4779736\"    \"135\"       \n\n\n\nIt can also be used to read from the console. Try typing scan(). Hit return to stop."
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#binary-files",
+    "href": "slides/wrangling/10-wrangling.html#binary-files",
+    "title": "Wrangling",
+    "section": "Binary files",
+    "text": "Binary files\n\nOpening image files such as jpg or png in a text editor or using readLines in R will not show comprehensible content because these are binary files.\nUnlike text files, which are designed for human readability and have standardized conventions, binary files can adopt numerous formats specific to their data type.\nWhile R’s readBin function can process any binary file, interpreting the output necessitates a thorough understanding of the file’s structure.\nWe focus on the the most prevalent binary formats for spreadsheets: Microsoft Excel xls and xlsx."
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#parsers",
+    "href": "slides/wrangling/10-wrangling.html#parsers",
+    "title": "Wrangling",
+    "section": "Parsers",
+    "text": "Parsers\nHere example of useful R base parsers:\n\nx &lt;- read.table(\"murders.csv\", sep = \"\\t\")\nx &lt;- read.csv(\"murders.csv\")"
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#parsers-1",
+    "href": "slides/wrangling/10-wrangling.html#parsers-1",
+    "title": "Wrangling",
+    "section": "Parsers",
+    "text": "Parsers\nreadr provides alternatives that produce tibbles:\n\nlibrary(readr)\nx &lt;- read_csv(\"murders.csv\")\nx &lt;- read_delim(\"murders.csv\", delim = \"\\t\")\n\nNotice the messages produced."
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#readr",
+    "href": "slides/wrangling/10-wrangling.html#readr",
+    "title": "Wrangling",
+    "section": "readr",
+    "text": "readr\n\n\n\n\n\n\n\n\nFunction\nFormat\nSuffix\n\n\n\n\nread_table\nwhite space separated values\ntxt\n\n\nread_csv\ncomma separated values\ncsv\n\n\nread_csv2\nsemicolon separated values\ncsv\n\n\nread_tsv\ntab separated values\ntsv\n\n\nread_delim\nmust define delimiter\ntxt\n\n\nread_lines\nsimilar to readLines\nany file"
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#parsers-2",
+    "href": "slides/wrangling/10-wrangling.html#parsers-2",
+    "title": "Wrangling",
+    "section": "Parsers",
+    "text": "Parsers\nFor Excel files you can use the readxl package.\n\nlibrary(readxl)\nfn &lt;- file.path(dir, \"extdata/2010_bigfive_regents.xls\") \ny &lt;- read_xls(fn)"
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#parsers-3",
+    "href": "slides/wrangling/10-wrangling.html#parsers-3",
+    "title": "Wrangling",
+    "section": "Parsers",
+    "text": "Parsers\nYou can read specific sheets and see them using\n\nexcel_sheets(fn)\n\n[1] \"Sheet1\" \"Sheet2\" \"Sheet3\"\n\n\nNote that read_xls has a sheet argument."
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#readxl",
+    "href": "slides/wrangling/10-wrangling.html#readxl",
+    "title": "Wrangling",
+    "section": "readxl",
+    "text": "readxl\n\n\n\n\n\n\n\n\nFunction\nFormat\nSuffix\n\n\n\n\nread_excel\nauto detect the format\nxls, xlsx\n\n\nread_xls\noriginal format\nxls\n\n\nread_xlsx\nnew format\nxlsx"
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#parsers-4",
+    "href": "slides/wrangling/10-wrangling.html#parsers-4",
+    "title": "Wrangling",
+    "section": "Parsers",
+    "text": "Parsers\nThe data.table package provide a very fast parser:\n\nlibrary(data.table)\nx &lt;- fread(\"murders.csv\")\n\nNote: It returns a file in data.table format which we have mentioned but not explained."
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#encoding",
+    "href": "slides/wrangling/10-wrangling.html#encoding",
+    "title": "Wrangling",
+    "section": "Encoding",
+    "text": "Encoding\n\nAt its core, a computer translates everything into sequences of 0s and 1s.\nASCII is an encoding system that assigns specific numbers to characters.\nUsing 7 bits, ASCII can represent \\(2^7 = 128\\) unique symbols, sufficient for all English keyboard characters.\nHowever, many global languages contain characters outside ASCII’s range."
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#encoding-1",
+    "href": "slides/wrangling/10-wrangling.html#encoding-1",
+    "title": "Wrangling",
+    "section": "Encoding",
+    "text": "Encoding\n\nFor instance, the é in “México” isn’t in ASCII’s catalog.\nTo address this, broader encodings, such as Unicode, emerged.\nUnicode offers variations using 8, 16, or 32 bits, known as UTF-8, UTF-16, and UTF-32.\nRStudio typically uses UTF-8 as its default.\nNotably, ASCII is a subset of UTF-8, meaning that if a file is ASCII-encoded, presuming it’s UTF-8 encoded won’t cause issues."
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#encoding-2",
+    "href": "slides/wrangling/10-wrangling.html#encoding-2",
+    "title": "Wrangling",
+    "section": "Encoding",
+    "text": "Encoding\n\nHowever, there other encodings, such as ISO-8859-1 (also known as Latin-1) developed for the western European languages, Big5 for Traditional Chinese, and ISO-8859-6 for Arabic.\nTake a look at this file:\n\n\nfn &lt;- \"calificaciones.csv\" \nfile.copy(file.path(system.file(\"extdata\", package = \"dslabs\"), fn), fn) \n\n[1] FALSE\n\nreadLines(fn, n = 1) \n\n[1] \"\\\"nombre\\\",\\\"f.n.\\\",\\\"estampa\\\",\\\"puntuaci\\xf3n\\\"\""
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#encoding-3",
+    "href": "slides/wrangling/10-wrangling.html#encoding-3",
+    "title": "Wrangling",
+    "section": "Encoding",
+    "text": "Encoding\n\nThe readr parsers permit us to specify an encoding.\nIt also includes a function that tries to guess the encoding:\n\n\nguess_encoding(\"murders.csv\") \n\n# A tibble: 1 × 2\n  encoding confidence\n  &lt;chr&gt;         &lt;dbl&gt;\n1 ASCII             1\n\nguess_encoding(\"calificaciones.csv\") \n\n# A tibble: 3 × 2\n  encoding   confidence\n  &lt;chr&gt;           &lt;dbl&gt;\n1 ISO-8859-1       0.92\n2 ISO-8859-2       0.72\n3 ISO-8859-9       0.53"
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#encoding-4",
+    "href": "slides/wrangling/10-wrangling.html#encoding-4",
+    "title": "Wrangling",
+    "section": "Encoding",
+    "text": "Encoding\n\nOnce we know the encoding we can specify it through the locale argument:\n\n\ndat &lt;- read_csv(\"calificaciones.csv\", show_col_types = FALSE, \n                locale = locale(encoding = \"ISO-8859-1\")) \n\n\nWe learn about locales in later."
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#encoding-5",
+    "href": "slides/wrangling/10-wrangling.html#encoding-5",
+    "title": "Wrangling",
+    "section": "Encoding",
+    "text": "Encoding\n\nWe can now see that the characters in the header were read in correctly:\n\n\ndat\n\n# A tibble: 7 × 4\n  nombre   f.n.                     estampa             puntuación\n  &lt;chr&gt;    &lt;chr&gt;                    &lt;dttm&gt;                   &lt;dbl&gt;\n1 Beyoncé  04 de septiembre de 1981 2023-09-22 02:11:02        875\n2 Blümchen 20 de abril de 1980      2023-09-22 03:23:05        990\n3 João     10 de junio de 1931      2023-09-21 22:43:28        989\n4 López    24 de julio de 1969      2023-09-22 01:06:59        887\n5 Ñengo    15 de diciembre de 1981  2023-09-21 23:35:37        931\n6 Plácido  24 de enero de 1941      2023-09-21 23:17:21        887\n7 Thalía   26 de agosto de 1971     2023-09-21 23:08:02        830"
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#downloading-files",
+    "href": "slides/wrangling/10-wrangling.html#downloading-files",
+    "title": "Wrangling",
+    "section": "Downloading files",
+    "text": "Downloading files\n\nA common place for data to reside is on the internet.\nWe can download these files and then import them.\nWe can also read them directly from the web.\n\n\nurl &lt;- paste0(\"https://raw.githubusercontent.com/\", \n              \"rafalab/dslabs/master/inst/extdata/murders.csv\") \nx &lt;- read.csv(url)"
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#downloading-files-1",
+    "href": "slides/wrangling/10-wrangling.html#downloading-files-1",
+    "title": "Wrangling",
+    "section": "Downloading files",
+    "text": "Downloading files\n\nIf you want a local copy, you can use `download.file:\n\n\ndownload.file(url, \"murders.csv\") \n\n\nThis will download the file and save it on your system with the name murders.csv.\nNote You can use any name here, not necessarily murders.csv."
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#downloading-files-2",
+    "href": "slides/wrangling/10-wrangling.html#downloading-files-2",
+    "title": "Wrangling",
+    "section": "Downloading files",
+    "text": "Downloading files\n\n\n\n\n\n\nWarning\n\n\nThe function download.file overwrites existing files without warning.\n\n\n\n\nTwo functions that are sometimes useful when downloading data from the internet are tempdir and tempfile.\n\n\ntmp_filename &lt;- tempfile() \ndownload.file(url, tmp_filename) \ndat &lt;- read_csv(tmp_filename) \nfile.remove(tmp_filename)"
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#downloading-files-3",
+    "href": "slides/wrangling/10-wrangling.html#downloading-files-3",
+    "title": "Wrangling",
+    "section": "Downloading files",
+    "text": "Downloading files\n\ntmp_filename &lt;- tempfile() \ndownload.file(url, tmp_filename) \ndat &lt;- read_csv(tmp_filename) \nfile.remove(tmp_filename)"
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#going-further",
+    "href": "slides/wrangling/10-wrangling.html#going-further",
+    "title": "Wrangling",
+    "section": "Going further",
+    "text": "Going further\n\nSQL\nCSS selectors"
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#r-base-parsers",
+    "href": "slides/wrangling/10-wrangling.html#r-base-parsers",
+    "title": "Wrangling",
+    "section": "R Base Parsers",
+    "text": "R Base Parsers\nHere example of useful R base parsers:\n\nx &lt;- read.table(\"murders.csv\", sep = \"\\t\")\nx &lt;- read.csv(\"murders.csv\")"
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#readr-parsers",
+    "href": "slides/wrangling/10-wrangling.html#readr-parsers",
+    "title": "Wrangling",
+    "section": "readr Parsers",
+    "text": "readr Parsers\nreadr provides alternatives that produce tibbles:\n\nlibrary(readr)\nx &lt;- read_csv(\"murders.csv\")\nx &lt;- read_delim(\"murders.csv\", delim = \"\\t\")\n\nNotice the messages produced."
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#readr-parsers-1",
+    "href": "slides/wrangling/10-wrangling.html#readr-parsers-1",
+    "title": "Wrangling",
+    "section": "readr Parsers",
+    "text": "readr Parsers\n\n\n\n\n\n\n\n\nFunction\nFormat\nSuffix\n\n\n\n\nread_table\nwhite space separated values\ntxt\n\n\nread_csv\ncomma separated values\ncsv\n\n\nread_csv2\nsemicolon separated values\ncsv\n\n\nread_tsv\ntab separated values\ntsv\n\n\nread_delim\nmust define delimiter\ntxt\n\n\nread_lines\nsimilar to readLines\nany file"
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#readxl-parsers",
+    "href": "slides/wrangling/10-wrangling.html#readxl-parsers",
+    "title": "Wrangling",
+    "section": "readxl Parsers",
+    "text": "readxl Parsers\nFor Excel files you can use the readxl package.\n\nlibrary(readxl)\nfn &lt;- file.path(dir, \"extdata/2010_bigfive_regents.xls\") \ny &lt;- read_xls(fn)"
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#readxl-parsers-1",
+    "href": "slides/wrangling/10-wrangling.html#readxl-parsers-1",
+    "title": "Wrangling",
+    "section": "readxl Parsers",
+    "text": "readxl Parsers\nYou can read specific sheets and see them using\n\nexcel_sheets(fn)\n\n[1] \"Sheet1\" \"Sheet2\" \"Sheet3\"\n\n\nNote that read_xls has a sheet argument."
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#readxl-parsers-2",
+    "href": "slides/wrangling/10-wrangling.html#readxl-parsers-2",
+    "title": "Wrangling",
+    "section": "readxl Parsers",
+    "text": "readxl Parsers\n\n\n\n\n\n\n\n\nFunction\nFormat\nSuffix\n\n\n\n\nread_excel\nauto detect the format\nxls, xlsx\n\n\nread_xls\noriginal format\nxls\n\n\nread_xlsx\nnew format\nxlsx"
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#data.table-parsers",
+    "href": "slides/wrangling/10-wrangling.html#data.table-parsers",
+    "title": "Wrangling",
+    "section": "data.table Parsers",
+    "text": "data.table Parsers\nThe data.table package provide a very fast parser:\n\nlibrary(data.table)\nx &lt;- fread(\"murders.csv\")\n\nNote: It returns a file in data.table format which we have mentioned but not explained."
+  },
+  {
+    "objectID": "slides/wrangling/10-wrangling.html#scan",
+    "href": "slides/wrangling/10-wrangling.html#scan",
+    "title": "Wrangling",
+    "section": "scan",
+    "text": "scan\n\nThe scan function is the most general parser.\nIt will read in any text file and return a vector so you are on your own coverting it to a data frame.\nBecause it returns a vector, you need to tell it in advance what data type to expect:\n\n\nscan(\"murders.csv\", what = \"c\", sep = \",\", n = 10)\n\n [1] \"state\"      \"abb\"        \"region\"     \"population\" \"total\"     \n [6] \"Alabama\"    \"AL\"         \"South\"      \"4779736\"    \"135\"       \n\n\n\nIt can also be used to read from the console. Try typing scan(). Hit return to stop."
+  },
+  {
+    "objectID": "slides/wrangling/10-intro-to-wrangling.html#data-wrangling",
+    "href": "slides/wrangling/10-intro-to-wrangling.html#data-wrangling",
+    "title": "Wrangling",
+    "section": "Data Wrangling",
+    "text": "Data Wrangling\n\nThe two datasets used in the problem sets are already tidy data frames.\nHowever, very rarely in a data science project is data already available in this form.\nMuch more typical is for the data to be in a file, a database, or extracted from a document, including web pages, tweets, or PDFs.\nAs a result, data might be unstructured in complex ways."
+  },
+  {
+    "objectID": "slides/wrangling/10-intro-to-wrangling.html#data-wrangling-1",
+    "href": "slides/wrangling/10-intro-to-wrangling.html#data-wrangling-1",
+    "title": "Wrangling",
+    "section": "Data Wrangling",
+    "text": "Data Wrangling\n\nData wrangling is what we call the process of structuring data from it’s original state into a form that permits us to focus on analysis.\nTidy data is an example of a form that permits us to focus on analysis.\nWe focus on tidy data as a target, but we can have other forms as targets, such as matrices."
+  },
+  {
+    "objectID": "slides/wrangling/10-intro-to-wrangling.html#data-wrangling-2",
+    "href": "slides/wrangling/10-intro-to-wrangling.html#data-wrangling-2",
+    "title": "Wrangling",
+    "section": "Data Wrangling",
+    "text": "Data Wrangling\nData wrangling can involve several complicated steps such as:\n\nextracting data from a file,\nconverting nested key-value pairs into a data frame,\nintegrating data from different source, and\nconstructing requests for data bases."
+  },
+  {
+    "objectID": "slides/wrangling/10-intro-to-wrangling.html#data-wrangling-3",
+    "href": "slides/wrangling/10-intro-to-wrangling.html#data-wrangling-3",
+    "title": "Wrangling",
+    "section": "Data Wrangling",
+    "text": "Data Wrangling\nToday we briefly discuss five concepts/tools considered essential for data wrangling:\n\nImporting data from files\nRESTful APIs\nJoining tables\nhtml parsing\nworking with dates and times\nlocales"
+  },
+  {
+    "objectID": "slides/wrangling/10-intro-to-wrangling.html#data-wrangling-4",
+    "href": "slides/wrangling/10-intro-to-wrangling.html#data-wrangling-4",
+    "title": "Wrangling",
+    "section": "Data Wrangling",
+    "text": "Data Wrangling\n\nWe barely scratch the surface on these topics.\nRarely are all these relevant for a single analysis.\nYou will likely face them all at some point.\nLecture goal is to make you aware of challenges, tools to tackle them, and help you learn how to learn more."
+  },
+  {
+    "objectID": "slides/wrangling/10-intro-to-wrangling.html#further-learning",
+    "href": "slides/wrangling/10-intro-to-wrangling.html#further-learning",
+    "title": "Wrangling",
+    "section": "Further learning",
+    "text": "Further learning\n\nSQL widely used in data-intensive industries to manage and manipulate large databases.\nIn R, dplyr functions like filter, select, and the joins we will learn this week, mirror SQL operations.\nBy learning dplyr, you’ve already covered many key SQL concepts and makes the transition to SQL easier.\nRecommended SQL Resources: W3Schools, Codecademy, Khan Academy, and SQLZoo"
+  },
+  {
+    "objectID": "slides/wrangling/12-data-apis.html#types-and-concepts",
+    "href": "slides/wrangling/12-data-apis.html#types-and-concepts",
+    "title": "Data APIs",
+    "section": "Types and concepts",
+    "text": "Types and concepts\nThe main APIs related to retrieving data are:\n\nWeb Services - Often built using protocols like HTTP/HTTPS.\nDatabase APIs - Enable communication between an application and a database, SQL-based calls for example.\n\nHere we focus on Web Services since it more common among public resources such CDC and the US Census."
+  },
+  {
+    "objectID": "slides/wrangling/12-data-apis.html#key-concepts",
+    "href": "slides/wrangling/12-data-apis.html#key-concepts",
+    "title": "Data APIs",
+    "section": "Key concepts",
+    "text": "Key concepts\n\nEndpoints: Usually a URL where API can be accessed.\nMethods: Actions that can be performed, for example HTTP methods like GET, POST, PUT, or DELETE.\nRequest: Asking the API to perform a function.\nResponse: The data it returns.\nRate Limits: Restrictions on calls to API.\nAuthentication and Authorization: Methods include API keys, OAuth, or Jason Web Tokens (JWT).\nData Formats: Many web APIs exchange data in a specific format, often JSON or CSV."
+  },
+  {
+    "objectID": "slides/wrangling/12-data-apis.html#json",
+    "href": "slides/wrangling/12-data-apis.html#json",
+    "title": "Data APIs",
+    "section": "JSON",
+    "text": "JSON\n\nSharing data on the internet has become more and more common.\nUnfortunately, providers use different formats, which makes wrangling harder.\nYet there are some standards that are also becoming more common.\nA format that is widely being adopted is the JavaScript Object Notation or JSON.\nBecause this format is very general, it is nothing like a spreadsheet."
+  },
+  {
+    "objectID": "slides/wrangling/12-data-apis.html#json-1",
+    "href": "slides/wrangling/12-data-apis.html#json-1",
+    "title": "Data APIs",
+    "section": "JSON",
+    "text": "JSON\n\nJSON files look like code you use to define a list:\n\n\n\n[\n  {\n    \"name\": \"Miguel\",\n    \"student_id\": 1,\n    \"exam_1\": 85,\n    \"exam_2\": 86\n  },\n  {\n    \"name\": \"Sofia\",\n    \"student_id\": 2,\n    \"exam_1\": 94,\n    \"exam_2\": 93\n  },\n  {\n    \"name\": \"Aya\",\n    \"student_id\": 3,\n    \"exam_1\": 87,\n    \"exam_2\": 88\n  },\n  {\n    \"name\": \"Cheng\",\n    \"student_id\": 4,\n    \"exam_1\": 90,\n    \"exam_2\": 91\n  }\n] \n\n\n\nThe file above actually represents a data frame."
+  },
+  {
+    "objectID": "slides/wrangling/12-data-apis.html#json-2",
+    "href": "slides/wrangling/12-data-apis.html#json-2",
+    "title": "Data APIs",
+    "section": "JSON",
+    "text": "JSON\n\nWe can use the function fromJSON from the jsonlite package to read files.\nHere is an example providing information Nobel prize winners:\n\n\nlibrary(jsonlite) \nnobel &lt;- fromJSON(\"http://api.nobelprize.org/v1/prize.json\") \n\n\nThis downloads a JSON file and reads into a list:\n\n\nclass(nobel)\n\n[1] \"list\""
+  },
+  {
+    "objectID": "slides/wrangling/12-data-apis.html#json-3",
+    "href": "slides/wrangling/12-data-apis.html#json-3",
+    "title": "Data APIs",
+    "section": "JSON",
+    "text": "JSON\n\nThe object is rather complicated. The prizes component includes a list of data frames with information about Nobel Laureates:\n\n\nnobel$prizes |&gt; \n  filter(category == \"literature\" & year == \"1971\") |&gt;  \n  pull(laureates) |&gt; \n  first() |&gt; \n  select(id, firstname, surname) \n\n   id firstname surname\n1 645     Pablo  Neruda"
+  },
+  {
+    "objectID": "slides/wrangling/12-data-apis.html#json-4",
+    "href": "slides/wrangling/12-data-apis.html#json-4",
+    "title": "Data APIs",
+    "section": "JSON",
+    "text": "JSON\n\nYou can learn much more by examining tutorials and help files from the jsonlite package.\nThis package is intended for relatively simple tasks such as converting data into tables.\nFor more flexibility, we recommend the rjson package."
+  },
+  {
+    "objectID": "slides/wrangling/12-data-apis.html#data-apis",
+    "href": "slides/wrangling/12-data-apis.html#data-apis",
+    "title": "Data APIs",
+    "section": "Data APIs",
+    "text": "Data APIs\n\nAn Application Programming Interface (API) is a set of rules and protocols that allows different software entities to communicate with each other.\nIt defines methods and data formats that software components should use when requesting and exchanging information.\nAPIs play a crucial role in enabling the integration that make today’s software so interconnected and versatile."
+  },
+  {
+    "objectID": "slides/wrangling/12-data-apis.html#the-httr2-package",
+    "href": "slides/wrangling/12-data-apis.html#the-httr2-package",
+    "title": "Data APIs",
+    "section": "The httr2 package",
+    "text": "The httr2 package\n\nHTTPS is the most widely used protocol for data sharing through the internet.\nThe httr2 package provides functions to work with HTTPS requests.\nOne of the core functions in this package is request, which is used to form request to send to web services.\nThe req_perform function sends the request.\nThis request function forms an HTTP GET request to the specified URL."
+  },
+  {
+    "objectID": "slides/wrangling/12-data-apis.html#the-httr2-package-1",
+    "href": "slides/wrangling/12-data-apis.html#the-httr2-package-1",
+    "title": "Data APIs",
+    "section": "The httr2 package",
+    "text": "The httr2 package\n\nTypically, HTTP GET requests are used to retrieve information from a server based on the provided URL.\nThe function returns an object of class response.\nThis object contains all the details of the server’s response, including status code, headers, and content.\nYou can then use other httr2 functions to extract or interpret information from this response.\nLet’s say you want to retrieve COVID-19 deaths by state from the CDC."
+  },
+  {
+    "objectID": "slides/wrangling/12-data-apis.html#the-httr2-package-2",
+    "href": "slides/wrangling/12-data-apis.html#the-httr2-package-2",
+    "title": "Data APIs",
+    "section": "The httr2 package",
+    "text": "The httr2 package\n\nBy visiting their data catalog1 you can search for datasets and find that the data is provided through this API:\n\n\nurl &lt;- \"https://data.cdc.gov/resource/muzy-jte6.csv\" \n\n\nWe can then make create and perform a request like this:\n\n\nlibrary(httr2) \nresponse &lt;- request(url) |&gt; req_perform() \n\n\nWe can see the results of the request by looking at the returned object.\n\n\nresponse \n\nhttps://data.cdc.gov"
+  },
+  {
+    "objectID": "slides/wrangling/12-data-apis.html#the-httr2-package-3",
+    "href": "slides/wrangling/12-data-apis.html#the-httr2-package-3",
+    "title": "Data APIs",
+    "section": "The httr2 package",
+    "text": "The httr2 package\n\nTo extract the body, which is where the data are, we can use resp_body_string and send the result, a comma delimited string, to read_csv.\n\n\nlibrary(readr) \ntab &lt;- response |&gt; resp_body_string() |&gt; read_csv() \n\n\nWe note that the returned object is only 1000 entries.\nAPI often limit how much you can download."
+  },
+  {
+    "objectID": "slides/wrangling/12-data-apis.html#the-httr2-package-4",
+    "href": "slides/wrangling/12-data-apis.html#the-httr2-package-4",
+    "title": "Data APIs",
+    "section": "The httr2 package",
+    "text": "The httr2 package\n\nThe documentation for this API1 explains that we can change this limit through the.\n$limit parameters.\nWe can use the req_url_path_append to add this to our request:\n\n\nresponse &lt;- request(url) |&gt;  \n  req_url_path_append(\"?$limit=100000\") |&gt;  \n  req_perform()  \n\n\nThe CDC service returns data in csv format but a more common format used by web services is JSON.\n\nhttps://dev.socrata.com/docs/queries/"
+  },
+  {
+    "objectID": "slides/wrangling/12-data-apis.html#the-httr2-package-5",
+    "href": "slides/wrangling/12-data-apis.html#the-httr2-package-5",
+    "title": "Data APIs",
+    "section": "The httr2 package",
+    "text": "The httr2 package\n\nThe CDC also provides data in json format through a the url:\n\n\nurl &lt;- \"https://data.cdc.gov/resource/muzy-jte6.json\" \n\n\nTo extract the data table we use the fromJSON function from the jsonlite package.\n\n\ntab &lt;- request(url) |&gt;  \n   req_perform() |&gt;  \n   resp_body_string() |&gt;  \n   fromJSON(flatten = TRUE) \n\n\nWhen working with APIs, it’s essential to check the API’s documentation for rate limits, required headers, or authentication methods."
+  },
+  {
+    "objectID": "slides/wrangling/12-data-apis.html#the-httr2-package-6",
+    "href": "slides/wrangling/12-data-apis.html#the-httr2-package-6",
+    "title": "Data APIs",
+    "section": "The httr2 package",
+    "text": "The httr2 package\n\nThe httr2 package provides tools to handle these requirements, such as setting headers or authentication parameters."
+  },
+  {
+    "objectID": "slides/wrangling/12-data-apis.html#going-further",
+    "href": "slides/wrangling/12-data-apis.html#going-further",
+    "title": "Data APIs",
+    "section": "Going further",
+    "text": "Going further\n\nSQL\nCSS selectors"
+  },
+  {
+    "objectID": "psets/pset-04-wrangling.html",
+    "href": "psets/pset-04-wrangling.html",
+    "title": "Problem set 4",
+    "section": "",
+    "text": "In the next problem set, we plan to explore the relationship between COVID-19 death rates and vaccination rates across US states by visually examining their correlation. This analysis will involve gathering COVID-19 related data from the CDC’s API and then extensively processing it to merge the various datasets. Since the population sizes of states vary significantly, we will focus on comparing rates rather than absolute numbers. To facilitate this, we will also source population data from the US Census to accurately calculate these rates.\nIn this problem set we will learn how to extract and wrangle data from the data US Census and CDC APIs.\n\nGet an API key from the US Census at https://api.census.gov/data/key_signup.html. You can’t share this public key. But your code has to run on a TFs computer. Assume the TF will have a file in their working directory named census-key.R with the following one line of code:\n\ncensus_key &lt;- \"A_CENSUS_KEY_THAT_WORKS\"\nWrite a first line of code for your problem set that defines census_key by running the code in the file census-key.R.\n\n## Your code here\n\n\nThe US Census API User Guide provides details on how to leverage this valuable resource. We are interested in vintage population estimates for years 2021 and 2022. From the documentation we find that the endpoint is:\n\n\nurl &lt;- \"https://api.census.gov/data/2021/pep/population\"\n\nUse the httr2 package to construct the following GET request.\nhttps://api.census.gov/data/2021/pep/population?get=POP_2020,POP_2021,NAME&for=state:*&key=YOURKEYHERE\nCreate an object called request of class httr2_request with this URL as an endpoint. Hint: Print out request to check that the URL matches what we want.\n\nlibrary(httr2)\n#request &lt;- \n\n\nMake a request to the US Census API using the request object. Save the response to and object named response. Check the response status of your request and make sure it was successful. You can learn about status codes here.\n\n\n#response &lt;- \n\n\nUse a function from the httr2 package to determine the content type of your response.\n\n\n# Your code here\n\n\nUse just one line of code and one function to extract the data into a matrix. Hints: 1) Use the resp_body_json function. 2) The first row of the matrix will be the variable names and this OK as we will fix in the next exercise.\n\n\n#population &lt;- \n\n\nExamine the population matrix you just created. Notice that 1) it is not tidy, 2) the column types are not what we want, and 3) the first row is a header. Convert population to a tidy dataset. Remove the state ID column and change the name of the column with state names to state_name. Add a column with state abbreviations called state. Make sure you assign the abbreviations for DC and PR correctly. Hint: Use the janitor package to make the first row the header.\n\n\nlibrary(tidyverse)\nlibrary(janitor)\n#population &lt;- population |&gt; ## Use janitor row to names function\n  # convert to tibble\n  # remove stat column\n  # rename state column to state_name\n  # use pivot_longer to tidy\n  # remove POP_ from year\n  # parese all relevant colunns to numeric\n  # add state abbreviations using state.abb variable\n  # use case_when to add abbreviations for DC and PR\n\n\nAs a check, make a barplot of states’ 2021 and 2022 populations. Show the state names in the y-axis ordered by population size. Hint: You will need to use reorder and use facet_wrap.\n\n\n# population |&gt; \n  # reorder state\n  # assign aesthetic mapping\n  # use geom_col to plot barplot\n  # flip coordinates\n  # facet by year\n\n\nThe following URL:\n\n\nurl &lt;- \"https://github.com/datasciencelabs/2024/raw/refs/heads/main/data/regions.json\"\n\npoints to a JSON file that lists the states in the 10 Public Health Service (PHS) defined by CDC. We want to add these regions to the population dataset. To facilitate this create a data frame called regions that has two columns state_name, region, region_name. One of the regions has a long name. Change it to something shorter.\n\nlibrary(jsonlite)\n\n\nAttaching package: 'jsonlite'\n\n\nThe following object is masked from 'package:purrr':\n\n    flatten\n\nlibrary(purrr)\nurl &lt;- \"https://github.com/datasciencelabs/2024/raw/refs/heads/main/data/regions.json\"\n# regions &lt;- use jsonlit JSON parser \n# regions &lt;- convert list to data frame. You can use map_df in purrr package \n\n\nAdd a region and region name columns to the population data frame.\n\n\n# population &lt;- \n\n\nFrom reading https://data.cdc.gov/ we learn the endpoint https://data.cdc.gov/resource/pwn4-m3yp.json provides state level data from SARS-COV2 cases. Use the httr2 tools you have learned to download this into a data frame. Is all the data there? If not, comment on why.\n\n\napi &lt;- \"https://data.cdc.gov/resource/pwn4-m3yp.json\"\n# cases_raw &lt;- \n\nWe see exactly 1,000 rows. We should be seeing over \\(52 \\times 3\\) rows per state.\n\nThe reason you see exactly 1,000 rows is because CDC has a default limit. You can change this limit by adding $limit=10000000000 to the request. Rewrite the previous request to ensure that you receive all the data. Then wrangle the resulting data frame to produce a data frame with columns state, date (should be the end date) and cases. Make sure the cases are numeric and the dates are in Date ISO-8601 format.\n\n\napi &lt;- \"https://data.cdc.gov/resource/pwn4-m3yp.json\"\n# cases_raw &lt;- \n\n\nFor 2020 and 2021, make a time series plot of cases per 100,000 versus time for each state. Stratify the plot by region name. Make sure to label you graph appropriately.\n\n\n#cases |&gt;"
   }
 ]

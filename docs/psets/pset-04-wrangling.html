@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-10-04">
 
-<title>BST 260 Introduction to Data Science – BST 260: Introduction to Data Science</title>
+<title>Problem set 4 – BST 260: Introduction to Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,24 +21,58 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -66,6 +101,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -78,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Home</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Problem set 4</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -92,8 +156,8 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main">
     <a href="https://github.com/datasciencelabs/2024" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
@@ -108,25 +172,25 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./slides.html" class="sidebar-item-text sidebar-link">
+  <a href="../slides.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Slides</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./psets.html" class="sidebar-item-text sidebar-link">
+  <a href="../psets.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Problem Sets</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./syllabus.html" class="sidebar-item-text sidebar-link">
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
@@ -135,25 +199,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#course-information" id="toc-course-information" class="nav-link active" data-scroll-target="#course-information">Course Information</a></li>
-  <li><a href="#lectures" id="toc-lectures" class="nav-link" data-scroll-target="#lectures">Lectures</a></li>
-  <li><a href="#problem-sets" id="toc-problem-sets" class="nav-link" data-scroll-target="#problem-sets">Problem sets</a></li>
-  <li><a href="#office-hour-times" id="toc-office-hour-times" class="nav-link" data-scroll-target="#office-hour-times">Office hour times</a></li>
-  <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments">Acknowledgments</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/datasciencelabs/2024/blob/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">BST 260 Introduction to Data Science</h1>
+<h1 class="title">Problem set 4</h1>
 </div>
 
 
@@ -161,6 +215,12 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 4, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -170,265 +230,126 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="course-information" class="level2">
-<h2 class="anchored" data-anchor-id="course-information">Course Information</h2>
-<ul>
-<li>Instructor: <a href="https://rafalab.dfci.harvard.edu/">Rafael A.Irizarry</a></li>
-<li>Teaching fellows: Corri Sept, Nikhil Vytla, and Yuan Wang</li>
-<li>Location: Kresge 202A and 202B, Harvard School of Public Health</li>
-<li>Date and time: Mon &amp; Wed 9.45 - 11:15am</li>
-<li>Textbooks: <a href="https://github.com/rafalab/dsbook-part-1" class="uri">https://github.com/rafalab/dsbook-part-1</a>, <a href="https://github.com/rafalab/dsbook-part-2" class="uri">https://github.com/rafalab/dsbook-part-2</a></li>
-<li>Slack: <a href="https://bst260fall2024.slack.com/" class="uri">https://bst260fall2024.slack.com/</a></li>
-<li>Canvas: <a href="https://canvas.harvard.edu/courses/143922/pages/Course%20Information" class="uri">https://canvas.harvard.edu/courses/143922/pages/Course%20Information</a></li>
-<li>GitHub repo: <a href="https://github.com/datasciencelabs/2024" class="uri">https://github.com/datasciencelabs/2024</a></li>
-<li>Remember to read the <a href="./syllabus.html">syllabus</a>, <a href="https://www.youtube.com/embed/aL_fP5axQV4">listen to SD</a>.</li>
-</ul>
-</section>
-<section id="lectures" class="level2">
-<h2 class="anchored" data-anchor-id="lectures">Lectures</h2>
-<p>Lecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Dates</th>
-<th style="text-align: left;">Topic</th>
-<th style="text-align: left;">Slides</th>
-<th style="text-align: left;">Reading</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Sep 04</td>
-<td style="text-align: left;">Productivity Tools</td>
-<td style="text-align: left;"><a href="./slides/00-intro.html">Intro</a>, <a href="./slides/productivity/01-unix.html">Unix</a></td>
-<td style="text-align: left;">Installing R and RStudio on <a href="https://teacherscollege.screenstepslive.com/a/1108074-install-r-and-rstudio-for-windows">Windows</a> or <a href="https://teacherscollege.screenstepslive.com/a/1135059-install-r-and-rstudio-for-mac">Mac</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/R/getting-started.html">Getting Started</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/unix.html">Unix</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Sep 09, Sep 11</td>
-<td style="text-align: left;">Productivity Tools</td>
-<td style="text-align: left;"><a href="./slides/productivity/02-rstudio.html">RStudio</a>, <a href="./slides/productivity/03-quarto.html">Quarto</a>, <a href="./slides/productivity/04-git.html">Git and GitHub</a></td>
-<td style="text-align: left;"><a href="https://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/reproducible-projects.html">RStudio Projects, Quarto</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/git.html">Git</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Sep 16, Sep 19</td>
-<td style="text-align: left;">R</td>
-<td style="text-align: left;"><a href="./slides/R/05-r-basics.html">R basics</a>, <a href="./slides/R/06-vectorization.html">Vectorization</a></td>
-<td style="text-align: left;"><a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/R/R-basics.html">R Basics</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/R/programming-basics.html#sec-vectorization">Vectorization</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Sep 23</td>
-<td style="text-align: left;">R</td>
-<td style="text-align: left;"><a href="./slides/R/07-tidyverse.html">Tidyverse</a>, <a href="./slides/R/08-ggplot2.html">ggplot2</a></td>
-<td style="text-align: left;"><a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/R/tidyverse.html">dplyr</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/dataviz/ggplot2.html">ggplot2</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Sep 25</td>
-<td style="text-align: left;">R</td>
-<td style="text-align: left;"><a href="./slides/R/09-tidyr.html">Tyding data</a></td>
-<td style="text-align: left;"><a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/reshaping-data.html">Reshaping Data</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Sep 30</td>
-<td style="text-align: left;">Wrangling</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><a href="https://rafalab.dfci.harvard.edu/dsbook-part-1/R/importing-data.html">Importing data</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/dates-and-times.html">dates and times</a>, <a href="https://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/locales.html">Locales</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/joining-tables.html">Joining Tables</a>, <a href="https://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/web-scraping.html">Extracting data from the web</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Oct 02</td>
-<td style="text-align: left;">Data visualization</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/dataviz/distributions.html">Distributions</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/dataviz/dataviz-principles.html">Dataviz Principles</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Oct 07, Oct 09</td>
-<td style="text-align: left;">Probability</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/prob/continuous-probability.html#monte-carlo">Monte Carlo</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/prob/random-variables-sampling-models-clt.html">Random Variables &amp; CLT</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Oct 16</td>
-<td style="text-align: left;">Midterm 1</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Covers material from Sep 04-Oct 11</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Oct 21, Oct 23</td>
-<td style="text-align: left;">Inference</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/inference/parameters-estimates.html">Parameters &amp; Estimates</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/inference/confidence-intervals.html">Confidence Intervals</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Oct 28, Oct 30</td>
-<td style="text-align: left;">Statistical Models</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/inference/models.html">Data-driven Models</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/inference/bayes.html">Bayesian Statistics</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/inference/hierarchical-models.html">Hierarchical Models</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Nov 04, Nov 06</td>
-<td style="text-align: left;">Linear models</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/linear-models/regression.html">Regression</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/linear-models/multivariate-regression.html">Multivariate Regression</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Nov 13</td>
-<td style="text-align: left;">Linear models</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/linear-models/measurement-error-models.html">Measurement Error Models</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/linear-models/treatment-effect-models.html">Treatment Effect Models</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/linear-models/association-tests.html">Association Tests</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/linear-models/association-not-causation.html">Association Not Causation</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Nov 18, Nov 20</td>
-<td style="text-align: left;">High dimensional data</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><a href="https://rafalab.dfci.harvard.edu/dsbook-part-2/highdim/matrices-in-R.html">Matrices in R</a>, <a href="https://rafalab.dfci.harvard.edu/dsbook-part-2/highdim/linear-algebra.html">Applied Linear Algebra</a>, <a href="https://rafalab.dfci.harvard.edu/dsbook-part-2/highdim/dimension-reduction.html">Dimension Reduction</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Nov 25</td>
-<td style="text-align: left;">Midterm 2</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Midterm 2: cover material from Sep 04-Nov 22</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Dec 02, Dec 04</td>
-<td style="text-align: left;">Machine Learning</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><a href="https://rafalab.dfci.harvard.edu/dsbook-part-2/ml/notation-and-terminology.html">Notation and terminology</a>, <a href="https://rafalab.dfci.harvard.edu/dsbook-part-2/ml/evaluation-metrics.html">Evaluation Metrics</a>, <a href="https://rafalab.dfci.harvard.edu/dsbook-part-2/ml/conditionals.html">conditional probabilities</a>, <a href="https://rafalab.dfci.harvard.edu/dsbook-part-2/ml/smoothing.html">smoothing</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Dec 09, Dec 11</td>
-<td style="text-align: left;">Machine Learning</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><a href="https://rafalab.dfci.harvard.edu/dsbook-part-2/ml/resampling-methods.html">Resampling methods</a>, <a href="https://rafalab.dfci.harvard.edu/dsbook-part-2/ml/algorithms.html">ML algorithms</a>, <a href="https://rafalab.dfci.harvard.edu/dsbook-part-2/ml/ml-in-practice.html">ML in practice</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Dec 16, Dec 18</td>
-<td style="text-align: left;">Other topics</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="problem-sets" class="level2">
-<h2 class="anchored" data-anchor-id="problem-sets">Problem sets</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Problem set</th>
-<th style="text-align: left;">Topic</th>
-<th style="text-align: left;">Due Date</th>
-<th style="text-align: left;">Difficulty</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><a href="./psets/pset-01-unix-quarto.html">01</a></td>
-<td style="text-align: left;">Unix, Quarto</td>
-<td style="text-align: left;">Sep 11</td>
-<td style="text-align: left;">easy</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><a href="./psets/pset-02-r-vectorization.html">02</a></td>
-<td style="text-align: left;">R</td>
-<td style="text-align: left;">Sep 19</td>
-<td style="text-align: left;">easy</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><a href="./psets/pset-03-tidyverse.html">03</a></td>
-<td style="text-align: left;">Tidyverse</td>
-<td style="text-align: left;">Sep 27</td>
-<td style="text-align: left;">medium</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><a href="./psets/pset-04-wrangling.html">04</a></td>
-<td style="text-align: left;">Wrangling</td>
-<td style="text-align: left;">Oct 4</td>
-<td style="text-align: left;">medium</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">05</td>
-<td style="text-align: left;">Covid 19 data visualization</td>
-<td style="text-align: left;">Oct 11</td>
-<td style="text-align: left;">medium</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">06</td>
-<td style="text-align: left;">Probability</td>
-<td style="text-align: left;">Oct 25</td>
-<td style="text-align: left;">easy</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">07</td>
-<td style="text-align: left;">Predict the election</td>
-<td style="text-align: left;">Nov 04</td>
-<td style="text-align: left;">hard</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">08</td>
-<td style="text-align: left;">Confidence intervals for excess mortality</td>
-<td style="text-align: left;">Nov 15</td>
-<td style="text-align: left;">hard</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">09</td>
-<td style="text-align: left;">Matrices</td>
-<td style="text-align: left;">Nov 22</td>
-<td style="text-align: left;">easy</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">10</td>
-<td style="text-align: left;">Digit reading</td>
-<td style="text-align: left;">Dec 13</td>
-<td style="text-align: left;">hard</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Final Project</td>
-<td style="text-align: left;">Your choice</td>
-<td style="text-align: left;">Dec 20</td>
-<td style="text-align: left;">hard</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="office-hour-times" class="level2">
-<h2 class="anchored" data-anchor-id="office-hour-times">Office hour times</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Meeting</th>
-<th>Time</th>
-<th>Location</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Rafael Irizarry</td>
-<td>Mon 8:45-9:45AM</td>
-<td>Kresge 203</td>
-</tr>
-<tr class="even">
-<td>Corri Sept</td>
-<td>Tue</td>
-<td>3:00-4:00PM</td>
-</tr>
-<tr class="odd">
-<td>Nikhil Vytla</td>
-<td>Wed</td>
-<td>2:00-3:00PM</td>
-</tr>
-<tr class="even">
-<td>Yuan Wang</td>
-<td>Fri</td>
-<td>1:00-2:00PM</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="acknowledgments" class="level2">
-<h2 class="anchored" data-anchor-id="acknowledgments">Acknowledgments</h2>
-<p>We thank <a href="https://github.com/matackett">Maria Tackett</a> and <a href="https://github.com/mine-cetinkaya-rundel">Mine Çetinkaya-Rundel</a> for sharing their <a href="https://github.com/rstudio-conf-2022/teach-ds-course-website/tree/main">web page template</a>, which we used in creating this website.</p>
+<p>In the next problem set, we plan to explore the relationship between COVID-19 death rates and vaccination rates across US states by visually examining their correlation. This analysis will involve gathering COVID-19 related data from the CDC’s API and then extensively processing it to merge the various datasets. Since the population sizes of states vary significantly, we will focus on comparing rates rather than absolute numbers. To facilitate this, we will also source population data from the US Census to accurately calculate these rates.</p>
+<p>In this problem set we will learn how to extract and wrangle data from the data US Census and CDC APIs.</p>
+<ol type="1">
+<li>Get an API key from the US Census at <a href="https://api.census.gov/data/key_signup.html" class="uri">https://api.census.gov/data/key_signup.html</a>. You can’t share this public key. But your code has to run on a TFs computer. Assume the TF will have a file in their working directory named <code>census-key.R</code> with the following one line of code:</li>
+</ol>
+<pre><code>census_key &lt;- "A_CENSUS_KEY_THAT_WORKS"</code></pre>
+<p>Write a first line of code for your problem set that defines <code>census_key</code> by running the code in the file <code>census-key.R</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>The <a href="https://www.census.gov/content/dam/Census/data/developers/api-user-guide/api-user-guide.pdf">US Census API User Guide</a> provides details on how to leverage this valuable resource. We are interested in vintage population estimates for years 2021 and 2022. From the documentation we find that the <em>endpoint</em> is:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://api.census.gov/data/2021/pep/population"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Use the <strong>httr2</strong> package to construct the following GET request.</p>
+<pre><code>https://api.census.gov/data/2021/pep/population?get=POP_2020,POP_2021,NAME&amp;for=state:*&amp;key=YOURKEYHERE</code></pre>
+<p>Create an object called <code>request</code> of class <code>httr2_request</code> with this URL as an endpoint. Hint: Print out <code>request</code> to check that the URL matches what we want.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr2)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#request &lt;- </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Make a request to the US Census API using the <code>request</code> object. Save the response to and object named <code>response</code>. Check the response status of your request and make sure it was successful. You can learn about <em>status codes</em> <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">here</a>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#response &lt;- </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li>Use a function from the <strong>httr2</strong> package to determine the content type of your response.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="5" type="1">
+<li>Use just one line of code and one function to extract the data into a matrix. Hints: 1) Use the <code>resp_body_json</code> function. 2) The first row of the matrix will be the variable names and this OK as we will fix in the next exercise.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#population &lt;- </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="6" type="1">
+<li>Examine the <code>population</code> matrix you just created. Notice that 1) it is not tidy, 2) the column types are not what we want, and 3) the first row is a header. Convert <code>population</code> to a tidy dataset. Remove the state ID column and change the name of the column with state names to <code>state_name</code>. Add a column with state abbreviations called <code>state</code>. Make sure you assign the abbreviations for DC and PR correctly. Hint: Use the <strong>janitor</strong> package to make the first row the header.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#population &lt;- population |&gt; ## Use janitor row to names function</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># convert to tibble</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># remove stat column</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># rename state column to state_name</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use pivot_longer to tidy</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># remove POP_ from year</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># parese all relevant colunns to numeric</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># add state abbreviations using state.abb variable</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use case_when to add abbreviations for DC and PR</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="7" type="1">
+<li>As a check, make a barplot of states’ 2021 and 2022 populations. Show the state names in the y-axis ordered by population size. Hint: You will need to use <code>reorder</code> and use <code>facet_wrap</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># population |&gt; </span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># reorder state</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># assign aesthetic mapping</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use geom_col to plot barplot</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># flip coordinates</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># facet by year</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="8" type="1">
+<li>The following URL:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://github.com/datasciencelabs/2024/raw/refs/heads/main/data/regions.json"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>points to a JSON file that lists the states in the 10 Public Health Service (PHS) defined by CDC. We want to add these regions to the <code>population</code> dataset. To facilitate this create a data frame called <code>regions</code> that has two columns <code>state_name</code>, <code>region</code>, <code>region_name</code>. One of the regions has a long name. Change it to something shorter.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'jsonlite'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:purrr':
+
+    flatten</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://github.com/datasciencelabs/2024/raw/refs/heads/main/data/regions.json"</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># regions &lt;- use jsonlit JSON parser </span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># regions &lt;- convert list to data frame. You can use map_df in purrr package </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="9" type="1">
+<li>Add a region and region name columns to the <code>population</code> data frame.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># population &lt;- </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="10" type="1">
+<li>From reading <a href="https://data.cdc.gov/" class="uri">https://data.cdc.gov/</a> we learn the endpoint <code>https://data.cdc.gov/resource/pwn4-m3yp.json</code> provides state level data from SARS-COV2 cases. Use the <strong>httr2</strong> tools you have learned to download this into a data frame. Is all the data there? If not, comment on why.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>api <span class="ot">&lt;-</span> <span class="st">"https://data.cdc.gov/resource/pwn4-m3yp.json"</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># cases_raw &lt;- </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We see exactly 1,000 rows. We should be seeing over <span class="math inline">\(52 \times 3\)</span> rows per state.</p>
+<ol start="11" type="1">
+<li>The reason you see exactly 1,000 rows is because CDC has a default limit. You can change this limit by adding <code>$limit=10000000000</code> to the request. Rewrite the previous request to ensure that you receive all the data. Then wrangle the resulting data frame to produce a data frame with columns <code>state</code>, <code>date</code> (should be the end date) and <code>cases</code>. Make sure the cases are numeric and the dates are in <code>Date</code> ISO-8601 format.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>api <span class="ot">&lt;-</span> <span class="st">"https://data.cdc.gov/resource/pwn4-m3yp.json"</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># cases_raw &lt;- </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="12" type="1">
+<li>For 2020 and 2021, make a time series plot of cases per 100,000 versus time for each state. Stratify the plot by region name. Make sure to label you graph appropriately.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#cases |&gt; </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -856,4 +777,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/datasciencelabs/2024/blob/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/datasciencelabs/2024/blob/main/psets/pset-04-wrangling.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>

@@ -704,3 +704,14 @@ grid.arrange(p1, p2, ncol = 2)
 
 
 :::
+
+
+## Grids of plots
+
+* There are several additional packages for combining ggplot2 plots into visually appealing layouts:**
+
+- **cowplot**: A versatile package designed for publication-quality plots, offering seamless integration with ggplot2.
+
+- **ggpubr**: Provides user-friendly functions for combining and annotating ggplot2 plots with minimal effort.
+
+* New packages frequently emerge. Explore beyond these options and stay curious—there might be new tools that suit your needs even better!
