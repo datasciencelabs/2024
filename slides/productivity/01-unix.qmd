@@ -1,9 +1,10 @@
 ---
-title: Unix
+title: "Unix"
 keywords: "Productivity Tools"
-date: 2024-09-04
+date: "2024-09-04"
 format:
-   revealjs
+  revealjs:
+    theme: night
 ---
 
 ## Naming convention
@@ -41,6 +42,7 @@ For specific recommendations we highly recommend you follow The [Tidyverse Style
 - You should see a blinking cursor at the spot where what you type will show up. This position is called the command line. 
 
 ---
+
 ## The filesystem 
 
 
@@ -51,6 +53,7 @@ For specific recommendations we highly recommend you follow The [Tidyverse Style
 ## The home directory
 
 ::: {layout-ncol=2}
+
 ![](http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img//windows-screenshots/VirtualBox_Windows-7-Enterprise_23_03_2018_14_53_13.png) 
 
 ![](http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img//mac-screenshots/Screen-Shot-2018-04-13-at-4.34.01-PM.png) 

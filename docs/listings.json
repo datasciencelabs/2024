@@ -5,7 +5,8 @@
       "/psets/pset-01-unix-quarto.html",
       "/psets/pset-02-r-vectorization.html",
       "/psets/pset-03-tidyverse.html",
-      "/psets/pset-04-wrangling.html"
+      "/psets/pset-04-wrangling.html",
+      "/psets/pset-05-dataviz.html"
     ]
   },
   {
@@ -27,7 +28,9 @@
       "/slides/wrangling/13-locales.html",
       "/slides/wrangling/14-data-apis.html",
       "/slides/wrangling/15-web-scraping.html",
-      "/slides/wrangling/16-joining-tables.html"
+      "/slides/wrangling/16-joining-tables.html",
+      "/slides/dataviz/17-dataviz-principles.html",
+      "/slides/dataviz/18-distributions.html"
     ]
   }
 ]

@@ -9,6 +9,8 @@ listing:
       - slides/productivity/*.qmd
       - slides/R/*.qmd
       - slides/wrangling/*.qmd
+      - slides/dataviz/*.qmd
+
     type: table
     fields: [keywords, title, date]
     date-format: "ddd, MMM DD"

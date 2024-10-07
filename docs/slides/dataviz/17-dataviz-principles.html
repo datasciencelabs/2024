@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.5.57">
+
+  <meta name="dcterms.date" content="2024-08-07">
+  <meta name="keywords" content="Wrangling">
+  <title>BST 260: Introduction to Data Science – Data Visualization Principles</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-dark">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Data Visualization Principles</h1>
+
+<div class="quarto-title-authors">
+</div>
+
+  <p class="date">2024-08-07</p>
+</section>
+<section id="some-motivation" class="slide level2">
+<h2>Some motivation</h2>
+<ul>
+<li><p>The next few slides are examples of infogrpahics that don’t follow data visualization principles.</p></li>
+<li><p>We use them as motivation</p></li>
+<li><p>Several of the examples come from here: <a href="https://venngage.com/blog/bad-infographics/">https://venngage.com/blog/bad-infographics/</a></p></li>
+</ul>
+</section>
+<section id="some-motivation-1" class="slide level2">
+<h2>Some motivation</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/bar-plot-honduras-election.jpeg" class="quarto-figure quarto-figure-center" height="400"></p>
+</figure>
+</div>
+</section>
+<section id="some-motivation-2" class="slide level2">
+<h2>Some motivation</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/coronavirusbargraph-cropped.jpeg" class="quarto-figure quarto-figure-center" height="400"></p>
+</figure>
+</div>
+</section>
+<section id="some-motivation-3" class="slide level2">
+<h2>Some motivation</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/crazy-pie-chart.png" class="quarto-figure quarto-figure-center" height="400"></p>
+</figure>
+</div>
+</section>
+<section id="some-motivation-4" class="slide level2">
+<h2>Some motivation</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/piechart2.jpeg" class="quarto-figure quarto-figure-center" height="400"></p>
+</figure>
+</div>
+</section>
+<section id="some-motivation-5" class="slide level2">
+<h2>Some motivation</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/crazy-arrows.jpeg" class="quarto-figure quarto-figure-center" height="400"></p>
+</figure>
+</div>
+</section>
+<section id="some-motivation-6" class="slide level2">
+<h2>Some motivation</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/misleading1.jpeg" class="quarto-figure quarto-figure-center" height="400"></p>
+</figure>
+</div>
+</section>
+<section id="some-motivation-7" class="slide level2">
+<h2>Some motivation</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/womenicons.jpeg" class="quarto-figure quarto-figure-center" height="400"></p>
+</figure>
+</div>
+</section>
+<section id="data-visualization-principles" class="slide level2">
+<h2>Data visualization principles</h2>
+<ul>
+<li><p>We provide some general principles we can use as a guide for effective data visualization.</p></li>
+<li><p>Much of this section is based on a talk by <a href="http://kbroman.org/">Karl Broman</a> titled <a href="https://www.biostat.wisc.edu/~kbroman/presentations/graphs2017.pdf"><em>Creating Effective Figures and Tables</em></a> and includes some of the figures which were made with code that Karl makes available on his <a href="https://github.com/kbroman/Talk_Graphs">GitHub repository</a>, as well as class notes from Peter Aldhous’ Introduction to <a href="http://paldhous.github.io/ucb/2016/dataviz/index.html">Data Visualization course</a>.</p></li>
+</ul>
+</section>
+<section id="data-visualization-principles-1" class="slide level2">
+<h2>Data visualization principles</h2>
+<ul>
+<li><p>Following Karl’s approach, we show some examples of plot styles we should avoid, explain how to improve them, and use these as motivation for a list of principles.</p></li>
+<li><p>We compare and contrast plots that follow these principles to those that don’t.</p></li>
+</ul>
+</section>
+<section id="data-visualization-principles-2" class="slide level2">
+<h2>Data visualization principles</h2>
+<ul>
+<li><p>The principles are mostly based on research related to how humans detect patterns and make visual comparisons.</p></li>
+<li><p>The preferred approaches are those that best fit the way our brains process visual information.</p></li>
+<li><p>When deciding on a visualization approach, it is also important to keep our goal in mind.</p></li>
+</ul>
+</section>
+<section id="data-visualization-principles-3" class="slide level2">
+<h2>Data visualization principles</h2>
+<p>We may be comparing a</p>
+<ul>
+<li>viewable number of quantities</li>
+<li>describing distributions for categories or numeric values</li>
+<li>comparing the data from two groups</li>
+<li>or describing the relationship between two variables.</li>
+</ul>
+</section>
+<section id="encoding-data-using-visual-cues" class="slide level2">
+<h2>Encoding data using visual cues</h2>
+<p>We start by describing some principles for visualy encoding numerical values. There are several approaches at our disposal including:</p>
+<ul>
+<li>aligned lengths</li>
+<li>position</li>
+<li>angles</li>
+<li>area</li>
+<li>brightness</li>
+<li>color hue</li>
+</ul>
+</section>
+<section id="encoding-data-using-visual-cues-1" class="slide level2">
+<h2>Encoding data using visual cues</h2>
+<p>Example:</p>
+<ul>
+<li><p>Suppose we want to report the results from two hypothetical polls regarding browser preference taken in 2000 and then 2015.</p></li>
+<li><p>For each year, we are simply comparing five quantities – the five percentages for Opera, Safari, Firefox,IE, and Chrome.</p></li>
+</ul>
+</section>
+<section id="encoding-data-using-visual-cues-2" class="slide level2">
+<h2>Encoding data using visual cues</h2>
+<ul>
+<li>A widely used graphical representation of percentages, popularized by Microsoft Excel, is the pie chart:</li>
+</ul>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/piechart-1.png" width="960" class="r-stretch"></section>
+<section id="encoding-data-using-visual-cues-3" class="slide level2">
+<h2>Encoding data using visual cues</h2>
+<ul>
+<li><p>Here we are representing quantities with both areas and angles, since both the angle and area of each pie slice are proportional to the quantity the slice represents.</p></li>
+<li><p>This turns out to be a sub-optimal choice since, as demonstrated by perception studies, humans are not good at precisely quantifying angles and are even worse when area is the only available visual cue.</p></li>
+</ul>
+</section>
+<section id="encoding-data-using-visual-cues-4" class="slide level2">
+<h2>Encoding data using visual cues</h2>
+<p>The donut chart is an example of a plot that uses only area:</p>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/donutchart-1.png" width="960" class="r-stretch"></section>
+<section id="compare-2000-to-2015" class="slide level2">
+<h2>Compare 2000 to 2015</h2>
+<ul>
+<li><p>Can you determine the actual percentages and rank the browsers’ popularity?</p></li>
+<li><p>Can you see how the percentages changed from 2000 to 2015?</p></li>
+</ul>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/piechart-2-1.png" width="960" class="r-stretch"></section>
+<section id="show-the-numbers" class="slide level2">
+<h2>Show the numbers</h2>
+<p>A better approach is to simply show the numbers. It is not only clearer, but would also save on printing costs if printing a paper copy:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Browser</th>
+<th style="text-align: right;">2000</th>
+<th style="text-align: right;">2015</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Opera</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Safari</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">22</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Firefox</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">21</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Chrome</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">29</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">IE</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">27</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="barplots" class="slide level2">
+<h2>Barplots</h2>
+<p>Length is the best visual cue:</p>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/two-barplots-1.png" style="width:75.0%" class="r-stretch"></section>
+<section id="if-foreced-to-make-a-pie-chart" class="slide level2">
+<h2>If foreced to make a pie chart</h2>
+<p>Label each pie slice with its respective percentage so viewers do not have to infer them from the angles or area:</p>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/excel-barplot-1.png" width="960" class="r-stretch"></section>
+<section id="know-when-to-include-0" class="slide level2">
+<h2>Know when to include 0</h2>
+<ul>
+<li><p>When using barplots, it is misinformative not to start the bars at 0.</p></li>
+<li><p>This is because, by using a barplot, we are implying the length is proportional to the quantities being displayed.</p></li>
+<li><p>By avoiding 0, relatively small differences can be made to look much bigger than they actually are.</p></li>
+<li><p>This approach is often used by politicians or media organizations trying to exaggerate a difference.</p></li>
+</ul>
+</section>
+<section id="know-when-to-include-0-1" class="slide level2">
+<h2>Know when to include 0</h2>
+<p>Below is an illustrative example used by Peter Aldhous in <a href="http://paldhous.github.io/ucb/2016/dataviz/week2.html">this lecture</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/class2_8.jpg" class="quarto-figure quarto-figure-center" height="400"></p>
+</figure>
+</div>
+<p>(Source: <a href="http://mediamatters.org/blog/2013/04/05/fox-news-newest-dishonest-chart-immigration-enf/193507">Fox News, via Media Matters</a>.)</p>
+</section>
+<section id="know-when-to-include-0-2" class="slide level2">
+<h2>Know when to include 0</h2>
+<p>Here is the correct plot:</p>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/barplot-from-zero-1-1.png" width="960" class="r-stretch"></section>
+<section id="know-when-to-include-0-3" class="slide level2">
+<h2>Know when to include 0</h2>
+<p>Another examples:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/Bush-cuts.png" class="quarto-figure quarto-figure-center" height="400"></p>
+</figure>
+</div>
+<p>(Source: <a href="http://flowingdata.com/2012/08/06/fox-news-continues-charting-excellence/">Fox News, via Flowing Data</a>.)</p>
+</section>
+<section id="know-when-to-include-0-4" class="slide level2">
+<h2>Know when to include 0</h2>
+<p>And here is the correct plot:</p>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/barplot-from-zero-2-1.png" width="960" class="r-stretch"></section>
+<section id="know-when-to-include-0-5" class="slide level2">
+<h2>Know when to include 0</h2>
+<p>One more example:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/venezuela-election.png" class="quarto-figure quarto-figure-center" height="400"></p>
+</figure>
+</div>
+<p>(Source: <a href="https://www.pakistantoday.com.pk/2018/05/18/whats-at-stake-in-venezuelan-presidential-vote">Venezolana de Televisión via Pakistan Today</a> and Diego Mariano.)</p>
+</section>
+<section id="know-when-to-include-0-6" class="slide level2">
+<h2>Know when to include 0</h2>
+<p>Here is the appropriate plot:</p>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/barplot-from-zero-3-1.png" width="960" class="r-stretch"></section>
+<section id="know-when-to-include-0-7" class="slide level2">
+<h2>Know when to include 0</h2>
+<ul>
+<li><p>When using position rather than length, it is then not necessary to include 0.</p></li>
+<li><p>In particularly when comparing differences between to within groups variability.</p></li>
+</ul>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/points-plot-not-from-zero-1.png" style="width:75.0%" class="r-stretch"></section>
+<section id="do-not-distort-quantities" class="slide level2">
+<h2>Do not distort quantities</h2>
+<p>During President Barack Obama’s 2011 State of the Union Address, the following chart was used to compare the US GDP to the GDP of four competing nations:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/state-of-the-union.jpg" class="quarto-figure quarto-figure-center" height="400"></p>
+</figure>
+</div>
+<p>(Source: <a href="https://www.youtube.com/watch?v=kl2g40GoRxg">The 2011 State of the Union Address</a>)</p>
+</section>
+<section id="do-not-distort-quantities-1" class="slide level2">
+<h2>Do not distort quantities</h2>
+<p>Here is comparison of using radius versus area:</p>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/area-not-radius-1.png" width="960" class="r-stretch"></section>
+<section id="do-not-distort-quantities-2" class="slide level2">
+<h2>Do not distort quantities</h2>
+<ul>
+<li><strong>ggplot2</strong> defaults to using area rather than radius.</li>
+</ul>
+<p>Of course, in this case, we really should be using length:</p>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/barplot-better-than-area-1.png" width="960" class="r-stretch"></section>
+<section id="order-categories-by-a-meaningful-value" class="slide level2">
+<h2>Order categories by a meaningful value</h2>
+<ul>
+<li><p>When one of the axes is used to show categories the default <strong>ggplot2</strong> behavior is to order the categories alphabetically when they are defined by character strings.</p></li>
+<li><p>If they are defined by factors, they are ordered by the factor levels.</p></li>
+<li><p>We rarely want to use alphabetical order.</p></li>
+<li><p>Instead, we should order by a meaningful quantity.</p></li>
+</ul>
+</section>
+<section id="order-categories-by-a-meaningful-value-1" class="slide level2">
+<h2>Order categories by a meaningful value</h2>
+<p>Note that the plot on the right is more informative:</p>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/do-not-order-alphabetically-1.png" style="width:75.0%" class="r-stretch"></section>
+<section id="order-categories-by-a-meaningful-value-2" class="slide level2">
+<h2>Order categories by a meaningful value</h2>
+<p>Here is another example:</p>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/reorder-boxplot-example-1.png" style="width:80.0%" class="r-stretch"></section>
+<section id="show-the-data" class="slide level2">
+<h2>Show the data</h2>
+<p>We have focused on displaying single quantities across categories. We now shift our attention to displaying data, with a focus on comparing groups.</p>
+<p>Supppose we want to describe the heigh data to an extra-terrestrial.</p>
+</section>
+<section id="show-the-data-1" class="slide level2">
+<h2>Show the data</h2>
+<p>A commonly used plot, popularized by Microsoft Excel, is a barplot like this:</p>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/show-data-1-1.png" width="960" class="r-stretch"></section>
+<section id="show-the-data-2" class="slide level2">
+<h2>Show the data</h2>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/show-data-2-1.png" width="960" class="r-stretch"></section>
+<section id="show-the-data-3" class="slide level2">
+<h2>Show the data</h2>
+<p>But this plot can be improved with jitter as there is much over-plotting</p>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/show-points-with-jitter-1.png" width="960" class="r-stretch"></section>
+<section id="histograms" class="slide level2">
+<h2>Histograms</h2>
+<p>Since there are so many points, it is more effective to show distributions rather than individual points. We therefore show histograms for each group:</p>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/common-axes-histograms-wrong-1.png" width="960" class="r-stretch"></section>
+<section id="ease-comparisons" class="slide level2">
+<h2>Ease comparisons</h2>
+<ul>
+<li><p>Use common axes</p></li>
+<li><p>If horizontal comparison, stack graphs vertically</p></li>
+<li><p>If vertical comparison, stack graphs horizontally</p></li>
+</ul>
+</section>
+<section id="stack-vertically" class="slide level2">
+<h2>Stack vertically</h2>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/common-axes-histograms-better-1.png" width="960" class="r-stretch"></section>
+<section id="same-axis" class="slide level2">
+<h2>Same axis</h2>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/common-axes-histograms-right-1.png" width="960" class="r-stretch"></section>
+<section id="boxplot-is-a-vertical" class="slide level2">
+<h2>Boxplot is a vertical</h2>
+<p>Stack horizontally</p>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/boxplot-with-points-with-jitter-1.png" width="960" class="r-stretch"></section>
+<section id="contrast-and-compare" class="slide level2">
+<h2>Contrast and compare</h2>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/show-the-data-comparison-1.png" style="width:100.0%" class="r-stretch"></section>
+<section id="consider-transformations" class="slide level2">
+<h2>Consider transformations</h2>
+<p>Here is a terribly plot comparing population across continents</p>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/no-transformations-wrong-use-of-barplot-1.png" width="960" class="r-stretch"></section>
+<section id="two-countries-drive-average" class="slide level2">
+<h2>Two countries drive average</h2>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/no-transformation-1.png" width="960" class="r-stretch"></section>
+<section id="log-square-root-or-logit-transformations" class="slide level2">
+<h2>Log, square root or logit transformations</h2>
+<p>Using a log transformation here provides a much more informative plot.</p>
+<p>Compare these two plots:</p>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/correct-transformation-1.png" style="width:90.0%" class="r-stretch"></section>
+<section id="visual-cues-to-be-compared-should-be-adjacent" class="slide level2">
+<h2>Visual cues to be compared should be adjacent</h2>
+<p>Note that it is hard to compare 1970 to 2020 by country:</p>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/boxplots-not-adjacent-1.png" width="960" class="r-stretch"></section>
+<section id="visual-cues-to-be-compared-should-be-adjacent-1" class="slide level2">
+<h2>Visual cues to be compared should be adjacent</h2>
+<p>Much easier if they are adjacent</p>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/boxplot-adjacent-comps-1.png" width="960" class="r-stretch"></section>
+<section id="use-color" class="slide level2">
+<h2>Use color</h2>
+<p>The comparison becomes even easier to make if we use color to denote the two things we want to compare:</p>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/boxplot-adjacent-comps-with-color-1.png" width="960" class="r-stretch"></section>
+<section id="think-of-the-color-blind" class="slide level2">
+<h2>Think of the color blind</h2>
+<ul>
+<li><p>Approximately 1 in 12 men (8%) and 1 in 200 women (0.5%) worldwide are color blind.</p></li>
+<li><p>The most common type of color blindness is red-green color blindness, which affects around 99% of all color blind individuals.</p></li>
+<li><p>The prevalence of blue-yellow color blindness and total color blindness (achromatopsia) is much lower.</p></li>
+<li><p>An example of how we can use a color blind friendly palette is described <a href="http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/#a-colorblind-friendly-palette">here</a>.</p></li>
+</ul>
+</section>
+<section id="think-of-the-color-blind-1" class="slide level2">
+<h2>Think of the color blind</h2>
+<ul>
+<li>Example of color-blind-friendly color palette:</li>
+</ul>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/color-blind-friendly-colors-1.png" style="width:100.0%" class="r-stretch"></section>
+<section id="plots-for-two-variables" class="slide level2">
+<h2>Plots for two variables</h2>
+<p>In general, you should use scatterplots to visualize the relationship between two variables.</p>
+<p>However, there are some exceptions.</p>
+<ul>
+<li>We describe two alternative plots here:
+<ul>
+<li><em>slope chart</em></li>
+<li><em>Bland-Altman plot</em></li>
+</ul></li>
+</ul>
+</section>
+<section id="slope-charts" class="slide level2">
+<h2>Slope charts</h2>
+<p>Slope charts adds angle as a visual cue, useful when comparing two groups <strong>and</strong> each element across two variables, such as years.</p>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/slope-plot-1.png" width="960" class="r-stretch"></section>
+<section id="scatterplot-version" class="slide level2">
+<h2>Scatterplot version</h2>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/scatter-plot-instead-of-slope-1.png" width="960" class="r-stretch"></section>
+<section id="bland-altman-plot" class="slide level2">
+<h2>Bland-Altman plot</h2>
+<p>Shows difference in the y-axis and average on the x-axis.</p>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/bland-altman-1.png" width="960" class="r-stretch"></section>
+<section id="encoding-a-third-variable" class="slide level2">
+<h2>Encoding a third variable</h2>
+<p>We can use</p>
+<ul>
+<li><p>different colors or shapes for categoris</p></li>
+<li><p>areas, brightness or hue for continuous values</p></li>
+</ul>
+</section>
+<section id="encoding-a-third-variable-1" class="slide level2">
+<h2>Encoding a third variable</h2>
+<p>Below is an example that encodes three variables: OPEC membership, region, and population.</p>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/encoding-third-variable-1.png" width="960" class="r-stretch"></section>
+<section id="point-shapes-available-in-r" class="slide level2">
+<h2>Point shapes available in R</h2>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/available-shapes-1.png" width="960" class="r-stretch"></section>
+<section id="using-intensity-or-hue" class="slide level2">
+<h2>Using intensity or hue</h2>
+<p>When selecting colors to quantify a numeric variable, we choose between two options: sequential and diverging.</p>
+</section>
+<section id="sequential-colors" class="slide level2">
+<h2>Sequential colors</h2>
+<p>Sequential colors are suited for data that goes from high to low. High values are clearly distinguished from low values. Here are some examples offered by the package <code>RColorBrewer</code>:</p>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/r-color-brewer-seq-1.png" width="960" class="r-stretch"></section>
+<section id="diverging-colors" class="slide level2">
+<h2>Diverging colors</h2>
+<p>Diverging colors are used to represent values that diverge from a center. We put equal emphasis on both ends of the data range: higher than the center and lower than the center.</p>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/r-color-brewer-div-1.png" width="960" class="r-stretch"></section>
+<section id="avoid-pseudo-3d-plots" class="slide level2">
+<h2>Avoid pseudo-3D plots</h2>
+<p>The figure below, taken from the <a href="https://projecteuclid.org/download/pdf_1/euclid.ss/1177010488">scientific literature</a>, shows three variables: dose, drug type and survival:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/fig8b.png" class="quarto-figure quarto-figure-center" height="400"></p>
+</figure>
+</div>
+</section>
+<section id="avoid-pseudo-3d-plots-1" class="slide level2">
+<h2>Avoid pseudo-3D plots</h2>
+<ul>
+<li>Humans are not good at seeing in three dimensions and our limitation is even worse with regard to pseudo-three-dimensions.</li>
+</ul>
+</section>
+<section id="avoid-pseudo-3d-plots-2" class="slide level2">
+<h2>Avoid pseudo-3D plots</h2>
+<ul>
+<li><p>Try to determine the values of the survival variable in the previous plot.</p></li>
+<li><p>Can you tell when the purple ribbon intersects the red one?</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/fig8b.png" class="quarto-figure quarto-figure-center" height="400"></p>
+</figure>
+</div>
+</section>
+<section id="avoid-pseudo-three-dimensional-plots" class="slide level2">
+<h2>Avoid pseudo-three-dimensional plots</h2>
+<p>This is an example in which we can easily use color to represent the categorical variable instead of using a pseudo-3D:</p>
+
+<img data-src="17-dataviz-principles_files/figure-revealjs/colors-for-different-lines-1.png" width="960" class="r-stretch"></section>
+<section id="avoid-pseudo-three-dimensional-plots-1" class="slide level2">
+<h2>Avoid pseudo-three-dimensional plots</h2>
+<p>Pseudo-3D is sometimes used completely gratuitously: plots are made to look 3D even when the 3rd dimension does not represent a quantity. This only adds confusion and makes it harder to relay your message. We show two examples:</p>
+</section>
+<section id="avoid-pseudo-three-dimensional-plots-2" class="slide level2">
+<h2>Avoid pseudo-three-dimensional plots</h2>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/fig1e.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/fig2d.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>(Images courtesy of Karl Broman)</p>
+</section>
+<section id="avoid-too-many-significant-digits" class="slide level2">
+<h2>Avoid too many significant digits</h2>
+<ul>
+<li><p>By default, statistical software like R returns many significant digits.</p></li>
+<li><p>The default behavior in R is to show 7 significant digits.</p></li>
+<li><p>That many digits often adds no information and the added visual clutter can make it hard for the viewer to understand the message.</p></li>
+</ul>
+</section>
+<section id="avoid-too-many-significant-digits-1" class="slide level2">
+<h2>Avoid too many significant digits</h2>
+<p>As an example, here are the per 10,000 disease rates, computed from totals and population in R, for California across the five decades:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">state</th>
+<th style="text-align: right;">year</th>
+<th style="text-align: right;">Measles</th>
+<th style="text-align: right;">Pertussis</th>
+<th style="text-align: right;">Polio</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">California</td>
+<td style="text-align: right;">1940</td>
+<td style="text-align: right;">37.8826320</td>
+<td style="text-align: right;">18.3397861</td>
+<td style="text-align: right;">0.8266512</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">California</td>
+<td style="text-align: right;">1950</td>
+<td style="text-align: right;">13.9124205</td>
+<td style="text-align: right;">4.7467350</td>
+<td style="text-align: right;">1.9742639</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">California</td>
+<td style="text-align: right;">1960</td>
+<td style="text-align: right;">14.1386471</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">0.2640419</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">California</td>
+<td style="text-align: right;">1970</td>
+<td style="text-align: right;">0.9767889</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">California</td>
+<td style="text-align: right;">1980</td>
+<td style="text-align: right;">0.3743467</td>
+<td style="text-align: right;">0.0515466</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="avoid-too-many-significant-digits-2" class="slide level2">
+<h2>Avoid too many significant digits</h2>
+<ul>
+<li>We are reporting precision up to 0.00001 cases per 10,000, a very small value in the context of the changes that are occurring across the dates.</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">state</th>
+<th style="text-align: right;">year</th>
+<th style="text-align: right;">Measles</th>
+<th style="text-align: right;">Pertussis</th>
+<th style="text-align: right;">Polio</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">California</td>
+<td style="text-align: right;">1940</td>
+<td style="text-align: right;">37.8826320</td>
+<td style="text-align: right;">18.3397861</td>
+<td style="text-align: right;">0.8266512</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">California</td>
+<td style="text-align: right;">1950</td>
+<td style="text-align: right;">13.9124205</td>
+<td style="text-align: right;">4.7467350</td>
+<td style="text-align: right;">1.9742639</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">California</td>
+<td style="text-align: right;">1960</td>
+<td style="text-align: right;">14.1386471</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">0.2640419</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">California</td>
+<td style="text-align: right;">1970</td>
+<td style="text-align: right;">0.9767889</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">California</td>
+<td style="text-align: right;">1980</td>
+<td style="text-align: right;">0.3743467</td>
+<td style="text-align: right;">0.0515466</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="avoid-too-many-significant-digits-3" class="slide level2">
+<h2>Avoid too many significant digits</h2>
+<ul>
+<li>In this case, two significant figures is more than enough and clearly makes the point that rates are decreasing:</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">state</th>
+<th style="text-align: right;">year</th>
+<th style="text-align: right;">Measles</th>
+<th style="text-align: right;">Pertussis</th>
+<th style="text-align: right;">Polio</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">California</td>
+<td style="text-align: right;">1940</td>
+<td style="text-align: right;">37.9</td>
+<td style="text-align: right;">18.3</td>
+<td style="text-align: right;">0.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">California</td>
+<td style="text-align: right;">1950</td>
+<td style="text-align: right;">13.9</td>
+<td style="text-align: right;">4.7</td>
+<td style="text-align: right;">2.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">California</td>
+<td style="text-align: right;">1960</td>
+<td style="text-align: right;">14.1</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">0.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">California</td>
+<td style="text-align: right;">1970</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">California</td>
+<td style="text-align: right;">1980</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="avoid-too-many-significant-digits-4" class="slide level2">
+<h2>Avoid too many significant digits</h2>
+<p>Useful ways to change the number of significant digits or to round numbers are</p>
+<ul>
+<li><p><code>signif</code></p></li>
+<li><p><code>round</code></p></li>
+</ul>
+<p>You can define the number of significant digits globally by setting options like this: <code>options(digits = 3)</code>.</p>
+</section>
+<section id="values-compared-in-columns" class="slide level2">
+<h2>Values compared in columns</h2>
+<p>Another principle related to displaying tables is to place values being compared on columns rather than rows. Compare these two presentations:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">state</th>
+<th style="text-align: left;">disease</th>
+<th style="text-align: right;">1940</th>
+<th style="text-align: right;">1950</th>
+<th style="text-align: right;">1960</th>
+<th style="text-align: right;">1970</th>
+<th style="text-align: right;">1980</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">California</td>
+<td style="text-align: left;">Measles</td>
+<td style="text-align: right;">37.9</td>
+<td style="text-align: right;">13.9</td>
+<td style="text-align: right;">14.1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">California</td>
+<td style="text-align: left;">Pertussis</td>
+<td style="text-align: right;">18.3</td>
+<td style="text-align: right;">4.7</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">0.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">California</td>
+<td style="text-align: left;">Polio</td>
+<td style="text-align: right;">0.8</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">0.3</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="values-compared-in-columns-1" class="slide level2">
+<h2>Values compared in columns</h2>
+<p>Another principle related to displaying tables is to place values being compared on columns rather than rows. Compare these two presentations:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">state</th>
+<th style="text-align: right;">year</th>
+<th style="text-align: right;">Measles</th>
+<th style="text-align: right;">Pertussis</th>
+<th style="text-align: right;">Polio</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">California</td>
+<td style="text-align: right;">1940</td>
+<td style="text-align: right;">37.9</td>
+<td style="text-align: right;">18.3</td>
+<td style="text-align: right;">0.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">California</td>
+<td style="text-align: right;">1950</td>
+<td style="text-align: right;">13.9</td>
+<td style="text-align: right;">4.7</td>
+<td style="text-align: right;">2.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">California</td>
+<td style="text-align: right;">1960</td>
+<td style="text-align: right;">14.1</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">0.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">California</td>
+<td style="text-align: right;">1970</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">California</td>
+<td style="text-align: right;">1980</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="know-your-audience" class="slide level2">
+<h2>Know your audience</h2>
+<p>Graphs can be used for</p>
+<ol type="1">
+<li><p>our own exploratory data analysis,</p></li>
+<li><p>to convey a message to experts, or</p></li>
+<li><p>to help tell a story to a general audience.</p></li>
+</ol>
+<p>Make sure that the intended audience understands each element of the plot.</p>
+
+<div class="quarto-auto-generated-content">
+<div class="footer footer-default">
+
+</div>
+</div>
+</section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp("http:\/\/datasciencelabs\.github\.io\/2024");
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
