@@ -1,6 +1,6 @@
 ---
 title: "Data Visualization Principles"
-keywords: "Wrangling"
+keywords: "Data Visualization"
 date: 2024-08-07
 format:
   revealjs:
@@ -13,40 +13,40 @@ execute:
 
 * The next few slides are examples of infogrpahics that don't follow data visualization principles.
 
-* We use them as motivation 
+* We use them as motivation.
 
 * Several of the examples come from here: [https://venngage.com/blog/bad-infographics/](https://venngage.com/blog/bad-infographics/)
 
 
 ## Some motivation
 
-![](https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/bar-plot-honduras-election.jpeg){fig-align="center" height=400}
+![](https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/bar-plot-honduras-election.jpeg){fig-align="center" height=500}
 
 
 ## Some motivation
 
 
-![](https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/coronavirusbargraph-cropped.jpeg){fig-align="center" height=400}
+![](https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/coronavirusbargraph-cropped.jpeg){fig-align="center" height=500}
 
 ## Some motivation
 
-![](https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/crazy-pie-chart.png){fig-align="center" height=400}
+![](https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/crazy-pie-chart.png){fig-align="center" height=500}
 
 ## Some motivation
 
-![](https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/piechart2.jpeg){fig-align="center" height=400}
+![](https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/piechart2.jpeg){fig-align="center" height=500}
 
 ## Some motivation
 
-![](https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/crazy-arrows.jpeg){fig-align="center" height=400}
+![](https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/crazy-arrows.jpeg){fig-align="center" height=500}
 
 ## Some motivation
 
-![](https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/misleading1.jpeg){fig-align="center" height=400}
+![](https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/misleading1.jpeg){fig-align="center" height=500}
 
 ## Some motivation
 
-![](https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/womenicons.jpeg){fig-align="center" height=400}
+![](https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/womenicons.jpeg){fig-align="center" height=500}
 
 ## Data visualization principles
 
@@ -72,10 +72,10 @@ execute:
 
 We may be comparing a 
 
-* viewable number of quantities
-* describing distributions for categories or numeric values
-* comparing the data from two groups
-* or describing the relationship between two variables.
+* Viewable number of quantities.
+* Describing distributions for categories or numeric values.
+* Comparing the data from two groups.
+* Describing the relationship between two variables.
 
 
 ```{r, warning=FALSE, message=FALSE}
@@ -85,7 +85,7 @@ library(tidyverse)
 
 ## Encoding data using visual cues
 
-We start by describing some principles for visualy encoding numerical values. There are several approaches at our disposal including:
+We start by describing some principles for visualy encoding numerical values:
 
 * aligned lengths
 * position
@@ -112,7 +112,7 @@ Example:
 
 ## Encoding data using visual cues
 
-* A widely used graphical representation of percentages, popularized by Microsoft Excel, is the pie chart:
+A widely used graphical representation of percentages, popularized by Microsoft Excel, is the pie chart:
 
 
 ```{r piechart}
@@ -137,7 +137,7 @@ p1
 
 ## Encoding data using visual cues
 
-The donut chart is an example of a plot that uses only area:
+The donut chart uses only area:
 
 ```{r donutchart}
 browsers |> ggplot(aes(x = 2, y = Percentage, fill = Browser)) +
@@ -156,7 +156,7 @@ browsers |> ggplot(aes(x = 2, y = Percentage, fill = Browser)) +
 
 * Can you determine the actual percentages and rank the browsers' popularity? 
 
-* Can you see how the percentages changed from 2000 to 2015? 
+* Can you see how they changed from 2000 to 2015? 
 
 ```{r piechart-2}
 library(ggthemes)
@@ -200,7 +200,7 @@ grid.arrange(p1, p2, nrow = 2)
 
 ## If foreced to make a pie chart 
 
-Label each pie slice with its respective percentage so viewers do not have to infer them from the angles or area:
+Label each pie slice with its respective percentage so viewers do not have to infer them:
 
 ```{r excel-barplot, warning = FALSE, message=FALSE}
 library(scales)
@@ -235,7 +235,7 @@ annotate(geom = "text",
 
 Below is an illustrative example used by Peter Aldhous in [this lecture](http://paldhous.github.io/ucb/2016/dataviz/week2.html).
 
-![](https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/class2_8.jpg){fig-align="center" height=400}
+![](https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/class2_8.jpg){fig-align="center" height=500}
 
 (Source: [Fox News, via Media Matters](http://mediamatters.org/blog/2013/04/05/fox-news-newest-dishonest-chart-immigration-enf/193507).)
 
@@ -255,7 +255,7 @@ data.frame(Year = as.character(c(2011, 2012, 2013)),Southwest_Border_Apprehensio
 
 Another examples: 
 
-![](https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/Bush-cuts.png){fig-align="center" height=400}
+![](https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/Bush-cuts.png){fig-align="center" height=500}
 
 (Source: [Fox News, via Flowing Data](http://flowingdata.com/2012/08/06/fox-news-continues-charting-excellence/).)
 
@@ -276,7 +276,7 @@ data.frame(date = c("Now", "Jan 1, 2013"), tax_rate = c(35, 39.6)) |>
 
 One more example: 
 
-![](https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/venezuela-election.png){fig-align="center" height=400}
+![](https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/venezuela-election.png){fig-align="center" height=500}
 
 (Source: 
 [Venezolana de Televisión via Pakistan Today](https://www.pakistantoday.com.pk/2018/05/18/whats-at-stake-in-venezuelan-presidential-vote) and Diego Mariano.)
@@ -294,9 +294,9 @@ data.frame(Candidate = factor(c("Maduro", "Capriles"), levels = c("Maduro", "Cap
 
 ## Know when to include 0
 
-* When using position rather than length, it is then not necessary to include 0. 
+* When using position rather than length, it is not necessary to include 0. 
 
-* In particularly when comparing differences between to within groups variability. 
+* In particularly when comparing between to within groups variability. 
 
 ```{r points-plot-not-from-zero, out.width="75%",  fig.width = 6, fig.asp=0.5625}
 library(dslabs)
@@ -311,7 +311,7 @@ grid.arrange(p2, p1, ncol = 2)
 
 ## Do not distort quantities
 
-During President Barack Obama’s 2011 State of the Union Address, the following chart was used to compare the US GDP to the GDP of four competing nations:
+President Obama used the following chart to compare the US GDP to the GDP of four competing nations:
 
 ![](https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/state-of-the-union.jpg){fig-align="center" height=400}
 
@@ -339,7 +339,7 @@ gdp_data |>
 
 * __ggplot2__ defaults to using area rather than radius. 
 
-Of course, in this case, we really should be using length:
+* Of course, in this case, we really should be using length:
 
 ```{r barplot-better-than-area}
 data.frame(Country = c("United States", "China", "Japan", "Germany", "France"), GDP = gdp) |>
@@ -415,9 +415,9 @@ grid.arrange(p1, p2, nrow = 1)
 
 ## Show the data
 
-We have focused on displaying single quantities across categories. We now shift our attention to displaying data, with a focus on comparing groups. 
+* We have focused on displaying single quantities across categories. We now shift our attention to displaying data, with a focus on comparing groups. 
 
-Supppose we want to describe the heigh data to an extra-terrestrial. 
+* Suppose we want to describe height data to an extra-terrestrial. 
 
 ## Show the data
 
@@ -454,7 +454,7 @@ heights |>
 
 ## Show the data
 
-But this plot can be improved with jitter as there is much over-plotting
+Use jitter to avoid over-plotting
 
 ```{r eval=FALSE}
 heights |> 
@@ -533,7 +533,7 @@ grid.arrange(p1, p2, p3, ncol = 3)
 
 ## Consider transformations
 
-Here is a terribly plot comparing population across continents
+Here is a terrible plot comparing population across continents
 
 ```{r no-transformations-wrong-use-of-barplot}
 data(gapminder)
@@ -561,11 +561,9 @@ p2 <- gapminder |> filter(year == 2015) |>
 p2 +  geom_jitter(width = .1, alpha = .5) 
 ```
 
-## Log, square root or logit transformations
+## Transformations
 
-Using a log transformation here provides a much more informative plot. 
-
-Compare these two plots:
+Here a log transformation provides a much more informative plot:
 
 ```{r correct-transformation, out.width="90%", fig.asp=0.5}
 p2 <- p2 + geom_boxplot(coef = 3) + 
@@ -753,7 +751,7 @@ We can use
 
 ## Encoding a third variable
 
-Below is an example that encodes three variables: OPEC membership, region, and population.
+We encode OPEC membership, region, and population.
 
 ```{r encoding-third-variable}
 present_year <- 2010
@@ -841,15 +839,13 @@ shows three variables: dose, drug type and survival:
 
 ## Avoid pseudo-3D plots
 
-* Try to determine the values of the survival variable in the previous plot. 
-
-* Can you tell when the purple ribbon intersects the red one? 
+* When does the purple ribbon intersects the red? 
 
 ![](https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/fig8b.png){fig-align="center" height=400}
 
-## Avoid pseudo-three-dimensional plots
+## Avoid pseudo-3D plots
 
-This is an example in which we can easily use color to represent the categorical variable instead of using a pseudo-3D:
+Color is enough to represent the categorical variable:
 
 ```{r colors-for-different-lines}
 ##First read data
@@ -863,11 +859,11 @@ dat |> gather(drug, survival, -log.dose) |>
   geom_line()    
 ```
 
-## Avoid pseudo-three-dimensional plots
+## Avoid pseudo-3D plots
 
 Pseudo-3D is sometimes used completely gratuitously: plots are made to look 3D even when the 3rd dimension does not represent a quantity. This only adds confusion and makes it harder to relay your message.  We show two examples:
 
-## Avoid pseudo-three-dimensional plots
+## Avoid pseudo-3D plots
 :::{layout-ncol=2}
 
 ![](https://raw.githubusercontent.com/datasciencelabs/2022/refs/heads/master/dataviz/img/fig1e.png){fig-align="center" height=400}

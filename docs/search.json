@@ -1510,7 +1510,7 @@
     "href": "slides/dataviz/17-dataviz-principles.html#some-motivation",
     "title": "Data Visualization Principles",
     "section": "Some motivation",
-    "text": "Some motivation\n\nThe next few slides are examples of infogrpahics that don’t follow data visualization principles.\nWe use them as motivation\nSeveral of the examples come from here: https://venngage.com/blog/bad-infographics/"
+    "text": "Some motivation\n\nThe next few slides are examples of infogrpahics that don’t follow data visualization principles.\nWe use them as motivation.\nSeveral of the examples come from here: https://venngage.com/blog/bad-infographics/"
   },
   {
     "objectID": "slides/dataviz/17-dataviz-principles.html#some-motivation-1",
@@ -1587,14 +1587,14 @@
     "href": "slides/dataviz/17-dataviz-principles.html#data-visualization-principles-3",
     "title": "Data Visualization Principles",
     "section": "Data visualization principles",
-    "text": "Data visualization principles\nWe may be comparing a\n\nviewable number of quantities\ndescribing distributions for categories or numeric values\ncomparing the data from two groups\nor describing the relationship between two variables."
+    "text": "Data visualization principles\nWe may be comparing a\n\nViewable number of quantities.\nDescribing distributions for categories or numeric values.\nComparing the data from two groups.\nDescribing the relationship between two variables."
   },
   {
     "objectID": "slides/dataviz/17-dataviz-principles.html#encoding-data-using-visual-cues",
     "href": "slides/dataviz/17-dataviz-principles.html#encoding-data-using-visual-cues",
     "title": "Data Visualization Principles",
     "section": "Encoding data using visual cues",
-    "text": "Encoding data using visual cues\nWe start by describing some principles for visualy encoding numerical values. There are several approaches at our disposal including:\n\naligned lengths\nposition\nangles\narea\nbrightness\ncolor hue"
+    "text": "Encoding data using visual cues\nWe start by describing some principles for visualy encoding numerical values:\n\naligned lengths\nposition\nangles\narea\nbrightness\ncolor hue"
   },
   {
     "objectID": "slides/dataviz/17-dataviz-principles.html#encoding-data-using-visual-cues-1",
@@ -1608,7 +1608,7 @@
     "href": "slides/dataviz/17-dataviz-principles.html#encoding-data-using-visual-cues-2",
     "title": "Data Visualization Principles",
     "section": "Encoding data using visual cues",
-    "text": "Encoding data using visual cues\n\nA widely used graphical representation of percentages, popularized by Microsoft Excel, is the pie chart:"
+    "text": "Encoding data using visual cues\nA widely used graphical representation of percentages, popularized by Microsoft Excel, is the pie chart:"
   },
   {
     "objectID": "slides/dataviz/17-dataviz-principles.html#encoding-data-using-visual-cues-3",
@@ -1622,14 +1622,14 @@
     "href": "slides/dataviz/17-dataviz-principles.html#encoding-data-using-visual-cues-4",
     "title": "Data Visualization Principles",
     "section": "Encoding data using visual cues",
-    "text": "Encoding data using visual cues\nThe donut chart is an example of a plot that uses only area:"
+    "text": "Encoding data using visual cues\nThe donut chart uses only area:"
   },
   {
     "objectID": "slides/dataviz/17-dataviz-principles.html#compare-2000-to-2015",
     "href": "slides/dataviz/17-dataviz-principles.html#compare-2000-to-2015",
     "title": "Data Visualization Principles",
     "section": "Compare 2000 to 2015",
-    "text": "Compare 2000 to 2015\n\nCan you determine the actual percentages and rank the browsers’ popularity?\nCan you see how the percentages changed from 2000 to 2015?"
+    "text": "Compare 2000 to 2015\n\nCan you determine the actual percentages and rank the browsers’ popularity?\nCan you see how they changed from 2000 to 2015?"
   },
   {
     "objectID": "slides/dataviz/17-dataviz-principles.html#show-the-numbers",
@@ -1650,7 +1650,7 @@
     "href": "slides/dataviz/17-dataviz-principles.html#if-foreced-to-make-a-pie-chart",
     "title": "Data Visualization Principles",
     "section": "If foreced to make a pie chart",
-    "text": "If foreced to make a pie chart\nLabel each pie slice with its respective percentage so viewers do not have to infer them from the angles or area:"
+    "text": "If foreced to make a pie chart\nLabel each pie slice with its respective percentage so viewers do not have to infer them:"
   },
   {
     "objectID": "slides/dataviz/17-dataviz-principles.html#know-when-to-include-0",
@@ -1706,14 +1706,14 @@
     "href": "slides/dataviz/17-dataviz-principles.html#know-when-to-include-0-7",
     "title": "Data Visualization Principles",
     "section": "Know when to include 0",
-    "text": "Know when to include 0\n\nWhen using position rather than length, it is then not necessary to include 0.\nIn particularly when comparing differences between to within groups variability."
+    "text": "Know when to include 0\n\nWhen using position rather than length, it is not necessary to include 0.\nIn particularly when comparing between to within groups variability."
   },
   {
     "objectID": "slides/dataviz/17-dataviz-principles.html#do-not-distort-quantities",
     "href": "slides/dataviz/17-dataviz-principles.html#do-not-distort-quantities",
     "title": "Data Visualization Principles",
     "section": "Do not distort quantities",
-    "text": "Do not distort quantities\nDuring President Barack Obama’s 2011 State of the Union Address, the following chart was used to compare the US GDP to the GDP of four competing nations:\n\n\n\n\n\n(Source: The 2011 State of the Union Address)"
+    "text": "Do not distort quantities\nPresident Obama used the following chart to compare the US GDP to the GDP of four competing nations:\n\n\n\n\n\n(Source: The 2011 State of the Union Address)"
   },
   {
     "objectID": "slides/dataviz/17-dataviz-principles.html#do-not-distort-quantities-1",
@@ -1727,7 +1727,7 @@
     "href": "slides/dataviz/17-dataviz-principles.html#do-not-distort-quantities-2",
     "title": "Data Visualization Principles",
     "section": "Do not distort quantities",
-    "text": "Do not distort quantities\n\nggplot2 defaults to using area rather than radius.\n\nOf course, in this case, we really should be using length:"
+    "text": "Do not distort quantities\n\nggplot2 defaults to using area rather than radius.\nOf course, in this case, we really should be using length:"
   },
   {
     "objectID": "slides/dataviz/17-dataviz-principles.html#order-categories-by-a-meaningful-value",
@@ -1755,7 +1755,7 @@
     "href": "slides/dataviz/17-dataviz-principles.html#show-the-data",
     "title": "Data Visualization Principles",
     "section": "Show the data",
-    "text": "Show the data\nWe have focused on displaying single quantities across categories. We now shift our attention to displaying data, with a focus on comparing groups.\nSupppose we want to describe the heigh data to an extra-terrestrial."
+    "text": "Show the data\n\nWe have focused on displaying single quantities across categories. We now shift our attention to displaying data, with a focus on comparing groups.\nSuppose we want to describe height data to an extra-terrestrial."
   },
   {
     "objectID": "slides/dataviz/17-dataviz-principles.html#show-the-data-1",
@@ -1776,7 +1776,7 @@
     "href": "slides/dataviz/17-dataviz-principles.html#show-the-data-3",
     "title": "Data Visualization Principles",
     "section": "Show the data",
-    "text": "Show the data\nBut this plot can be improved with jitter as there is much over-plotting"
+    "text": "Show the data\nUse jitter to avoid over-plotting"
   },
   {
     "objectID": "slides/dataviz/17-dataviz-principles.html#histograms",
@@ -1825,7 +1825,7 @@
     "href": "slides/dataviz/17-dataviz-principles.html#consider-transformations",
     "title": "Data Visualization Principles",
     "section": "Consider transformations",
-    "text": "Consider transformations\nHere is a terribly plot comparing population across continents"
+    "text": "Consider transformations\nHere is a terrible plot comparing population across continents"
   },
   {
     "objectID": "slides/dataviz/17-dataviz-principles.html#two-countries-drive-average",
@@ -1916,7 +1916,7 @@
     "href": "slides/dataviz/17-dataviz-principles.html#encoding-a-third-variable-1",
     "title": "Data Visualization Principles",
     "section": "Encoding a third variable",
-    "text": "Encoding a third variable\nBelow is an example that encodes three variables: OPEC membership, region, and population."
+    "text": "Encoding a third variable\nWe encode OPEC membership, region, and population."
   },
   {
     "objectID": "slides/dataviz/17-dataviz-principles.html#point-shapes-available-in-r",
@@ -1965,21 +1965,21 @@
     "href": "slides/dataviz/17-dataviz-principles.html#avoid-pseudo-3d-plots-2",
     "title": "Data Visualization Principles",
     "section": "Avoid pseudo-3D plots",
-    "text": "Avoid pseudo-3D plots\n\nTry to determine the values of the survival variable in the previous plot.\nCan you tell when the purple ribbon intersects the red one?"
+    "text": "Avoid pseudo-3D plots\n\nWhen does the purple ribbon intersects the red?"
   },
   {
     "objectID": "slides/dataviz/17-dataviz-principles.html#avoid-pseudo-three-dimensional-plots",
     "href": "slides/dataviz/17-dataviz-principles.html#avoid-pseudo-three-dimensional-plots",
     "title": "Data Visualization Principles",
     "section": "Avoid pseudo-three-dimensional plots",
-    "text": "Avoid pseudo-three-dimensional plots\nThis is an example in which we can easily use color to represent the categorical variable instead of using a pseudo-3D:"
+    "text": "Avoid pseudo-three-dimensional plots\nPseudo-3D is sometimes used completely gratuitously: plots are made to look 3D even when the 3rd dimension does not represent a quantity. This only adds confusion and makes it harder to relay your message. We show two examples:"
   },
   {
     "objectID": "slides/dataviz/17-dataviz-principles.html#avoid-pseudo-three-dimensional-plots-1",
     "href": "slides/dataviz/17-dataviz-principles.html#avoid-pseudo-three-dimensional-plots-1",
     "title": "Data Visualization Principles",
     "section": "Avoid pseudo-three-dimensional plots",
-    "text": "Avoid pseudo-three-dimensional plots\nPseudo-3D is sometimes used completely gratuitously: plots are made to look 3D even when the 3rd dimension does not represent a quantity. This only adds confusion and makes it harder to relay your message. We show two examples:"
+    "text": "Avoid pseudo-three-dimensional plots\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(Images courtesy of Karl Broman)"
   },
   {
     "objectID": "slides/dataviz/17-dataviz-principles.html#avoid-pseudo-three-dimensional-plots-2",
@@ -2059,7 +2059,7 @@
     "href": "slides.html",
     "title": "Slides",
     "section": "",
-    "text": "Topic\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nFirst day\n\n\nIntroduction\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nUnix\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nRStudio\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nQuarto\n\n\nMon, Sep 09\n\n\n\n\nProductivity Tools\n\n\nGit and GitHub\n\n\nMon, Sep 09\n\n\n\n\nR\n\n\nR Basics\n\n\nMon, Sep 16\n\n\n\n\nR\n\n\nVectorization\n\n\nWed, Sep 18\n\n\n\n\nR\n\n\nTidyverse\n\n\nMon, Sep 23\n\n\n\n\nR\n\n\nggplot2\n\n\nMon, Sep 23\n\n\n\n\nR\n\n\nTidying data\n\n\nWed, Sep 25\n\n\n\n\nWrangling\n\n\nIntroduction to Wrangling\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nImporting files\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nDates And Times\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nLocales\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nData APIs\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nWeb Scraping\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nJoining Tables\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nData Visualization Principles\n\n\nWed, Aug 07\n\n\n\n\nWrangling\n\n\nDistributions\n\n\nWed, Aug 07\n\n\n\n\n\nNo matching items",
+    "text": "Topic\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nFirst day\n\n\nIntroduction\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nUnix\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nRStudio\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nQuarto\n\n\nMon, Sep 09\n\n\n\n\nProductivity Tools\n\n\nGit and GitHub\n\n\nMon, Sep 09\n\n\n\n\nR\n\n\nR Basics\n\n\nMon, Sep 16\n\n\n\n\nR\n\n\nVectorization\n\n\nWed, Sep 18\n\n\n\n\nR\n\n\nTidyverse\n\n\nMon, Sep 23\n\n\n\n\nR\n\n\nggplot2\n\n\nMon, Sep 23\n\n\n\n\nR\n\n\nTidying data\n\n\nWed, Sep 25\n\n\n\n\nWrangling\n\n\nIntroduction to Wrangling\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nImporting files\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nDates And Times\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nLocales\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nData APIs\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nWeb Scraping\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nJoining Tables\n\n\nMon, Sep 30\n\n\n\n\nData Visualization\n\n\nData Visualization Principles\n\n\nWed, Aug 07\n\n\n\n\nData Visualization\n\n\nDistributions\n\n\nFri, Aug 09\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Slides"
     ]
@@ -2198,8 +2198,8 @@
     "objectID": "slides/dataviz/18-distributions.html#visualizing-data-distributions",
     "href": "slides/dataviz/18-distributions.html#visualizing-data-distributions",
     "title": "Distributions",
-    "section": "Visualizing data distributions",
-    "text": "Visualizing data distributions\n\nSummarizing complex datasets is crucial in data analysis, allowing us to share insights drawn from the data more effectively.\nOne common method is to use the average value to summarize a list of numbers.\nFor instance, a high school’s quality might be represented by the average score in a standardized test.\nSometimes, an additional value, the standard deviation, is added."
+    "section": "",
+    "text": "Summarizing complex datasets is crucial in data analysis, allowing us to share insights drawn from the data more effectively.\nOne common method is to use the average value to summarize a list of numbers.\nFor instance, a high school’s quality might be represented by the average score in a standardized test.\nSometimes, an additional value, the standard deviation, is added."
   },
   {
     "objectID": "slides/dataviz/18-distributions.html#visualizing-data-distributions-1",
@@ -3922,5 +3922,47 @@
     "title": "Git and GitHub",
     "section": "Using Git in RStudio",
     "text": "Using Git in RStudio\n\nGo to file, new project, version control, and follow the instructions.\nThen notice the Git tab in the preferences."
+  },
+  {
+    "objectID": "slides/dataviz/18-distributions.html",
+    "href": "slides/dataviz/18-distributions.html",
+    "title": "Distributions",
+    "section": "",
+    "text": "Summarizing complex datasets is crucial in data analysis, allowing us to share insights drawn from the data more effectively.\nOne common method is to use the average value to summarize a list of numbers.\nFor instance, a high school’s quality might be represented by the average score in a standardized test.\nSometimes, an additional value, the standard deviation, is added."
+  },
+  {
+    "objectID": "slides/dataviz/17-dataviz-principles.html",
+    "href": "slides/dataviz/17-dataviz-principles.html",
+    "title": "Data Visualization Principles",
+    "section": "",
+    "text": "The next few slides are examples of infogrpahics that don’t follow data visualization principles.\nWe use them as motivation\nSeveral of the examples come from here: https://venngage.com/blog/bad-infographics/"
+  },
+  {
+    "objectID": "slides/dataviz/17-dataviz-principles.html#transformations",
+    "href": "slides/dataviz/17-dataviz-principles.html#transformations",
+    "title": "Data Visualization Principles",
+    "section": "Transformations",
+    "text": "Transformations\nHere a log transformation provides a much more informative plot:"
+  },
+  {
+    "objectID": "slides/dataviz/17-dataviz-principles.html#avoid-pseudo-3d-plots-3",
+    "href": "slides/dataviz/17-dataviz-principles.html#avoid-pseudo-3d-plots-3",
+    "title": "Data Visualization Principles",
+    "section": "Avoid pseudo-3D plots",
+    "text": "Avoid pseudo-3D plots\nColor is enough to represent the categorical variable:"
+  },
+  {
+    "objectID": "slides/dataviz/17-dataviz-principles.html#avoid-pseudo-3d-plots-4",
+    "href": "slides/dataviz/17-dataviz-principles.html#avoid-pseudo-3d-plots-4",
+    "title": "Data Visualization Principles",
+    "section": "Avoid pseudo-3D plots",
+    "text": "Avoid pseudo-3D plots\nPseudo-3D is sometimes used completely gratuitously: plots are made to look 3D even when the 3rd dimension does not represent a quantity. This only adds confusion and makes it harder to relay your message. We show two examples:"
+  },
+  {
+    "objectID": "slides/dataviz/17-dataviz-principles.html#avoid-pseudo-3d-plots-5",
+    "href": "slides/dataviz/17-dataviz-principles.html#avoid-pseudo-3d-plots-5",
+    "title": "Data Visualization Principles",
+    "section": "Avoid pseudo-3D plots",
+    "text": "Avoid pseudo-3D plots\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(Images courtesy of Karl Broman)"
   }
 ]
