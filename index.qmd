@@ -47,7 +47,7 @@ Oct 05, Oct 07 | Data visualization  | [Data Viz Principles](sslides/dataviz/17-
 | [02](psets/pset-02-r-vectorization.qmd) |  R | Sep 19   |easy | 
 | [03](psets/pset-03-tidyverse.qmd)          |  Tidyverse | Sep 27   |medium | 
 | [04](psets/pset-04-wrangling.qmd)          | Wrangling | Oct 4   | medium | 
-| [05]((psets/pset-05-dataviz.qmd) |  Covid 19 data visualization | Oct 11   |medium | 
+| [05](psets/pset-05-dataviz.qmd) |  Covid 19 data visualization | Oct 11   |medium | 
 | 06          | Probability | Oct 25   | easy | 
 | 07          | Predict the election |Nov 04   |  hard | 
 | 08          | Confidence intervals for excess mortality |Nov 15   |  hard | 
