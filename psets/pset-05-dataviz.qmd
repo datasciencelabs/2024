@@ -35,7 +35,7 @@ Your task is divided into three parts:
 
 *  **Create a Git repository** that includes the following directories:
    - `data`
-   - `docs`
+   - `code`
    - `figs`
 
 * Inside the `code` directory, include the following files:
@@ -115,7 +115,7 @@ Hint: Use `as_date`, `ymd_hms`, `epiweek` and `epiyear` functions in the **lubri
 
 8. Repeat this now for vaccination data. Keep the variables `series_complete` and `booster` along with state and date. Add this code to `wrangle.R` and comment appropriately.
 
-9. Now we are ready to join the tables. We will only consider 2020 and 2021 as we don't have population sizes for 2020. However, because we want to guarantee that all dates are included we will create a data frame with all possible weeks. Add this code to your `wrangle.R` file. We can use this:
+9. Now we are ready to join the tables. We will only consider 2020 and 2021 as we don't have population sizes for 2022. However, because we want to guarantee that all dates are included we will create a data frame with all possible weeks. Add this code to your `wrangle.R` file. We can use this:
 
 ```{r}
 #| eval: false

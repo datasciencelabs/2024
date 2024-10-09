@@ -62,7 +62,7 @@
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/psets/pset-05-dataviz.html</loc>
-    <lastmod>2024-10-07T01:24:53.512Z</lastmod>
+    <lastmod>2024-10-08T18:06:08.471Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/psets/pset-04-wrangling.html</loc>
@@ -70,11 +70,11 @@
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/index.html</loc>
-    <lastmod>2024-10-07T13:13:17.433Z</lastmod>
+    <lastmod>2024-10-09T13:40:56.351Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/dataviz/18-distributions.html</loc>
-    <lastmod>2024-10-07T13:11:49.671Z</lastmod>
+    <lastmod>2024-10-08T19:25:03.890Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/00-intro.html</loc>
@@ -111,5 +111,9 @@
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/productivity/04-git.html</loc>
     <lastmod>2024-09-09T15:56:17.788Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/dataviz/19-dataviz-in-practice.html</loc>
+    <lastmod>2024-10-09T13:26:33.282Z</lastmod>
   </url>
 </urlset>

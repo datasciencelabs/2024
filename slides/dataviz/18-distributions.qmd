@@ -44,88 +44,20 @@ options(digits = 3)
 
 - Once a data has been summarized as a distribution, there are several data visualization techniques to effectively relay this information.
 
-- For this reason, it is important to have a deep understand of the concept of a distribution.
+- Understanding distributions is therefore essential for creating useful data visualizations.
 
-- In this chapter, we discuss properties of a variety of distributions and how to visualize distributions using a motivating example of student heights.
-
-
-
-## Variable types
-
-- The main types are *categorical* and *numeric*.
-
-- Categorical can be ordinal or not.
-
-- NUmerical can be discrete or continuous.
-
-- *Categorical data* come from a small number of groups.
-
-- Two simple examples are sex (male or female) and US regions (Northeast, South, North Central, West).
-
-- Categorical data can be ordered even if they are not numbers per se, for example mild, medium, hot.
+- Note: understanding distributions is also essential for understanding inference and statistical models
 
 
-
-## Variable types
-
-- In statistics, ordered categorical data are referred to as *ordinal* data.
-
-- Examples of numerical data are population sizes, murder rates, and heights.
-
-- We can further divide numerical data into continuous and discrete.
-
-- Continuous variables are those that can take any value, such as heights, if measured with enough precision.
-
-- For example, a pair of twins may be 68.12 and 68.11 inches, respectively.
-
-
-
-## Variable types
-
-- Counts, such as population sizes, are discrete because they have to be round numbers.
-
-- Keep in mind that discrete numeric data can be considered ordinal.
-
-- Although this is technically true, we usually reserve the term ordinal data for variables belonging to a small number of different groups, with each group having many members.
-
-- In contrast, when we have many groups with few cases in each group, we typically refer to them as discrete numerical variables.
-
-
-
-## Variable types
-
-- The number of packs of cigarettes a person smokes a day, rounded to the closest pack, would be considered ordinal.
-
-* The actual number of cigarettes would be considered a numerical variable.
-
-- But there are examples that can be considered both numerical and ordinal when it comes to visualizing data.
-
-## Variable types
-
-- Here we focus on numeric variables because visualizing this data type is substantially more complex.
-
-- However, we start by describing data visualization and summarization approaches for categorical data.
 
 
 ## Case study: describing student heights
 
-- We introduce a new motivating problem.
+- Pretend that we have to describe the heights of our classmates to someone that has never seen humans.
 
-- It is an artificial one, but it will help us illustrate the concepts needed to understand distributions.
+- We ask students to report their height in inches.
 
-- Pretend that we have to describe the heights of our classmates to ET, an extraterrestrial that has never seen humans.
-
-- As a first step, we need to collect data.
-
-- To do this, we ask students to report their heights in inches.
-
-
-
-## Case study
-
-- We ask them to provide sex information because we know there are two different height distributions by sex.
-
-- We collect the data and save it in the `heights` data frame:
+- We also ask them to report sex because there are two different height distributions.
 
 ```{r load-heights, warning=FALSE, message=FALSE, cache=FALSE} 
 library(tidyverse) 
@@ -133,11 +65,12 @@ library(dslabs)
 head(heights) 
 ``` 
 
-- One way to convey the heights to ET is to simply send him this list of `r prettyNum(nrow(heights), big.mark=",")` heights.
 
 
 
 ## Case study
+
+- One way to convey the heights to ET is to simply send him this list of `r prettyNum(nrow(heights), big.mark=",")` heights.
 
 - But there are much more effective ways to convey this information, and understanding the concept of a distribution will be key.
 
@@ -146,39 +79,20 @@ head(heights)
 - We examine the female height data later.
 
 
-
 ## Distributions
 
 - The most basic statistical summary of a list of objects or numbers is its *distribution*.
 
-- The simplest way to think of a distribution is as a compact description of a list with many entries.
-
-- This concept should not be new for readers of this book.
-
-- For example, with categorical data, the distribution simply describes the proportion of each unique category.
-
-## Distributions
-
-- The sex represented in the heights dataset is:
+- For example, with categorical data, the distribution simply describes the proportion of each unique category:
 
 ```{r echo = FALSE} 
 prop.table(table(heights$sex)) 
 ``` 
 
 
-
 ## Distributions
 
-- This two-category *frequency table* is the simplest form of a distribution.
-
-- We don't really need to visualize it since one number describes everything we need to know: `r round(mean(heights$sex=="Female")*100)`% are females and the rest are males.
-
-- When there are more categories, then a simple barplot describes the distribution.
-
-
-
-
-## Distributions
+- To visualize this we simply use a barplot.
 
 - Here is an example with US state regions:
 
@@ -187,43 +101,26 @@ murders |> group_by(region) |>
   summarize(n = n()) |> 
   mutate(Proportion = n/sum(n),  
          region = reorder(region, Proportion)) |> 
-  ggplot(aes(x=region, y=Proportion, fill=region)) +  
+  ggplot(aes(x = region, y = Proportion, fill = region)) +  
   geom_bar(stat = "identity", show.legend = FALSE) +  
   xlab("") 
 ``` 
 
-
-## Distributions
-
-- This particular plot simply shows us four numbers, one for each category.
-
-- We usually use barplots to display a few numbers.
-
-- Although this particular plot does not provide much more insight than a frequency table itself, it is a first example of how we convert a vector into a plot that succinctly summarizes all the information in the vector.
+## Histograms
 
 - When the data is numerical, the task of displaying distributions is more challenging.
 
-
-
-## Histograms
-
-- Numerical data that are not categorical also have distributions.
-
-- However, in general, when data is not categorical, reporting the frequency of each entry, as we did for categorical data, is not an effective summary since most entries are unique.
+- When data is not categorical, reporting the frequency of each entry, as we did for categorical data, is not an effective summary since most entries are unique.
 
 - For example, in our case study, while several students reported a height of 68 inches, only one student reported a height of `68.503937007874` inches and only one student reported a height `68.8976377952756` inches.
 
-- We assume that they converted from 174 and 175 centimeters, respectively.
-
 
 
 ## Histograms
 
-- Statistics textbooks teach us that a more useful way to define a distribution for numeric data is to define a function that reports the proportion of the data below $a$ for all possible values of $a$.
+- A more useful way to define a distribution for numeric data is to define a function that reports the proportion of the data below $a$ for all possible values of $a$.
 
 - This function is called the empirical cumulative distribution function (eCDF), it can be plotted, and it provides a full description of the distribution of our data.
-
-
 
 
 ## Histograms
@@ -246,19 +143,8 @@ heights |> filter(sex=="Male") |>
 
 - The main reason is that it does not easily convey characteristics of interest such as: at what value is the distribution centered? Is the distribution symmetric? What ranges contain 95% of the values?
 
-- *Histograms* are much preferred because they greatly facilitate answering such questions.
-
 - Histograms sacrifice just a bit of information to produce plots that are much easier to interpret.
 
-
-
-## Histograms
-
-- The simplest way to make a histogram is to divide the span of our data into non-overlapping bins of the same size.
-
-- Then, for each bin, we count the number of values that fall in that interval.
-
-- The histogram plots these counts as bars with the base of the bar defined by the intervals.
 
 
 ## Histograms
@@ -273,45 +159,19 @@ heights |>
   geom_histogram(binwidth = 1, color = "black") 
 ``` 
 
-
-## Histograms
-
-- As you can see in the figure above, a histogram is similar to a barplot, but it differs in that the x-axis is numerical, not categorical.
-
-- If we send this plot to ET, he will immediately learn some important properties about our data.
-
-- First, the range of the data is from 50 to 84 with the majority (more than 95%) between 63 and 75 inches.
-
-- Second, the heights are close to symmetric around 69 inches.
-
-- Also, by adding up counts, ET could obtain a very good approximation of the proportion of the data in any interval.
-
-
-
-## Histograms
-
-- The histogram is not only easy to interpret, but also provides almost all the information contained in the raw list of `r sum(heights$sex=="Male")` male heights with about 30 bins.
-
-- What information do we lose? Note that all values in each interval are treated the same when computing bin heights.
-
-- So the histogram does not distinguish between 64, 64.1, and 64.2 inches.
-
-- Given that these differences are almost unnoticeable, the practical implications are negligible and we were able to summarize the data to just 23 numbers.
-
+- From this plot one immediately learn some important properties about our data.
 
 
 ## Smoothed density
 
-- *Smooth density* plots relay the same information as a histogram but are aesthetically more appealing.
-
-- Here is what a smooth density plot looks like for our male heights data:
+- *Smooth density* plots relay the same information as a histogram but are aesthetically more appealing:
 
 ```{r example-of-smoothed-density, echo=FALSE} 
 heights |>  
-  filter(sex=="Male") |>  
+  filter(sex == "Male") |>  
   ggplot(aes(height)) +  
-  geom_density(alpha = .2, fill= "#00BFC4", color = 0)  + 
-  geom_line(stat='density') 
+  geom_density(alpha = .2, fill = "#00BFC4", color = 0)  + 
+  geom_line(stat = 'density') 
 ``` 
 
 
@@ -319,23 +179,9 @@ heights |>
 
 - In this plot, we no longer have sharp edges at the interval boundaries and many of the local peaks have been removed.
 
-- The scale of the y-axis changed from counts to *density*.
+- The scale of the y-axis changed from counts to *density*. Values shown y-axis are chosen so that the area under the curve adds up to 1.
 
-- To fully understand smooth densities, we have to understand *estimates*, a topic covered in statistics our advanced data science textbooks.
-
-- Here we simply describe them as making the histograms prettier by drawing a curve that goes through the top of the histogram bars and then removing the bars.
-
-
-
-## Smoothed density
-
-- The values shown y-axis are chosen so that the area under the curve adds up to 1.
-
-- This implies that for any interval, the area under the curve for that interval gives us an approximation of how what proportion of the data is in the interval.
-
-- An advantage of smooth densities over histograms for visualization purposes is that densities make it easier to compare two distributions.
-
-- This is in large part because the jagged edges of the histogram add clutter.
+- To fully understand smooth densities, we have to understand *estimates*,  a concept we cover later in the course.
 
 
 
@@ -355,15 +201,18 @@ heights |>
 
 - Histograms and density plots provide excellent summaries of a distribution.
 
-- But can we summarize even further? We often see the average and standard deviation used as summary statistics: a two-number summary! To understand what these summaries are and why they are so widely used, we need to understand the normal distribution.
+- But can we summarize even further? 
 
-- The normal distribution, also known as the bell curve and as the Gaussian distribution.
+- We often see the average and standard deviation used as summary statistics
 
-- Here is what the normal distribution looks like:
+- To understand what these summaries are and why they are so widely used, we need to understand the normal distribution.
+
 
 
 
 ## The normal distribution
+
+- The normal distribution, also known as the bell curve and as the Gaussian distribution.
 
 ```{r normal-distribution-density, echo=FALSE} 
 mu <- 0; s <- 1 
@@ -374,33 +223,22 @@ norm_dist |> ggplot(aes(x,density)) + geom_line()
 
 ## The normal distribution
 
-- The normal distribution is one of the most famous mathematical concepts in history.
-
-- A reason for this is that the distribution of many datasets can be approximated with normal distributions.
+- Many datasets can be approximated with normal distributions.
 
 - These include gambling winnings, heights, weights, blood pressure, standardized test scores, and experimental measurement errors.
 
-- Statistical textbooks offer explanations for why this is the case.
 
+- But how can the same distribution approximate datasets with completely different ranges for values?
 
 
 ## The normal distribution
 
-- But how can the same distribution approximate datasets with completely different ranges for values, for example heights and weights? 
 
 - The normal distribution can be adapted to different datasets by just adjusting two numbers, referred to as the *average* or *mean* and the *standard deviation* (SD).
 
-- The normal distribution is symmetric, centered at what we refer to as the average, and most values (about 95%) are within 2 SDs from the average.
-
-- A normal distribution with average 0 and SD 1 is referred to as a *standard normal*.
-
-
-
-## The normal distribution
-
 - Because we only need two numbers to adapt the normal distribution to a dataset implies that if our data distribution is approximated by a normal distribution, all the information needed to describe the distribution can be encoded by just two numbers.
 
-- Once we are convinced that our data, say it is stored in the vector `x`, has a distribution that is *approximately normal*, we can find the specific one that matches our data by matching the average and SD of the data to the average and SD of the normal distribution, respectively.
+- A normal distribution with average 0 and SD 1 is referred to as a *standard normal*.
 
 
 
@@ -418,34 +256,36 @@ x <- heights$height[index]
 
 ```{r, eval=TRUE} 
 #| echo: true
-m <- sum(x) / length(x) 
+m <- sum(x) / length(x) # or mean(x)
 ``` 
 
 - and the SD is defined as:
 
 ```{r} 
 #| echo: true
-s <- sqrt(sum((x - mu)^2) / length(x)) 
+s <- sqrt(sum((x - m)^2) / length(x)) # or sd(x)
 ``` 
 
-- which can be interpreted as the average distance between values and their average.
+---
 
+:::{.callout-warning}
 
+`sd(x)` is the _sample_ standard deviation which is not exactly the same as the standard deviation.
 
-## The normal distribution
-
-- The pre-built functions `mean` and `sd` (note that, for reasons explained in statistics textbooks,`sd` divides by `length(x)-1` rather than `length(x)`) can be used here:
+For reasons explained in later,`sd` divides by `length(x)-1` rather than `length(x)` can be used here:
 
 ```{r} 
 #| echo: true
-m <- mean(x) 
-s <- sd(x) 
-c(average = m, sd = s) 
+n <- length(x)
+sd(x)^2*(n - 1)/n - sum((x - mean(x))^2)/n
 ``` 
+
+:::
+
 
 ## The normal distribution
 
-- Here is a plot of our student height smooth density in blue and the normal distribution with mean = `r round(m,1)` and SD = `r round(s,1)` plotted as a black line:
+- Here is a plot of our male student height smooth density (blue) and the normal distribution (black) with mean = `r round(m,1)` and SD = `r round(s,1)`:
 
 ```{r data-and-normal-densities, echo=FALSE} 
 norm_dist <- data.frame(x = seq(-4, 4, len = 50)*s + m) |>  
@@ -456,31 +296,9 @@ heights |> filter(sex == "Male") |> ggplot(aes(height)) +
 ``` 
 
 
-## Boxplots
-
-- To understand boxplots we need to define some terms that are commonly used in exploratory data analysis.
-
-- The *percentiles* are the values for which $p = 0.01, 0.02, ..., 0.99$ of the data are less then or equal to that value, respectively.
-
-- We call, for example, the case of $p=0.10$ the 10th percentile, which gives us a number for which 10% of the data is below.
-
-- The most famous percentile is the 50th, also known as the *median*.
-
-
-
-## Boxplots
-
-- Another special case that receives a name are the *quartiles*, which are obtained when setting $p=0.25,0.50$, and $0.75$, which are used by the boxplot.
-
-- To motivate boxplots we will go back to the US murder data.
+## Boxplot 
 
 - Suppose we want to summarize the murder rate distribution.
-
-- Using the data visualization technique we have learned, we can quickly see that the normal approximation does not apply here:
-
-
-
-## Boxplots
 
 ```{r hist-non-normal-data, echo=FALSE} 
 murders <- murders |> mutate(rate = total/population*100000) 
@@ -492,7 +310,11 @@ murders |> ggplot(aes(x = rate)) + geom_histogram(binwidth = 0.5, color = "black
 
 - In this case, the histogram above or a smooth density plot would serve as a relatively succinct summary.
 
-- Now suppose those used to receiving just two numbers as summaries ask us for a more compact numerical summary.
+- But what if we want a more compact numerical summary?
+
+- Two summaries will not suffice here because the data is not normal.
+
+## Boxplots
 
 - The *boxplot* provides a five-number summary composed of the range (the minimum and maximum) along with the *quartiles* (the 25th, 50th, and 75th percentiles).
 
@@ -501,67 +323,47 @@ murders |> ggplot(aes(x = rate)) + geom_histogram(binwidth = 0.5, color = "black
 - The help file provides a specific definition of outliers.
 
 
-
 ## Boxplots
 
-- The boxplot shows these numbers as a "box" with "whiskers".
 
-```{r first-boxplot, echo=FALSE} 
+The boxplot sumarizes with a _box_ with _whiskers_:
+
+::: {.columns}
+::: {.column width="50%"}
+
+```{r first-boxplot, fig.width=5, echo=FALSE} 
 murders |> ggplot(aes("",rate)) + geom_boxplot() + 
   coord_cartesian(xlim = c(0, 2)) + xlab("") 
 ``` 
+:::
+
+::: {.column width="50%"}
+
+From just this simple plot, we know that: 
+
+- the median is about 2.5, 
+- that the distribution is not symmetric, and that 
+- the range is 0 to 5 for the great majority of states with two exceptions.
+
+:::
+
+:::
 
 
 ## Boxplots
-
-- with the box defined by the 25% and 75% percentile and the whiskers showing the range.
-
-- The distance between the 25% and 75% percentile is called the *interquartile* range.
-
-- The two points are outliers according to the R implementation.
-
-- The median is shown with a horizontal line.
-
-
-
-## Boxplots
-
-- From just this simple plot, we know that the median is about 2.5, that the distribution is not symmetric, and that the range is 0 to 5 for the great majority of states with two exceptions.
-
-
-## Stratification
 
 - In data analysis we often divide observations into groups based on the values of one or more variables associated with those observations.
-
-- For example in the next section we divide the height values into groups based on a sex variable: females and males.
 
 - We call this procedure *stratification* and refer to the resulting groups as *strata*.
 
 - Stratification is common in data visualization because we are often interested in how the distributions of variables differ across different subgroups.
 
-
-
-## Stratification
-
-- We will see several examples throughout this part of the book, starting with the next section.
-
+- Stratifying and then making boxplot is a common approach to visualizing these differences.
 
 
 ## Case study continued
 
-- If we are convinced that the male height data is well approximated with a normal distribution we can report back to ET a very succinct summary: male heights follow a normal distribution with an average of `r round(m, 1)` inches and a SD of `r round(s,1)` inches.
-
-- With this information, ET will have a good idea of what to expect when he meets our male students.
-
-- However, to provide a complete picture we need to also provide a summary of the female heights.
-
-- Boxplots are useful when we want to quickly compare two or more distributions.
-
-
-
-## Case study continued
-
-- Here are the heights for men and women:
+Here are the heights for men and women:
 
 ```{r female-male-boxplots, echo=FALSE} 
 heights |> ggplot(aes(x = sex, y = height, fill = sex)) + 
@@ -573,15 +375,8 @@ heights |> ggplot(aes(x = sex, y = height, fill = sex)) +
 
 - The plot immediately reveals that males are, on average, taller than females.
 
-- The  interquartile ranges appear to be similar.
-
-- But does the normal approximation also work for the female height data collected by the survey? We expect that they will follow a normal distribution, just like males.
-
 - However, exploratory plots reveal that the approximation is not as useful:
 
-
-
-## Case study continued
 
 ```{r histogram-qqplot-female-heights, echo=FALSE} 
 heights |> filter(sex == "Female") |> 
@@ -592,39 +387,10 @@ heights |> filter(sex == "Female") |>
 
 ## Case study continued
 
-- We see something we did not see for the males: the density plot has a second "bump".
 
-- Also, the highest points tend to be taller than expected by the normal than expected heights for a normal distribution.
+- A likely for the second _bump_ is that `female` as the default in the reporting tool.
 
-- When reporting back to ET, we might need to provide a histogram rather than just the average and standard deviation for the female heights.
-
-- However, go back and read Tukey's quote.
-
-- We have noticed what we didn't expect to see.
-
-
-
-## Case study continued
-
-- If we look at other female height distributions, we do find that they are well approximated with a normal distribution.
-
-- So why are our female students different? 
-
-- Is our class a requirement for the female basketball team? 
-
-- Are small proportions of females claiming to be taller than they are? 
-
-## Case study continued
-    
-- Another, perhaps more likely, explanation is that in the form students used to enter their heights, `FEMALE` was the default sex and some males entered their heights, but forgot to change the sex variable.
-
-- In any case, data visualization has helped discover a potential flaw in our data.
-
-
-
-## Case study continued
-
-- Regarding the five smallest values, note that these values are:
+- The unexpected five smallest values are likely cases of `5'x''` reported as `5x`
 
 ```{r} 
 heights |> filter(sex == "Female") |>  
@@ -632,5 +398,4 @@ heights |> filter(sex == "Female") |>
   pull(height) 
 ``` 
 
-- Because these are reported heights, a possibility is that the student meant to enter `5'1"`, `5'2"`, `5'3"` or `5'5"`.
 

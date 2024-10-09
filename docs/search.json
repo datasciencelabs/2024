@@ -2059,7 +2059,7 @@
     "href": "slides.html",
     "title": "Slides",
     "section": "",
-    "text": "Topic\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nFirst day\n\n\nIntroduction\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nUnix\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nRStudio\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nQuarto\n\n\nMon, Sep 09\n\n\n\n\nProductivity Tools\n\n\nGit and GitHub\n\n\nMon, Sep 09\n\n\n\n\nR\n\n\nR Basics\n\n\nMon, Sep 16\n\n\n\n\nR\n\n\nVectorization\n\n\nWed, Sep 18\n\n\n\n\nR\n\n\nTidyverse\n\n\nMon, Sep 23\n\n\n\n\nR\n\n\nggplot2\n\n\nMon, Sep 23\n\n\n\n\nR\n\n\nTidying data\n\n\nWed, Sep 25\n\n\n\n\nWrangling\n\n\nIntroduction to Wrangling\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nImporting files\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nDates And Times\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nLocales\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nData APIs\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nWeb Scraping\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nJoining Tables\n\n\nMon, Sep 30\n\n\n\n\nData Visualization\n\n\nData Visualization Principles\n\n\nWed, Aug 07\n\n\n\n\nData Visualization\n\n\nDistributions\n\n\nFri, Aug 09\n\n\n\n\n\nNo matching items",
+    "text": "Topic\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nFirst day\n\n\nIntroduction\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nUnix\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nRStudio\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nQuarto\n\n\nMon, Sep 09\n\n\n\n\nProductivity Tools\n\n\nGit and GitHub\n\n\nMon, Sep 09\n\n\n\n\nR\n\n\nR Basics\n\n\nMon, Sep 16\n\n\n\n\nR\n\n\nVectorization\n\n\nWed, Sep 18\n\n\n\n\nR\n\n\nTidyverse\n\n\nMon, Sep 23\n\n\n\n\nR\n\n\nggplot2\n\n\nMon, Sep 23\n\n\n\n\nR\n\n\nTidying data\n\n\nWed, Sep 25\n\n\n\n\nWrangling\n\n\nIntroduction to Wrangling\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nImporting files\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nDates And Times\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nLocales\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nData APIs\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nWeb Scraping\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nJoining Tables\n\n\nMon, Sep 30\n\n\n\n\nData Visualization\n\n\nData Visualization Principles\n\n\nWed, Aug 07\n\n\n\n\nData Visualization\n\n\nDistributions\n\n\nFri, Aug 09\n\n\n\n\nData Visualization\n\n\nDataviz In Practice\n\n\nFri, Aug 09\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Slides"
     ]
@@ -2104,7 +2104,7 @@
     "href": "psets/pset-05-dataviz.html#instructions",
     "title": "Problem set 5",
     "section": "Instructions",
-    "text": "Instructions\n\nCreate a Git repository that includes the following directories:\n\ndata\ndocs\nfigs\n\nInside the code directory, include the following files:\n\nfuncs.R\nwrangle.R\nanalysis.qmd\n\nThe figs directory should contain three PNG files, with each file corresponding to one of the figures you are asked to create.\n\nDetailed instructions follow for each of the tasks."
+    "text": "Instructions\n\nCreate a Git repository that includes the following directories:\n\ndata\ncode\nfigs\n\nInside the code directory, include the following files:\n\nfuncs.R\nwrangle.R\nanalysis.qmd\n\nThe figs directory should contain three PNG files, with each file corresponding to one of the figures you are asked to create.\n\nDetailed instructions follow for each of the tasks."
   },
   {
     "objectID": "psets/pset-05-dataviz.html#download-data",
@@ -2118,7 +2118,7 @@
     "href": "psets/pset-05-dataviz.html#wrangling-challenge",
     "title": "Problem set 5",
     "section": "Wrangling Challenge",
-    "text": "Wrangling Challenge\nIn this section, you will wrangle the files downloaded in the previous step into a single data frame containing all the necessary information. We recommend using the following column names: date, state, cases, hosp, deaths, vax, booster, and population.\n\nKey Considerations\n\nAlign reporting periods: Ensure that the time periods for which each outcome is reported are consistent. Specifically, calculate the totals for each Morbidity and Mortality Weekly Report (MMWR) period.\nHarmonize variable names: To facilitate the joining of datasets, rename variables so that they match across all datasets.\n\n\nOne challenge is data frames use different column names to represent the same variable. Examine each data frame and report back 1) the name of the column with state abbreviations, 2) if the it’s yearly, monthly, or weekly, daily data, 3) all the column names that provide date information.\n\n\n\n\nOutcome\nJurisdiction variable name\nRate\ntime variable names\n\n\n\n\ncases\n\n\n\n\n\nhospitalizations\n\n\n\n\n\ndeaths\n\n\n\n\n\nvaccines\n\n\n\n\n\n\n\nWrangle the cases data frame to keep state MMWR year, MMWR week, and the total number of cases for that week in that state. Keep only states for which we have population estimates. Hint: Use as_date, ymd_hms, epiweek and epiyear functions in the lubridate package. Comment appropriately.\nNow repeat the same exercise for hospitalizations. Note that you will have to collapse the data into weekly data and keep the same columns as in the cases dataset, except keep total weekly hospitalizations instead of cases. Remove weeks with less than 7 days reporting. Add this code to wrangle.R and comment appropriately.\nRepeat what you did in the previous two exercises for provisional COVID-19 deaths. Add this code to wrangle.R and comment appropriately.\nRepeat this now for vaccination data. Keep the variables series_complete and booster along with state and date. Add this code to wrangle.R and comment appropriately.\nNow we are ready to join the tables. We will only consider 2020 and 2021 as we don’t have population sizes for 2020. However, because we want to guarantee that all dates are included we will create a data frame with all possible weeks. Add this code to your wrangle.R file. We can use this:\n\n\n## Make dates data frame\nall_dates &lt;- data.frame(date = seq(make_date(2020, 1, 25),\n                                   make_date(2021, 12, 31), \n                                   by = \"week\")) |&gt;\n  mutate(date = ceiling_date(date, unit = \"week\", week_start = 7) - days(1)) |&gt;\n  mutate(mmwr_year = epiyear(date), mmwr_week = epiweek(date)) \n\ndates_and_pop &lt;- cross_join(all_dates, data.frame(state = unique(population$state))) |&gt; left_join(population, by = c(\"state\", \"mmwr_year\" = \"year\"))\n\nNow join all the table to create your final table. Make sure it is ordered by date within each state. Call it dat and save an RDS file to the data directory. Add this code to wrangle.R and comment appropriately."
+    "text": "Wrangling Challenge\nIn this section, you will wrangle the files downloaded in the previous step into a single data frame containing all the necessary information. We recommend using the following column names: date, state, cases, hosp, deaths, vax, booster, and population.\n\nKey Considerations\n\nAlign reporting periods: Ensure that the time periods for which each outcome is reported are consistent. Specifically, calculate the totals for each Morbidity and Mortality Weekly Report (MMWR) period.\nHarmonize variable names: To facilitate the joining of datasets, rename variables so that they match across all datasets.\n\n\nOne challenge is data frames use different column names to represent the same variable. Examine each data frame and report back 1) the name of the column with state abbreviations, 2) if the it’s yearly, monthly, or weekly, daily data, 3) all the column names that provide date information.\n\n\n\n\nOutcome\nJurisdiction variable name\nRate\ntime variable names\n\n\n\n\ncases\n\n\n\n\n\nhospitalizations\n\n\n\n\n\ndeaths\n\n\n\n\n\nvaccines\n\n\n\n\n\n\n\nWrangle the cases data frame to keep state MMWR year, MMWR week, and the total number of cases for that week in that state. Keep only states for which we have population estimates. Hint: Use as_date, ymd_hms, epiweek and epiyear functions in the lubridate package. Comment appropriately.\nNow repeat the same exercise for hospitalizations. Note that you will have to collapse the data into weekly data and keep the same columns as in the cases dataset, except keep total weekly hospitalizations instead of cases. Remove weeks with less than 7 days reporting. Add this code to wrangle.R and comment appropriately.\nRepeat what you did in the previous two exercises for provisional COVID-19 deaths. Add this code to wrangle.R and comment appropriately.\nRepeat this now for vaccination data. Keep the variables series_complete and booster along with state and date. Add this code to wrangle.R and comment appropriately.\nNow we are ready to join the tables. We will only consider 2020 and 2021 as we don’t have population sizes for 2022. However, because we want to guarantee that all dates are included we will create a data frame with all possible weeks. Add this code to your wrangle.R file. We can use this:\n\n\n## Make dates data frame\nall_dates &lt;- data.frame(date = seq(make_date(2020, 1, 25),\n                                   make_date(2021, 12, 31), \n                                   by = \"week\")) |&gt;\n  mutate(date = ceiling_date(date, unit = \"week\", week_start = 7) - days(1)) |&gt;\n  mutate(mmwr_year = epiyear(date), mmwr_week = epiweek(date)) \n\ndates_and_pop &lt;- cross_join(all_dates, data.frame(state = unique(population$state))) |&gt; left_join(population, by = c(\"state\", \"mmwr_year\" = \"year\"))\n\nNow join all the table to create your final table. Make sure it is ordered by date within each state. Call it dat and save an RDS file to the data directory. Add this code to wrangle.R and comment appropriately."
   },
   {
     "objectID": "psets/pset-05-dataviz.html#data-visualization-generate-some-plots",
@@ -2159,7 +2159,7 @@
     "href": "index.html#lectures",
     "title": "BST 260 Introduction to Data Science",
     "section": "Lectures",
-    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09, Sep 11\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git\n\n\nSep 16, Sep 19\nR\nR basics, Vectorization\nR Basics, Vectorization\n\n\nSep 23\nR\nTidyverse, ggplot2\ndplyr, ggplot2\n\n\nSep 25\nR\nTyding data\nReshaping Data\n\n\nSep 30, Oct 02\nWrangling\nIntro, Data Importing, Dates and Times, Locales, Data APIs, Web scraping, Joining tables\nImporting data, dates and times, Locales, Joining Tables, Extracting data from the web\n\n\nOct 05, Oct 07\nData visualization\nData Viz Principles, Distributions,\nDistributions, Dataviz Principles\n\n\nOct 09\nProbability\n\nMonte Carlo, Random Variables & CLT\n\n\nOct 16\nMidterm 1\n\nCovers material from Sep 04-Oct 11\n\n\nOct 21, Oct 23\nInference\n\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\n\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\n\nRegression, Multivariate Regression\n\n\nNov 13\nLinear models\n\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 18, Nov 20\nHigh dimensional data\n\nMatrices in R, Applied Linear Algebra, Dimension Reduction\n\n\nNov 25\nMidterm 2\n\nMidterm 2: cover material from Sep 04-Nov 22\n\n\nDec 02, Dec 04\nMachine Learning\n\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nDec 09, Dec 11\nMachine Learning\n\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
+    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09, Sep 11\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git\n\n\nSep 16, Sep 19\nR\nR basics, Vectorization\nR Basics, Vectorization\n\n\nSep 23\nR\nTidyverse, ggplot2\ndplyr, ggplot2\n\n\nSep 25\nR\nTyding data\nReshaping Data\n\n\nSep 30, Oct 02\nWrangling\nIntro, Data Importing, Dates and Times, Locales, Data APIs, Web scraping, Joining tables\nImporting data, dates and times, Locales, Joining Tables, Extracting data from the web\n\n\nOct 07, Oct 09\nData visualization\nData Viz Principles, Distributions, Dataviz in practice\nDistributions, Dataviz Principles\n\n\nOct 16\nMidterm 1\n\nCovers material from Sep 04-Oct 11\n\n\nOct 21\nProbability\n\nMonte Carlo, Random Variables & CLT\n\n\nOct 23\nInference\n\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\n\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\n\nRegression, Multivariate Regression\n\n\nNov 13\nLinear models\n\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 18, Nov 20\nHigh dimensional data\n\nMatrices in R, Applied Linear Algebra, Dimension Reduction\n\n\nNov 25\nMidterm 2\n\nMidterm 2: cover material from Sep 04-Nov 22\n\n\nDec 02, Dec 04\nMachine Learning\n\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nDec 09, Dec 11\nMachine Learning\n\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
     "crumbs": [
       "Home"
     ]
@@ -2213,7 +2213,7 @@
     "href": "slides/dataviz/18-distributions.html#visualizing-data-distributions-2",
     "title": "Distributions",
     "section": "Visualizing data distributions",
-    "text": "Visualizing data distributions\n\nThe most basic statistical summary of a list of objects or numbers is its distribution.\nOnce a data has been summarized as a distribution, there are several data visualization techniques to effectively relay this information.\nFor this reason, it is important to have a deep understand of the concept of a distribution.\nIn this chapter, we discuss properties of a variety of distributions and how to visualize distributions using a motivating example of student heights."
+    "text": "Visualizing data distributions\n\nThe most basic statistical summary of a list of objects or numbers is its distribution.\nOnce a data has been summarized as a distribution, there are several data visualization techniques to effectively relay this information.\nUnderstanding distributions is therefore essential for creating useful data visualizations.\nNote: understanding distributions is also essential for understanding inference and statistical models"
   },
   {
     "objectID": "slides/dataviz/18-distributions.html#variable-types",
@@ -2255,14 +2255,14 @@
     "href": "slides/dataviz/18-distributions.html#case-study-describing-student-heights",
     "title": "Distributions",
     "section": "Case study: describing student heights",
-    "text": "Case study: describing student heights\n\nWe introduce a new motivating problem.\nIt is an artificial one, but it will help us illustrate the concepts needed to understand distributions.\nPretend that we have to describe the heights of our classmates to ET, an extraterrestrial that has never seen humans.\nAs a first step, we need to collect data.\nTo do this, we ask students to report their heights in inches."
+    "text": "Case study: describing student heights\n\nPretend that we have to describe the heights of our classmates to someone that has never seen humans.\nWe ask students to report their height in inches.\nWe also ask them to report sex because there are two different height distributions.\n\n\n\n     sex height\n1   Male     75\n2   Male     70\n3   Male     68\n4   Male     74\n5   Male     61\n6 Female     65"
   },
   {
     "objectID": "slides/dataviz/18-distributions.html#case-study",
     "href": "slides/dataviz/18-distributions.html#case-study",
     "title": "Distributions",
     "section": "Case study",
-    "text": "Case study\n\nWe ask them to provide sex information because we know there are two different height distributions by sex.\nWe collect the data and save it in the heights data frame:\n\n\n\n     sex height\n1   Male     75\n2   Male     70\n3   Male     68\n4   Male     74\n5   Male     61\n6 Female     65\n\n\n\nOne way to convey the heights to ET is to simply send him this list of 1,050 heights."
+    "text": "Case study\n\nOne way to convey the heights to ET is to simply send him this list of 1,050 heights.\nBut there are much more effective ways to convey this information, and understanding the concept of a distribution will be key.\nTo simplify the explanation, we first focus on male heights.\nWe examine the female height data later."
   },
   {
     "objectID": "slides/dataviz/18-distributions.html#case-study-1",
@@ -2276,14 +2276,14 @@
     "href": "slides/dataviz/18-distributions.html#distributions",
     "title": "Distributions",
     "section": "Distributions",
-    "text": "Distributions\n\nThe most basic statistical summary of a list of objects or numbers is its distribution.\nThe simplest way to think of a distribution is as a compact description of a list with many entries.\nThis concept should not be new for readers of this book.\nFor example, with categorical data, the distribution simply describes the proportion of each unique category."
+    "text": "Distributions\n\nThe most basic statistical summary of a list of objects or numbers is its distribution.\nFor example, with categorical data, the distribution simply describes the proportion of each unique category:\n\n\n\n\nFemale   Male \n 0.227  0.773"
   },
   {
     "objectID": "slides/dataviz/18-distributions.html#distributions-1",
     "href": "slides/dataviz/18-distributions.html#distributions-1",
     "title": "Distributions",
     "section": "Distributions",
-    "text": "Distributions\n\nThe sex represented in the heights dataset is:\n\n\n\n\nFemale   Male \n 0.227  0.773"
+    "text": "Distributions\n\nTo visualize this we simply use a barplot.\nHere is an example with US state regions:"
   },
   {
     "objectID": "slides/dataviz/18-distributions.html#distributions-2",
@@ -2311,14 +2311,14 @@
     "href": "slides/dataviz/18-distributions.html#histograms",
     "title": "Distributions",
     "section": "Histograms",
-    "text": "Histograms\n\nNumerical data that are not categorical also have distributions.\nHowever, in general, when data is not categorical, reporting the frequency of each entry, as we did for categorical data, is not an effective summary since most entries are unique.\nFor example, in our case study, while several students reported a height of 68 inches, only one student reported a height of 68.503937007874 inches and only one student reported a height 68.8976377952756 inches.\nWe assume that they converted from 174 and 175 centimeters, respectively."
+    "text": "Histograms\n\nWhen the data is numerical, the task of displaying distributions is more challenging.\nWhen data is not categorical, reporting the frequency of each entry, as we did for categorical data, is not an effective summary since most entries are unique.\nFor example, in our case study, while several students reported a height of 68 inches, only one student reported a height of 68.503937007874 inches and only one student reported a height 68.8976377952756 inches."
   },
   {
     "objectID": "slides/dataviz/18-distributions.html#histograms-1",
     "href": "slides/dataviz/18-distributions.html#histograms-1",
     "title": "Distributions",
     "section": "Histograms",
-    "text": "Histograms\n\nStatistics textbooks teach us that a more useful way to define a distribution for numeric data is to define a function that reports the proportion of the data below \\(a\\) for all possible values of \\(a\\).\nThis function is called the empirical cumulative distribution function (eCDF), it can be plotted, and it provides a full description of the distribution of our data."
+    "text": "Histograms\n\nA more useful way to define a distribution for numeric data is to define a function that reports the proportion of the data below \\(a\\) for all possible values of \\(a\\).\nThis function is called the empirical cumulative distribution function (eCDF), it can be plotted, and it provides a full description of the distribution of our data."
   },
   {
     "objectID": "slides/dataviz/18-distributions.html#histograms-2",
@@ -2332,14 +2332,14 @@
     "href": "slides/dataviz/18-distributions.html#histograms-3",
     "title": "Distributions",
     "section": "Histograms",
-    "text": "Histograms\n\nHowever, summarizing data by plotting the eCDF is actually not very popular in practice.\nThe main reason is that it does not easily convey characteristics of interest such as: at what value is the distribution centered? Is the distribution symmetric? What ranges contain 95% of the values?\nHistograms are much preferred because they greatly facilitate answering such questions.\nHistograms sacrifice just a bit of information to produce plots that are much easier to interpret."
+    "text": "Histograms\n\nHowever, summarizing data by plotting the eCDF is actually not very popular in practice.\nThe main reason is that it does not easily convey characteristics of interest such as: at what value is the distribution centered? Is the distribution symmetric? What ranges contain 95% of the values?\nHistograms sacrifice just a bit of information to produce plots that are much easier to interpret."
   },
   {
     "objectID": "slides/dataviz/18-distributions.html#histograms-4",
     "href": "slides/dataviz/18-distributions.html#histograms-4",
     "title": "Distributions",
     "section": "Histograms",
-    "text": "Histograms\n\nThe simplest way to make a histogram is to divide the span of our data into non-overlapping bins of the same size.\nThen, for each bin, we count the number of values that fall in that interval.\nThe histogram plots these counts as bars with the base of the bar defined by the intervals."
+    "text": "Histograms\nHere is the histogram for the height data splitting the range of values into one inch intervals: \\((49.5, 50.5]\\), \\((50.5, 51.5]\\), \\((51.5,52.5]\\), \\((52.5,53.5]\\), \\(...\\), \\((82.5,83.5]\\).\n\n\n\n\n\n\n\n\n\n\nFrom this plot one immediately learn some important properties about our data."
   },
   {
     "objectID": "slides/dataviz/18-distributions.html#histograms-5",
@@ -2367,21 +2367,21 @@
     "href": "slides/dataviz/18-distributions.html#smoothed-density",
     "title": "Distributions",
     "section": "Smoothed density",
-    "text": "Smoothed density\n\nSmooth density plots relay the same information as a histogram but are aesthetically more appealing.\nHere is what a smooth density plot looks like for our male heights data:"
+    "text": "Smoothed density\n\nSmooth density plots relay the same information as a histogram but are aesthetically more appealing:"
   },
   {
     "objectID": "slides/dataviz/18-distributions.html#smoothed-density-1",
     "href": "slides/dataviz/18-distributions.html#smoothed-density-1",
     "title": "Distributions",
     "section": "Smoothed density",
-    "text": "Smoothed density\n\nIn this plot, we no longer have sharp edges at the interval boundaries and many of the local peaks have been removed.\nThe scale of the y-axis changed from counts to density.\nTo fully understand smooth densities, we have to understand estimates, a topic covered in statistics our advanced data science textbooks.\nHere we simply describe them as making the histograms prettier by drawing a curve that goes through the top of the histogram bars and then removing the bars."
+    "text": "Smoothed density\n\nIn this plot, we no longer have sharp edges at the interval boundaries and many of the local peaks have been removed.\nThe scale of the y-axis changed from counts to density. Values shown y-axis are chosen so that the area under the curve adds up to 1.\nTo fully understand smooth densities, we have to understand estimates, a concept we cover later in the course."
   },
   {
     "objectID": "slides/dataviz/18-distributions.html#smoothed-density-2",
     "href": "slides/dataviz/18-distributions.html#smoothed-density-2",
     "title": "Distributions",
     "section": "Smoothed density",
-    "text": "Smoothed density\n\nThe values shown y-axis are chosen so that the area under the curve adds up to 1.\nThis implies that for any interval, the area under the curve for that interval gives us an approximation of how what proportion of the data is in the interval.\nAn advantage of smooth densities over histograms for visualization purposes is that densities make it easier to compare two distributions.\nThis is in large part because the jagged edges of the histogram add clutter."
+    "text": "Smoothed density\n\nHere is an example comparing male and female heights:"
   },
   {
     "objectID": "slides/dataviz/18-distributions.html#smoothed-density-3",
@@ -2395,42 +2395,42 @@
     "href": "slides/dataviz/18-distributions.html#the-normal-distribution",
     "title": "Distributions",
     "section": "The normal distribution",
-    "text": "The normal distribution\n\nHistograms and density plots provide excellent summaries of a distribution.\nBut can we summarize even further? We often see the average and standard deviation used as summary statistics: a two-number summary! To understand what these summaries are and why they are so widely used, we need to understand the normal distribution.\nThe normal distribution, also known as the bell curve and as the Gaussian distribution.\nHere is what the normal distribution looks like:"
+    "text": "The normal distribution\n\nHistograms and density plots provide excellent summaries of a distribution.\nBut can we summarize even further?\nWe often see the average and standard deviation used as summary statistics\nTo understand what these summaries are and why they are so widely used, we need to understand the normal distribution."
   },
   {
     "objectID": "slides/dataviz/18-distributions.html#the-normal-distribution-1",
     "href": "slides/dataviz/18-distributions.html#the-normal-distribution-1",
     "title": "Distributions",
     "section": "The normal distribution",
-    "text": "The normal distribution"
+    "text": "The normal distribution\n\nThe normal distribution, also known as the bell curve and as the Gaussian distribution."
   },
   {
     "objectID": "slides/dataviz/18-distributions.html#the-normal-distribution-2",
     "href": "slides/dataviz/18-distributions.html#the-normal-distribution-2",
     "title": "Distributions",
     "section": "The normal distribution",
-    "text": "The normal distribution\n\nThe normal distribution is one of the most famous mathematical concepts in history.\nA reason for this is that the distribution of many datasets can be approximated with normal distributions.\nThese include gambling winnings, heights, weights, blood pressure, standardized test scores, and experimental measurement errors.\nStatistical textbooks offer explanations for why this is the case."
+    "text": "The normal distribution\n\nMany datasets can be approximated with normal distributions.\nThese include gambling winnings, heights, weights, blood pressure, standardized test scores, and experimental measurement errors.\nBut how can the same distribution approximate datasets with completely different ranges for values?"
   },
   {
     "objectID": "slides/dataviz/18-distributions.html#the-normal-distribution-3",
     "href": "slides/dataviz/18-distributions.html#the-normal-distribution-3",
     "title": "Distributions",
     "section": "The normal distribution",
-    "text": "The normal distribution\n\nBut how can the same distribution approximate datasets with completely different ranges for values, for example heights and weights?\nThe normal distribution can be adapted to different datasets by just adjusting two numbers, referred to as the average or mean and the standard deviation (SD).\nThe normal distribution is symmetric, centered at what we refer to as the average, and most values (about 95%) are within 2 SDs from the average.\nA normal distribution with average 0 and SD 1 is referred to as a standard normal."
+    "text": "The normal distribution\n\nThe normal distribution can be adapted to different datasets by just adjusting two numbers, referred to as the average or mean and the standard deviation (SD).\nBecause we only need two numbers to adapt the normal distribution to a dataset implies that if our data distribution is approximated by a normal distribution, all the information needed to describe the distribution can be encoded by just two numbers.\nA normal distribution with average 0 and SD 1 is referred to as a standard normal."
   },
   {
     "objectID": "slides/dataviz/18-distributions.html#the-normal-distribution-4",
     "href": "slides/dataviz/18-distributions.html#the-normal-distribution-4",
     "title": "Distributions",
     "section": "The normal distribution",
-    "text": "The normal distribution\n\nBecause we only need two numbers to adapt the normal distribution to a dataset implies that if our data distribution is approximated by a normal distribution, all the information needed to describe the distribution can be encoded by just two numbers.\nOnce we are convinced that our data, say it is stored in the vector x, has a distribution that is approximately normal, we can find the specific one that matches our data by matching the average and SD of the data to the average and SD of the normal distribution, respectively."
+    "text": "The normal distribution\n\nFor a list of numbers contained in a vector x:\n\n\nindex &lt;- heights$sex == \"Male\" \nx &lt;- heights$height[index] \n\n\nthe average is defined as.\n\n\nm &lt;- sum(x) / length(x) # or mean(x)\n\n\nand the SD is defined as:\n\n\ns &lt;- sqrt(sum((x - m)^2) / length(x)) # or sd(x)\n\n\n\n\n\n\n\n\nWarning\n\n\n\nsd(x) is the sample standard deviation which is not exactly the same as the standard deviation.\nFor reasons explained in later,sd divides by length(x)-1 rather than length(x) can be used here:\n\nn &lt;- length(x)\nsd(x)^2*(n - 1)/n - sum((x - mean(x))^2)/n\n\n[1] -3.55e-15"
   },
   {
     "objectID": "slides/dataviz/18-distributions.html#the-normal-distribution-5",
     "href": "slides/dataviz/18-distributions.html#the-normal-distribution-5",
     "title": "Distributions",
     "section": "The normal distribution",
-    "text": "The normal distribution\n\nFor a list of numbers contained in a vector x:\n\n\nindex &lt;- heights$sex == \"Male\" \nx &lt;- heights$height[index] \n\n\nthe average is defined as.\n\n\nm &lt;- sum(x) / length(x) \n\n\nand the SD is defined as:\n\n\ns &lt;- sqrt(sum((x - mu)^2) / length(x)) \n\n\nwhich can be interpreted as the average distance between values and their average."
+    "text": "The normal distribution\n\nHere is a plot of our male student height smooth density (blue) and the normal distribution (black) with mean = 69.3 and SD = 3.6:"
   },
   {
     "objectID": "slides/dataviz/18-distributions.html#the-normal-distribution-6",
@@ -2451,28 +2451,28 @@
     "href": "slides/dataviz/18-distributions.html#boxplots",
     "title": "Distributions",
     "section": "Boxplots",
-    "text": "Boxplots\n\nTo understand boxplots we need to define some terms that are commonly used in exploratory data analysis.\nThe percentiles are the values for which \\(p = 0.01, 0.02, ..., 0.99\\) of the data are less then or equal to that value, respectively.\nWe call, for example, the case of \\(p=0.10\\) the 10th percentile, which gives us a number for which 10% of the data is below.\nThe most famous percentile is the 50th, also known as the median."
+    "text": "Boxplots\n\nIn this case, the histogram above or a smooth density plot would serve as a relatively succinct summary.\nBut what if we want a more compact numerical summary?\nTwo summaries will not suffice here because the data is not normal."
   },
   {
     "objectID": "slides/dataviz/18-distributions.html#boxplots-1",
     "href": "slides/dataviz/18-distributions.html#boxplots-1",
     "title": "Distributions",
     "section": "Boxplots",
-    "text": "Boxplots\n\nAnother special case that receives a name are the quartiles, which are obtained when setting \\(p=0.25,0.50\\), and \\(0.75\\), which are used by the boxplot.\nTo motivate boxplots we will go back to the US murder data.\nSuppose we want to summarize the murder rate distribution.\nUsing the data visualization technique we have learned, we can quickly see that the normal approximation does not apply here:"
+    "text": "Boxplots\n\nThe boxplot provides a five-number summary composed of the range (the minimum and maximum) along with the quartiles (the 25th, 50th, and 75th percentiles).\nThe R implementation of boxplots ignore outliers when computing the range and instead plot these as independent points.\nThe help file provides a specific definition of outliers."
   },
   {
     "objectID": "slides/dataviz/18-distributions.html#boxplots-2",
     "href": "slides/dataviz/18-distributions.html#boxplots-2",
     "title": "Distributions",
     "section": "Boxplots",
-    "text": "Boxplots"
+    "text": "Boxplots\nThe boxplot sumarizes with a box with whiskers:\n\n\n\n\n\n\n\n\n\n\n\n\nFrom just this simple plot, we know that:\n\nthe median is about 2.5,\nthat the distribution is not symmetric, and that\nthe range is 0 to 5 for the great majority of states with two exceptions."
   },
   {
     "objectID": "slides/dataviz/18-distributions.html#boxplots-3",
     "href": "slides/dataviz/18-distributions.html#boxplots-3",
     "title": "Distributions",
     "section": "Boxplots",
-    "text": "Boxplots\n\nIn this case, the histogram above or a smooth density plot would serve as a relatively succinct summary.\nNow suppose those used to receiving just two numbers as summaries ask us for a more compact numerical summary.\nThe boxplot provides a five-number summary composed of the range (the minimum and maximum) along with the quartiles (the 25th, 50th, and 75th percentiles).\nThe R implementation of boxplots ignore outliers when computing the range and instead plot these as independent points.\nThe help file provides a specific definition of outliers."
+    "text": "Boxplots\n\nIn data analysis we often divide observations into groups based on the values of one or more variables associated with those observations.\nWe call this procedure stratification and refer to the resulting groups as strata.\nStratification is common in data visualization because we are often interested in how the distributions of variables differ across different subgroups.\nStratifying and then making boxplot is a common approach to visualizing these differences."
   },
   {
     "objectID": "slides/dataviz/18-distributions.html#boxplots-4",
@@ -2500,7 +2500,7 @@
     "href": "slides/dataviz/18-distributions.html#stratification",
     "title": "Distributions",
     "section": "Stratification",
-    "text": "Stratification\n\nIn data analysis we often divide observations into groups based on the values of one or more variables associated with those observations.\nFor example in the next section we divide the height values into groups based on a sex variable: females and males.\nWe call this procedure stratification and refer to the resulting groups as strata.\nStratification is common in data visualization because we are often interested in how the distributions of variables differ across different subgroups."
+    "text": "Stratification\n\nWe will see several examples throughout this part of the book, starting with the next section."
   },
   {
     "objectID": "slides/dataviz/18-distributions.html#stratification-1",
@@ -2514,21 +2514,21 @@
     "href": "slides/dataviz/18-distributions.html#case-study-continued",
     "title": "Distributions",
     "section": "Case study continued",
-    "text": "Case study continued\n\nIf we are convinced that the male height data is well approximated with a normal distribution we can report back to ET a very succinct summary: male heights follow a normal distribution with an average of 69.3 inches and a SD of 3.6 inches.\nWith this information, ET will have a good idea of what to expect when he meets our male students.\nHowever, to provide a complete picture we need to also provide a summary of the female heights.\nBoxplots are useful when we want to quickly compare two or more distributions."
+    "text": "Case study continued\nHere are the heights for men and women:"
   },
   {
     "objectID": "slides/dataviz/18-distributions.html#case-study-continued-1",
     "href": "slides/dataviz/18-distributions.html#case-study-continued-1",
     "title": "Distributions",
     "section": "Case study continued",
-    "text": "Case study continued\n\nHere are the heights for men and women:"
+    "text": "Case study continued\n\nThe plot immediately reveals that males are, on average, taller than females.\nHowever, exploratory plots reveal that the approximation is not as useful:"
   },
   {
     "objectID": "slides/dataviz/18-distributions.html#case-study-continued-2",
     "href": "slides/dataviz/18-distributions.html#case-study-continued-2",
     "title": "Distributions",
     "section": "Case study continued",
-    "text": "Case study continued\n\nThe plot immediately reveals that males are, on average, taller than females.\nThe interquartile ranges appear to be similar.\nBut does the normal approximation also work for the female height data collected by the survey? We expect that they will follow a normal distribution, just like males.\nHowever, exploratory plots reveal that the approximation is not as useful:"
+    "text": "Case study continued\n\nA likely for the second bump is that female as the default in the reporting tool.\nThe unexpected five smallest values are likely cases of 5'x'' reported as 5x\n\n\n\n[1] 51 53 55 52 52"
   },
   {
     "objectID": "slides/dataviz/18-distributions.html#case-study-continued-3",
@@ -3964,5 +3964,698 @@
     "title": "Data Visualization Principles",
     "section": "Avoid pseudo-3D plots",
     "text": "Avoid pseudo-3D plots\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(Images courtesy of Karl Broman)"
+  },
+  {
+    "objectID": "slides/dataviz/18-distributions.html#boxplot",
+    "href": "slides/dataviz/18-distributions.html#boxplot",
+    "title": "Distributions",
+    "section": "Boxplot",
+    "text": "Boxplot\n\nSuppose we want to summarize the murder rate distribution."
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#data-visualization-in-practice",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#data-visualization-in-practice",
+    "title": "Dataviz In Practice",
+    "section": "Data visualization in practice",
+    "text": "Data visualization in practice\n\nIn this chapter, we will demonstrate how relatively simple ggplot2 code can create insightful and aesthetically pleasing plots.\nAs motivation we will create plots that help us better understand trends in world health and economics.\nAs we go through our case study, we will describe relevant general data visualization principles and learn concepts such as faceting, time series plots, transformations, and ridge plots."
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#case-study-1",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#case-study-1",
+    "title": "Dataviz In Practice",
+    "section": "Case study 1",
+    "text": "Case study 1\n\nHans Rosling was the co-founder of the Gapminder Foundation, an organization dedicated to educating the public by using data to dispel common myths about the so-called developing world.\nThe organization uses data to show how actual trends in health and economics contradict the narratives that emanate from sensationalist media coverage of catastrophes, tragedies, and other unfortunate events."
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#case-study-1-1",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#case-study-1-1",
+    "title": "Dataviz In Practice",
+    "section": "Case study 1",
+    "text": "Case study 1\n\nAs stated in the Gapminder Foundation’s website:\n\n\nJournalists and lobbyists tell dramatic stories. That’s their job. They tell stories about extraordinary events and unusual people. The piles of dramatic stories pile up in peoples’ minds into an over-dramatic worldview and strong negative stress feelings: “The world is getting worse!”, “It’s we vs them!”, “Other people are strange!”, “The population just keeps growing!” and “Nobody cares!”."
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#case-study-1-2",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#case-study-1-2",
+    "title": "Dataviz In Practice",
+    "section": "Case study 1",
+    "text": "Case study 1\n\nThis talk is based on two talks by Hans Rosling, one on education and The Best Stats You’ve Ever Seen\nWe use data to attempt to answer the following two questions:\n\nIs it a fair characterization of today’s world to say it is divided into western rich nations and the developing world in Africa, Asia, and Latin America?\nHas income inequality across countries worsened during the last 40 years?"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#case-study-1-3",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#case-study-1-3",
+    "title": "Dataviz In Practice",
+    "section": "Case study 1",
+    "text": "Case study 1\n\nTo answer these questions, we will be using the gapminder dataset provided in dslabs.\n\n\nlibrary(tidyverse) \nlibrary(dslabs) \nds_theme_set()\noptions(digits = 3)\ngapminder |&gt; as_tibble() |&gt; head()\n\n# A tibble: 6 × 9\n  country    year infant_mortality life_expectancy fertility population      gdp\n  &lt;fct&gt;     &lt;int&gt;            &lt;dbl&gt;           &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;\n1 Albania    1960            115.             62.9      6.19    1636054 NA      \n2 Algeria    1960            148.             47.5      7.65   11124892  1.38e10\n3 Angola     1960            208              36.0      7.32    5270844 NA      \n4 Antigua …  1960             NA              63.0      4.43      54681 NA      \n5 Argentina  1960             59.9            65.4      3.11   20619075  1.08e11\n6 Armenia    1960             NA              66.9      4.55    1867396 NA      \n# ℹ 2 more variables: continent &lt;fct&gt;, region &lt;fct&gt;"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#case-study-1-4",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#case-study-1-4",
+    "title": "Dataviz In Practice",
+    "section": "Case study 1",
+    "text": "Case study 1\n\nAs done in the New Insights on Poverty video, we start by testing our knowledge.\nWhich country do you think had the highest child mortality rates in 2015?\n\nSri Lanka or Turkey.\nPoland or South Korea.\nMalaysia or Russia.\nPakistan or Vietnam.\nThailand or South Africa."
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#scatterplots",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#scatterplots",
+    "title": "Dataviz In Practice",
+    "section": "Scatterplots",
+    "text": "Scatterplots\n\nWe start by looking at data from about 50 years ago, when perhaps this view was first cemented in our minds.\n\n\nfilter(gapminder, year == 1962) |&gt; \n  ggplot(aes(fertility, life_expectancy)) + \n  geom_point()"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#scatterplots-1",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#scatterplots-1",
+    "title": "Dataviz In Practice",
+    "section": "Scatterplots",
+    "text": "Scatterplots"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#scatterplots-2",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#scatterplots-2",
+    "title": "Dataviz In Practice",
+    "section": "Scatterplots",
+    "text": "Scatterplots\n\nTo confirm that indeed these countries are from the regions we expect, we can use color to represent continent.\n\n\nfilter(gapminder, year == 1962) |&gt; \n  ggplot( aes(fertility, life_expectancy, color = continent)) + \n  geom_point()"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#scatterplots-3",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#scatterplots-3",
+    "title": "Dataviz In Practice",
+    "section": "Scatterplots",
+    "text": "Scatterplots"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#faceting",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#faceting",
+    "title": "Dataviz In Practice",
+    "section": "Faceting",
+    "text": "Faceting\n\nTo make comparisons, however, side by side plots are preferable.\n\n\nfilter(gapminder, year %in% c(1962, 2012)) |&gt; \n  ggplot(aes(fertility, life_expectancy, col = continent)) + \n  geom_point() + \n  facet_grid(year~continent)"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#faceting-1",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#faceting-1",
+    "title": "Dataviz In Practice",
+    "section": "Faceting",
+    "text": "Faceting"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#faceting-2",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#faceting-2",
+    "title": "Dataviz In Practice",
+    "section": "Faceting",
+    "text": "Faceting\n\nIn this case, there is just one variable and we use . to let facet know that we are not using a second variable:\n\n\nfilter(gapminder, year %in% c(1962, 2012)) |&gt; \n  ggplot(aes(fertility, life_expectancy, col = continent)) + \n  geom_point() + \n  facet_grid(. ~ year)"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#faceting-3",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#faceting-3",
+    "title": "Dataviz In Practice",
+    "section": "Faceting",
+    "text": "Faceting\nThis plot clearly shows that the majority of countries have moved from the developing world cluster to the western world one."
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#faceting-4",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#faceting-4",
+    "title": "Dataviz In Practice",
+    "section": "Faceting",
+    "text": "Faceting\n\nBy default axes ranges are the same across panes.\nWe can make the axes adapt using scales = \"free\".\n\n\nyears &lt;- c(1962, 1980, 1990, 2000, 2012) \ncontinents &lt;- c(\"Europe\", \"Asia\") \ngapminder |&gt;  \n  filter(year %in% years & continent %in% continents) |&gt; \n  ggplot( aes(fertility, life_expectancy, col = continent)) + \n  geom_point() + \n  facet_wrap(~year, scales = \"free\")  \n\n\nYou will notice that it is harder to see the pattern."
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#faceting-5",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#faceting-5",
+    "title": "Dataviz In Practice",
+    "section": "Faceting",
+    "text": "Faceting"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#facet_wrap",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#facet_wrap",
+    "title": "Dataviz In Practice",
+    "section": "facet_wrap",
+    "text": "facet_wrap\nThe function facet_wrap permits automatically wrap the series of plots so that each display has viewable dimensions:\n\nyears &lt;- c(1962, 1980, 1990, 2000, 2012) \ncontinents &lt;- c(\"Europe\", \"Asia\") \ngapminder |&gt;  \n  filter(year %in% years & continent %in% continents) |&gt; \n  ggplot( aes(fertility, life_expectancy, col = continent)) + \n  geom_point() + \n  facet_wrap(~year)"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#facet_wrap-1",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#facet_wrap-1",
+    "title": "Dataviz In Practice",
+    "section": "facet_wrap",
+    "text": "facet_wrap"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#time-series-plots",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#time-series-plots",
+    "title": "Dataviz In Practice",
+    "section": "Time series plots",
+    "text": "Time series plots\nHere is a trend plot of United States fertility rates:\n\ngapminder |&gt;  \n  filter(country == \"United States\") |&gt;  \n  ggplot(aes(year, fertility)) + \n  geom_point()"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#time-series-plots-1",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#time-series-plots-1",
+    "title": "Dataviz In Practice",
+    "section": "Time series plots",
+    "text": "Time series plots"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#time-series-plots-2",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#time-series-plots-2",
+    "title": "Dataviz In Practice",
+    "section": "Time series plots",
+    "text": "Time series plots\n\nWhen the points are regularly and densely spaced, as they are here, we create curves by joining the points with lines, to convey that these data are from a single series, here a country:\n\n\ngapminder |&gt;  \n  filter(country == \"United States\") |&gt;  \n  ggplot(aes(year, fertility)) + \n  geom_line()"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#time-series-plots-3",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#time-series-plots-3",
+    "title": "Dataviz In Practice",
+    "section": "Time series plots",
+    "text": "Time series plots"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#time-series-plots-4",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#time-series-plots-4",
+    "title": "Dataviz In Practice",
+    "section": "Time series plots",
+    "text": "Time series plots\n\nThis is particularly helpful when we look at two countries.\n\n\ncountries &lt;- c(\"South Korea\", \"Germany\") \ngapminder |&gt; filter(country %in% countries) |&gt;  \n  ggplot(aes(year,fertility)) + \n  geom_line()"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#time-series-plots-5",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#time-series-plots-5",
+    "title": "Dataviz In Practice",
+    "section": "Time series plots",
+    "text": "Time series plots"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#time-series-plots-6",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#time-series-plots-6",
+    "title": "Dataviz In Practice",
+    "section": "Time series plots",
+    "text": "Time series plots\n\nThis is not the plot that we want.\nTo let ggplot know that there are two curves that need to be made separately, we assign each point to a group, one for each country:\n\n\ncountries &lt;- c(\"South Korea\",\"Germany\") \ngapminder |&gt; filter(country %in% countries & !is.na(fertility)) |&gt;  \n  ggplot(aes(year, fertility, group = country)) + \n  geom_line()"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#time-series-plots-7",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#time-series-plots-7",
+    "title": "Dataviz In Practice",
+    "section": "Time series plots",
+    "text": "Time series plots"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#time-series-plots-8",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#time-series-plots-8",
+    "title": "Dataviz In Practice",
+    "section": "Time series plots",
+    "text": "Time series plots\n\nBut which line goes with which country? We can assign colors to make this distinction.\n\n\ncountries &lt;- c(\"South Korea\",\"Germany\") \ngapminder |&gt; filter(country %in% countries & !is.na(fertility)) |&gt;  \n  ggplot(aes(year,fertility, col = country)) + \n  geom_line()"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#time-series-plots-9",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#time-series-plots-9",
+    "title": "Dataviz In Practice",
+    "section": "Time series plots",
+    "text": "Time series plots"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#time-series-plots-10",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#time-series-plots-10",
+    "title": "Dataviz In Practice",
+    "section": "Time series plots",
+    "text": "Time series plots\n\nWe define a data table with the label locations and then use a second mapping just for these labels:\n\n\nlibrary(geomtextpath) \ngapminder |&gt;  \n  filter(country %in% countries) |&gt;  \n  ggplot(aes(year, life_expectancy, col = country, label = country)) + \n  geom_textpath() + \n  theme(legend.position = \"none\")"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#time-series-plots-11",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#time-series-plots-11",
+    "title": "Dataviz In Practice",
+    "section": "Time series plots",
+    "text": "Time series plots"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#data-transformations",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#data-transformations",
+    "title": "Dataviz In Practice",
+    "section": "Data transformations",
+    "text": "Data transformations\n\nWe now shift our attention to the the commonly held notion that wealth distribution across the world has become worse during the last decades.\nWhen general audiences are asked if poor countries have become poorer and rich countries become richer, the majority answers yes.\nBy using stratification, histograms, smooth densities, and boxplots, we will be able to understand if this is in fact the case.\nFirst we learn how transformations can sometimes help provide more informative summaries and plots."
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#data-transformations-1",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#data-transformations-1",
+    "title": "Dataviz In Practice",
+    "section": "Data transformations",
+    "text": "Data transformations\n\nGDP measures the market value of goods and services produced by a country in a year.\nThe GDP per person is often used as a rough summary of a country’s wealth.\nGapmider adjusts GDP values for inflation and represent current US dollars.\nWe divide this quantity by 365 to obtain the more interpretable measure dollars per day.\n\n\ngapminder &lt;- gapminder |&gt;   \n  mutate(dollars_per_day = gdp/population/365)"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#log-transformation",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#log-transformation",
+    "title": "Dataviz In Practice",
+    "section": "Log transformation",
+    "text": "Log transformation\n\nHere is a histogram of per day incomes from 1970:\n\n\npast_year &lt;- 1970 \ngapminder |&gt;  \n  filter(year == past_year & !is.na(gdp)) |&gt; \n  ggplot(aes(dollars_per_day)) +  \n  geom_histogram(binwidth = 1, color = \"black\")"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#log-transformation-1",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#log-transformation-1",
+    "title": "Dataviz In Practice",
+    "section": "Log transformation",
+    "text": "Log transformation"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#log-transformation-2",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#log-transformation-2",
+    "title": "Dataviz In Practice",
+    "section": "Log transformation",
+    "text": "Log transformation\n\nIt might be more informative to quickly be able to see how many countries have average daily incomes of about $1 (extremely poor), $2 (very poor), $4 (poor), $8 (middle), $16 (well off), $32 (rich), $64 (very rich) per day.\nHere is the distribution if we apply a log base 2 transform:\n\n\ngapminder |&gt;  \n  filter(year == past_year & !is.na(gdp)) |&gt; \n  ggplot(aes(log2(dollars_per_day))) +  \n  geom_histogram(binwidth = 1, color = \"black\")"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#log-transformation-3",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#log-transformation-3",
+    "title": "Dataviz In Practice",
+    "section": "Log transformation",
+    "text": "Log transformation"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#which-base",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#which-base",
+    "title": "Dataviz In Practice",
+    "section": "Which base?",
+    "text": "Which base?\n\nIn the dollars per day example, we used base 2 instead of base 10 because the resulting range is easier to interpret.\nThe range of the untransformed values is 0.327, 48.885.\nIn base 10, this turns into a range that includes very few integers: just 0 and 1.\nWith base 2, our range includes -2, -1, 0, 1, 2, 3, 4, and 5."
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#which-base-1",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#which-base-1",
+    "title": "Dataviz In Practice",
+    "section": "Which base?",
+    "text": "Which base?\n\nIt is easier to compute \\(2^x\\) and \\(10^x\\) when \\(x\\) is an integer and between -10 and 10, so we prefer to have smaller integers in the scale.\nAnother consequence of a limited range is that choosing the binwidth is more challenging.\nWith log base 2, we know that a binwidth of 1 will translate to a bin with range \\(x\\) to \\(2x\\)."
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#which-base-2",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#which-base-2",
+    "title": "Dataviz In Practice",
+    "section": "Which base?",
+    "text": "Which base?\n\nFor an example in which base 10 makes more sense, consider population sizes:\n\n\ngapminder |&gt;  \n  filter(year == past_year) |&gt; \n  ggplot(aes(log10(population))) + \n  geom_histogram(binwidth = 0.5, color = \"black\")"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#which-base-3",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#which-base-3",
+    "title": "Dataviz In Practice",
+    "section": "Which base?",
+    "text": "Which base?"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#transform-the-values-or-the-scale",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#transform-the-values-or-the-scale",
+    "title": "Dataviz In Practice",
+    "section": "Transform the values or the scale?",
+    "text": "Transform the values or the scale?\nSuppose we define \\(z = \\log10(x)\\) and want to know what is the value of \\(z\\) if we see it at the mark ^:\n----1----^----2--------3----.\nWe know that the \\(z\\) is about 1.5.\nBut what If the scales are logged, what value of \\(x\\) marked by ^?\n----10---^---100------1000---\nWe need to compute \\(10^{1.5}\\), which is a bit of extra work."
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#transform-the-values-or-the-scale-1",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#transform-the-values-or-the-scale-1",
+    "title": "Dataviz In Practice",
+    "section": "Transform the values or the scale?",
+    "text": "Transform the values or the scale?\n\nHowever, the advantage of showing logged scales is that the original values are displayed in the plot, which are easier to interpret.\nFor example, we would see “32 dollars a day” instead of “5 log base 2 dollars a day”."
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#transform-the-values-or-the-scale-2",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#transform-the-values-or-the-scale-2",
+    "title": "Dataviz In Practice",
+    "section": "Transform the values or the scale?",
+    "text": "Transform the values or the scale?\n\nTo show logged sclaes, instead of logging the values first, we apply this layer:\n\n\ngapminder |&gt;  \n  filter(year == past_year & !is.na(gdp)) |&gt; \n  ggplot(aes(dollars_per_day)) +  \n  geom_histogram(binwidth = 1, color = \"black\") + \n  scale_x_continuous(trans = \"log2\")"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#transform-the-values-or-the-scale-3",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#transform-the-values-or-the-scale-3",
+    "title": "Dataviz In Practice",
+    "section": "Transform the values or the scale?",
+    "text": "Transform the values or the scale?"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#comparing-distributions",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#comparing-distributions",
+    "title": "Dataviz In Practice",
+    "section": "Comparing distributions",
+    "text": "Comparing distributions\n\nWe reorder the regions by the median value and use a log scale.\n\n\ngapminder |&gt;  \n  filter(year == past_year & !is.na(gdp)) |&gt; \n  mutate(region = reorder(region, dollars_per_day, FUN = median)) |&gt; \n  ggplot(aes(dollars_per_day, region)) + \n  geom_point() + \n  scale_x_continuous(trans = \"log2\")"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#comparing-distributions-1",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#comparing-distributions-1",
+    "title": "Dataviz In Practice",
+    "section": "Comparing distributions",
+    "text": "Comparing distributions"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#comparing-distributions-2",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#comparing-distributions-2",
+    "title": "Dataviz In Practice",
+    "section": "Comparing distributions",
+    "text": "Comparing distributions\n\ngapminder &lt;- gapminder |&gt;  \n  mutate(group = case_when( \n    region %in% c(\"Western Europe\", \"Northern Europe\",\"Southern Europe\",  \n                    \"Northern America\",  \n                  \"Australia and New Zealand\") ~ \"West\", \n    region %in% c(\"Eastern Asia\", \"South-Eastern Asia\") ~ \"East Asia\", \n    region %in% c(\"Caribbean\", \"Central America\",  \n                  \"South America\") ~ \"Latin America\", \n    continent == \"Africa\" &  \n      region != \"Northern Africa\" ~ \"Sub-Saharan\", \n    TRUE ~ \"Others\")) |&gt;  \n  mutate(group = factor(group, levels = c(\"Others\", \"Latin America\",  \n                                          \"East Asia\", \"Sub-Saharan\", \n                                          \"West\")))"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#boxplots",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#boxplots",
+    "title": "Dataviz In Practice",
+    "section": "Boxplots",
+    "text": "Boxplots\n\np &lt;- gapminder |&gt;  \n  filter(year == past_year & !is.na(gdp)) |&gt; \n  mutate(group = reorder(group, dollars_per_day, FUN = median)) |&gt; \n  ggplot(aes(group, dollars_per_day)) + \n  geom_boxplot() + \n  scale_y_continuous(trans = \"log2\") + \n  xlab(\"\") + \n  theme(axis.text.x = element_text(angle = 90, hjust = 1))  \np"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#boxplots-1",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#boxplots-1",
+    "title": "Dataviz In Practice",
+    "section": "Boxplots",
+    "text": "Boxplots"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#boxplots-2",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#boxplots-2",
+    "title": "Dataviz In Practice",
+    "section": "Boxplots",
+    "text": "Boxplots\n\nBoxplots have the limitation that by summarizing the data into five numbers, we might miss important characteristics of the data.\nOne way to avoid this is by showing the data.\n\n\np + geom_point(alpha = 0.5)"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#boxplots-3",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#boxplots-3",
+    "title": "Dataviz In Practice",
+    "section": "Boxplots",
+    "text": "Boxplots"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#ridge-plots",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#ridge-plots",
+    "title": "Dataviz In Practice",
+    "section": "Ridge plots",
+    "text": "Ridge plots\n\nShowing each individual point does not always reveal important characteristics of the distribution.\nBoxplots help with this by providing a five-number summary, but this has limitations too.\nFor example, boxplots will not permit us to discover bimodal distributions."
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#ridge-plots-1",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#ridge-plots-1",
+    "title": "Dataviz In Practice",
+    "section": "Ridge plots",
+    "text": "Ridge plots\nHere is an simulated example:"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#ridge-plots-2",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#ridge-plots-2",
+    "title": "Dataviz In Practice",
+    "section": "Ridge plots",
+    "text": "Ridge plots\n\nHere is the income data shown above with boxplots but with a ridge plot.\n\n\nlibrary(ggridges) \np &lt;- gapminder |&gt;  \n  filter(year == past_year & !is.na(dollars_per_day)) |&gt; \n  mutate(group = reorder(group, dollars_per_day, FUN = median)) |&gt; \n  ggplot(aes(dollars_per_day, group)) +  \n  scale_x_continuous(trans = \"log2\")  \np  + geom_density_ridges()"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#ridge-plots-3",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#ridge-plots-3",
+    "title": "Dataviz In Practice",
+    "section": "Ridge plots",
+    "text": "Ridge plots"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#ridge-plots-4",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#ridge-plots-4",
+    "title": "Dataviz In Practice",
+    "section": "Ridge plots",
+    "text": "Ridge plots\n\nIf the number of data points is small enough, we can add them to the ridge plot using the following code:\n\n\np + geom_density_ridges(jittered_points = TRUE)"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#ridge-plots-5",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#ridge-plots-5",
+    "title": "Dataviz In Practice",
+    "section": "Ridge plots",
+    "text": "Ridge plots"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#ridge-plots-6",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#ridge-plots-6",
+    "title": "Dataviz In Practice",
+    "section": "Ridge plots",
+    "text": "Ridge plots\n\nTo show data points, but without using jitter we can use the following code to add what is referred to as a rug representation of the data.\n\n\np + geom_density_ridges(jittered_points = TRUE,  \n                        position = position_points_jitter(height = 0), \n                        point_shape = '|', point_size = 3,  \n                        point_alpha = 1, alpha = 0.7)"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#ridge-plots-7",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#ridge-plots-7",
+    "title": "Dataviz In Practice",
+    "section": "Ridge plots",
+    "text": "Ridge plots"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#case-study-1-5",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#case-study-1-5",
+    "title": "Dataviz In Practice",
+    "section": "Case study 1",
+    "text": "Case study 1\nHere is the data:\n\n\n\n\n\ncountry\ninf_mort\ncountry\ninf_mort\n\n\n\n\nSri Lanka\n8.4\nTurkey\n11.6\n\n\nPoland\n4.5\nSouth Korea\n2.9\n\n\nMalaysia\n6.0\nRussia\n8.2\n\n\nPakistan\n65.8\nVietnam\n17.3\n\n\nThailand\n10.5\nSouth Africa\n33.6"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#case-study-1-6",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#case-study-1-6",
+    "title": "Dataviz In Practice",
+    "section": "Case study 1",
+    "text": "Case study 1\nWe keep countries that exist both in 1970 and 2010:\n\npast_year &lt;- 1970 \npresent_year &lt;- 2010 \nyears &lt;- c(past_year, present_year) \ncountry_list &lt;- gapminder |&gt;  \n  filter(year %in% c(present_year, past_year)) |&gt; \n  group_by(country) |&gt; \n  summarize(n = sum(!is.na(dollars_per_day)), .groups = \"drop\") |&gt; \n  filter(n == 2) |&gt; \n  pull(country)"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#case-study-1-7",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#case-study-1-7",
+    "title": "Dataviz In Practice",
+    "section": "Case study 1",
+    "text": "Case study 1\n\nWe can compare the distributions using this code:\n\n\ngapminder |&gt;  \n  filter(year %in% years & country %in% country_list) |&gt; \n  mutate(west = ifelse(group == \"West\", \"West\", \"Developing\")) |&gt; \n  ggplot(aes(dollars_per_day)) + \n  geom_histogram(binwidth = 1, color = \"black\") + \n  scale_x_continuous(trans = \"log2\") +  \n  facet_grid(year ~ west)"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#case-study-1-8",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#case-study-1-8",
+    "title": "Dataviz In Practice",
+    "section": "Case study 1",
+    "text": "Case study 1"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#case-study-1-9",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#case-study-1-9",
+    "title": "Dataviz In Practice",
+    "section": "Case study 1",
+    "text": "Case study 1\nTo see which specific regions improved the most, we can remake the boxplots we made above, but now adding the year 2010 and then using facet to compare the two years.\n\ngapminder |&gt;  \n  filter(year %in% years & country %in% country_list) |&gt; \n  mutate(group = reorder(group, dollars_per_day, FUN = median)) |&gt; \n  ggplot(aes(group, dollars_per_day)) + \n  geom_boxplot() + \n  theme(axis.text.x = element_text(angle = 90, hjust = 1)) + \n  scale_y_continuous(trans = \"log2\") + \n  xlab(\"\") + \n  facet_grid(. ~ year)"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#case-study-1-10",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#case-study-1-10",
+    "title": "Dataviz In Practice",
+    "section": "Case study 1",
+    "text": "Case study 1"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#case-study-1-11",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#case-study-1-11",
+    "title": "Dataviz In Practice",
+    "section": "Case study 1",
+    "text": "Case study 1\nTo add color:\n\ngapminder |&gt;  \n  filter(year %in% years & country %in% country_list) |&gt; \n  mutate(group = reorder(group, dollars_per_day, FUN = median),\n         year = factor(year)) |&gt; \n  ggplot(aes(group, dollars_per_day, fill = year)) + \n  geom_boxplot() + \n  theme(axis.text.x = element_text(angle = 90, hjust = 1)) + \n  scale_y_continuous(trans = \"log2\") + \n  xlab(\"\")"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#case-study-1-12",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#case-study-1-12",
+    "title": "Dataviz In Practice",
+    "section": "Case study 1",
+    "text": "Case study 1"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#case-study-1-13",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#case-study-1-13",
+    "title": "Dataviz In Practice",
+    "section": "Case study 1",
+    "text": "Case study 1\nLet’s start by noting that density plots for income distribution in 1970 and 2010 deliver the message that the gap is closing:\n\ngapminder |&gt;  \n  filter(year %in% years & country %in% country_list) |&gt; \n  ggplot(aes(dollars_per_day)) + \n  geom_density(fill = \"grey\") +  \n  scale_x_continuous(trans = \"log2\") +  \n  facet_grid(. ~ year)"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#case-study-1-14",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#case-study-1-14",
+    "title": "Dataviz In Practice",
+    "section": "Case study 1",
+    "text": "Case study 1"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#accessing-computed-variables",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#accessing-computed-variables",
+    "title": "Dataviz In Practice",
+    "section": "Accessing computed variables",
+    "text": "Accessing computed variables\nUse after_stat to access density.\n\np &lt;- gapminder |&gt;  \n  filter(year %in% years & country %in% country_list) |&gt; \n  mutate(group = ifelse(group == \"West\", \"West\", \"Developing\")) |&gt; \n  ggplot(aes(dollars_per_day, y = after_stat(count), fill = group)) + \n  scale_x_continuous(trans = \"log2\", limits = c(0.125, 300)) \np + geom_density(alpha = 0.2) + facet_grid(year ~ .)"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#accessing-computed-variables-1",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#accessing-computed-variables-1",
+    "title": "Dataviz In Practice",
+    "section": "Accessing computed variables",
+    "text": "Accessing computed variables"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#accessing-computed-variables-2",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#accessing-computed-variables-2",
+    "title": "Dataviz In Practice",
+    "section": "Accessing computed variables",
+    "text": "Accessing computed variables\nTo visualize if any of the groups defined above are driving this we can quickly make a ridge plot:\n\ngapminder |&gt;  \n  filter(year %in% years & !is.na(dollars_per_day)) |&gt; \n  mutate(group = reorder(group, dollars_per_day, FUN = median)) |&gt;\n  ggplot(aes(dollars_per_day, group)) +  \n  scale_x_continuous(trans = \"log2\") +  \n  geom_density_ridges(bandwidth = 1.5) + \n  facet_grid(. ~ year)"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#accessing-computed-variables-3",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#accessing-computed-variables-3",
+    "title": "Dataviz In Practice",
+    "section": "Accessing computed variables",
+    "text": "Accessing computed variables"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#accessing-computed-variables-4",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#accessing-computed-variables-4",
+    "title": "Dataviz In Practice",
+    "section": "Accessing computed variables",
+    "text": "Accessing computed variables\n\nAnother way to achieve this is by stacking the densities on top of each other:\n\n\ngapminder |&gt;  \n    filter(year %in% years & country %in% country_list) |&gt; \n  group_by(year) |&gt; \n  mutate(weight = population/sum(population)*2) |&gt; \n  ungroup() |&gt; \n  ggplot(aes(dollars_per_day, fill = group)) + \n  scale_x_continuous(trans = \"log2\", limits = c(0.125, 300)) +  \n  geom_density(alpha = 0.2, bw = 0.75, position = \"stack\") +  \n  facet_grid(year ~ .)"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#accessing-computed-variables-5",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#accessing-computed-variables-5",
+    "title": "Dataviz In Practice",
+    "section": "Accessing computed variables",
+    "text": "Accessing computed variables"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#weighted-densities",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#weighted-densities",
+    "title": "Dataviz In Practice",
+    "section": "Weighted densities",
+    "text": "Weighted densities\nHere we weigh the countries by size:\n\ngapminder |&gt;  \n  filter(year %in% years & country %in% country_list) |&gt; \n  group_by(year) |&gt; \n  mutate(weight = population/sum(population)*2) |&gt; \n  ungroup() |&gt; \n  ggplot(aes(dollars_per_day, fill = group, weight = weight)) + \n  scale_x_continuous(trans = \"log2\", limits = c(0.125, 300)) +  \n  geom_density(alpha = 0.2, bw = 0.75, position = \"stack\") + \n  facet_grid(year ~ .)"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#weighted-densities-1",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#weighted-densities-1",
+    "title": "Dataviz In Practice",
+    "section": "Weighted densities",
+    "text": "Weighted densities"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#the-ecological-fallacy",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#the-ecological-fallacy",
+    "title": "Dataviz In Practice",
+    "section": "The ecological fallacy",
+    "text": "The ecological fallacy"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#the-ecological-fallacy-1",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#the-ecological-fallacy-1",
+    "title": "Dataviz In Practice",
+    "section": "The ecological fallacy",
+    "text": "The ecological fallacy"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#show-the-data",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#show-the-data",
+    "title": "Dataviz In Practice",
+    "section": "Show the data",
+    "text": "Show the data"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#case-study-3",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#case-study-3",
+    "title": "Dataviz In Practice",
+    "section": "Case study 3",
+    "text": "Case study 3\n\nthe_disease &lt;- \"Measles\" \ndat &lt;- us_contagious_diseases |&gt; \n  filter(!state %in% c(\"Hawaii\",\"Alaska\") & disease == the_disease) |&gt; \n  mutate(rate = count / population * 10000 * 52 / weeks_reporting) |&gt;  \n  mutate(state = reorder(state, ifelse(year &lt;= 1963, rate, NA),  \n                         median, na.rm = TRUE))"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#heatmaps",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#heatmaps",
+    "title": "Dataviz In Practice",
+    "section": "Heatmaps",
+    "text": "Heatmaps\n\nlibrary(RColorBrewer)\ndat |&gt; ggplot(aes(year, state, fill = rate)) + \n  geom_tile(color = \"grey50\") + \n  scale_x_continuous(expand = c(0,0)) + \n  scale_fill_gradientn(colors = brewer.pal(9, \"Reds\"), trans = \"sqrt\") + \n  geom_vline(xintercept = 1963, col = \"blue\") + \n  theme_minimal() +   \n  theme(panel.grid = element_blank(),  \n        legend.position = \"bottom\",  \n        text = element_text(size = 8)) + \n  labs(title = the_disease, x = \"\", y = \"\")"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#heatmaps-1",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#heatmaps-1",
+    "title": "Dataviz In Practice",
+    "section": "Heatmaps",
+    "text": "Heatmaps"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#using-position",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#using-position",
+    "title": "Dataviz In Practice",
+    "section": "Using position",
+    "text": "Using position\nWe will show each state and the avearge:\n\navg &lt;- us_contagious_diseases |&gt; \n  filter(disease == the_disease) |&gt; group_by(year) |&gt; \n  summarize(us_rate = sum(count, na.rm = TRUE) /  \n              sum(population, na.rm = TRUE) * 10000)"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#using-position-1",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#using-position-1",
+    "title": "Dataviz In Practice",
+    "section": "Using position",
+    "text": "Using position\n\ndat |&gt;  \n  filter(!is.na(rate)) |&gt; \n    ggplot() + \n  geom_line(aes(year, rate, group = state),  color = \"grey50\",  \n            show.legend = FALSE, alpha = 0.2, linewidth = 1) + \n  geom_line(mapping = aes(year, us_rate),  data = avg, linewidth = 1) + \n  scale_y_continuous(trans = \"sqrt\", breaks = c(5, 25, 125, 300)) +  \n  ggtitle(\"Cases per 10,000 by state\") +  \n  xlab(\"\") + ylab(\"\") + \n  geom_text(data = data.frame(x = 1955, y = 50),  \n            mapping = aes(x, y, label = \"US average\"),  \n            color = \"black\") +  \n  geom_vline(xintercept = 1963, col = \"blue\")"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#using-position-2",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#using-position-2",
+    "title": "Dataviz In Practice",
+    "section": "Using position",
+    "text": "Using position"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#case-study-1-15",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#case-study-1-15",
+    "title": "Dataviz In Practice",
+    "section": "Case study 1",
+    "text": "Case study 1\nUse after_stat to access density.\n\np &lt;- gapminder |&gt;  \n  filter(year %in% years & country %in% country_list) |&gt; \n  mutate(group = ifelse(group == \"West\", \"West\", \"Developing\")) |&gt; \n  ggplot(aes(dollars_per_day, y = after_stat(count), fill = group)) + \n  scale_x_continuous(trans = \"log2\", limits = c(0.125, 300)) \np + geom_density(alpha = 0.2) + facet_grid(year ~ .)"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#transform-values-or-scale",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#transform-values-or-scale",
+    "title": "Dataviz In Practice",
+    "section": "Transform values or scale?",
+    "text": "Transform values or scale?\nSuppose we define \\(z = \\log10(x)\\) and want to know what is the value of \\(z\\) if we see it at the mark ^:\n----1----^----2--------3----.\nWe know that the \\(z\\) is about 1.5.\nBut what If the scales are logged, what value of \\(x\\) marked by ^?\n----10---^---100------1000---\nWe need to compute \\(10^{1.5}\\), which is a bit of extra work."
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#transform-values-or-scale-1",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#transform-values-or-scale-1",
+    "title": "Dataviz In Practice",
+    "section": "Transform values or scale?",
+    "text": "Transform values or scale?\n\nHowever, the advantage of showing logged scales is that the original values are displayed in the plot, which are easier to interpret.\nFor example, we would see “32 dollars a day” instead of “5 log base 2 dollars a day”."
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#transform-values-or-scale-2",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#transform-values-or-scale-2",
+    "title": "Dataviz In Practice",
+    "section": "Transform values or scale?",
+    "text": "Transform values or scale?\n\nTo show logged sclaes, instead of logging the values first, we apply this layer:\n\n\ngapminder |&gt;  \n  filter(year == past_year & !is.na(gdp)) |&gt; \n  ggplot(aes(dollars_per_day)) +  \n  geom_histogram(binwidth = 1, color = \"black\") + \n  scale_x_continuous(trans = \"log2\")"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#transform-values-or-scale-3",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#transform-values-or-scale-3",
+    "title": "Dataviz In Practice",
+    "section": "Transform values or scale?",
+    "text": "Transform values or scale?"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#gganimate",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#gganimate",
+    "title": "Dataviz In Practice",
+    "section": "gganimate",
+    "text": "gganimate\n\nCodeWrangleAnimation\n\n\n\nlibrary(gganimate)\nyears &lt;- c(1960:2016)\np &lt;- filter(gapminder, year %in% years & !is.na(group) & \n              !is.na(fertility) & !is.na(life_expectancy)) |&gt;\n  mutate(population_in_millions = population/10^6) |&gt;\n  ggplot(aes(fertility, y = life_expectancy, col = group, size = population_in_millions)) +\n  geom_point(alpha = 0.8) +\n  guides(size = \"none\") +\n  theme(legend.title = element_blank()) + \n  coord_cartesian(ylim = c(30, 85)) + \n  labs(title = 'Year: {frame_time}', \n       x = 'Fertility rate (births per woman)', y = 'Life expectancy') +\n  transition_time(year) +\n  ease_aes('linear')\n\nanimate(p, end_pause = 15)\n\n\n\n\nwest &lt;- c(\"Western Europe\",\"Northern Europe\",\"Southern Europe\",\n          \"Northern America\",\"Australia and New Zealand\")\n\ngapminder &lt;- gapminder |&gt; \n  mutate(group = case_when(\n    region %in% west ~ \"The West\",\n    region %in% c(\"Eastern Asia\", \"South-Eastern Asia\") ~ \"East Asia\",\n    region %in% c(\"Caribbean\", \"Central America\", \"South America\") ~ \"Latin America\",\n    continent == \"Africa\" & region != \"Northern Africa\" ~ \"Sub-Saharan Africa\",\n    TRUE ~ \"Others\"))\ngapminder &lt;- gapminder |&gt; \n  mutate(group = factor(group, levels = rev(c(\"Others\", \"Latin America\", \"East Asia\",\"Sub-Saharan Africa\", \"The West\"))))"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#changing-smoothness",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#changing-smoothness",
+    "title": "Dataviz In Practice",
+    "section": "Changing smoothness",
+    "text": "Changing smoothness\nWe can change the smoothness. We selected 0.75 after trying out several values.\n\np + geom_density(alpha = 0.2, bw = 0.75) + facet_grid(year ~ .)"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#multiple-ridge-plot",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#multiple-ridge-plot",
+    "title": "Dataviz In Practice",
+    "section": "Multiple ridge plot",
+    "text": "Multiple ridge plot\nTo visualize if any of the groups defined above are driving this we can quickly make a ridge plot:\n\ngapminder |&gt;  \n  filter(year %in% years & !is.na(dollars_per_day)) |&gt; \n  mutate(group = reorder(group, dollars_per_day, FUN = median)) |&gt;\n  ggplot(aes(dollars_per_day, group)) +  \n  scale_x_continuous(trans = \"log2\") +  \n  geom_density_ridges(bandwidth = 1.5) + \n  facet_grid(. ~ year)"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#multiple-ridge-plot-1",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#multiple-ridge-plot-1",
+    "title": "Dataviz In Practice",
+    "section": "Multiple ridge plot",
+    "text": "Multiple ridge plot"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#stacking-densities",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#stacking-densities",
+    "title": "Dataviz In Practice",
+    "section": "Stacking densities",
+    "text": "Stacking densities\n\nAnother way to achieve this is by stacking the densities on top of each other:\n\n\ngapminder |&gt;  \n    filter(year %in% years & country %in% country_list) |&gt; \n  group_by(year) |&gt; \n  mutate(weight = population/sum(population)*2) |&gt; \n  ungroup() |&gt; \n  ggplot(aes(dollars_per_day, fill = group)) + \n  scale_x_continuous(trans = \"log2\", limits = c(0.125, 300)) +  \n  geom_density(alpha = 0.2, bw = 0.75, position = \"stack\") +  \n  facet_grid(year ~ .)"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#stacking-densities-1",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#stacking-densities-1",
+    "title": "Dataviz In Practice",
+    "section": "Stacking densities",
+    "text": "Stacking densities"
+  },
+  {
+    "objectID": "slides/dataviz/19-dataviz-in-practice.html#case-study-2",
+    "href": "slides/dataviz/19-dataviz-in-practice.html#case-study-2",
+    "title": "Dataviz In Practice",
+    "section": "Case study 2",
+    "text": "Case study 2\n\nthe_disease &lt;- \"Measles\" \ndat &lt;- us_contagious_diseases |&gt; \n  filter(!state %in% c(\"Hawaii\",\"Alaska\") & disease == the_disease) |&gt; \n  mutate(rate = count / population * 10000 * 52 / weeks_reporting) |&gt;  \n  mutate(state = reorder(state, ifelse(year &lt;= 1963, rate, NA),  \n                         median, na.rm = TRUE))"
   }
 ]

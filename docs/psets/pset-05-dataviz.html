@@ -283,7 +283,7 @@ window.Quarto = {
 <li><strong>Create a Git repository</strong> that includes the following directories:
 <ul>
 <li><code>data</code></li>
-<li><code>docs</code></li>
+<li><code>code</code></li>
 <li><code>figs</code></li>
 </ul></li>
 <li>Inside the <code>code</code> directory, include the following files:
@@ -379,7 +379,7 @@ window.Quarto = {
 <li><p>Now repeat the same exercise for hospitalizations. Note that you will have to collapse the data into weekly data and keep the same columns as in the cases dataset, except keep total weekly hospitalizations instead of cases. Remove weeks with less than 7 days reporting. Add this code to <code>wrangle.R</code> and comment appropriately.</p></li>
 <li><p>Repeat what you did in the previous two exercises for provisional COVID-19 deaths. Add this code to <code>wrangle.R</code> and comment appropriately.</p></li>
 <li><p>Repeat this now for vaccination data. Keep the variables <code>series_complete</code> and <code>booster</code> along with state and date. Add this code to <code>wrangle.R</code> and comment appropriately.</p></li>
-<li><p>Now we are ready to join the tables. We will only consider 2020 and 2021 as we don’t have population sizes for 2020. However, because we want to guarantee that all dates are included we will create a data frame with all possible weeks. Add this code to your <code>wrangle.R</code> file. We can use this:</p></li>
+<li><p>Now we are ready to join the tables. We will only consider 2020 and 2021 as we don’t have population sizes for 2022. However, because we want to guarantee that all dates are included we will create a data frame with all possible weeks. Add this code to your <code>wrangle.R</code> file. We can use this:</p></li>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Make dates data frame</span></span>
