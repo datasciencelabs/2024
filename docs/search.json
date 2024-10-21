@@ -999,7 +999,7 @@
     "href": "slides/R/06-vectorization.html#vectorization-4",
     "title": "Vectorization",
     "section": "Vectorization",
-    "text": "Vectorization\n\nIf we operate on two vectors, vectorization is componentwise.\nHere is an example:\n\n\nheights &lt;- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)\nerror &lt;- rnorm(length(heights), 0, 0.1)\nheights + error\n\n [1] 68.99478 62.25204 65.99237 69.79828 69.98690 73.01590 66.88174 72.84161\n [9] 67.20209 70.20522"
+    "text": "Vectorization\n\nIf we operate on two vectors, vectorization is componentwise.\nHere is an example:\n\n\nheights &lt;- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)\nerror &lt;- rnorm(length(heights), 0, 0.1)\nheights + error\n\n [1] 68.95459 61.93657 65.92954 69.98936 69.89197 72.83318 66.94045 72.99804\n [9] 66.93486 70.18627"
   },
   {
     "objectID": "slides/R/06-vectorization.html#exercise",
@@ -1314,7 +1314,7 @@
     "href": "slides/R/05-r-basics.html#factors-3",
     "title": "R Basics",
     "section": "Factors",
-    "text": "Factors\nExercise: How can we make this go much faster?\n\nsystem.time({levels(y) &lt;- tolower(levels(y))})\n\n   user  system elapsed \n  0.018   0.000   0.018"
+    "text": "Factors\nExercise: How can we make this go much faster?\n\nsystem.time({levels(y) &lt;- tolower(levels(y))})\n\n   user  system elapsed \n  0.019   0.001   0.020"
   },
   {
     "objectID": "slides/R/05-r-basics.html#factors-can-be-confusing",
@@ -2198,8 +2198,8 @@
     "objectID": "slides/dataviz/18-distributions.html#visualizing-data-distributions",
     "href": "slides/dataviz/18-distributions.html#visualizing-data-distributions",
     "title": "Distributions",
-    "section": "",
-    "text": "Summarizing complex datasets is crucial in data analysis, allowing us to share insights drawn from the data more effectively.\nOne common method is to use the average value to summarize a list of numbers.\nFor instance, a high school’s quality might be represented by the average score in a standardized test.\nSometimes, an additional value, the standard deviation, is added."
+    "section": "Visualizing data distributions",
+    "text": "Visualizing data distributions\n\nSummarizing complex datasets is crucial in data analysis, allowing us to share insights drawn from the data more effectively.\nOne common method is to use the average value to summarize a list of numbers.\nFor instance, a high school’s quality might be represented by the average score in a standardized test.\nSometimes, an additional value, the standard deviation, is added."
   },
   {
     "objectID": "slides/dataviz/18-distributions.html#visualizing-data-distributions-1",
@@ -2339,7 +2339,7 @@
     "href": "slides/dataviz/18-distributions.html#histograms-4",
     "title": "Distributions",
     "section": "Histograms",
-    "text": "Histograms\nHere is the histogram for the height data splitting the range of values into one inch intervals: \\((49.5, 50.5]\\), \\((50.5, 51.5]\\), \\((51.5,52.5]\\), \\((52.5,53.5]\\), \\(...\\), \\((82.5,83.5]\\).\n\n\n\n\n\n\n\n\n\n\nFrom this plot one immediately learn some important properties about our data."
+    "text": "Histograms\nHere is the histogram for the height data splitting the range of values into one inch intervals: \\((49.5, 50.5]\\), \\((50.5, 51.5]\\), \\((51.5,52.5]\\), \\((52.5,53.5]\\), \\(...\\), \\((82.5,83.5]\\).\n\n\nFrom this plot one immediately learn some important properties about our data."
   },
   {
     "objectID": "slides/dataviz/18-distributions.html#histograms-5",
@@ -2423,7 +2423,7 @@
     "href": "slides/dataviz/18-distributions.html#the-normal-distribution-4",
     "title": "Distributions",
     "section": "The normal distribution",
-    "text": "The normal distribution\n\nFor a list of numbers contained in a vector x:\n\n\nindex &lt;- heights$sex == \"Male\" \nx &lt;- heights$height[index] \n\n\nthe average is defined as.\n\n\nm &lt;- sum(x) / length(x) # or mean(x)\n\n\nand the SD is defined as:\n\n\ns &lt;- sqrt(sum((x - m)^2) / length(x)) # or sd(x)\n\n\n\n\n\n\n\n\nWarning\n\n\n\nsd(x) is the sample standard deviation which is not exactly the same as the standard deviation.\nFor reasons explained in later,sd divides by length(x)-1 rather than length(x) can be used here:\n\nn &lt;- length(x)\nsd(x)^2*(n - 1)/n - sum((x - mean(x))^2)/n\n\n[1] -3.55e-15"
+    "text": "The normal distribution\n\nFor a list of numbers contained in a vector x:\n\n\nindex &lt;- heights$sex == \"Male\" \nx &lt;- heights$height[index] \n\n\nthe average is defined as.\n\n\nm &lt;- sum(x) / length(x) # or mean(x)\n\n\nand the SD is defined as:\n\n\ns &lt;- sqrt(sum((x - m)^2) / length(x)) # or sd(x)"
   },
   {
     "objectID": "slides/dataviz/18-distributions.html#the-normal-distribution-5",
@@ -3445,7 +3445,7 @@
     "href": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-9",
     "title": "Dates And Times",
     "section": "The lubridate package",
-    "text": "The lubridate package\n\nThe lubridate package is also useful for dealing with times.\nIn base R, you can get the current time typing Sys.time().\nThe lubridate package provides a slightly more advanced function, now, that permits you to define the time zone:\n\n\nnow() \n\n[1] \"2024-10-07 09:00:06 EDT\"\n\nnow(\"GMT\") \n\n[1] \"2024-10-07 13:00:06 GMT\""
+    "text": "The lubridate package\n\nThe lubridate package is also useful for dealing with times.\nIn base R, you can get the current time typing Sys.time().\nThe lubridate package provides a slightly more advanced function, now, that permits you to define the time zone:\n\n\nnow() \n\n[1] \"2024-10-20 23:29:44 EDT\"\n\nnow(\"GMT\") \n\n[1] \"2024-10-21 03:29:44 GMT\""
   },
   {
     "objectID": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-10",
@@ -3459,7 +3459,7 @@
     "href": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-11",
     "title": "Dates And Times",
     "section": "The lubridate package",
-    "text": "The lubridate package\n\nWe can also extract hours, minutes, and seconds:\n\n\nnow() |&gt; hour() \n\n[1] 9\n\nnow() |&gt; minute() \n\n[1] 0\n\nnow() |&gt; second() \n\n[1] 6.351846"
+    "text": "The lubridate package\n\nWe can also extract hours, minutes, and seconds:\n\n\nnow() |&gt; hour() \n\n[1] 23\n\nnow() |&gt; minute() \n\n[1] 29\n\nnow() |&gt; second() \n\n[1] 45.02815"
   },
   {
     "objectID": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-12",
@@ -4657,5 +4657,1230 @@
     "title": "Dataviz In Practice",
     "section": "Case study 2",
     "text": "Case study 2\n\nthe_disease &lt;- \"Measles\" \ndat &lt;- us_contagious_diseases |&gt; \n  filter(!state %in% c(\"Hawaii\",\"Alaska\") & disease == the_disease) |&gt; \n  mutate(rate = count / population * 10000 * 52 / weeks_reporting) |&gt;  \n  mutate(state = reorder(state, ifelse(year &lt;= 1963, rate, NA),  \n                         median, na.rm = TRUE))"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#probability",
+    "href": "slides/prob/20-intro-to-prob.html#probability",
+    "title": "Introduction to Probability",
+    "section": "Probability",
+    "text": "Probability\n\nThe term probability is used in everyday language.\nYet answering questions about probability is often hard, if not impossible.\nIn contrast probability has a very intuitive definition in games of chance.\nToday we discuss a mathematical definition of probability that allows us to give precise answers to certain questions."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#probability-1",
+    "href": "slides/prob/20-intro-to-prob.html#probability-1",
+    "title": "Introduction to Probability",
+    "section": "Probability",
+    "text": "Probability\n\nProbability Theory was born because certain mathematcial computations can give an advantage in games of chance.\nProbability continues to be highly useful in modern games of chance.\nProbability theory is also useful whenever our data is affected by chance in some manner.\nA knowledge of probability is indispensable for addressing most data analysis challenges."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#probability-2",
+    "href": "slides/prob/20-intro-to-prob.html#probability-2",
+    "title": "Introduction to Probability",
+    "section": "Probability",
+    "text": "Probability\n\nIn today’s lecture, we will use casino games to illustrate the fundamental concepts.\nInstead of diving into the mathematical theories, we will uses R to demonstrate these concepts.\nUnderstanding the connection between probability theory and real world data analysis is a bit more challenging. We will be discussing this connection throughout the rest of the course."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#definitions-and-notation",
+    "href": "slides/prob/20-intro-to-prob.html#definitions-and-notation",
+    "title": "Introduction to Probability",
+    "section": "Definitions and Notation",
+    "text": "Definitions and Notation\n\nEvents are fundamental concepts that help us understand and quantify uncertainty in various situations.\nAn event is defined as a specific outcome or a collection of outcomes from a random experiment."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#definitions-and-notation-1",
+    "href": "slides/prob/20-intro-to-prob.html#definitions-and-notation-1",
+    "title": "Introduction to Probability",
+    "section": "Definitions and Notation",
+    "text": "Definitions and Notation\n\nSimple examples of events can be constructed with urns.\nIf we have 2 red beads and 3 blue beads inside an urn, and we perform the random experiment of picking 1 bead, there are two outcomes: bead is red or blue.\n\n\nbeads &lt;- rep( c(\"red\", \"blue\"), times = c(2,3))\n\n\nThe four possible events: bead is red, bead is blue, bead is red or blue, and an event with no outcomes."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#definitions-and-notation-2",
+    "href": "slides/prob/20-intro-to-prob.html#definitions-and-notation-2",
+    "title": "Introduction to Probability",
+    "section": "Definitions and Notation",
+    "text": "Definitions and Notation\n\nIn more complex random experiment, we can define many more events.\nFor example if the random experiment is picking 2 beads, we can define events such as first bead is red, second bead is blue, both beads are red, and so on.\nIn a random experiment such as political poll, where we randomly phone 100 likely voters at random, we can form many million events, for example calling 48 Democrats and 52 Republicans."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#definitions-and-notation-3",
+    "href": "slides/prob/20-intro-to-prob.html#definitions-and-notation-3",
+    "title": "Introduction to Probability",
+    "section": "Definitions and Notation",
+    "text": "Definitions and Notation\n\nWe usually use capital letters \\(A\\), \\(B\\), \\(C\\), … to to denote events.\nIf we denote an event as \\(A\\) then we use the notation \\(\\mbox{Pr}(A)\\) to denote the probability of event \\(A\\) occurring."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#definitions-and-notation-4",
+    "href": "slides/prob/20-intro-to-prob.html#definitions-and-notation-4",
+    "title": "Introduction to Probability",
+    "section": "Definitions and Notation",
+    "text": "Definitions and Notation\n\nWe can combine events in different ways to form new events. For example, if event\n\\(A\\)=first bead is red and second bead is blue, and\n\\(B\\)=first bead is red and second bead is red\nthen \\(A \\cup B\\) (\\(A\\) or \\(B\\)) is the event first bead is red,\nwhile \\(A \\cap B\\) (\\(A\\) and \\(B\\)) is the empty event since both can’t happen."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#independence",
+    "href": "slides/prob/20-intro-to-prob.html#independence",
+    "title": "Introduction to Probability",
+    "section": "Independence",
+    "text": "Independence\n\nMany examples of events that are not independent come from card games.\nWhen we deal the first card, the probability of getting a King is 1/13 since there are thirteen possibilities: Ace, Deuce, Three, \\(\\dots\\), Ten, Jack, Queen, King, and Ace.\nIf we deal a King for the first card, the probability of a second card being a King decreases because there are only three Kings left: The probability is 3 out of 51."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#independence-1",
+    "href": "slides/prob/20-intro-to-prob.html#independence-1",
+    "title": "Introduction to Probability",
+    "section": "Independence",
+    "text": "Independence\n\nBy detault, the sample function samples without replacement\n\n\nset.seed(1996)\nx &lt;- sample(beads, 5) \n\n\nIf you have to guess the color of the first bead, you will predict blue since blue has a 60% chance."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#conditional-probabilities",
+    "href": "slides/prob/20-intro-to-prob.html#conditional-probabilities",
+    "title": "Introduction to Probability",
+    "section": "Conditional probabilities",
+    "text": "Conditional probabilities\n\nWhen events are not independent, conditional probabilities are useful.\nWe use the \\(|\\) to shorten conditional on. For example:\n\n\\[\n\\mbox{Pr}(\\mbox{Card 2 is a king} \\mid \\mbox{Card 1 is a king}) = 3/51\n\\]"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#conditional-probabilities-1",
+    "href": "slides/prob/20-intro-to-prob.html#conditional-probabilities-1",
+    "title": "Introduction to Probability",
+    "section": "Conditional probabilities",
+    "text": "Conditional probabilities\n\nWhen two events, say \\(A\\) and \\(B\\), are independent, we have:\n\n\\[\n\\mbox{Pr}(A \\mid B) = \\mbox{Pr}(A)  \n\\]\n\nIn fact, this can be considered the mathematical definition of independence."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#multiplication-rule",
+    "href": "slides/prob/20-intro-to-prob.html#multiplication-rule",
+    "title": "Introduction to Probability",
+    "section": "Multiplication rule",
+    "text": "Multiplication rule\n\nIf we want to determine the probability of two events, say \\(A\\) and \\(B\\), occurring, we can use the multiplication rule:\n\n\\[\n\\mbox{Pr}(A \\cup B) = \\mbox{Pr}(A)\\mbox{Pr}(B \\mid A)\n\\]"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#multiplication-rule-1",
+    "href": "slides/prob/20-intro-to-prob.html#multiplication-rule-1",
+    "title": "Introduction to Probability",
+    "section": "Multiplication rule",
+    "text": "Multiplication rule\n\nFor example:\n\n\\[\n\\mbox{Pr}(\\mbox{Blackjack in first hand}) = \\\\\n\\mbox{Pr}(\\mbox{Ace first})\\mbox{Pr}(\\mbox{Face card second}\\mid \\mbox{Ace first}) +\\\\\n\\mbox{Pr}(\\mbox{Face card first})\\mbox{Pr}(\\mbox{Ace}\\mid \\mbox{Face card second}) =\\\\\n\\frac{1}{13}\\frac{16}{51} + \\frac{4}{13}\\frac{4}{51} \\approx 0.0483\n\\]"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#multiplication-rule-2",
+    "href": "slides/prob/20-intro-to-prob.html#multiplication-rule-2",
+    "title": "Introduction to Probability",
+    "section": "Multiplication rule",
+    "text": "Multiplication rule\n\nWe can use induction to expand for more events:\n\n\\[\n\\mbox{Pr}(A \\cup B \\cup C) = \\mbox{Pr}(A)\\mbox{Pr}(B \\mid A)\\mbox{Pr}(C \\mid A \\cup B)\n\\]"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#multiplication-rule-example",
+    "href": "slides/prob/20-intro-to-prob.html#multiplication-rule-example",
+    "title": "Introduction to Probability",
+    "section": "Multiplication rule example",
+    "text": "Multiplication rule example\n\nImagine a court case in which the suspect was described as having a mustache and a beard.\nThe defendant has both and an “expert” testifies that 1/10 men have beards and 1/5 have mustaches.\nUsing the multiplication rule, he concludes that \\(1/10 \\times 1/5\\) or 0.02 have both.\nBut this assumes independence!\nIf the conditional probability of a man having a mustache, conditional on him having a beard, is .95, then the probability is: \\(1/10 \\times 95/100 = 0.095\\)"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#multiplication-rule-under",
+    "href": "slides/prob/20-intro-to-prob.html#multiplication-rule-under",
+    "title": "Introduction to Probability",
+    "section": "Multiplication rule under",
+    "text": "Multiplication rule under\n\nThe multiplication rule also gives us a general formula for computing conditional probabilities:\n\n\\[\n\\mbox{Pr}(B \\mid A) = \\frac{\\mbox{Pr}(A \\cup B)}{ \\mbox{Pr}(A)}\n\\]"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#addition-rule",
+    "href": "slides/prob/20-intro-to-prob.html#addition-rule",
+    "title": "Introduction to Probability",
+    "section": "Addition rule",
+    "text": "Addition rule\n\nThe addition rule tells us that:\n\n\\[\n\\mbox{Pr}(A \\cap B) = \\mbox{Pr}(A) + \\mbox{Pr}(B) - \\mbox{Pr}(A \\cup B)\n\\]"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#random-variables",
+    "href": "slides/prob/20-intro-to-prob.html#random-variables",
+    "title": "Introduction to Probability",
+    "section": "Random Variables",
+    "text": "Random Variables\n\nRandom variables are numeric outcomes resulting from random processes.\nWe can easily generate random variables using the simple examples we have shown.\nFor example, define X to be 1 if a bead is blue and red otherwise:\n\n\nbeads &lt;- rep( c(\"red\", \"blue\"), times = c(2,3))\nx &lt;- ifelse(sample(beads, 1) == \"blue\", 1, 0)"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#random-variables-1",
+    "href": "slides/prob/20-intro-to-prob.html#random-variables-1",
+    "title": "Introduction to Probability",
+    "section": "Random Variables",
+    "text": "Random Variables\n\nHere X is a random variable, changing randomly each time we select a new bead. Sometimes it’s 1 and sometimes it’s 0.\n\n\nifelse(sample(beads, 1) == \"blue\", 1, 0)\n\n[1] 0\n\nifelse(sample(beads, 1) == \"blue\", 1, 0)\n\n[1] 1\n\nifelse(sample(beads, 1) == \"blue\", 1, 0)\n\n[1] 0"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#random-variables-2",
+    "href": "slides/prob/20-intro-to-prob.html#random-variables-2",
+    "title": "Introduction to Probability",
+    "section": "Random Variables",
+    "text": "Random Variables\n\nMore interesting random variables are:\n\nthe number of times we win in a game of chance,\nthe number of democrats in a random sample of 1,000 voters, and\nthe proportion of patients randomly assigned to a control group in drug trial."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#discrete-probability",
+    "href": "slides/prob/20-intro-to-prob.html#discrete-probability",
+    "title": "Introduction to Probability",
+    "section": "Discrete probability",
+    "text": "Discrete probability\nIf I have 2 red beads and 3 blue beads inside an urn and I pick one at random, what is the probability of picking a red one? Our intuition tells us that the answer is 2/5 or 40%."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#discrete-probability-1",
+    "href": "slides/prob/20-intro-to-prob.html#discrete-probability-1",
+    "title": "Introduction to Probability",
+    "section": "Discrete probability",
+    "text": "Discrete probability\n\nA precise definition can be given by noting that there are five possible outcomes, of which two satisfy the condition necessary for the event pick a red bead.\nSince each of the five outcomes has an equal chance of occurring, we conclude that the probability is .4 for red and .6 for blue."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#monte-carlo",
+    "href": "slides/prob/20-intro-to-prob.html#monte-carlo",
+    "title": "Introduction to Probability",
+    "section": "Monte Carlo",
+    "text": "Monte Carlo\n\nMonte Carlo simulations use computers to perform these experiments.\nRandom number generators permit us to mimic the process of picking at random.\nThe sample function in R uses a random number generator:\n\n\nbeads &lt;- rep(c(\"red\", \"blue\"), times = c(2,3))\nsample(beads, 1)\n\n[1] \"blue\""
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#monte-carlo-1",
+    "href": "slides/prob/20-intro-to-prob.html#monte-carlo-1",
+    "title": "Introduction to Probability",
+    "section": "Monte Carlo",
+    "text": "Monte Carlo\n\nIf we repeat the experiment over and over, we can define the probability using the frequentists definition\n\n\nn &lt;- 10^7\nx &lt;- sample(beads, n, replace = TRUE)\ntable(x)/n\n\nx\n     blue       red \n0.6002232 0.3997768 \n\n\n\nNote the definition is for \\(n=\\infty\\). In practice we use very large numbers tp get very close."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#probability-distributions",
+    "href": "slides/prob/20-intro-to-prob.html#probability-distributions",
+    "title": "Introduction to Probability",
+    "section": "Probability distributions",
+    "text": "Probability distributions\nAn example of a probability distribution is:\n\n\n\nPr(picking a Republican)\n=\n0.44\n\n\nPr(picking a Democrat)\n=\n0.44\n\n\nPr(picking an undecided)\n=\n0.10\n\n\nPr(picking a Green)\n=\n0.02"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#setting-the-random-seed",
+    "href": "slides/prob/20-intro-to-prob.html#setting-the-random-seed",
+    "title": "Introduction to Probability",
+    "section": "Setting the random seed",
+    "text": "Setting the random seed\n\nBefore we continue, we will briefly explain the function set.seed\n\n\nset.seed(2020-10-13)  \n\n\nWhen using random number generators you get a different answer each time.\nThis is fine, but if you want to ensure that results are consistent with each run, you can set R’s random number generation seed to a specific number."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#combinations-and-permutations",
+    "href": "slides/prob/20-intro-to-prob.html#combinations-and-permutations",
+    "title": "Introduction to Probability",
+    "section": "Combinations and permutations",
+    "text": "Combinations and permutations\n\nBeing able to count combinations and permutations is an important part of performing discrete probability computations.\nWe will not cover this but you should know the function expand.grid\nand the gtools functions permutatios and combinations."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#combinations-and-permutations-1",
+    "href": "slides/prob/20-intro-to-prob.html#combinations-and-permutations-1",
+    "title": "Introduction to Probability",
+    "section": "Combinations and permutations",
+    "text": "Combinations and permutations\n\nHere is how we generate a deck of cards:\n\n\nsuits &lt;- c(\"Diamonds\", \"Clubs\", \"Hearts\", \"Spades\") \nnumbers &lt;- c(\"Ace\", \"Deuce\", \"Three\", \"Four\", \"Five\", \"Six\", \"Seven\",  \n             \"Eight\", \"Nine\", \"Ten\", \"Jack\", \"Queen\", \"King\") \ndeck &lt;- expand.grid(number = numbers, suit = suits) \ndeck &lt;- paste(deck$number, deck$suit)"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#combinations-and-permutations-2",
+    "href": "slides/prob/20-intro-to-prob.html#combinations-and-permutations-2",
+    "title": "Introduction to Probability",
+    "section": "Combinations and permutations",
+    "text": "Combinations and permutations\n\nHere are all the ways we can choose two numbers from a list consisting of 1,2,3:\n\n\nlibrary(gtools) \npermutations(3, 2) \n\n     [,1] [,2]\n[1,]    1    2\n[2,]    1    3\n[3,]    2    1\n[4,]    2    3\n[5,]    3    1\n[6,]    3    2\n\n\n\nThe order matters here: 3,1 is different than 1,3.\n(1,1), (2,2), and (3,3) do not appear because once we pick a number, it can’t appear again."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#combinations-and-permutations-3",
+    "href": "slides/prob/20-intro-to-prob.html#combinations-and-permutations-3",
+    "title": "Introduction to Probability",
+    "section": "Combinations and permutations",
+    "text": "Combinations and permutations\n\nTo compute all possible ways we can choose two cards when the order matters, we type, you can use the v option:\n\n\nhands &lt;- permutations(52, 2, v = deck)"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#combinations-and-permutations-4",
+    "href": "slides/prob/20-intro-to-prob.html#combinations-and-permutations-4",
+    "title": "Introduction to Probability",
+    "section": "Combinations and permutations",
+    "text": "Combinations and permutations\n\nWhat about if the order does not matter? For example, in Blackjack, if you obtain an Ace and a face card in the first draw, it is called a Natural 21, and you win automatically.\nIf we wanted to compute the probability of this happening, we would enumerate the combinations, not the permutations, since the order does not matter.\n\n\ncombinations(3,2) \n\n     [,1] [,2]\n[1,]    1    2\n[2,]    1    3\n[3,]    2    3"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#infinity-in-practice",
+    "href": "slides/prob/20-intro-to-prob.html#infinity-in-practice",
+    "title": "Introduction to Probability",
+    "section": "Infinity in practice",
+    "text": "Infinity in practice\n\nThe theory described here requires repeating experiments over and over indefinitely.\nIn practice, we can’t do this.\nIn the problem set you will be asked to explore how we implement asymptotic theory in practice."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#continuous-probability",
+    "href": "slides/prob/20-intro-to-prob.html#continuous-probability",
+    "title": "Introduction to Probability",
+    "section": "Continuous probability",
+    "text": "Continuous probability\n\nWhen summarizing a list of numeric values, such as heights, it is not useful to construct a distribution that defines a proportion to each possible outcome.\nSimilarly, for a random variable that can take any value in a continuous set, it impossible to assign a positive probabilities to the infinite number of possible values.\nHere, we outline the mathematical definitions of distributions for continuous random variables and useful approximations frequently employed in data analysis."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#cumulative-distribution-functions",
+    "href": "slides/prob/20-intro-to-prob.html#cumulative-distribution-functions",
+    "title": "Introduction to Probability",
+    "section": "Cumulative distribution functions",
+    "text": "Cumulative distribution functions\n\nWe used the heights of adult male students as an example:\n\n\nlibrary(tidyverse) \nlibrary(dslabs) \nx &lt;- heights %&gt;% filter(sex == \"Male\") %&gt;% pull(height) \n\n\nand defined the empirical cumulative distribution function (eCDF) as.\n\n\nF &lt;- function(a) mean(x &lt;= a) \n\n\nwhich, for any value a, gives the proportion of values in the list x that are smaller or equal than a."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#cumulative-distribution-functions-1",
+    "href": "slides/prob/20-intro-to-prob.html#cumulative-distribution-functions-1",
+    "title": "Introduction to Probability",
+    "section": "Cumulative distribution functions",
+    "text": "Cumulative distribution functions\n\nLet’s connect the eCDF to probability by asking: if I randomly pick one of the male students, what is the chance that he is taller than 70.5 inches? Since every student has the same chance of being picked, the answer to this is equivalent to the proportion of students that are taller than 70.5 inches.\nUsing the eCDF we obtain an answer by typing:\n\n\n1 - F(70) \n\n[1] 0.3768473\n\n\n\nThe CDF is a version of the eCDF that assigns theoretical probabilities for each \\(a\\) rather than proportions computed from data."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#cumulative-distribution-functions-2",
+    "href": "slides/prob/20-intro-to-prob.html#cumulative-distribution-functions-2",
+    "title": "Introduction to Probability",
+    "section": "Cumulative distribution functions",
+    "text": "Cumulative distribution functions\n\nAlthough, as we just demonstrated, proportions computed from data can be used to define probabilities for a random variable.\nSpecifically, the CDF for a random outcome \\(X\\) defines, for any number \\(a\\), the probability of observing a value larger than \\(a\\).\n\n\\[ F(a) = \\mbox{Pr}(X \\leq a) \\]\n\nOnce a CDF is defined, we can use it to compute the probability of any subset of values."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#cumulative-distribution-functions-3",
+    "href": "slides/prob/20-intro-to-prob.html#cumulative-distribution-functions-3",
+    "title": "Introduction to Probability",
+    "section": "Cumulative distribution functions",
+    "text": "Cumulative distribution functions\n\nFor instance, the probability of a student being between height a and height b is:\n\n\\[\n\\mbox{Pr}(a &lt; X \\leq b) = F(b)-F(a)\n\\]\n\nSince we can compute the probability for any possible event using this approach, the CDF defines the probability distribution."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#probability-density-function",
+    "href": "slides/prob/20-intro-to-prob.html#probability-density-function",
+    "title": "Introduction to Probability",
+    "section": "Probability density function",
+    "text": "Probability density function\n\nA mathematical result that is very useful in practice is that, for most CDFs, we can define a function, call it \\(f(x)\\), that permits us to construct the CDF using Calculus, like this:\n\n\\[\nF(b) - F(a) = \\int_a^b f(x)\\,dx\n\\]\n\n\\(f(x)\\) is referred to as the probability density function."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#probability-density-function-1",
+    "href": "slides/prob/20-intro-to-prob.html#probability-density-function-1",
+    "title": "Introduction to Probability",
+    "section": "Probability density function",
+    "text": "Probability density function\n\nThe intuition is that even for continuous outcomes we can define tiny intervals, that are almost as small as points, that have positive probabilities.\nIf we think of the size of these intervals as the base of a rectangle, the probability density function \\(f\\) determines the height of the rectangle so that the summing up of the area of these rectangles approximate the probability \\(F(b) - F(a)\\)."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#probability-density-function-2",
+    "href": "slides/prob/20-intro-to-prob.html#probability-density-function-2",
+    "title": "Introduction to Probability",
+    "section": "Probability density function",
+    "text": "Probability density function\n\nThis sum can be written as Reimann sum that is approximated by an integral:"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#probability-density-function-3",
+    "href": "slides/prob/20-intro-to-prob.html#probability-density-function-3",
+    "title": "Introduction to Probability",
+    "section": "Probability density function",
+    "text": "Probability density function\n\nAn example of such a continuous distribution is the normal distribution.\nThe probability density function is given by:\n\n\\[f(x) = e^{-\\frac{1}{2}\\left( \\frac{x-m}{s} \\right)^2} \\]\n\nThe cumulative distribution for the normal distribution is defined by a mathematical formula which in R can be obtained with the function pnorm."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#probability-density-function-4",
+    "href": "slides/prob/20-intro-to-prob.html#probability-density-function-4",
+    "title": "Introduction to Probability",
+    "section": "Probability density function",
+    "text": "Probability density function\n\nWe say that a random quantity is normally distributed with average m and standard deviation s if its probability distribution is defined by:\n\n\nF(a) = pnorm(a, m, s)"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#theoretical-distributions-as-approximations",
+    "href": "slides/prob/20-intro-to-prob.html#theoretical-distributions-as-approximations",
+    "title": "Introduction to Probability",
+    "section": "Theoretical distributions as approximations",
+    "text": "Theoretical distributions as approximations\n\nThe normal distribution is derived mathematically; we do not need data to define it.\nFor practicing data scientists, almost everything we do involves data.\nData is always, technically speaking, discrete.\nFor example, we could consider our height data categorical, with each specific height a unique category.\nThe probability distribution is defined by the proportion of students reporting each height."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#theoretical-distributions-as-approximations-1",
+    "href": "slides/prob/20-intro-to-prob.html#theoretical-distributions-as-approximations-1",
+    "title": "Introduction to Probability",
+    "section": "Theoretical distributions as approximations",
+    "text": "Theoretical distributions as approximations\n\nBelow is a plot of that probability distribution:"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#theoretical-distributions-as-approximations-2",
+    "href": "slides/prob/20-intro-to-prob.html#theoretical-distributions-as-approximations-2",
+    "title": "Introduction to Probability",
+    "section": "Theoretical distributions as approximations",
+    "text": "Theoretical distributions as approximations\n\nWhile most students rounded up their heights to the nearest inch, others reported values with more precision.\nOne student reported his height to be 69.6850393700787, which is 177 centimeters.\nThe probability assigned to this height is 0.0012315 or 1 in 812."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#theoretical-distributions-as-approximations-3",
+    "href": "slides/prob/20-intro-to-prob.html#theoretical-distributions-as-approximations-3",
+    "title": "Introduction to Probability",
+    "section": "Theoretical distributions as approximations",
+    "text": "Theoretical distributions as approximations\n\nThe probability for 70 inches is much higher at 0.1059113, but does it really make sense to think of the probability of being exactly 70 inches as being different than 69.6850393700787?\nClearly it is much more useful for data analytic purposes to treat this outcome as a continuous numeric variable, keeping in mind that very few people, or perhaps none, are exactly 70 inches, and that the reason we get more values at 70 is because people round to the nearest inch.\nWith continuous distributions, the probability of a singular value is not even defined.\nFor instance, it does not make sense to ask what is the probability that a normally distributed value is 70."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#theoretical-distributions-as-approximations-4",
+    "href": "slides/prob/20-intro-to-prob.html#theoretical-distributions-as-approximations-4",
+    "title": "Introduction to Probability",
+    "section": "Theoretical distributions as approximations",
+    "text": "Theoretical distributions as approximations\n\nInstead, we define probabilities for intervals.\nWe therefore could ask, what is the probability that someone is between 69.5 and 70.5?\nIn cases like height, in which the data is rounded, the normal approximation is particularly useful if we deal with intervals that include exactly one round number.\nFor example, the normal distribution is useful for approximating the proportion of students reporting values in intervals like the following three:"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#theoretical-distributions-as-approximations-5",
+    "href": "slides/prob/20-intro-to-prob.html#theoretical-distributions-as-approximations-5",
+    "title": "Introduction to Probability",
+    "section": "Theoretical distributions as approximations",
+    "text": "Theoretical distributions as approximations\n\nmean(x &lt;= 68.5) - mean(x &lt;= 67.5) \n\n[1] 0.114532\n\nmean(x &lt;= 69.5) - mean(x &lt;= 68.5) \n\n[1] 0.1194581\n\nmean(x &lt;= 70.5) - mean(x &lt;= 69.5) \n\n[1] 0.1219212\n\n\n\nNote how close we get with the normal approximation:\n\n\npnorm(68.5, m, s) - pnorm(67.5, m, s)  \n\n[1] 0.1031077\n\npnorm(69.5, m, s) - pnorm(68.5, m, s)  \n\n[1] 0.1097121\n\npnorm(70.5, m, s) - pnorm(69.5, m, s)  \n\n[1] 0.1081743\n\n\n\nHowever, the approximation is not as useful for other intervals.\nFor instance, notice how the approximation breaks down when we try to estimate:"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#theoretical-distributions-as-approximations-6",
+    "href": "slides/prob/20-intro-to-prob.html#theoretical-distributions-as-approximations-6",
+    "title": "Introduction to Probability",
+    "section": "Theoretical distributions as approximations",
+    "text": "Theoretical distributions as approximations\n\nmean(x &lt;= 70.9) - mean(x &lt;= 70.1) \n\n[1] 0.02216749\n\n\n\nwith:\n\n\npnorm(70.9, m, s) - pnorm(70.1, m, s) \n\n[1] 0.08359562\n\n\n\nIn general, we call this situation discretization.\nAlthough the true height distribution is continuous, the reported heights tend to be more common at discrete values, in this case, due to rounding.\nAs long as we are aware of how to deal with this reality, the normal approximation can still be a very useful tool."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#the-probability-density",
+    "href": "slides/prob/20-intro-to-prob.html#the-probability-density",
+    "title": "Introduction to Probability",
+    "section": "The probability density",
+    "text": "The probability density\n\nFor categorical distributions, we can define the probability of a category.\nFor example, a roll of a die, let’s call it \\(X\\), can be 1, 2, 3, 4, 5 or 6.\nThe probability of 4 is defined as:\n\n\\[\n\\mbox{Pr}(X=4) = 1/6\n\\]"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#the-probability-density-1",
+    "href": "slides/prob/20-intro-to-prob.html#the-probability-density-1",
+    "title": "Introduction to Probability",
+    "section": "The probability density",
+    "text": "The probability density\n\nThe CDF can then easily be defined:\n\n\\[\nF(4) = \\mbox{Pr}(X\\leq 4) =  \\mbox{Pr}(X = 4) +  \\mbox{Pr}(X = 3) +  \\mbox{Pr}(X = 2) +  \\mbox{Pr}(X = 1)  \n\\]"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#the-probability-density-2",
+    "href": "slides/prob/20-intro-to-prob.html#the-probability-density-2",
+    "title": "Introduction to Probability",
+    "section": "The probability density",
+    "text": "The probability density\n\nAlthough for continuous distributions the probability of a single value \\(\\mbox{Pr}(X=x)\\) is not defined, there is a theoretical definition that has a similar interpretation.\nThe probability density at \\(x\\) is defined as the function \\(f(a)\\) such that:\n\n\\[\nF(a) = \\mbox{Pr}(X\\leq a) = \\int_{-\\infty}^a f(x)\\, dx\n\\]"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#the-probability-density-3",
+    "href": "slides/prob/20-intro-to-prob.html#the-probability-density-3",
+    "title": "Introduction to Probability",
+    "section": "The probability density",
+    "text": "The probability density\n\nFor those that know calculus, remember that the integral is related to a sum: it is the sum of bars with widths approximating 0.\nIf you don’t know calculus, you can think of \\(f(x)\\) as a curve for which the area under that curve, up to the value \\(a\\), gives you the probability \\(\\mbox{Pr}(X\\leq a)\\)."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#the-probability-density-4",
+    "href": "slides/prob/20-intro-to-prob.html#the-probability-density-4",
+    "title": "Introduction to Probability",
+    "section": "The probability density",
+    "text": "The probability density\n\nFor example, to use the normal approximation to estimate the probability of someone being taller than 76 inches, we use:\n\n\n1 - pnorm(76, m, s) \n\n[1] 0.03206008"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#monte-carlo-2",
+    "href": "slides/prob/20-intro-to-prob.html#monte-carlo-2",
+    "title": "Introduction to Probability",
+    "section": "Monte Carlo",
+    "text": "Monte Carlo\n\nR provides functions to generate normally distributed outcomes.\nSpecifically, the rnorm function takes three arguments: size, average (defaults to 0), and standard deviation (defaults to 1), and produces random numbers."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#monte-carlo-3",
+    "href": "slides/prob/20-intro-to-prob.html#monte-carlo-3",
+    "title": "Introduction to Probability",
+    "section": "Monte Carlo",
+    "text": "Monte Carlo\n\nHere is an example of how we could generate data that looks like our reported heights:\n\n\nn &lt;- length(x) \nm &lt;- mean(x) \ns &lt;- sd(x) \nsimulated_heights &lt;- rnorm(n, m, s)"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#monte-carlo-4",
+    "href": "slides/prob/20-intro-to-prob.html#monte-carlo-4",
+    "title": "Introduction to Probability",
+    "section": "Monte Carlo",
+    "text": "Monte Carlo\n\nNot surprisingly, the distribution looks normal:"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#monte-carlo-5",
+    "href": "slides/prob/20-intro-to-prob.html#monte-carlo-5",
+    "title": "Introduction to Probability",
+    "section": "Monte Carlo",
+    "text": "Monte Carlo\n\nThis is one of the most useful functions in R, as it will permit us to generate data that mimics natural events and answers questions related to what could happen by chance by running Monte Carlo simulations.\nIf, for example, we pick 800 males at random, what is the distribution of the tallest person? How rare is a seven-footer in a group of 800 males? The following Monte Carlo simulation helps us answer that question:"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#monte-carlo-6",
+    "href": "slides/prob/20-intro-to-prob.html#monte-carlo-6",
+    "title": "Introduction to Probability",
+    "section": "Monte Carlo",
+    "text": "Monte Carlo\n\nB &lt;- 10000 \ntallest &lt;- replicate(B, { \n  simulated_data &lt;- rnorm(800, m, s) \n  max(simulated_data) \n})"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#continuous-distributions",
+    "href": "slides/prob/20-intro-to-prob.html#continuous-distributions",
+    "title": "Introduction to Probability",
+    "section": "Continuous distributions",
+    "text": "Continuous distributions\n\nThe normal distribution is not the only useful theoretical distribution.\nOther continuous distributions that we may encounter are the student-t, Chi-square, exponential, gamma, beta, and beta-binomial.\nR provides functions to compute the density, the quantiles, the cumulative distribution functions and to generate Monte Carlo simulations.\nR uses a convention that lets us remember the names, namely using the letters d, q, p, and r in front of a shorthand for the distribution."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#continuous-distributions-1",
+    "href": "slides/prob/20-intro-to-prob.html#continuous-distributions-1",
+    "title": "Introduction to Probability",
+    "section": "Continuous distributions",
+    "text": "Continuous distributions\n\nWe have already seen the functions dnorm, pnorm, and rnorm for the normal distribution.\nThe functions qnorm gives us the quantiles.\nWe can therefore draw a distribution like this:"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#continuous-distributions-2",
+    "href": "slides/prob/20-intro-to-prob.html#continuous-distributions-2",
+    "title": "Introduction to Probability",
+    "section": "Continuous distributions",
+    "text": "Continuous distributions\n\nx &lt;- seq(-4, 4, length.out = 100) \nqplot(x, f, geom = \"line\", data = data.frame(x, f = dnorm(x)))"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#definitions-and-notation-5",
+    "href": "slides/prob/20-intro-to-prob.html#definitions-and-notation-5",
+    "title": "Introduction to Probability",
+    "section": "Definitions and Notation",
+    "text": "Definitions and Notation\n\nWith continuous variables, events will relate to questions, such as Is this person taller than 6 feet?\nIn these cases, we represent events in a more mathematical form: \\(A = X &gt; 6\\)."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#independence-2",
+    "href": "slides/prob/20-intro-to-prob.html#independence-2",
+    "title": "Introduction to Probability",
+    "section": "Independence",
+    "text": "Independence\n\nHowever, if I show you the result of the last four outcomes:\n\n\nx[2:5] \n\n[1] \"blue\" \"blue\" \"red\"  \"blue\"\n\n\n\nwould you still guess blue? Of course not."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#multiplication-rule-3",
+    "href": "slides/prob/20-intro-to-prob.html#multiplication-rule-3",
+    "title": "Introduction to Probability",
+    "section": "Multiplication rule",
+    "text": "Multiplication rule\n\nWhen dealing with independent events, the multiplication rule becomes simpler:\n\n\\[\n\\mbox{Pr}(A \\cup B \\cup C) = \\mbox{Pr}(A)\\mbox{Pr}(B)\\mbox{Pr}(C)\n\\]\n\nHowever, we have to be very careful before using this version of the multiplication rule, since assuming independence can result in very different and incorrect probability calculations when events are not actually independent."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#cdf",
+    "href": "slides/prob/20-intro-to-prob.html#cdf",
+    "title": "Introduction to Probability",
+    "section": "CDF",
+    "text": "CDF\n\nWe used the heights of adult male students as an example:\n\n\nlibrary(tidyverse) \nlibrary(dslabs) \nx &lt;- heights %&gt;% filter(sex == \"Male\") %&gt;% pull(height) \n\n\nand defined the empirical cumulative distribution function (eCDF) as.\n\n\nF &lt;- function(a) mean(x &lt;= a) \n\n\nwhich, for any value a, gives the proportion of values in the list x that are smaller or equal than a."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#cdf-1",
+    "href": "slides/prob/20-intro-to-prob.html#cdf-1",
+    "title": "Introduction to Probability",
+    "section": "CDF",
+    "text": "CDF\n\nThere is a connection to the empirical CDF.\nIf I randomly pick one of the male students, what is the chance that he is taller than 70.5 inches?\nSince every student has the same chance of being picked, the answer is the proportion of students that are taller than 70.5 inches."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#cdf-2",
+    "href": "slides/prob/20-intro-to-prob.html#cdf-2",
+    "title": "Introduction to Probability",
+    "section": "CDF",
+    "text": "CDF\n\nUsing the eCDF we obtain an answer by typing:\n\n\n1 - F(70) \n\n[1] 0.3768473\n\n\n\nThe CDF is a version of the eCDF that assigns theoretical probabilities for each \\(a\\) rather than proportions computed from data."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#cdf-3",
+    "href": "slides/prob/20-intro-to-prob.html#cdf-3",
+    "title": "Introduction to Probability",
+    "section": "CDF",
+    "text": "CDF\n\nAlthough, as we just demonstrated, proportions computed from data can be used to define probabilities for a random variable.\nSpecifically, the CDF for a random outcome \\(X\\) defines, for any number \\(a\\), the probability of observing a value larger than \\(a\\).\n\n\\[ F(a) = \\mbox{Pr}(X \\leq a) \\]\n\nOnce a CDF is defined, we can use it to compute the probability of any subset of values."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#cdf-4",
+    "href": "slides/prob/20-intro-to-prob.html#cdf-4",
+    "title": "Introduction to Probability",
+    "section": "CDF",
+    "text": "CDF\n\nFor instance, the probability of a student being between height a and height b is:\n\n\\[\n\\mbox{Pr}(a &lt; X \\leq b) = F(b)-F(a)\n\\]\n\nSince we can compute the probability for any possible event using this approach, the CDF defines the probability distribution."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#probability-density-function-5",
+    "href": "slides/prob/20-intro-to-prob.html#probability-density-function-5",
+    "title": "Introduction to Probability",
+    "section": "Probability density function",
+    "text": "Probability density function\n\nThis is useful because, if we are willing to use the normal approximation we don’t need the entire dataset to answer questions such as: What is the probability that a randomly selected student is taller then 70 inches?\nWe just need the average height and standard deviation:\n\n\nm &lt;- mean(x) \ns &lt;- sd(x) \n1 - pnorm(70.5, m, s) \n\n[1] 0.371369"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#distributions-as-approximations",
+    "href": "slides/prob/20-intro-to-prob.html#distributions-as-approximations",
+    "title": "Introduction to Probability",
+    "section": "Distributions as approximations",
+    "text": "Distributions as approximations\n\nThe normal distribution is derived mathematically; we do not need data to define it.\nFor practicing data scientists, almost everything we do involves data.\nData is always, technically speaking, discrete.\nFor example, we could consider our height data categorical, with each specific height a unique category.\nThe probability distribution is defined by the proportion of students reporting each height."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#distributions-as-approximations-1",
+    "href": "slides/prob/20-intro-to-prob.html#distributions-as-approximations-1",
+    "title": "Introduction to Probability",
+    "section": "Distributions as approximations",
+    "text": "Distributions as approximations\n\nBelow is a plot of that probability distribution:"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#distributions-as-approximations-2",
+    "href": "slides/prob/20-intro-to-prob.html#distributions-as-approximations-2",
+    "title": "Introduction to Probability",
+    "section": "Distributions as approximations",
+    "text": "Distributions as approximations\n\nWhile most students rounded up their heights to the nearest inch, others reported values with more precision.\nOne student reported his height to be 69.6850393700787, which is 177 centimeters.\nThe probability assigned to this height is 0.0012315 or 1 in 812."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#distributions-as-approximations-3",
+    "href": "slides/prob/20-intro-to-prob.html#distributions-as-approximations-3",
+    "title": "Introduction to Probability",
+    "section": "Distributions as approximations",
+    "text": "Distributions as approximations\n\nThe probability for 70 inches is much higher at 0.1059113,\nDoes it really make sense to think of the probability of being exactly 70 inches as being different than 69.6850393700787?"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#distributions-as-approximations-4",
+    "href": "slides/prob/20-intro-to-prob.html#distributions-as-approximations-4",
+    "title": "Introduction to Probability",
+    "section": "Distributions as approximations",
+    "text": "Distributions as approximations\n\nClearly it is much more useful for data analytic purposes to treat this outcome as a continuous numeric variable, keeping in mind that very few people, or perhaps none, are exactly 70 inches, and that the reason we get more values at 70 is because people round to the nearest inch."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#distributions-as-approximations-5",
+    "href": "slides/prob/20-intro-to-prob.html#distributions-as-approximations-5",
+    "title": "Introduction to Probability",
+    "section": "Distributions as approximations",
+    "text": "Distributions as approximations\n\nWith continuous distributions, the probability of a singular value is not even defined.\nFor instance, it does not make sense to ask what is the probability that a normally distributed value is 70.\nInstead, we define probabilities for intervals."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#distributions-as-approximations-6",
+    "href": "slides/prob/20-intro-to-prob.html#distributions-as-approximations-6",
+    "title": "Introduction to Probability",
+    "section": "Distributions as approximations",
+    "text": "Distributions as approximations\n\nWe therefore could ask, what is the probability that someone is between 69.5 and 70.5?\nIn cases like height, in which the data is rounded, the normal approximation is particularly useful if we deal with intervals that include exactly one round number."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#discrete-probability-2",
+    "href": "slides/prob/20-intro-to-prob.html#discrete-probability-2",
+    "title": "Introduction to Probability",
+    "section": "Discrete probability",
+    "text": "Discrete probability\n\nA more tangible way to think about the probability of an event is as the proportion of times the event occurs when we repeat the experiment an infinite number of times, independently, and under the same conditions.\nThis is the frequentist way of thinking about probability."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#distributions-as-approximations-7",
+    "href": "slides/prob/20-intro-to-prob.html#distributions-as-approximations-7",
+    "title": "Introduction to Probability",
+    "section": "Distributions as approximations",
+    "text": "Distributions as approximations\n\nFor example, the normal distribution is useful for approximating the proportion of students reporting values in intervals like the following three:\n\n\nmean(x &lt;= 68.5) - mean(x &lt;= 67.5) \n\n[1] 0.114532\n\nmean(x &lt;= 69.5) - mean(x &lt;= 68.5) \n\n[1] 0.1194581\n\nmean(x &lt;= 70.5) - mean(x &lt;= 69.5) \n\n[1] 0.1219212"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#distributions-as-approximations-8",
+    "href": "slides/prob/20-intro-to-prob.html#distributions-as-approximations-8",
+    "title": "Introduction to Probability",
+    "section": "Distributions as approximations",
+    "text": "Distributions as approximations\n\nNote how close we get with the normal approximation:\n\n\npnorm(68.5, m, s) - pnorm(67.5, m, s)  \n\n[1] 0.1031077\n\npnorm(69.5, m, s) - pnorm(68.5, m, s)  \n\n[1] 0.1097121\n\npnorm(70.5, m, s) - pnorm(69.5, m, s)  \n\n[1] 0.1081743\n\n\n\nHowever, the approximation is not as useful for other intervals."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#distributions-as-approximations-9",
+    "href": "slides/prob/20-intro-to-prob.html#distributions-as-approximations-9",
+    "title": "Introduction to Probability",
+    "section": "Distributions as approximations",
+    "text": "Distributions as approximations\n\nFor instance, notice how the approximation breaks down when we try to estimate:\n\n\nmean(x &lt;= 70.9) - mean(x &lt;= 70.1) \n\n[1] 0.02216749\n\n\n\nwith:\n\n\npnorm(70.9, m, s) - pnorm(70.1, m, s) \n\n[1] 0.08359562"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#distributions-as-approximations-10",
+    "href": "slides/prob/20-intro-to-prob.html#distributions-as-approximations-10",
+    "title": "Introduction to Probability",
+    "section": "Distributions as approximations",
+    "text": "Distributions as approximations\n\nIn general, we call this situation discretization.\nAlthough the true height distribution is continuous, the reported heights tend to be more common at discrete values, in this case, due to rounding.\nAs long as we are aware of how to deal with this reality, the normal approximation can still be a very useful tool."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#the-probability-density-5",
+    "href": "slides/prob/20-intro-to-prob.html#the-probability-density-5",
+    "title": "Introduction to Probability",
+    "section": "The probability density",
+    "text": "The probability density\n\nwhich mathematically is the grey area:"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#monte-carlo-7",
+    "href": "slides/prob/20-intro-to-prob.html#monte-carlo-7",
+    "title": "Introduction to Probability",
+    "section": "Monte Carlo",
+    "text": "Monte Carlo\n\nHaving a seven-footer is quite rare:\n\n\nmean(tallest &gt;= 7*12) \n\n[1] 0.0195"
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#monte-carlo-8",
+    "href": "slides/prob/20-intro-to-prob.html#monte-carlo-8",
+    "title": "Introduction to Probability",
+    "section": "Monte Carlo",
+    "text": "Monte Carlo\n\nHere is the resulting distribution:\n\n\n\nNote that it does not look normal."
+  },
+  {
+    "objectID": "slides/prob/20-intro-to-prob.html#the-probability-density-6",
+    "href": "slides/prob/20-intro-to-prob.html#the-probability-density-6",
+    "title": "Introduction to Probability",
+    "section": "The probability density",
+    "text": "The probability density\n\nThe curve you see is the probability density for the normal distribution.\nIn R, we get this using the function dnorm.\nWhile it may not be immediately apparent why knowing about probability densities is useful, understanding this concept is essential for individuals aiming to fit models to data for which predefined functions are not available."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#sampling-models",
+    "href": "slides/prob/21-inference-foundations.html#sampling-models",
+    "title": "Foundations of statistical inference",
+    "section": "Sampling models",
+    "text": "Sampling models\n\nMany data generation procedures, those that produce the data we study, can be effectively modeled as draws from an urn.\nFor instance, we can model the process of polling likely voters as drawing 0s (Republicans) and 1s (Democrats) from an urn containing the 0 and 1 codes for all likely voters.\nIn epidemiological studies, we often assume that the subjects in our study are a random sample from the population of interest.\nThe data related to a specific outcome can be modeled as a random sample from an urn containing the outcomes for the entire population of interest."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#sampling-models-1",
+    "href": "slides/prob/21-inference-foundations.html#sampling-models-1",
+    "title": "Foundations of statistical inference",
+    "section": "Sampling models",
+    "text": "Sampling models\n\nSimilarly, in experimental research, we often assume that the individual organisms we are studying, for example worms, flies, or mice, are a random sample from a larger population.\nRandomized experiments can be modeled by draws from an urn, reflecting the way individuals are assigned into group; when getting assigned, individuals draw their group at random."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#sampling-models-2",
+    "href": "slides/prob/21-inference-foundations.html#sampling-models-2",
+    "title": "Foundations of statistical inference",
+    "section": "Sampling models",
+    "text": "Sampling models\n\nSampling models are therefore ubiquitous in data science.\nCasino games offer a plethora of real-world cases in which sampling models are used to answer specific questions.\nWe will therefore start with these examples."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#sampling-models-3",
+    "href": "slides/prob/21-inference-foundations.html#sampling-models-3",
+    "title": "Foundations of statistical inference",
+    "section": "Sampling models",
+    "text": "Sampling models\n\nSuppose a very small casino hires you to consult on whether they should set up roulette wheels.\nTo keep the example simple, we will assume that 1,000 people will play, and that the only game available on the roulette wheel is to bet on red or black.\nThe casino wants you to predict how much money they will make or lose.\nThey want a range of values and, in particular, they want to know what’s the chance of losing money."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#sampling-models-4",
+    "href": "slides/prob/21-inference-foundations.html#sampling-models-4",
+    "title": "Foundations of statistical inference",
+    "section": "Sampling models",
+    "text": "Sampling models\n\nIf this probability is too high, they will decide against installing roulette wheels.\nWe are going to define a random variable \\(S\\) that will represent the casino’s total winnings."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#sampling-models-5",
+    "href": "slides/prob/21-inference-foundations.html#sampling-models-5",
+    "title": "Foundations of statistical inference",
+    "section": "Sampling models",
+    "text": "Sampling models\n\nLet’s start by constructing the urn.\nA roulette wheel has 18 red pockets, 18 black pockets and 2 green ones.\nSo playing a color in one game of roulette is equivalent to drawing from this urn:\n\n\ncolor &lt;- rep(c(\"Black\", \"Red\", \"Green\"), c(18, 18, 2))"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#sampling-models-6",
+    "href": "slides/prob/21-inference-foundations.html#sampling-models-6",
+    "title": "Foundations of statistical inference",
+    "section": "Sampling models",
+    "text": "Sampling models\n\nThe 1,000 outcomes from 1,000 people playing are independent draws from this urn.\nIf red comes up, the gambler wins, and the casino loses a dollar, resulting in a draw a -$1.\nOtherwise, the casino wins a dollar, and we draw a $1."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#sampling-models-7",
+    "href": "slides/prob/21-inference-foundations.html#sampling-models-7",
+    "title": "Foundations of statistical inference",
+    "section": "Sampling models",
+    "text": "Sampling models\n\nTo construct our random variable \\(S\\), we can use this code:\n\n\nn &lt;- 1000 \nx &lt;- sample(ifelse(color == \"Red\", -1, 1),  n, replace = TRUE) \nx[1:10] \n#&gt;  [1]  1 -1  1 -1  1  1 -1  1  1  1"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#sampling-models-8",
+    "href": "slides/prob/21-inference-foundations.html#sampling-models-8",
+    "title": "Foundations of statistical inference",
+    "section": "Sampling models",
+    "text": "Sampling models\n\nBecause we know the proportions of 1s and -1s, we can generate the draws with one line of code, without defining color:\n\n\nx &lt;- sample(c(-1, 1), n, replace = TRUE, prob = c(9/19, 10/19))"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#sampling-models-9",
+    "href": "slides/prob/21-inference-foundations.html#sampling-models-9",
+    "title": "Foundations of statistical inference",
+    "section": "Sampling models",
+    "text": "Sampling models\n\nWe call this a sampling model, as it involves modeling the random behavior of roulette through the sampling of draws from an urn.\nThe total winnings \\(S\\) is simply the sum of these 1,000 independent draws:\n\n\nx &lt;- sample(c(-1, 1), n, replace = TRUE, prob = c(9/19, 10/19)) \ns &lt;- sum(x) \ns \n#&gt; [1] 44"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-probability-distributions",
+    "href": "slides/prob/21-inference-foundations.html#the-probability-distributions",
+    "title": "Foundations of statistical inference",
+    "section": "The probability distributions",
+    "text": "The probability distributions\n\nIf you run the code above, you see that \\(S\\) changes every time.\nThis is, of course, because \\(S\\) is a random variable."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-probability-distributions-1",
+    "href": "slides/prob/21-inference-foundations.html#the-probability-distributions-1",
+    "title": "Foundations of statistical inference",
+    "section": "The probability distributions",
+    "text": "The probability distributions\n\nThe probability distribution of a random variable informs us about the probability of the observed value falling at any given interval.\nFor example, if we want to know the probability that we lose money, we are asking the probability that \\(S\\) is in the interval \\(S&lt;0\\)."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-probability-distribution",
+    "href": "slides/prob/21-inference-foundations.html#the-probability-distribution",
+    "title": "Foundations of statistical inference",
+    "section": "The probability distribution",
+    "text": "The probability distribution\n\nKeep in mind that if we can define a cumulative distribution function \\(F(a) = \\mbox{Pr}(S\\leq a)\\), then we will be able to answer any question related to the probability of events defined by our random variable \\(S\\), including the event \\(S&lt;0\\).\nWe call this \\(F\\) the random variable’s distribution function.\nWe can estimate the distribution function for the random variable \\(S\\) by using a Monte Carlo simulation to generate many realizations of the random variable."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-probability-distribution-1",
+    "href": "slides/prob/21-inference-foundations.html#the-probability-distribution-1",
+    "title": "Foundations of statistical inference",
+    "section": "The probability distribution",
+    "text": "The probability distribution\n\nWith this code, we run the experiment of having 1,000 people repeatedly play roulette, specifically \\(B = 10,000\\) times:\n\n\nn &lt;- 1000 \nB &lt;- 10000 \nroulette_winnings &lt;- function(n){ \n  x &lt;- sample(c(-1, 1), n, replace = TRUE, prob = c(9/19, 10/19)) \n  sum(x) \n} \ns &lt;- replicate(B, roulette_winnings(n))"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-probability-distribution-2",
+    "href": "slides/prob/21-inference-foundations.html#the-probability-distribution-2",
+    "title": "Foundations of statistical inference",
+    "section": "The probability distribution",
+    "text": "The probability distribution\n\nNow, we can ask the following: in our simulations, how often did we get sums less than or equal to a?\n\n\nmean(S &lt;= a)"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-probability-distribution-3",
+    "href": "slides/prob/21-inference-foundations.html#the-probability-distribution-3",
+    "title": "Foundations of statistical inference",
+    "section": "The probability distribution",
+    "text": "The probability distribution\n\nThis will be a very good approximation of \\(F(a)\\), allowing us to easily answer the casino’s question: How likely is it that we will lose money? We can see it is quite low:\n\n\nmean(s &lt; 0) \n#&gt; [1] 0.045\n\n\nWe can visualize the distribution of \\(S\\) by creating a histogram showing the probability \\(F(b)-F(a)\\) for several intervals \\((a,b]\\):"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-probability-distribution-4",
+    "href": "slides/prob/21-inference-foundations.html#the-probability-distribution-4",
+    "title": "Foundations of statistical inference",
+    "section": "The probability distribution",
+    "text": "The probability distribution"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-probability-distribution-5",
+    "href": "slides/prob/21-inference-foundations.html#the-probability-distribution-5",
+    "title": "Foundations of statistical inference",
+    "section": "The probability distribution",
+    "text": "The probability distribution\n\nWe see that the distribution appears to be approximately normal.\nA qqplot will confirm that the normal approximation is close to a perfect approximation for this distribution.\nIn fact, if the distribution is normal, all we need to define it are the average and the standard deviation.\nSince we have the original values from which the distribution is created, we can easily compute these with mean(S) and sd(S)."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-probability-distribution-6",
+    "href": "slides/prob/21-inference-foundations.html#the-probability-distribution-6",
+    "title": "Foundations of statistical inference",
+    "section": "The probability distribution",
+    "text": "The probability distribution\n\nThe blue curve added to the histogram above is a normal density with this average and standard deviation.\nThis average and this standard deviation have special names; they are referred to as the expected value and standard error of the random variable \\(S\\).\nMore details on these concepts will be provided in the next section.\nStatistical theory offers a method to derive the distribution of random variables defined as the sum of independent random draw of numbers from an urn."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-probability-distribution-7",
+    "href": "slides/prob/21-inference-foundations.html#the-probability-distribution-7",
+    "title": "Foundations of statistical inference",
+    "section": "The probability distribution",
+    "text": "The probability distribution\n\nSpecifically, in our example above, we can demonstrate that \\((S+n)/2\\) follows a binomial distribution.\nWe therefore do not need to run Monte Carlo simulations to determine the probability distribution of \\(S\\).\nThe simulations were conducted for illustrative purposes.\nWe can use the function dbinom and pbinom to compute the probabilities exactly."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-probability-distribution-8",
+    "href": "slides/prob/21-inference-foundations.html#the-probability-distribution-8",
+    "title": "Foundations of statistical inference",
+    "section": "The probability distribution",
+    "text": "The probability distribution\n\nFor example, to compute \\(\\mbox{Pr}(S &lt; 0)\\), we note that:\n\n\\[\\mbox{Pr}(S &lt; 0) = \\mbox{Pr}((S+n)/2 &lt; (0+n)/2)\\]\n\nand we can use the pbinom to compute \\[\\mbox{Pr}(S \\leq 0)\\]:"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-probability-distribution-9",
+    "href": "slides/prob/21-inference-foundations.html#the-probability-distribution-9",
+    "title": "Foundations of statistical inference",
+    "section": "The probability distribution",
+    "text": "The probability distribution\n\nn &lt;- 1000 \npbinom(n/2, size = n, prob = 10/19) \n#&gt; [1] 0.0511\n\n\nSince this is a discrete probability function, to obtain \\(\\mbox{Pr}(S &lt; 0)\\) rather than \\(\\mbox{Pr}(S \\leq 0)\\), we write:\n\n\npbinom(n/2 - 1, size = n, prob = 10/19) \n#&gt; [1] 0.0448"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-probability-distribution-10",
+    "href": "slides/prob/21-inference-foundations.html#the-probability-distribution-10",
+    "title": "Foundations of statistical inference",
+    "section": "The probability distribution",
+    "text": "The probability distribution\n\nFor the details of the binomial distribution, you can consult any basic probability book or even Wikipedia\nWe do not delve into these details here."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-probability-distribution-11",
+    "href": "slides/prob/21-inference-foundations.html#the-probability-distribution-11",
+    "title": "Foundations of statistical inference",
+    "section": "The probability distribution",
+    "text": "The probability distribution\n\nInstead, we will explore an incredibly useful approximation provided by mathematical theory, which generally applies to sums and averages of draws from any urn: the Central Limit Theorem (CLT)."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#distributions-versus-probability-distributions",
+    "href": "slides/prob/21-inference-foundations.html#distributions-versus-probability-distributions",
+    "title": "Foundations of statistical inference",
+    "section": "Distributions versus probability distributions",
+    "text": "Distributions versus probability distributions\n\nBefore we continue, let’s establish an important distinction and connection between the distribution of a list of numbers and a probability distribution.\nAny list of numbers \\(x_1,\\dots,x_n\\) has a distribution."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#distributions-versus-probability-distributions-1",
+    "href": "slides/prob/21-inference-foundations.html#distributions-versus-probability-distributions-1",
+    "title": "Foundations of statistical inference",
+    "section": "Distributions versus probability distributions",
+    "text": "Distributions versus probability distributions\n\nThe definition is quite straightforward.\nWe define \\(F(a)\\) as the function that indicates what proportion of the list is less than or equal to \\(a\\).\nGiven their usefulness as summaries when the distribution is approximately normal, we also define the average and standard deviation."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#distributions-versus-probability-distributions-2",
+    "href": "slides/prob/21-inference-foundations.html#distributions-versus-probability-distributions-2",
+    "title": "Foundations of statistical inference",
+    "section": "Distributions versus probability distributions",
+    "text": "Distributions versus probability distributions\n\nThese are determined with a straightforward operation involving the vector containing the list of numbers, denoted as x:\n\n\nm &lt;- sum(x)/length(x) \ns &lt;- sqrt(sum((x - m)^2)/length(x))"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#distributions-versus-probability-distributions-3",
+    "href": "slides/prob/21-inference-foundations.html#distributions-versus-probability-distributions-3",
+    "title": "Foundations of statistical inference",
+    "section": "Distributions versus probability distributions",
+    "text": "Distributions versus probability distributions\n\nA random variable \\(X\\) has a distribution function.\nTo define this, we do not need a list of numbers; it is a theoretical concept.\nIn this case, we define the distribution as the \\(F(a)\\) that answers the question: What is the probability that \\(X\\) is less than or equal to \\(a\\)? There is no list of numbers."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#distributions-versus-probability-distributions-4",
+    "href": "slides/prob/21-inference-foundations.html#distributions-versus-probability-distributions-4",
+    "title": "Foundations of statistical inference",
+    "section": "Distributions versus probability distributions",
+    "text": "Distributions versus probability distributions\n\nHowever, if \\(X\\) is defined by drawing from an urn containing numbers, then there exists a list: the list of numbers inside the urn.\nIn this case, the distribution of that list is the probability distribution of \\(X\\), and the average and standard deviation of that list are the expected value and standard error of the random variable.\nAnother way to think about it without involving an urn is by running a Monte Carlo simulation and generating a very large list of outcomes of \\(X\\)."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#distributions-versus-probability-distributions-5",
+    "href": "slides/prob/21-inference-foundations.html#distributions-versus-probability-distributions-5",
+    "title": "Foundations of statistical inference",
+    "section": "Distributions versus probability distributions",
+    "text": "Distributions versus probability distributions\n\nThese outcomes form a list of numbers, and the distribution of this list will be a very good approximation of the probability distribution of \\(X\\).\nThe longer the list, the better the approximation.\nThe average and standard deviation of this list will approximate the expected value and standard error of the random variable."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#notation-for-random-variables",
+    "href": "slides/prob/21-inference-foundations.html#notation-for-random-variables",
+    "title": "Foundations of statistical inference",
+    "section": "Notation for random variables",
+    "text": "Notation for random variables\n\nIn statistical textbooks, upper case letters denote random variables, and we will adhere to this convention.\nLower case letters are used for observed values.\nYou will see some notation that include both.\nFor example, you will see events defined as \\(X \\leq x\\).\nHere \\(X\\) is a random variable and \\(x\\) is an arbitrary value and not random."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#notation-for-random-variables-1",
+    "href": "slides/prob/21-inference-foundations.html#notation-for-random-variables-1",
+    "title": "Foundations of statistical inference",
+    "section": "Notation for random variables",
+    "text": "Notation for random variables\n\nSo, for example, \\(X\\) might represent the number on a die roll and \\(x\\) will represent an actual value we see: 1, 2, 3, 4, 5, or 6.\nIn this case, the probability of \\(X=x\\) is 1/6 regardless of the observed value \\(x\\).\nThis notation may seem a bit strange because when we inquire about probability, \\(X\\) is not an observed quantity; it’s a random quantity that we will encounter in the future.\nWe can discuss what we expect \\(X\\) to be, what values are probable, but we can’t discuss what value \\(X\\) is."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#notation-for-random-variables-2",
+    "href": "slides/prob/21-inference-foundations.html#notation-for-random-variables-2",
+    "title": "Foundations of statistical inference",
+    "section": "Notation for random variables",
+    "text": "Notation for random variables\n\nOnce we have data, we do see a realization of \\(X\\).\nTherefore, data analysits often speak of what could have been after observing what actually happened."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error",
+    "title": "Foundations of statistical inference",
+    "section": "The expected value and standard error",
+    "text": "The expected value and standard error\n\nWe have described sampling models for draws.\nWe will now review the mathematical theory that allows us to approximate the probability distributions for the sum of draws.\nOnce we do this, we will be able to help the casino predict how much money they will make."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-1",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-1",
+    "title": "Foundations of statistical inference",
+    "section": "The expected value and standard error",
+    "text": "The expected value and standard error\n\nThe same approach we use for the sum of draws will be useful for describing the distribution of averages and proportion, which we will need to understand how polls work.\nThe first important concept to learn is the expected value."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-2",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-2",
+    "title": "Foundations of statistical inference",
+    "section": "The expected value and standard error",
+    "text": "The expected value and standard error\n\nIn statistics books, it is common to represent it with the letter \\(\\mbox{E}\\) like this:\n\n\\[\\mbox{E}[X]\\]\n\nto denote the expected value of the random variable \\(X\\)."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-3",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-3",
+    "title": "Foundations of statistical inference",
+    "section": "The expected value and standard error",
+    "text": "The expected value and standard error\n\nA random variable will vary around its expected value in a manner that if you take the average of many, many draws, the average will approximate the expected value.\nThis approximation improves as you take more draws, making the expected value a useful quantity to compute."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-4",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-4",
+    "title": "Foundations of statistical inference",
+    "section": "The expected value and standard error",
+    "text": "The expected value and standard error\n\nFor discrete random variable with possible outcomes \\(x_1,\\dots,x_n\\), the expected value is defined as:\n\n\\[\n\\mbox{E}[X] = \\sum_{i=1}^n x_i \\,\\mbox{Pr}(X = x_i)\n\\] ## The expected value and standard error\n\nIf \\(X\\) is a continuous random variable with a range of values \\(a\\) to \\(b\\) and a probability density function \\(f(x)\\), this sum transforms into an integral:\n\n\\[\n\\mbox{E}[X] = \\int_a^b x f(x)\n\\]"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-5",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-5",
+    "title": "Foundations of statistical inference",
+    "section": "The expected value and standard error",
+    "text": "The expected value and standard error\n\nNote that in the case that we are picking values from an urn, and each value \\(x_i\\) has an equal chance \\(1/n\\) of being selected, the above equation is simply the average of the \\(x_i\\)s.\n\n\\[\n\\mbox{E}[X] = \\frac{1}{n}\\sum_{i=1}^n x_i  \n\\] ## The expected value and standard error\n\nIn the urn used to model betting on red in roulette, we have 20 one-dollar bills and 18 negative one-dollar bills, so the expected value is:\n\n\\[\n\\mbox{E}[X] = (20 + -18)/38\n\\]\n\nwhich is about 5 cents."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-6",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-6",
+    "title": "Foundations of statistical inference",
+    "section": "The expected value and standard error",
+    "text": "The expected value and standard error\n\nYou might consider it a bit counterintuitive to say that \\(X\\) varies around 0.05 when it only takes the values 1 and -1.\nOne way to make sense of the expected value in this context is by realizing that, if we play the game over and over, the casino wins, on average, 5 cents per game."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-7",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-7",
+    "title": "Foundations of statistical inference",
+    "section": "The expected value and standard error",
+    "text": "The expected value and standard error\n\nA Monte Carlo simulation confirms this:\n\n\nB &lt;- 10^6 \nx &lt;- sample(c(-1, 1), B, replace = TRUE, prob = c(9/19, 10/19)) \nmean(x) \n#&gt; [1] 0.0522"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-8",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-8",
+    "title": "Foundations of statistical inference",
+    "section": "The expected value and standard error",
+    "text": "The expected value and standard error\n\nIn general, if the urn has two possible outcomes, say \\(a\\) and \\(b\\), with proportions \\(p\\) and \\(1-p\\) respectively, the average is:\n\n\\[\\mbox{E}[X] = ap + b(1-p)\\]"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-9",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-9",
+    "title": "Foundations of statistical inference",
+    "section": "The expected value and standard error",
+    "text": "The expected value and standard error\n\nTo confirm this, observe that if there are \\(n\\) beads in the urn, then we have \\(np\\) \\(a\\)s and \\(n(1-p)\\) \\(b\\)s, and because the average is the sum, \\(n\\times a \\times p + n\\times b \\times (1-p)\\), divided by the total \\(n\\), we get that the average is \\(ap + b(1-p)\\)."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-10",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-10",
+    "title": "Foundations of statistical inference",
+    "section": "The expected value and standard error",
+    "text": "The expected value and standard error\n\nNow, the reason we define the expected value is because this mathematical definition turns out to be useful for approximating the probability distributions of sum.\nThis, in turn, is useful for describing the distribution of averages and proportions."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-11",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-11",
+    "title": "Foundations of statistical inference",
+    "section": "The expected value and standard error",
+    "text": "The expected value and standard error\n\nThe first useful fact is that the expected value of the sum of the draws is the number of draws \\(\\times\\) the average of the numbers in the urn.\nTherefore, if 1,000 people play roulette, the casino expects to win, on average, about 1,000 \\(\\times\\) $0.05 = $50."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-12",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-12",
+    "title": "Foundations of statistical inference",
+    "section": "The expected value and standard error",
+    "text": "The expected value and standard error\n\nHowever, this is an expected value.\nHow different can one observation be from the expected value? The casino really needs to know this.\nWhat is the range of possibilities? If negative numbers are too likely, they will not install roulette wheels.\nStatistical theory once again answers this question."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-13",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-13",
+    "title": "Foundations of statistical inference",
+    "section": "The expected value and standard error",
+    "text": "The expected value and standard error\n\nThe standard error (SE) gives us an idea of the size of the variation around the expected value.\nIn statistics books, it’s common to use:\n\n\\[\\mbox{SE}[X]\\]"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-14",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-14",
+    "title": "Foundations of statistical inference",
+    "section": "The expected value and standard error",
+    "text": "The expected value and standard error\n\nto denote the standard error of a random variable.\nFor discrete random variable with possible outcomes \\(x_1,\\dots,x_n\\), the standard error is defined as:\n\n\\[\n\\mbox{SE}[X] = \\sqrt{\\sum_{i=1}^n \\left(x_i - E[X]\\right)^2 \\,\\mbox{Pr}(X = x_i)},\n\\]\n\nwhich you can think of as the expected average distance of \\(X\\) from the expected value."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-15",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-15",
+    "title": "Foundations of statistical inference",
+    "section": "The expected value and standard error",
+    "text": "The expected value and standard error\n\nIf \\(X\\) is a continuous random variable, with range of values \\(a\\) to \\(b\\) and probability density function \\(f(x)\\), this sum turns into an integral:\n\n\\[\n\\mbox{SE}[X] = \\sqrt{\\int_a^b \\left(x-\\mbox{E}[X]\\right)^2 f(x)\\,\\mathrm{d}x}\n\\] ## The expected value and standard error\n\nNote that in the case that we are picking values from an un urn where each value \\(x_i\\) has an equal chance \\(1/n\\) of being selected, the above equation is simply the standard deviation of of the \\(x_i\\)s.\n\n\\[\n\\mbox{SE}[X] = \\sqrt{\\frac{1}{n}\\sum_{i=1}^n (x_i - \\bar{x})^2} \\mbox{ with } \\bar{x} =  \\frac{1}{n}\\sum_{i=1}^n x_i  \n\\]"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-16",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-16",
+    "title": "Foundations of statistical inference",
+    "section": "The expected value and standard error",
+    "text": "The expected value and standard error\n\nUsing the definition of standard deviation, we can derive, with a bit of math, that if an urn contains two values \\(a\\) and \\(b\\) with proportions \\(p\\) and \\((1-p)\\), respectively, the standard deviation is:\n\n\\[\\mid b - a \\mid \\sqrt{p(1-p)}.\\]"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-17",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-17",
+    "title": "Foundations of statistical inference",
+    "section": "The expected value and standard error",
+    "text": "The expected value and standard error\n\nSo in our roulette example, the standard deviation of the values inside the urn is \\(\\mid 1 - (-1) \\mid \\sqrt{10/19 \\times 9/19}\\) or:\n\n\n2*sqrt(90)/19 \n#&gt; [1] 0.999\n\n\nThe standard error tells us the typical difference between a random variable and its expectation."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-18",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-18",
+    "title": "Foundations of statistical inference",
+    "section": "The expected value and standard error",
+    "text": "The expected value and standard error\n\nSince one draw is obviously the sum of just one draw, we can use the formula above to calculate that the random variable defined by one draw has an expected value of 0.05 and a standard error of about 1.\nThis makes sense since we obtain either 1 or -1, with 1 slightly favored over -1."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-19",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-19",
+    "title": "Foundations of statistical inference",
+    "section": "The expected value and standard error",
+    "text": "The expected value and standard error\n\nA widely used mathematical result is that if our draws are independent, then the standard error of the sum is given by the equation:\n\n\\[\n\\sqrt{\\mbox{number of draws}} \\times \\mbox{ standard deviation of the numbers in the urn}\n\\]"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-20",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-20",
+    "title": "Foundations of statistical inference",
+    "section": "The expected value and standard error",
+    "text": "The expected value and standard error\n\nUsing this formula, the sum of 1,000 people playing has standard error of about $32:\n\n\nn &lt;- 1000 \nsqrt(n)*2*sqrt(90)/19 \n#&gt; [1] 31.6"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-21",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-21",
+    "title": "Foundations of statistical inference",
+    "section": "The expected value and standard error",
+    "text": "The expected value and standard error\n\nAs a result, when 1,000 people bet on red, the casino is expected to win $50 with a standard error of $32.\nIt therefore seems like a safe bet to install more roulette wheels.\nBut we still haven’t answered the question: How likely is the casino to lose money? The CLT will help in this regard."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#central-limit-theorem",
+    "href": "slides/prob/21-inference-foundations.html#central-limit-theorem",
+    "title": "Foundations of statistical inference",
+    "section": "Central Limit Theorem",
+    "text": "Central Limit Theorem\n\nThe Central Limit Theorem (CLT) tells us that when the number of draws, also called the sample size, is large, the probability distribution of the sum of the independent draws is approximately normal.\nGiven that sampling models are used for so many data generation processes, the CLT is considered one of the most important mathematical insights in history."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#central-limit-theorem-1",
+    "href": "slides/prob/21-inference-foundations.html#central-limit-theorem-1",
+    "title": "Foundations of statistical inference",
+    "section": "Central Limit Theorem",
+    "text": "Central Limit Theorem\n\nPreviously, we discussed that if we know that the distribution of a list of numbers is approximated by the normal distribution, all we need to describe the list are the average and standard deviation.\nWe also know that the same applies to probability distributions."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#central-limit-theorem-2",
+    "href": "slides/prob/21-inference-foundations.html#central-limit-theorem-2",
+    "title": "Foundations of statistical inference",
+    "section": "Central Limit Theorem",
+    "text": "Central Limit Theorem\n\nIf a random variable has a probability distribution that is approximated with the normal distribution, then all we need to describe the probability distribution are the average and standard deviation, referred to as the expected value and standard error."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#central-limit-theorem-3",
+    "href": "slides/prob/21-inference-foundations.html#central-limit-theorem-3",
+    "title": "Foundations of statistical inference",
+    "section": "Central Limit Theorem",
+    "text": "Central Limit Theorem\n\nWe previously ran this Monte Carlo simulation:\n\n\nn &lt;- 1000 \nB &lt;- 10000 \nroulette_winnings &lt;- function(n){ \n  x &lt;- sample(c(-1, 1), n, replace = TRUE, prob = c(9/19, 10/19)) \n  sum(x) \n} \ns &lt;- replicate(B, roulette_winnings(n))"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#central-limit-theorem-4",
+    "href": "slides/prob/21-inference-foundations.html#central-limit-theorem-4",
+    "title": "Foundations of statistical inference",
+    "section": "Central Limit Theorem",
+    "text": "Central Limit Theorem\n\nThe Central Limit Theorem (CLT) tells us that the sum \\(S\\) is approximated by a normal distribution.\nUsing the formulas above, we know that the expected value and standard error are:"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#central-limit-theorem-5",
+    "href": "slides/prob/21-inference-foundations.html#central-limit-theorem-5",
+    "title": "Foundations of statistical inference",
+    "section": "Central Limit Theorem",
+    "text": "Central Limit Theorem\n\nn * (20 - 18)/38  \n#&gt; [1] 52.6\nsqrt(n)*2*sqrt(90)/19  \n#&gt; [1] 31.6"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#central-limit-theorem-6",
+    "href": "slides/prob/21-inference-foundations.html#central-limit-theorem-6",
+    "title": "Foundations of statistical inference",
+    "section": "Central Limit Theorem",
+    "text": "Central Limit Theorem\n\nThe theoretical values above match those obtained with the Monte Carlo simulation:\n\n\nmean(s) \n#&gt; [1] 52.6\nsd(s) \n#&gt; [1] 31.5"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#central-limit-theorem-7",
+    "href": "slides/prob/21-inference-foundations.html#central-limit-theorem-7",
+    "title": "Foundations of statistical inference",
+    "section": "Central Limit Theorem",
+    "text": "Central Limit Theorem\n\nUsing the CLT, we can skip the Monte Carlo simulation and instead compute the probability of the casino losing money using this approximation:\n\n\nmu &lt;- n*(20 - 18)/38 \nse &lt;- sqrt(n)*2*sqrt(90)/19  \npnorm(0, mu, se) \n#&gt; [1] 0.0478\n\n\nwhich is also in very good agreement with our Monte Carlo result:\n\n\nmean(s &lt; 0) \n#&gt; [1] 0.0442"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#how-large-is-large-in-the-central-limit-theorem",
+    "href": "slides/prob/21-inference-foundations.html#how-large-is-large-in-the-central-limit-theorem",
+    "title": "Foundations of statistical inference",
+    "section": "How large is large in the Central Limit Theorem?",
+    "text": "How large is large in the Central Limit Theorem?\n\nThe CLT works when the number of draws is large, but “large” is a relative term.\nIn many circumstances, as few as 30 draws is enough to make the CLT useful.\nIn some specific instances, as few as 10 is enough.\nHowever, these should not be considered general rules.\nNote, for example, that when the probability of success is very small, much larger sample sizes are needed."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#how-large-is-large-in-the-central-limit-theorem-1",
+    "href": "slides/prob/21-inference-foundations.html#how-large-is-large-in-the-central-limit-theorem-1",
+    "title": "Foundations of statistical inference",
+    "section": "How large is large in the Central Limit Theorem?",
+    "text": "How large is large in the Central Limit Theorem?\n\nBy way of illustration, let’s consider the lottery.\nIn the lottery, the chances of winning are less than 1 in a million.\nThousands of people play so the number of draws is very large.\nYet the number of winners, the sum of the draws, range between 0 and 4.\nThis sum is certainly not well approximated by a normal distribution, so the CLT does not apply, even with the very large sample size."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#how-large-is-large-in-the-central-limit-theorem-2",
+    "href": "slides/prob/21-inference-foundations.html#how-large-is-large-in-the-central-limit-theorem-2",
+    "title": "Foundations of statistical inference",
+    "section": "How large is large in the Central Limit Theorem?",
+    "text": "How large is large in the Central Limit Theorem?\n\nThis is generally true when the probability of a success is very low.\nIn these cases, the Poisson distribution is more appropriate.\nYou can explore the properties of the Poisson distribution using dpois and ppois.\nYou can generate random variables following this distribution with rpois.\nHowever, we won’t cover the theory here."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#how-large-is-large-in-the-central-limit-theorem-3",
+    "href": "slides/prob/21-inference-foundations.html#how-large-is-large-in-the-central-limit-theorem-3",
+    "title": "Foundations of statistical inference",
+    "section": "How large is large in the Central Limit Theorem?",
+    "text": "How large is large in the Central Limit Theorem?\n\nYou can learn about the Poisson distribution in any probability textbook and even Wikipedia"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#statistical-properties-of-averages",
+    "href": "slides/prob/21-inference-foundations.html#statistical-properties-of-averages",
+    "title": "Foundations of statistical inference",
+    "section": "Statistical properties of averages",
+    "text": "Statistical properties of averages\n\nThere are several useful mathematical results that we used above and often employ when working with data.\nWe list them below."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#property-1",
+    "href": "slides/prob/21-inference-foundations.html#property-1",
+    "title": "Foundations of statistical inference",
+    "section": "Property 1",
+    "text": "Property 1\n\nThe expected value of the sum of random variables is the sum of each random variable’s expected value.\nWe can write it like this:\n\n\\[\n\\mbox{E}[X_1+X_2+\\dots+X_n] =  \\mbox{E}[X_1] + \\mbox{E}[X_2]+\\dots+\\mbox{E}[X_n]\n\\]"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#property-2",
+    "href": "slides/prob/21-inference-foundations.html#property-2",
+    "title": "Foundations of statistical inference",
+    "section": "Property 2",
+    "text": "Property 2\n\nIf \\(X\\) represents independent draws from the urn, then they all have the same expected value.\nLet’s denote the expected value with \\(\\mu\\) and rewrite the equation as:\n\n\\[\n\\mbox{E}[X_1+X_2+\\dots+X_n]=  n\\mu\n\\]\n\nwhich is another way of writing the result we show above for the sum of draws."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#property-3",
+    "href": "slides/prob/21-inference-foundations.html#property-3",
+    "title": "Foundations of statistical inference",
+    "section": "Property 3",
+    "text": "Property 3\n\nThe expected value of a non-random constant times a random variable is the non-random constant times the expected value of a random variable.\nThis is easier to explain with symbols:\n\n\\[\n\\mbox{E}[aX] =  a\\times\\mbox{E}[X]\n\\]"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#property-3-1",
+    "href": "slides/prob/21-inference-foundations.html#property-3-1",
+    "title": "Foundations of statistical inference",
+    "section": "Property 3",
+    "text": "Property 3\n\nTo understand why this is intuitive, consider changing units.\nIf we change the units of a random variable, such as from dollars to cents, the expectation should change in the same way."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#property-4",
+    "href": "slides/prob/21-inference-foundations.html#property-4",
+    "title": "Foundations of statistical inference",
+    "section": "Property 4",
+    "text": "Property 4\n\nA consequence of the above two facts is that the expected value of the average of independent draws from the same urn is the expected value of the urn, denoted as \\(\\mu\\) again:\n\n\\[\n\\mbox{E}[(X_1+X_2+\\dots+X_n) / n]=   \\mbox{E}[X_1+X_2+\\dots+X_n] / n = n\\mu/n = \\mu  \n\\]"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#property-5",
+    "href": "slides/prob/21-inference-foundations.html#property-5",
+    "title": "Foundations of statistical inference",
+    "section": "Property 5",
+    "text": "Property 5\n\nThe square of the standard error of the sum of independent random variables is the sum of the square of the standard error of each random variable.\nThis one is easier to understand in math form:\n\n\\[\n\\mbox{SE}[X_1+X_2+\\dots+X_n] = \\sqrt{\\mbox{SE}[X_1]^2 + \\mbox{SE}[X_2]^2+\\dots+\\mbox{SE}[X_n]^2  }\n\\]"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#property-5-1",
+    "href": "slides/prob/21-inference-foundations.html#property-5-1",
+    "title": "Foundations of statistical inference",
+    "section": "Property 5",
+    "text": "Property 5\n\nThe square of the standard error is referred to as the variance in statistical textbooks.\nNote that this particular property is not as intuitive as the previous three and more in depth explanations can be found in statistics textbooks."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#property-6",
+    "href": "slides/prob/21-inference-foundations.html#property-6",
+    "title": "Foundations of statistical inference",
+    "section": "Property 6",
+    "text": "Property 6\n\nThe standard error of a non-random constant times a random variable is the non-random constant times the random variable’s standard error.\nAs with the expectation:\n\n\\[\n\\mbox{SE}[aX] =  a \\times \\mbox{SE}[X]\n\\]"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#property-6-1",
+    "href": "slides/prob/21-inference-foundations.html#property-6-1",
+    "title": "Foundations of statistical inference",
+    "section": "Property 6",
+    "text": "Property 6\n\nTo see why this is intuitive, again think of units.\nA consequence of 3 and 4 is that the standard error of the average of independent draws from the same urn is the standard deviation of the urn divided by the square root of \\(n\\) (the number of draws), call it \\(\\sigma\\):"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#property-7",
+    "href": "slides/prob/21-inference-foundations.html#property-7",
+    "title": "Foundations of statistical inference",
+    "section": "Property 7",
+    "text": "Property 7\n\\[\n\\begin{aligned}\n\\mbox{SE}[(X_1+X_2+\\dots+X_n) / n] &=   \\mbox{SE}[X_1+X_2+\\dots+X_n]/n \\\\\n&= \\sqrt{\\mbox{SE}[X_1]^2+\\mbox{SE}[X_2]^2+\\dots+\\mbox{SE}[X_n]^2}/n \\\\\n&= \\sqrt{\\sigma^2+\\sigma^2+\\dots+\\sigma^2}/n\\\\\n&= \\sqrt{n\\sigma^2}/n\\\\\n&= \\sigma / \\sqrt{n}     \n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#property-8",
+    "href": "slides/prob/21-inference-foundations.html#property-8",
+    "title": "Foundations of statistical inference",
+    "section": "Property 8",
+    "text": "Property 8\n\nIf \\(X\\) is a normally distributed random variable, then if \\(a\\) and \\(b\\) are non-random constants, \\(aX + b\\) is also a normally distributed random variable.\nAll we are doing is changing the units of the random variable by multiplying by \\(a\\), then shifting the center by \\(b\\)."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#notation",
+    "href": "slides/prob/21-inference-foundations.html#notation",
+    "title": "Foundations of statistical inference",
+    "section": "Notation",
+    "text": "Notation\n\nNote that statistical textbooks use the Greek letters \\(\\mu\\) and \\(\\sigma\\) to denote the expected value and standard error, respectively.\nThis is because \\(\\mu\\) is the Greek letter for \\(m\\), the first letter of mean, which is another term used for expected value.\nSimilarly, \\(\\sigma\\) is the Greek letter for \\(s\\), the first letter of standard error."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-assumption-of-independence-is-important",
+    "href": "slides/prob/21-inference-foundations.html#the-assumption-of-independence-is-important",
+    "title": "Foundations of statistical inference",
+    "section": "The assumption of independence is important",
+    "text": "The assumption of independence is important\n\nLet’s make the explanation more concise and clear:\nThe given equation reveals crucial insights for practical scenarios."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-assumption-of-independence-is-important-1",
+    "href": "slides/prob/21-inference-foundations.html#the-assumption-of-independence-is-important-1",
+    "title": "Foundations of statistical inference",
+    "section": "The assumption of independence is important",
+    "text": "The assumption of independence is important\n\nSpecifically, it suggests that the standard error can be minimized by increasing the sample size, \\(n\\), and we can quantify this reduction.\nHowever, this principle holds true only when the variables \\(X_1, X_2, \\dots, X_n\\) are independent.\nIf they are not, the estimated standard error can be significantly off."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-assumption-of-independence-is-important-2",
+    "href": "slides/prob/21-inference-foundations.html#the-assumption-of-independence-is-important-2",
+    "title": "Foundations of statistical inference",
+    "section": "The assumption of independence is important",
+    "text": "The assumption of independence is important\n\nWe later introduce the concept of correlation, which quantifies the degree to which variables are interdependent.\nIf the correlation coefficient among the \\(X\\) variables is \\(\\rho\\), the standard error of their average is:\n\n\\[\n\\mbox{SE}\\left(\\bar{X}\\right) = \\sigma \\sqrt{\\frac{1 + (n-1) \\rho}{n}}\n\\]"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-assumption-of-independence-is-important-3",
+    "href": "slides/prob/21-inference-foundations.html#the-assumption-of-independence-is-important-3",
+    "title": "Foundations of statistical inference",
+    "section": "The assumption of independence is important",
+    "text": "The assumption of independence is important\n\nThe key observation here is that as \\(\\rho\\) approaches its upper limit of 1, the standard error increases.\nNotably, in the situation where \\(\\rho = 1\\), the standard error, \\(\\mbox{SE}(\\bar{X})\\), equals \\(\\sigma\\), and it becomes unaffected by the sample size \\(n\\)."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#law-of-large-numbers",
+    "href": "slides/prob/21-inference-foundations.html#law-of-large-numbers",
+    "title": "Foundations of statistical inference",
+    "section": "Law of large numbers",
+    "text": "Law of large numbers\n\nAn important implication of result 5 above is that the standard error of the average becomes smaller and smaller as \\(n\\) grows larger.\nWhen \\(n\\) is very large, then the standard error is practically 0 and the average of the draws converges to the average of the urn.\nThis is known in statistical textbooks as the law of large numbers or the law of averages."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#misinterpretation-of-the-law-of-averages",
+    "href": "slides/prob/21-inference-foundations.html#misinterpretation-of-the-law-of-averages",
+    "title": "Foundations of statistical inference",
+    "section": "Misinterpretation of the law of averages",
+    "text": "Misinterpretation of the law of averages\n\nThe law of averages is sometimes misinterpreted.\nFor example, if you toss a coin 5 times and see a head each time, you might hear someone argue that the next toss is probably a tail because of the law of averages: on average we should see 50% heads and 50% tails.\nA similar argument would be to say that red “is due” on the roulette wheel after seeing black come up five times in a row.\nYet these events are independent so the chance of a coin landing heads is 50%, regardless of the previous 5."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#misinterpretation-of-the-law-of-averages-1",
+    "href": "slides/prob/21-inference-foundations.html#misinterpretation-of-the-law-of-averages-1",
+    "title": "Foundations of statistical inference",
+    "section": "Misinterpretation of the law of averages",
+    "text": "Misinterpretation of the law of averages\n\nThe same principle applies to the roulette outcome.\nThe law of averages applies only when the number of draws is very large and not in small samples.\nAfter a million tosses, you will definitely see about 50% heads regardless of the outcome of the first five tosses.\nAnother funny misuse of the law of averages is in sports when TV sportscasters predict a player is about to succeed because they have failed a few times in a row."
   }
 ]

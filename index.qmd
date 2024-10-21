@@ -28,7 +28,7 @@ Lecture slides, class notes, and problem sets are linked below. New material is 
 | Sep 30, Oct 02 | Wrangling  | [Intro](slides/wrangling/10-intro-to-wrangling.qmd), [Data Importing](slides/wrangling/11-importing-files.qmd), [Dates and Times](slides/wrangling/12-dates-and-times.qmd), [Locales](slides/wrangling/13-locales.qmd), [Data APIs](slides/wrangling/14-data-apis.qmd), [Web scraping](slides/wrangling/15-web-scraping.qmd), [Joining tables](slides/wrangling/16-joining-tables.qmd) | [Importing data](https://rafalab.dfci.harvard.edu/dsbook-part-1/R/importing-data.html), [dates and times](http://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/dates-and-times.html), [Locales](https://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/locales.html), [Joining Tables](http://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/joining-tables.html), [Extracting data from the web](https://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/web-scraping.html)|
 Oct 07, Oct 09 | Data visualization  | [Data Viz Principles](slides/dataviz/17-dataviz-principles.qmd), [Distributions](slides/dataviz/18-distributions.qmd), [Dataviz in practice](slides/dataviz/19-dataviz-in-practice.qmd)| [Distributions](http://rafalab.dfci.harvard.edu/dsbook-part-1/dataviz/distributions.html), [Dataviz Principles](http://rafalab.dfci.harvard.edu/dsbook-part-1/dataviz/dataviz-principles.html) |
 | Oct 16 | Midterm 1 | | Covers material from Sep 04-Oct 11|
-| Oct 21 | Probability   | | [Monte Carlo](http://rafalab.dfci.harvard.edu/dsbook-part-2/prob/continuous-probability.html#monte-carlo), [Random Variables & CLT](http://rafalab.dfci.harvard.edu/dsbook-part-2/prob/random-variables-sampling-models-clt.html)|
+| Oct 21 | Probability   | [Intro](slides/prob/20-intro-to-prob.qmd), [Foundations for Inference](slides/prob/21-inference-foundations.qmd)| [Monte Carlo](http://rafalab.dfci.harvard.edu/dsbook-part-2/prob/continuous-probability.html#monte-carlo), [Random Variables & CLT](http://rafalab.dfci.harvard.edu/dsbook-part-2/prob/random-variables-sampling-models-clt.html)|
 | Oct 23 | Inference |  | [Parameters & Estimates](http://rafalab.dfci.harvard.edu/dsbook-part-2/inference/parameters-estimates.html), [Confidence Intervals](http://rafalab.dfci.harvard.edu/dsbook-part-2/inference/confidence-intervals.html) |
 | Oct 28, Oct 30 | Statistical Models | | [Data-driven Models](http://rafalab.dfci.harvard.edu/dsbook-part-2/inference/models.html),  [Bayesian Statistics](http://rafalab.dfci.harvard.edu/dsbook-part-2/inference/bayes.html), [Hierarchical Models](http://rafalab.dfci.harvard.edu/dsbook-part-2/inference/hierarchical-models.html) |
 | Nov 04, Nov 06 |  Linear models  | |  [Regression](http://rafalab.dfci.harvard.edu/dsbook-part-2/linear-models/regression.html), [Multivariate Regression](http://rafalab.dfci.harvard.edu/dsbook-part-2/linear-models/multivariate-regression.html) |
@@ -48,7 +48,7 @@ Oct 07, Oct 09 | Data visualization  | [Data Viz Principles](slides/dataviz/17-d
 | [03](psets/pset-03-tidyverse.qmd)          |  Tidyverse | Sep 27   |medium | 
 | [04](psets/pset-04-wrangling.qmd)          | Wrangling | Oct 4   | medium | 
 | [05](psets/pset-05-dataviz.qmd) |  Covid 19 data visualization | Oct 11   |medium | 
-| 06          | Probability | Oct 25   | easy | 
+| [06](psets/pset-06-prob.qmd)          | Probability | Oct 25   | easy | 
 | 07          | Predict the election |Nov 04   |  hard | 
 | 08          | Confidence intervals for excess mortality |Nov 15   |  hard | 
 | 09          | Matrices | Nov 22   | easy | 

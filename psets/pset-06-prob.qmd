@@ -1,0 +1,162 @@
+---
+title: Problem set 6 
+date: 2024-10-25
+execute: 
+  eval: false
+---
+
+Please answer each of the exercises below. For those asking for a mathematical calculation please use LaTeX to show your work.
+
+Important: Make sure that your document renders in less than 5 minutes.
+
+1. Write a function called `same_birthday` that takes a number `n` as an argument, randomly generates  `n` birthdays and returns `TRUE` if two or more birthdays are the same. You can assume nobody is born on February 29. 
+
+Hint: use the functions `sample`, `duplicated`, and `any`.
+
+```{r} 
+same_birthday <- function(n){ 
+  ## Your code here
+} 
+``` 
+
+2. Suppose you are in a classroom with 50 people. If we assume this is a randomly selected group of 50 people, what is the chance that at least two people have the same birthday? Use a Monte Carlo simulation with $B=$1,000 trials based on the function `same_birthday` from the previous exercises. 
+
+```{r} 
+B <- 10^3
+## Your code here
+``` 
+
+3. Redo the previous exercises for several values on `n` to determine at what group size do the chances become greater than 50%. Set the seed at 1997.
+
+
+```{r} 
+set.seed(1997)
+compute_prob <- function(n, B = 10^3){ 
+ ## Your code here
+} 
+## Your code here
+``` 
+
+4. These probabilities can be computed exactly instead of relying on Monte Carlo approximations. We use the multiplication rule:
+
+
+
+$$
+\mbox{Pr}(n\mbox{ different birthdays}) = 1 \times \frac{364}{365}\times\frac{363}{365} \dots \frac{365-n + 1}{365} 
+$$
+
+
+Plot the probabilities you obtained using Monte Carlos as a points and the exact probabilities with a red line. 
+
+Hint: use the function `prod` to compute the exact probabilities.
+
+```{r} 
+exact_prob <- function(n){ 
+ ## Your code here
+} 
+## Your code here
+``` 
+
+5. Note that the points don't quite match the red line. This is because our Monte Carlos simulation was based on only 1,000 iterations. Repeat exercise 2 but for `n = 23` and try `B <- seq(10, 250, 5)^2` number iterations. Plot the estimated probability against `sqrt(b)`. Describe when it starts to stabilize in that the estimates are within 0.005 for the exact probability. Add horizontal lines around the exact probability $\pm$ 0.005. Note this could take several seconds to run. Set the seed to 1998.
+
+```{r}
+set.seed(1998)
+B <- seq(10, 250, 5)^2
+## Your code here
+```
+
+6. Repeat exercise 4 but use the the results of exercise 5 to select the number of iterations so that the points practically fall on the red curve.
+
+Hint: If the number of iterations you chose is too large, you will achieve the correct plot but your document might not render in less than five minutes.
+
+```{r}
+n <- seq(1,60) 
+## Your code here
+```
+
+
+7. In American Roulette, with 18 red slots, 18 black slots, and 2 green slots (0 and 00), what is the probability of landing on a green slot?
+
+$$
+\mbox{Derivation here}
+$$
+
+
+6. The payout for winning on green is \$17 dollars. This means that if you bet a dollar and it lands on green, you get \$17. If it lands on red or black you lose your dollar. Create a sampling model using `sample` to simulate the random variable $X$ for the Casino's winnings. 
+
+```{r}
+n <- 1
+## Your code here
+```
+
+7. Now create a random variable $S$ of the Casino's total winnings if $n = $1,000 people bet on green. Use Monte Carlo simulation to estimate the probability that the Casino loses money. 
+
+```{r}
+n <- 1000
+## Your code here
+```
+
+8. What is the expected value of $X$? 
+
+$$
+\mbox{Your derivation here.}
+$$
+
+
+9. What is the standard error of $X$?
+
+$$
+\mbox{Your derivation here.}
+$$
+
+
+10. What is the expected value of $S$? Does the Monte Carlo simulation confirm this?
+
+$$
+\mbox{Your dereviation here}
+$$
+
+```{r}
+## Your code here
+```
+
+
+11. What is the standard error of $S$? Does the Monte Carlos simulation confirm this?
+
+$$
+\mbox{Your derivation here.}
+$$
+```{r}
+## Your code here
+```
+
+12. Use data visualization to convince yourself that the distribution of $S$ is approximately normal. Make a histogram and a QQ-plot of standardized values of $S$.
+The QQ-plot should be on the identity line.
+
+```{r}
+## Your code here
+```
+
+13. Notice that the normal approximation is slightly off for the tails of the distribution. What would make this better? Increasing the number of people playing $n$ or the number of Monte Carlo iterations $B$?
+
+**Answer here**
+
+14. Now approximate the probability estimated using CLT. Does it agree with the Monte Carlo simulation?
+
+$$
+\mbox{Your derivation here.}
+$$
+
+```{r}
+## Your code here
+```
+
+15. How many people $n$ must bet on green for the Casino to reduce the probability of losing money to 1%. Check your answer with a Monte Carlo simulation.
+
+$$
+\mbox{Your derivation here.}
+$$
+```{r}
+## Your code here
+```
+
