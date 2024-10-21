@@ -37,16 +37,24 @@
     <lastmod>2024-09-17T20:51:17.357Z</lastmod>
   </url>
   <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/prob/21-inference-foundations.html</loc>
+    <lastmod>2024-10-21T03:27:03.546Z</lastmod>
+  </url>
+  <url>
     <loc>http://datasciencelabs.github.io/2024/slides/dataviz/17-dataviz-principles.html</loc>
     <lastmod>2024-10-07T13:38:57.434Z</lastmod>
   </url>
   <url>
-    <loc>http://datasciencelabs.github.io/2024/psets.html</loc>
-    <lastmod>2024-09-06T13:27:10.586Z</lastmod>
+    <loc>http://datasciencelabs.github.io/2024/slides/dataviz/19-dataviz-in-practice.html</loc>
+    <lastmod>2024-10-09T13:26:33.282Z</lastmod>
   </url>
   <url>
-    <loc>http://datasciencelabs.github.io/2024/slides.html</loc>
-    <lastmod>2024-10-07T01:50:13.059Z</lastmod>
+    <loc>http://datasciencelabs.github.io/2024/index.html</loc>
+    <lastmod>2024-10-21T03:28:35.889Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/psets/pset-04-wrangling.html</loc>
+    <lastmod>2024-10-04T13:42:48.139Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/psets/pset-02-r-vectorization.html</loc>
@@ -65,16 +73,24 @@
     <lastmod>2024-10-08T18:06:08.471Z</lastmod>
   </url>
   <url>
-    <loc>http://datasciencelabs.github.io/2024/psets/pset-04-wrangling.html</loc>
-    <lastmod>2024-10-04T13:42:48.139Z</lastmod>
+    <loc>http://datasciencelabs.github.io/2024/psets/pset-06-prob.html</loc>
+    <lastmod>2024-10-21T02:04:23.624Z</lastmod>
   </url>
   <url>
-    <loc>http://datasciencelabs.github.io/2024/index.html</loc>
-    <lastmod>2024-10-09T13:40:56.351Z</lastmod>
+    <loc>http://datasciencelabs.github.io/2024/slides.html</loc>
+    <lastmod>2024-10-07T01:50:13.059Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/psets.html</loc>
+    <lastmod>2024-09-06T13:27:10.586Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/dataviz/18-distributions.html</loc>
     <lastmod>2024-10-08T19:25:03.890Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/prob/20-intro-to-prob.html</loc>
+    <lastmod>2024-10-21T03:07:55.115Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/00-intro.html</loc>
@@ -111,17 +127,5 @@
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/productivity/04-git.html</loc>
     <lastmod>2024-09-09T15:56:17.788Z</lastmod>
-  </url>
-  <url>
-    <loc>http://datasciencelabs.github.io/2024/slides/dataviz/19-dataviz-in-practice.html</loc>
-    <lastmod>2024-10-09T13:26:33.282Z</lastmod>
-  </url>
-  <url>
-    <loc>http://datasciencelabs.github.io/2024/slides/prob/20-intro-to-prob.html</loc>
-    <lastmod>2024-10-21T03:07:55.115Z</lastmod>
-  </url>
-  <url>
-    <loc>http://datasciencelabs.github.io/2024/slides/prob/21-inference-foundations.html</loc>
-    <lastmod>2024-10-21T03:27:03.546Z</lastmod>
   </url>
 </urlset>
