@@ -12,7 +12,7 @@
 
   <meta name="dcterms.date" content="2024-08-21">
   <meta name="keywords" content="Probability">
-  <title>BST 260: Introduction to Data Science – Foundations of statistical inference</title>
+  <title>BST 260: Introduction to Data Science – Foundations of Statistical Inference</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -392,7 +392,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Foundations of statistical inference</h1>
+  <h1 class="title">Foundations of Statistical Inference</h1>
 
 <div class="quarto-title-authors">
 </div>
@@ -402,20 +402,25 @@
 <section id="sampling-models" class="slide level2">
 <h2>Sampling models</h2>
 <ul>
-<li><p>Many data generation procedures, those that produce the data we study, can be effectively modeled as draws from an urn.</p></li>
-<li><p>For instance, we can model the process of polling likely voters as drawing 0s (Republicans) and 1s (Democrats) from an urn containing the 0 and 1 codes for all likely voters.</p></li>
-<li><p>In epidemiological studies, we often assume that the subjects in our study are a random sample from the population of interest.</p></li>
-<li><p>The data related to a specific outcome can be modeled as a random sample from an urn containing the outcomes for the entire population of interest.</p></li>
+<li><p>Many data generation procedures can be effectively modeled as draws from an urn.</p></li>
+<li><p>We can model the process of polling likely voters as drawing 0s for one party and 1s for the other.</p></li>
+<li><p>Epidemiologist assume subjects in their studies are a random sample from the population of interest.</p></li>
 </ul>
 </section>
 <section id="sampling-models-1" class="slide level2">
+<h2>Sampling models</h2>
+<ul>
+<li>In general, the data related to a specific outcome can be modeled as a random sample from an urn containing the outcomes for the entire population of interest.</li>
+</ul>
+</section>
+<section id="sampling-models-2" class="slide level2">
 <h2>Sampling models</h2>
 <ul>
 <li><p>Similarly, in experimental research, we often assume that the individual organisms we are studying, for example worms, flies, or mice, are a random sample from a larger population.</p></li>
 <li><p>Randomized experiments can be modeled by draws from an urn, reflecting the way individuals are assigned into group; when getting assigned, individuals draw their group at random.</p></li>
 </ul>
 </section>
-<section id="sampling-models-2" class="slide level2">
+<section id="sampling-models-3" class="slide level2">
 <h2>Sampling models</h2>
 <ul>
 <li><p>Sampling models are therefore ubiquitous in data science.</p></li>
@@ -423,23 +428,28 @@
 <li><p>We will therefore start with these examples.</p></li>
 </ul>
 </section>
-<section id="sampling-models-3" class="slide level2">
+<section id="sampling-models-4" class="slide level2">
 <h2>Sampling models</h2>
 <ul>
 <li><p>Suppose a very small casino hires you to consult on whether they should set up roulette wheels.</p></li>
-<li><p>To keep the example simple, we will assume that 1,000 people will play, and that the only game available on the roulette wheel is to bet on red or black.</p></li>
+<li><p>We will assume that 1,000 people will play, and that the only game available on the roulette wheel is to bet on red or black.</p></li>
 <li><p>The casino wants you to predict how much money they will make or lose.</p></li>
 <li><p>They want a range of values and, in particular, they want to know what’s the chance of losing money.</p></li>
 </ul>
 </section>
-<section id="sampling-models-4" class="slide level2">
+<section id="sampling-models-5" class="slide level2">
 <h2>Sampling models</h2>
 <ul>
 <li><p>If this probability is too high, they will decide against installing roulette wheels.</p></li>
 <li><p>We are going to define a random variable <span class="math inline">\(S\)</span> that will represent the casino’s total winnings.</p></li>
 </ul>
 </section>
-<section id="sampling-models-5" class="slide level2">
+<section id="sampling-models-6" class="slide level2">
+<h2>Sampling models</h2>
+<p>This is a roullette:</p>
+
+<img data-src="https://yonkerstimes.com/wp-content/uploads/2022/09/American-Roulette-1024x463-1.png" class="r-stretch"></section>
+<section id="sampling-models-7" class="slide level2">
 <h2>Sampling models</h2>
 <ul>
 <li><p>Let’s start by constructing the urn.</p></li>
@@ -450,15 +460,15 @@
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>color <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Black"</span>, <span class="st">"Red"</span>, <span class="st">"Green"</span>), <span class="fu">c</span>(<span class="dv">18</span>, <span class="dv">18</span>, <span class="dv">2</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="sampling-models-6" class="slide level2">
+<section id="sampling-models-8" class="slide level2">
 <h2>Sampling models</h2>
 <ul>
 <li><p>The 1,000 outcomes from 1,000 people playing are independent draws from this urn.</p></li>
-<li><p>If red comes up, the gambler wins, and the casino loses a dollar, resulting in a draw a -$1.</p></li>
-<li><p>Otherwise, the casino wins a dollar, and we draw a $1.</p></li>
+<li><p>If red comes up, the gambler wins, and the casino loses a dollar, resulting random variable being -$1.</p></li>
+<li><p>Otherwise, the casino wins a dollar, and the random variable is $1.</p></li>
 </ul>
 </section>
-<section id="sampling-models-7" class="slide level2">
+<section id="sampling-models-9" class="slide level2">
 <h2>Sampling models</h2>
 <ul>
 <li>To construct our random variable <span class="math inline">\(S\)</span>, we can use this code:</li>
@@ -470,19 +480,19 @@
 <span id="cb2-4"><a></a><span class="co">#&gt;  [1]  1 -1  1 -1  1  1 -1  1  1  1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="sampling-models-8" class="slide level2">
+<section id="sampling-models-10" class="slide level2">
 <h2>Sampling models</h2>
 <ul>
-<li>Because we know the proportions of 1s and -1s, we can generate the draws with one line of code, without defining <code>color</code>:</li>
+<li>Because we know the proportions of 1s and -1s, we can generate the draws without defining <code>color</code>.</li>
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">9</span><span class="sc">/</span><span class="dv">19</span>, <span class="dv">10</span><span class="sc">/</span><span class="dv">19</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="sampling-models-9" class="slide level2">
+<section id="sampling-models-11" class="slide level2">
 <h2>Sampling models</h2>
 <ul>
-<li><p>We call this a <strong>sampling model</strong>, as it involves modeling the random behavior of roulette through the sampling of draws from an urn.</p></li>
+<li><p>This is a <strong>sampling model</strong>, as it models the random behavior through the sampling of draws from an urn.</p></li>
 <li><p>The total winnings <span class="math inline">\(S\)</span> is simply the sum of these 1,000 independent draws:</p></li>
 </ul>
 <div class="cell" data-layout-align="center">
@@ -491,27 +501,25 @@
 <span id="cb4-3"><a></a>s </span>
 <span id="cb4-4"><a></a><span class="co">#&gt; [1] 44</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<ul>
+<li><p>If you rerun the code above, you see that <span class="math inline">\(S\)</span> changes every time.</p></li>
+<li><p><span class="math inline">\(S\)</span> is a <strong>random variable</strong>.</p></li>
+</ul>
 </section>
 <section id="the-probability-distributions" class="slide level2">
 <h2>The probability distributions</h2>
 <ul>
-<li><p>If you run the code above, you see that <span class="math inline">\(S\)</span> changes every time.</p></li>
-<li><p>This is, of course, because <span class="math inline">\(S\)</span> is a <strong>random variable</strong>.</p></li>
-</ul>
-</section>
-<section id="the-probability-distributions-1" class="slide level2">
-<h2>The probability distributions</h2>
-<ul>
-<li><p>The probability distribution of a random variable informs us about the probability of the observed value falling at any given interval.</p></li>
-<li><p>For example, if we want to know the probability that we lose money, we are asking the probability that <span class="math inline">\(S\)</span> is in the interval <span class="math inline">\(S&lt;0\)</span>.</p></li>
+<li><p>The probability distribution of a random variable informs us about the probability of the observed value falling in any given interval.</p></li>
+<li><p>For example, if we want to know the probability that we lose money, we are asking the probability that <span class="math inline">\(S\)</span> is in the interval <span class="math inline">\((-\infty,0)\)</span>.</p></li>
 </ul>
 </section>
 <section id="the-probability-distribution" class="slide level2">
 <h2>The probability distribution</h2>
 <ul>
-<li><p>Keep in mind that if we can define a cumulative distribution function <span class="math inline">\(F(a) = \mbox{Pr}(S\leq a)\)</span>, then we will be able to answer any question related to the probability of events defined by our random variable <span class="math inline">\(S\)</span>, including the event <span class="math inline">\(S&lt;0\)</span>.</p></li>
+<li><p>If we can define a cumulative distribution function <span class="math inline">\(F(a) = \mbox{Pr}(S\leq a)\)</span>, we can answer any question about the probability of events defined by <span class="math inline">\(S\)</span>.</p></li>
 <li><p>We call this <span class="math inline">\(F\)</span> the random variable’s <em>distribution function</em>.</p></li>
-<li><p>We can estimate the distribution function for the random variable <span class="math inline">\(S\)</span> by using a Monte Carlo simulation to generate many realizations of the random variable.</p></li>
+<li><p>Probability and Statistics classes dedicate much time to calculating or approximating these.</p></li>
+<li><p>We can also estimate the distribution function for <span class="math inline">\(S\)</span> using a <strong>Monte Carlo simulation</strong>.</p></li>
 </ul>
 </section>
 <section id="the-probability-distribution-1" class="slide level2">
@@ -532,105 +540,90 @@
 <section id="the-probability-distribution-2" class="slide level2">
 <h2>The probability distribution</h2>
 <ul>
-<li>Now, we can ask the following: in our simulations, how often did we get sums less than or equal to <code>a</code>?</li>
+<li>Now, we can ask the following: in our simulation, how often did we get sums less than or equal to <code>a</code>?</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">mean</span>(S <span class="sc">&lt;=</span> a) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">mean</span>(s <span class="sc">&lt;=</span> a) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="the-probability-distribution-3" class="slide level2">
 <h2>The probability distribution</h2>
 <ul>
-<li>This will be a very good approximation of <span class="math inline">\(F(a)\)</span>, allowing us to easily answer the casino’s question: How likely is it that we will lose money? We can see it is quite low:</li>
+<li><p>This will be a very good approximation of <span class="math inline">\(F(a)\)</span>.</p></li>
+<li><p>This allows us to easily answer the casino’s question: How likely is it that we will lose money?</p></li>
+<li><p>It is quite low:</p></li>
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">mean</span>(s <span class="sc">&lt;</span> <span class="dv">0</span>) </span>
 <span id="cb7-2"><a></a><span class="co">#&gt; [1] 0.045</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<ul>
-<li>We can visualize the distribution of <span class="math inline">\(S\)</span> by creating a histogram showing the probability <span class="math inline">\(F(b)-F(a)\)</span> for several intervals <span class="math inline">\((a,b]\)</span>:</li>
-</ul>
 </section>
 <section id="the-probability-distribution-4" class="slide level2">
 <h2>The probability distribution</h2>
+<ul>
+<li>We can visualize the distribution of <span class="math inline">\(S\)</span> by creating a histogram showing the probability <span class="math inline">\(F(b)-F(a)\)</span> for several intervals <span class="math inline">\((a,b]\)</span>:</li>
+</ul>
 
 <img data-src="21-inference-foundations_files/figure-revealjs/normal-approximates-distribution-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
 <section id="the-probability-distribution-5" class="slide level2">
 <h2>The probability distribution</h2>
 <ul>
 <li><p>We see that the distribution appears to be approximately normal.</p></li>
-<li><p>A qqplot will confirm that the normal approximation is close to a perfect approximation for this distribution.</p></li>
-<li><p>In fact, if the distribution is normal, all we need to define it are the average and the standard deviation.</p></li>
-<li><p>Since we have the original values from which the distribution is created, we can easily compute these with <code>mean(S)</code> and <code>sd(S)</code>.</p></li>
+<li><p>A QQ-plot will confirm that the normal approximation is close to a perfect approximation.</p></li>
 </ul>
 </section>
 <section id="the-probability-distribution-6" class="slide level2">
 <h2>The probability distribution</h2>
 <ul>
-<li><p>The blue curve added to the histogram above is a normal density with this average and standard deviation.</p></li>
-<li><p>This average and this standard deviation have special names; they are referred to as the <em>expected value</em> and <em>standard error</em> of the random variable <span class="math inline">\(S\)</span>.</p></li>
-<li><p>More details on these concepts will be provided in the next section.</p></li>
-<li><p>Statistical theory offers a method to derive the distribution of random variables defined as the sum of independent random draw of numbers from an urn.</p></li>
+<li><p>Remeber, if the distribution is normal, all we need to define it are the average and the standard deviation (SD).</p></li>
+<li><p>Since we have the original values from which the distribution is created, we can easily compute these with <code>mean(s)</code> and <code>sd(s)</code>.</p></li>
+<li><p>The blue curve added to the histogram is a normal density with this average and standard deviation.</p></li>
 </ul>
 </section>
 <section id="the-probability-distribution-7" class="slide level2">
 <h2>The probability distribution</h2>
 <ul>
+<li>This average and this standard deviation have special names; they are referred to as the <strong>expected value</strong> and <strong>standard error (SE)</strong> of the random variable <span class="math inline">\(S\)</span>.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>Statistical theory offers a method to derive the distribution of random variables defined as the sum of independent random draw of numbers from an urn:</p></li>
 <li><p>Specifically, in our example above, we can demonstrate that <span class="math inline">\((S+n)/2\)</span> follows a binomial distribution.</p></li>
 <li><p>We therefore do not need to run Monte Carlo simulations to determine the probability distribution of <span class="math inline">\(S\)</span>.</p></li>
 <li><p>The simulations were conducted for illustrative purposes.</p></li>
 <li><p>We can use the function <code>dbinom</code> and <code>pbinom</code> to compute the probabilities exactly.</p></li>
 </ul>
-</section>
-<section id="the-probability-distribution-8" class="slide level2">
-<h2>The probability distribution</h2>
-<ul>
-<li>For example, to compute <span class="math inline">\(\mbox{Pr}(S &lt; 0)\)</span>, we note that:</li>
-</ul>
-<p><span class="math display">\[\mbox{Pr}(S &lt; 0) = \mbox{Pr}((S+n)/2 &lt; (0+n)/2)\]</span></p>
-<ul>
-<li>and we can use the <code>pbinom</code> to compute <span class="math display">\[\mbox{Pr}(S \leq 0)\]</span>:</li>
-</ul>
-</section>
-<section id="the-probability-distribution-9" class="slide level2">
-<h2>The probability distribution</h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
-<span id="cb8-2"><a></a><span class="fu">pbinom</span>(n<span class="sc">/</span><span class="dv">2</span>, <span class="at">size =</span> n, <span class="at">prob =</span> <span class="dv">10</span><span class="sc">/</span><span class="dv">19</span>) </span>
-<span id="cb8-3"><a></a><span class="co">#&gt; [1] 0.0511</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-2"><a></a><span class="fu">pbinom</span>(n<span class="sc">/</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">1</span>, <span class="at">size =</span> n, <span class="at">prob =</span> <span class="dv">10</span><span class="sc">/</span><span class="dv">19</span>) </span>
+<span id="cb8-3"><a></a><span class="co">#&gt; [1] 0.0448</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<ul>
-<li>Since this is a discrete probability function, to obtain <span class="math inline">\(\mbox{Pr}(S &lt; 0)\)</span> rather than <span class="math inline">\(\mbox{Pr}(S \leq 0)\)</span>, we write:</li>
-</ul>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">pbinom</span>(n<span class="sc">/</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">1</span>, <span class="at">size =</span> n, <span class="at">prob =</span> <span class="dv">10</span><span class="sc">/</span><span class="dv">19</span>) </span>
-<span id="cb9-2"><a></a><span class="co">#&gt; [1] 0.0448</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="the-probability-distribution-10" class="slide level2">
-<h2>The probability distribution</h2>
-<ul>
-<li><p>For the details of the binomial distribution, you can consult any basic probability book or even <a href="https://en.wikipedia.org/w/index.php?title=Binomial_distribution">Wikipedia</a></p></li>
-<li><p>We do not delve into these details here.</p></li>
-</ul>
-</section>
-<section id="the-probability-distribution-11" class="slide level2">
-<h2>The probability distribution</h2>
-<ul>
-<li>Instead, we will explore an incredibly useful approximation provided by mathematical theory, which generally applies to sums and averages of draws from any urn: the Central Limit Theorem (CLT).</li>
-</ul>
+</div>
+</div>
 </section>
 <section id="distributions-versus-probability-distributions" class="slide level2">
 <h2>Distributions versus probability distributions</h2>
 <ul>
 <li><p>Before we continue, let’s establish an important distinction and connection between the distribution of a list of numbers and a probability distribution.</p></li>
-<li><p>Any list of numbers <span class="math inline">\(x_1,\dots,x_n\)</span> has a distribution.</p></li>
+<li><p>Any list of numbers <span class="math inline">\(x_1,\dots,x_n\)</span> has a <strong>distribution</strong>.</p></li>
+<li><p>It does not have a <strong>probability distribution</strong> because they are not random.</p></li>
 </ul>
 </section>
 <section id="distributions-versus-probability-distributions-1" class="slide level2">
 <h2>Distributions versus probability distributions</h2>
 <ul>
-<li><p>The definition is quite straightforward.</p></li>
 <li><p>We define <span class="math inline">\(F(a)\)</span> as the function that indicates what proportion of the list is less than or equal to <span class="math inline">\(a\)</span>.</p></li>
 <li><p>Given their usefulness as summaries when the distribution is approximately normal, we also define the average and standard deviation.</p></li>
 </ul>
@@ -641,32 +634,37 @@
 <li>These are determined with a straightforward operation involving the vector containing the list of numbers, denoted as <code>x</code>:</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>m <span class="ot">&lt;-</span> <span class="fu">sum</span>(x)<span class="sc">/</span><span class="fu">length</span>(x) </span>
-<span id="cb10-2"><a></a>s <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>((x <span class="sc">-</span> m)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">length</span>(x)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>m <span class="ot">&lt;-</span> <span class="fu">sum</span>(x)<span class="sc">/</span><span class="fu">length</span>(x) </span>
+<span id="cb9-2"><a></a>s <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>((x <span class="sc">-</span> m)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">length</span>(x)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="distributions-versus-probability-distributions-3" class="slide level2">
 <h2>Distributions versus probability distributions</h2>
 <ul>
-<li><p>A random variable <span class="math inline">\(X\)</span> has a distribution function.</p></li>
+<li><p>A random variable <span class="math inline">\(X\)</span> has a <strong>distribution function</strong>.</p></li>
 <li><p>To define this, we do not need a list of numbers; it is a theoretical concept.</p></li>
-<li><p>In this case, we define the distribution as the <span class="math inline">\(F(a)\)</span> that answers the question: What is the probability that <span class="math inline">\(X\)</span> is less than or equal to <span class="math inline">\(a\)</span>? There is no list of numbers.</p></li>
+<li><p>We define the distribution as the <span class="math inline">\(F(a)\)</span> that answers the question: What is the probability that <span class="math inline">\(X\)</span> is less than or equal to <span class="math inline">\(a\)</span>?</p></li>
 </ul>
 </section>
 <section id="distributions-versus-probability-distributions-4" class="slide level2">
 <h2>Distributions versus probability distributions</h2>
 <ul>
-<li><p>However, if <span class="math inline">\(X\)</span> is defined by drawing from an urn containing numbers, then there exists a list: the list of numbers inside the urn.</p></li>
+<li><p>However, if <span class="math inline">\(X\)</span> is defined by drawing from an urn containing numbers, then there is a list: the list of numbers inside the urn.</p></li>
 <li><p>In this case, the distribution of that list is the probability distribution of <span class="math inline">\(X\)</span>, and the average and standard deviation of that list are the expected value and standard error of the random variable.</p></li>
-<li><p>Another way to think about it without involving an urn is by running a Monte Carlo simulation and generating a very large list of outcomes of <span class="math inline">\(X\)</span>.</p></li>
 </ul>
 </section>
 <section id="distributions-versus-probability-distributions-5" class="slide level2">
 <h2>Distributions versus probability distributions</h2>
 <ul>
+<li>Another way to think about it without involving an urn is by running a Monte Carlo simulation and generating a very large list of outcomes of <span class="math inline">\(X\)</span>.</li>
+</ul>
+</section>
+<section id="distributions-versus-probability-distributions-6" class="slide level2">
+<h2>Distributions versus probability distributions</h2>
+<ul>
 <li><p>These outcomes form a list of numbers, and the distribution of this list will be a very good approximation of the probability distribution of <span class="math inline">\(X\)</span>.</p></li>
 <li><p>The longer the list, the better the approximation.</p></li>
-<li><p>The average and standard deviation of this list will approximate the expected value and standard error of the random variable.</p></li>
+<li><p>The <strong>average</strong> and <strong>standard deviation</strong> of this list will approximate the <strong>expected value</strong> and <strong>standard error</strong> of the random variable.</p></li>
 </ul>
 </section>
 <section id="notation-for-random-variables" class="slide level2">
@@ -684,7 +682,6 @@
 <ul>
 <li><p>So, for example, <span class="math inline">\(X\)</span> might represent the number on a die roll and <span class="math inline">\(x\)</span> will represent an actual value we see: 1, 2, 3, 4, 5, or 6.</p></li>
 <li><p>In this case, the probability of <span class="math inline">\(X=x\)</span> is 1/6 regardless of the observed value <span class="math inline">\(x\)</span>.</p></li>
-<li><p>This notation may seem a bit strange because when we inquire about probability, <span class="math inline">\(X\)</span> is not an observed quantity; it’s a random quantity that we will encounter in the future.</p></li>
 <li><p>We can discuss what we expect <span class="math inline">\(X\)</span> to be, what values are probable, but we can’t discuss what value <span class="math inline">\(X\)</span> is.</p></li>
 </ul>
 </section>
@@ -692,49 +689,51 @@
 <h2>Notation for random variables</h2>
 <ul>
 <li><p>Once we have data, we do see a realization of <span class="math inline">\(X\)</span>.</p></li>
-<li><p>Therefore, data analysits often speak of what could have been after observing what actually happened.</p></li>
+<li><p>Therefore, data analysts often speak of what could have been after observing what actually happened.</p></li>
 </ul>
 </section>
-<section id="the-expected-value-and-standard-error" class="slide level2">
-<h2>The expected value and standard error</h2>
+<section id="the-expected-value-and-se" class="slide level2">
+<h2>The expected value and SE</h2>
 <ul>
-<li><p>We have described sampling models for draws.</p></li>
 <li><p>We will now review the mathematical theory that allows us to approximate the probability distributions for the sum of draws.</p></li>
-<li><p>Once we do this, we will be able to help the casino predict how much money they will make.</p></li>
-</ul>
-</section>
-<section id="the-expected-value-and-standard-error-1" class="slide level2">
-<h2>The expected value and standard error</h2>
-<ul>
 <li><p>The same approach we use for the sum of draws will be useful for describing the distribution of averages and proportion, which we will need to understand how polls work.</p></li>
 <li><p>The first important concept to learn is the <em>expected value</em>.</p></li>
 </ul>
 </section>
-<section id="the-expected-value-and-standard-error-2" class="slide level2">
-<h2>The expected value and standard error</h2>
+<section id="the-expected-value-and-se-1" class="slide level2">
+<h2>The expected value and SE</h2>
 <ul>
-<li>In statistics books, it is common to represent it with the letter <span class="math inline">\(\mbox{E}\)</span> like this:</li>
+<li>In statistics books, it is common to represent the expected value of the random variable <span class="math inline">\(X\)</span> with the letter <span class="math inline">\(\mbox{E}\)</span> like this:</li>
 </ul>
 <p><span class="math display">\[\mbox{E}[X]\]</span></p>
-<ul>
-<li>to denote the expected value of the random variable <span class="math inline">\(X\)</span>.</li>
-</ul>
 </section>
-<section id="the-expected-value-and-standard-error-3" class="slide level2">
-<h2>The expected value and standard error</h2>
+<section id="the-expected-value-and-se-2" class="slide level2">
+<h2>The expected value and SE</h2>
 <ul>
 <li><p>A random variable will vary around its expected value in a manner that if you take the average of many, many draws, the average will approximate the expected value.</p></li>
 <li><p>This approximation improves as you take more draws, making the expected value a useful quantity to compute.</p></li>
 </ul>
 </section>
-<section id="the-expected-value-and-standard-error-4" class="slide level2">
-<h2>The expected value and standard error</h2>
+<section id="the-expected-value-and-se-3" class="slide level2">
+<h2>The expected value and SE</h2>
 <ul>
 <li>For discrete random variable with possible outcomes <span class="math inline">\(x_1,\dots,x_n\)</span>, the expected value is defined as:</li>
 </ul>
 <p><span class="math display">\[
 \mbox{E}[X] = \sum_{i=1}^n x_i \,\mbox{Pr}(X = x_i)
-\]</span> ## The expected value and standard error</p>
+\]</span></p>
+</section>
+<section id="the-expected-value-and-se-4" class="slide level2">
+<h2>The expected value and SE</h2>
+<ul>
+<li>Note that in the case that we are picking values from an urn, and each value <span class="math inline">\(x_i\)</span> has an equal chance <span class="math inline">\(1/n\)</span> of being selected, the above equation is simply the average of the <span class="math inline">\(x_i\)</span>s.</li>
+</ul>
+<p><span class="math display">\[
+\mbox{E}[X] = \frac{1}{n}\sum_{i=1}^n x_i  
+\]</span></p>
+</section>
+<section id="the-expected-value-and-se-5" class="slide level2">
+<h2>The expected value and SE</h2>
 <ul>
 <li>If <span class="math inline">\(X\)</span> is a continuous random variable with a range of values <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span> and a probability density function <span class="math inline">\(f(x)\)</span>, this sum transforms into an integral:</li>
 </ul>
@@ -742,14 +741,8 @@
 \mbox{E}[X] = \int_a^b x f(x)
 \]</span></p>
 </section>
-<section id="the-expected-value-and-standard-error-5" class="slide level2">
-<h2>The expected value and standard error</h2>
-<ul>
-<li>Note that in the case that we are picking values from an urn, and each value <span class="math inline">\(x_i\)</span> has an equal chance <span class="math inline">\(1/n\)</span> of being selected, the above equation is simply the average of the <span class="math inline">\(x_i\)</span>s.</li>
-</ul>
-<p><span class="math display">\[
-\mbox{E}[X] = \frac{1}{n}\sum_{i=1}^n x_i  
-\]</span> ## The expected value and standard error</p>
+<section id="the-expected-value-and-se-6" class="slide level2">
+<h2>The expected value and SE</h2>
 <ul>
 <li>In the urn used to model betting on red in roulette, we have 20 one-dollar bills and 18 negative one-dollar bills, so the expected value is:</li>
 </ul>
@@ -760,54 +753,54 @@
 <li>which is about 5 cents.</li>
 </ul>
 </section>
-<section id="the-expected-value-and-standard-error-6" class="slide level2">
-<h2>The expected value and standard error</h2>
+<section id="the-expected-value-and-se-7" class="slide level2">
+<h2>The expected value and SE</h2>
 <ul>
 <li><p>You might consider it a bit counterintuitive to say that <span class="math inline">\(X\)</span> varies around 0.05 when it only takes the values 1 and -1.</p></li>
-<li><p>One way to make sense of the expected value in this context is by realizing that, if we play the game over and over, the casino wins, on average, 5 cents per game.</p></li>
+<li><p>To make sense of the expected value in this context is by realizing that, if we play the game over and over, the casino wins, on average, 5 cents per game.</p></li>
 </ul>
 </section>
-<section id="the-expected-value-and-standard-error-7" class="slide level2">
-<h2>The expected value and standard error</h2>
+<section id="the-expected-value-and-se-8" class="slide level2">
+<h2>The expected value and SE</h2>
 <ul>
 <li>A Monte Carlo simulation confirms this:</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>B <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">6</span> </span>
-<span id="cb11-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), B, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">9</span><span class="sc">/</span><span class="dv">19</span>, <span class="dv">10</span><span class="sc">/</span><span class="dv">19</span>)) </span>
-<span id="cb11-3"><a></a><span class="fu">mean</span>(x) </span>
-<span id="cb11-4"><a></a><span class="co">#&gt; [1] 0.0522</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>B <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">6</span> </span>
+<span id="cb10-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), B, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">9</span><span class="sc">/</span><span class="dv">19</span>, <span class="dv">10</span><span class="sc">/</span><span class="dv">19</span>)) </span>
+<span id="cb10-3"><a></a><span class="fu">mean</span>(x) </span>
+<span id="cb10-4"><a></a><span class="co">#&gt; [1] 0.0522</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="the-expected-value-and-standard-error-8" class="slide level2">
-<h2>The expected value and standard error</h2>
+<section id="the-expected-value-and-se-9" class="slide level2">
+<h2>The expected value and SE</h2>
 <ul>
 <li>In general, if the urn has two possible outcomes, say <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, with proportions <span class="math inline">\(p\)</span> and <span class="math inline">\(1-p\)</span> respectively, the average is:</li>
 </ul>
 <p><span class="math display">\[\mbox{E}[X] = ap + b(1-p)\]</span></p>
 </section>
-<section id="the-expected-value-and-standard-error-9" class="slide level2">
-<h2>The expected value and standard error</h2>
+<section id="the-expected-value-and-se-10" class="slide level2">
+<h2>The expected value and SE</h2>
 <ul>
 <li>To confirm this, observe that if there are <span class="math inline">\(n\)</span> beads in the urn, then we have <span class="math inline">\(np\)</span> <span class="math inline">\(a\)</span>s and <span class="math inline">\(n(1-p)\)</span> <span class="math inline">\(b\)</span>s, and because the average is the sum, <span class="math inline">\(n\times a \times p + n\times b \times (1-p)\)</span>, divided by the total <span class="math inline">\(n\)</span>, we get that the average is <span class="math inline">\(ap + b(1-p)\)</span>.</li>
 </ul>
 </section>
-<section id="the-expected-value-and-standard-error-10" class="slide level2">
-<h2>The expected value and standard error</h2>
+<section id="the-expected-value-and-se-11" class="slide level2">
+<h2>The expected value and SE</h2>
 <ul>
-<li><p>Now, the reason we define the expected value is because this mathematical definition turns out to be useful for approximating the probability distributions of sum.</p></li>
+<li><p>The reason we define the expected value is because this mathematical definition turns out to be useful for approximating the probability distributions of sum.</p></li>
 <li><p>This, in turn, is useful for describing the distribution of averages and proportions.</p></li>
 </ul>
 </section>
-<section id="the-expected-value-and-standard-error-11" class="slide level2">
-<h2>The expected value and standard error</h2>
+<section id="the-expected-value-and-se-12" class="slide level2">
+<h2>The expected value and SE</h2>
 <ul>
 <li><p>The first useful fact is that the <em>expected value of the sum of the draws</em> is the number of draws <span class="math inline">\(\times\)</span> the average of the numbers in the urn.</p></li>
 <li><p>Therefore, if 1,000 people play roulette, the casino expects to win, on average, about 1,000 <span class="math inline">\(\times\)</span> $0.05 = $50.</p></li>
 </ul>
 </section>
-<section id="the-expected-value-and-standard-error-12" class="slide level2">
-<h2>The expected value and standard error</h2>
+<section id="the-expected-value-and-se-13" class="slide level2">
+<h2>The expected value and SE</h2>
 <ul>
 <li><p>However, this is an expected value.</p></li>
 <li><p>How different can one observation be from the expected value? The casino really needs to know this.</p></li>
@@ -815,16 +808,16 @@
 <li><p>Statistical theory once again answers this question.</p></li>
 </ul>
 </section>
-<section id="the-expected-value-and-standard-error-13" class="slide level2">
-<h2>The expected value and standard error</h2>
+<section id="the-expected-value-and-se-14" class="slide level2">
+<h2>The expected value and SE</h2>
 <ul>
 <li><p>The <em>standard error</em> (SE) gives us an idea of the size of the variation around the expected value.</p></li>
 <li><p>In statistics books, it’s common to use:</p></li>
 </ul>
-<p><span class="math display">\[\mbox{SE}[X]\]</span></p>
+<p><span class="math display">\[\mbox{SE}[X] = \sqrt{\mbox{Var}[X]}\]</span></p>
 </section>
-<section id="the-expected-value-and-standard-error-14" class="slide level2">
-<h2>The expected value and standard error</h2>
+<section id="the-expected-value-and-se-15" class="slide level2">
+<h2>The expected value and SE</h2>
 <ul>
 <li><p>to denote the standard error of a random variable.</p></li>
 <li><p>For discrete random variable with possible outcomes <span class="math inline">\(x_1,\dots,x_n\)</span>, the standard error is defined as:</p></li>
@@ -836,14 +829,8 @@
 <li>which you can think of as the expected <em>average</em> distance of <span class="math inline">\(X\)</span> from the expected value.</li>
 </ul>
 </section>
-<section id="the-expected-value-and-standard-error-15" class="slide level2">
-<h2>The expected value and standard error</h2>
-<ul>
-<li>If <span class="math inline">\(X\)</span> is a continuous random variable, with range of values <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span> and probability density function <span class="math inline">\(f(x)\)</span>, this sum turns into an integral:</li>
-</ul>
-<p><span class="math display">\[
-\mbox{SE}[X] = \sqrt{\int_a^b \left(x-\mbox{E}[X]\right)^2 f(x)\,\mathrm{d}x}
-\]</span> ## The expected value and standard error</p>
+<section id="the-expected-value-and-se-16" class="slide level2">
+<h2>The expected value and SE</h2>
 <ul>
 <li>Note that in the case that we are picking values from an un urn where each value <span class="math inline">\(x_i\)</span> has an equal chance <span class="math inline">\(1/n\)</span> of being selected, the above equation is simply the standard deviation of of the <span class="math inline">\(x_i\)</span>s.</li>
 </ul>
@@ -851,55 +838,65 @@
 \mbox{SE}[X] = \sqrt{\frac{1}{n}\sum_{i=1}^n (x_i - \bar{x})^2} \mbox{ with } \bar{x} =  \frac{1}{n}\sum_{i=1}^n x_i  
 \]</span></p>
 </section>
-<section id="the-expected-value-and-standard-error-16" class="slide level2">
-<h2>The expected value and standard error</h2>
+<section id="the-expected-value-and-se-17" class="slide level2">
+<h2>The expected value and SE</h2>
+<ul>
+<li>If <span class="math inline">\(X\)</span> is a continuous random variable, with range of values <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span> and probability density function <span class="math inline">\(f(x)\)</span>, this sum turns into an integral:</li>
+</ul>
+<p><span class="math display">\[
+\mbox{SE}[X] = \sqrt{\int_a^b \left(x-\mbox{E}[X]\right)^2 f(x)\,\mathrm{d}x}
+\]</span></p>
+</section>
+<section id="the-expected-value-and-se-18" class="slide level2">
+<h2>The expected value and SE</h2>
 <ul>
 <li>Using the definition of standard deviation, we can derive, with a bit of math, that if an urn contains two values <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> with proportions <span class="math inline">\(p\)</span> and <span class="math inline">\((1-p)\)</span>, respectively, the standard deviation is:</li>
 </ul>
-<p><span class="math display">\[\mid b - a \mid \sqrt{p(1-p)}.\]</span></p>
+<p><span class="math display">\[| b - a |\sqrt{p(1-p)}.\]</span></p>
 </section>
-<section id="the-expected-value-and-standard-error-17" class="slide level2">
-<h2>The expected value and standard error</h2>
+<section id="the-expected-value-and-se-19" class="slide level2">
+<h2>The expected value and SE</h2>
 <ul>
-<li>So in our roulette example, the standard deviation of the values inside the urn is <span class="math inline">\(\mid 1 - (-1) \mid \sqrt{10/19 \times 9/19}\)</span> or:</li>
+<li>So in our roulette example, the standard deviation of the values inside the urn is:</li>
 </ul>
+<p><span class="math display">\[
+| 1 - (-1) | \sqrt{10/19 \times 9/19}
+\]</span></p>
+<p>or:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="dv">2</span><span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">90</span>)<span class="sc">/</span><span class="dv">19</span> </span>
-<span id="cb12-2"><a></a><span class="co">#&gt; [1] 0.999</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="dv">2</span><span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">90</span>)<span class="sc">/</span><span class="dv">19</span> </span>
+<span id="cb11-2"><a></a><span class="co">#&gt; [1] 0.999</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<ul>
-<li>The standard error tells us the typical difference between a random variable and its expectation.</li>
-</ul>
 </section>
-<section id="the-expected-value-and-standard-error-18" class="slide level2">
-<h2>The expected value and standard error</h2>
+<section id="the-expected-value-and-se-20" class="slide level2">
+<h2>The expected value and SE</h2>
 <ul>
-<li><p>Since one draw is obviously the sum of just one draw, we can use the formula above to calculate that the random variable defined by one draw has an expected value of 0.05 and a standard error of about 1.</p></li>
+<li><p>Since one draw is obviously the sum of just one draw, we can use the formula above to calculate that the random variable defined by one draw has an expected value of 0.05 and a SE of about 1.</p></li>
 <li><p>This makes sense since we obtain either 1 or -1, with 1 slightly favored over -1.</p></li>
 </ul>
 </section>
-<section id="the-expected-value-and-standard-error-19" class="slide level2">
-<h2>The expected value and standard error</h2>
+<section id="the-expected-value-and-se-21" class="slide level2">
+<h2>The expected value and SE</h2>
 <ul>
 <li>A widely used mathematical result is that <strong>if our draws are independent</strong>, then the <em>standard error of the sum</em> is given by the equation:</li>
 </ul>
 <p><span class="math display">\[
-\sqrt{\mbox{number of draws}} \times \mbox{ standard deviation of the numbers in the urn}
+\sqrt{\mbox{number of draws}} \times \mbox{ SD of the numbers in the urn}
 \]</span></p>
 </section>
-<section id="the-expected-value-and-standard-error-20" class="slide level2">
-<h2>The expected value and standard error</h2>
+<section id="the-expected-value-and-se-22" class="slide level2">
+<h2>The expected value and SE</h2>
 <ul>
 <li>Using this formula, the sum of 1,000 people playing has standard error of about $32:</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
-<span id="cb13-2"><a></a><span class="fu">sqrt</span>(n)<span class="sc">*</span><span class="dv">2</span><span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">90</span>)<span class="sc">/</span><span class="dv">19</span> </span>
-<span id="cb13-3"><a></a><span class="co">#&gt; [1] 31.6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
+<span id="cb12-2"><a></a><span class="fu">sqrt</span>(n)<span class="sc">*</span><span class="dv">2</span><span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">90</span>)<span class="sc">/</span><span class="dv">19</span> </span>
+<span id="cb12-3"><a></a><span class="co">#&gt; [1] 31.6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="the-expected-value-and-standard-error-21" class="slide level2">
-<h2>The expected value and standard error</h2>
+<section id="the-expected-value-and-se-23" class="slide level2">
+<h2>The expected value and SE</h2>
 <ul>
 <li><p>As a result, when 1,000 people bet on red, the casino is expected to win $50 with a standard error of $32.</p></li>
 <li><p>It therefore seems like a safe bet to install more roulette wheels.</p></li>
@@ -908,12 +905,22 @@
 </section>
 <section class="slide level2">
 
-<p>:::{.callout-note}.</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
 <ul>
 <li><p>The exact probability for the casino winnings can be computed precisely, rather than approximately, using the binomial distribution.</p></li>
 <li><p>However, here we focus on the CLT, which can be applied more broadly to sums of random variables in a way that the binomial distribution cannot.</p></li>
 </ul>
-<p>:::</p>
+</div>
+</div>
+</div>
 </section>
 <section id="central-limit-theorem" class="slide level2">
 <h2>Central Limit Theorem</h2>
@@ -941,13 +948,13 @@
 <li>We previously ran this Monte Carlo simulation:</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
-<span id="cb14-2"><a></a>B <span class="ot">&lt;-</span> <span class="dv">10000</span> </span>
-<span id="cb14-3"><a></a>roulette_winnings <span class="ot">&lt;-</span> <span class="cf">function</span>(n){ </span>
-<span id="cb14-4"><a></a>  x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">9</span><span class="sc">/</span><span class="dv">19</span>, <span class="dv">10</span><span class="sc">/</span><span class="dv">19</span>)) </span>
-<span id="cb14-5"><a></a>  <span class="fu">sum</span>(x) </span>
-<span id="cb14-6"><a></a>} </span>
-<span id="cb14-7"><a></a>s <span class="ot">&lt;-</span> <span class="fu">replicate</span>(B, <span class="fu">roulette_winnings</span>(n)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
+<span id="cb13-2"><a></a>B <span class="ot">&lt;-</span> <span class="dv">10000</span> </span>
+<span id="cb13-3"><a></a>roulette_winnings <span class="ot">&lt;-</span> <span class="cf">function</span>(n){ </span>
+<span id="cb13-4"><a></a>  x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">9</span><span class="sc">/</span><span class="dv">19</span>, <span class="dv">10</span><span class="sc">/</span><span class="dv">19</span>)) </span>
+<span id="cb13-5"><a></a>  <span class="fu">sum</span>(x) </span>
+<span id="cb13-6"><a></a>} </span>
+<span id="cb13-7"><a></a>s <span class="ot">&lt;-</span> <span class="fu">replicate</span>(B, <span class="fu">roulette_winnings</span>(n)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="central-limit-theorem-4" class="slide level2">
@@ -956,59 +963,56 @@
 <li><p>The Central Limit Theorem (CLT) tells us that the sum <span class="math inline">\(S\)</span> is approximated by a normal distribution.</p></li>
 <li><p>Using the formulas above, we know that the expected value and standard error are:</p></li>
 </ul>
-</section>
-<section id="central-limit-theorem-5" class="slide level2">
-<h2>Central Limit Theorem</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>n <span class="sc">*</span> (<span class="dv">20</span> <span class="sc">-</span> <span class="dv">18</span>)<span class="sc">/</span><span class="dv">38</span>  </span>
-<span id="cb15-2"><a></a><span class="co">#&gt; [1] 52.6</span></span>
-<span id="cb15-3"><a></a><span class="fu">sqrt</span>(n)<span class="sc">*</span><span class="dv">2</span><span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">90</span>)<span class="sc">/</span><span class="dv">19</span>  </span>
-<span id="cb15-4"><a></a><span class="co">#&gt; [1] 31.6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>n <span class="sc">*</span> (<span class="dv">20</span> <span class="sc">-</span> <span class="dv">18</span>)<span class="sc">/</span><span class="dv">38</span>  </span>
+<span id="cb14-2"><a></a><span class="co">#&gt; [1] 52.6</span></span>
+<span id="cb14-3"><a></a><span class="fu">sqrt</span>(n)<span class="sc">*</span><span class="dv">2</span><span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">90</span>)<span class="sc">/</span><span class="dv">19</span>  </span>
+<span id="cb14-4"><a></a><span class="co">#&gt; [1] 31.6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="central-limit-theorem-6" class="slide level2">
+<section id="central-limit-theorem-5" class="slide level2">
 <h2>Central Limit Theorem</h2>
 <ul>
 <li>The theoretical values above match those obtained with the Monte Carlo simulation:</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">mean</span>(s) </span>
-<span id="cb16-2"><a></a><span class="co">#&gt; [1] 52.6</span></span>
-<span id="cb16-3"><a></a><span class="fu">sd</span>(s) </span>
-<span id="cb16-4"><a></a><span class="co">#&gt; [1] 31.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">mean</span>(s) </span>
+<span id="cb15-2"><a></a><span class="co">#&gt; [1] 52.6</span></span>
+<span id="cb15-3"><a></a><span class="fu">sd</span>(s) </span>
+<span id="cb15-4"><a></a><span class="co">#&gt; [1] 31.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="central-limit-theorem-7" class="slide level2">
+<section id="central-limit-theorem-6" class="slide level2">
 <h2>Central Limit Theorem</h2>
 <ul>
 <li>Using the CLT, we can skip the Monte Carlo simulation and instead compute the probability of the casino losing money using this approximation:</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>mu <span class="ot">&lt;-</span> n<span class="sc">*</span>(<span class="dv">20</span> <span class="sc">-</span> <span class="dv">18</span>)<span class="sc">/</span><span class="dv">38</span> </span>
-<span id="cb17-2"><a></a>se <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(n)<span class="sc">*</span><span class="dv">2</span><span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">90</span>)<span class="sc">/</span><span class="dv">19</span>  </span>
-<span id="cb17-3"><a></a><span class="fu">pnorm</span>(<span class="dv">0</span>, mu, se) </span>
-<span id="cb17-4"><a></a><span class="co">#&gt; [1] 0.0478</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>mu <span class="ot">&lt;-</span> n<span class="sc">*</span>(<span class="dv">20</span> <span class="sc">-</span> <span class="dv">18</span>)<span class="sc">/</span><span class="dv">38</span> </span>
+<span id="cb16-2"><a></a>se <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(n)<span class="sc">*</span><span class="dv">2</span><span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">90</span>)<span class="sc">/</span><span class="dv">19</span>  </span>
+<span id="cb16-3"><a></a><span class="fu">pnorm</span>(<span class="dv">0</span>, mu, se) </span>
+<span id="cb16-4"><a></a><span class="co">#&gt; [1] 0.0478</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>which is also in very good agreement with our Monte Carlo result:</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">mean</span>(s <span class="sc">&lt;</span> <span class="dv">0</span>) </span>
-<span id="cb18-2"><a></a><span class="co">#&gt; [1] 0.0442</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">mean</span>(s <span class="sc">&lt;</span> <span class="dv">0</span>) </span>
+<span id="cb17-2"><a></a><span class="co">#&gt; [1] 0.0442</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="how-large-is-large-in-the-central-limit-theorem" class="slide level2">
-<h2>How large is large in the Central Limit Theorem?</h2>
+<section id="how-large-is-large-in-the-clt" class="slide level2">
+<h2>How large is large in the CLT?</h2>
 <ul>
 <li><p>The CLT works when the number of draws is large, but “large” is a relative term.</p></li>
 <li><p>In many circumstances, as few as 30 draws is enough to make the CLT useful.</p></li>
 <li><p>In some specific instances, as few as 10 is enough.</p></li>
 <li><p>However, these should not be considered general rules.</p></li>
-<li><p>Note, for example, that when the probability of success is very small, much larger sample sizes are needed.</p></li>
+<li><p>Note that when the probability of success is very small, much larger sample sizes are needed.</p></li>
 </ul>
 </section>
-<section id="how-large-is-large-in-the-central-limit-theorem-1" class="slide level2">
-<h2>How large is large in the Central Limit Theorem?</h2>
+<section id="how-large-is-large-in-the-clt-1" class="slide level2">
+<h2>How large is large in the CLT?</h2>
 <ul>
 <li><p>By way of illustration, let’s consider the lottery.</p></li>
 <li><p>In the lottery, the chances of winning are less than 1 in a million.</p></li>
@@ -1017,8 +1021,8 @@
 <li><p>This sum is certainly not well approximated by a normal distribution, so the CLT does not apply, even with the very large sample size.</p></li>
 </ul>
 </section>
-<section id="how-large-is-large-in-the-central-limit-theorem-2" class="slide level2">
-<h2>How large is large in the Central Limit Theorem?</h2>
+<section id="how-large-is-large-in-the-clt-2" class="slide level2">
+<h2>How large is large in the CLT?</h2>
 <ul>
 <li><p>This is generally true when the probability of a success is very low.</p></li>
 <li><p>In these cases, the Poisson distribution is more appropriate.</p></li>
@@ -1027,8 +1031,8 @@
 <li><p>However, we won’t cover the theory here.</p></li>
 </ul>
 </section>
-<section id="how-large-is-large-in-the-central-limit-theorem-3" class="slide level2">
-<h2>How large is large in the Central Limit Theorem?</h2>
+<section id="how-large-is-large-in-the-clt-3" class="slide level2">
+<h2>How large is large in the CLT?</h2>
 <ul>
 <li>You can learn about the Poisson distribution in any probability textbook and even <a href="https://en.wikipedia.org/w/index.php?title=Poisson_distribution.">Wikipedia</a></li>
 </ul>
@@ -1050,8 +1054,8 @@
 \mbox{E}[X_1+X_2+\dots+X_n] =  \mbox{E}[X_1] + \mbox{E}[X_2]+\dots+\mbox{E}[X_n]
 \]</span></p>
 </section>
-<section id="property-2" class="slide level2">
-<h2>Property 2</h2>
+<section id="property-1-1" class="slide level2">
+<h2>Property 1</h2>
 <ul>
 <li><p>If <span class="math inline">\(X\)</span> represents independent draws from the urn, then they all have the same expected value.</p></li>
 <li><p>Let’s denote the expected value with <span class="math inline">\(\mu\)</span> and rewrite the equation as:</p></li>
@@ -1063,8 +1067,8 @@
 <li>which is another way of writing the result we show above for the sum of draws.</li>
 </ul>
 </section>
-<section id="property-3" class="slide level2">
-<h2>Property 3</h2>
+<section id="property-2" class="slide level2">
+<h2>Property 2</h2>
 <ul>
 <li><p>The expected value of a non-random constant times a random variable is the non-random constant times the expected value of a random variable.</p></li>
 <li><p>This is easier to explain with symbols:</p></li>
@@ -1073,15 +1077,15 @@
 \mbox{E}[aX] =  a\times\mbox{E}[X]
 \]</span></p>
 </section>
-<section id="property-3-1" class="slide level2">
-<h2>Property 3</h2>
+<section id="property-2-1" class="slide level2">
+<h2>Property 2</h2>
 <ul>
 <li><p>To understand why this is intuitive, consider changing units.</p></li>
 <li><p>If we change the units of a random variable, such as from dollars to cents, the expectation should change in the same way.</p></li>
 </ul>
 </section>
-<section id="property-4" class="slide level2">
-<h2>Property 4</h2>
+<section id="property-2-2" class="slide level2">
+<h2>Property 2</h2>
 <ul>
 <li>A consequence of the above two facts is that the expected value of the average of independent draws from the same urn is the expected value of the urn, denoted as <span class="math inline">\(\mu\)</span> again:</li>
 </ul>
@@ -1089,8 +1093,8 @@
 \mbox{E}[(X_1+X_2+\dots+X_n) / n]=   \mbox{E}[X_1+X_2+\dots+X_n] / n = n\mu/n = \mu  
 \]</span></p>
 </section>
-<section id="property-5" class="slide level2">
-<h2>Property 5</h2>
+<section id="property-3" class="slide level2">
+<h2>Property 3</h2>
 <ul>
 <li><p>The square of the standard error of the sum of <strong>independent</strong> random variables is the sum of the square of the standard error of each random variable.</p></li>
 <li><p>This one is easier to understand in math form:</p></li>
@@ -1099,15 +1103,15 @@
 \mbox{SE}[X_1+X_2+\dots+X_n] = \sqrt{\mbox{SE}[X_1]^2 + \mbox{SE}[X_2]^2+\dots+\mbox{SE}[X_n]^2  }
 \]</span></p>
 </section>
-<section id="property-5-1" class="slide level2">
-<h2>Property 5</h2>
+<section id="property-3-1" class="slide level2">
+<h2>Property 3</h2>
 <ul>
 <li><p>The square of the standard error is referred to as the <em>variance</em> in statistical textbooks.</p></li>
 <li><p>Note that this particular property is not as intuitive as the previous three and more in depth explanations can be found in statistics textbooks.</p></li>
 </ul>
 </section>
-<section id="property-6" class="slide level2">
-<h2>Property 6</h2>
+<section id="property-4" class="slide level2">
+<h2>Property 4</h2>
 <ul>
 <li><p>The standard error of a non-random constant times a random variable is the non-random constant times the random variable’s standard error.</p></li>
 <li><p>As with the expectation:</p></li>
@@ -1115,16 +1119,15 @@
 <p><span class="math display">\[
 \mbox{SE}[aX] =  a \times \mbox{SE}[X]
 \]</span></p>
-</section>
-<section id="property-6-1" class="slide level2">
-<h2>Property 6</h2>
 <ul>
-<li><p>To see why this is intuitive, again think of units.</p></li>
-<li><p>A consequence of 3 and 4 is that the standard error of the average of independent draws from the same urn is the standard deviation of the urn divided by the square root of <span class="math inline">\(n\)</span> (the number of draws), call it <span class="math inline">\(\sigma\)</span>:</p></li>
+<li>To see why this is intuitive, again think of units.</li>
 </ul>
 </section>
-<section id="property-7" class="slide level2">
-<h2>Property 7</h2>
+<section id="property-4-1" class="slide level2">
+<h2>Property 4</h2>
+<ul>
+<li>A consequence of 3 and 4 is that the standard error of the average of independent draws from the same urn is the standard deviation of the urn divided by the square root of <span class="math inline">\(n\)</span> (the number of draws), call it <span class="math inline">\(\sigma\)</span>:</li>
+</ul>
 <p><span class="math display">\[
 \begin{aligned}
 \mbox{SE}[(X_1+X_2+\dots+X_n) / n] &amp;=   \mbox{SE}[X_1+X_2+\dots+X_n]/n \\
@@ -1135,8 +1138,8 @@
 \end{aligned}
 \]</span></p>
 </section>
-<section id="property-8" class="slide level2">
-<h2>Property 8</h2>
+<section id="property-5" class="slide level2">
+<h2>Property 5</h2>
 <ul>
 <li><p>If <span class="math inline">\(X\)</span> is a normally distributed random variable, then if <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are non-random constants, <span class="math inline">\(aX + b\)</span> is also a normally distributed random variable.</p></li>
 <li><p>All we are doing is changing the units of the random variable by multiplying by <span class="math inline">\(a\)</span>, then shifting the center by <span class="math inline">\(b\)</span>.</p></li>
@@ -1153,19 +1156,13 @@
 <section id="the-assumption-of-independence-is-important" class="slide level2">
 <h2>The assumption of independence is important</h2>
 <ul>
-<li><p>Let’s make the explanation more concise and clear:</p></li>
 <li><p>The given equation reveals crucial insights for practical scenarios.</p></li>
-</ul>
-</section>
-<section id="the-assumption-of-independence-is-important-1" class="slide level2">
-<h2>The assumption of independence is important</h2>
-<ul>
 <li><p>Specifically, it suggests that the standard error can be minimized by increasing the sample size, <span class="math inline">\(n\)</span>, and we can quantify this reduction.</p></li>
 <li><p>However, this principle holds true only when the variables <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> are independent.</p></li>
 <li><p>If they are not, the estimated standard error can be significantly off.</p></li>
 </ul>
 </section>
-<section id="the-assumption-of-independence-is-important-2" class="slide level2">
+<section id="the-assumption-of-independence-is-important-1" class="slide level2">
 <h2>The assumption of independence is important</h2>
 <ul>
 <li><p>We later introduce the concept of correlation, which quantifies the degree to which variables are interdependent.</p></li>
@@ -1175,7 +1172,7 @@
 \mbox{SE}\left(\bar{X}\right) = \sigma \sqrt{\frac{1 + (n-1) \rho}{n}}
 \]</span></p>
 </section>
-<section id="the-assumption-of-independence-is-important-3" class="slide level2">
+<section id="the-assumption-of-independence-is-important-2" class="slide level2">
 <h2>The assumption of independence is important</h2>
 <ul>
 <li><p>The key observation here is that as <span class="math inline">\(\rho\)</span> approaches its upper limit of 1, the standard error increases.</p></li>
@@ -1185,7 +1182,7 @@
 <section id="law-of-large-numbers" class="slide level2">
 <h2>Law of large numbers</h2>
 <ul>
-<li><p>An important implication of result 5 above is that the standard error of the average becomes smaller and smaller as <span class="math inline">\(n\)</span> grows larger.</p></li>
+<li><p>An important implication of result 4 above is that the standard error of the average becomes smaller and smaller as <span class="math inline">\(n\)</span> grows larger.</p></li>
 <li><p>When <span class="math inline">\(n\)</span> is very large, then the standard error is practically 0 and the average of the draws converges to the average of the urn.</p></li>
 <li><p>This is known in statistical textbooks as the law of large numbers or the law of averages.</p></li>
 </ul>
@@ -1195,15 +1192,25 @@
 <ul>
 <li><p>The law of averages is sometimes misinterpreted.</p></li>
 <li><p>For example, if you toss a coin 5 times and see a head each time, you might hear someone argue that the next toss is probably a tail because of the law of averages: on average we should see 50% heads and 50% tails.</p></li>
-<li><p>A similar argument would be to say that red “is due” on the roulette wheel after seeing black come up five times in a row.</p></li>
-<li><p>Yet these events are independent so the chance of a coin landing heads is 50%, regardless of the previous 5.</p></li>
 </ul>
 </section>
 <section id="misinterpretation-of-the-law-of-averages-1" class="slide level2">
 <h2>Misinterpretation of the law of averages</h2>
 <ul>
+<li><p>A similar argument would be to say that red “is due” on the roulette wheel after seeing black come up five times in a row.</p></li>
+<li><p>Yet these events are independent so the chance of a coin landing heads is 50%, regardless of the previous 5.</p></li>
+</ul>
+</section>
+<section id="misinterpretation-of-the-law-of-averages-2" class="slide level2">
+<h2>Misinterpretation of the law of averages</h2>
+<ul>
 <li><p>The same principle applies to the roulette outcome.</p></li>
 <li><p>The law of averages applies only when the number of draws is very large and not in small samples.</p></li>
+</ul>
+</section>
+<section id="misinterpretation-of-the-law-of-averages-3" class="slide level2">
+<h2>Misinterpretation of the law of averages</h2>
+<ul>
 <li><p>After a million tosses, you will definitely see about 50% heads regardless of the outcome of the first five tosses.</p></li>
 <li><p>Another funny misuse of the law of averages is in sports when TV sportscasters predict a player is about to succeed because they have failed a few times in a row.</p></li>
 </ul>

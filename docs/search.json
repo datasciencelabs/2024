@@ -1508,611 +1508,611 @@
   {
     "objectID": "slides/prob/21-inference-foundations.html#sampling-models",
     "href": "slides/prob/21-inference-foundations.html#sampling-models",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Sampling models",
-    "text": "Sampling models\n\nMany data generation procedures, those that produce the data we study, can be effectively modeled as draws from an urn.\nFor instance, we can model the process of polling likely voters as drawing 0s (Republicans) and 1s (Democrats) from an urn containing the 0 and 1 codes for all likely voters.\nIn epidemiological studies, we often assume that the subjects in our study are a random sample from the population of interest.\nThe data related to a specific outcome can be modeled as a random sample from an urn containing the outcomes for the entire population of interest."
+    "text": "Sampling models\n\nMany data generation procedures can be effectively modeled as draws from an urn.\nWe can model the process of polling likely voters as drawing 0s for one party and 1s for the other.\nEpidemiologist assume subjects in their studies are a random sample from the population of interest."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#sampling-models-1",
     "href": "slides/prob/21-inference-foundations.html#sampling-models-1",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Sampling models",
-    "text": "Sampling models\n\nSimilarly, in experimental research, we often assume that the individual organisms we are studying, for example worms, flies, or mice, are a random sample from a larger population.\nRandomized experiments can be modeled by draws from an urn, reflecting the way individuals are assigned into group; when getting assigned, individuals draw their group at random."
+    "text": "Sampling models\n\nIn general, the data related to a specific outcome can be modeled as a random sample from an urn containing the outcomes for the entire population of interest."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#sampling-models-2",
     "href": "slides/prob/21-inference-foundations.html#sampling-models-2",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Sampling models",
-    "text": "Sampling models\n\nSampling models are therefore ubiquitous in data science.\nCasino games offer a plethora of real-world cases in which sampling models are used to answer specific questions.\nWe will therefore start with these examples."
+    "text": "Sampling models\n\nSimilarly, in experimental research, we often assume that the individual organisms we are studying, for example worms, flies, or mice, are a random sample from a larger population.\nRandomized experiments can be modeled by draws from an urn, reflecting the way individuals are assigned into group; when getting assigned, individuals draw their group at random."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#sampling-models-3",
     "href": "slides/prob/21-inference-foundations.html#sampling-models-3",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Sampling models",
-    "text": "Sampling models\n\nSuppose a very small casino hires you to consult on whether they should set up roulette wheels.\nTo keep the example simple, we will assume that 1,000 people will play, and that the only game available on the roulette wheel is to bet on red or black.\nThe casino wants you to predict how much money they will make or lose.\nThey want a range of values and, in particular, they want to know what’s the chance of losing money."
+    "text": "Sampling models\n\nSampling models are therefore ubiquitous in data science.\nCasino games offer a plethora of real-world cases in which sampling models are used to answer specific questions.\nWe will therefore start with these examples."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#sampling-models-4",
     "href": "slides/prob/21-inference-foundations.html#sampling-models-4",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Sampling models",
-    "text": "Sampling models\n\nIf this probability is too high, they will decide against installing roulette wheels.\nWe are going to define a random variable \\(S\\) that will represent the casino’s total winnings."
+    "text": "Sampling models\n\nSuppose a very small casino hires you to consult on whether they should set up roulette wheels.\nWe will assume that 1,000 people will play, and that the only game available on the roulette wheel is to bet on red or black.\nThe casino wants you to predict how much money they will make or lose.\nThey want a range of values and, in particular, they want to know what’s the chance of losing money."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#sampling-models-5",
     "href": "slides/prob/21-inference-foundations.html#sampling-models-5",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Sampling models",
-    "text": "Sampling models\n\nLet’s start by constructing the urn.\nA roulette wheel has 18 red pockets, 18 black pockets and 2 green ones.\nSo playing a color in one game of roulette is equivalent to drawing from this urn:\n\n\ncolor &lt;- rep(c(\"Black\", \"Red\", \"Green\"), c(18, 18, 2))"
+    "text": "Sampling models\n\nIf this probability is too high, they will decide against installing roulette wheels.\nWe are going to define a random variable \\(S\\) that will represent the casino’s total winnings."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#sampling-models-6",
     "href": "slides/prob/21-inference-foundations.html#sampling-models-6",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Sampling models",
-    "text": "Sampling models\n\nThe 1,000 outcomes from 1,000 people playing are independent draws from this urn.\nIf red comes up, the gambler wins, and the casino loses a dollar, resulting in a draw a -$1.\nOtherwise, the casino wins a dollar, and we draw a $1."
+    "text": "Sampling models\nThis is a roullette:"
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#sampling-models-7",
     "href": "slides/prob/21-inference-foundations.html#sampling-models-7",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Sampling models",
-    "text": "Sampling models\n\nTo construct our random variable \\(S\\), we can use this code:\n\n\nn &lt;- 1000 \nx &lt;- sample(ifelse(color == \"Red\", -1, 1),  n, replace = TRUE) \nx[1:10] \n#&gt;  [1]  1 -1  1 -1  1  1 -1  1  1  1"
+    "text": "Sampling models\n\nLet’s start by constructing the urn.\nA roulette wheel has 18 red pockets, 18 black pockets and 2 green ones.\nSo playing a color in one game of roulette is equivalent to drawing from this urn:\n\n\ncolor &lt;- rep(c(\"Black\", \"Red\", \"Green\"), c(18, 18, 2))"
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#sampling-models-8",
     "href": "slides/prob/21-inference-foundations.html#sampling-models-8",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Sampling models",
-    "text": "Sampling models\n\nBecause we know the proportions of 1s and -1s, we can generate the draws with one line of code, without defining color:\n\n\nx &lt;- sample(c(-1, 1), n, replace = TRUE, prob = c(9/19, 10/19))"
+    "text": "Sampling models\n\nThe 1,000 outcomes from 1,000 people playing are independent draws from this urn.\nIf red comes up, the gambler wins, and the casino loses a dollar, resulting random variable being -$1.\nOtherwise, the casino wins a dollar, and the random variable is $1."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#sampling-models-9",
     "href": "slides/prob/21-inference-foundations.html#sampling-models-9",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Sampling models",
-    "text": "Sampling models\n\nWe call this a sampling model, as it involves modeling the random behavior of roulette through the sampling of draws from an urn.\nThe total winnings \\(S\\) is simply the sum of these 1,000 independent draws:\n\n\nx &lt;- sample(c(-1, 1), n, replace = TRUE, prob = c(9/19, 10/19)) \ns &lt;- sum(x) \ns \n#&gt; [1] 44"
+    "text": "Sampling models\n\nTo construct our random variable \\(S\\), we can use this code:\n\n\nn &lt;- 1000 \nx &lt;- sample(ifelse(color == \"Red\", -1, 1),  n, replace = TRUE) \nx[1:10] \n#&gt;  [1]  1 -1  1 -1  1  1 -1  1  1  1"
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#the-probability-distributions",
     "href": "slides/prob/21-inference-foundations.html#the-probability-distributions",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "The probability distributions",
-    "text": "The probability distributions\n\nIf you run the code above, you see that \\(S\\) changes every time.\nThis is, of course, because \\(S\\) is a random variable."
+    "text": "The probability distributions\n\nThe probability distribution of a random variable informs us about the probability of the observed value falling in any given interval.\nFor example, if we want to know the probability that we lose money, we are asking the probability that \\(S\\) is in the interval \\((-\\infty,0)\\)."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#the-probability-distributions-1",
     "href": "slides/prob/21-inference-foundations.html#the-probability-distributions-1",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "The probability distributions",
     "text": "The probability distributions\n\nThe probability distribution of a random variable informs us about the probability of the observed value falling at any given interval.\nFor example, if we want to know the probability that we lose money, we are asking the probability that \\(S\\) is in the interval \\(S&lt;0\\)."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#the-probability-distribution",
     "href": "slides/prob/21-inference-foundations.html#the-probability-distribution",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "The probability distribution",
-    "text": "The probability distribution\n\nKeep in mind that if we can define a cumulative distribution function \\(F(a) = \\mbox{Pr}(S\\leq a)\\), then we will be able to answer any question related to the probability of events defined by our random variable \\(S\\), including the event \\(S&lt;0\\).\nWe call this \\(F\\) the random variable’s distribution function.\nWe can estimate the distribution function for the random variable \\(S\\) by using a Monte Carlo simulation to generate many realizations of the random variable."
+    "text": "The probability distribution\n\nIf we can define a cumulative distribution function \\(F(a) = \\mbox{Pr}(S\\leq a)\\), we can answer any question about the probability of events defined by \\(S\\).\nWe call this \\(F\\) the random variable’s distribution function.\nProbability and Statistics classes dedicate much time to calculating or approximating these.\nWe can also estimate the distribution function for \\(S\\) using a Monte Carlo simulation."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#the-probability-distribution-1",
     "href": "slides/prob/21-inference-foundations.html#the-probability-distribution-1",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "The probability distribution",
     "text": "The probability distribution\n\nWith this code, we run the experiment of having 1,000 people repeatedly play roulette, specifically \\(B = 10,000\\) times:\n\n\nn &lt;- 1000 \nB &lt;- 10000 \nroulette_winnings &lt;- function(n){ \n  x &lt;- sample(c(-1, 1), n, replace = TRUE, prob = c(9/19, 10/19)) \n  sum(x) \n} \ns &lt;- replicate(B, roulette_winnings(n))"
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#the-probability-distribution-2",
     "href": "slides/prob/21-inference-foundations.html#the-probability-distribution-2",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "The probability distribution",
-    "text": "The probability distribution\n\nNow, we can ask the following: in our simulations, how often did we get sums less than or equal to a?\n\n\nmean(S &lt;= a)"
+    "text": "The probability distribution\n\nNow, we can ask the following: in our simulation, how often did we get sums less than or equal to a?\n\n\nmean(s &lt;= a)"
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#the-probability-distribution-3",
     "href": "slides/prob/21-inference-foundations.html#the-probability-distribution-3",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "The probability distribution",
-    "text": "The probability distribution\n\nThis will be a very good approximation of \\(F(a)\\), allowing us to easily answer the casino’s question: How likely is it that we will lose money? We can see it is quite low:\n\n\nmean(s &lt; 0) \n#&gt; [1] 0.045\n\n\nWe can visualize the distribution of \\(S\\) by creating a histogram showing the probability \\(F(b)-F(a)\\) for several intervals \\((a,b]\\):"
+    "text": "The probability distribution\n\nThis will be a very good approximation of \\(F(a)\\).\nThis allows us to easily answer the casino’s question: How likely is it that we will lose money?\nIt is quite low:\n\n\nmean(s &lt; 0) \n#&gt; [1] 0.045"
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#the-probability-distribution-4",
     "href": "slides/prob/21-inference-foundations.html#the-probability-distribution-4",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "The probability distribution",
-    "text": "The probability distribution"
+    "text": "The probability distribution\n\nWe can visualize the distribution of \\(S\\) by creating a histogram showing the probability \\(F(b)-F(a)\\) for several intervals \\((a,b]\\):"
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#the-probability-distribution-5",
     "href": "slides/prob/21-inference-foundations.html#the-probability-distribution-5",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "The probability distribution",
-    "text": "The probability distribution\n\nWe see that the distribution appears to be approximately normal.\nA qqplot will confirm that the normal approximation is close to a perfect approximation for this distribution.\nIn fact, if the distribution is normal, all we need to define it are the average and the standard deviation.\nSince we have the original values from which the distribution is created, we can easily compute these with mean(S) and sd(S)."
+    "text": "The probability distribution\n\nWe see that the distribution appears to be approximately normal.\nA QQ-plot will confirm that the normal approximation is close to a perfect approximation."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#the-probability-distribution-6",
     "href": "slides/prob/21-inference-foundations.html#the-probability-distribution-6",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "The probability distribution",
-    "text": "The probability distribution\n\nThe blue curve added to the histogram above is a normal density with this average and standard deviation.\nThis average and this standard deviation have special names; they are referred to as the expected value and standard error of the random variable \\(S\\).\nMore details on these concepts will be provided in the next section.\nStatistical theory offers a method to derive the distribution of random variables defined as the sum of independent random draw of numbers from an urn."
+    "text": "The probability distribution\n\nRemeber, if the distribution is normal, all we need to define it are the average and the standard deviation (SD).\nSince we have the original values from which the distribution is created, we can easily compute these with mean(s) and sd(s).\nThe blue curve added to the histogram is a normal density with this average and standard deviation."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#the-probability-distribution-7",
     "href": "slides/prob/21-inference-foundations.html#the-probability-distribution-7",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "The probability distribution",
-    "text": "The probability distribution\n\nSpecifically, in our example above, we can demonstrate that \\((S+n)/2\\) follows a binomial distribution.\nWe therefore do not need to run Monte Carlo simulations to determine the probability distribution of \\(S\\).\nThe simulations were conducted for illustrative purposes.\nWe can use the function dbinom and pbinom to compute the probabilities exactly."
+    "text": "The probability distribution\n\nThis average and this standard deviation have special names; they are referred to as the expected value and standard error (SE) of the random variable \\(S\\)."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#the-probability-distribution-8",
     "href": "slides/prob/21-inference-foundations.html#the-probability-distribution-8",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "The probability distribution",
-    "text": "The probability distribution\n\nFor example, to compute \\(\\mbox{Pr}(S &lt; 0)\\), we note that:\n\n\\[\\mbox{Pr}(S &lt; 0) = \\mbox{Pr}((S+n)/2 &lt; (0+n)/2)\\]\n\nand we can use the pbinom to compute \\[\\mbox{Pr}(S \\leq 0)\\]:"
+    "text": "The probability distribution\n\nSince this is a discrete probability function, to obtain \\(\\mbox{Pr}(S &lt; 0)\\) rather than \\(\\mbox{Pr}(S \\leq 0)\\), we write:\n\n\npbinom(n/2 - 1, size = n, prob = 10/19) \n#&gt; [1] 0.0448"
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#the-probability-distribution-9",
     "href": "slides/prob/21-inference-foundations.html#the-probability-distribution-9",
-    "title": "Foundations of statistical inference",
-    "section": "The probability distribution",
-    "text": "The probability distribution\n\nn &lt;- 1000 \npbinom(n/2, size = n, prob = 10/19) \n#&gt; [1] 0.0511\n\n\nSince this is a discrete probability function, to obtain \\(\\mbox{Pr}(S &lt; 0)\\) rather than \\(\\mbox{Pr}(S \\leq 0)\\), we write:\n\n\npbinom(n/2 - 1, size = n, prob = 10/19) \n#&gt; [1] 0.0448"
-  },
-  {
-    "objectID": "slides/prob/21-inference-foundations.html#the-probability-distribution-10",
-    "href": "slides/prob/21-inference-foundations.html#the-probability-distribution-10",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "The probability distribution",
     "text": "The probability distribution\n\nFor the details of the binomial distribution, you can consult any basic probability book or even Wikipedia\nWe do not delve into these details here."
   },
   {
-    "objectID": "slides/prob/21-inference-foundations.html#the-probability-distribution-11",
-    "href": "slides/prob/21-inference-foundations.html#the-probability-distribution-11",
-    "title": "Foundations of statistical inference",
+    "objectID": "slides/prob/21-inference-foundations.html#the-probability-distribution-10",
+    "href": "slides/prob/21-inference-foundations.html#the-probability-distribution-10",
+    "title": "Foundations of Statistical Inference",
     "section": "The probability distribution",
     "text": "The probability distribution\n\nInstead, we will explore an incredibly useful approximation provided by mathematical theory, which generally applies to sums and averages of draws from any urn: the Central Limit Theorem (CLT)."
   },
   {
+    "objectID": "slides/prob/21-inference-foundations.html#the-probability-distribution-11",
+    "href": "slides/prob/21-inference-foundations.html#the-probability-distribution-11",
+    "title": "Foundations of Statistical Inference",
+    "section": "The probability distribution",
+    "text": "The probability distribution\n\nFor the details of the binomial distribution, you can consult any basic probability book or even Wikipedia\nWe do not delve into these details here."
+  },
+  {
     "objectID": "slides/prob/21-inference-foundations.html#distributions-versus-probability-distributions",
     "href": "slides/prob/21-inference-foundations.html#distributions-versus-probability-distributions",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Distributions versus probability distributions",
-    "text": "Distributions versus probability distributions\n\nBefore we continue, let’s establish an important distinction and connection between the distribution of a list of numbers and a probability distribution.\nAny list of numbers \\(x_1,\\dots,x_n\\) has a distribution."
+    "text": "Distributions versus probability distributions\n\nBefore we continue, let’s establish an important distinction and connection between the distribution of a list of numbers and a probability distribution.\nAny list of numbers \\(x_1,\\dots,x_n\\) has a distribution.\nIt does not have a probability distribution because they are not random."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#distributions-versus-probability-distributions-1",
     "href": "slides/prob/21-inference-foundations.html#distributions-versus-probability-distributions-1",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Distributions versus probability distributions",
-    "text": "Distributions versus probability distributions\n\nThe definition is quite straightforward.\nWe define \\(F(a)\\) as the function that indicates what proportion of the list is less than or equal to \\(a\\).\nGiven their usefulness as summaries when the distribution is approximately normal, we also define the average and standard deviation."
+    "text": "Distributions versus probability distributions\n\nWe define \\(F(a)\\) as the function that indicates what proportion of the list is less than or equal to \\(a\\).\nGiven their usefulness as summaries when the distribution is approximately normal, we also define the average and standard deviation."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#distributions-versus-probability-distributions-2",
     "href": "slides/prob/21-inference-foundations.html#distributions-versus-probability-distributions-2",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Distributions versus probability distributions",
     "text": "Distributions versus probability distributions\n\nThese are determined with a straightforward operation involving the vector containing the list of numbers, denoted as x:\n\n\nm &lt;- sum(x)/length(x) \ns &lt;- sqrt(sum((x - m)^2)/length(x))"
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#distributions-versus-probability-distributions-3",
     "href": "slides/prob/21-inference-foundations.html#distributions-versus-probability-distributions-3",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Distributions versus probability distributions",
-    "text": "Distributions versus probability distributions\n\nA random variable \\(X\\) has a distribution function.\nTo define this, we do not need a list of numbers; it is a theoretical concept.\nIn this case, we define the distribution as the \\(F(a)\\) that answers the question: What is the probability that \\(X\\) is less than or equal to \\(a\\)? There is no list of numbers."
+    "text": "Distributions versus probability distributions\n\nA random variable \\(X\\) has a distribution function.\nTo define this, we do not need a list of numbers; it is a theoretical concept.\nWe define the distribution as the \\(F(a)\\) that answers the question: What is the probability that \\(X\\) is less than or equal to \\(a\\)?"
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#distributions-versus-probability-distributions-4",
     "href": "slides/prob/21-inference-foundations.html#distributions-versus-probability-distributions-4",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Distributions versus probability distributions",
-    "text": "Distributions versus probability distributions\n\nHowever, if \\(X\\) is defined by drawing from an urn containing numbers, then there exists a list: the list of numbers inside the urn.\nIn this case, the distribution of that list is the probability distribution of \\(X\\), and the average and standard deviation of that list are the expected value and standard error of the random variable.\nAnother way to think about it without involving an urn is by running a Monte Carlo simulation and generating a very large list of outcomes of \\(X\\)."
+    "text": "Distributions versus probability distributions\n\nHowever, if \\(X\\) is defined by drawing from an urn containing numbers, then there is a list: the list of numbers inside the urn.\nIn this case, the distribution of that list is the probability distribution of \\(X\\), and the average and standard deviation of that list are the expected value and standard error of the random variable."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#distributions-versus-probability-distributions-5",
     "href": "slides/prob/21-inference-foundations.html#distributions-versus-probability-distributions-5",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Distributions versus probability distributions",
-    "text": "Distributions versus probability distributions\n\nThese outcomes form a list of numbers, and the distribution of this list will be a very good approximation of the probability distribution of \\(X\\).\nThe longer the list, the better the approximation.\nThe average and standard deviation of this list will approximate the expected value and standard error of the random variable."
+    "text": "Distributions versus probability distributions\n\nAnother way to think about it without involving an urn is by running a Monte Carlo simulation and generating a very large list of outcomes of \\(X\\)."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#notation-for-random-variables",
     "href": "slides/prob/21-inference-foundations.html#notation-for-random-variables",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Notation for random variables",
     "text": "Notation for random variables\n\nIn statistical textbooks, upper case letters denote random variables, and we will adhere to this convention.\nLower case letters are used for observed values.\nYou will see some notation that include both.\nFor example, you will see events defined as \\(X \\leq x\\).\nHere \\(X\\) is a random variable and \\(x\\) is an arbitrary value and not random."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#notation-for-random-variables-1",
     "href": "slides/prob/21-inference-foundations.html#notation-for-random-variables-1",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Notation for random variables",
-    "text": "Notation for random variables\n\nSo, for example, \\(X\\) might represent the number on a die roll and \\(x\\) will represent an actual value we see: 1, 2, 3, 4, 5, or 6.\nIn this case, the probability of \\(X=x\\) is 1/6 regardless of the observed value \\(x\\).\nThis notation may seem a bit strange because when we inquire about probability, \\(X\\) is not an observed quantity; it’s a random quantity that we will encounter in the future.\nWe can discuss what we expect \\(X\\) to be, what values are probable, but we can’t discuss what value \\(X\\) is."
+    "text": "Notation for random variables\n\nSo, for example, \\(X\\) might represent the number on a die roll and \\(x\\) will represent an actual value we see: 1, 2, 3, 4, 5, or 6.\nIn this case, the probability of \\(X=x\\) is 1/6 regardless of the observed value \\(x\\).\nWe can discuss what we expect \\(X\\) to be, what values are probable, but we can’t discuss what value \\(X\\) is."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#notation-for-random-variables-2",
     "href": "slides/prob/21-inference-foundations.html#notation-for-random-variables-2",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Notation for random variables",
-    "text": "Notation for random variables\n\nOnce we have data, we do see a realization of \\(X\\).\nTherefore, data analysits often speak of what could have been after observing what actually happened."
+    "text": "Notation for random variables\n\nOnce we have data, we do see a realization of \\(X\\).\nTherefore, data analysts often speak of what could have been after observing what actually happened."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error",
     "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error",
-    "title": "Foundations of statistical inference",
-    "section": "The expected value and standard error",
-    "text": "The expected value and standard error\n\nWe have described sampling models for draws.\nWe will now review the mathematical theory that allows us to approximate the probability distributions for the sum of draws.\nOnce we do this, we will be able to help the casino predict how much money they will make."
-  },
-  {
-    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-1",
-    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-1",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "The expected value and standard error",
     "text": "The expected value and standard error\n\nThe same approach we use for the sum of draws will be useful for describing the distribution of averages and proportion, which we will need to understand how polls work.\nThe first important concept to learn is the expected value."
   },
   {
-    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-2",
-    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-2",
-    "title": "Foundations of statistical inference",
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-1",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-1",
+    "title": "Foundations of Statistical Inference",
     "section": "The expected value and standard error",
     "text": "The expected value and standard error\n\nIn statistics books, it is common to represent it with the letter \\(\\mbox{E}\\) like this:\n\n\\[\\mbox{E}[X]\\]\n\nto denote the expected value of the random variable \\(X\\)."
   },
   {
-    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-3",
-    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-3",
-    "title": "Foundations of statistical inference",
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-2",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-2",
+    "title": "Foundations of Statistical Inference",
     "section": "The expected value and standard error",
     "text": "The expected value and standard error\n\nA random variable will vary around its expected value in a manner that if you take the average of many, many draws, the average will approximate the expected value.\nThis approximation improves as you take more draws, making the expected value a useful quantity to compute."
   },
   {
-    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-4",
-    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-4",
-    "title": "Foundations of statistical inference",
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-3",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-3",
+    "title": "Foundations of Statistical Inference",
     "section": "The expected value and standard error",
     "text": "The expected value and standard error\n\nFor discrete random variable with possible outcomes \\(x_1,\\dots,x_n\\), the expected value is defined as:\n\n\\[\n\\mbox{E}[X] = \\sum_{i=1}^n x_i \\,\\mbox{Pr}(X = x_i)\n\\] ## The expected value and standard error\n\nIf \\(X\\) is a continuous random variable with a range of values \\(a\\) to \\(b\\) and a probability density function \\(f(x)\\), this sum transforms into an integral:\n\n\\[\n\\mbox{E}[X] = \\int_a^b x f(x)\n\\]"
   },
   {
-    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-5",
-    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-5",
-    "title": "Foundations of statistical inference",
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-4",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-4",
+    "title": "Foundations of Statistical Inference",
     "section": "The expected value and standard error",
     "text": "The expected value and standard error\n\nNote that in the case that we are picking values from an urn, and each value \\(x_i\\) has an equal chance \\(1/n\\) of being selected, the above equation is simply the average of the \\(x_i\\)s.\n\n\\[\n\\mbox{E}[X] = \\frac{1}{n}\\sum_{i=1}^n x_i  \n\\] ## The expected value and standard error\n\nIn the urn used to model betting on red in roulette, we have 20 one-dollar bills and 18 negative one-dollar bills, so the expected value is:\n\n\\[\n\\mbox{E}[X] = (20 + -18)/38\n\\]\n\nwhich is about 5 cents."
   },
   {
-    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-6",
-    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-6",
-    "title": "Foundations of statistical inference",
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-5",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-5",
+    "title": "Foundations of Statistical Inference",
     "section": "The expected value and standard error",
     "text": "The expected value and standard error\n\nYou might consider it a bit counterintuitive to say that \\(X\\) varies around 0.05 when it only takes the values 1 and -1.\nOne way to make sense of the expected value in this context is by realizing that, if we play the game over and over, the casino wins, on average, 5 cents per game."
   },
   {
-    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-7",
-    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-7",
-    "title": "Foundations of statistical inference",
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-6",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-6",
+    "title": "Foundations of Statistical Inference",
     "section": "The expected value and standard error",
     "text": "The expected value and standard error\n\nA Monte Carlo simulation confirms this:\n\n\nB &lt;- 10^6 \nx &lt;- sample(c(-1, 1), B, replace = TRUE, prob = c(9/19, 10/19)) \nmean(x) \n#&gt; [1] 0.0522"
   },
   {
-    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-8",
-    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-8",
-    "title": "Foundations of statistical inference",
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-7",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-7",
+    "title": "Foundations of Statistical Inference",
     "section": "The expected value and standard error",
     "text": "The expected value and standard error\n\nIn general, if the urn has two possible outcomes, say \\(a\\) and \\(b\\), with proportions \\(p\\) and \\(1-p\\) respectively, the average is:\n\n\\[\\mbox{E}[X] = ap + b(1-p)\\]"
   },
   {
-    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-9",
-    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-9",
-    "title": "Foundations of statistical inference",
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-8",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-8",
+    "title": "Foundations of Statistical Inference",
     "section": "The expected value and standard error",
     "text": "The expected value and standard error\n\nTo confirm this, observe that if there are \\(n\\) beads in the urn, then we have \\(np\\) \\(a\\)s and \\(n(1-p)\\) \\(b\\)s, and because the average is the sum, \\(n\\times a \\times p + n\\times b \\times (1-p)\\), divided by the total \\(n\\), we get that the average is \\(ap + b(1-p)\\)."
   },
   {
-    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-10",
-    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-10",
-    "title": "Foundations of statistical inference",
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-9",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-9",
+    "title": "Foundations of Statistical Inference",
     "section": "The expected value and standard error",
     "text": "The expected value and standard error\n\nNow, the reason we define the expected value is because this mathematical definition turns out to be useful for approximating the probability distributions of sum.\nThis, in turn, is useful for describing the distribution of averages and proportions."
   },
   {
-    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-11",
-    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-11",
-    "title": "Foundations of statistical inference",
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-10",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-10",
+    "title": "Foundations of Statistical Inference",
     "section": "The expected value and standard error",
     "text": "The expected value and standard error\n\nThe first useful fact is that the expected value of the sum of the draws is the number of draws \\(\\times\\) the average of the numbers in the urn.\nTherefore, if 1,000 people play roulette, the casino expects to win, on average, about 1,000 \\(\\times\\) $0.05 = $50."
   },
   {
-    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-12",
-    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-12",
-    "title": "Foundations of statistical inference",
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-11",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-11",
+    "title": "Foundations of Statistical Inference",
     "section": "The expected value and standard error",
     "text": "The expected value and standard error\n\nHowever, this is an expected value.\nHow different can one observation be from the expected value? The casino really needs to know this.\nWhat is the range of possibilities? If negative numbers are too likely, they will not install roulette wheels.\nStatistical theory once again answers this question."
   },
   {
-    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-13",
-    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-13",
-    "title": "Foundations of statistical inference",
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-12",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-12",
+    "title": "Foundations of Statistical Inference",
     "section": "The expected value and standard error",
     "text": "The expected value and standard error\n\nThe standard error (SE) gives us an idea of the size of the variation around the expected value.\nIn statistics books, it’s common to use:\n\n\\[\\mbox{SE}[X]\\]"
   },
   {
-    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-14",
-    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-14",
-    "title": "Foundations of statistical inference",
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-13",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-13",
+    "title": "Foundations of Statistical Inference",
     "section": "The expected value and standard error",
     "text": "The expected value and standard error\n\nto denote the standard error of a random variable.\nFor discrete random variable with possible outcomes \\(x_1,\\dots,x_n\\), the standard error is defined as:\n\n\\[\n\\mbox{SE}[X] = \\sqrt{\\sum_{i=1}^n \\left(x_i - E[X]\\right)^2 \\,\\mbox{Pr}(X = x_i)},\n\\]\n\nwhich you can think of as the expected average distance of \\(X\\) from the expected value."
   },
   {
-    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-15",
-    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-15",
-    "title": "Foundations of statistical inference",
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-14",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-14",
+    "title": "Foundations of Statistical Inference",
     "section": "The expected value and standard error",
     "text": "The expected value and standard error\n\nIf \\(X\\) is a continuous random variable, with range of values \\(a\\) to \\(b\\) and probability density function \\(f(x)\\), this sum turns into an integral:\n\n\\[\n\\mbox{SE}[X] = \\sqrt{\\int_a^b \\left(x-\\mbox{E}[X]\\right)^2 f(x)\\,\\mathrm{d}x}\n\\] ## The expected value and standard error\n\nNote that in the case that we are picking values from an un urn where each value \\(x_i\\) has an equal chance \\(1/n\\) of being selected, the above equation is simply the standard deviation of of the \\(x_i\\)s.\n\n\\[\n\\mbox{SE}[X] = \\sqrt{\\frac{1}{n}\\sum_{i=1}^n (x_i - \\bar{x})^2} \\mbox{ with } \\bar{x} =  \\frac{1}{n}\\sum_{i=1}^n x_i  \n\\]"
   },
   {
-    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-16",
-    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-16",
-    "title": "Foundations of statistical inference",
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-15",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-15",
+    "title": "Foundations of Statistical Inference",
     "section": "The expected value and standard error",
     "text": "The expected value and standard error\n\nUsing the definition of standard deviation, we can derive, with a bit of math, that if an urn contains two values \\(a\\) and \\(b\\) with proportions \\(p\\) and \\((1-p)\\), respectively, the standard deviation is:\n\n\\[\\mid b - a \\mid \\sqrt{p(1-p)}.\\]"
   },
   {
-    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-17",
-    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-17",
-    "title": "Foundations of statistical inference",
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-16",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-16",
+    "title": "Foundations of Statistical Inference",
     "section": "The expected value and standard error",
     "text": "The expected value and standard error\n\nSo in our roulette example, the standard deviation of the values inside the urn is \\(\\mid 1 - (-1) \\mid \\sqrt{10/19 \\times 9/19}\\) or:\n\n\n2*sqrt(90)/19 \n#&gt; [1] 0.999\n\n\nThe standard error tells us the typical difference between a random variable and its expectation."
   },
   {
-    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-18",
-    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-18",
-    "title": "Foundations of statistical inference",
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-17",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-17",
+    "title": "Foundations of Statistical Inference",
     "section": "The expected value and standard error",
     "text": "The expected value and standard error\n\nSince one draw is obviously the sum of just one draw, we can use the formula above to calculate that the random variable defined by one draw has an expected value of 0.05 and a standard error of about 1.\nThis makes sense since we obtain either 1 or -1, with 1 slightly favored over -1."
   },
   {
-    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-19",
-    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-19",
-    "title": "Foundations of statistical inference",
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-18",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-18",
+    "title": "Foundations of Statistical Inference",
     "section": "The expected value and standard error",
     "text": "The expected value and standard error\n\nA widely used mathematical result is that if our draws are independent, then the standard error of the sum is given by the equation:\n\n\\[\n\\sqrt{\\mbox{number of draws}} \\times \\mbox{ standard deviation of the numbers in the urn}\n\\]"
   },
   {
-    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-20",
-    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-20",
-    "title": "Foundations of statistical inference",
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-19",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-19",
+    "title": "Foundations of Statistical Inference",
     "section": "The expected value and standard error",
     "text": "The expected value and standard error\n\nUsing this formula, the sum of 1,000 people playing has standard error of about $32:\n\n\nn &lt;- 1000 \nsqrt(n)*2*sqrt(90)/19 \n#&gt; [1] 31.6"
   },
   {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-20",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-20",
+    "title": "Foundations of Statistical Inference",
+    "section": "The expected value and standard error",
+    "text": "The expected value and standard error\n\nAs a result, when 1,000 people bet on red, the casino is expected to win $50 with a standard error of $32.\nIt therefore seems like a safe bet to install more roulette wheels.\nBut we still haven’t answered the question: How likely is the casino to lose money? The CLT will help in this regard."
+  },
+  {
     "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-21",
     "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-standard-error-21",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "The expected value and standard error",
     "text": "The expected value and standard error\n\nAs a result, when 1,000 people bet on red, the casino is expected to win $50 with a standard error of $32.\nIt therefore seems like a safe bet to install more roulette wheels.\nBut we still haven’t answered the question: How likely is the casino to lose money? The CLT will help in this regard."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#central-limit-theorem",
     "href": "slides/prob/21-inference-foundations.html#central-limit-theorem",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Central Limit Theorem",
     "text": "Central Limit Theorem\n\nThe Central Limit Theorem (CLT) tells us that when the number of draws, also called the sample size, is large, the probability distribution of the sum of the independent draws is approximately normal.\nGiven that sampling models are used for so many data generation processes, the CLT is considered one of the most important mathematical insights in history."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#central-limit-theorem-1",
     "href": "slides/prob/21-inference-foundations.html#central-limit-theorem-1",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Central Limit Theorem",
     "text": "Central Limit Theorem\n\nPreviously, we discussed that if we know that the distribution of a list of numbers is approximated by the normal distribution, all we need to describe the list are the average and standard deviation.\nWe also know that the same applies to probability distributions."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#central-limit-theorem-2",
     "href": "slides/prob/21-inference-foundations.html#central-limit-theorem-2",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Central Limit Theorem",
     "text": "Central Limit Theorem\n\nIf a random variable has a probability distribution that is approximated with the normal distribution, then all we need to describe the probability distribution are the average and standard deviation, referred to as the expected value and standard error."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#central-limit-theorem-3",
     "href": "slides/prob/21-inference-foundations.html#central-limit-theorem-3",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Central Limit Theorem",
     "text": "Central Limit Theorem\n\nWe previously ran this Monte Carlo simulation:\n\n\nn &lt;- 1000 \nB &lt;- 10000 \nroulette_winnings &lt;- function(n){ \n  x &lt;- sample(c(-1, 1), n, replace = TRUE, prob = c(9/19, 10/19)) \n  sum(x) \n} \ns &lt;- replicate(B, roulette_winnings(n))"
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#central-limit-theorem-4",
     "href": "slides/prob/21-inference-foundations.html#central-limit-theorem-4",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Central Limit Theorem",
-    "text": "Central Limit Theorem\n\nThe Central Limit Theorem (CLT) tells us that the sum \\(S\\) is approximated by a normal distribution.\nUsing the formulas above, we know that the expected value and standard error are:"
+    "text": "Central Limit Theorem\n\nThe Central Limit Theorem (CLT) tells us that the sum \\(S\\) is approximated by a normal distribution.\nUsing the formulas above, we know that the expected value and standard error are:\n\n\nn * (20 - 18)/38  \n#&gt; [1] 52.6\nsqrt(n)*2*sqrt(90)/19  \n#&gt; [1] 31.6"
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#central-limit-theorem-5",
     "href": "slides/prob/21-inference-foundations.html#central-limit-theorem-5",
-    "title": "Foundations of statistical inference",
-    "section": "Central Limit Theorem",
-    "text": "Central Limit Theorem\n\nn * (20 - 18)/38  \n#&gt; [1] 52.6\nsqrt(n)*2*sqrt(90)/19  \n#&gt; [1] 31.6"
-  },
-  {
-    "objectID": "slides/prob/21-inference-foundations.html#central-limit-theorem-6",
-    "href": "slides/prob/21-inference-foundations.html#central-limit-theorem-6",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Central Limit Theorem",
     "text": "Central Limit Theorem\n\nThe theoretical values above match those obtained with the Monte Carlo simulation:\n\n\nmean(s) \n#&gt; [1] 52.6\nsd(s) \n#&gt; [1] 31.5"
   },
   {
+    "objectID": "slides/prob/21-inference-foundations.html#central-limit-theorem-6",
+    "href": "slides/prob/21-inference-foundations.html#central-limit-theorem-6",
+    "title": "Foundations of Statistical Inference",
+    "section": "Central Limit Theorem",
+    "text": "Central Limit Theorem\n\nUsing the CLT, we can skip the Monte Carlo simulation and instead compute the probability of the casino losing money using this approximation:\n\n\nmu &lt;- n*(20 - 18)/38 \nse &lt;- sqrt(n)*2*sqrt(90)/19  \npnorm(0, mu, se) \n#&gt; [1] 0.0478\n\n\nwhich is also in very good agreement with our Monte Carlo result:\n\n\nmean(s &lt; 0) \n#&gt; [1] 0.0442"
+  },
+  {
     "objectID": "slides/prob/21-inference-foundations.html#central-limit-theorem-7",
     "href": "slides/prob/21-inference-foundations.html#central-limit-theorem-7",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Central Limit Theorem",
     "text": "Central Limit Theorem\n\nUsing the CLT, we can skip the Monte Carlo simulation and instead compute the probability of the casino losing money using this approximation:\n\n\nmu &lt;- n*(20 - 18)/38 \nse &lt;- sqrt(n)*2*sqrt(90)/19  \npnorm(0, mu, se) \n#&gt; [1] 0.0478\n\n\nwhich is also in very good agreement with our Monte Carlo result:\n\n\nmean(s &lt; 0) \n#&gt; [1] 0.0442"
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#how-large-is-large-in-the-central-limit-theorem",
     "href": "slides/prob/21-inference-foundations.html#how-large-is-large-in-the-central-limit-theorem",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "How large is large in the Central Limit Theorem?",
-    "text": "How large is large in the Central Limit Theorem?\n\nThe CLT works when the number of draws is large, but “large” is a relative term.\nIn many circumstances, as few as 30 draws is enough to make the CLT useful.\nIn some specific instances, as few as 10 is enough.\nHowever, these should not be considered general rules.\nNote, for example, that when the probability of success is very small, much larger sample sizes are needed."
+    "text": "How large is large in the Central Limit Theorem?\n\nThe CLT works when the number of draws is large, but “large” is a relative term.\nIn many circumstances, as few as 30 draws is enough to make the CLT useful.\nIn some specific instances, as few as 10 is enough.\nHowever, these should not be considered general rules.\nNote that when the probability of success is very small, much larger sample sizes are needed."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#how-large-is-large-in-the-central-limit-theorem-1",
     "href": "slides/prob/21-inference-foundations.html#how-large-is-large-in-the-central-limit-theorem-1",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "How large is large in the Central Limit Theorem?",
     "text": "How large is large in the Central Limit Theorem?\n\nBy way of illustration, let’s consider the lottery.\nIn the lottery, the chances of winning are less than 1 in a million.\nThousands of people play so the number of draws is very large.\nYet the number of winners, the sum of the draws, range between 0 and 4.\nThis sum is certainly not well approximated by a normal distribution, so the CLT does not apply, even with the very large sample size."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#how-large-is-large-in-the-central-limit-theorem-2",
     "href": "slides/prob/21-inference-foundations.html#how-large-is-large-in-the-central-limit-theorem-2",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "How large is large in the Central Limit Theorem?",
     "text": "How large is large in the Central Limit Theorem?\n\nThis is generally true when the probability of a success is very low.\nIn these cases, the Poisson distribution is more appropriate.\nYou can explore the properties of the Poisson distribution using dpois and ppois.\nYou can generate random variables following this distribution with rpois.\nHowever, we won’t cover the theory here."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#how-large-is-large-in-the-central-limit-theorem-3",
     "href": "slides/prob/21-inference-foundations.html#how-large-is-large-in-the-central-limit-theorem-3",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "How large is large in the Central Limit Theorem?",
     "text": "How large is large in the Central Limit Theorem?\n\nYou can learn about the Poisson distribution in any probability textbook and even Wikipedia"
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#statistical-properties-of-averages",
     "href": "slides/prob/21-inference-foundations.html#statistical-properties-of-averages",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Statistical properties of averages",
     "text": "Statistical properties of averages\n\nThere are several useful mathematical results that we used above and often employ when working with data.\nWe list them below."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#property-1",
     "href": "slides/prob/21-inference-foundations.html#property-1",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Property 1",
     "text": "Property 1\n\nThe expected value of the sum of random variables is the sum of each random variable’s expected value.\nWe can write it like this:\n\n\\[\n\\mbox{E}[X_1+X_2+\\dots+X_n] =  \\mbox{E}[X_1] + \\mbox{E}[X_2]+\\dots+\\mbox{E}[X_n]\n\\]"
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#property-2",
     "href": "slides/prob/21-inference-foundations.html#property-2",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Property 2",
-    "text": "Property 2\n\nIf \\(X\\) represents independent draws from the urn, then they all have the same expected value.\nLet’s denote the expected value with \\(\\mu\\) and rewrite the equation as:\n\n\\[\n\\mbox{E}[X_1+X_2+\\dots+X_n]=  n\\mu\n\\]\n\nwhich is another way of writing the result we show above for the sum of draws."
+    "text": "Property 2\n\nThe expected value of a non-random constant times a random variable is the non-random constant times the expected value of a random variable.\nThis is easier to explain with symbols:\n\n\\[\n\\mbox{E}[aX] =  a\\times\\mbox{E}[X]\n\\]"
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#property-3",
     "href": "slides/prob/21-inference-foundations.html#property-3",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Property 3",
-    "text": "Property 3\n\nThe expected value of a non-random constant times a random variable is the non-random constant times the expected value of a random variable.\nThis is easier to explain with symbols:\n\n\\[\n\\mbox{E}[aX] =  a\\times\\mbox{E}[X]\n\\]"
+    "text": "Property 3\n\nThe square of the standard error of the sum of independent random variables is the sum of the square of the standard error of each random variable.\nThis one is easier to understand in math form:\n\n\\[\n\\mbox{SE}[X_1+X_2+\\dots+X_n] = \\sqrt{\\mbox{SE}[X_1]^2 + \\mbox{SE}[X_2]^2+\\dots+\\mbox{SE}[X_n]^2  }\n\\]"
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#property-3-1",
     "href": "slides/prob/21-inference-foundations.html#property-3-1",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Property 3",
-    "text": "Property 3\n\nTo understand why this is intuitive, consider changing units.\nIf we change the units of a random variable, such as from dollars to cents, the expectation should change in the same way."
+    "text": "Property 3\n\nThe square of the standard error is referred to as the variance in statistical textbooks.\nNote that this particular property is not as intuitive as the previous three and more in depth explanations can be found in statistics textbooks."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#property-4",
     "href": "slides/prob/21-inference-foundations.html#property-4",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Property 4",
-    "text": "Property 4\n\nA consequence of the above two facts is that the expected value of the average of independent draws from the same urn is the expected value of the urn, denoted as \\(\\mu\\) again:\n\n\\[\n\\mbox{E}[(X_1+X_2+\\dots+X_n) / n]=   \\mbox{E}[X_1+X_2+\\dots+X_n] / n = n\\mu/n = \\mu  \n\\]"
+    "text": "Property 4\n\nThe standard error of a non-random constant times a random variable is the non-random constant times the random variable’s standard error.\nAs with the expectation:\n\n\\[\n\\mbox{SE}[aX] =  a \\times \\mbox{SE}[X]\n\\]\n\nTo see why this is intuitive, again think of units."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#property-5",
     "href": "slides/prob/21-inference-foundations.html#property-5",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Property 5",
-    "text": "Property 5\n\nThe square of the standard error of the sum of independent random variables is the sum of the square of the standard error of each random variable.\nThis one is easier to understand in math form:\n\n\\[\n\\mbox{SE}[X_1+X_2+\\dots+X_n] = \\sqrt{\\mbox{SE}[X_1]^2 + \\mbox{SE}[X_2]^2+\\dots+\\mbox{SE}[X_n]^2  }\n\\]"
+    "text": "Property 5\n\nIf \\(X\\) is a normally distributed random variable, then if \\(a\\) and \\(b\\) are non-random constants, \\(aX + b\\) is also a normally distributed random variable.\nAll we are doing is changing the units of the random variable by multiplying by \\(a\\), then shifting the center by \\(b\\)."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#property-5-1",
     "href": "slides/prob/21-inference-foundations.html#property-5-1",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Property 5",
     "text": "Property 5\n\nThe square of the standard error is referred to as the variance in statistical textbooks.\nNote that this particular property is not as intuitive as the previous three and more in depth explanations can be found in statistics textbooks."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#property-6",
     "href": "slides/prob/21-inference-foundations.html#property-6",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Property 6",
     "text": "Property 6\n\nThe standard error of a non-random constant times a random variable is the non-random constant times the random variable’s standard error.\nAs with the expectation:\n\n\\[\n\\mbox{SE}[aX] =  a \\times \\mbox{SE}[X]\n\\]"
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#property-6-1",
     "href": "slides/prob/21-inference-foundations.html#property-6-1",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Property 6",
     "text": "Property 6\n\nTo see why this is intuitive, again think of units.\nA consequence of 3 and 4 is that the standard error of the average of independent draws from the same urn is the standard deviation of the urn divided by the square root of \\(n\\) (the number of draws), call it \\(\\sigma\\):"
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#property-7",
     "href": "slides/prob/21-inference-foundations.html#property-7",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Property 7",
     "text": "Property 7\n\\[\n\\begin{aligned}\n\\mbox{SE}[(X_1+X_2+\\dots+X_n) / n] &=   \\mbox{SE}[X_1+X_2+\\dots+X_n]/n \\\\\n&= \\sqrt{\\mbox{SE}[X_1]^2+\\mbox{SE}[X_2]^2+\\dots+\\mbox{SE}[X_n]^2}/n \\\\\n&= \\sqrt{\\sigma^2+\\sigma^2+\\dots+\\sigma^2}/n\\\\\n&= \\sqrt{n\\sigma^2}/n\\\\\n&= \\sigma / \\sqrt{n}     \n\\end{aligned}\n\\]"
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#property-8",
     "href": "slides/prob/21-inference-foundations.html#property-8",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Property 8",
     "text": "Property 8\n\nIf \\(X\\) is a normally distributed random variable, then if \\(a\\) and \\(b\\) are non-random constants, \\(aX + b\\) is also a normally distributed random variable.\nAll we are doing is changing the units of the random variable by multiplying by \\(a\\), then shifting the center by \\(b\\)."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#notation",
     "href": "slides/prob/21-inference-foundations.html#notation",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Notation",
     "text": "Notation\n\nNote that statistical textbooks use the Greek letters \\(\\mu\\) and \\(\\sigma\\) to denote the expected value and standard error, respectively.\nThis is because \\(\\mu\\) is the Greek letter for \\(m\\), the first letter of mean, which is another term used for expected value.\nSimilarly, \\(\\sigma\\) is the Greek letter for \\(s\\), the first letter of standard error."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#the-assumption-of-independence-is-important",
     "href": "slides/prob/21-inference-foundations.html#the-assumption-of-independence-is-important",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "The assumption of independence is important",
-    "text": "The assumption of independence is important\n\nLet’s make the explanation more concise and clear:\nThe given equation reveals crucial insights for practical scenarios."
+    "text": "The assumption of independence is important\n\nThe given equation reveals crucial insights for practical scenarios.\nSpecifically, it suggests that the standard error can be minimized by increasing the sample size, \\(n\\), and we can quantify this reduction.\nHowever, this principle holds true only when the variables \\(X_1, X_2, \\dots, X_n\\) are independent.\nIf they are not, the estimated standard error can be significantly off."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#the-assumption-of-independence-is-important-1",
     "href": "slides/prob/21-inference-foundations.html#the-assumption-of-independence-is-important-1",
-    "title": "Foundations of statistical inference",
-    "section": "The assumption of independence is important",
-    "text": "The assumption of independence is important\n\nSpecifically, it suggests that the standard error can be minimized by increasing the sample size, \\(n\\), and we can quantify this reduction.\nHowever, this principle holds true only when the variables \\(X_1, X_2, \\dots, X_n\\) are independent.\nIf they are not, the estimated standard error can be significantly off."
-  },
-  {
-    "objectID": "slides/prob/21-inference-foundations.html#the-assumption-of-independence-is-important-2",
-    "href": "slides/prob/21-inference-foundations.html#the-assumption-of-independence-is-important-2",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "The assumption of independence is important",
     "text": "The assumption of independence is important\n\nWe later introduce the concept of correlation, which quantifies the degree to which variables are interdependent.\nIf the correlation coefficient among the \\(X\\) variables is \\(\\rho\\), the standard error of their average is:\n\n\\[\n\\mbox{SE}\\left(\\bar{X}\\right) = \\sigma \\sqrt{\\frac{1 + (n-1) \\rho}{n}}\n\\]"
   },
   {
+    "objectID": "slides/prob/21-inference-foundations.html#the-assumption-of-independence-is-important-2",
+    "href": "slides/prob/21-inference-foundations.html#the-assumption-of-independence-is-important-2",
+    "title": "Foundations of Statistical Inference",
+    "section": "The assumption of independence is important",
+    "text": "The assumption of independence is important\n\nThe key observation here is that as \\(\\rho\\) approaches its upper limit of 1, the standard error increases.\nNotably, in the situation where \\(\\rho = 1\\), the standard error, \\(\\mbox{SE}(\\bar{X})\\), equals \\(\\sigma\\), and it becomes unaffected by the sample size \\(n\\)."
+  },
+  {
     "objectID": "slides/prob/21-inference-foundations.html#the-assumption-of-independence-is-important-3",
     "href": "slides/prob/21-inference-foundations.html#the-assumption-of-independence-is-important-3",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "The assumption of independence is important",
     "text": "The assumption of independence is important\n\nThe key observation here is that as \\(\\rho\\) approaches its upper limit of 1, the standard error increases.\nNotably, in the situation where \\(\\rho = 1\\), the standard error, \\(\\mbox{SE}(\\bar{X})\\), equals \\(\\sigma\\), and it becomes unaffected by the sample size \\(n\\)."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#law-of-large-numbers",
     "href": "slides/prob/21-inference-foundations.html#law-of-large-numbers",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Law of large numbers",
-    "text": "Law of large numbers\n\nAn important implication of result 5 above is that the standard error of the average becomes smaller and smaller as \\(n\\) grows larger.\nWhen \\(n\\) is very large, then the standard error is practically 0 and the average of the draws converges to the average of the urn.\nThis is known in statistical textbooks as the law of large numbers or the law of averages."
+    "text": "Law of large numbers\n\nAn important implication of result 4 above is that the standard error of the average becomes smaller and smaller as \\(n\\) grows larger.\nWhen \\(n\\) is very large, then the standard error is practically 0 and the average of the draws converges to the average of the urn.\nThis is known in statistical textbooks as the law of large numbers or the law of averages."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#misinterpretation-of-the-law-of-averages",
     "href": "slides/prob/21-inference-foundations.html#misinterpretation-of-the-law-of-averages",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Misinterpretation of the law of averages",
-    "text": "Misinterpretation of the law of averages\n\nThe law of averages is sometimes misinterpreted.\nFor example, if you toss a coin 5 times and see a head each time, you might hear someone argue that the next toss is probably a tail because of the law of averages: on average we should see 50% heads and 50% tails.\nA similar argument would be to say that red “is due” on the roulette wheel after seeing black come up five times in a row.\nYet these events are independent so the chance of a coin landing heads is 50%, regardless of the previous 5."
+    "text": "Misinterpretation of the law of averages\n\nThe law of averages is sometimes misinterpreted.\nFor example, if you toss a coin 5 times and see a head each time, you might hear someone argue that the next toss is probably a tail because of the law of averages: on average we should see 50% heads and 50% tails."
   },
   {
     "objectID": "slides/prob/21-inference-foundations.html#misinterpretation-of-the-law-of-averages-1",
     "href": "slides/prob/21-inference-foundations.html#misinterpretation-of-the-law-of-averages-1",
-    "title": "Foundations of statistical inference",
+    "title": "Foundations of Statistical Inference",
     "section": "Misinterpretation of the law of averages",
-    "text": "Misinterpretation of the law of averages\n\nThe same principle applies to the roulette outcome.\nThe law of averages applies only when the number of draws is very large and not in small samples.\nAfter a million tosses, you will definitely see about 50% heads regardless of the outcome of the first five tosses.\nAnother funny misuse of the law of averages is in sports when TV sportscasters predict a player is about to succeed because they have failed a few times in a row."
+    "text": "Misinterpretation of the law of averages\n\nA similar argument would be to say that red “is due” on the roulette wheel after seeing black come up five times in a row.\nYet these events are independent so the chance of a coin landing heads is 50%, regardless of the previous 5."
   },
   {
     "objectID": "slides/dataviz/17-dataviz-principles.html#some-motivation",
@@ -5518,5 +5518,278 @@
     "title": "Git and GitHub",
     "section": "Using Git in RStudio",
     "text": "Using Git in RStudio\n\nGo to file, new project, version control, and follow the instructions.\nThen notice the Git tab in the preferences."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#sampling-models-10",
+    "href": "slides/prob/21-inference-foundations.html#sampling-models-10",
+    "title": "Foundations of Statistical Inference",
+    "section": "Sampling models",
+    "text": "Sampling models\n\nBecause we know the proportions of 1s and -1s, we can generate the draws without defining color.\n\n\nx &lt;- sample(c(-1, 1), n, replace = TRUE, prob = c(9/19, 10/19))"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#sampling-models-11",
+    "href": "slides/prob/21-inference-foundations.html#sampling-models-11",
+    "title": "Foundations of Statistical Inference",
+    "section": "Sampling models",
+    "text": "Sampling models\n\nThis is a sampling model, as it models the random behavior through the sampling of draws from an urn.\nThe total winnings \\(S\\) is simply the sum of these 1,000 independent draws:\n\n\nx &lt;- sample(c(-1, 1), n, replace = TRUE, prob = c(9/19, 10/19)) \ns &lt;- sum(x) \ns \n#&gt; [1] 44\n\n\nIf you rerun the code above, you see that \\(S\\) changes every time.\n\\(S\\) is a random variable."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-probability-distribution-12",
+    "href": "slides/prob/21-inference-foundations.html#the-probability-distribution-12",
+    "title": "Foundations of Statistical Inference",
+    "section": "The probability distribution",
+    "text": "The probability distribution\n\nInstead, we will explore an incredibly useful approximation provided by mathematical theory, which generally applies to sums and averages of draws from any urn: the Central Limit Theorem (CLT)."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#distributions-versus-probability-distributions-6",
+    "href": "slides/prob/21-inference-foundations.html#distributions-versus-probability-distributions-6",
+    "title": "Foundations of Statistical Inference",
+    "section": "Distributions versus probability distributions",
+    "text": "Distributions versus probability distributions\n\nThese outcomes form a list of numbers, and the distribution of this list will be a very good approximation of the probability distribution of \\(X\\).\nThe longer the list, the better the approximation.\nThe average and standard deviation of this list will approximate the expected value and standard error of the random variable."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-se",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-se",
+    "title": "Foundations of Statistical Inference",
+    "section": "The expected value and SE",
+    "text": "The expected value and SE\n\nWe will now review the mathematical theory that allows us to approximate the probability distributions for the sum of draws.\nThe same approach we use for the sum of draws will be useful for describing the distribution of averages and proportion, which we will need to understand how polls work.\nThe first important concept to learn is the expected value."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-1",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-1",
+    "title": "Foundations of Statistical Inference",
+    "section": "The expected value and SE",
+    "text": "The expected value and SE\n\nIn statistics books, it is common to represent the expected value of the random variable \\(X\\) with the letter \\(\\mbox{E}\\) like this:\n\n\\[\\mbox{E}[X]\\]"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-2",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-2",
+    "title": "Foundations of Statistical Inference",
+    "section": "The expected value and SE",
+    "text": "The expected value and SE\n\nA random variable will vary around its expected value in a manner that if you take the average of many, many draws, the average will approximate the expected value.\nThis approximation improves as you take more draws, making the expected value a useful quantity to compute."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-3",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-3",
+    "title": "Foundations of Statistical Inference",
+    "section": "The expected value and SE",
+    "text": "The expected value and SE\n\nFor discrete random variable with possible outcomes \\(x_1,\\dots,x_n\\), the expected value is defined as:\n\n\\[\n\\mbox{E}[X] = \\sum_{i=1}^n x_i \\,\\mbox{Pr}(X = x_i)\n\\]"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-4",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-4",
+    "title": "Foundations of Statistical Inference",
+    "section": "The expected value and SE",
+    "text": "The expected value and SE\n\nNote that in the case that we are picking values from an urn, and each value \\(x_i\\) has an equal chance \\(1/n\\) of being selected, the above equation is simply the average of the \\(x_i\\)s.\n\n\\[\n\\mbox{E}[X] = \\frac{1}{n}\\sum_{i=1}^n x_i  \n\\]"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-5",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-5",
+    "title": "Foundations of Statistical Inference",
+    "section": "The expected value and SE",
+    "text": "The expected value and SE\n\nIf \\(X\\) is a continuous random variable with a range of values \\(a\\) to \\(b\\) and a probability density function \\(f(x)\\), this sum transforms into an integral:\n\n\\[\n\\mbox{E}[X] = \\int_a^b x f(x)\n\\]"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-6",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-6",
+    "title": "Foundations of Statistical Inference",
+    "section": "The expected value and SE",
+    "text": "The expected value and SE\n\nIn the urn used to model betting on red in roulette, we have 20 one-dollar bills and 18 negative one-dollar bills, so the expected value is:\n\n\\[\n\\mbox{E}[X] = (20 + -18)/38\n\\]\n\nwhich is about 5 cents."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-7",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-7",
+    "title": "Foundations of Statistical Inference",
+    "section": "The expected value and SE",
+    "text": "The expected value and SE\n\nYou might consider it a bit counterintuitive to say that \\(X\\) varies around 0.05 when it only takes the values 1 and -1.\nTo make sense of the expected value in this context is by realizing that, if we play the game over and over, the casino wins, on average, 5 cents per game."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-8",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-8",
+    "title": "Foundations of Statistical Inference",
+    "section": "The expected value and SE",
+    "text": "The expected value and SE\n\nA Monte Carlo simulation confirms this:\n\n\nB &lt;- 10^6 \nx &lt;- sample(c(-1, 1), B, replace = TRUE, prob = c(9/19, 10/19)) \nmean(x) \n#&gt; [1] 0.0522"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-9",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-9",
+    "title": "Foundations of Statistical Inference",
+    "section": "The expected value and SE",
+    "text": "The expected value and SE\n\nIn general, if the urn has two possible outcomes, say \\(a\\) and \\(b\\), with proportions \\(p\\) and \\(1-p\\) respectively, the average is:\n\n\\[\\mbox{E}[X] = ap + b(1-p)\\]"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-10",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-10",
+    "title": "Foundations of Statistical Inference",
+    "section": "The expected value and SE",
+    "text": "The expected value and SE\n\nTo confirm this, observe that if there are \\(n\\) beads in the urn, then we have \\(np\\) \\(a\\)s and \\(n(1-p)\\) \\(b\\)s, and because the average is the sum, \\(n\\times a \\times p + n\\times b \\times (1-p)\\), divided by the total \\(n\\), we get that the average is \\(ap + b(1-p)\\)."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-11",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-11",
+    "title": "Foundations of Statistical Inference",
+    "section": "The expected value and SE",
+    "text": "The expected value and SE\n\nThe reason we define the expected value is because this mathematical definition turns out to be useful for approximating the probability distributions of sum.\nThis, in turn, is useful for describing the distribution of averages and proportions."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-12",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-12",
+    "title": "Foundations of Statistical Inference",
+    "section": "The expected value and SE",
+    "text": "The expected value and SE\n\nThe first useful fact is that the expected value of the sum of the draws is the number of draws \\(\\times\\) the average of the numbers in the urn.\nTherefore, if 1,000 people play roulette, the casino expects to win, on average, about 1,000 \\(\\times\\) $0.05 = $50."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-13",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-13",
+    "title": "Foundations of Statistical Inference",
+    "section": "The expected value and SE",
+    "text": "The expected value and SE\n\nHowever, this is an expected value.\nHow different can one observation be from the expected value? The casino really needs to know this.\nWhat is the range of possibilities? If negative numbers are too likely, they will not install roulette wheels.\nStatistical theory once again answers this question."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-14",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-14",
+    "title": "Foundations of Statistical Inference",
+    "section": "The expected value and SE",
+    "text": "The expected value and SE\n\nThe standard error (SE) gives us an idea of the size of the variation around the expected value.\nIn statistics books, it’s common to use:\n\n\\[\\mbox{SE}[X] = \\sqrt{\\mbox{Var}[X]}\\]"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-15",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-15",
+    "title": "Foundations of Statistical Inference",
+    "section": "The expected value and SE",
+    "text": "The expected value and SE\n\nto denote the standard error of a random variable.\nFor discrete random variable with possible outcomes \\(x_1,\\dots,x_n\\), the standard error is defined as:\n\n\\[\n\\mbox{SE}[X] = \\sqrt{\\sum_{i=1}^n \\left(x_i - E[X]\\right)^2 \\,\\mbox{Pr}(X = x_i)},\n\\]\n\nwhich you can think of as the expected average distance of \\(X\\) from the expected value."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-16",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-16",
+    "title": "Foundations of Statistical Inference",
+    "section": "The expected value and SE",
+    "text": "The expected value and SE\n\nNote that in the case that we are picking values from an un urn where each value \\(x_i\\) has an equal chance \\(1/n\\) of being selected, the above equation is simply the standard deviation of of the \\(x_i\\)s.\n\n\\[\n\\mbox{SE}[X] = \\sqrt{\\frac{1}{n}\\sum_{i=1}^n (x_i - \\bar{x})^2} \\mbox{ with } \\bar{x} =  \\frac{1}{n}\\sum_{i=1}^n x_i  \n\\]"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-17",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-17",
+    "title": "Foundations of Statistical Inference",
+    "section": "The expected value and SE",
+    "text": "The expected value and SE\n\nIf \\(X\\) is a continuous random variable, with range of values \\(a\\) to \\(b\\) and probability density function \\(f(x)\\), this sum turns into an integral:\n\n\\[\n\\mbox{SE}[X] = \\sqrt{\\int_a^b \\left(x-\\mbox{E}[X]\\right)^2 f(x)\\,\\mathrm{d}x}\n\\]"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-18",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-18",
+    "title": "Foundations of Statistical Inference",
+    "section": "The expected value and SE",
+    "text": "The expected value and SE\n\nUsing the definition of standard deviation, we can derive, with a bit of math, that if an urn contains two values \\(a\\) and \\(b\\) with proportions \\(p\\) and \\((1-p)\\), respectively, the standard deviation is:\n\n\\[| b - a |\\sqrt{p(1-p)}.\\]"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-19",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-19",
+    "title": "Foundations of Statistical Inference",
+    "section": "The expected value and SE",
+    "text": "The expected value and SE\n\nSo in our roulette example, the standard deviation of the values inside the urn is:\n\n\\[\n| 1 - (-1) | \\sqrt{10/19 \\times 9/19}\n\\]\nor:\n\n2*sqrt(90)/19 \n#&gt; [1] 0.999"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-20",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-20",
+    "title": "Foundations of Statistical Inference",
+    "section": "The expected value and SE",
+    "text": "The expected value and SE\n\nSince one draw is obviously the sum of just one draw, we can use the formula above to calculate that the random variable defined by one draw has an expected value of 0.05 and a SE of about 1.\nThis makes sense since we obtain either 1 or -1, with 1 slightly favored over -1."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-21",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-21",
+    "title": "Foundations of Statistical Inference",
+    "section": "The expected value and SE",
+    "text": "The expected value and SE\n\nA widely used mathematical result is that if our draws are independent, then the standard error of the sum is given by the equation:\n\n\\[\n\\sqrt{\\mbox{number of draws}} \\times \\mbox{ SD of the numbers in the urn}\n\\]"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-22",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-22",
+    "title": "Foundations of Statistical Inference",
+    "section": "The expected value and SE",
+    "text": "The expected value and SE\n\nUsing this formula, the sum of 1,000 people playing has standard error of about $32:\n\n\nn &lt;- 1000 \nsqrt(n)*2*sqrt(90)/19 \n#&gt; [1] 31.6"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-23",
+    "href": "slides/prob/21-inference-foundations.html#the-expected-value-and-se-23",
+    "title": "Foundations of Statistical Inference",
+    "section": "The expected value and SE",
+    "text": "The expected value and SE\n\nAs a result, when 1,000 people bet on red, the casino is expected to win $50 with a standard error of $32.\nIt therefore seems like a safe bet to install more roulette wheels.\nBut we still haven’t answered the question: How likely is the casino to lose money? The CLT will help in this regard."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#how-large-is-large-in-the-clt",
+    "href": "slides/prob/21-inference-foundations.html#how-large-is-large-in-the-clt",
+    "title": "Foundations of Statistical Inference",
+    "section": "How large is large in the CLT?",
+    "text": "How large is large in the CLT?\n\nThe CLT works when the number of draws is large, but “large” is a relative term.\nIn many circumstances, as few as 30 draws is enough to make the CLT useful.\nIn some specific instances, as few as 10 is enough.\nHowever, these should not be considered general rules.\nNote that when the probability of success is very small, much larger sample sizes are needed."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#how-large-is-large-in-the-clt-1",
+    "href": "slides/prob/21-inference-foundations.html#how-large-is-large-in-the-clt-1",
+    "title": "Foundations of Statistical Inference",
+    "section": "How large is large in the CLT?",
+    "text": "How large is large in the CLT?\n\nBy way of illustration, let’s consider the lottery.\nIn the lottery, the chances of winning are less than 1 in a million.\nThousands of people play so the number of draws is very large.\nYet the number of winners, the sum of the draws, range between 0 and 4.\nThis sum is certainly not well approximated by a normal distribution, so the CLT does not apply, even with the very large sample size."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#how-large-is-large-in-the-clt-2",
+    "href": "slides/prob/21-inference-foundations.html#how-large-is-large-in-the-clt-2",
+    "title": "Foundations of Statistical Inference",
+    "section": "How large is large in the CLT?",
+    "text": "How large is large in the CLT?\n\nThis is generally true when the probability of a success is very low.\nIn these cases, the Poisson distribution is more appropriate.\nYou can explore the properties of the Poisson distribution using dpois and ppois.\nYou can generate random variables following this distribution with rpois.\nHowever, we won’t cover the theory here."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#how-large-is-large-in-the-clt-3",
+    "href": "slides/prob/21-inference-foundations.html#how-large-is-large-in-the-clt-3",
+    "title": "Foundations of Statistical Inference",
+    "section": "How large is large in the CLT?",
+    "text": "How large is large in the CLT?\n\nYou can learn about the Poisson distribution in any probability textbook and even Wikipedia"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#property-1-1",
+    "href": "slides/prob/21-inference-foundations.html#property-1-1",
+    "title": "Foundations of Statistical Inference",
+    "section": "Property 1",
+    "text": "Property 1\n\nIf \\(X\\) represents independent draws from the urn, then they all have the same expected value.\nLet’s denote the expected value with \\(\\mu\\) and rewrite the equation as:\n\n\\[\n\\mbox{E}[X_1+X_2+\\dots+X_n]=  n\\mu\n\\]\n\nwhich is another way of writing the result we show above for the sum of draws."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#property-2-1",
+    "href": "slides/prob/21-inference-foundations.html#property-2-1",
+    "title": "Foundations of Statistical Inference",
+    "section": "Property 2",
+    "text": "Property 2\n\nTo understand why this is intuitive, consider changing units.\nIf we change the units of a random variable, such as from dollars to cents, the expectation should change in the same way."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#property-2-2",
+    "href": "slides/prob/21-inference-foundations.html#property-2-2",
+    "title": "Foundations of Statistical Inference",
+    "section": "Property 2",
+    "text": "Property 2\n\nA consequence of the above two facts is that the expected value of the average of independent draws from the same urn is the expected value of the urn, denoted as \\(\\mu\\) again:\n\n\\[\n\\mbox{E}[(X_1+X_2+\\dots+X_n) / n]=   \\mbox{E}[X_1+X_2+\\dots+X_n] / n = n\\mu/n = \\mu  \n\\]"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#property-4-1",
+    "href": "slides/prob/21-inference-foundations.html#property-4-1",
+    "title": "Foundations of Statistical Inference",
+    "section": "Property 4",
+    "text": "Property 4\n\nA consequence of 3 and 4 is that the standard error of the average of independent draws from the same urn is the standard deviation of the urn divided by the square root of \\(n\\) (the number of draws), call it \\(\\sigma\\):\n\n\\[\n\\begin{aligned}\n\\mbox{SE}[(X_1+X_2+\\dots+X_n) / n] &=   \\mbox{SE}[X_1+X_2+\\dots+X_n]/n \\\\\n&= \\sqrt{\\mbox{SE}[X_1]^2+\\mbox{SE}[X_2]^2+\\dots+\\mbox{SE}[X_n]^2}/n \\\\\n&= \\sqrt{\\sigma^2+\\sigma^2+\\dots+\\sigma^2}/n\\\\\n&= \\sqrt{n\\sigma^2}/n\\\\\n&= \\sigma / \\sqrt{n}     \n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#property-4-2",
+    "href": "slides/prob/21-inference-foundations.html#property-4-2",
+    "title": "Foundations of Statistical Inference",
+    "section": "Property 4",
+    "text": "Property 4\n\nA consequence of 3 and 4 is that the standard error of the average of independent draws from the same urn is the standard deviation of the urn divided by the square root of \\(n\\) (the number of draws), call it \\(\\sigma\\):\n\n\\[\n\\begin{aligned}\n\\mbox{SE}[(X_1+X_2+\\dots+X_n) / n] &=   \\mbox{SE}[X_1+X_2+\\dots+X_n]/n \\\\\n&= \\sqrt{\\mbox{SE}[X_1]^2+\\mbox{SE}[X_2]^2+\\dots+\\mbox{SE}[X_n]^2}/n \\\\\n&= \\sqrt{\\sigma^2+\\sigma^2+\\dots+\\sigma^2}/n\\\\\n&= \\sqrt{n\\sigma^2}/n\\\\\n&= \\sigma / \\sqrt{n}     \n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#misinterpretation-of-the-law-of-averages-2",
+    "href": "slides/prob/21-inference-foundations.html#misinterpretation-of-the-law-of-averages-2",
+    "title": "Foundations of Statistical Inference",
+    "section": "Misinterpretation of the law of averages",
+    "text": "Misinterpretation of the law of averages\n\nThe same principle applies to the roulette outcome.\nThe law of averages applies only when the number of draws is very large and not in small samples."
+  },
+  {
+    "objectID": "slides/prob/21-inference-foundations.html#misinterpretation-of-the-law-of-averages-3",
+    "href": "slides/prob/21-inference-foundations.html#misinterpretation-of-the-law-of-averages-3",
+    "title": "Foundations of Statistical Inference",
+    "section": "Misinterpretation of the law of averages",
+    "text": "Misinterpretation of the law of averages\n\nAfter a million tosses, you will definitely see about 50% heads regardless of the outcome of the first five tosses.\nAnother funny misuse of the law of averages is in sports when TV sportscasters predict a player is about to succeed because they have failed a few times in a row."
   }
 ]

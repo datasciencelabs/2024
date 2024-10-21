@@ -1,5 +1,5 @@
 ---
-title: "Foundations of statistical inference"
+title: "Foundations of Statistical Inference"
 keywords: "Probability"
 date: 2024-08-21
 format:
@@ -33,15 +33,15 @@ img_path <- "img"
 
 ## Sampling models
 
-- Many data generation procedures, those that produce the data we study, can be effectively modeled as draws from an urn.
+- Many data generation procedures can be effectively modeled as draws from an urn.
 
-- For instance, we can model the process of polling likely voters as drawing 0s (Republicans) and 1s (Democrats) from an urn containing the 0 and 1 codes for all likely voters.
+- We can model the process of polling likely voters as drawing 0s for one party and 1s for the other. 
 
-- In epidemiological studies, we often assume that the subjects in our study are a random sample from the population of interest.
+- Epidemiologist assume subjects in their studies are a random sample from the population of interest.
 
-- The data related to a specific outcome can be modeled as a random sample from an urn containing the outcomes for the entire population of interest.
+## Sampling models
 
-
+- In general, the data related to a specific outcome can be modeled as a random sample from an urn containing the outcomes for the entire population of interest.
 
 ## Sampling models
 
@@ -62,7 +62,7 @@ img_path <- "img"
 
 - Suppose a very small casino hires you to consult on whether they should set up roulette wheels.
 
-- To keep the example simple, we will assume that 1,000 people will play, and that the only game available on the roulette wheel is to bet on red or black.
+- We will assume that 1,000 people will play, and that the only game available on the roulette wheel is to bet on red or black.
 
 - The casino wants you to predict how much money they will make or lose.
 
@@ -75,6 +75,12 @@ img_path <- "img"
 - If this probability is too high, they will decide against installing roulette wheels.
 
 - We are going to define a random variable $S$ that will represent the casino's total winnings.
+
+## Sampling models
+
+This is a roullette:
+
+![](https://yonkerstimes.com/wp-content/uploads/2022/09/American-Roulette-1024x463-1.png)
 
 ## Sampling models
 
@@ -93,9 +99,9 @@ color <- rep(c("Black", "Red", "Green"), c(18, 18, 2))
 
 - The 1,000 outcomes from 1,000 people playing are independent draws from this urn.
 
-- If red comes up, the gambler wins, and the casino loses a dollar, resulting in a draw a -\$1.
+- If red comes up, the gambler wins, and the casino loses a dollar, resulting random variable being -\$1.
 
-- Otherwise, the casino wins a dollar, and we draw a \$1.
+- Otherwise, the casino wins a dollar, and the random variable is \$1.
 
 ## Sampling models
 
@@ -111,7 +117,7 @@ x[1:10]
 
 ## Sampling models
 
-- Because we know the proportions of 1s and -1s, we can generate the draws with one line of code, without defining `color`:
+- Because we know the proportions of 1s and -1s, we can generate the draws without defining `color`.
 
 ```{r} 
 x <- sample(c(-1, 1), n, replace = TRUE, prob = c(9/19, 10/19)) 
@@ -119,7 +125,7 @@ x <- sample(c(-1, 1), n, replace = TRUE, prob = c(9/19, 10/19))
 
 ## Sampling models
 
-- We call this a **sampling model**, as it involves modeling the random behavior of roulette through the sampling of draws from an urn.
+- This is a **sampling model**, as it models the random behavior through the sampling of draws from an urn.
 
 - The total winnings $S$ is simply the sum of these 1,000 independent draws:
 
@@ -130,29 +136,28 @@ s <- sum(x)
 s 
 ``` 
 
+- If you rerun the code above, you see that $S$ changes every time.
+
+- $S$ is a **random variable**.
 
 
 ## The probability distributions
 
-- If you run the code above, you see that $S$ changes every time.
+- The probability distribution of a random variable informs us about the probability of the observed value falling in any given interval.
 
-- This is, of course, because $S$ is a **random variable**.
-
-## The probability distributions
-
-- The probability distribution of a random variable informs us about the probability of the observed value falling at any given interval.
-
-- For example, if we want to know the probability that we lose money, we are asking the probability that $S$ is in the interval $S<0$.
+- For example, if we want to know the probability that we lose money, we are asking the probability that $S$ is in the interval $(-\infty,0)$.
 
 
 
 ## The probability distribution
 
-- Keep in mind that if we can define a cumulative distribution function $F(a) = \mbox{Pr}(S\leq a)$, then we will be able to answer any question related to the probability of events defined by our random variable $S$, including the event $S<0$.
+- If we can define a cumulative distribution function $F(a) = \mbox{Pr}(S\leq a)$, we can answer any question about the probability of events defined by $S$.
 
 - We call this $F$ the random variable's *distribution function*.
 
-- We can estimate the distribution function for the random variable $S$ by using a Monte Carlo simulation to generate many realizations of the random variable.
+- Probability and Statistics classes dedicate much time to calculating or approximating these.
+
+- We can also estimate the distribution function for $S$  using a **Monte Carlo simulation**.
 
 
 
@@ -172,27 +177,29 @@ s <- replicate(B, roulette_winnings(n))
 
 ## The probability distribution
 
-- Now, we can ask the following: in our simulations, how often did we get sums less than or equal to `a`?
+- Now, we can ask the following: in our simulation, how often did we get sums less than or equal to `a`?
 
 ```{r, eval=FALSE} 
-mean(S <= a) 
+mean(s <= a) 
 ``` 
 
 
 
 ## The probability distribution
 
-- This will be a very good approximation of $F(a)$, allowing us to easily answer the casino's question: How likely is it that we will lose money? We can see it is quite low:
+- This will be a very good approximation of $F(a)$.
+
+- This allows us to easily answer the casino's question: How likely is it that we will lose money? 
+
+- It is quite low:
 
 ```{r} 
 mean(s < 0) 
 ``` 
 
-- We can visualize the distribution of $S$ by creating a histogram showing the probability $F(b)-F(a)$ for several intervals $(a,b]$:
-
-
-
 ## The probability distribution
+
+- We can visualize the distribution of $S$ by creating a histogram showing the probability $F(b)-F(a)$ for several intervals $(a,b]$:
 
 ```{r normal-approximates-distribution, echo=FALSE} 
 ss <- seq(min(s), max(s), length = 100) 
@@ -208,27 +215,26 @@ data.frame(s = s) |> ggplot(aes(s, after_stat(density))) +
 
 - We see that the distribution appears to be approximately normal.
 
-- A qqplot will confirm that the normal approximation is close to a perfect approximation for this distribution.
+- A QQ-plot will confirm that the normal approximation is close to a perfect approximation.
 
-- In fact, if the distribution is normal, all we need to define it are the average and the standard deviation.
+## The probability distribution
 
-- Since we have the original values from which the distribution is created, we can easily compute these with `mean(S)` and `sd(S)`.
+- Remeber, if the distribution is normal, all we need to define it are the average and the standard deviation (SD).
 
+- Since we have the original values from which the distribution is created, we can easily compute these with `mean(s)` and `sd(s)`.
+
+- The blue curve added to the histogram is a normal density with this average and standard deviation.
 
 
 ## The probability distribution
 
-- The blue curve added to the histogram above is a normal density with this average and standard deviation.
 
-- This average and this standard deviation have special names; they are referred to as the *expected value* and *standard error* of the random variable $S$.
+- This average and this standard deviation have special names; they are referred to as the **expected value** and **standard error (SE)** of the random variable $S$.
 
-- More details on these concepts will be provided in the next section.
+---
 
-- Statistical theory offers a method to derive the distribution of random variables defined as the sum of independent random draw of numbers from an urn.
-
-
-
-## The probability distribution
+:::{.callout-note}
+- Statistical theory offers a method to derive the distribution of random variables defined as the sum of independent random draw of numbers from an urn:
 
 - Specifically, in our example above, we can demonstrate that $(S+n)/2$ follows a binomial distribution.
 
@@ -238,41 +244,13 @@ data.frame(s = s) |> ggplot(aes(s, after_stat(density))) +
 
 - We can use the function `dbinom` and `pbinom` to compute the probabilities exactly.
 
-## The probability distribution
-
-
-- For example, to compute $\mbox{Pr}(S < 0)$, we note that:
-
-$$\mbox{Pr}(S < 0) = \mbox{Pr}((S+n)/2 < (0+n)/2)$$ 
-
-- and we can use the `pbinom` to compute $$\mbox{Pr}(S \leq 0)$$: 
-
-
-
-## The probability distribution
-
 ```{r} 
 n <- 1000 
-pbinom(n/2, size = n, prob = 10/19) 
-``` 
-
-- Since this is a discrete probability function, to obtain $\mbox{Pr}(S < 0)$ rather than $\mbox{Pr}(S \leq 0)$, we write:
-
-```{r} 
 pbinom(n/2 - 1, size = n, prob = 10/19) 
 ``` 
 
-## The probability distribution
+:::
 
-- For the details of the binomial distribution, you can consult any basic probability book or even [Wikipedia](https://en.wikipedia.org/w/index.php?title=Binomial_distribution)
-
-
-- We do not delve into these details here.
-
-
-## The probability distribution
-
-- Instead, we will explore an incredibly useful approximation provided by mathematical theory, which generally applies to sums and averages of draws from any urn: the Central Limit Theorem (CLT).
 
 
 
@@ -280,11 +258,12 @@ pbinom(n/2 - 1, size = n, prob = 10/19)
 
 - Before we continue, let's establish an important distinction and connection between the distribution of a list of numbers and a probability distribution.
 
-- Any list of numbers $x_1,\dots,x_n$ has a distribution.
+- Any list of numbers $x_1,\dots,x_n$ has a **distribution**. 
+
+- It does not have a **probability distribution** because they are not random.
 
 ## Distributions versus probability distributions
 
-- The definition is quite straightforward.
 
 - We define $F(a)$ as the function that indicates what proportion of the list is less than or equal to $a$.
 
@@ -303,19 +282,21 @@ s <- sqrt(sum((x - m)^2)/length(x))
 
 ## Distributions versus probability distributions
 
-- A random variable $X$ has a distribution function.
+- A random variable $X$ has a **distribution function**.
 
 - To define this, we do not need a list of numbers; it is a theoretical concept.
 
-- In this case, we define the distribution as the $F(a)$ that answers the question: What is the probability that $X$ is less than or equal to $a$? There is no list of numbers.
+- We define the distribution as the $F(a)$ that answers the question: What is the probability that $X$ is less than or equal to $a$? 
 
 
 
 ## Distributions versus probability distributions
 
-- However, if $X$ is defined by drawing from an urn containing numbers, then there exists a list: the list of numbers inside the urn.
+- However, if $X$ is defined by drawing from an urn containing numbers, then there is a list: the list of numbers inside the urn.
 
 - In this case, the distribution of that list is the probability distribution of $X$, and the average and standard deviation of that list are the expected value and standard error of the random variable.
+
+## Distributions versus probability distributions
 
 - Another way to think about it without involving an urn is by running a Monte Carlo simulation and generating a very large list of outcomes of $X$.
 
@@ -327,7 +308,7 @@ s <- sqrt(sum((x - m)^2)/length(x))
 
 - The longer the list, the better the approximation.
 
-- The average and standard deviation of this list will approximate the expected value and standard error of the random variable.
+- The **average** and **standard deviation** of this list will approximate the **expected value** and **standard error** of the random variable.
 
 
 
@@ -351,8 +332,6 @@ s <- sqrt(sum((x - m)^2)/length(x))
 
 - In this case, the probability of $X=x$ is 1/6 regardless of the observed value $x$.
 
-- This notation may seem a bit strange because when we inquire about probability, $X$ is not an observed quantity; it's a random quantity that we will encounter in the future.
-
 - We can discuss what we expect $X$ to be, what values are probable, but we can't discuss what value $X$ is.
 
 
@@ -361,35 +340,26 @@ s <- sqrt(sum((x - m)^2)/length(x))
 
 - Once we have data, we do see a realization of $X$.
 
-- Therefore, data analysits often speak of what could have been after observing what actually happened.
+- Therefore, data analysts often speak of what could have been after observing what actually happened.
 
 
-
-## The expected value and standard error
-
-- We have described sampling models for draws.
+## The expected value and SE
 
 - We will now review the mathematical theory that allows us to approximate the probability distributions for the sum of draws.
-
-- Once we do this, we will be able to help the casino predict how much money they will make.
-
-## The expected value and standard error
 
 - The same approach we use for the sum of draws will be useful for describing the distribution of averages and proportion, which we will need to understand how polls work.
 
 - The first important concept to learn is the *expected value*.
 
 
+## The expected value and SE
 
-## The expected value and standard error
-
-- In statistics books, it is common to represent it with the letter $\mbox{E}$ like this:
+- In statistics books, it is common to represent the expected value of the random variable $X$ with the letter $\mbox{E}$ like this:
 
 $$\mbox{E}[X]$$ 
 
-- to denote the expected value of the random variable $X$.
 
-## The expected value and standard error
+## The expected value and SE
 
 - A random variable will vary around its expected value in a manner that if you take the average of many, many draws, the average will approximate the expected value.
 
@@ -397,7 +367,7 @@ $$\mbox{E}[X]$$
 
 
 
-## The expected value and standard error
+## The expected value and SE
 
 - For discrete random variable with possible outcomes $x_1,\dots,x_n$, the expected value is defined as:
 
@@ -405,7 +375,18 @@ $$\mbox{E}[X]$$
 $$
 \mbox{E}[X] = \sum_{i=1}^n x_i \,\mbox{Pr}(X = x_i) 
 $$
-## The expected value and standard error
+
+## The expected value and SE
+
+- Note that in the case that we are picking values from an urn, and each value $x_i$ has an equal chance $1/n$ of being selected, the above equation is simply the average of the $x_i$s.
+
+
+$$
+\mbox{E}[X] = \frac{1}{n}\sum_{i=1}^n x_i  
+$$
+
+
+## The expected value and SE
 
 - If $X$ is a continuous random variable with a range of values $a$ to $b$ and a probability density function $f(x)$, this sum transforms into an integral:
 
@@ -416,15 +397,8 @@ $$
 
 
 
-## The expected value and standard error
 
-- Note that in the case that we are picking values from an urn, and each value $x_i$ has an equal chance $1/n$ of being selected, the above equation is simply the average of the $x_i$s.
-
-
-$$
-\mbox{E}[X] = \frac{1}{n}\sum_{i=1}^n x_i  
-$$
-## The expected value and standard error
+## The expected value and SE
 
 - In the urn used to model betting on red in roulette, we have 20 one-dollar bills and 18 negative one-dollar bills, so the expected value is:
 
@@ -436,14 +410,14 @@ $$
 
 - which is about 5 cents.
 
-## The expected value and standard error
+## The expected value and SE
 
 
 - You might consider it a bit counterintuitive to say that $X$ varies around 0.05 when it only takes the values 1 and -1.
 
-- One way to make sense of the expected value in this context is by realizing that, if we play the game over and over, the casino wins, on average, 5 cents per game.
+- To make sense of the expected value in this context is by realizing that, if we play the game over and over, the casino wins, on average, 5 cents per game.
 
-## The expected value and standard error
+## The expected value and SE
 
 - A Monte Carlo simulation confirms this:
 
@@ -455,25 +429,25 @@ mean(x)
 
 
 
-## The expected value and standard error
+## The expected value and SE
 
 - In general, if the urn has two possible outcomes, say $a$ and $b$, with proportions $p$ and $1-p$ respectively, the average is:
 
 $$\mbox{E}[X] = ap + b(1-p)$$ 
 
-## The expected value and standard error
+## The expected value and SE
 
 - To confirm this, observe that if there are $n$ beads in the urn, then we have $np$ $a$s and $n(1-p)$ $b$s, and because the average is the sum, $n\times a \times p + n\times b \times (1-p)$, divided by the total $n$, we get that the average is $ap + b(1-p)$.
 
 
 
-## The expected value and standard error
+## The expected value and SE
 
-- Now, the reason we define the expected value is because this mathematical definition turns out to be useful for approximating the probability distributions of sum.
+- The reason we define the expected value is because this mathematical definition turns out to be useful for approximating the probability distributions of sum.
 
 - This, in turn, is useful for describing the distribution of averages and proportions.
 
-## The expected value and standard error
+## The expected value and SE
 
 - The first useful fact is that the *expected value of the sum of the draws* is the number of draws $\times$ the average of the numbers in the urn.
 
@@ -481,7 +455,7 @@ $$\mbox{E}[X] = ap + b(1-p)$$
 
 
 
-## The expected value and standard error
+## The expected value and SE
 
 - However, this is an expected value.
 
@@ -491,17 +465,17 @@ $$\mbox{E}[X] = ap + b(1-p)$$
 
 - Statistical theory once again answers this question.
 
-## The expected value and standard error
+## The expected value and SE
 
 - The *standard error* (SE) gives us an idea of the size of the variation around the expected value.
 
 - In statistics books, it's common to use:
 
-$$\mbox{SE}[X]$$ 
+$$\mbox{SE}[X] = \sqrt{\mbox{Var}[X]}$$ 
 
 
 
-## The expected value and standard error
+## The expected value and SE
 
 - to denote the standard error of a random variable.
 
@@ -514,17 +488,7 @@ $$
 
 - which you can think of as the expected _average_ distance of $X$ from the expected value.
 
-
-
-## The expected value and standard error
-
-- If $X$ is a continuous random variable, with range of values $a$ to $b$ and probability density function $f(x)$, this sum turns into an integral:
-
-
-$$
-\mbox{SE}[X] = \sqrt{\int_a^b \left(x-\mbox{E}[X]\right)^2 f(x)\,\mathrm{d}x} 
-$$
-## The expected value and standard error
+## The expected value and SE
 
 - Note that in the case that we are picking values from an un urn where each value $x_i$ has an equal chance $1/n$ of being selected, the above equation is simply the standard deviation of of the $x_i$s.
 
@@ -535,42 +499,55 @@ $$
 
 
 
-## The expected value and standard error
+## The expected value and SE
+
+- If $X$ is a continuous random variable, with range of values $a$ to $b$ and probability density function $f(x)$, this sum turns into an integral:
+
+
+$$
+\mbox{SE}[X] = \sqrt{\int_a^b \left(x-\mbox{E}[X]\right)^2 f(x)\,\mathrm{d}x} 
+$$
+
+## The expected value and SE
 
 - Using the definition of standard deviation, we can derive, with a bit of math, that if an urn contains two values $a$ and $b$ with proportions $p$ and $(1-p)$, respectively, the standard deviation is:
 
-$$\mid b - a \mid \sqrt{p(1-p)}.$$ 
+$$| b - a |\sqrt{p(1-p)}.$$ 
 
-## The expected value and standard error
+## The expected value and SE
 
-- So in our roulette example, the standard deviation of the values inside the urn is $\mid 1 - (-1) \mid \sqrt{10/19 \times 9/19}$ or:
+- So in our roulette example, the standard deviation of the values inside the urn is:
+
+$$
+| 1 - (-1) | \sqrt{10/19 \times 9/19}
+$$
+
+or:
 
 ```{r} 
 2*sqrt(90)/19 
 ``` 
 
-- The standard error tells us the typical difference between a random variable and its expectation.
 
 
+## The expected value and SE
 
-## The expected value and standard error
-
-- Since one draw is obviously the sum of just one draw, we can use the formula above to calculate that the random variable defined by one draw has an expected value of 0.05 and a standard error of about 1.
+- Since one draw is obviously the sum of just one draw, we can use the formula above to calculate that the random variable defined by one draw has an expected value of 0.05 and a SE of about 1.
 
 - This makes sense since we obtain either 1 or -1, with 1 slightly favored over -1.
 
-## The expected value and standard error
+## The expected value and SE
 
 - A widely used mathematical result is that **if our draws are independent**, then the *standard error of the sum* is given by the equation:
 
 
 $$
-\sqrt{\mbox{number of draws}} \times \mbox{ standard deviation of the numbers in the urn} 
+\sqrt{\mbox{number of draws}} \times \mbox{ SD of the numbers in the urn} 
 $$
 
 
 
-## The expected value and standard error
+## The expected value and SE
 
 - Using this formula, the sum of 1,000 people playing has standard error of about \$32:
 
@@ -579,7 +556,7 @@ n <- 1000
 sqrt(n)*2*sqrt(90)/19 
 ``` 
 
-## The expected value and standard error
+## The expected value and SE
 
 - As a result, when 1,000 people bet on red, the casino is expected to win \$50 with a standard error of \$32.
 
@@ -591,7 +568,7 @@ sqrt(n)*2*sqrt(90)/19
 
 ---
 
-:::{.callout-note}.
+:::{.callout-note}
 
 - The exact probability for the casino winnings can be computed precisely, rather than approximately, using the binomial distribution.
 
@@ -641,10 +618,6 @@ s <- replicate(B, roulette_winnings(n))
 
 - Using the formulas above, we know that the expected value and standard error are:
 
-
-
-## Central Limit Theorem
-
 ```{r} 
 n * (20 - 18)/38  
 sqrt(n)*2*sqrt(90)/19  
@@ -678,7 +651,7 @@ mean(s < 0)
 
 
 
-## How large is large in the Central Limit Theorem?
+## How large is large in the CLT?
 
 - The CLT works when the number of draws is large, but "large" is a relative term.
 
@@ -688,12 +661,12 @@ mean(s < 0)
 
 - However, these should not be considered general rules.
 
-- Note, for example, that when the probability of success is very small, much larger sample sizes are needed.
+- Note that when the probability of success is very small, much larger sample sizes are needed.
 
 
 
 
-## How large is large in the Central Limit Theorem?
+## How large is large in the CLT?
 
 - By way of illustration, let's consider the lottery.
 
@@ -707,7 +680,7 @@ mean(s < 0)
 
 
 
-## How large is large in the Central Limit Theorem?
+## How large is large in the CLT?
 
 - This is generally true when the probability of a success is very low.
 
@@ -721,7 +694,7 @@ mean(s < 0)
 
 
 
-## How large is large in the Central Limit Theorem?
+## How large is large in the CLT?
 
 - You can learn about the Poisson distribution in any probability textbook and even [Wikipedia](https://en.wikipedia.org/w/index.php?title=Poisson_distribution.
 )
@@ -747,7 +720,7 @@ $$
 
 
 
-## Property 2
+## Property 1
 
 - If $X$ represents independent draws from the urn, then they all have the same expected value.
 
@@ -762,7 +735,7 @@ $$
 
 
 
-## Property 3
+## Property 2
 
 - The expected value of a non-random constant times a random variable is the non-random constant times the expected value of a random variable.
 
@@ -773,14 +746,14 @@ $$
 \mbox{E}[aX] =  a\times\mbox{E}[X] 
 $$
 
-## Property 3
+## Property 2
 
 - To understand why this is intuitive, consider changing units.
 
 
 - If we change the units of a random variable, such as from dollars to cents, the expectation should change in the same way.
 
-## Property 4
+## Property 2
 
 - A consequence of the above two facts is that the expected value of the average of independent draws from the same urn is the expected value of the urn, denoted as $\mu$ again:
 
@@ -792,7 +765,7 @@ $$
 
 
 
-## Property 5
+## Property 3
 
 
 - The square of the standard error of the sum of **independent** random variables is the sum of the square of the standard error of each random variable.
@@ -804,14 +777,14 @@ $$
 \mbox{SE}[X_1+X_2+\dots+X_n] = \sqrt{\mbox{SE}[X_1]^2 + \mbox{SE}[X_2]^2+\dots+\mbox{SE}[X_n]^2  } 
 $$
 
-## Property 5
+## Property 3
 
 - The square of the standard error is referred to as the *variance* in statistical textbooks.
 
 - Note that this particular property is not as intuitive as the previous three and more in depth explanations can be found in statistics textbooks.
 
 
-## Property 6
+## Property 4
 
 - The standard error of a non-random constant times a random variable is the non-random constant times the random variable's standard error.
 
@@ -822,17 +795,14 @@ $$
 \mbox{SE}[aX] =  a \times \mbox{SE}[X] 
 $$
 
-
-
-## Property 6
-
 - To see why this is intuitive, again think of units.
+
+
+
+## Property 4
 
 - A consequence of 3 and 4 is that the standard error of the average of independent draws from the same urn is the standard deviation of the urn divided by the square root of $n$ (the number of draws), call it $\sigma$:
 
-
-
-## Property 7
 
 $$
 \begin{aligned} 
@@ -845,7 +815,7 @@ $$
 $$
 
 
-## Property 8
+## Property 5
 
 - If $X$ is a normally distributed random variable, then if $a$ and $b$ are non-random constants, $aX + b$ is also a normally distributed random variable.
 
@@ -862,12 +832,7 @@ $$
 
 ## The assumption of independence is important
 
-- Let's make the explanation more concise and clear:
-
 - The given equation reveals crucial insights for practical scenarios.
-
-
-## The assumption of independence is important
 
 - Specifically, it suggests that the standard error can be minimized by increasing the sample size, $n$, and we can quantify this reduction.
 
@@ -897,7 +862,7 @@ $$
 
 ## Law of large numbers
 
-- An important implication of result 5 above is that the standard error of the average becomes smaller and smaller as $n$ grows larger.
+- An important implication of result 4 above is that the standard error of the average becomes smaller and smaller as $n$ grows larger.
 
 - When $n$ is very large, then the standard error is practically 0 and the average of the draws converges to the average of the urn.
 
@@ -911,6 +876,8 @@ $$
 
 - For example, if you toss a coin 5 times and see a head each time, you might hear someone argue that the next toss is probably a tail because of the law of averages: on average we should see 50% heads and 50% tails.
 
+## Misinterpretation of the law of averages
+
 - A similar argument would be to say that red "is due" on the roulette wheel after seeing black come up five times in a row.
 
 - Yet these events are independent so the chance of a coin landing heads is 50%, regardless of the previous 5.
@@ -922,6 +889,8 @@ $$
 - The same principle applies to the roulette outcome.
 
 - The law of averages applies only when the number of draws is very large and not in small samples.
+
+## Misinterpretation of the law of averages
 
 - After a million tosses, you will definitely see about 50% heads regardless of the outcome of the first five tosses.
 
