@@ -3287,7 +3287,7 @@
     "href": "index.html#lectures",
     "title": "BST 260 Introduction to Data Science",
     "section": "Lectures",
-    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09, Sep 11\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git\n\n\nSep 16, Sep 19\nR\nR basics, Vectorization\nR Basics, Vectorization\n\n\nSep 23\nR\nTidyverse, ggplot2\ndplyr, ggplot2\n\n\nSep 25\nR\nTyding data\nReshaping Data\n\n\nSep 30, Oct 02\nWrangling\nIntro, Data Importing, Dates and Times, Locales, Data APIs, Web scraping, Joining tables\nImporting data, dates and times, Locales, Joining Tables, Extracting data from the web\n\n\nOct 07, Oct 09\nData visualization\nData Viz Principles, Distributions, Dataviz in practice\nDistributions, Dataviz Principles\n\n\nOct 16\nMidterm 1\n\nCovers material from Sep 04-Oct 11\n\n\nOct 21\nProbability\nIntro, Foundations for Inference\nMonte Carlo, Random Variables & CLT\n\n\nOct 23\nInference\n\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\n\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\n\nRegression, Multivariate Regression\n\n\nNov 13\nLinear models\n\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 18, Nov 20\nHigh dimensional data\n\nMatrices in R, Applied Linear Algebra, Dimension Reduction\n\n\nNov 25\nMidterm 2\n\nMidterm 2: cover material from Sep 04-Nov 22\n\n\nDec 02, Dec 04\nMachine Learning\n\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nDec 09, Dec 11\nMachine Learning\n\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
+    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09, Sep 11\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git\n\n\nSep 16, Sep 19\nR\nR basics, Vectorization\nR Basics, Vectorization\n\n\nSep 23\nR\nTidyverse, ggplot2\ndplyr, ggplot2\n\n\nSep 25\nR\nTyding data\nReshaping Data\n\n\nSep 30, Oct 02\nWrangling\nIntro, Data Importing, Dates and Times, Locales, Data APIs, Web scraping, Joining tables\nImporting data, dates and times, Locales, Joining Tables, Extracting data from the web\n\n\nOct 07, Oct 09\nData visualization\nData Viz Principles, Distributions, Dataviz in practice\nDistributions, Dataviz Principles\n\n\nOct 16\nMidterm 1\n\nCovers material from Sep 04-Oct 11\n\n\nOct 21\nProbability\nIntro, Foundations for Inference\nMonte Carlo, Random Variables & CLT\n\n\nOct 23\nInference\nIntro, Parameter and estimates, Confidence Intervals\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\n\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\n\nRegression, Multivariate Regression\n\n\nNov 13\nLinear models\n\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 18, Nov 20\nHigh dimensional data\n\nMatrices in R, Applied Linear Algebra, Dimension Reduction\n\n\nNov 25\nMidterm 2\n\nMidterm 2: cover material from Sep 04-Nov 22\n\n\nDec 02, Dec 04\nMachine Learning\n\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nDec 09, Dec 11\nMachine Learning\n\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
     "crumbs": [
       "Home"
     ]
@@ -5791,5 +5791,425 @@
     "title": "Foundations of Statistical Inference",
     "section": "Misinterpretation of the law of averages",
     "text": "Misinterpretation of the law of averages\n\nAfter a million tosses, you will definitely see about 50% heads regardless of the outcome of the first five tosses.\nAnother funny misuse of the law of averages is in sports when TV sportscasters predict a player is about to succeed because they have failed a few times in a row."
+  },
+  {
+    "objectID": "slides/inference/22-intro-inference.html#statistical-inference",
+    "href": "slides/inference/22-intro-inference.html#statistical-inference",
+    "title": "Introduction Statistical Inference and Models",
+    "section": "Statistical inference",
+    "text": "Statistical inference\n\nStatistical Inference is the branch of statistics dedicated to distinguishing patterns arising from signal versus those arising from chance.\nIt is a broad topic and we review the basics using polls as a motivating example.\nWe motivate the concepts with election forecasting as a case study."
+  },
+  {
+    "objectID": "slides/inference/22-intro-inference.html#statistical-inference-1",
+    "href": "slides/inference/22-intro-inference.html#statistical-inference-1",
+    "title": "Introduction Statistical Inference and Models",
+    "section": "Statistical inference",
+    "text": "Statistical inference\n\nThe day before the 2008 presidential election, Nate Silver’s FiveThirtyEight stated that “Barack Obama appears poised for a decisive electoral victory”.\nThey went further and predicted that Obama would win the election with 349 electoral votes to 189, and the popular vote by a margin of 6.1%.\nFiveThirtyEight also attached a probabilistic statement to their prediction claiming that Obama had a 91% chance of winning the election."
+  },
+  {
+    "objectID": "slides/inference/22-intro-inference.html#statistical-inference-2",
+    "href": "slides/inference/22-intro-inference.html#statistical-inference-2",
+    "title": "Introduction Statistical Inference and Models",
+    "section": "Statistical inference",
+    "text": "Statistical inference\n\nThe predictions were quite accurate since, in the final results, Obama won the electoral college 365 to 173 and the popular vote by a 7.2% difference.\nTheir performance in the 2008 election brought FiveThirtyEight to the attention of political pundits and TV personalities.\nFour years later, the week before the 2012 presidential election, FiveThirtyEight’s Nate Silver was giving Obama a 90% chance of winning despite many of the experts thinking the final results would be closer."
+  },
+  {
+    "objectID": "slides/inference/22-intro-inference.html#statistical-inference-3",
+    "href": "slides/inference/22-intro-inference.html#statistical-inference-3",
+    "title": "Introduction Statistical Inference and Models",
+    "section": "Statistical inference",
+    "text": "Statistical inference\n\nPolitical commentator Joe Scarborough said during his show\n\n\n\nAnybody that thinks that this race is anything but a toss-up right now is such an ideologue they’re jokes.\n\n\n\nTo which Nate Silver responded via Twitter:\n\n\n\nIf you think it’s a toss-up, let’s bet. If Obama wins, you donate $1,000 to the American Red Cross. If Romney wins, I do. Deal?"
+  },
+  {
+    "objectID": "slides/inference/22-intro-inference.html#statistical-inference-4",
+    "href": "slides/inference/22-intro-inference.html#statistical-inference-4",
+    "title": "Introduction Statistical Inference and Models",
+    "section": "Statistical inference",
+    "text": "Statistical inference\n\nIn 2016, Silver was not as certain and gave Hillary Clinton only a 71% of winning.\nIn contrast, many other forecasters were almost certain she would win.\nShe lost."
+  },
+  {
+    "objectID": "slides/inference/22-intro-inference.html#statistical-inference-5",
+    "href": "slides/inference/22-intro-inference.html#statistical-inference-5",
+    "title": "Introduction Statistical Inference and Models",
+    "section": "Statistical inference",
+    "text": "Statistical inference\n\nBut 71% is still more than 50%, so was Mr. Silver wrong? And what does probability mean in this context anyway? Are dice being tossed or cards being dealt somewhere?\nWe will demonstrate how the probability concepts covered in the previous part can be applied to develop statistical approaches that render polls effective tools.\nAlthough in the United States the popular vote does not determine the result of the presidential election, we will use it as an illustrative and straightforward example to introduce the main concepts of statistical inference."
+  },
+  {
+    "objectID": "slides/inference/22-intro-inference.html#statistical-inference-6",
+    "href": "slides/inference/22-intro-inference.html#statistical-inference-6",
+    "title": "Introduction Statistical Inference and Models",
+    "section": "Statistical inference",
+    "text": "Statistical inference\n\nForecasting an election is a more complex process that involves combining results from 50 states and DC.\nWe will learn the statistical concepts necessary to define estimates and margins of errors for the popular vote, and show how these are used to construct confidence intervals.\nOnce we grasp these ideas, we will be able to understand statistical power and p-values, concepts that are ubiquitous in, for example, the academic literature."
+  },
+  {
+    "objectID": "slides/inference/22-intro-inference.html#statistical-inference-7",
+    "href": "slides/inference/22-intro-inference.html#statistical-inference-7",
+    "title": "Introduction Statistical Inference and Models",
+    "section": "Statistical inference",
+    "text": "Statistical inference\n\nWe will then aggregate data from different pollsters to highlight the shortcomings of the models used by traditional pollsters and present a method for improving these models.\nTo understand probabilistic statements about the chances of a candidate winning, we will introduce Bayesian modeling.\nFinally, we put it all together using hierarchical models to recreate the simplified version of the FiveThirtyEight model and apply it to the 2016 election."
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#the-sampling-model-for-polls",
+    "href": "slides/inference/23-parameters-estimates.html#the-sampling-model-for-polls",
+    "title": "Parameters and Estimates",
+    "section": "The sampling model for polls",
+    "text": "The sampling model for polls\nThe week before the election Real Clear Politics showed this table:\n\n\n\n\n\nPoll\nDate\nSample\nMoE\nClinton\nTrump\nSpread\n\n\n\n\nRCP Average\n10/31 - 11/7\n--\n--\n47.2\n44.3\nClinton +2.9\n\n\nBloomberg\n11/4 - 11/6\n799 LV\n3.5\n46.0\n43.0\nClinton +3\n\n\nEconomist\n11/4 - 11/7\n3669 LV\n--\n49.0\n45.0\nClinton +4\n\n\nIBD\n11/3 - 11/6\n1026 LV\n3.1\n43.0\n42.0\nClinton +1\n\n\nABC\n11/3 - 11/6\n2220 LV\n2.5\n49.0\n46.0\nClinton +3\n\n\nFOX News\n11/3 - 11/6\n1295 LV\n2.5\n48.0\n44.0\nClinton +4\n\n\nMonmouth\n11/3 - 11/6\n748 LV\n3.6\n50.0\n44.0\nClinton +6\n\n\nCBS News\n11/2 - 11/6\n1426 LV\n3.0\n47.0\n43.0\nClinton +4\n\n\nLA Times\n10/31 - 11/6\n2935 LV\n4.5\n43.0\n48.0\nTrump +5\n\n\nNBC News\n11/3 - 11/5\n1282 LV\n2.7\n48.0\n43.0\nClinton +5\n\n\nNBC News\n10/31 - 11/6\n30145 LV\n1.0\n51.0\n44.0\nClinton +7\n\n\nMcClatchy\n11/1 - 11/3\n940 LV\n3.2\n46.0\n44.0\nClinton +2\n\n\nReuters\n10/31 - 11/4\n2244 LV\n2.2\n44.0\n40.0\nClinton +4\n\n\nGravisGravis\n10/31 - 10/31\n5360 RV\n1.3\n50.0\n50.0\nTie"
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#the-sampling-model-for-polls-1",
+    "href": "slides/inference/23-parameters-estimates.html#the-sampling-model-for-polls-1",
+    "title": "Parameters and Estimates",
+    "section": "The sampling model for polls",
+    "text": "The sampling model for polls\n\nTo help us understand the connection between polls and what we have learned, let’s construct a situation similar to what pollsters face.\nTo simulate the challenge pollsters encounter in terms of competing with other pollsters for media attention, we will use an urn filled with beads to represent voters, and pretend we are competing for a $25 dollar prize.\nThe challenge is to guess the spread between the proportion of blue and red beads in this urn (in this case, a pickle jar):"
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#the-sampling-model-for-polls-2",
+    "href": "slides/inference/23-parameters-estimates.html#the-sampling-model-for-polls-2",
+    "title": "Parameters and Estimates",
+    "section": "The sampling model for polls",
+    "text": "The sampling model for polls\n\nBefore making a prediction, you can take a sample (with replacement) from the urn.\nTo reflect the fact that running polls is expensive, it costs you $0.10 for each bead you sample.\nTherefore, if your sample size is 250, and you win, you will break even since you would have paid $25 to collect your $25 prize.\nYour entry into the competition can be an interval."
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#the-sampling-model-for-polls-3",
+    "href": "slides/inference/23-parameters-estimates.html#the-sampling-model-for-polls-3",
+    "title": "Parameters and Estimates",
+    "section": "The sampling model for polls",
+    "text": "The sampling model for polls\n\nIf the interval you submit contains the true proportion, you receive half what you paid and proceed to the second phase of the competition.\nIn the second phase, the entry with the smallest interval is selected as the winner.\nThe dslabs package includes a function that shows a random draw from this urn:\n\n\nset.seed(1)\nlibrary(tidyverse) \nlibrary(dslabs) \ntake_poll(25)"
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#populations-samples-parameters-and-estimates",
+    "href": "slides/inference/23-parameters-estimates.html#populations-samples-parameters-and-estimates",
+    "title": "Parameters and Estimates",
+    "section": "Populations, samples, parameters, and estimates",
+    "text": "Populations, samples, parameters, and estimates\n\nWe want to predict difference proportion of blue beads - proportion of red beads\nLet’s the proportion of blue \\(p\\)\nWe want to estimate \\(p - (1-p)\\) = \\(2p - 1\\)."
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#populations-samples-parameters-and-estimates-1",
+    "href": "slides/inference/23-parameters-estimates.html#populations-samples-parameters-and-estimates-1",
+    "title": "Parameters and Estimates",
+    "section": "Populations, samples, parameters, and estimates",
+    "text": "Populations, samples, parameters, and estimates\n\nIn statistical class, the beads in the urn are called the population.\nThe proportion of blue beads in the population \\(p\\) is called a parameter.\nThe 25 beads we see in the previous plot are called a sample."
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#populations-samples-parameters-and-estimates-2",
+    "href": "slides/inference/23-parameters-estimates.html#populations-samples-parameters-and-estimates-2",
+    "title": "Parameters and Estimates",
+    "section": "Populations, samples, parameters, and estimates",
+    "text": "Populations, samples, parameters, and estimates\n\nThe goal of statistical inference is to predict the parameter \\(p\\) based on the observed data in the sample.\nCan we do this with the 25 observations above? It is certainly informative.\nFor example, given that we see 13 red and 12 blue beads, it is unlikely that \\(p\\) &gt; .9 or \\(p\\) &lt; .1.\nWe want to construct an estimate of \\(p\\) using only the information we observe."
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#populations-samples-parameters-and-estimates-3",
+    "href": "slides/inference/23-parameters-estimates.html#populations-samples-parameters-and-estimates-3",
+    "title": "Parameters and Estimates",
+    "section": "Populations, samples, parameters, and estimates",
+    "text": "Populations, samples, parameters, and estimates\n\nObserve that in the four random samples shown above, the sample proportions range from 0.44 to 0.60."
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#the-sample-average",
+    "href": "slides/inference/23-parameters-estimates.html#the-sample-average",
+    "title": "Parameters and Estimates",
+    "section": "The sample average",
+    "text": "The sample average\n\nWe use the symbol \\(\\bar{X}\\) to represent this average.\nIn statistics textbooks, a bar on top of a symbol typically denotes the average.\nThe theory we just covered about the sum of draws becomes useful because the average is a sum of draws multiplied by the constant \\(1/N\\):\n\n\\[\\bar{X} = \\frac{1}{N} \\sum_{i=1}^N X_i\\]"
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#the-sample-average-1",
+    "href": "slides/inference/23-parameters-estimates.html#the-sample-average-1",
+    "title": "Parameters and Estimates",
+    "section": "The sample average",
+    "text": "The sample average\n-What do we know about the distribution of the sum of draws?\n\nWe know that the expected value of the sum of draws is \\(N\\) times the average of the values in the urn.\nWe know that the average of the 0s and 1s in the urn must be \\(p\\), the proportion of blue beads.\nHere, we encounter an important difference compared to what we did in the section on probability: we don’t know the composition of the urn.\nThis is what we want to find out: we are trying to estimate \\(p\\)."
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#parameters",
+    "href": "slides/inference/23-parameters-estimates.html#parameters",
+    "title": "Parameters and Estimates",
+    "section": "Parameters",
+    "text": "Parameters\n\nJust as we use variables to define unknowns in systems of equations, in statistical inference, we define parameters to represent unknown parts of our models.\nWe define the parameters \\(p\\) to represent the the proportion of blue beads in the urn.\nSince our main goal is determining \\(p\\), we are going to estimate this parameter.\nThe concepts presented here on how we estimate parameters, and provide insights into how good these estimates are, extend to many data analysis tasks."
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#parameters-1",
+    "href": "slides/inference/23-parameters-estimates.html#parameters-1",
+    "title": "Parameters and Estimates",
+    "section": "Parameters",
+    "text": "Parameters\n\nFor example, we may want to determine\n\nthe difference in health improvement between patients receiving treatment and a control group,\ninvestigate the health effects of smoking on a population,\nanalyze the differences in racial groups of fatal shootings by police, or\nassess the rate of change in life expectancy in the US during the last 10 years.\n\nAll these questions can be framed as a task of estimating a parameter from a sample."
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#properties-of-our-estimate",
+    "href": "slides/inference/23-parameters-estimates.html#properties-of-our-estimate",
+    "title": "Parameters and Estimates",
+    "section": "Properties of our estimate",
+    "text": "Properties of our estimate\n\nThe properties we learned tell us that:\n\n\\[\n\\mbox{E}(\\bar{X}) = p\n\\]\nand\n\\[\n\\mbox{SE}(\\bar{X}) = \\sqrt{p(1-p)/N}\n\\]"
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#properties-of-our-estimate-expected-value-and-standard-error",
+    "href": "slides/inference/23-parameters-estimates.html#properties-of-our-estimate-expected-value-and-standard-error",
+    "title": "Parameters and Estimates",
+    "section": "Properties of our estimate: expected value and standard error",
+    "text": "Properties of our estimate: expected value and standard error\n\nThe law of large numbers tells us that with a large enough poll, our estimate converges to \\(p\\).\nIf we take a large enough poll to make our standard error about 1%, we will be quite certain about who will win.\nBut how large does the poll have to be for the standard error to be this small?\nOne problem is that we do not know \\(p\\), so we can’t compute the standard error."
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#properties-of-our-estimate-expected-value-and-standard-error-1",
+    "href": "slides/inference/23-parameters-estimates.html#properties-of-our-estimate-expected-value-and-standard-error-1",
+    "title": "Parameters and Estimates",
+    "section": "Properties of our estimate: expected value and standard error",
+    "text": "Properties of our estimate: expected value and standard error\n\nFor illustrative purposes, let’s assume that \\(p=0.51\\) and make a plot of the standard error versus the sample size \\(N\\):"
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#properties-of-our-estimate-1",
+    "href": "slides/inference/23-parameters-estimates.html#properties-of-our-estimate-1",
+    "title": "Parameters and Estimates",
+    "section": "Properties of our estimate",
+    "text": "Properties of our estimate\n\nThe plot shows that we would need a poll of over 10,000 people to achieve a standard error that low.\nWe rarely see polls of this size due in part to the associated costs.\nAccording to the Real Clear Politics table, sample sizes in opinion polls range from 500-3,500 people.\nFor a sample size of 1,000 and \\(p=0.51\\), the standard error is:\n\n\nsqrt(p*(1 - p))/sqrt(1000) \n\n[1] 0.01580823"
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#properties-of-our-estimate-2",
+    "href": "slides/inference/23-parameters-estimates.html#properties-of-our-estimate-2",
+    "title": "Parameters and Estimates",
+    "section": "Properties of our estimate",
+    "text": "Properties of our estimate\n\nThe CLT tells us that the distribution function for a sum of draws is approximately normal.\nUsing the properties we learned: \\(\\bar{X}\\) has an approximately normal distribution with expected value \\(p\\) and standard error \\(\\sqrt{p(1-p)/N}\\)."
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#central-limit-theorem",
+    "href": "slides/inference/23-parameters-estimates.html#central-limit-theorem",
+    "title": "Parameters and Estimates",
+    "section": "Central Limit Theorem",
+    "text": "Central Limit Theorem\n\nNow how can answer questions like what is the probability that we are within 1% from \\(p\\).\nWe are basically asking what is:\n\n\\[\n\\mbox{Pr}(| \\bar{X} - p| \\leq .01)\n\\]\nwhich is the same as:\n\\[\n\\mbox{Pr}(\\bar{X}\\leq p + .01) - \\mbox{Pr}(\\bar{X} \\leq p - .01)\n\\]"
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#central-limit-theorem-1",
+    "href": "slides/inference/23-parameters-estimates.html#central-limit-theorem-1",
+    "title": "Parameters and Estimates",
+    "section": "Central Limit Theorem",
+    "text": "Central Limit Theorem\n\nSince \\(p\\) is the expected value and \\(\\mbox{SE}(\\bar{X}) = \\sqrt{p(1-p)/N}\\) is the standard error, we get:\n\n\\[\n\\mbox{Pr}\\left(Z \\leq \\frac{ \\,.01} {\\mbox{SE}(\\bar{X})} \\right) -\n\\mbox{Pr}\\left(Z \\leq - \\frac{ \\,.01} {\\mbox{SE}(\\bar{X})} \\right)  \n\\]"
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#central-limit-theorem-2",
+    "href": "slides/inference/23-parameters-estimates.html#central-limit-theorem-2",
+    "title": "Parameters and Estimates",
+    "section": "Central Limit Theorem",
+    "text": "Central Limit Theorem\n\nOne problem we have is that since we don’t know \\(p\\), we don’t know \\(\\mbox{SE}(\\bar{X})\\).\nHowever, it turns out that the CLT still works if we estimate the standard error by using \\(\\bar{X}\\) in place of \\(p\\).\nWe say that we plug-in the estimate.\nOur estimate of the standard error is therefore:\n\n\\[\n\\hat{\\mbox{SE}}(\\bar{X})=\\sqrt{\\bar{X}(1-\\bar{X})/N}\n\\]"
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#central-limit-theorem-3",
+    "href": "slides/inference/23-parameters-estimates.html#central-limit-theorem-3",
+    "title": "Parameters and Estimates",
+    "section": "Central Limit Theorem",
+    "text": "Central Limit Theorem\n\nNow we continue with our calculation, but dividing by\n\n\\[\\hat{\\mbox{SE}}(\\bar{X})=\\sqrt{\\bar{X}(1-\\bar{X})/N})\\]"
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#central-limit-theorem-4",
+    "href": "slides/inference/23-parameters-estimates.html#central-limit-theorem-4",
+    "title": "Parameters and Estimates",
+    "section": "Central Limit Theorem",
+    "text": "Central Limit Theorem\n\nIn our first sample, we had 12 blue and 13 red, so \\(\\bar{X} = 0.48\\) and our estimate of standard error is:\n\n\nx_hat &lt;- 0.48 \nse &lt;- sqrt(x_hat*(1-x_hat)/25) \nse \n\n[1] 0.09991997"
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#central-limit-theorem-5",
+    "href": "slides/inference/23-parameters-estimates.html#central-limit-theorem-5",
+    "title": "Parameters and Estimates",
+    "section": "Central Limit Theorem",
+    "text": "Central Limit Theorem\n\nNow, we can answer the question of the probability of being close to \\(p\\).\nThe answer is:\n\n\npnorm(0.01/se) - pnorm(-0.01/se) \n\n[1] 0.07971926\n\n\n\nTherefore, there is a small chance that we will be close."
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#central-limit-theorem-6",
+    "href": "slides/inference/23-parameters-estimates.html#central-limit-theorem-6",
+    "title": "Parameters and Estimates",
+    "section": "Central Limit Theorem",
+    "text": "Central Limit Theorem\n\nEarlier, we mentioned the margin of error.\nNow, we can define it simply as two times the standard error, which we can now estimate.\n\n\n1.96*se \n\n[1] 0.1958431"
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#central-limit-theorem-7",
+    "href": "slides/inference/23-parameters-estimates.html#central-limit-theorem-7",
+    "title": "Parameters and Estimates",
+    "section": "Central Limit Theorem",
+    "text": "Central Limit Theorem\n\nWhy do we multiply by 1.96?\nBecause if you ask what is the probability that we are within 1.96 standard errors from \\(p\\), we get:\n\n\\[\n\\mbox{Pr}\\left(Z \\leq \\, 1.96\\,\\mbox{SE}(\\bar{X})  / \\mbox{SE}(\\bar{X}) \\right) -\n\\mbox{Pr}\\left(Z \\leq - 1.96\\, \\mbox{SE}(\\bar{X}) / \\mbox{SE}(\\bar{X}) \\right)  \n\\]\nwhich is:\n\\[\n\\mbox{Pr}\\left(Z \\leq 1.96 \\right) -\n\\mbox{Pr}\\left(Z \\leq - 1.96\\right)  = 0.95\n\\] ## Central Limit Theorem\nToo see this:\n\npnorm(1.96) - pnorm(-1.96) \n\n[1] 0.9500042"
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#central-limit-theorem-8",
+    "href": "slides/inference/23-parameters-estimates.html#central-limit-theorem-8",
+    "title": "Parameters and Estimates",
+    "section": "Central Limit Theorem",
+    "text": "Central Limit Theorem\n\nThere is a 95% probability that \\(\\bar{X}\\) will be within \\(1.96\\times \\hat{SE}(\\bar{X})\\), in our case within about 0.2, of \\(p\\).\nObserve that 95% is somewhat of an arbitrary choice and sometimes other percentages are used, but it is the most commonly used value to define margin of error."
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#a-monte-carlo-simulation",
+    "href": "slides/inference/23-parameters-estimates.html#a-monte-carlo-simulation",
+    "title": "Parameters and Estimates",
+    "section": "A Monte Carlo simulation",
+    "text": "A Monte Carlo simulation\n\nB &lt;- 10000 \nN &lt;- 1000 \nx_hat &lt;- replicate(B, { \n  x &lt;- sample(c(0,1), size = N, replace = TRUE, prob = c(1 - p, p)) \n  mean(x) \n}) \n\n\nThe problem is, of course, that we don’t know p."
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#a-monte-carlo-simulation-1",
+    "href": "slides/inference/23-parameters-estimates.html#a-monte-carlo-simulation-1",
+    "title": "Parameters and Estimates",
+    "section": "A Monte Carlo simulation",
+    "text": "A Monte Carlo simulation\n\nLet’s set p=0.45.\nWe can then simulate a poll:\n\n\np &lt;- 0.45 \nN &lt;- 1000 \nx &lt;- sample(c(0, 1), size = N, replace = TRUE, prob = c(1 - p, p)) \nx_hat &lt;- mean(x) \n\n\nIn this particular sample, our estimate is x_hat.\nWe can use that code to do a Monte Carlo simulation:"
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#a-monte-carlo-simulation-2",
+    "href": "slides/inference/23-parameters-estimates.html#a-monte-carlo-simulation-2",
+    "title": "Parameters and Estimates",
+    "section": "A Monte Carlo simulation",
+    "text": "A Monte Carlo simulation\n\nB &lt;- 10000 \nx_hat &lt;- replicate(B, { \n  x &lt;- sample(c(0, 1), size = N, replace = TRUE, prob = c(1 - p, p)) \n  mean(x) \n})"
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#a-monte-carlo-simulation-3",
+    "href": "slides/inference/23-parameters-estimates.html#a-monte-carlo-simulation-3",
+    "title": "Parameters and Estimates",
+    "section": "A Monte Carlo simulation",
+    "text": "A Monte Carlo simulation\n\nTo review, the theory tells us that \\(\\bar{X}\\) is approximately normally distributed, has expected value \\(p=\\) 0.45, and standard error \\(\\sqrt{p(1-p)/N}\\) = 0.0157321.\nThe simulation confirms this:\n\n\nmean(x_hat) \n\n[1] 0.4499453\n\nsd(x_hat) \n\n[1] 0.01551047"
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#a-monte-carlo-simulation-4",
+    "href": "slides/inference/23-parameters-estimates.html#a-monte-carlo-simulation-4",
+    "title": "Parameters and Estimates",
+    "section": "A Monte Carlo simulation",
+    "text": "A Monte Carlo simulation\n\nA histogram and qqplot confirm that the normal approximation is also accurate:"
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#a-monte-carlo-simulation-5",
+    "href": "slides/inference/23-parameters-estimates.html#a-monte-carlo-simulation-5",
+    "title": "Parameters and Estimates",
+    "section": "A Monte Carlo simulation",
+    "text": "A Monte Carlo simulation\n\nOf course, in real life, we would never be able to run such an experiment because we don’t know \\(p\\).\nHowever, we can run it for various values of \\(p\\) and \\(N\\) and see that the theory does indeed work well for most values.\nYou can easily do this by rerunning the code above after changing the values of p and N."
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#the-spread",
+    "href": "slides/inference/23-parameters-estimates.html#the-spread",
+    "title": "Parameters and Estimates",
+    "section": "The spread",
+    "text": "The spread\n\nWe did all this theory for the estimate of \\(p\\). How do we estimate the spread \\(2p - 1\\)?"
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#why-not-run-a-very-large-poll",
+    "href": "slides/inference/23-parameters-estimates.html#why-not-run-a-very-large-poll",
+    "title": "Parameters and Estimates",
+    "section": "Why not run a very large poll?",
+    "text": "Why not run a very large poll?\n\nFor realistic values of \\(p\\), let’s say ranging from 0.35 to 0.65, if we conduct a very large poll with 100,000 people, theory tells us that we would predict the election perfectly, as the largest possible margin of error is around 0.3%."
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#why-not-run-a-very-large-poll-1",
+    "href": "slides/inference/23-parameters-estimates.html#why-not-run-a-very-large-poll-1",
+    "title": "Parameters and Estimates",
+    "section": "Why not run a very large poll?",
+    "text": "Why not run a very large poll?\n\nOne reason is that conducting such a poll is very expensive.\nAnother, and possibly more important reason, is that theory has its limitations.\nPolling is much more complicated than simply picking beads from an urn.\nSome people might lie to pollsters, and others might not have phones."
+  },
+  {
+    "objectID": "slides/inference/23-parameters-estimates.html#bias-why-not-run-a-very-large-poll",
+    "href": "slides/inference/23-parameters-estimates.html#bias-why-not-run-a-very-large-poll",
+    "title": "Parameters and Estimates",
+    "section": "Bias: Why not run a very large poll?",
+    "text": "Bias: Why not run a very large poll?\n\nHowever, perhaps the most important way an actual poll differs from an urn model is that we don’t actually know for sure who is in our population and who is not.\nHow do we know who is going to vote? Are we reaching all possible voters? Hence, even if our margin of error is very small, it might not be exactly right that our expected value is \\(p\\).\nWe call this bias.\nHistorically, we observe that polls are indeed biased, although not by a substantial amount.\nThe typical bias appears to be about 2-3%."
+  },
+  {
+    "objectID": "slides/inference/24-confidence-intervals.html#confidence-intervals",
+    "href": "slides/inference/24-confidence-intervals.html#confidence-intervals",
+    "title": "Confidence Intervals",
+    "section": "Confidence intervals",
+    "text": "Confidence intervals\n\nConfidence intervals are a very useful concept widely employed by data analysts.\nA version of these that are commonly seen come from the ggplot geometry geom_smooth.\nBelow is an example using a temperature dataset available in R:"
+  },
+  {
+    "objectID": "slides/inference/24-confidence-intervals.html#confidence-intervals-1",
+    "href": "slides/inference/24-confidence-intervals.html#confidence-intervals-1",
+    "title": "Confidence Intervals",
+    "section": "Confidence intervals",
+    "text": "Confidence intervals"
+  },
+  {
+    "objectID": "slides/inference/24-confidence-intervals.html#confidence-intervals-2",
+    "href": "slides/inference/24-confidence-intervals.html#confidence-intervals-2",
+    "title": "Confidence Intervals",
+    "section": "Confidence intervals",
+    "text": "Confidence intervals\n\nIn our competition, you were asked to give an interval.\nIf the interval you submitted includes the \\(p\\), you receive half the money you spent on your “poll” back and proceed to the next stage of the competition."
+  },
+  {
+    "objectID": "slides/inference/24-confidence-intervals.html#confidence-intervals-3",
+    "href": "slides/inference/24-confidence-intervals.html#confidence-intervals-3",
+    "title": "Confidence Intervals",
+    "section": "Confidence intervals",
+    "text": "Confidence intervals\n\nOne way to pass to the second round is to report a very large interval.\nFor example, the interval \\([0,1]\\) is guaranteed to include \\(p\\).\nHowever, with an interval this big, we have no chance of winning the competition."
+  },
+  {
+    "objectID": "slides/inference/24-confidence-intervals.html#confidence-intervals-4",
+    "href": "slides/inference/24-confidence-intervals.html#confidence-intervals-4",
+    "title": "Confidence Intervals",
+    "section": "Confidence intervals",
+    "text": "Confidence intervals\n\nSimilarly, if you are an election forecaster and predict the spread will be between -100% and 100%, you will be ridiculed for stating the obvious.\nEven a smaller interval, such as saying the spread will be between -10 and 10%, will not be considered serious."
+  },
+  {
+    "objectID": "slides/inference/24-confidence-intervals.html#confidence-intervals-5",
+    "href": "slides/inference/24-confidence-intervals.html#confidence-intervals-5",
+    "title": "Confidence Intervals",
+    "section": "Confidence intervals",
+    "text": "Confidence intervals\n\nOn the other hand, the smaller the interval we report, the smaller our chances are of winning the prize.\nLikewise, a bold pollster that reports very small intervals and misses the mark most of the time will not be considered a good pollster.\nWe might want to be somewhere in between.\nWe can use the statistical theory we have learned to compute the probability of any given interval including \\(p\\)."
+  },
+  {
+    "objectID": "slides/inference/24-confidence-intervals.html#confidence-intervals-6",
+    "href": "slides/inference/24-confidence-intervals.html#confidence-intervals-6",
+    "title": "Confidence Intervals",
+    "section": "Confidence intervals",
+    "text": "Confidence intervals"
+  },
+  {
+    "objectID": "slides/inference/24-confidence-intervals.html#confidence-intervals-7",
+    "href": "slides/inference/24-confidence-intervals.html#confidence-intervals-7",
+    "title": "Confidence Intervals",
+    "section": "Confidence intervals",
+    "text": "Confidence intervals\n\nTo illustrate this we run the Monte Carlo simulation.\nWe use the same parameters as above:\n\n\np &lt;- 0.45 \nN &lt;- 1000"
+  },
+  {
+    "objectID": "slides/inference/24-confidence-intervals.html#confidence-intervals-8",
+    "href": "slides/inference/24-confidence-intervals.html#confidence-intervals-8",
+    "title": "Confidence Intervals",
+    "section": "Confidence intervals",
+    "text": "Confidence intervals\n\nAnd notice that the interval here:\n\n\nx &lt;- sample(c(0, 1), size = N, replace = TRUE, prob = c(1 - p, p)) \nx_hat &lt;- mean(x) \nse_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \nc(x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n\n[1] 0.4122117 0.4737883\n\n\n\nis different from this one:\n\n\nx &lt;- sample(c(0,1), size = N, replace = TRUE, prob = c(1 - p, p)) \nx_hat &lt;- mean(x) \nse_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \nc(x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n\n[1] 0.4211528 0.4828472\n\n\n\nKeep sampling and creating intervals, and you will see the random variation."
+  },
+  {
+    "objectID": "slides/inference/24-confidence-intervals.html#confidence-intervals-9",
+    "href": "slides/inference/24-confidence-intervals.html#confidence-intervals-9",
+    "title": "Confidence Intervals",
+    "section": "Confidence intervals",
+    "text": "Confidence intervals\n\nTo determine the probability that the interval includes \\(p\\), we need to compute the following:\n\n\\[\n\\mbox{Pr}\\left(\\bar{X} - 1.96\\hat{\\mbox{SE}}(\\bar{X}) \\leq p \\leq \\bar{X} + 1.96\\hat{\\mbox{SE}}(\\bar{X})\\right)\n\\]"
+  },
+  {
+    "objectID": "slides/inference/24-confidence-intervals.html#confidence-intervals-10",
+    "href": "slides/inference/24-confidence-intervals.html#confidence-intervals-10",
+    "title": "Confidence Intervals",
+    "section": "Confidence intervals",
+    "text": "Confidence intervals\n\nBy subtracting and dividing the same quantities in all parts of the equation, we find that the above is equivalent to:\n\n\\[\n\\mbox{Pr}\\left(-1.96 \\leq \\frac{\\bar{X}- p}{\\hat{\\mbox{SE}}(\\bar{X})} \\leq  1.96\\right)\n\\]"
+  },
+  {
+    "objectID": "slides/inference/24-confidence-intervals.html#confidence-intervals-11",
+    "href": "slides/inference/24-confidence-intervals.html#confidence-intervals-11",
+    "title": "Confidence Intervals",
+    "section": "Confidence intervals",
+    "text": "Confidence intervals\n\nThe term in the middle is an approximately normal random variable with expected value 0 and standard error 1, which we have been denoting with \\(Z\\), so we have:\n\n\\[\n\\mbox{Pr}\\left(-1.96 \\leq Z \\leq  1.96\\right)\n\\]\n\nwhich we can quickly compute using :\n\n\npnorm(1.96) - pnorm(-1.96) \n\n[1] 0.9500042\n\n\n\nproving that we have a 95% probability."
+  },
+  {
+    "objectID": "slides/inference/24-confidence-intervals.html#confidence-intervals-12",
+    "href": "slides/inference/24-confidence-intervals.html#confidence-intervals-12",
+    "title": "Confidence Intervals",
+    "section": "Confidence intervals",
+    "text": "Confidence intervals\n\nIf we want to have a larger probability, say 99%, we need to multiply by whatever z satisfies the following:\n\n\\[\n\\mbox{Pr}\\left(-z \\leq Z \\leq  z\\right) = 0.99\n\\]\n\nUsing:\n\n\nz &lt;- qnorm(0.995) \nz \n\n[1] 2.575829\n\n\n\nbecause we have that:\n\n\npnorm(z) - pnorm(-z) \n\n[1] 0.99"
+  },
+  {
+    "objectID": "slides/inference/24-confidence-intervals.html#confidence-intervals-13",
+    "href": "slides/inference/24-confidence-intervals.html#confidence-intervals-13",
+    "title": "Confidence Intervals",
+    "section": "Confidence intervals",
+    "text": "Confidence intervals\n\nIn statistics textbooks, confidence interval formulas are given for arbitraty probabilities written as \\(1-\\alpha\\).\nWe can obtain the \\(z\\) for the equation above using z = qnorm(1 - alpha / 2) because \\(1 - \\alpha/2 - \\alpha/2 = 1 - \\alpha\\).\nSo, for example, for \\(\\alpha=0.05\\), \\(1 - \\alpha/2 = 0.975\\) and we get the \\(z=1.96\\) we used above:\n\n\nqnorm(0.975) \n\n[1] 1.959964"
+  },
+  {
+    "objectID": "slides/inference/24-confidence-intervals.html#a-monte-carlo-simulation",
+    "href": "slides/inference/24-confidence-intervals.html#a-monte-carlo-simulation",
+    "title": "Confidence Intervals",
+    "section": "A Monte Carlo simulation",
+    "text": "A Monte Carlo simulation\n\nWe can run a Monte Carlo simulation to confirm that, in fact, a 95% confidence interval includes \\(p\\) 95% of the time.\n\n\nN &lt;- 1000 \nB &lt;- 10000 \ninside &lt;- replicate(B, { \n  x &lt;- sample(c(0,1), size = N, replace = TRUE, prob = c(1 - p, p)) \n  x_hat &lt;- mean(x) \n  se_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \n  between(p, x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n}) \nmean(inside) \n\n[1] 0.948"
+  },
+  {
+    "objectID": "slides/inference/24-confidence-intervals.html#a-monte-carlo-simulation-1",
+    "href": "slides/inference/24-confidence-intervals.html#a-monte-carlo-simulation-1",
+    "title": "Confidence Intervals",
+    "section": "A Monte Carlo simulation",
+    "text": "A Monte Carlo simulation\n\nThe following plot shows the first 100 confidence intervals."
   }
 ]

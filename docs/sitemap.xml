@@ -50,7 +50,7 @@
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/index.html</loc>
-    <lastmod>2024-10-21T03:28:35.889Z</lastmod>
+    <lastmod>2024-10-23T03:21:58.253Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/psets/pset-04-wrangling.html</loc>
@@ -127,5 +127,17 @@
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/productivity/04-git.html</loc>
     <lastmod>2024-09-09T15:56:17.788Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/inference/22-intro-inference.html</loc>
+    <lastmod>2024-10-23T03:16:44.684Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/inference/23-parameters-estimates.html</loc>
+    <lastmod>2024-10-23T03:18:45.247Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/inference/24-confidence-intervals.html</loc>
+    <lastmod>2024-10-23T03:16:31.096Z</lastmod>
   </url>
 </urlset>

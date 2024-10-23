@@ -1,0 +1,229 @@
+---
+title: "Confidence Intervals"
+keywords: "Inference"
+date: 2024-08-23
+format:
+  revealjs:
+    theme: night
+execute: 
+  echo: true
+---
+## Confidence intervals
+
+- Confidence intervals are a very useful concept widely employed by data analysts.
+
+- A version of these that are commonly seen come from the `ggplot` geometry `geom_smooth`.
+
+- Below is an example using a temperature dataset available in R:
+
+
+
+## Confidence intervals
+
+```{r first-confidence-intervals-example, warning=FALSE, message=FALSE, echo=FALSE, cache=FALSE} 
+library(tidyverse) 
+data.frame(year = as.numeric(time(nhtemp)), temperature = as.numeric(nhtemp)) |> 
+  ggplot(aes(year, temperature)) +  
+  geom_point() +  
+  geom_smooth() +  
+  ggtitle("Average Yearly Temperatures in New Haven") 
+``` 
+
+
+## Confidence intervals
+
+
+- In our competition, you were asked to give an interval.
+
+- If the interval you submitted includes the $p$, you receive half the money you spent on your "poll" back and proceed to the next stage of the competition.
+
+
+
+## Confidence intervals
+
+- One way to pass to the second round is to report a very large interval.
+
+- For example, the interval $[0,1]$ is guaranteed to include $p$.
+
+- However, with an interval this big, we have no chance of winning the competition.
+
+
+
+
+## Confidence intervals
+
+- Similarly, if you are an election forecaster and predict the spread will be between -100% and 100%, you will be ridiculed for stating the obvious.
+
+- Even a smaller interval, such as saying the spread will be between -10 and 10%, will not be considered serious.
+
+## Confidence intervals
+
+- On the other hand, the smaller the interval we report, the smaller our chances are of winning the prize.
+
+- Likewise, a bold pollster that reports very small intervals and misses the mark most of the time will not be considered a good pollster.
+
+- We might want to be somewhere in between.
+
+- We can use the statistical theory we have learned to compute the probability of any given interval including $p$.
+
+
+
+## Confidence intervals
+
+## Confidence intervals
+
+- To illustrate this we run the Monte Carlo simulation.
+
+- We use the same parameters as above:
+
+```{r} 
+p <- 0.45 
+N <- 1000 
+``` 
+
+
+
+
+## Confidence intervals
+
+- And notice that the interval here:
+
+```{r} 
+x <- sample(c(0, 1), size = N, replace = TRUE, prob = c(1 - p, p)) 
+x_hat <- mean(x) 
+se_hat <- sqrt(x_hat*(1 - x_hat)/N) 
+c(x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) 
+``` 
+
+- is different from this one:
+
+```{r} 
+x <- sample(c(0,1), size = N, replace = TRUE, prob = c(1 - p, p)) 
+x_hat <- mean(x) 
+se_hat <- sqrt(x_hat*(1 - x_hat)/N) 
+c(x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) 
+``` 
+
+- Keep sampling and creating intervals, and you will see the random variation.
+
+
+
+## Confidence intervals
+
+- To determine the probability that the interval includes $p$, we need to compute the following:
+
+
+$$
+\mbox{Pr}\left(\bar{X} - 1.96\hat{\mbox{SE}}(\bar{X}) \leq p \leq \bar{X} + 1.96\hat{\mbox{SE}}(\bar{X})\right) 
+$$
+
+## Confidence intervals
+
+- By subtracting and dividing the same quantities in all parts of the equation, we find that the above is equivalent to:
+
+
+$$
+\mbox{Pr}\left(-1.96 \leq \frac{\bar{X}- p}{\hat{\mbox{SE}}(\bar{X})} \leq  1.96\right) 
+$$
+
+
+
+## Confidence intervals
+
+- The term in the middle is an approximately normal random variable with expected value 0 and standard error 1, which we have been denoting with $Z$, so we have:
+
+
+$$
+\mbox{Pr}\left(-1.96 \leq Z \leq  1.96\right) 
+$$
+
+- which we can quickly compute using :
+
+```{r} 
+pnorm(1.96) - pnorm(-1.96) 
+``` 
+
+- proving that we have a 95% probability.
+
+
+
+## Confidence intervals
+
+- If we want to have a larger probability, say 99%, we need to multiply by whatever `z` satisfies the following:
+
+
+$$
+\mbox{Pr}\left(-z \leq Z \leq  z\right) = 0.99 
+$$
+
+- Using:
+
+```{r} 
+z <- qnorm(0.995) 
+z 
+``` 
+
+- because we have that:
+
+```{r} 
+pnorm(z) - pnorm(-z) 
+``` 
+
+
+## Confidence intervals
+
+- In statistics textbooks, confidence interval formulas are given for arbitraty  probabilities written as $1-\alpha$.
+
+- We can obtain the $z$ for the equation above using `z = qnorm(1 - alpha / 2)` because $1 - \alpha/2 - \alpha/2 = 1 - \alpha$.
+
+
+- So, for example, for $\alpha=0.05$, $1 - \alpha/2 = 0.975$ and we get the $z=1.96$ we used above:
+
+```{r} 
+qnorm(0.975) 
+``` 
+
+
+
+## A Monte Carlo simulation
+
+- We can run a Monte Carlo simulation to confirm that, in fact, a 95% confidence interval includes $p$ 95% of the time.
+
+
+```{r} 
+N <- 1000 
+B <- 10000 
+inside <- replicate(B, { 
+  x <- sample(c(0,1), size = N, replace = TRUE, prob = c(1 - p, p)) 
+  x_hat <- mean(x) 
+  se_hat <- sqrt(x_hat*(1 - x_hat)/N) 
+  between(p, x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) 
+}) 
+mean(inside) 
+``` 
+
+## A Monte Carlo simulation
+
+- The following plot shows the first 100 confidence intervals.
+
+
+```{r confidence-interval-coverage, message=FALSE, echo=FALSE, fig.height=6} 
+set.seed(1) 
+tab <- replicate(100, { 
+  x <- sample(c(0,1), size = N, replace = TRUE, prob = c(1 - p, p)) 
+  x_hat <- mean(x) 
+  se_hat <- sqrt(x_hat*(1 - x_hat)/N) 
+  hit <- between(p, x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) 
+  c(x_hat, x_hat - 1.96*se_hat, x_hat + 1.96*se_hat, hit) 
+}) 
+tab <- data.frame(poll = 1:ncol(tab), t(tab)) 
+names(tab) <- c("poll", "estimate", "low", "high", "hit") 
+tab <- mutate(tab, p_inside = ifelse(hit, "Yes", "No")) 
+ggplot(tab, aes(poll, estimate, ymin = low, ymax = high, col = p_inside)) +  
+  geom_point() + 
+  geom_errorbar() +  
+  coord_flip() +  
+  geom_hline(yintercept = p) 
+``` 
+
+
