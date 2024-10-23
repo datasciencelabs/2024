@@ -386,8 +386,6 @@
       margin-right: 0; 
     }
   </style>
-  <script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
-  <link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 </head>
 <body class="quarto-dark">
   <div class="reveal">
@@ -403,161 +401,15 @@
 </section>
 <section id="the-sampling-model-for-polls" class="slide level2">
 <h2>The sampling model for polls</h2>
-<p>The week before the election <a href="http://www.realclearpolitics.com/epolls/2016/president/us/general_election_trump_vs_clinton-5491.html">Real Clear Politics</a> showed this table:</p>
-<div class="cell">
-<div class="cell-output-display">
-<table class="table table-striped caption-top" data-quarto-postprocess="true" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Poll</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Date</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Sample</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">MoE</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Clinton</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Trump</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Spread</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">RCP Average</td>
-<td style="text-align: left;">10/31 - 11/7</td>
-<td style="text-align: left;">--</td>
-<td style="text-align: left;">--</td>
-<td style="text-align: right;">47.2</td>
-<td style="text-align: right;">44.3</td>
-<td style="text-align: left;">Clinton +2.9</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Bloomberg</td>
-<td style="text-align: left;">11/4 - 11/6</td>
-<td style="text-align: left;">799 LV</td>
-<td style="text-align: left;">3.5</td>
-<td style="text-align: right;">46.0</td>
-<td style="text-align: right;">43.0</td>
-<td style="text-align: left;">Clinton +3</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Economist</td>
-<td style="text-align: left;">11/4 - 11/7</td>
-<td style="text-align: left;">3669 LV</td>
-<td style="text-align: left;">--</td>
-<td style="text-align: right;">49.0</td>
-<td style="text-align: right;">45.0</td>
-<td style="text-align: left;">Clinton +4</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">IBD</td>
-<td style="text-align: left;">11/3 - 11/6</td>
-<td style="text-align: left;">1026 LV</td>
-<td style="text-align: left;">3.1</td>
-<td style="text-align: right;">43.0</td>
-<td style="text-align: right;">42.0</td>
-<td style="text-align: left;">Clinton +1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">ABC</td>
-<td style="text-align: left;">11/3 - 11/6</td>
-<td style="text-align: left;">2220 LV</td>
-<td style="text-align: left;">2.5</td>
-<td style="text-align: right;">49.0</td>
-<td style="text-align: right;">46.0</td>
-<td style="text-align: left;">Clinton +3</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">FOX News</td>
-<td style="text-align: left;">11/3 - 11/6</td>
-<td style="text-align: left;">1295 LV</td>
-<td style="text-align: left;">2.5</td>
-<td style="text-align: right;">48.0</td>
-<td style="text-align: right;">44.0</td>
-<td style="text-align: left;">Clinton +4</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Monmouth</td>
-<td style="text-align: left;">11/3 - 11/6</td>
-<td style="text-align: left;">748 LV</td>
-<td style="text-align: left;">3.6</td>
-<td style="text-align: right;">50.0</td>
-<td style="text-align: right;">44.0</td>
-<td style="text-align: left;">Clinton +6</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">CBS News</td>
-<td style="text-align: left;">11/2 - 11/6</td>
-<td style="text-align: left;">1426 LV</td>
-<td style="text-align: left;">3.0</td>
-<td style="text-align: right;">47.0</td>
-<td style="text-align: right;">43.0</td>
-<td style="text-align: left;">Clinton +4</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">LA Times</td>
-<td style="text-align: left;">10/31 - 11/6</td>
-<td style="text-align: left;">2935 LV</td>
-<td style="text-align: left;">4.5</td>
-<td style="text-align: right;">43.0</td>
-<td style="text-align: right;">48.0</td>
-<td style="text-align: left;">Trump +5</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">NBC News</td>
-<td style="text-align: left;">11/3 - 11/5</td>
-<td style="text-align: left;">1282 LV</td>
-<td style="text-align: left;">2.7</td>
-<td style="text-align: right;">48.0</td>
-<td style="text-align: right;">43.0</td>
-<td style="text-align: left;">Clinton +5</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">NBC News</td>
-<td style="text-align: left;">10/31 - 11/6</td>
-<td style="text-align: left;">30145 LV</td>
-<td style="text-align: left;">1.0</td>
-<td style="text-align: right;">51.0</td>
-<td style="text-align: right;">44.0</td>
-<td style="text-align: left;">Clinton +7</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">McClatchy</td>
-<td style="text-align: left;">11/1 - 11/3</td>
-<td style="text-align: left;">940 LV</td>
-<td style="text-align: left;">3.2</td>
-<td style="text-align: right;">46.0</td>
-<td style="text-align: right;">44.0</td>
-<td style="text-align: left;">Clinton +2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Reuters</td>
-<td style="text-align: left;">10/31 - 11/4</td>
-<td style="text-align: left;">2244 LV</td>
-<td style="text-align: left;">2.2</td>
-<td style="text-align: right;">44.0</td>
-<td style="text-align: right;">40.0</td>
-<td style="text-align: left;">Clinton +4</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">GravisGravis</td>
-<td style="text-align: left;">10/31 - 10/31</td>
-<td style="text-align: left;">5360 RV</td>
-<td style="text-align: left;">1.3</td>
-<td style="text-align: right;">50.0</td>
-<td style="text-align: right;">50.0</td>
-<td style="text-align: left;">Tie</td>
-</tr>
-</tbody>
-</table>
+<p>The week before the election <a href="http://www.realclearpolitics.com/epolls/2016/president/us/general_election_trump_vs_clinton-5491.html">Real Clear Politics</a> showed this:</p>
 
-
-</div>
-</div>
-</section>
+<img data-src="img/rcp-table.png" class="r-stretch"></section>
 <section id="the-sampling-model-for-polls-1" class="slide level2">
 <h2>The sampling model for polls</h2>
 <ul>
 <li><p>To help us understand the connection between polls and what we have learned, let’s construct a situation similar to what pollsters face.</p></li>
 <li><p>To simulate the challenge pollsters encounter in terms of competing with other pollsters for media attention, we will use an urn filled with beads to represent voters, and pretend we are competing for a $25 dollar prize.</p></li>
-<li><p>The challenge is to guess the spread between the proportion of blue and red beads in this urn (in this case, a pickle jar):</p></li>
+<li><p>The challenge is to guess the spread between the proportion of blue and red beads in an urn.</p></li>
 </ul>
 </section>
 <section id="the-sampling-model-for-polls-2" class="slide level2">
@@ -626,11 +478,11 @@
 </section>
 <section id="the-sample-average-1" class="slide level2">
 <h2>The sample average</h2>
-<p>-What do we know about the distribution of the sum of draws?</p>
 <ul>
+<li><p>What do we know about the distribution of the sum?</p></li>
 <li><p>We know that the expected value of the sum of draws is <span class="math inline">\(N\)</span> times the average of the values in the urn.</p></li>
 <li><p>We know that the average of the 0s and 1s in the urn must be <span class="math inline">\(p\)</span>, the proportion of blue beads.</p></li>
-<li><p>Here, we encounter an important difference compared to what we did in the section on probability: <strong>we don’t know the composition of the urn.</strong></p></li>
+<li><p>There is an important difference compared to what we did previously: <strong>we don’t know the composition of the urn.</strong></p></li>
 <li><p>This is what we want to find out: we are trying to <strong>estimate</strong> <span class="math inline">\(p\)</span>.</p></li>
 </ul>
 </section>
@@ -653,13 +505,13 @@
 <li>analyze the differences in racial groups of fatal shootings by police, or</li>
 <li>assess the rate of change in life expectancy in the US during the last 10 years.</li>
 </ul></li>
-<li>All these questions can be framed as a task of estimating a parameter from a sample.</li>
 </ul>
 </section>
-<section id="properties-of-our-estimate" class="slide level2">
-<h2>Properties of our estimate</h2>
+<section id="parameters-2" class="slide level2">
+<h2>Parameters</h2>
 <ul>
-<li>The properties we learned tell us that:</li>
+<li><p>All these questions can be framed as a task of estimating a parameter from a sample.</p></li>
+<li><p>The properties we learned tell us that:</p></li>
 </ul>
 <p><span class="math display">\[
 \mbox{E}(\bar{X}) = p
@@ -669,8 +521,8 @@
 \mbox{SE}(\bar{X}) = \sqrt{p(1-p)/N}
 \]</span></p>
 </section>
-<section id="properties-of-our-estimate-expected-value-and-standard-error" class="slide level2">
-<h2>Properties of our estimate: expected value and standard error</h2>
+<section id="properties-of-our-estimate" class="slide level2">
+<h2>Properties of our estimate</h2>
 <ul>
 <li><p>The law of large numbers tells us that with a large enough poll, our estimate converges to <span class="math inline">\(p\)</span>.</p></li>
 <li><p>If we take a large enough poll to make our standard error about 1%, we will be quite certain about who will win.</p></li>
@@ -678,14 +530,14 @@
 <li><p>One problem is that we do not know <span class="math inline">\(p\)</span>, so we can’t compute the standard error.</p></li>
 </ul>
 </section>
-<section id="properties-of-our-estimate-expected-value-and-standard-error-1" class="slide level2">
-<h2>Properties of our estimate: expected value and standard error</h2>
+<section id="properties-of-our-estimate-1" class="slide level2">
+<h2>Properties of our estimate</h2>
 <ul>
 <li>For illustrative purposes, let’s assume that <span class="math inline">\(p=0.51\)</span> and make a plot of the standard error versus the sample size <span class="math inline">\(N\)</span>:</li>
 </ul>
 
 <img data-src="23-parameters-estimates_files/figure-revealjs/standard-error-versus-sample-size-1.png" width="960" class="r-stretch"></section>
-<section id="properties-of-our-estimate-1" class="slide level2">
+<section id="properties-of-our-estimate-2" class="slide level2">
 <h2>Properties of our estimate</h2>
 <ul>
 <li><p>The plot shows that we would need a poll of over 10,000 people to achieve a standard error that low.</p></li>
@@ -700,7 +552,7 @@
 </div>
 </div>
 </section>
-<section id="properties-of-our-estimate-2" class="slide level2">
+<section id="properties-of-our-estimate-3" class="slide level2">
 <h2>Properties of our estimate</h2>
 <ul>
 <li><p>The CLT tells us that the distribution function for a sum of draws is approximately normal.</p></li>
@@ -807,7 +659,10 @@
 <p><span class="math display">\[
 \mbox{Pr}\left(Z \leq 1.96 \right) -
 \mbox{Pr}\left(Z \leq - 1.96\right)  = 0.95
-\]</span> ## Central Limit Theorem</p>
+\]</span></p>
+</section>
+<section id="central-limit-theorem-8" class="slide level2">
+<h2>Central Limit Theorem</h2>
 <p>Too see this:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">pnorm</span>(<span class="fl">1.96</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="fl">1.96</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -816,7 +671,7 @@
 </div>
 </div>
 </section>
-<section id="central-limit-theorem-8" class="slide level2">
+<section id="central-limit-theorem-9" class="slide level2">
 <h2>Central Limit Theorem</h2>
 <ul>
 <li><p>There is a 95% probability that <span class="math inline">\(\bar{X}\)</span> will be within <span class="math inline">\(1.96\times \hat{SE}(\bar{X})\)</span>, in our case within about 0.2, of <span class="math inline">\(p\)</span>.</p></li>
@@ -873,11 +728,11 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">mean</span>(x_hat) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4499453</code></pre>
+<pre><code>[1] 0.4500056</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">sd</span>(x_hat) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.01551047</code></pre>
+<pre><code>[1] 0.01578866</code></pre>
 </div>
 </div>
 </section>
@@ -923,6 +778,11 @@
 <li><p>However, perhaps the most important way an actual poll differs from an urn model is that we don’t actually know for sure who is in our population and who is not.</p></li>
 <li><p>How do we know who is going to vote? Are we reaching all possible voters? Hence, even if our margin of error is very small, it might not be exactly right that our expected value is <span class="math inline">\(p\)</span>.</p></li>
 <li><p>We call this bias.</p></li>
+</ul>
+</section>
+<section id="bias-why-not-run-a-very-large-poll-1" class="slide level2">
+<h2>Bias: Why not run a very large poll?</h2>
+<ul>
 <li><p>Historically, we observe that polls are indeed biased, although not by a substantial amount.</p></li>
 <li><p>The typical bias appears to be about 2-3%.</p></li>
 </ul>

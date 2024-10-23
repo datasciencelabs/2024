@@ -1,5 +1,5 @@
 ---
-title: "Introduction Statistical Inference and Models"
+title: "Introduction to Statistical Inference and Models"
 keywords: "Inference"
 date: 2024-08-23
 format:
@@ -47,6 +47,8 @@ execute:
 
 >> Anybody that thinks that this race is anything but a toss-up right now is such an ideologue they're jokes.
 
+## Statistical inference
+
 - To which Nate Silver responded via Twitter:
 
 >> If you think it's a toss-up, let's bet. If Obama wins, you donate \$1,000 to the American Red Cross. If Romney wins, I do. Deal?
@@ -63,12 +65,11 @@ execute:
 
 ## Statistical inference
 
-- But 71% is still more than 50%, so was Mr. Silver wrong? And what does probability mean in this context anyway? Are dice being tossed or cards being dealt somewhere?
+- But 71% is still more than 50%, so was Mr. Silver wrong? 
+
+- What does probability mean in this context anyway? 
 
 - We will demonstrate how the probability concepts covered in the previous part can be applied to develop statistical approaches that render polls effective tools.
-
-- Although in the United States the popular vote does not determine the result of the presidential election, we will use it as an illustrative and straightforward example to introduce the main concepts of statistical inference.
-
 
 
 ## Statistical inference
@@ -78,7 +79,7 @@ execute:
 
 - We will learn the statistical concepts necessary to define *estimates* and *margins of errors* for the popular vote, and show how these are used to construct *confidence intervals*.
 
-- Once we grasp these ideas, we will be able to understand *statistical power* and *p-values*, concepts that are ubiquitous in, for example, the academic literature.
+- Once we grasp these ideas, we will be able to understand *statistical power* and *p-values*, concepts that are ubiquitous in the academic literature.
 
 
 ## Statistical inference

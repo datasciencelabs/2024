@@ -444,9 +444,6 @@
 </section>
 <section id="confidence-intervals-6" class="slide level2">
 <h2>Confidence intervals</h2>
-</section>
-<section id="confidence-intervals-7" class="slide level2">
-<h2>Confidence intervals</h2>
 <ul>
 <li><p>To illustrate this we run the Monte Carlo simulation.</p></li>
 <li><p>We use the same parameters as above:</p></li>
@@ -456,7 +453,7 @@
 <span id="cb1-2"><a></a>N <span class="ot">&lt;-</span> <span class="dv">1000</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="confidence-intervals-8" class="slide level2">
+<section id="confidence-intervals-7" class="slide level2">
 <h2>Confidence intervals</h2>
 <ul>
 <li>And notice that the interval here:</li>
@@ -467,7 +464,7 @@
 <span id="cb2-3"><a></a>se_hat <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x_hat<span class="sc">*</span>(<span class="dv">1</span> <span class="sc">-</span> x_hat)<span class="sc">/</span>N) </span>
 <span id="cb2-4"><a></a><span class="fu">c</span>(x_hat <span class="sc">-</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat, x_hat <span class="sc">+</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4122117 0.4737883</code></pre>
+<pre><code>[1] 0.395351 0.456649</code></pre>
 </div>
 </div>
 <ul>
@@ -479,14 +476,14 @@
 <span id="cb4-3"><a></a>se_hat <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x_hat<span class="sc">*</span>(<span class="dv">1</span> <span class="sc">-</span> x_hat)<span class="sc">/</span>N) </span>
 <span id="cb4-4"><a></a><span class="fu">c</span>(x_hat <span class="sc">-</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat, x_hat <span class="sc">+</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4211528 0.4828472</code></pre>
+<pre><code>[1] 0.4141977 0.4758023</code></pre>
 </div>
 </div>
 <ul>
 <li>Keep sampling and creating intervals, and you will see the random variation.</li>
 </ul>
 </section>
-<section id="confidence-intervals-9" class="slide level2">
+<section id="confidence-intervals-8" class="slide level2">
 <h2>Confidence intervals</h2>
 <ul>
 <li>To determine the probability that the interval includes <span class="math inline">\(p\)</span>, we need to compute the following:</li>
@@ -495,7 +492,7 @@
 \mbox{Pr}\left(\bar{X} - 1.96\hat{\mbox{SE}}(\bar{X}) \leq p \leq \bar{X} + 1.96\hat{\mbox{SE}}(\bar{X})\right)
 \]</span></p>
 </section>
-<section id="confidence-intervals-10" class="slide level2">
+<section id="confidence-intervals-9" class="slide level2">
 <h2>Confidence intervals</h2>
 <ul>
 <li>By subtracting and dividing the same quantities in all parts of the equation, we find that the above is equivalent to:</li>
@@ -504,7 +501,7 @@
 \mbox{Pr}\left(-1.96 \leq \frac{\bar{X}- p}{\hat{\mbox{SE}}(\bar{X})} \leq  1.96\right)
 \]</span></p>
 </section>
-<section id="confidence-intervals-11" class="slide level2">
+<section id="confidence-intervals-10" class="slide level2">
 <h2>Confidence intervals</h2>
 <ul>
 <li>The term in the middle is an approximately normal random variable with expected value 0 and standard error 1, which we have been denoting with <span class="math inline">\(Z\)</span>, so we have:</li>
@@ -525,7 +522,7 @@
 <li>proving that we have a 95% probability.</li>
 </ul>
 </section>
-<section id="confidence-intervals-12" class="slide level2">
+<section id="confidence-intervals-11" class="slide level2">
 <h2>Confidence intervals</h2>
 <ul>
 <li>If we want to have a larger probability, say 99%, we need to multiply by whatever <code>z</code> satisfies the following:</li>
@@ -534,7 +531,7 @@
 \mbox{Pr}\left(-z \leq Z \leq  z\right) = 0.99
 \]</span></p>
 <ul>
-<li>Using:</li>
+<li>We use:</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>z <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fl">0.995</span>) </span>
@@ -542,18 +539,13 @@
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.575829</code></pre>
 </div>
-</div>
-<ul>
-<li>because we have that:</li>
-</ul>
-<div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">pnorm</span>(z) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span>z) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.99</code></pre>
 </div>
 </div>
 </section>
-<section id="confidence-intervals-13" class="slide level2">
+<section id="confidence-intervals-12" class="slide level2">
 <h2>Confidence intervals</h2>
 <ul>
 <li><p>In statistics textbooks, confidence interval formulas are given for arbitraty probabilities written as <span class="math inline">\(1-\alpha\)</span>.</p></li>
@@ -583,7 +575,7 @@
 <span id="cb14-8"><a></a>}) </span>
 <span id="cb14-9"><a></a><span class="fu">mean</span>(inside) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.948</code></pre>
+<pre><code>[1] 0.9483</code></pre>
 </div>
 </div>
 </section>

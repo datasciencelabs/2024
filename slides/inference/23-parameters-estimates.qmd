@@ -11,10 +11,10 @@ execute:
 
 ## The sampling model for polls
 
-The week before the election [Real Clear Politics](http://www.realclearpolitics.com/epolls/2016/president/us/general_election_trump_vs_clinton-5491.html) showed this table:
+The week before the election [Real Clear Politics](http://www.realclearpolitics.com/epolls/2016/president/us/general_election_trump_vs_clinton-5491.html) showed this:
 
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+```{r, echo=FALSE, eval = FALSE, message=FALSE, warning=FALSE} 
 #knitr::include_graphics(file.path(img_path,"rcp-polls.png")) 
 library(tidyverse) 
 url <- "https://web.archive.org/web/20161108012231/https://www.realclearpolitics.com/epolls/2016/president/us/general_election_trump_vs_clinton-5491.html" 
@@ -28,17 +28,12 @@ tab <- tab |> mutate(Poll = stringr::str_remove(Poll, "\\/.*")) |>
     Poll == "CBS NewsCBS News" ~ "CBS News", 
     TRUE ~ Poll)) 
 names(tab) <- stringr::str_remove_all(names(tab), "\\s(.*)")     
-if (knitr::is_html_output()) { 
-  knitr::kable(tab, "html") |> 
-    kableExtra::kable_styling(bootstrap_options = "striped", full_width = FALSE) 
-} else{ 
-  knitr::kable(tab, "latex", booktabs = TRUE) |> 
-    kableExtra::kable_styling(font_size = 8) 
-} 
+tab |> select(-Date) |> knitr::kable("html") |> 
+  kableExtra::kable_styling(bootstrap_options = "striped", full_width = FALSE) 
 ``` 
 
 
-
+![](img/rcp-table.png)
 
 ## The sampling model for polls
 
@@ -46,8 +41,7 @@ if (knitr::is_html_output()) {
 
 - To simulate the challenge pollsters encounter in terms of competing with other pollsters for media attention, we will use an urn filled with beads to represent voters, and pretend we are competing for a \$25 dollar prize.
 
-- The challenge is to guess the spread between the proportion of blue and red beads in this urn (in this case, a pickle jar):
-
+- The challenge is to guess the spread between the proportion of blue and red beads in an urn.
 
 
 ## The sampling model for polls
@@ -146,13 +140,13 @@ $$\bar{X} = \frac{1}{N} \sum_{i=1}^N X_i$$
 ## The sample average
 
 
--What do we know about the distribution of the sum of draws? 
+- What do we know about the distribution of the sum? 
 
 - We know that the expected value of the sum of draws is $N$ times the average of the values in the urn.
 
 - We know that the average of the 0s and 1s in the urn must be $p$, the proportion of blue beads.
 
-- Here, we encounter an important difference compared to what we did in the section on probability: **we don't know the composition of the urn.**
+- There is an important difference compared to what we did previously: **we don't know the composition of the urn.**
 
 - This is what we want to find out: we are trying to **estimate** $p$.
 
@@ -178,10 +172,9 @@ $$\bar{X} = \frac{1}{N} \sum_{i=1}^N X_i$$
     - analyze the differences in racial groups of fatal shootings by police, or 
     - assess the rate of change in life expectancy in the US during the last 10 years.
 
+## Parameters
+
 - All these questions can be framed as a task of estimating a parameter from a sample.
-
-
-## Properties of our estimate
 
 - The properties we learned tell us that:
 
@@ -198,7 +191,7 @@ $$
 
 
 
-## Properties of our estimate: expected value and standard error
+## Properties of our estimate
 
 - The law of large numbers tells us that with a large enough poll, our estimate converges to $p$.
 
@@ -210,7 +203,7 @@ $$
 
 
 
-## Properties of our estimate: expected value and standard error
+## Properties of our estimate
 
 - For illustrative purposes, let's assume that $p=0.51$ and make a plot of the standard error versus the sample size $N$:
 
@@ -234,7 +227,6 @@ data.frame(N = N, SE = sqrt(p*(1 - p)/N)) |> ggplot(aes(N, SE)) + geom_line() + 
 ```{r} 
 sqrt(p*(1 - p))/sqrt(1000) 
 ``` 
-
 
 
 ## Properties of our estimate
@@ -359,6 +351,7 @@ $$
 \mbox{Pr}\left(Z \leq 1.96 \right) - 
 \mbox{Pr}\left(Z \leq - 1.96\right)  = 0.95
 $$
+
 ## Central Limit Theorem
 
 Too see this:
@@ -492,6 +485,8 @@ grid.arrange(p1, p2, nrow = 1)
 - How do we know who is going to vote? Are we reaching all possible voters? Hence, even if our margin of error is very small, it might not be exactly right that our expected value is $p$.
 
 - We call this bias.
+
+## Bias: Why not run a very large poll?
 
 - Historically, we observe that polls are indeed biased, although not by a substantial amount.
 

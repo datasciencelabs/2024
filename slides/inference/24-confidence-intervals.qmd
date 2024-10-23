@@ -68,7 +68,6 @@ data.frame(year = as.numeric(time(nhtemp)), temperature = as.numeric(nhtemp)) |>
 
 
 
-## Confidence intervals
 
 ## Confidence intervals
 
@@ -156,16 +155,11 @@ $$
 \mbox{Pr}\left(-z \leq Z \leq  z\right) = 0.99 
 $$
 
-- Using:
+- We use:
 
 ```{r} 
 z <- qnorm(0.995) 
 z 
-``` 
-
-- because we have that:
-
-```{r} 
 pnorm(z) - pnorm(-z) 
 ``` 
 
