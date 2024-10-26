@@ -1,0 +1,186 @@
+---
+title: Problem set 7 
+date: 2024-11-4
+execute: 
+  eval: false
+---
+
+For this problem set we want you to predict the election. You will enter you predictions to [this form](https://forms.gle/kREjqXK5WqGsojGWA). You you will report a prediction of the number of electoral votes for Harris and an interval. You will do the same for the popular vote. We will give prizes for those that report the shortest interval but with the true result inside the interval.
+
+1. Read in the data provided here:
+
+```{r}
+url <- "https://projects.fivethirtyeight.com/polls/data/president_polls.csv"
+```
+
+Examine the data frame paying particular attention to the `poll_id` `question_id`, `population`, and `candidate`. Note that some polls have more than one question based on different population types.
+
+```{r}
+library(tidyverse)
+library(rvest)
+raw_dat <- ### Your code here
+```
+
+2. Polls are based on either likely voters (lv), registered voters (rv), all voters (a), or voters (v).
+Polls based on 'voters' are exit polls. We want to remove these because exit polls are too old or might be biased due to differences in the likelihood of early voter by party.  We prefer likely voter (lv) polls because they are more predictive. Registered voter polls are more predictive than all voter (a) polls. Remove the exit poll (v) polls and then redefine `population` to be a factor ordered from best to worse predictive power: (lv, rv, a). You should also remove hypothetical polls and make the date columns into date objects. Name the resulting data frame `dat`.
+
+```{r}
+dat <- raw_dat |> 
+  ## Your code here
+```
+
+
+3. Some polls asked more than one questions. So if you filter to one poll ID in our dataset, you might see more than one question ID associated with the same poll. The most common reason for this is that they asked a head-to-head question (Harris versus Trump) and, in the same poll, a question about all candidates. We want to prioritize the head-to-head questions.
+
+Add a column that tells us, for each question, how many candidates where mentioned in that question.
+
+Add a new column `n` to `dat` that provides the number of candidates mentioned for each question.  For example
+the relevant column of your final table will looks something like this:
+
+|`poll_id`|`question_id`|`candidate`|`n`|
+---------|-------------|-----------|--|
+1 | 1 | Harris | 2 |
+1 | 1 | Trump | 2 |
+1 | 2 | Harris | 3 |
+1 | 2 | Trump |  3 |
+1 | 2 | Stein |3 |
+
+```{r}
+dat <- dat |> 
+    ## Your code here
+```
+
+
+4. We are going to focus on the Harris versus Trump comparison. Redefine `dat` to only include the rows providing information for Harris and Trump. Then pivot the dataset so that the percentages for Harris and Trump are in their own columns. Note that for pivot to work you will have to remove some columns. To avoid this keep only the columns you are pivoting and along with `poll_id`, `question_id`, `state`, `pollster`, `start_date`, `end_date`, `numeric_grade`, `sample_size`.  Once you accomplish the pivot, add a column called `spread` with the difference between Harris and Trump. 
+
+Note that the values stored in `spread` are estimates of the popular vote difference that we will use to predict for the competition: 
+
+**spread = % of the popular vote for Harris - % of the popular vote for Trump**
+
+However, for the calculations in the rest of problem set to be consistent with the sampling model we have been discussing in class, save `spread` as a proportion, not a percentage. But remember to turn it back to a percentage when submitting your entry to the competition.
+
+
+```{r}
+dat <- dat |>
+  ## Your code here
+```
+
+5. Note that some polls have multiple questions. We want to keep only one question per poll. We will keep likely voter (lv) polls when available, and prefer register voter (rv) over all voter polls (a). If more than one question was asked in one poll, take the most targeted question (smallest `n`). Save the resulting table`dat`. Note that now each after you do this each row will represents exactly one poll/question, so can remove `n`, `poll_id` and `question_id`.
+
+```{r}
+dat <- dat |>
+  ## Your code here
+```
+
+6. Separate `dat` into two data frames: one with popular vote polls and one with state level polls. Call them `popular_vote` and `polls` respectively. 
+
+```{r}
+popular_vote <- ## Your code here
+polls <- ## Your code here
+```
+
+7. For the popular vote, plot the spread reported by each poll against start date for polls starting after July 21, 2024. Rename all the pollsters with less than 5 polls during this period as `Other`. Use color to denote pollster. Make separate plots for likely voters and registered voters. Do not use _all voter_ polls (a). Use `geom_smooth` with method `loess` to show a curve going through the points. You can change how adaptive the curve is to that through the `span` argument.
+
+```{r}
+popular_vote |> 
+  filter(start_date > make_date(2024, 7, 21) & population != "a") |>
+  ### Your code here
+```
+
+
+8. To show the pollster effect, make boxplots for the the spread for each popular vote poll. Include only likely voter polls starting after July 21, 2024. Rename all the pollsters with less than 5 polls during that time period as `Other`. 
+
+```{r}
+popular_vote |> 
+  filter(start_date > make_date(2024, 7, 21) & population == "lv") |>
+  ## Your code here
+```
+
+9. Compute a prediction and an interval for the competition and submit [here](https://forms.gle/kREjqXK5WqGsojGWA)
+Include the code you used to create your confidence interval for the popular vote here:
+
+```{r}
+## Your code here
+```
+
+
+We now move on to predicting the electoral votes.
+
+
+10. To obtain the number of electoral votes for each state we will visit this website:
+
+```{r}
+url <- "https://state.1keydata.com/state-electoral-votes.php"
+```
+
+We can use the **rvest** package to download and extract the relevant table:
+
+```{r}
+library(rvest)
+h <- read_html(url) |>
+  html_table() 
+
+ev <- h[[4]]
+```
+
+Wrangle the data in `ev` to only have two columns `state` and `electoral_votes`. Make sure the electoral vote column is numeric. Add the electoral votes for Maine CD-1 (1), Maine CD-2 (1), Nebraska CD-2 (1), and District of Columbia (3) by hand. 
+
+```{r}
+### Your code here
+```
+
+11. The presidential race in some states is a forgone conclusion. Because their is practically no uncertainty in who will win, polls are not taken. We will therefore assume that the party that won in 2020 will win again in 2024 if no polls are being collected for a state.
+
+Download the following sheet:
+
+```{r}
+library(gsheet)
+sheet_url <- "https://docs.google.com/spreadsheets/d/1D-edaVHTnZNhVU840EPUhz3Cgd7m39Urx7HM8Pq6Pus/edit?gid=29622862"
+raw_res_2020 <- gsheet2tbl(sheet_url) 
+```
+
+Tidy the `raw_res_2020` dataset so that you have two columns `state` and `party`, with `D` and `R` in the party column to indicate who won in 2020. Add Maine CD-1 (D), Maine CD-2 (R), Nebraska CD-2 (D), and District of Columbia (D) by hand. Save the result to `res_2020`. Hint use the **janitor** `row_to_names` function.
+
+```{r}
+library(janitor)
+res_2020 <- raw_res_2020[,c(1,4)] |>  
+ ### Your code here
+```
+
+12. Decide on a period that you will use to compute your prediction. We will use `spread` as the outcome. Make sure the the outcomes is saved as a proportion not percentage. Create a `results` data frame with columns `state`, `avg`, `sd`, `n` and `electoral_votes`, with one row per state. 
+
+Some ideas and recommendations:
+
+* If a state has enough polls, consider a short period, such as a week. For states with few polls you might need to increase the interval to increase the number of polls.
+* Decide which polls to prioritize based on the `population` and `numeric_grade` columns.
+* You might want to weigh them differently, in which you might also consider using `sample_size`.
+* If you use fewer than 5 polls to calculate an average, your estimate of the standard deviation (SD) may be unreliable. With only one poll, you wont be able to estimate the SD at all. In these cases, consider using the SD from similar states to avoid unusual or inaccurate estimates.
+
+
+```{r}
+results <- polls |> 
+  ### Your code here
+```
+
+
+13. Note you will not have polls for all states. Assume that lack of polls implies the state is not in play.
+Use the `res_2020` data frame to compute the electoral votes Harris is practically guaranteed to have.
+
+```{r}
+harris_start <- ## Your code here
+```
+
+
+14. Use a Bayesian approach to compute posterior means and standard deviations for each state in `results`. Plot the posterior mean versus the observed average with the size of the point proportional to the number of polls.
+
+```{r}
+### Your code heer
+```
+
+
+15. Compute a prediction and an interval for Harris' electoral votes and submit to the competition [here](https://forms.gle/kREjqXK5WqGsojGWA). Include the code you used to create your estimate and interval below.
+
+```{r}
+### Your code here
+```
+
