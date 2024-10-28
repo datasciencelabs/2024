@@ -10,9 +10,9 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.57">
 
-  <meta name="dcterms.date" content="2024-09-18">
-  <meta name="keywords" content="R">
-  <title>BST 260: Introduction to Data Science – Vectorization</title>
+  <meta name="dcterms.date" content="2024-10-28">
+  <meta name="keywords" content="Inference">
+  <title>BST 260: Introduction to Data Science – Data-driven models</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -392,357 +392,556 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Vectorization</h1>
+  <h1 class="title">Data-driven models</h1>
 
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">2024-09-18</p>
+  <p class="date">2024-10-28</p>
 </section>
-<section id="vectorization" class="slide level2">
-<h2>Vectorization</h2>
+<section id="data-driven-models" class="slide level2">
+<h2>Data-driven models</h2>
+<blockquote>
+<blockquote>
+<p>“All models are wrong, but some are useful.” –George E.P. Box.</p>
+</blockquote>
+</blockquote>
+</section>
+<section id="data-driven-models-1" class="slide level2">
+<h2>Data-driven models</h2>
 <ul>
-<li><p>We will be using the <code>murders</code> dataset in the <strong>dslabs</strong> package.</p></li>
-<li><p>Includes data on 2010 gun murders for the US 50 states and DC.</p></li>
-<li><p>We will use it to answer questions such as “What is the state with lowest crime rate in the Western part of the US?”</p></li>
+<li><p>Our analysis of poll-related results has been based on a simple sampling model.</p></li>
+<li><p>This model assumes that each voter has an equal chance of being selected for the poll, similar to picking beads from an urn with two colors.</p></li>
+<li><p>However, in this section, we explore real-world data and discover that this model is incorrect.</p></li>
 </ul>
 </section>
-<section id="vectorization-1" class="slide level2">
-<h2>Vectorization</h2>
+<section id="data-driven-models-2" class="slide level2">
+<h2>Data-driven models</h2>
 <ul>
-<li><p>First, some simple examples of vectorization.</p></li>
-<li><p>Let’s convert the following heights in inches to meters:</p></li>
+<li>However, these introductions are just scratching the surface, and readers interested in statistical modeling should supplement the material presented in this book with additional references.</li>
 </ul>
+</section>
+<section id="case-study-poll-aggregators" class="slide level2">
+<h2>Case study: poll aggregators</h2>
+<ul>
+<li><p>We generate results for 12 polls taken the week before the election.</p></li>
+<li><p>We mimic sample sizes from actual polls, construct, and report 95% confidence intervals for each of the 12 polls.</p></li>
+<li><p>We save the results from this simulation in a data frame and add a poll ID column.</p></li>
+</ul>
+</section>
+<section id="case-study-poll-aggregators-1" class="slide level2">
+<h2>Case study: poll aggregators</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>heights <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">69</span>, <span class="dv">62</span>, <span class="dv">66</span>, <span class="dv">70</span>, <span class="dv">70</span>, <span class="dv">73</span>, <span class="dv">67</span>, <span class="dv">73</span>, <span class="dv">67</span>, <span class="dv">70</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse) </span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(dslabs) </span>
+<span id="cb1-3"><a></a>mu <span class="ot">&lt;-</span> <span class="fl">0.039</span> </span>
+<span id="cb1-4"><a></a>Ns <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1298</span>, <span class="dv">533</span>, <span class="dv">1342</span>, <span class="dv">897</span>, <span class="dv">774</span>, <span class="dv">254</span>, <span class="dv">812</span>, <span class="dv">324</span>, <span class="dv">1291</span>, <span class="dv">1056</span>, <span class="dv">2172</span>, <span class="dv">516</span>) </span>
+<span id="cb1-5"><a></a>p <span class="ot">&lt;-</span> (mu <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">/</span> <span class="dv">2</span> </span>
+<span id="cb1-6"><a></a>polls <span class="ot">&lt;-</span> <span class="fu">map_df</span>(Ns, <span class="cf">function</span>(N) { </span>
+<span id="cb1-7"><a></a>  x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">size =</span> N, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">1</span> <span class="sc">-</span> p, p)) </span>
+<span id="cb1-8"><a></a>  x_hat <span class="ot">&lt;-</span> <span class="fu">mean</span>(x) </span>
+<span id="cb1-9"><a></a>  se_hat <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x_hat <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> x_hat) <span class="sc">/</span> N) </span>
+<span id="cb1-10"><a></a>  <span class="fu">list</span>(<span class="at">estimate =</span> <span class="dv">2</span> <span class="sc">*</span> x_hat <span class="sc">-</span> <span class="dv">1</span>,  </span>
+<span id="cb1-11"><a></a>    <span class="at">low =</span> <span class="dv">2</span><span class="sc">*</span>(x_hat <span class="sc">-</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat) <span class="sc">-</span> <span class="dv">1</span>,  </span>
+<span id="cb1-12"><a></a>    <span class="at">high =</span> <span class="dv">2</span><span class="sc">*</span>(x_hat <span class="sc">+</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat) <span class="sc">-</span> <span class="dv">1</span>, </span>
+<span id="cb1-13"><a></a>    <span class="at">sample_size =</span> N) </span>
+<span id="cb1-14"><a></a>}) <span class="sc">|&gt;</span> </span>
+<span id="cb1-15"><a></a>  <span class="fu">mutate</span>(<span class="at">poll =</span> <span class="fu">seq_along</span>(Ns)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="case-study-poll-aggregators-2" class="slide level2">
+<h2>Case study: poll aggregators</h2>
+
+<img data-src="25-models_files/figure-revealjs/simulated-polls-1.png" width="960" class="r-stretch"></section>
+<section id="case-study-poll-aggregators-3" class="slide level2">
+<h2>Case study: poll aggregators</h2>
 <ul>
-<li>Rather than loop we use vectorization:</li>
+<li><p>Poll aggregators combine polls to improve power.</p></li>
+<li><p>By doing this, we are effectively conducting a poll with a huge sample size.</p></li>
+<li><p>Although, as aggregators, we do not have access to the raw poll data.</p></li>
+<li><p>We can use math to reconstruct what we would have obtained with one large poll with sample size:</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>heights<span class="sc">*</span><span class="fl">2.54</span><span class="sc">/</span><span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">sum</span>(polls<span class="sc">$</span>sample_size) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 1.7526 1.5748 1.6764 1.7780 1.7780 1.8542 1.7018 1.8542 1.7018 1.7780</code></pre>
-</div>
-</div>
-</section>
-<section id="vectorization-2" class="slide level2">
-<h2>Vectorization</h2>
-<ul>
-<li><p>We can subtract a constant from each element of a vector.</p></li>
-<li><p>This is convenient for computing residuals or deviations from an average:</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>avg <span class="ot">&lt;-</span> <span class="fu">mean</span>(heights)</span>
-<span id="cb4-2"><a></a>heights <span class="sc">-</span> avg </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1]  0.3 -6.7 -2.7  1.3  1.3  4.3 -1.7  4.3 -1.7  1.3</code></pre>
-</div>
-</div>
-</section>
-<section id="vectorization-3" class="slide level2">
-<h2>Vectorization</h2>
-<ul>
-<li>This means we can compute standard units like this:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>s <span class="ot">&lt;-</span> <span class="fu">sd</span>(heights)</span>
-<span id="cb6-2"><a></a>(heights <span class="sc">-</span> avg)<span class="sc">/</span>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1]  0.08995503 -2.00899575 -0.80959530  0.38980515  0.38980515  1.28935548
- [7] -0.50974519  1.28935548 -0.50974519  0.38980515</code></pre>
-</div>
-</div>
-<ul>
-<li>There is actually a function, <code>scale</code>, that does this. We describe it soon.</li>
-</ul>
-</section>
-<section id="vectorization-4" class="slide level2">
-<h2>Vectorization</h2>
-<ul>
-<li><p>If we operate on two vectors, vectorization is componentwise.</p></li>
-<li><p>Here is an example:</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>heights <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">69</span>, <span class="dv">62</span>, <span class="dv">66</span>, <span class="dv">70</span>, <span class="dv">70</span>, <span class="dv">73</span>, <span class="dv">67</span>, <span class="dv">73</span>, <span class="dv">67</span>, <span class="dv">70</span>)</span>
-<span id="cb8-2"><a></a>error <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fu">length</span>(heights), <span class="dv">0</span>, <span class="fl">0.1</span>)</span>
-<span id="cb8-3"><a></a>heights <span class="sc">+</span> error</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] 69.03952 61.84743 66.01834 69.88322 69.69173 73.23231 66.96888 72.94392
- [9] 66.91477 69.96632</code></pre>
+<pre><code>[1] 11269</code></pre>
 </div>
 </div>
 </section>
-<section id="exercise" class="slide level2">
-<h2>Exercise</h2>
+<section id="case-study-poll-aggregators-4" class="slide level2">
+<h2>Case study: poll aggregators</h2>
 <ul>
-<li><p>Add a column to the murders dataset with the murder rate.</p></li>
-<li><p>Use murders per 100,000 persons as the unit.</p></li>
-</ul>
-</section>
-<section id="functions-that-vectorize" class="slide level2">
-<h2>Functions that vectorize</h2>
-<ul>
-<li>Most arithmetic functions work on vectors.</li>
+<li>Basically, we construct an estimate of the spread, let’s call it <span class="math inline">\(\mu\)</span>, with a weighted average in the following way:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb10-2"><a></a><span class="fu">sqrt</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>mu_hat <span class="ot">&lt;-</span> polls <span class="sc">|&gt;</span>  </span>
+<span id="cb4-2"><a></a>  <span class="fu">summarize</span>(<span class="at">avg =</span> <span class="fu">sum</span>(estimate<span class="sc">*</span>sample_size) <span class="sc">/</span> <span class="fu">sum</span>(sample_size)) <span class="sc">|&gt;</span>  </span>
+<span id="cb4-3"><a></a>  <span class="fu">pull</span>(avg) </span>
+<span id="cb4-4"><a></a><span class="fu">print</span>(mu_hat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 1.000000 1.414214 1.732051 2.000000 2.236068 2.449490 2.645751 2.828427
- [9] 3.000000 3.162278</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">log</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.0000000 0.6931472 1.0986123 1.3862944 1.6094379 1.7917595 1.9459101
- [8] 2.0794415 2.1972246 2.3025851</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="dv">2</span><span class="sc">^</span>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1]    2    4    8   16   32   64  128  256  512 1024</code></pre>
+<pre><code>[1] 0.0311474</code></pre>
 </div>
 </div>
 </section>
-<section id="functions-that-vectorize-1" class="slide level2">
-<h2>Functions that vectorize</h2>
+<section id="case-study-poll-aggregators-5" class="slide level2">
+<h2>Case study: poll aggregators</h2>
+<ul>
+<li>We can reconstruct the margin of error as well:</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">scale</span>(heights)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>p_hat <span class="ot">&lt;-</span> (<span class="dv">1</span> <span class="sc">+</span> mu_hat)<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb6-2"><a></a>moe <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">*</span><span class="fl">1.96</span><span class="sc">*</span><span class="fu">sqrt</span>(p_hat<span class="sc">*</span>(<span class="dv">1</span> <span class="sc">-</span> p_hat)<span class="sc">/</span><span class="fu">sum</span>(polls<span class="sc">$</span>sample_size))</span>
+<span id="cb6-3"><a></a><span class="fu">print</span>(moe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>             [,1]
- [1,]  0.08995503
- [2,] -2.00899575
- [3,] -0.80959530
- [4,]  0.38980515
- [5,]  0.38980515
- [6,]  1.28935548
- [7,] -0.50974519
- [8,]  1.28935548
- [9,] -0.50974519
-[10,]  0.38980515
-attr(,"scaled:center")
-[1] 68.7
-attr(,"scaled:scale")
-[1] 3.335</code></pre>
+<pre><code>[1] 0.01845451</code></pre>
 </div>
 </div>
-<p>provides the same results,</p>
+<ul>
+<li>Which is much smaller than any of the individual polls.</li>
+</ul>
+</section>
+<section id="case-study-poll-aggregators-6" class="slide level2">
+<h2>Case study: poll aggregators</h2>
+<p>The aggregator estimate is in red:</p>
+
+<img data-src="25-models_files/figure-revealjs/confidence-coverage-2008-election-1.png" width="960" class="r-stretch"></section>
+<section id="case-study-poll-aggregators-7" class="slide level2">
+<h2>Case study: poll aggregators</h2>
+<ul>
+<li><p>However, this was just a simulation to illustrate the idea.</p></li>
+<li><p>Let’s look at real data from the 2016 presidential election.</p></li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>(heights <span class="sc">-</span> <span class="fu">mean</span>(heights))<span class="sc">/</span><span class="fu">sd</span>(heights)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">library</span>(dslabs) </span>
+<span id="cb8-2"><a></a>polls <span class="ot">&lt;-</span> polls_us_election_2016 <span class="sc">|&gt;</span>  </span>
+<span id="cb8-3"><a></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"U.S."</span> <span class="sc">&amp;</span> population <span class="sc">==</span> <span class="st">"lv"</span> <span class="sc">&amp;</span> </span>
+<span id="cb8-4"><a></a>           enddate <span class="sc">&gt;=</span> <span class="st">"2016-10-31"</span> <span class="sc">&amp;</span> </span>
+<span id="cb8-5"><a></a>           (grade <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"A+"</span>,<span class="st">"A"</span>,<span class="st">"A-"</span>,<span class="st">"B+"</span>) <span class="sc">|</span> <span class="fu">is.na</span>(grade))) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="case-study-poll-aggregators-8" class="slide level2">
+<h2>Case study: poll aggregators</h2>
+<ul>
+<li>We add a spread estimate:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>polls <span class="ot">&lt;-</span> polls <span class="sc">|&gt;</span>  </span>
+<span id="cb9-2"><a></a>  <span class="fu">mutate</span>(<span class="at">spread =</span> rawpoll_clinton<span class="sc">/</span><span class="dv">100</span> <span class="sc">-</span> rawpoll_trump<span class="sc">/</span><span class="dv">100</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="case-study-poll-aggregators-9" class="slide level2">
+<h2>Case study: poll aggregators</h2>
+<ul>
+<li><p>We are interested in the spread <span class="math inline">\(2p-1\)</span>.</p></li>
+<li><p>Let’s call the spread <span class="math inline">\(\mu\)</span> (for difference).</p></li>
+<li><p>We have 49 estimates of the spread.</p></li>
+<li><p>The theory we learned from sampling models tells us that these estimates are a random variable with a probability distribution that is approximately normal.</p></li>
+<li><p>The expected value is the election night spread <span class="math inline">\(\mu\)</span> and the standard error is <span class="math inline">\(2\sqrt{p (1 - p) / N}\)</span>.</p></li>
+</ul>
+</section>
+<section id="case-study-poll-aggregators-10" class="slide level2">
+<h2>Case study: poll aggregators</h2>
+<ul>
+<li>We construct a confidence interval assuming the data is from an urn model:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>mu_hat <span class="ot">&lt;-</span> polls <span class="sc">|&gt;</span>  </span>
+<span id="cb10-2"><a></a>  <span class="fu">summarize</span>(<span class="at">mu_hat =</span> <span class="fu">sum</span>(spread<span class="sc">*</span>samplesize)<span class="sc">/</span><span class="fu">sum</span>(samplesize)) <span class="sc">|&gt;</span>  </span>
+<span id="cb10-3"><a></a>  <span class="fu">pull</span>(mu_hat) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>and the standard error is:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>p_hat <span class="ot">&lt;-</span> (mu_hat <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">/</span><span class="dv">2</span>  </span>
+<span id="cb11-2"><a></a>moe <span class="ot">&lt;-</span> <span class="fl">1.96</span><span class="sc">*</span><span class="dv">2</span><span class="sc">*</span><span class="fu">sqrt</span>(p_hat<span class="sc">*</span>(<span class="dv">1</span> <span class="sc">-</span> p_hat)<span class="sc">/</span><span class="fu">sum</span>(polls<span class="sc">$</span>samplesize)) </span>
+<span id="cb11-3"><a></a>moe </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  0.08995503 -2.00899575 -0.80959530  0.38980515  0.38980515  1.28935548
- [7] -0.50974519  1.28935548 -0.50974519  0.38980515</code></pre>
+<pre><code>[1] 0.006623178</code></pre>
 </div>
 </div>
 </section>
-<section id="functions-that-vectorize-2" class="slide level2">
-<h2>Functions that vectorize</h2>
+<section id="case-study-poll-aggregators-11" class="slide level2">
+<h2>Case study: poll aggregators</h2>
 <ul>
-<li>But <code>scale</code> coerces to a column matrix:</li>
+<li><p>So we report a spread of 1.43% with a margin of error of 0.66%.</p></li>
+<li><p>On election night, we discover that the actual percentage was 2.1%, which is outside a 95% confidence interval.</p></li>
+<li><p>What happened?</p></li>
+</ul>
+</section>
+<section id="case-study-poll-aggregators-12" class="slide level2">
+<h2>Case study: poll aggregators</h2>
+<p>A histogram of the reported spreads reveals a problem:</p>
+
+<img data-src="25-models_files/figure-revealjs/polls-2016-spread-histogram-run-1.png" width="960" class="r-stretch"></section>
+<section id="case-study-poll-aggregators-13" class="slide level2">
+<h2>Case study: poll aggregators</h2>
+<ul>
+<li><p>The data does not appear to be normally distributed</p></li>
+<li><p>The standard error appears to be larger than 0.0066232.</p></li>
+<li><p>The theory is not working her</p></li>
+<li><p>This motivates the use of a <strong>data-driven model</strong>.</p></li>
+</ul>
+</section>
+<section id="beyond-the-sampling-model" class="slide level2">
+<h2>Beyond the sampling model</h2>
+<ul>
+<li>Data come from various pollsters, some taking several polls:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">class</span>(<span class="fu">scale</span>(heights))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>polls <span class="sc">|&gt;</span> <span class="fu">count</span>(pollster) <span class="sc">|&gt;</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "matrix" "array" </code></pre>
+<pre><code>                                                     pollster n
+1                                                    IBD/TIPP 8
+2                                    The Times-Picayune/Lucid 8
+3                                       USC Dornsife/LA Times 8
+4                                    ABC News/Washington Post 7
+5                                                       Ipsos 6
+6                                     CBS News/New York Times 2
+7  Fox News/Anderson Robbins Research/Shaw &amp; Company Research 2
+8                                           Angus Reid Global 1
+9                                               Insights West 1
+10                                             Marist College 1
+11                                        Monmouth University 1
+12                                            Morning Consult 1
+13                               NBC News/Wall Street Journal 1
+14                      RKM Research and Communications, Inc. 1
+15                                           Selzer &amp; Company 1</code></pre>
 </div>
 </div>
 </section>
-<section id="functions-that-vectorize-3" class="slide level2">
-<h2>Functions that vectorize</h2>
+<section id="beyond-the-sampling-model-1" class="slide level2">
+<h2>Beyond the sampling model</h2>
 <ul>
-<li><p>The conditional function <code>if</code>-<code>else</code> does not vectorize.</p></li>
-<li><p>Functions such as <code>any</code> and <code>all</code>, covert vectors to logicals of lenght one needed for <code>if</code>-<code>else</code>.</p></li>
-<li><p>A particularly useful function is a vectorized version <code>ifelse</code>.</p></li>
-<li><p>Here is an example:</p></li>
+<li>Let’s visualize the data for the pollsters that are regularly polling:</li>
+</ul>
+
+<img data-src="25-models_files/figure-revealjs/pollster-bias-1.png" width="960" class="r-stretch"></section>
+<section id="beyond-the-sampling-model-2" class="slide level2">
+<h2>Beyond the sampling model</h2>
+<ul>
+<li><p>This plot reveals an unexpected result.</p></li>
+<li><p>The standard error predicted by theory is between 0.018 and 0.033:</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">4</span>, <span class="dv">5</span>)</span>
-<span id="cb22-2"><a></a><span class="fu">ifelse</span>(a <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="dv">1</span><span class="sc">/</span>a, <span class="cn">NA</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>polls <span class="sc">|&gt;</span> <span class="fu">group_by</span>(pollster) <span class="sc">|&gt;</span>  </span>
+<span id="cb15-2"><a></a>  <span class="fu">filter</span>(<span class="fu">n</span>() <span class="sc">&gt;=</span> <span class="dv">6</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb15-3"><a></a>  <span class="fu">summarize</span>(<span class="at">se =</span> <span class="dv">2</span><span class="sc">*</span><span class="fu">sqrt</span>(p_hat<span class="sc">*</span>(<span class="dv">1</span> <span class="sc">-</span> p_hat)<span class="sc">/</span><span class="fu">median</span>(samplesize))) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1]  NA 1.0 0.5  NA 0.2</code></pre>
+<pre><code># A tibble: 5 × 2
+  pollster                     se
+  &lt;fct&gt;                     &lt;dbl&gt;
+1 ABC News/Washington Post 0.0265
+2 IBD/TIPP                 0.0333
+3 Ipsos                    0.0225
+4 The Times-Picayune/Lucid 0.0196
+5 USC Dornsife/LA Times    0.0183</code></pre>
+</div>
+</div>
+<ul>
+<li>This agrees with the within poll variation we see.</li>
+</ul>
+</section>
+<section id="beyond-the-sampling-model-3" class="slide level2">
+<h2>Beyond the sampling model</h2>
+<ul>
+<li>However, there appears to be differences <em>across the polls</em>:</li>
+</ul>
+
+<img data-src="25-models_files/figure-revealjs/pollster-bias-2-1.png" width="960" class="r-stretch"></section>
+<section id="beyond-the-sampling-model-4" class="slide level2">
+<h2>Beyond the sampling model</h2>
+<ul>
+<li><p>Sompling theory says nothing about different pollsters having expected values.</p></li>
+<li><p>FiveThirtyEight refers to these differences as <em>house effects</em>.</p></li>
+<li><p>We also call them <em>pollster bias</em>.</p></li>
+<li><p>Rather than modeling the process generating these values with an urn model, we instead model the pollster results directly.</p></li>
+</ul>
+</section>
+<section id="beyond-the-sampling-model-5" class="slide level2">
+<h2>Beyond the sampling model</h2>
+<ul>
+<li><p>To do this, we start by collecting some data.</p></li>
+<li><p>Specifically, for each pollster, we look at the last reported result before the election:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>one_poll_per_pollster <span class="ot">&lt;-</span> polls <span class="sc">|&gt;</span> <span class="fu">group_by</span>(pollster) <span class="sc">|&gt;</span>  </span>
+<span id="cb17-2"><a></a>  <span class="fu">filter</span>(enddate <span class="sc">==</span> <span class="fu">max</span>(enddate)) <span class="sc">|&gt;</span> </span>
+<span id="cb17-3"><a></a>  <span class="fu">ungroup</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="beyond-the-sampling-model-6" class="slide level2">
+<h2>Beyond the sampling model</h2>
+<ul>
+<li>Here is a histogram of the data for these 15 pollsters:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">hist</span>(one_poll_per_pollster<span class="sc">$</span>spread, <span class="dv">10</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="25-models_files/figure-revealjs/pollster-bias-histogram-1.png" width="960" class="r-stretch"></section>
+<section id="beyond-the-sampling-model-7" class="slide level2">
+<h2>Beyond the sampling model</h2>
+<ul>
+<li><p>Although we are no longer using a model with red (Republicans) and blue (Democrats) beads in an urn, our new model can also be thought of as an urn model, but containing poll results from all possible pollsters.</p></li>
+<li><p>Think of our $N=$15 data points <span class="math inline">\(X_1,\dots X_N\)</span> as a random sample from this urn.</p></li>
+<li><p>To develop a useful model, we <em>assume</em> that the expected value of our urn is the actual spread <span class="math inline">\(\mu=2p-1\)</span>, which implies that the sample average has expected value <span class="math inline">\(\mu\)</span>.</p></li>
+</ul>
+</section>
+<section id="beyond-the-sampling-model-8" class="slide level2">
+<h2>Beyond the sampling model</h2>
+<ul>
+<li><p>Now, because instead of 0s and 1s, our urn contains continuous numbers, the standard deviation of the urn is no longer <span class="math inline">\(\sqrt{p(1-p)}\)</span>.</p></li>
+<li><p>Rather than voter sampling variability, the standard error now includes the pollster-to-pollster variability.</p></li>
+<li><p>Our new urn also includes the sampling variability from the polling.</p></li>
+<li><p>Regardless, this standard deviation is now an unknown parameter.</p></li>
+</ul>
+</section>
+<section id="beyond-the-sampling-model-9" class="slide level2">
+<h2>Beyond the sampling model</h2>
+<ul>
+<li><p>In statistics textbooks, the Greek symbol <span class="math inline">\(\sigma\)</span> is used to represent this parameter.</p></li>
+<li><p>So our new statistical model is that <span class="math inline">\(X_1, \dots, X_N\)</span> are a random sample with expected <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma\)</span>.</p></li>
+<li><p>The distribution, for now, is unspecified.</p></li>
+</ul>
+</section>
+<section id="beyond-the-sampling-model-10" class="slide level2">
+<h2>Beyond the sampling model</h2>
+<ul>
+<li>Assume <span class="math inline">\(N\)</span> is large enough to assume the sample average <span class="math inline">\(\bar{X} = \sum_{i=1}^N X_i\)</span> follows a normal distribution with expected value <span class="math inline">\(\mu\)</span> and standard error <span class="math inline">\(\sigma / \sqrt{N}\)</span>.</li>
+</ul>
+<p><span class="math display">\[
+\bar{X} \sim \mbox{N}(\mu, \sigma / \sqrt{N})
+\]</span></p>
+<ul>
+<li><p>Here the <span class="math inline">\(\sim\)</span> symbol tells us that the random variable on the left follows the distribution on the right.</p></li>
+<li><p>We use the notation <span class="math inline">\(N(a,b)\)</span> to represent the normal distribution with mean <span class="math inline">\(a\)</span> and standard deviation <span class="math inline">\(b\)</span>.</p></li>
+</ul>
+</section>
+<section id="estimating-the-sd" class="slide level2">
+<h2>Estimating the SD</h2>
+<ul>
+<li><p>Our new model has two unknown parameters: the expected value <span class="math inline">\(\mu\)</span> and the standard deviation <span class="math inline">\(\sigma\)</span>.</p></li>
+<li><p>We know that the sample average <span class="math inline">\(\bar{X}\)</span> will be our estimate of <span class="math inline">\(\mu\)</span>.</p></li>
+<li><p>But what about <span class="math inline">\(\sigma\)</span>?</p></li>
+</ul>
+</section>
+<section id="estimating-the-sd-1" class="slide level2">
+<h2>Estimating the SD</h2>
+<ul>
+<li>Theory tells us that we can estimate the urn model <span class="math inline">\(\sigma\)</span> with the <em>sample standard deviation</em> defined as:</li>
+</ul>
+<p><span class="math display">\[
+s = \sqrt{ \frac{1}{N-1} \sum_{i=1}^N (X_i - \bar{X})^2 }
+\]</span></p>
+<ul>
+<li><p>Unlike for the population standard deviation definition, we now divide by <span class="math inline">\(N-1\)</span>.</p></li>
+<li><p>This makes <span class="math inline">\(s\)</span> a better estimate of <span class="math inline">\(\sigma\)</span>.</p></li>
+<li><p>There is a mathematical explanation for this, which is explained in most statistics textbooks.</p></li>
+</ul>
+</section>
+<section id="estimating-the-sd-2" class="slide level2">
+<h2>Estimating the SD</h2>
+<ul>
+<li>The <code>sd</code> function in R computes the sample standard deviation:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">sd</span>(one_poll_per_pollster<span class="sc">$</span>spread) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.02419369</code></pre>
 </div>
 </div>
 </section>
-<section id="indexing" class="slide level2">
-<h2>Indexing</h2>
+<section id="computing-a-confidence-interval" class="slide level2">
+<h2>Computing a confidence interval</h2>
 <ul>
-<li>Vectorization also works for logical relationships:</li>
+<li>We are now ready to form a new confidence interval based on our new data-driven model:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">library</span>(dslabs)</span>
-<span id="cb24-2"><a></a>ind <span class="ot">&lt;-</span> murders<span class="sc">$</span>population <span class="sc">&lt;</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>results <span class="ot">&lt;-</span> one_poll_per_pollster <span class="sc">|&gt;</span>  </span>
+<span id="cb21-2"><a></a>  <span class="fu">summarize</span>(<span class="at">avg =</span> <span class="fu">mean</span>(spread),  </span>
+<span id="cb21-3"><a></a>            <span class="at">se =</span> <span class="fu">sd</span>(spread)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">length</span>(spread))) <span class="sc">|&gt;</span>  </span>
+<span id="cb21-4"><a></a>  <span class="fu">mutate</span>(<span class="at">start =</span> avg <span class="sc">-</span> <span class="fl">1.96</span><span class="sc">*</span>se,  </span>
+<span id="cb21-5"><a></a>         <span class="at">end =</span> avg <span class="sc">+</span> <span class="fl">1.96</span><span class="sc">*</span>se)  </span>
+<span id="cb21-6"><a></a><span class="fu">round</span>(results<span class="sc">*</span><span class="dv">100</span>, <span class="dv">1</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  avg  se start end
+1 2.9 0.6   1.7 4.1</code></pre>
+</div>
 </div>
 <ul>
-<li>A convenient aspect of this is that you can subset a vector using this logical vector for indexing:</li>
+<li><p>Our confidence interval is wider now since it incorporates the pollster variability.</p></li>
+<li><p>It does include the election night result of 2.1%.</p></li>
+<li><p>Also, note that it was small enough not to include 0, which means we were confident Clinton would win the popular vote.</p></li>
 </ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>murders<span class="sc">$</span>state[ind]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Alaska"               "Delaware"             "District of Columbia"
-[4] "Montana"              "North Dakota"         "South Dakota"        
-[7] "Vermont"              "Wyoming"             </code></pre>
+</section>
+<section id="the-t-distribution" class="slide level2">
+<h2>The t-distribution</h2>
+<ul>
+<li><p>Above, we made use of the CLT with a sample size of 15.</p></li>
+<li><p>Because we are estimating a second parameters <span class="math inline">\(\sigma\)</span>, further variability is introduced into our confidence interval, which results in intervals that are too small.</p></li>
+</ul>
+</section>
+<section id="the-t-distribution-1" class="slide level2">
+<h2>The t-distribution</h2>
+<ul>
+<li><p>For very large sample sizes, this extra variability is negligible, but in general, for values smaller than 30, we need to be cautious about using the CLT.</p></li>
+<li><p>However, if the data in the urn is known to follow a normal distribution, then we actually have mathematical theory that tells us how much bigger we need to make the intervals to account for the estimation of <span class="math inline">\(\sigma\)</span>.</p></li>
+<li><p>Applying this theory, we can construct confidence intervals for any <span class="math inline">\(N\)</span>.</p></li>
+<li><p>But again, this works only if <strong>the data in the urn is known to follow a normal distribution</strong>.</p></li>
+<li><p>So for the 0, 1 data of our previous urn model, this theory definitely does not apply.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>Note that 30 is a very general rule of thumb based on the case when the data come from a normal distribution.</p></li>
+<li><p>There are cases when a large sample size is needed as well as cases when smaller sample sizes are good enough.</p></li>
+</ul>
+</div>
 </div>
 </div>
 </section>
-<section id="indexing-1" class="slide level2">
-<h2>Indexing</h2>
+<section id="the-t-distribution-2" class="slide level2">
+<h2>The t-distribution</h2>
 <ul>
-<li>You can also use vectorization to apply logical operators:</li>
+<li>The statistic on which confidence intervals for <span class="math inline">\(\mu\)</span> are based is:</li>
+</ul>
+<p><span class="math display">\[
+Z = \frac{\bar{X} - \mu}{\sigma/\sqrt{N}}
+\]</span></p>
+<ul>
+<li><p>CLT tells us that Z is approximately normally distributed with expected value 0 and standard error 1.</p></li>
+<li><p>But in practice we don’t know <span class="math inline">\(\sigma\)</span>, so we use:</p></li>
+</ul>
+<p><span class="math display">\[
+t = \frac{\bar{X} - \mu}{s/\sqrt{N}}
+\]</span></p>
+</section>
+<section id="the-t-distribution-3" class="slide level2">
+<h2>The t-distribution</h2>
+<ul>
+<li><p>This is referred to as a <em>t-statistic</em>.</p></li>
+<li><p>By substituting <span class="math inline">\(\sigma\)</span> with <span class="math inline">\(s\)</span>, we introduce some variability.</p></li>
+<li><p>The theory tells us that <span class="math inline">\(t\)</span> follows a <em>student t-distribution</em> with <span class="math inline">\(N-1\)</span> <em>degrees of freedom</em>.</p></li>
+</ul>
+</section>
+<section id="the-t-distribution-4" class="slide level2">
+<h2>The t-distribution</h2>
+<ul>
+<li>The degrees of freedom is a parameter that controls the variability via fatter tails:</li>
+</ul>
+
+<img data-src="25-models_files/figure-revealjs/t-distribution-examples-1.png" width="960" class="r-stretch"></section>
+<section id="the-t-distribution-5" class="slide level2">
+<h2>The t-distribution</h2>
+<ul>
+<li>If we are willing to assume the pollster effect data is normally distributed, based on the sample data <span class="math inline">\(X_1, \dots, X_N\)</span>,</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>ind <span class="ot">&lt;-</span> murders<span class="sc">$</span>population <span class="sc">&lt;</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">6</span> <span class="sc">&amp;</span> murders<span class="sc">$</span>region <span class="sc">==</span> <span class="st">"West"</span></span>
-<span id="cb27-2"><a></a>murders<span class="sc">$</span>state[ind]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>one_poll_per_pollster <span class="sc">|&gt;</span> </span>
+<span id="cb23-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> spread)) <span class="sc">+</span> <span class="fu">stat_qq</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="the-t-distribution-6" class="slide level2">
+<h2>The t-distribution</h2>
+
+<img data-src="25-models_files/figure-revealjs/poll-spread-qq-run-1.png" width="960" class="r-stretch"><ul>
+<li>then <span class="math inline">\(t\)</span> follows a t-distribution with <span class="math inline">\(N-1\)</span> degrees of freedom.</li>
+</ul>
+</section>
+<section id="the-t-distribution-7" class="slide level2">
+<h2>The t-distribution</h2>
+<ul>
+<li>So perhaps a better confidence interval for <span class="math inline">\(\mu\)</span> is:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>z <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="fl">0.975</span>,  <span class="fu">nrow</span>(one_poll_per_pollster) <span class="sc">-</span> <span class="dv">1</span>) </span>
+<span id="cb24-2"><a></a>one_poll_per_pollster <span class="sc">|&gt;</span>  </span>
+<span id="cb24-3"><a></a>  <span class="fu">summarize</span>(<span class="at">avg =</span> <span class="fu">mean</span>(spread), <span class="at">moe =</span> z<span class="sc">*</span><span class="fu">sd</span>(spread)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">length</span>(spread))) <span class="sc">|&gt;</span>  </span>
+<span id="cb24-4"><a></a>  <span class="fu">mutate</span>(<span class="at">start =</span> avg <span class="sc">-</span> moe, <span class="at">end =</span> avg <span class="sc">+</span> moe)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Alaska"  "Montana" "Wyoming"</code></pre>
+<pre><code># A tibble: 1 × 4
+     avg    moe  start    end
+   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1 0.0290 0.0134 0.0156 0.0424</code></pre>
+</div>
+</div>
+<ul>
+<li>A bit larger than the one using normal is:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="dv">14</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.144787</code></pre>
+</div>
+</div>
+<ul>
+<li>is bigger than:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="fu">qnorm</span>(<span class="fl">0.975</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.959964</code></pre>
 </div>
 </div>
 </section>
-<section id="split" class="slide level2">
-<h2><code>split</code></h2>
+<section id="the-t-distribution-8" class="slide level2">
+<h2>The t-distribution</h2>
 <ul>
-<li><code>split</code> is a useful function to get indexes using a factor:</li>
+<li>This results in a slightly larger confidence interval than we obtained before:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>inds <span class="ot">&lt;-</span> <span class="fu">with</span>(murders, <span class="fu">split</span>(<span class="fu">seq_along</span>(region), region))</span>
-<span id="cb29-2"><a></a>murders<span class="sc">$</span>state[inds<span class="sc">$</span>West]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "Alaska"     "Arizona"    "California" "Colorado"   "Hawaii"    
- [6] "Idaho"      "Montana"    "Nevada"     "New Mexico" "Oregon"    
-[11] "Utah"       "Washington" "Wyoming"   </code></pre>
+<pre><code>  start end
+1   1.6 4.2</code></pre>
 </div>
 </div>
 </section>
-<section id="functions-for-subsetting" class="slide level2">
-<h2>Functions for subsetting</h2>
+<section id="the-t-distribution-9" class="slide level2">
+<h2>The t-distribution</h2>
 <ul>
-<li><p>The functions <code>which</code>, <code>match</code> and the operator <code>%in%</code> are useful for sub-setting</p></li>
-<li><p>To understand how they work it’s best to use examples.</p></li>
+<li><p>Note that using the t-distribution and the t-statistic is the basis for <em>t-tests</em>, a widely used approach for computing p-values.</p></li>
+<li><p>To learn more about t-tests, you can consult any statistics textbook.</p></li>
+<li><p>The t-distribution can also be used to model errors in bigger deviations that are more likely than with the normal distribution, as seen in the densities we previously observed.</p></li>
+<li><p>FiveThirtyEight uses the t-distribution to generate errors that better model the deviations we see in election data.</p></li>
 </ul>
 </section>
-<section id="which" class="slide level2">
-<h2>which</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>ind <span class="ot">&lt;-</span> <span class="fu">which</span>(murders<span class="sc">$</span>state <span class="sc">==</span> <span class="st">"California"</span>)</span>
-<span id="cb31-2"><a></a>ind</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 5</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>murders[ind,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>       state abb region population total
-5 California  CA   West   37253956  1257</code></pre>
-</div>
-</div>
-</section>
-<section id="match" class="slide level2">
-<h2>match</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>ind <span class="ot">&lt;-</span> <span class="fu">match</span>(<span class="fu">c</span>(<span class="st">"New York"</span>, <span class="st">"Florida"</span>, <span class="st">"Texas"</span>), murders<span class="sc">$</span>state)</span>
-<span id="cb35-2"><a></a>ind</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 33 10 44</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>murders[ind,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>      state abb    region population total
-33 New York  NY Northeast   19378102   517
-10  Florida  FL     South   19687653   669
-44    Texas  TX     South   25145561   805</code></pre>
-</div>
-</div>
-</section>
-<section id="in" class="slide level2">
-<h2>%in%</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>ind <span class="ot">&lt;-</span> <span class="fu">which</span>(murders<span class="sc">$</span>state <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"New York"</span>, <span class="st">"Florida"</span>, <span class="st">"Texas"</span>))</span>
-<span id="cb39-2"><a></a>ind</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 10 33 44</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>murders[ind,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>      state abb    region population total
-10  Florida  FL     South   19687653   669
-33 New York  NY Northeast   19378102   517
-44    Texas  TX     South   25145561   805</code></pre>
-</div>
-</div>
+<section id="the-t-distribution-10" class="slide level2">
+<h2>The t-distribution</h2>
 <ul>
-<li><p>Note this is similar to using match.</p></li>
-<li><p>But note the order is different.</p></li>
+<li><p>For example, in Wisconsin, the average of six polls was 7% in favor of Clinton with a standard deviation of 1%, but Trump won by 0.7%.</p></li>
+<li><p>Even after taking into account the overall bias, this 7.7% residual is more in line with t-distributed data than the normal distribution.</p></li>
 </ul>
 </section>
-<section id="match-versus-in" class="slide level2">
-<h2>match versus %in%</h2>
+<section id="the-t-distribution-11" class="slide level2">
+<h2>The t-distribution</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a><span class="fu">c</span>(<span class="st">"Boston"</span>, <span class="st">"Dakota"</span>, <span class="st">"Washington"</span>) <span class="sc">%in%</span> murders<span class="sc">$</span>state</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>polls_us_election_2016 <span class="sc">|&gt;</span> </span>
+<span id="cb31-2"><a></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"Wisconsin"</span> <span class="sc">&amp;</span> </span>
+<span id="cb31-3"><a></a>           enddate <span class="sc">&gt;=</span> <span class="st">"2016-10-31"</span> <span class="sc">&amp;</span>  </span>
+<span id="cb31-4"><a></a>           (grade <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"A+"</span>, <span class="st">"A"</span>, <span class="st">"A-"</span>, <span class="st">"B+"</span>) <span class="sc">|</span> <span class="fu">is.na</span>(grade))) <span class="sc">|&gt;</span> </span>
+<span id="cb31-5"><a></a>  <span class="fu">mutate</span>(<span class="at">spread =</span> rawpoll_clinton<span class="sc">/</span><span class="dv">100</span> <span class="sc">-</span> rawpoll_trump<span class="sc">/</span><span class="dv">100</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb31-6"><a></a>  <span class="fu">mutate</span>(<span class="at">state =</span> <span class="fu">as.character</span>(state)) <span class="sc">|&gt;</span> </span>
+<span id="cb31-7"><a></a>  <span class="fu">left_join</span>(results_us_election_2016, <span class="at">by =</span> <span class="st">"state"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb31-8"><a></a>  <span class="fu">mutate</span>(<span class="at">actual =</span> clinton<span class="sc">/</span><span class="dv">100</span> <span class="sc">-</span> trump<span class="sc">/</span><span class="dv">100</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb31-9"><a></a>  <span class="fu">summarize</span>(<span class="at">actual =</span> <span class="fu">first</span>(actual), <span class="at">avg =</span> <span class="fu">mean</span>(spread),  </span>
+<span id="cb31-10"><a></a>            <span class="at">sd =</span> <span class="fu">sd</span>(spread), <span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span> </span>
+<span id="cb31-11"><a></a>  <span class="fu">select</span>(actual, avg, sd, n) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE FALSE  TRUE</code></pre>
+<pre><code>  actual        avg         sd n
+1 -0.007 0.07106667 0.01041454 6</code></pre>
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a><span class="fu">match</span>(<span class="fu">c</span>(<span class="st">"Boston"</span>, <span class="st">"Dakota"</span>, <span class="st">"Washington"</span>), murders<span class="sc">$</span>state)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] NA NA 48</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a><span class="fu">match</span>(murders<span class="sc">$</span>state, <span class="fu">c</span>(<span class="st">"Boston"</span>, <span class="st">"Dakota"</span>, <span class="st">"Washington"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
-[26] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA  3 NA NA
-[51] NA</code></pre>
-</div>
-</div>
-</section>
-<section id="the-apply-functions" class="slide level2">
-<h2>The apply functions</h2>
-<ul>
-<li><p>The apply functions let use the concept of vectorization with functions that don’t vectorize.</p></li>
-<li><p>Here is an example of a function that won’t vectorize in a convenient way:</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a>s <span class="ot">&lt;-</span> <span class="cf">function</span>(n){</span>
-<span id="cb49-2"><a></a>   <span class="fu">return</span>(<span class="fu">sum</span>(<span class="dv">1</span><span class="sc">:</span>n))</span>
-<span id="cb49-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>Try it on a vector:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a></a>ns <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">100</span>, <span class="dv">1000</span>)</span>
-<span id="cb50-2"><a></a><span class="fu">s</span>(ns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 325</code></pre>
-</div>
-</div>
-</section>
-<section id="the-apply-functions-1" class="slide level2">
-<h2>The apply functions</h2>
-<ul>
-<li>We can use <code>sapply</code>, one of the apply functions:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a></a><span class="fu">sapply</span>(ns, s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1]    325   5050 500500</code></pre>
-</div>
-</div>
-<ul>
-<li><code>sapply</code> will work on any vector, including lists.</li>
-</ul>
-</section>
-<section id="the-apply-functions-2" class="slide level2">
-<h2>The apply functions</h2>
-<ul>
-<li><p>There are other apply functions:</p>
-<ul>
-<li><p><code>lapply</code> - returns a list. Convenient when the function returns something other than a number.</p></li>
-<li><p><code>tapply</code> - can apply to subsets defined by second variable.</p></li>
-<li><p><code>mapply</code> - multivariate version of <code>sapply</code>.</p></li>
-<li><p><code>apply</code> - applies function to rows or columns o matrix.</p></li>
-</ul></li>
-<li><p>We will learn some of these as we go.</p></li>
-</ul>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">

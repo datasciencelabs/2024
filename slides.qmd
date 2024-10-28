@@ -10,6 +10,8 @@ listing:
       - slides/R/*.qmd
       - slides/wrangling/*.qmd
       - slides/dataviz/*.qmd
+      - slides/prob/*.qmd
+      - slides/inference/*.qmd
 
     type: table
     fields: [keywords, title, date]

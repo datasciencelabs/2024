@@ -10,7 +10,7 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.57">
 
-  <meta name="dcterms.date" content="2024-08-23">
+  <meta name="dcterms.date" content="2024-10-23">
   <meta name="keywords" content="Inference">
   <title>BST 260: Introduction to Data Science – Confidence Intervals</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -397,7 +397,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">2024-08-23</p>
+  <p class="date">2024-10-23</p>
 </section>
 <section id="confidence-intervals" class="slide level2">
 <h2>Confidence intervals</h2>
@@ -464,7 +464,7 @@
 <span id="cb2-3"><a></a>se_hat <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x_hat<span class="sc">*</span>(<span class="dv">1</span> <span class="sc">-</span> x_hat)<span class="sc">/</span>N) </span>
 <span id="cb2-4"><a></a><span class="fu">c</span>(x_hat <span class="sc">-</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat, x_hat <span class="sc">+</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4082412 0.4697588</code></pre>
+<pre><code>[1] 0.4032809 0.4647191</code></pre>
 </div>
 </div>
 <ul>
@@ -476,7 +476,7 @@
 <span id="cb4-3"><a></a>se_hat <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x_hat<span class="sc">*</span>(<span class="dv">1</span> <span class="sc">-</span> x_hat)<span class="sc">/</span>N) </span>
 <span id="cb4-4"><a></a><span class="fu">c</span>(x_hat <span class="sc">-</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat, x_hat <span class="sc">+</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4151909 0.4768091</code></pre>
+<pre><code>[1] 0.4301041 0.4918959</code></pre>
 </div>
 </div>
 <ul>
@@ -575,7 +575,7 @@
 <span id="cb14-8"><a></a>}) </span>
 <span id="cb14-9"><a></a><span class="fu">mean</span>(inside) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.9511</code></pre>
+<pre><code>[1] 0.9536</code></pre>
 </div>
 </div>
 </section>
