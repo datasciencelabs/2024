@@ -3448,7 +3448,7 @@
     "href": "index.html#lectures",
     "title": "BST 260 Introduction to Data Science",
     "section": "Lectures",
-    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09, Sep 11\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git\n\n\nSep 16, Sep 19\nR\nR basics, Vectorization\nR Basics, Vectorization\n\n\nSep 23\nR\nTidyverse, ggplot2\ndplyr, ggplot2\n\n\nSep 25\nR\nTyding data\nReshaping Data\n\n\nSep 30, Oct 02\nWrangling\nIntro, Data Importing, Dates and Times, Locales, Data APIs, Web scraping, Joining tables\nImporting data, dates and times, Locales, Joining Tables, Extracting data from the web\n\n\nOct 07, Oct 09\nData visualization\nData Viz Principles, Distributions, Dataviz in practice\nDistributions, Dataviz Principles\n\n\nOct 16\nMidterm 1\n\nCovers material from Sep 04-Oct 11\n\n\nOct 21\nProbability\nIntro, Foundations for Inference\nMonte Carlo, Random Variables & CLT\n\n\nOct 23\nInference\nIntro, Parameter and estimates, Confidence Intervals\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\nModels\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\n\nRegression, Multivariate Regression\n\n\nNov 13\nLinear models\n\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 18, Nov 20\nHigh dimensional data\n\nMatrices in R, Applied Linear Algebra, Dimension Reduction\n\n\nNov 25\nMidterm 2\n\nMidterm 2: cover material from Sep 04-Nov 22\n\n\nDec 02, Dec 04\nMachine Learning\n\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nDec 09, Dec 11\nMachine Learning\n\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
+    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09, Sep 11\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git\n\n\nSep 16, Sep 19\nR\nR basics, Vectorization\nR Basics, Vectorization\n\n\nSep 23\nR\nTidyverse, ggplot2\ndplyr, ggplot2\n\n\nSep 25\nR\nTyding data\nReshaping Data\n\n\nSep 30, Oct 02\nWrangling\nIntro, Data Importing, Dates and Times, Locales, Data APIs, Web scraping, Joining tables\nImporting data, dates and times, Locales, Joining Tables, Extracting data from the web\n\n\nOct 07, Oct 09\nData visualization\nData Viz Principles, Distributions, Dataviz in practice\nDistributions, Dataviz Principles\n\n\nOct 16\nMidterm 1\n\nCovers material from Sep 04-Oct 11\n\n\nOct 21\nProbability\nIntro, Foundations for Inference\nMonte Carlo, Random Variables & CLT\n\n\nOct 23\nInference\nIntro, Parameter and estimates, Confidence Intervals\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\nModels, Bayes, Hierarchical Models\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\n\nRegression, Multivariate Regression\n\n\nNov 13\nLinear models\n\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 18, Nov 20\nHigh dimensional data\n\nMatrices in R, Applied Linear Algebra, Dimension Reduction\n\n\nNov 25\nMidterm 2\n\nMidterm 2: cover material from Sep 04-Nov 22\n\n\nDec 02, Dec 04\nMachine Learning\n\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nDec 09, Dec 11\nMachine Learning\n\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
     "crumbs": [
       "Home"
     ]
@@ -3572,7 +3572,7 @@
     "href": "slides.html",
     "title": "Slides",
     "section": "",
-    "text": "Topic\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nFirst day\n\n\nIntroduction\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nUnix\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nRStudio\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nQuarto\n\n\nMon, Sep 09\n\n\n\n\nProductivity Tools\n\n\nGit and GitHub\n\n\nMon, Sep 09\n\n\n\n\nR\n\n\nR Basics\n\n\nMon, Sep 16\n\n\n\n\nR\n\n\nVectorization\n\n\nWed, Sep 18\n\n\n\n\nR\n\n\nTidyverse\n\n\nMon, Sep 23\n\n\n\n\nR\n\n\nggplot2\n\n\nMon, Sep 23\n\n\n\n\nR\n\n\nTidying data\n\n\nWed, Sep 25\n\n\n\n\nWrangling\n\n\nIntroduction to Wrangling\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nImporting files\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nDates And Times\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nLocales\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nData APIs\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nWeb Scraping\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nJoining Tables\n\n\nMon, Sep 30\n\n\n\n\nData Visualization\n\n\nData Visualization Principles\n\n\nMon, Oct 07\n\n\n\n\nData Visualization\n\n\nDistributions\n\n\nWed, Oct 09\n\n\n\n\nData Visualization\n\n\nDataviz In Practice\n\n\nWed, Oct 09\n\n\n\n\nProbability\n\n\nIntroduction to Probability\n\n\nMon, Oct 21\n\n\n\n\nProbability\n\n\nFoundations of Statistical Inference\n\n\nMon, Oct 21\n\n\n\n\nInference\n\n\nIntroduction to Statistical Inference and Models\n\n\nWed, Oct 23\n\n\n\n\nInference\n\n\nParameters and Estimates\n\n\nWed, Oct 23\n\n\n\n\nInference\n\n\nConfidence Intervals\n\n\nWed, Oct 23\n\n\n\n\nInference\n\n\nData-driven models\n\n\nMon, Oct 28\n\n\n\n\n\nNo matching items",
+    "text": "Topic\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nFirst day\n\n\nIntroduction\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nUnix\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nRStudio\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nQuarto\n\n\nMon, Sep 09\n\n\n\n\nProductivity Tools\n\n\nGit and GitHub\n\n\nMon, Sep 09\n\n\n\n\nR\n\n\nR Basics\n\n\nMon, Sep 16\n\n\n\n\nR\n\n\nVectorization\n\n\nWed, Sep 18\n\n\n\n\nR\n\n\nTidyverse\n\n\nMon, Sep 23\n\n\n\n\nR\n\n\nggplot2\n\n\nMon, Sep 23\n\n\n\n\nR\n\n\nTidying data\n\n\nWed, Sep 25\n\n\n\n\nWrangling\n\n\nIntroduction to Wrangling\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nImporting files\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nDates And Times\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nLocales\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nData APIs\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nWeb Scraping\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nJoining Tables\n\n\nMon, Sep 30\n\n\n\n\nData Visualization\n\n\nData Visualization Principles\n\n\nMon, Oct 07\n\n\n\n\nData Visualization\n\n\nDistributions\n\n\nWed, Oct 09\n\n\n\n\nData Visualization\n\n\nDataviz In Practice\n\n\nWed, Oct 09\n\n\n\n\nProbability\n\n\nIntroduction to Probability\n\n\nMon, Oct 21\n\n\n\n\nProbability\n\n\nFoundations of Statistical Inference\n\n\nMon, Oct 21\n\n\n\n\nInference\n\n\nIntroduction to Statistical Inference and Models\n\n\nWed, Oct 23\n\n\n\n\nInference\n\n\nParameters and Estimates\n\n\nWed, Oct 23\n\n\n\n\nInference\n\n\nConfidence Intervals\n\n\nWed, Oct 23\n\n\n\n\nInference\n\n\nData-driven models\n\n\nMon, Oct 28\n\n\n\n\nInference\n\n\nBayesian Models\n\n\nWed, Oct 30\n\n\n\n\nInference\n\n\nHierarchical Models\n\n\nWed, Oct 30\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Slides"
     ]
@@ -5902,21 +5902,21 @@
     "href": "slides/inference/25-models.html#the-t-distribution-2",
     "title": "Data-driven models",
     "section": "The t-distribution",
-    "text": "The t-distribution\n\nThe statistic on which confidence intervals for \\(\\mu\\) are based is:\n\n\\[\nZ = \\frac{\\bar{X} - \\mu}{\\sigma/\\sqrt{N}}\n\\]\n\nCLT tells us that Z is approximately normally distributed with expected value 0 and standard error 1.\nBut in practice we don’t know \\(\\sigma\\), so we use:\n\n\\[\nt = \\frac{\\bar{X} - \\mu}{s/\\sqrt{N}}\n\\]"
+    "text": "The t-distribution\n\nThe statistic on which confidence intervals for \\(\\mu\\) are based is:\n\n\\[\nZ = \\frac{\\bar{X} - \\mu}{\\sigma/\\sqrt{N}}\n\\]\n\nCLT tells us that Z is approximately normally distributed with expected value 0 and standard error 1."
   },
   {
     "objectID": "slides/inference/25-models.html#the-t-distribution-3",
     "href": "slides/inference/25-models.html#the-t-distribution-3",
     "title": "Data-driven models",
     "section": "The t-distribution",
-    "text": "The t-distribution\n\nThis is referred to as a t-statistic.\nBy substituting \\(\\sigma\\) with \\(s\\), we introduce some variability.\nThe theory tells us that \\(t\\) follows a student t-distribution with \\(N-1\\) degrees of freedom."
+    "text": "The t-distribution\n\nBut in practice we don’t know \\(\\sigma\\), so we use:\n\n\\[\nt = \\frac{\\bar{X} - \\mu}{s/\\sqrt{N}}\n\\]\n\nThis is referred to as a t-statistic."
   },
   {
     "objectID": "slides/inference/25-models.html#the-t-distribution-4",
     "href": "slides/inference/25-models.html#the-t-distribution-4",
     "title": "Data-driven models",
     "section": "The t-distribution",
-    "text": "The t-distribution\n\nThe degrees of freedom is a parameter that controls the variability via fatter tails:"
+    "text": "The t-distribution\n\nBy substituting \\(\\sigma\\) with \\(s\\), we introduce some variability.\nTheory tells us that \\(t\\) follows a student t-distribution with \\(N-1\\) degrees of freedom (df).\nThe df is a parameter that controls the variability via fatter tails:"
   },
   {
     "objectID": "slides/inference/25-models.html#the-t-distribution-5",
@@ -5937,7 +5937,7 @@
     "href": "slides/inference/25-models.html#the-t-distribution-7",
     "title": "Data-driven models",
     "section": "The t-distribution",
-    "text": "The t-distribution\n\nSo perhaps a better confidence interval for \\(\\mu\\) is:\n\n\nz &lt;- qt(0.975,  nrow(one_poll_per_pollster) - 1) \none_poll_per_pollster |&gt;  \n  summarize(avg = mean(spread), moe = z*sd(spread)/sqrt(length(spread))) |&gt;  \n  mutate(start = avg - moe, end = avg + moe)  \n\n# A tibble: 1 × 4\n     avg    moe  start    end\n   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;\n1 0.0290 0.0134 0.0156 0.0424\n\n\n\nA bit larger than the one using normal is:\n\n\nqt(0.975, 14) \n\n[1] 2.144787\n\n\n\nis bigger than:\n\n\nqnorm(0.975) \n\n[1] 1.959964"
+    "text": "The t-distribution\n\nSo perhaps a better confidence interval for \\(\\mu\\) is:\n\n\nz &lt;- qt(0.975,  nrow(one_poll_per_pollster) - 1) \none_poll_per_pollster |&gt;  \n  summarize(avg = mean(spread), moe = z*sd(spread)/sqrt(length(spread))) |&gt;  \n  mutate(start = avg - moe, end = avg + moe)  \n\n# A tibble: 1 × 4\n     avg    moe  start    end\n   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;\n1 0.0290 0.0134 0.0156 0.0424\n\n\n\nA bit larger than the one using normal is:\n\n\nqt(0.975, 14) \n\n[1] 2.144787\n\nqnorm(0.975) \n\n[1] 1.959964"
   },
   {
     "objectID": "slides/inference/25-models.html#the-t-distribution-8",
@@ -6260,5 +6260,936 @@
     "title": "Git and GitHub",
     "section": "Using Git in RStudio",
     "text": "Using Git in RStudio\n\nGo to file, new project, version control, and follow the instructions.\nThen notice the Git tab in the preferences."
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#bayesian-statistics",
+    "href": "slides/inference/26-bayes.html#bayesian-statistics",
+    "title": "Bayesian Models",
+    "section": "Bayesian statistics",
+    "text": "Bayesian statistics\nIn 2016 FiveThirtyEight showed this diagram:\n\nThe colored areas represent values with an 80% chance of including the actual result, according to the FiveThirtyEight model."
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#bayesian-statistics-1",
+    "href": "slides/inference/26-bayes.html#bayesian-statistics-1",
+    "title": "Bayesian Models",
+    "section": "Bayesian statistics",
+    "text": "Bayesian statistics\n\nWhat does this mean in the context of the theory we have discussed?\nThe statement “Obama has a 90% chance of winning the election” is equivalent to “the probability \\(p&gt;0.5\\) is 90%” for our urn challenge.\nHowever, the urn model \\(p\\) is a fixed parameter so it does not make sense to talk about probability.\nWith Bayesian statistics, we assume \\(p\\) is random variable, and thus, a statement such as “90% chance of winning” is consistent with the mathematical approach."
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#bayesian-statistics-2",
+    "href": "slides/inference/26-bayes.html#bayesian-statistics-2",
+    "title": "Bayesian Models",
+    "section": "Bayesian statistics",
+    "text": "Bayesian statistics\n\nForecasters also use models to describe variability at different levels.\n\nsampling variability\npollster to pollster variability\nday to day variability\nelection to election variability.\n\nOne of the most successful approaches used for this are hierarchical models, which can be explained in the context of Bayesian statistics."
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#bayesian-statistics-3",
+    "href": "slides/inference/26-bayes.html#bayesian-statistics-3",
+    "title": "Bayesian Models",
+    "section": "Bayesian statistics",
+    "text": "Bayesian statistics\n\nThe approach described in the previous chapters, where the parameters are considered fixed, is often referred to as frequentist.\n:::\nIn this chapter, we will briefly describe Bayesian statistics.\nWe use three cases studies: 1) interpreting diagnostic tests for a rare disease, 2) predicting the performance of an athlete, and 3) estimating the probability of Hillary Clinton winning in 2016 using pre-election poll data."
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#bayesian-statistics-4",
+    "href": "slides/inference/26-bayes.html#bayesian-statistics-4",
+    "title": "Bayesian Models",
+    "section": "Bayesian statistics",
+    "text": "Bayesian statistics\n\nFor an in-depth treatment of this topic, we recommend one of the following textbooks:\n\nBerger JO (1985).\n\nStatistical Decision Theory and Bayesian Analysis, 2nd edition.\nSpringer-Verlag.\n\nLee PM (1989).\n\nBayesian Statistics: An Introduction."
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#bayesian-statistics-5",
+    "href": "slides/inference/26-bayes.html#bayesian-statistics-5",
+    "title": "Bayesian Models",
+    "section": "Bayesian statistics",
+    "text": "Bayesian statistics\n\nOxford."
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#bayes-theorem",
+    "href": "slides/inference/26-bayes.html#bayes-theorem",
+    "title": "Bayesian Models",
+    "section": "Bayes theorem",
+    "text": "Bayes theorem\n_ As a case study: we ill explain the math behind the 538 diagram we started with.\n\nWe start by describing Bayes theorem, using a hypothetical cystic fibrosis test as an example."
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#bayes-theorem-1",
+    "href": "slides/inference/26-bayes.html#bayes-theorem-1",
+    "title": "Bayesian Models",
+    "section": "Bayes theorem",
+    "text": "Bayes theorem\n\nSuppose a test for cystic fibrosis has an accuracy of 99%.\n\n\\[\n\\mbox{Pr}(+ \\mid D=1)=0.99, \\mbox{Pr}(- \\mid D=0)=0.99  \n\\]\n\n\\(+\\) means a positive test and \\(D = 1\\) if you actually have the disease, \\(D=0\\) if not."
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#bayes-theorem-2",
+    "href": "slides/inference/26-bayes.html#bayes-theorem-2",
+    "title": "Bayesian Models",
+    "section": "Bayes theorem",
+    "text": "Bayes theorem\n\nImagine we select a random person and they test positive.\nWhat is the probability that they have the disease?\nWe write this as\n\n\\[\n\\mbox{Pr}(D=1 \\mid +)\n\\]\n\nThe cystic fibrosis rate is 1 in 3,900, which implies that \\(\\mbox{Pr}(D=1) \\approx 0.00025\\)."
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#bayes-theorem-3",
+    "href": "slides/inference/26-bayes.html#bayes-theorem-3",
+    "title": "Bayesian Models",
+    "section": "Bayes theorem",
+    "text": "Bayes theorem\n\nTo answer this question, we will use Bayes theorem, which in general tells us that:\n\n\\[\n\\mbox{Pr}(A \\mid B)  =  \\frac{\\mbox{Pr}(B \\mid A)\\mbox{Pr}(A)}{\\mbox{Pr}(B)}  \n\\]"
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#bayes-theorem-simulation",
+    "href": "slides/inference/26-bayes.html#bayes-theorem-simulation",
+    "title": "Bayesian Models",
+    "section": "Bayes theorem simulation",
+    "text": "Bayes theorem simulation\n\nThe following simulation is meant to help you visualize Bayes theorem.\nWe start by randomly selecting 100,000 people from a population in which the disease in question has a 1 in 4,000 prevalence.\n\n\nprev &lt;- 0.00025 \nN &lt;- 100000 \noutcome &lt;- sample(c(\"Disease\",\"Healthy\"), N, replace = TRUE,  \n                  prob = c(prev, 1 - prev)) \n\n\nNote that there are very few people with the disease:"
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#bayes-theorem-simulation-1",
+    "href": "slides/inference/26-bayes.html#bayes-theorem-simulation-1",
+    "title": "Bayesian Models",
+    "section": "Bayes theorem simulation",
+    "text": "Bayes theorem simulation\n\nN_D &lt;- sum(outcome == \"Disease\") \nN_D \n\n[1] 23\n\nN_H &lt;- sum(outcome == \"Healthy\") \nN_H \n\n[1] 99977\n\n\n\nAlso, there are many people without the disease, which makes it more probable that we will see some false positives given that the test is not perfect.\nNow, each person gets the test, which is correct 99% of the time:"
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#bayes-theorem-simulation-2",
+    "href": "slides/inference/26-bayes.html#bayes-theorem-simulation-2",
+    "title": "Bayesian Models",
+    "section": "Bayes theorem simulation",
+    "text": "Bayes theorem simulation\n\naccuracy &lt;- 0.99 \ntest &lt;- vector(\"character\", N) \ntest[outcome == \"Disease\"]  &lt;- sample(c(\"+\", \"-\"), N_D, replace = TRUE,  \n                                    prob = c(accuracy, 1 - accuracy)) \ntest[outcome == \"Healthy\"]  &lt;- sample(c(\"-\", \"+\"), N_H, replace = TRUE,  \n                                    prob = c(accuracy, 1 - accuracy)) \n\n\nGiven that there are so many more controls than cases, even with a low false positive rate, we end up with more controls than cases in the group that tested positive:\n\n\ntable(outcome, test) \n\n         test\noutcome       -     +\n  Disease     0    23\n  Healthy 99012   965\n\n\n\nFrom this table, we see that the proportion of positive tests that have the disease is 23 out of 988."
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#bayes-theorem-simulation-3",
+    "href": "slides/inference/26-bayes.html#bayes-theorem-simulation-3",
+    "title": "Bayesian Models",
+    "section": "Bayes theorem simulation",
+    "text": "Bayes theorem simulation\n\nWe can run this over and over again to see that, in fact, the probability converges to about 0.022."
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#priors-posteriors-and-and-credible-intervals",
+    "href": "slides/inference/26-bayes.html#priors-posteriors-and-and-credible-intervals",
+    "title": "Bayesian Models",
+    "section": "Priors, posteriors and and credible intervals",
+    "text": "Priors, posteriors and and credible intervals\n\nIn the previous chapter, we computed an estimate and margin of error for the difference in popular votes between Hillary Clinton and Donald Trump.\nWe denoted the parameter, the the difference in popular votes, with \\(\\mu\\).\nThe estimate was between 2 and 3 percent, and the confidence interval did not include 0.\nA forecaster would use this to predict Hillary Clinton would win the popular vote."
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#priors-posteriors-and-and-credible-intervals-1",
+    "href": "slides/inference/26-bayes.html#priors-posteriors-and-and-credible-intervals-1",
+    "title": "Bayesian Models",
+    "section": "Priors, posteriors and and credible intervals",
+    "text": "Priors, posteriors and and credible intervals\n\nBut to make a probabilistic statement about winning the election, we need to use a Bayesian approach.\nWe start the Bayesian approach by quantifying our knowledge before seeing any data.\nThis is done using a probability distribution referred to as a prior.\nFor our example, we could write:\n\n\\[\n\\mu \\sim N(\\theta, \\tau)\n\\]"
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#priors-posteriors-and-and-credible-intervals-2",
+    "href": "slides/inference/26-bayes.html#priors-posteriors-and-and-credible-intervals-2",
+    "title": "Bayesian Models",
+    "section": "Priors, posteriors and and credible intervals",
+    "text": "Priors, posteriors and and credible intervals\n\nWe can think of \\(\\theta\\) as our best guess for the popular vote difference had we not seen any polling data, and we can think of \\(\\tau\\) as quantifying how certain we feel about this guess.\nGenerally, if we have expert knowledge related to \\(\\mu\\), we can try to quantify it with the prior distribution.\nIn the case of election polls, experts use fundamentals, which include, for example, the state of the economy, to develop prior distributions.\nThe data is used to update our initial guess or prior belief."
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#priors-posteriors-and-and-credible-intervals-3",
+    "href": "slides/inference/26-bayes.html#priors-posteriors-and-and-credible-intervals-3",
+    "title": "Bayesian Models",
+    "section": "Priors, posteriors and and credible intervals",
+    "text": "Priors, posteriors and and credible intervals\n\nThis can be done mathematically if we define the distribution for the observed data for any given \\(\\mu\\).\nIn our particular example, we would write down a model the average of our polls, which is the same as before:\n\n\\[\n\\bar{X} \\mid \\mu \\sim N(\\mu, \\sigma/\\sqrt{N})\n\\]\n\nAs before, \\(\\sigma\\) describes randomness due to sampling and the pollster effects."
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#priors-posteriors-and-and-credible-intervals-4",
+    "href": "slides/inference/26-bayes.html#priors-posteriors-and-and-credible-intervals-4",
+    "title": "Bayesian Models",
+    "section": "Priors, posteriors and and credible intervals",
+    "text": "Priors, posteriors and and credible intervals\n\nIn the Bayesian contexts, this is referred to as the sampling distribution.\nNote that we write the conditional \\(\\bar{X} \\mid \\mu\\) because \\(\\mu\\) is now considered a random variable.\nWe do not show the derivations here, but we can now use calculus and a version of Bayes’ Theorem to derive the distribution of \\(\\mu\\) conditional of the data, referred to as the posterior distribution.\nSpecifically, we can show the \\(\\mu \\mid \\bar{X}\\) follows a normal distribution with expected value:"
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#priors-posteriors-and-and-credible-intervals-5",
+    "href": "slides/inference/26-bayes.html#priors-posteriors-and-and-credible-intervals-5",
+    "title": "Bayesian Models",
+    "section": "Priors, posteriors and and credible intervals",
+    "text": "Priors, posteriors and and credible intervals\n\\[\n\\begin{aligned}\n\\mbox{E}(\\mu \\mid \\bar{X}) &= B \\theta + (1-B) \\bar{X}\\\\\n&= \\theta + (1-B)(\\bar{X}-\\theta)\\\\\n\\mbox{with } B &= \\frac{\\sigma^2/N}{\\sigma^2/N+\\tau^2}\n\\end{aligned}\n\\]\n\nand standard error :"
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#priors-posteriors-and-and-credible-intervals-6",
+    "href": "slides/inference/26-bayes.html#priors-posteriors-and-and-credible-intervals-6",
+    "title": "Bayesian Models",
+    "section": "Priors, posteriors and and credible intervals",
+    "text": "Priors, posteriors and and credible intervals\n\\[\n\\mbox{SE}(\\mu \\mid \\bar{X})^2 = \\frac{1}{1/\\sigma^2+1/\\tau^2}.\n\\]\n\nNote that the expected value is a weighted average of our prior guess \\(\\theta\\) and the observed data \\(\\bar{X}\\).\nThe weight depends on how certain we are about our prior belief, quantified by \\(\\tau\\), and the precision \\(\\sigma/N\\) of the summary of our observed data.\nThis weighted average is sometimes referred to as shrinking because it shrinks estimates towards a prior value."
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#priors-posteriors-and-and-credible-intervals-7",
+    "href": "slides/inference/26-bayes.html#priors-posteriors-and-and-credible-intervals-7",
+    "title": "Bayesian Models",
+    "section": "Priors, posteriors and and credible intervals",
+    "text": "Priors, posteriors and and credible intervals\n\nThese quantities are useful for updating our beliefs.\nSpecifically, we use the posterior distribution not only to compute the expected value of \\(\\mu\\) given the observed data, but also, for any probability \\(\\alpha\\), we can construct intervals centered at our estimate and with \\(\\alpha\\) chance of occurring."
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#priors-posteriors-and-and-credible-intervals-8",
+    "href": "slides/inference/26-bayes.html#priors-posteriors-and-and-credible-intervals-8",
+    "title": "Bayesian Models",
+    "section": "Priors, posteriors and and credible intervals",
+    "text": "Priors, posteriors and and credible intervals"
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#priors-posteriors-and-and-credible-intervals-9",
+    "href": "slides/inference/26-bayes.html#priors-posteriors-and-and-credible-intervals-9",
+    "title": "Bayesian Models",
+    "section": "Priors, posteriors and and credible intervals",
+    "text": "Priors, posteriors and and credible intervals\n\nTo compute a posterior distribution and construct a credible interval, we define a prior distribution with mean 0% and standard error 3.5%, which can be interpreted as follows: before seeing polling data, we don’t think any candidate has the advantage, and a difference of up to 7% either way is possible.\nWe compute the posterior distribution using the equations above:"
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#priors-posteriors-and-and-credible-intervals-10",
+    "href": "slides/inference/26-bayes.html#priors-posteriors-and-and-credible-intervals-10",
+    "title": "Bayesian Models",
+    "section": "Priors, posteriors and and credible intervals",
+    "text": "Priors, posteriors and and credible intervals\n\ntheta &lt;- 0 \ntau &lt;- 0.035 \nsigma &lt;- results$se \nx_bar &lt;- results$avg \nB &lt;- sigma^2 / (sigma^2 + tau^2) \nposterior_mean &lt;- B*theta + (1 - B)*x_bar \nposterior_se &lt;- sqrt(1/(1/sigma^2 + 1/tau^2)) \nposterior_mean \n\n[1] 0.02808534\n\nposterior_se \n\n[1] 0.006149604\n\n\n\nSince we know the posterior distribution is normal, we can construct a credible interval like this:\n\n\nposterior_mean + c(-1, 1) * qnorm(0.975) * posterior_se \n\n[1] 0.01603234 0.04013834"
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#priors-posteriors-and-and-credible-intervals-11",
+    "href": "slides/inference/26-bayes.html#priors-posteriors-and-and-credible-intervals-11",
+    "title": "Bayesian Models",
+    "section": "Priors, posteriors and and credible intervals",
+    "text": "Priors, posteriors and and credible intervals\n\nFurthermore, we can now make the probabilistic statement that we could not make with the frequentists approach by computing the posterior probability of Hillary winning the popular vote.\nSpecifically, \\(\\mbox{Pr}(\\mu&gt;0 \\mid \\bar{X})\\) can be computed as follows:\n\n\n1 - pnorm(0, posterior_mean, posterior_se) \n\n[1] 0.9999975\n\n\n\nAccording to the above, we are 100% sure Clinton will win the popular vote, which seems too overconfident.\nAdditionally, it is not in agreement with FiveThirtyEight’s 81.4%."
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#priors-posteriors-and-and-credible-intervals-12",
+    "href": "slides/inference/26-bayes.html#priors-posteriors-and-and-credible-intervals-12",
+    "title": "Bayesian Models",
+    "section": "Priors, posteriors and and credible intervals",
+    "text": "Priors, posteriors and and credible intervals\n\nWhat explains this difference? There is a level of uncertainty that we are not yet describing, and we will return to that in ?@sec-election-forecasting."
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#bayes-theorem-4",
+    "href": "slides/inference/26-bayes.html#bayes-theorem-4",
+    "title": "Bayesian Models",
+    "section": "Bayes theorem",
+    "text": "Bayes theorem\n\nThis equation, when applied to our problem, becomes:\n\n\\[\n\\begin{aligned}\n\\mbox{Pr}(D=1 \\mid +) & =  \\frac{ P(+ \\mid D=1) \\cdot P(D=1)} {\\mbox{Pr}(+)} \\\\\n& =  \\frac{\\mbox{Pr}(+ \\mid D=1)\\cdot P(D=1)} {\\mbox{Pr}(+ \\mid D=1) \\cdot P(D=1) + \\mbox{Pr}(+ \\mid D=0) \\mbox{Pr}( D=0)}  \n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#bayes-theorem-5",
+    "href": "slides/inference/26-bayes.html#bayes-theorem-5",
+    "title": "Bayesian Models",
+    "section": "Bayes theorem",
+    "text": "Bayes theorem\n\nPlugging in the numbers, we get:\n\n\\[\n\\frac{0.99 \\cdot 0.00025}{0.99 \\cdot 0.00025 + 0.01 \\cdot (.99975)}  =  0.02  \n\\]\n\nAccording to the above, despite the test having 0.99 accuracy, the probability of having the disease given a positive test is only 0.02.\nThis might seem counter-intuitive, but it is because we must factor in the very rare probability that a randomly chosen person has the disease."
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#bayes-theorem-6",
+    "href": "slides/inference/26-bayes.html#bayes-theorem-6",
+    "title": "Bayesian Models",
+    "section": "Bayes theorem",
+    "text": "Bayes theorem"
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#priors-and-posteriors",
+    "href": "slides/inference/26-bayes.html#priors-and-posteriors",
+    "title": "Bayesian Models",
+    "section": "Priors and posteriors",
+    "text": "Priors and posteriors\n\nIn the previous lecture, we computed an estimate and margin of error for the difference in popular votes between Hillary Clinton and Donald Trump.\nWe denoted the parameter, the the difference in popular votes, with \\(\\mu\\).\nThe estimate was between 2 and 3 percent, and the confidence interval did not include 0.\nA forecaster would use this to predict Hillary Clinton would win the popular vote."
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#priors-and-posteriors-1",
+    "href": "slides/inference/26-bayes.html#priors-and-posteriors-1",
+    "title": "Bayesian Models",
+    "section": "Priors and posteriors",
+    "text": "Priors and posteriors\n\nBut to make a probabilistic statement about winning the election, we need to use a Bayesian approach.\nWe start by quantifying our knowledge before seeing any data.\nThis is done using a probability distribution referred to as a prior."
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#priors-and-posteriors-2",
+    "href": "slides/inference/26-bayes.html#priors-and-posteriors-2",
+    "title": "Bayesian Models",
+    "section": "Priors and posteriors",
+    "text": "Priors and posteriors\n\nFor our example, we could write:\n\n\\[\n\\mu \\sim N(\\theta, \\tau)\n\\]\n\nWe can think of \\(\\theta\\) as our best guess for the popular vote difference had we not seen any polling data.\nWe can think of \\(\\tau\\) as quantifying how certain we feel about this guess."
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#priors-and-posteriors-3",
+    "href": "slides/inference/26-bayes.html#priors-and-posteriors-3",
+    "title": "Bayesian Models",
+    "section": "Priors and posteriors",
+    "text": "Priors and posteriors\n\nGenerally, if we have expert knowledge related to \\(\\mu\\), we can try to quantify it with the prior distribution.\nIn the case of election polls, experts use fundamentals, for example, the state of the economy, to develop prior distributions.\nThe data is used to update our initial guess or prior belief.\nThis can be done mathematically if we define the distribution for the observed data for any given \\(\\mu\\)."
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#priors-and-posteriors-4",
+    "href": "slides/inference/26-bayes.html#priors-and-posteriors-4",
+    "title": "Bayesian Models",
+    "section": "Priors and posteriors",
+    "text": "Priors and posteriors\n\nIn our example, we write down a model for the average of our polls:\n\n\\[\n\\bar{X} \\mid \\mu \\sim N(\\mu, \\sigma/\\sqrt{N})\n\\]\n\nAs before, \\(\\sigma\\) describes randomness due to sampling and the pollster effects.\nIn the Bayesian contexts, this is referred to as the sampling distribution.\nNote that we write the conditional \\(\\bar{X} \\mid \\mu\\) because \\(\\mu\\) is now considered a random variable."
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#priors-and-posteriors-5",
+    "href": "slides/inference/26-bayes.html#priors-and-posteriors-5",
+    "title": "Bayesian Models",
+    "section": "Priors and posteriors",
+    "text": "Priors and posteriors\n\nWe can now use calculus and a version of Bayes’ Theorem to derive the distribution of \\(\\mu\\) conditional of the data, referred to as the posterior distribution.\nSpecifically, we can show the \\(\\mu \\mid \\bar{X}\\) follows a normal distribution with expected value:\n\n\\[\n\\begin{aligned}\n\\mbox{E}(\\mu \\mid \\bar{X}) &= B \\theta + (1-B) \\bar{X}\\\\\n&= \\theta + (1-B)(\\bar{X}-\\theta)\\\\\n\\mbox{with } B &= \\frac{\\sigma^2/N}{\\sigma^2/N+\\tau^2} \\mbox{ and }\n\\mbox{SE}(\\mu \\mid \\bar{X})^2 = \\frac{1}{1/\\sigma^2+1/\\tau^2}.\n\\]"
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#priors-and-posteriors-6",
+    "href": "slides/inference/26-bayes.html#priors-and-posteriors-6",
+    "title": "Bayesian Models",
+    "section": "Priors and posteriors",
+    "text": "Priors and posteriors\n\nThe expected value is a weighted average of our prior guess \\(\\theta\\) and the observed data \\(\\bar{X}\\).\nThe weight depends on how certain we are about our prior belief, quantified by \\(\\tau\\), and the precision \\(\\sigma/N\\) of the summary of our observed data.\nThis weighted average is sometimes referred to as shrinking because it shrinks estimates towards a prior value."
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#priors-and-posteriors-7",
+    "href": "slides/inference/26-bayes.html#priors-and-posteriors-7",
+    "title": "Bayesian Models",
+    "section": "Priors and posteriors",
+    "text": "Priors and posteriors\n\nThese quantities are useful for updating our beliefs.\nSpecifically, we use the posterior distribution not only to compute the expected value of \\(\\mu\\) given the observed data, but also, for any probability \\(\\alpha\\), we can construct intervals centered at our estimate and with \\(\\alpha\\) chance of occurring."
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#example",
+    "href": "slides/inference/26-bayes.html#example",
+    "title": "Bayesian Models",
+    "section": "Example",
+    "text": "Example\nWe will use these data again:\n\nlibrary(dslabs) \npolls &lt;- polls_us_election_2016 |&gt;  \n  filter(state == \"U.S.\" & enddate &gt;= \"2016-10-31\" & \n           (grade %in% c(\"A+\",\"A\",\"A-\",\"B+\") | is.na(grade))) |&gt;  \n  mutate(spread = rawpoll_clinton/100 - rawpoll_trump/100) \none_poll_per_pollster &lt;- polls |&gt; group_by(pollster) |&gt;  \n  filter(enddate == max(enddate)) |&gt; \n  ungroup() \nresults &lt;- one_poll_per_pollster |&gt;  \n  summarize(avg = mean(spread),  \n            se = sd(spread) / sqrt(length(spread))) |&gt;  \n  mutate(start = avg - 1.96 * se,  \n         end = avg + 1.96 * se)"
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#example-1",
+    "href": "slides/inference/26-bayes.html#example-1",
+    "title": "Bayesian Models",
+    "section": "Example",
+    "text": "Example\n\nTo compute a posterior distribution and construct a credible interval, we define a prior distribution with mean 0% and standard error 3.5%, which can be interpreted as follows: before seeing polling data, we don’t think any candidate has the advantage, and a difference of up to 7% either way is possible.\nWe compute the posterior distribution using the equations above:"
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#example-2",
+    "href": "slides/inference/26-bayes.html#example-2",
+    "title": "Bayesian Models",
+    "section": "Example",
+    "text": "Example\n\ntheta &lt;- 0 \ntau &lt;- 0.035 \nsigma &lt;- results$se \nx_bar &lt;- results$avg \nB &lt;- sigma^2 / (sigma^2 + tau^2) \nposterior_mean &lt;- B*theta + (1 - B)*x_bar \nposterior_se &lt;- sqrt(1/(1/sigma^2 + 1/tau^2)) \nposterior_mean \n\n[1] 0.02808534\n\nposterior_se \n\n[1] 0.006149604"
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#example-3",
+    "href": "slides/inference/26-bayes.html#example-3",
+    "title": "Bayesian Models",
+    "section": "Example",
+    "text": "Example\n\nSince we know the posterior distribution is normal, we can construct a credible interval like this:\n\n\nposterior_mean + c(-1, 1) * qnorm(0.975) * posterior_se \n\n[1] 0.01603234 0.04013834"
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#example-4",
+    "href": "slides/inference/26-bayes.html#example-4",
+    "title": "Bayesian Models",
+    "section": "Example",
+    "text": "Example\n\nFurthermore, we can now make the probabilistic statement that we could not make with the frequentists approach by computing the posterior probability of Hillary winning the popular vote.\nSpecifically, \\(\\mbox{Pr}(\\mu&gt;0 \\mid \\bar{X})\\) can be computed as follows:\n\n\n1 - pnorm(0, posterior_mean, posterior_se) \n\n[1] 0.9999975"
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html#example-5",
+    "href": "slides/inference/26-bayes.html#example-5",
+    "title": "Bayesian Models",
+    "section": "Example",
+    "text": "Example\n\nAccording to this calculation, we are 100% sure Clinton will win the popular vote, which seems too overconfident.\nIt is not in agreement with FiveThirtyEight’s 81.4%.\nWhat explains this difference?\nThere is a level of uncertainty that we are not yet describing, and for which we will need to learn about hierarchical modesl*."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#hierarchichal-models",
+    "href": "slides/inference/27-hierarchical-models.html#hierarchichal-models",
+    "title": "Hierarchical Models",
+    "section": "Hierarchichal Models",
+    "text": "Hierarchichal Models\n\nHierarchical models are useful for quantifying different levels of variability or uncertainty.\nOne can use them using a Bayesian or Frequentist framework.\nWe illustrate the use of hierarchical models with an example from election forecasting. In this context, hierarchical modeling helps to manage expectations by accounting for various levels of uncertainty including polling biases that change direction from election to election."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#case-study-election-forecasting",
+    "href": "slides/inference/27-hierarchical-models.html#case-study-election-forecasting",
+    "title": "Hierarchical Models",
+    "section": "Case study: election forecasting",
+    "text": "Case study: election forecasting\n\nIn 2016, most forecasters underestimated Trump’s chances of winning greatly.\nThe day before the election, the New York Times reported the following probabilities for Hillary Clinton winning the presidency:\n\n\n\n\n\n\n\nNYT\n538\nHuffPost\nPW\nPEC\nDK\nCook\nRoth\n\n\n\n\nWin Prob\n85%\n71%\n98%\n89%\n&gt;99%\n92%\nLean Dem\nLean Dem"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#case-study-election-forecasting-1",
+    "href": "slides/inference/27-hierarchical-models.html#case-study-election-forecasting-1",
+    "title": "Hierarchical Models",
+    "section": "Case study: election forecasting",
+    "text": "Case study: election forecasting\n\nNote that FiveThirtyEight had Trump’s probability of winning at 29%, substantially higher than the others.\nIn fact, four days before the election, FiveThirtyEight published an article titled Trump Is Just A Normal Polling Error Behind Clinton.\nSo why did FiveThirtyEight’s model fair so much better than others?"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#case-study-election-forecasting-2",
+    "href": "slides/inference/27-hierarchical-models.html#case-study-election-forecasting-2",
+    "title": "Hierarchical Models",
+    "section": "Case study: election forecasting",
+    "text": "Case study: election forecasting\n\nFor illustrative purposes, we will continue examining the popular vote example.\nAt the end we will describe a more complex approach used to forecast the electoral college result."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#case-study-election-forecasting-3",
+    "href": "slides/inference/27-hierarchical-models.html#case-study-election-forecasting-3",
+    "title": "Bayesian Models",
+    "section": "Case study: election forecasting",
+    "text": "Case study: election forecasting\n\nSo why did FiveThirtyEight’s model fair so much better than others? How could PEC and Huffington Post get it so wrong if they were using the same data? In this chapter, we describe how FiveThirtyEight used a hierarchical model to correctly account for key sources of variability and outperform all other forecasters.\nFor illustrative purposes, we will continue examining our popular vote example.\nIn the final section, we will describe the more complex approach used to forecast the electoral college result."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#the-general-bias",
+    "href": "slides/inference/27-hierarchical-models.html#the-general-bias",
+    "title": "Hierarchical Models",
+    "section": "The general bias",
+    "text": "The general bias\n\nWe previously computed the posterior probability of Hillary Clinton winning the popular vote with a standard Bayesian analysis and found it to be very close to 100%.\nHowever, FiveThirtyEight gave her a 81.4% chance.\nWhat explains this difference?"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#the-general-bias-1",
+    "href": "slides/inference/27-hierarchical-models.html#the-general-bias-1",
+    "title": "Hierarchical Models",
+    "section": "The general bias",
+    "text": "The general bias\n\nAfter elections are over, one can look at the difference between the pollster predictions and the actual result.\nAn important observation, that our initial models did not take into account, is that it is common to see a general bias that affects most pollsters in the same way, making the observed data correlated."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#the-general-bias-2",
+    "href": "slides/inference/27-hierarchical-models.html#the-general-bias-2",
+    "title": "Hierarchical Models",
+    "section": "The general bias",
+    "text": "The general bias\nPredicted versus observed:"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#mathematical-representations-of-the-hierarchical-model",
+    "href": "slides/inference/27-hierarchical-models.html#mathematical-representations-of-the-hierarchical-model",
+    "title": "Hierarchical Models",
+    "section": "Mathematical representations of the hierarchical model",
+    "text": "Mathematical representations of the hierarchical model\n\nSuppose we are collecting data from one pollster and we assume there is no general bias.\nThe pollster collects several polls with a sample size of \\(N\\), so we observe several measurements of the spread \\(X_1, \\dots, X_J\\).\nSuppose the real proportion for Hillary is \\(p\\) and the difference is \\(\\mu\\).\nThe urn model theory tells us that these random variables are normally distributed, with expected value \\(\\mu\\) and standard error \\(2 \\sqrt{p(1-p)/N}\\):"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#mathematical-representations-of-the-hierarchical-model-1",
+    "href": "slides/inference/27-hierarchical-models.html#mathematical-representations-of-the-hierarchical-model-1",
+    "title": "Hierarchical Models",
+    "section": "Mathematical representations of the hierarchical model",
+    "text": "Mathematical representations of the hierarchical model\n\\[\nX_j \\sim \\mbox{N}\\left(\\mu, 2\\sqrt{p(1-p)/N}\\right)\n\\]\n\nWe use the index \\(j\\) to represent the different polls conducted by this pollster.\nBelow is a simulation for six polls assuming the spread is 2.1 and \\(N\\) is 2,000:"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#mathematical-representations-of-the-hierarchical-model-2",
+    "href": "slides/inference/27-hierarchical-models.html#mathematical-representations-of-the-hierarchical-model-2",
+    "title": "Hierarchical Models",
+    "section": "Mathematical representations of the hierarchical model",
+    "text": "Mathematical representations of the hierarchical model\n\nset.seed(3) \nJ &lt;- 6 \nN &lt;- 2000 \nmu &lt;- .021 \np &lt;- (mu + 1)/2 \nX &lt;- rnorm(J, mu, 2*sqrt(p*(1 - p)/N)) \n\n\nNow, suppose we have \\(J=6\\) polls from each of \\(I=5\\) different pollsters.\nFor simplicity, let’s say all polls had the same sample size \\(N\\)."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#mathematical-representations-of-the-hierarchical-model-3",
+    "href": "slides/inference/27-hierarchical-models.html#mathematical-representations-of-the-hierarchical-model-3",
+    "title": "Hierarchical Models",
+    "section": "Mathematical representations of the hierarchical model",
+    "text": "Mathematical representations of the hierarchical model\n\nThe urn model tell us the distribution is the same for all pollsters, so to simulate data, we use the same model for each:\n\n\nI &lt;- 5 \nJ &lt;- 6 \nN &lt;- 2000 \nX &lt;- sapply(1:I, function(i){ \n  rnorm(J, mu, 2*sqrt(p*(1 - p)/N)) \n}) \n\n\nAs expected, the simulated data does not really seem to capture the features of the actual data because it does not account for pollster-to-pollster variability:"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#mathematical-representations-of-the-hierarchical-model-4",
+    "href": "slides/inference/27-hierarchical-models.html#mathematical-representations-of-the-hierarchical-model-4",
+    "title": "Hierarchical Models",
+    "section": "Mathematical representations of the hierarchical model",
+    "text": "Mathematical representations of the hierarchical model"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#mathematical-representations-of-the-hierarchical-model-5",
+    "href": "slides/inference/27-hierarchical-models.html#mathematical-representations-of-the-hierarchical-model-5",
+    "title": "Hierarchical Models",
+    "section": "Mathematical representations of the hierarchical model",
+    "text": "Mathematical representations of the hierarchical model\n\nTo fix this, we need to represent the two levels of variability and we need two indexes, one for pollster and one for the polls each pollster takes.\nWe use \\(X_{ij}\\) with \\(i\\) representing the pollster and \\(j\\) representing the \\(j\\)-th poll from that pollster.\nThe model is now augmented to include pollster effects \\(h_i\\), referred to as “house effects” by FiveThirtyEight, with standard deviation \\(\\sigma_h\\):"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#mathematical-representations-of-the-hierarchical-model-6",
+    "href": "slides/inference/27-hierarchical-models.html#mathematical-representations-of-the-hierarchical-model-6",
+    "title": "Hierarchical Models",
+    "section": "Mathematical representations of the hierarchical model",
+    "text": "Mathematical representations of the hierarchical model\n\\[\n\\begin{aligned}\nh_i &\\sim \\mbox{N}\\left(0, \\sigma_h\\right)\\\\\nX_{i,j} \\mid h_i &\\sim \\mbox{N}\\left(\\mu + h_i, \\sqrt{p(1-p)/N}\\right)\n\\end{aligned}\n\\]\n\nTo simulate data from a specific pollster, we first need to draw an \\(h_i\\), and then generate individual poll data after adding this effect."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#mathematical-representations-of-the-hierarchical-model-7",
+    "href": "slides/inference/27-hierarchical-models.html#mathematical-representations-of-the-hierarchical-model-7",
+    "title": "Hierarchical Models",
+    "section": "Mathematical representations of the hierarchical model",
+    "text": "Mathematical representations of the hierarchical model\n\nHere is how we would do it for one specific pollster.\nWe assume \\(\\sigma_h\\) is 0.025:\n\n\nI &lt;- 5 \nJ &lt;- 6 \nN &lt;- 2000 \nmu &lt;- .021 \np &lt;- (mu + 1)/2 \nh &lt;- rnorm(I, 0, 0.025) \nX &lt;- sapply(1:I, function(i){ \n  mu + h[i] + rnorm(J, 0, 2*sqrt(p*(1 - p)/N)) \n}) \n\n\nThe simulated data now looks more like the actual data:"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#mathematical-representations-of-the-hierarchical-model-8",
+    "href": "slides/inference/27-hierarchical-models.html#mathematical-representations-of-the-hierarchical-model-8",
+    "title": "Hierarchical Models",
+    "section": "Mathematical representations of the hierarchical model",
+    "text": "Mathematical representations of the hierarchical model"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#mathematical-representations-of-the-hierarchical-model-9",
+    "href": "slides/inference/27-hierarchical-models.html#mathematical-representations-of-the-hierarchical-model-9",
+    "title": "Hierarchical Models",
+    "section": "Mathematical representations of the hierarchical model",
+    "text": "Mathematical representations of the hierarchical model\n\nNote that \\(h_i\\) is common to all the observed spreads from a specific pollster.\nDifferent pollsters have a different \\(h_i\\), which explains why we can see the groups of points shift up and down from pollster to pollster.\nNow, in the model above, we assume the average house effect is 0.\nWe think that for every pollster biased in favor of our party, there is another one in favor of the other, and assume the standard deviation is \\(\\sigma_h\\)."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#mathematical-representations-of-the-hierarchical-model-10",
+    "href": "slides/inference/27-hierarchical-models.html#mathematical-representations-of-the-hierarchical-model-10",
+    "title": "Hierarchical Models",
+    "section": "Mathematical representations of the hierarchical model",
+    "text": "Mathematical representations of the hierarchical model\n\nBut, historically, we see that every election has a general bias affecting all polls.\nWe can observe this with the 2016 data, but if we collect historical data, we see that the average of polls misses by more than models like the one above predict.\nTo see this, we would take the average of polls for each election year and compare it to the actual value.\nIf we did this, we would see a difference with a standard deviation of between 2-3%."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#mathematical-representations-of-the-hierarchical-model-11",
+    "href": "slides/inference/27-hierarchical-models.html#mathematical-representations-of-the-hierarchical-model-11",
+    "title": "Hierarchical Models",
+    "section": "Mathematical representations of the hierarchical model",
+    "text": "Mathematical representations of the hierarchical model\n\nTo account for this variability we can add another level to the model as follows:\n\n\\[\n\\begin{aligned}\nb &\\sim \\mbox{N}\\left(0, \\sigma_b\\right)\\\\\nh_j \\mid \\, b &\\sim \\mbox{N}\\left(b, \\sigma_h\\right)\\\\\nX_{i,j} | \\, h_j, b &\\sim \\mbox{N}\\left(\\mu + h_j, \\sqrt{p(1-p)/N}\\right)\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#mathematical-representations-of-the-hierarchical-model-12",
+    "href": "slides/inference/27-hierarchical-models.html#mathematical-representations-of-the-hierarchical-model-12",
+    "title": "Hierarchical Models",
+    "section": "Mathematical representations of the hierarchical model",
+    "text": "Mathematical representations of the hierarchical model\n\nThis model accounts for three levels of variability: 1) variability in the bias observed from election to election, quantified by \\(\\sigma_b\\), 2) pollster-to-pollster or house effect variability, quantified by \\(\\sigma_h\\), and 3) poll sampling variability, which we can derive to be \\(\\sqrt(p(1-p)/N)\\).\nNote that not including a term like \\(b\\) in the models is what led many forecasters to be overconfident.\nThis random variable changes from election to election, but for any given election, it is the same for all pollsters and polls within one election (note it does not have an index)."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#mathematical-representations-of-the-hierarchical-model-13",
+    "href": "slides/inference/27-hierarchical-models.html#mathematical-representations-of-the-hierarchical-model-13",
+    "title": "Hierarchical Models",
+    "section": "Mathematical representations of the hierarchical model",
+    "text": "Mathematical representations of the hierarchical model\n\nThis implies that we can’t estimate \\(\\sigma_h\\) with data from just one election.\nIt also implies that the random variables \\(X_{i,j}\\) for a fixed election year share the same \\(b\\) and are therefore correlated.\nOne way to interpret \\(b\\) is as the difference between the average of all polls from all pollsters and the actual result of the election.\nSince we don’t know the actual result until after the election, we can’t estimate \\(b\\) until then."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#computing-a-posterior-probability",
+    "href": "slides/inference/27-hierarchical-models.html#computing-a-posterior-probability",
+    "title": "Hierarchical Models",
+    "section": "Computing a posterior probability",
+    "text": "Computing a posterior probability\n\nNow, let’s fit the model above to data:\n\n\npolls &lt;- polls_us_election_2016 |&gt;  \n  filter(state == \"U.S.\" & enddate &gt;= \"2016-10-31\" & \n           (grade %in% c(\"A+\",\"A\",\"A-\",\"B+\", \"B\"))) |&gt;  \n  mutate(spread = rawpoll_clinton/100 - rawpoll_trump/100)"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#computing-a-posterior-probability-1",
+    "href": "slides/inference/27-hierarchical-models.html#computing-a-posterior-probability-1",
+    "title": "Hierarchical Models",
+    "section": "Computing a posterior probability",
+    "text": "Computing a posterior probability\n\nHere, we have just one poll per pollster, so we will drop the \\(j\\) index and represent the data as before with \\(X_1, \\dots, X_I\\).\n\n\none_poll_per_pollster &lt;- polls |&gt; group_by(pollster) |&gt;  \n  filter(enddate == max(enddate)) |&gt; \n  ungroup()"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#computing-a-posterior-probability-2",
+    "href": "slides/inference/27-hierarchical-models.html#computing-a-posterior-probability-2",
+    "title": "Hierarchical Models",
+    "section": "Computing a posterior probability",
+    "text": "Computing a posterior probability\n\nAs a reminder, we have data from \\(I=15\\) pollsters.\nBased on the model assumptions described above, we can mathematically show that the average \\(\\bar{X}\\):\n\n\nx_bar &lt;- mean(one_poll_per_pollster$spread) \n\n\nthis has expected value \\(\\mu\\).\nBut how precise is this estimate?"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#computing-a-posterior-probability-3",
+    "href": "slides/inference/27-hierarchical-models.html#computing-a-posterior-probability-3",
+    "title": "Hierarchical Models",
+    "section": "Computing a posterior probability",
+    "text": "Computing a posterior probability\n\nBecause the \\(X_i\\) are correlated, estimating the standard error is more complex than what we have described up to now.\nSpecifically, using advanced statistical calculations not shown here, we can show that the typical variance (standard error squared) estimate:\n\n\ns2 &lt;- with(one_poll_per_pollster, sd(spread)^2/length(spread)) \n\n\nwill consistently underestimate the true standard error by about \\(\\sigma_b^2\\).\nAnd, as mentioned earlier, to estimate \\(\\sigma_b\\), we need data from several elections."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#computing-a-posterior-probability-4",
+    "href": "slides/inference/27-hierarchical-models.html#computing-a-posterior-probability-4",
+    "title": "Hierarchical Models",
+    "section": "Computing a posterior probability",
+    "text": "Computing a posterior probability\n\nBy collecting and analyzing polling data from several elections, we estimates this variability with \\(\\sigma_b \\approx 0.025\\).\nWe can therefore greatly improve our standard error estimate by adding this quantity:\n\n\nsigma_b &lt;- 0.025 \nse &lt;- sqrt(s2 + sigma_b^2)"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#computing-a-posterior-probability-5",
+    "href": "slides/inference/27-hierarchical-models.html#computing-a-posterior-probability-5",
+    "title": "Hierarchical Models",
+    "section": "Computing a posterior probability",
+    "text": "Computing a posterior probability\n\nIf we redo the Bayesian calculation taking this variability into account, we obtain a result much closer to FiveThirtyEight’s:\n\n\nmu &lt;- 0 \ntau &lt;- 0.035 \nB &lt;- se^2/(se^2 + tau^2) \nposterior_mean &lt;- B*mu + (1 - B)*x_bar \nposterior_se &lt;- sqrt(1/(1/se^2 + 1/tau^2)) \n1 - pnorm(0, posterior_mean, posterior_se) \n\n[1] 0.8414884\n\n\n\nBy accounting for the general bias term, we produce a posterior probability similar to that reported by FiveThirtyEight."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#computing-a-posterior-probability-6",
+    "href": "slides/inference/27-hierarchical-models.html#computing-a-posterior-probability-6",
+    "title": "Hierarchical Models",
+    "section": "Computing a posterior probability",
+    "text": "Computing a posterior probability\n\nmu &lt;- 0 \ntau &lt;- 0.035 \nB &lt;- se^2/(se^2 + tau^2) \nposterior_mean &lt;- B*mu + (1 - B)*x_bar \nposterior_se &lt;- sqrt(1/(1/se^2 + 1/tau^2)) \n1 - pnorm(0, posterior_mean, posterior_se) \n\n[1] 0.8174373\n\n\n\nNotice that by accounting for the general bias term, our Bayesian analysis now produces a posterior probability similar to that reported by FiveThirtyEight.\n:::{.callout-note}.\nKeep in mind that we are simplifying FiveThirtyEight’s calculations related to the general bias \\(b\\)."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#computing-a-posterior-probability-7",
+    "href": "slides/inference/27-hierarchical-models.html#computing-a-posterior-probability-7",
+    "title": "Hierarchical Models",
+    "section": "Computing a posterior probability",
+    "text": "Computing a posterior probability\n\nFor example, one of the many ways their analysis is more complex than the one presented here is that FiveThirtyEight permits \\(b\\) to vary across regions of the country.\nThis helps because, historically, we have observed geographical patterns in voting behaviors.\n:::"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college",
+    "href": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college",
+    "title": "Hierarchical Models",
+    "section": "Predicting the electoral college",
+    "text": "Predicting the electoral college\n\nUp to now, we have focused on the popular vote.\nHowever, in the United States, elections are not decided by the popular vote but rather by what is known as the electoral college.\nEach state gets a number of electoral votes that depends, in a somewhat complex way, on the population size of the state."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-1",
+    "href": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-1",
+    "title": "Hierarchical Models",
+    "section": "Predicting the electoral college",
+    "text": "Predicting the electoral college\n\nHere are the top 5 states ranked by electoral votes in 2016:\n\n\nresults_us_election_2016 |&gt; top_n(5, electoral_votes) \n\n         state electoral_votes clinton trump others\n1   California              55    61.7  31.6    6.7\n2        Texas              38    43.2  52.2    4.5\n3      Florida              29    47.8  49.0    3.2\n4     New York              29    59.0  36.5    4.5\n5     Illinois              20    55.8  38.8    5.4\n6 Pennsylvania              20    47.9  48.6    3.6\n\n\n\nWith some minor exceptions the electoral votes are won on an all-or-nothing basis."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-2",
+    "href": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-2",
+    "title": "Hierarchical Models",
+    "section": "Predicting the electoral college",
+    "text": "Predicting the electoral college\n\nFor example, if you won California in 2016 by just 1 vote, you still get all 55 of its electoral votes.\nThis means that by winning a few big states by a large margin, but losing many small states by small margins, you can win the popular vote and yet lose the electoral college.\nThis happened in 1876, 1888, 2000, and 2016."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-3",
+    "href": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-3",
+    "title": "Hierarchical Models",
+    "section": "Predicting the electoral college",
+    "text": "Predicting the electoral college\n\nWe are now ready to predict the electoral college result for 2016.\nWe start by aggregating results from a poll taken during the last week before the election:\n\n\nresults &lt;- polls_us_election_2016 |&gt; \n  filter(state != \"U.S.\" &  \n           !grepl(\"CD\", state) &  \n           enddate &gt;= \"2016-10-31\" &  \n           (grade %in% c(\"A+\",\"A\",\"A-\",\"B+\") | is.na(grade))) |&gt; \n  mutate(spread = rawpoll_clinton/100 - rawpoll_trump/100) |&gt; \n  group_by(state) |&gt; \n  summarize(avg = mean(spread), sd = sd(spread), n = n()) |&gt; \n  mutate(state = as.character(state))"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-4",
+    "href": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-4",
+    "title": "Hierarchical Models",
+    "section": "Predicting the electoral college",
+    "text": "Predicting the electoral college\n\nHere are the five closest races according to the polls:\n\n\nresults |&gt; arrange(abs(avg)) \n\n# A tibble: 47 × 4\n   state               avg     sd     n\n   &lt;chr&gt;             &lt;dbl&gt;  &lt;dbl&gt; &lt;int&gt;\n 1 Florida         0.00356 0.0163     7\n 2 North Carolina -0.0073  0.0306     9\n 3 Ohio           -0.0104  0.0252     6\n 4 Nevada          0.0169  0.0441     7\n 5 Iowa           -0.0197  0.0437     3\n 6 Michigan        0.0209  0.0203     6\n 7 Arizona        -0.0326  0.0270     9\n 8 Pennsylvania    0.0353  0.0116     9\n 9 New Mexico      0.0389  0.0226     6\n10 Georgia        -0.0448  0.0238     4\n# ℹ 37 more rows"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-5",
+    "href": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-5",
+    "title": "Hierarchical Models",
+    "section": "Predicting the electoral college",
+    "text": "Predicting the electoral college\n\nWe now introduce the command left_join that will let us easily add the number of electoral votes for each state from the dataset us_electoral_votes_2016.\nHere, we simply say that the function combines the two datasets so that the information from the second argument is added to the information in the first:\n\n\nresults &lt;- left_join(results, results_us_election_2016, by = \"state\")"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-6",
+    "href": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-6",
+    "title": "Hierarchical Models",
+    "section": "Predicting the electoral college",
+    "text": "Predicting the electoral college\n\nNotice that some states have no polls because the winner is pretty much known:\n\n\nresults_us_election_2016 |&gt; filter(!state %in% results$state) |&gt;  \n  pull(state) \n\n[1] \"Rhode Island\"         \"Alaska\"               \"Wyoming\"             \n[4] \"District of Columbia\"\n\n\n\nNo polls were conducted in DC, Rhode Island, Alaska, and Wyoming because Democrats are sure to win in the first two and Republicans in the last two."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-7",
+    "href": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-7",
+    "title": "Hierarchical Models",
+    "section": "Predicting the electoral college",
+    "text": "Predicting the electoral college\n\nBecause we can’t estimate the standard deviation for states with just one poll, we will estimate it as the median of the standard deviations estimated for states with more than one poll:\n\n\nresults &lt;- results |&gt; \n  mutate(sd = ifelse(is.na(sd), median(results$sd, na.rm = TRUE), sd))"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-8",
+    "href": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-8",
+    "title": "Hierarchical Models",
+    "section": "Predicting the electoral college",
+    "text": "Predicting the electoral college\n\nTo make probabilistic arguments, we will use a Monte Carlo simulation.\nFor each state, we apply the Bayesian approach to generate an election day \\(\\mu\\).\nWe could construct the priors for each state based on recent history."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-9",
+    "href": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-9",
+    "title": "Hierarchical Models",
+    "section": "Predicting the electoral college",
+    "text": "Predicting the electoral college\n\nHowever, to keep it simple, we assign a prior to each state that assumes we know nothing about what will happen.\nGiven that results from a specific state don’t vary significantly from election year to election year, we will assign a standard deviation of 2% or \\(\\tau=0.02\\)."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-10",
+    "href": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-10",
+    "title": "Hierarchical Models",
+    "section": "Predicting the electoral college",
+    "text": "Predicting the electoral college\n\nFor now, we will assume, incorrectly, that the poll results from each state are independent.\nThe code for the Bayesian calculation under these assumptions looks like this:\n\n\nmu &lt;- 0 \ntau &lt;- 0.02 \nresults |&gt; mutate(sigma = sd/sqrt(n),  \n                   B = sigma^2/(sigma^2 + tau^2), \n                   posterior_mean = B*mu + (1 - B)*avg, \n                   posterior_se = sqrt(1/(1/sigma^2 + 1/tau^2))) \n\n# A tibble: 47 × 12\n   state          avg      sd     n electoral_votes clinton trump others   sigma\n   &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt;           &lt;int&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;\n 1 Alabama   -0.149   2.53e-2     3               9    34.4  62.1    3.6 1.46e-2\n 2 Arizona   -0.0326  2.70e-2     9              11    45.1  48.7    6.2 8.98e-3\n 3 Arkansas  -0.151   9.90e-4     2               6    33.7  60.6    5.8 7.00e-4\n 4 Californ…  0.260   3.87e-2     5              55    61.7  31.6    6.7 1.73e-2\n 5 Colorado   0.0452  2.95e-2     7               9    48.2  43.3    8.6 1.11e-2\n 6 Connecti…  0.0780  2.11e-2     3               7    54.6  40.9    4.5 1.22e-2\n 7 Delaware   0.132   3.35e-2     2               3    53.4  41.9    4.7 2.37e-2\n 8 Florida    0.00356 1.63e-2     7              29    47.8  49      3.2 6.18e-3\n 9 Georgia   -0.0448  2.38e-2     4              16    45.9  51      3.1 1.19e-2\n10 Hawaii     0.186   2.10e-2     1               4    62.2  30      7.7 2.10e-2\n# ℹ 37 more rows\n# ℹ 3 more variables: B &lt;dbl&gt;, posterior_mean &lt;dbl&gt;, posterior_se &lt;dbl&gt;"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-11",
+    "href": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-11",
+    "title": "Hierarchical Models",
+    "section": "Predicting the electoral college",
+    "text": "Predicting the electoral college"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-12",
+    "href": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-12",
+    "title": "Hierarchical Models",
+    "section": "Predicting the electoral college",
+    "text": "Predicting the electoral college\n\nNow, we repeat this 10,000 times and generate an outcome from the posterior.\nIn each iteration, we track the total number of electoral votes for Clinton.\nRemember that Trump gets 270 votes minus the ones for Clinton.\nAlso, note that the reason we add 7 in the code is to account for Rhode Island and D.C."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-13",
+    "href": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-13",
+    "title": "Hierarchical Models",
+    "section": "Predicting the electoral college",
+    "text": "Predicting the electoral college\n\nB &lt;- 10000 \nmu &lt;- 0 \ntau &lt;- 0.02 \nclinton_EV &lt;- replicate(B, { \n  results |&gt; mutate(sigma = sd/sqrt(n),  \n                   B = ifelse(n &gt;= 5, sigma^2 / (sigma^2 + tau^2), 0), \n                   posterior_mean = B*mu + (1 - B)*avg, \n                   posterior_se = sqrt(1/(1/sigma^2 + 1/tau^2)), \n                   result = rnorm(length(posterior_mean),  \n                                  posterior_mean, posterior_se), \n                   clinton = ifelse(result &gt; 0, electoral_votes, 0)) |&gt;  \n    summarize(clinton = sum(clinton)) |&gt;  \n    pull(clinton) + 7 \n}) \nmean(clinton_EV &gt; 269) \n\n[1] 0.9982"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-14",
+    "href": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-14",
+    "title": "Hierarchical Models",
+    "section": "Predicting the electoral college",
+    "text": "Predicting the electoral college\n\nThis model gives Clinton over 99% chance of winning.\nA similar prediction was made by the Princeton Election Consortium.\nWe now know it was quite off.\nWhat happened?\nThe model above ignores the general bias and assumes the results from different states are independent.\nAfter the election, we realized that the general bias in 2016 was not that big: it was between 2% and 3%."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-15",
+    "href": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-15",
+    "title": "Hierarchical Models",
+    "section": "Predicting the electoral college",
+    "text": "Predicting the electoral college\n\nBut because the election was close in several big states and these states had a large number of polls, pollsters that ignored the general bias greatly underestimated the standard error.\nUsing the notation we introduced, they assumed the standard error was \\(\\sqrt{\\sigma^2/N}\\).\nWith large \\(N\\), this estimate is substiantially closer to 0 than the more accurate estimate \\(\\sqrt{\\sigma^2/N + \\sigma_b^2}\\).\nFiveThirtyEight, which models the general bias in a rather sophisticated way, reported a closer result."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-16",
+    "href": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-16",
+    "title": "Hierarchical Models",
+    "section": "Predicting the electoral college",
+    "text": "Predicting the electoral college\n\nWe can simulate the results now with a bias term.\nFor the state level, the general bias can be larger so we set it at \\(\\sigma_b = 0.035\\):"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-17",
+    "href": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-17",
+    "title": "Hierarchical Models",
+    "section": "Predicting the electoral college",
+    "text": "Predicting the electoral college\n\ntau &lt;- 0.02 \nbias_sd &lt;- 0.035 \nclinton_EV_2 &lt;- replicate(10000, { \n  results |&gt; mutate(sigma = sd/sqrt(n), \n                    #few polls means not in play so don't shrink \n                    B = ifelse(n &gt;= 5, sigma^2 / (sigma^2 + tau^2), 0), \n                    posterior_mean = B*mu + (1 - B)*avg, \n                    posterior_se = sqrt(1/(1/sigma^2 + 1/tau^2)), \n                    result = rnorm(length(posterior_mean),  \n                                  posterior_mean, sqrt(posterior_se^2 + bias_sd^2)), \n                   clinton = ifelse(result &gt; 0, electoral_votes, 0)) |&gt;  \n    summarize(clinton = sum(clinton) + 7) |&gt;  \n    pull(clinton) \n}) \nmean(clinton_EV_2 &gt; 269) \n\n[1] 0.8878\n\n\n\nThis gives us a much more sensible estimate."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-18",
+    "href": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-18",
+    "title": "Hierarchical Models",
+    "section": "Predicting the electoral college",
+    "text": "Predicting the electoral college\n\nLooking at the outcomes of the simulation, we see how the bias term adds variability to the final results."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#forecasting",
+    "href": "slides/inference/27-hierarchical-models.html#forecasting",
+    "title": "Hierarchical Models",
+    "section": "Forecasting",
+    "text": "Forecasting\n\nForecasters like to make predictions well before the election.\nThe predictions are adapted as new poll results are released.\nHowever, an important question forecasters must ask is: How informative are polls taken several weeks before the election about the actual election? Here, we study the variability of poll results across time."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#forecasting-1",
+    "href": "slides/inference/27-hierarchical-models.html#forecasting-1",
+    "title": "Hierarchical Models",
+    "section": "Forecasting",
+    "text": "Forecasting\nTo make sure the variability we observe is not due to pollster effects, let’s study data from one pollster:\n\none_pollster &lt;- polls_us_election_2016 |&gt;  \n  filter(pollster == \"Ipsos\" & state == \"U.S.\") |&gt;  \n  mutate(spread = rawpoll_clinton/100 - rawpoll_trump/100)"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#forecasting-2",
+    "href": "slides/inference/27-hierarchical-models.html#forecasting-2",
+    "title": "Hierarchical Models",
+    "section": "Forecasting",
+    "text": "Forecasting\n\nSince there is no pollster effect, then perhaps the theoretical standard error matches the data-derived standard deviation.\nWe compute both here:\n\n\nse &lt;- one_pollster |&gt;  \n  summarize(empirical = sd(spread),  \n            theoretical = 2*sqrt(mean(spread)*(1 - mean(spread))/min(samplesize))) \nse \n\n   empirical theoretical\n1 0.04025194  0.03256719"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#forecasting-3",
+    "href": "slides/inference/27-hierarchical-models.html#forecasting-3",
+    "title": "Hierarchical Models",
+    "section": "Forecasting",
+    "text": "Forecasting\n\nBut the empirical standard deviation is higher than the highest possible theoretical estimate. Furthermore, the spread data does not look normal as the theory would predict:"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#forecasting-4",
+    "href": "slides/inference/27-hierarchical-models.html#forecasting-4",
+    "title": "Hierarchical Models",
+    "section": "Forecasting",
+    "text": "Forecasting\n\nThe models we have described include pollster-to-pollster variability and sampling error.\nBut this plot is for one pollster and the variability we see is certainly not explained by sampling error.\nWhere is the extra variability coming from?"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#forecasting-5",
+    "href": "slides/inference/27-hierarchical-models.html#forecasting-5",
+    "title": "Hierarchical Models",
+    "section": "Forecasting",
+    "text": "Forecasting\nThe following plots make a strong case that it comes from time fluctuations not accounted for by the theory that assumes \\(p\\) is fixed:"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#forecasting-6",
+    "href": "slides/inference/27-hierarchical-models.html#forecasting-6",
+    "title": "Hierarchical Models",
+    "section": "Forecasting",
+    "text": "Forecasting\n\nSome of the peaks and valleys we see coincide with events such as the party conventions, which tend to give the candidate a boost. We can see that the peaks and valleys are consistent across several pollsters:"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#forecasting-7",
+    "href": "slides/inference/27-hierarchical-models.html#forecasting-7",
+    "title": "Hierarchical Models",
+    "section": "Forecasting",
+    "text": "Forecasting\n\nThis implies that if we are going to forecast, we must include a term to accounts for the time effect.\nWe can add a bias term for time and denote as \\(b_t\\).\nThe standard deviation of \\(b_t\\) would depend on \\(t\\) since the closer we get to election day, the closer to 0 this bias term should be.\nPollsters also try to estimate trends from these data and incorporate them into their predictions.\nWe can model the time trend \\(b_t\\) with a smooth function."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#forecasting-8",
+    "href": "slides/inference/27-hierarchical-models.html#forecasting-8",
+    "title": "Hierarchical Models",
+    "section": "Forecasting",
+    "text": "Forecasting\n\nWe usually see the trend estimate not for the difference, but for the actual percentages for each candidate like this:"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#forecasting-9",
+    "href": "slides/inference/27-hierarchical-models.html#forecasting-9",
+    "title": "Hierarchical Models",
+    "section": "Forecasting",
+    "text": "Forecasting\n\nWe usually see the trend estimate not for the difference, but for the actual percentages for each candidate like this:"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#forecasting-10",
+    "href": "slides/inference/27-hierarchical-models.html#forecasting-10",
+    "title": "Hierarchical Models",
+    "section": "Forecasting",
+    "text": "Forecasting"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#forecasting-11",
+    "href": "slides/inference/27-hierarchical-models.html#forecasting-11",
+    "title": "Hierarchical Models",
+    "section": "Forecasting",
+    "text": "Forecasting\n\nOnce a model like the one above is selected, we can use historical and present data to estimate all the necessary parameters to make predictions.\nThere is a variety of methods for estimating trends which we discuss in the section on Machine Learning."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#the-general-bias-3",
+    "href": "slides/inference/27-hierarchical-models.html#the-general-bias-3",
+    "title": "Hierarchical Models",
+    "section": "The general bias",
+    "text": "The general bias"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#the-general-bias-4",
+    "href": "slides/inference/27-hierarchical-models.html#the-general-bias-4",
+    "title": "Hierarchical Models",
+    "section": "The general bias",
+    "text": "The general bias\n\nThere is no agreed upon explanation for this, but we do observe it in historical data: in one election, the average of polls favors Democrats by 2%; then in the following election, they favor Republicans by 1%; then in the next election there is no bias; then in the following one Republicans are favored by 3%, …\nThere appears to be regional effect, not included in our analysis."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#the-general-bias-5",
+    "href": "slides/inference/27-hierarchical-models.html#the-general-bias-5",
+    "title": "Hierarchical Models",
+    "section": "The general bias",
+    "text": "The general bias\n\nIn 2016, the polls were biased in favor of the Democrats by 2-3%.\nAlthough we know this bias term affects our polls, we have no way of knowing what this bias is until election night.\nSo we can’t correct our polls accordingly.\nWhat we can do is include a term in our model that accounts for the variability."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#hierarchical-model",
+    "href": "slides/inference/27-hierarchical-models.html#hierarchical-model",
+    "title": "Hierarchical Models",
+    "section": "Hierarchical model",
+    "text": "Hierarchical model\n\nSuppose we are collecting data from one pollster and we assume there is no general bias.\nThe pollster collects several polls with a sample size of \\(N\\), so we observe several measurements of the spread \\(X_1, \\dots, X_J\\).\nSuppose the real proportion for Hillary is \\(p\\) and the difference is \\(\\mu\\)."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#hierarchical-model-1",
+    "href": "slides/inference/27-hierarchical-models.html#hierarchical-model-1",
+    "title": "Hierarchical Models",
+    "section": "Hierarchical model",
+    "text": "Hierarchical model\n\nThe urn model theory tells us that:\n\n\\[\nX_j \\sim \\mbox{N}\\left(\\mu, 2\\sqrt{p(1-p)/N}\\right)\n\\]\n\nWe use the index \\(j\\) to represent the different polls conducted by this pollster."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#hierarchical-model-2",
+    "href": "slides/inference/27-hierarchical-models.html#hierarchical-model-2",
+    "title": "Hierarchical Models",
+    "section": "Hierarchical model",
+    "text": "Hierarchical model\n\nHere is a simulation for six polls assuming the spread is 2.1 and \\(N\\) is 2,000:\n\n\nset.seed(3) \nJ &lt;- 6 \nN &lt;- 2000 \nmu &lt;- .021 \np &lt;- (mu + 1)/2 \nX &lt;- rnorm(J, mu, 2*sqrt(p*(1 - p)/N))"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#hierarchical-model-3",
+    "href": "slides/inference/27-hierarchical-models.html#hierarchical-model-3",
+    "title": "Hierarchical Models",
+    "section": "Hierarchical model",
+    "text": "Hierarchical model\n\nNow, suppose we have \\(J=6\\) polls from each of \\(I=5\\) different pollsters.\nFor simplicity, let’s say all polls had the same sample size \\(N\\).\nThe urn model tell us the distribution is the same for all pollsters, so to simulate data, we use the same model for each:\n\n\nI &lt;- 5 \nJ &lt;- 6 \nN &lt;- 2000 \nX &lt;- sapply(1:I, function(i){ \n  rnorm(J, mu, 2*sqrt(p*(1 - p)/N)) \n})"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#hierarchical-model-4",
+    "href": "slides/inference/27-hierarchical-models.html#hierarchical-model-4",
+    "title": "Hierarchical Models",
+    "section": "Hierarchical model",
+    "text": "Hierarchical model\n\nAs expected, the simulated data does not really seem to capture the features of the actual data because it does not account for pollster-to-pollster variability:"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#hierarchical-model-5",
+    "href": "slides/inference/27-hierarchical-models.html#hierarchical-model-5",
+    "title": "Hierarchical Models",
+    "section": "Hierarchical model",
+    "text": "Hierarchical model\n\nTo fix this, we need to represent the two levels of variability and we need two indexes, one for pollster and one for the polls each pollster takes.\nWe use \\(X_{ij}\\) with \\(i\\) representing the pollster and \\(j\\) representing the \\(j\\)-th poll from that pollster."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#hierarchical-model-6",
+    "href": "slides/inference/27-hierarchical-models.html#hierarchical-model-6",
+    "title": "Hierarchical Models",
+    "section": "Hierarchical model",
+    "text": "Hierarchical model\n\nThe model is now augmented to include pollster effects \\(h_i\\), referred to as “house effects” by FiveThirtyEight, with standard deviation \\(\\sigma_h\\):\n\n\\[\n\\begin{aligned}\nh_i &\\sim \\mbox{N}\\left(0, \\sigma_h\\right)\\\\\nX_{i,j} \\mid h_i &\\sim \\mbox{N}\\left(\\mu + h_i, \\sqrt{p(1-p)/N}\\right)\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#hierarchical-model-7",
+    "href": "slides/inference/27-hierarchical-models.html#hierarchical-model-7",
+    "title": "Hierarchical Models",
+    "section": "Hierarchical model",
+    "text": "Hierarchical model\n\nTo simulate data from a specific pollster, we first need to draw an \\(h_i\\), and then generate individual poll data after adding this effect.\nHere is how we would do it for one specific pollster (we assume \\(\\sigma_h\\) is 0.025):\n\n\nI &lt;- 5 \nJ &lt;- 6 \nN &lt;- 2000 \nmu &lt;- .021 \np &lt;- (mu + 1)/2 \nh &lt;- rnorm(I, 0, 0.025) \nX &lt;- sapply(1:I, function(i){ \n  mu + h[i] + rnorm(J, 0, 2*sqrt(p*(1 - p)/N)) \n})"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#hierarchical-model-8",
+    "href": "slides/inference/27-hierarchical-models.html#hierarchical-model-8",
+    "title": "Hierarchical Models",
+    "section": "Hierarchical model",
+    "text": "Hierarchical model\n\nThe simulated data now looks more like the actual data:"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#hierarchical-model-9",
+    "href": "slides/inference/27-hierarchical-models.html#hierarchical-model-9",
+    "title": "Hierarchical Models",
+    "section": "Hierarchical model",
+    "text": "Hierarchical model\n\nNote that \\(h_i\\) is common to all the observed spreads from a specific pollster.\nDifferent pollsters have a different \\(h_i\\), which explains why we can see the groups of points shift up and down from pollster to pollster.\nNow, in this model, we assume the average pollster effect is 0.\nWe think that for every pollster biased in favor of our party, there is another one in favor of the other, and assume the standard deviation is \\(\\sigma_h\\)."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#hierarchical-model-10",
+    "href": "slides/inference/27-hierarchical-models.html#hierarchical-model-10",
+    "title": "Hierarchical Models",
+    "section": "Hierarchical model",
+    "text": "Hierarchical model\n\nBut, historically, we see that every election has a general bias affecting all polls.\nWe can observe this with the 2016 data.\nIf we collect historical data, we see that the average of polls misses by more than models like the one above predict.\nTo see this, we would take the average of polls for each election year and compare it to the actual value.\nIf we did this, we would see a difference with a standard deviation of between 2-3%."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#hierarchical-model-11",
+    "href": "slides/inference/27-hierarchical-models.html#hierarchical-model-11",
+    "title": "Hierarchical Models",
+    "section": "Hierarchical model",
+    "text": "Hierarchical model\n\nTo account for this variability we can add another level to the model as follows:\n\n\\[\n\\begin{aligned}\nb &\\sim \\mbox{N}\\left(0, \\sigma_b\\right)\\\\\nh_j \\mid \\, b &\\sim \\mbox{N}\\left(b, \\sigma_h\\right)\\\\\nX_{i,j} | \\, h_j, b &\\sim \\mbox{N}\\left(\\mu + h_j, \\sqrt{p(1-p)/N}\\right)\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#hierarchical-model-12",
+    "href": "slides/inference/27-hierarchical-models.html#hierarchical-model-12",
+    "title": "Hierarchical Models",
+    "section": "Hierarchical model",
+    "text": "Hierarchical model\nThis model accounts for three levels of variability:\n\nVariability in the bias observed from election to election, quantified by \\(\\sigma_b\\).\nPollster-to-pollster or house effect variability, quantified by \\(\\sigma_h\\).\nPoll sampling variability, which we can derive to be \\(\\sqrt(p(1-p)/N)\\)."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#hierarchical-model-13",
+    "href": "slides/inference/27-hierarchical-models.html#hierarchical-model-13",
+    "title": "Hierarchical Models",
+    "section": "Hierarchical model",
+    "text": "Hierarchical model\n\nNote that not including a term like \\(b\\) in the models is what led many forecasters to be overconfident.\nThis random variable changes from election to election, but for any given election, it is the same for all pollsters and polls within one election.\nThis implies that we can’t estimate \\(\\sigma_h\\) with data from just one election.\nIt also implies that the random variables \\(X_{i,j}\\) for a fixed election year share the same \\(b\\) and are therefore correlated."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#hierarchical-model-14",
+    "href": "slides/inference/27-hierarchical-models.html#hierarchical-model-14",
+    "title": "Hierarchical Models",
+    "section": "Hierarchical model",
+    "text": "Hierarchical model\n\nOne way to interpret \\(b\\) is as the difference between the average of all polls from all pollsters and the actual result of the election.\nSince we don’t know the actual result until after the election, we can’t estimate \\(b\\) until then."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-19",
+    "href": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-19",
+    "title": "Hierarchical Models",
+    "section": "Predicting the electoral college",
+    "text": "Predicting the electoral college\n\nFiveThirtyEight includes many other features we do not include here.\nOne is that they model variability with distributions that have high probabilities for extreme events compared to the normal.\nOne way we could do this is by changing the distribution used in the simulation from a normal distribution to a t-distribution.\nFiveThirtyEight predicted a probability of 71%."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#computing-a-posterior",
+    "href": "slides/inference/27-hierarchical-models.html#computing-a-posterior",
+    "title": "Hierarchical Models",
+    "section": "Computing a posterior",
+    "text": "Computing a posterior\n\nNow, let’s fit the model above to data:\n\n\npolls &lt;- polls_us_election_2016 |&gt;  \n  filter(state == \"U.S.\" & enddate &gt;= \"2016-10-31\" & \n           (grade %in% c(\"A+\",\"A\",\"A-\",\"B+\", \"B\"))) |&gt;  \n  mutate(spread = rawpoll_clinton/100 - rawpoll_trump/100)"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#computing-a-posterior-1",
+    "href": "slides/inference/27-hierarchical-models.html#computing-a-posterior-1",
+    "title": "Hierarchical Models",
+    "section": "Computing a posterior",
+    "text": "Computing a posterior\n\nHere, we have just one poll per pollster, so we will drop the \\(j\\) index and represent the data as before with \\(X_1, \\dots, X_I\\).\n\n\none_poll_per_pollster &lt;- polls |&gt; group_by(pollster) |&gt;  \n  filter(enddate == max(enddate)) |&gt; \n  ungroup()"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#computing-a-posterior-2",
+    "href": "slides/inference/27-hierarchical-models.html#computing-a-posterior-2",
+    "title": "Hierarchical Models",
+    "section": "Computing a posterior",
+    "text": "Computing a posterior\n\nAs a reminder, we have data from \\(I=15\\) pollsters.\nBased on the model assumptions described above, we can mathematically show that the average \\(\\bar{X}\\):\n\n\nx_bar &lt;- mean(one_poll_per_pollster$spread) \n\n\nthis has expected value \\(\\mu\\).\nBut how precise is this estimate?"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#computing-a-posterior-3",
+    "href": "slides/inference/27-hierarchical-models.html#computing-a-posterior-3",
+    "title": "Hierarchical Models",
+    "section": "Computing a posterior",
+    "text": "Computing a posterior\n\nBecause the \\(X_i\\) are correlated, estimating the standard error is more complex than what we have described up to now.\nSpecifically, using advanced statistical calculations not shown here, we can show that the typical variance (standard error squared) estimate:\n\n\ns2 &lt;- with(one_poll_per_pollster, sd(spread)^2/length(spread)) \n\n\nwill consistently underestimate the true standard error by about \\(\\sigma_b^2\\).\nTo estimate \\(\\sigma_b\\), we need data from several elections."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#computing-a-posterior-4",
+    "href": "slides/inference/27-hierarchical-models.html#computing-a-posterior-4",
+    "title": "Hierarchical Models",
+    "section": "Computing a posterior",
+    "text": "Computing a posterior\n\nBy collecting and analyzing polling data from several elections, we estimates this variability with \\(\\sigma_b \\approx 0.025\\).\nWe can therefore greatly improve our standard error estimate by adding this quantity:\n\n\nsigma_b &lt;- 0.025 \nse &lt;- sqrt(s2 + sigma_b^2)"
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#computing-a-posterior-5",
+    "href": "slides/inference/27-hierarchical-models.html#computing-a-posterior-5",
+    "title": "Hierarchical Models",
+    "section": "Computing a posterior",
+    "text": "Computing a posterior\n\nIf we redo the Bayesian calculation taking this variability into account, we obtain a result much closer to FiveThirtyEight’s:\n\n\nmu &lt;- 0 \ntau &lt;- 0.035 \nB &lt;- se^2/(se^2 + tau^2) \nposterior_mean &lt;- B*mu + (1 - B)*x_bar \nposterior_se &lt;- sqrt(1/(1/se^2 + 1/tau^2)) \n1 - pnorm(0, posterior_mean, posterior_se) \n\n[1] 0.8414884\n\n\n\nBy accounting for the general bias term, we produce a posterior probability similar to that reported by FiveThirtyEight."
+  },
+  {
+    "objectID": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-20",
+    "href": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-20",
+    "title": "Hierarchical Models",
+    "section": "Predicting the electoral college",
+    "text": "Predicting the electoral college\n\nFiveThirtyEight includes many other features we do not include here.\nOne is that they model variability with distributions that have high probabilities for extreme events compared to the normal.\nOne way we could do this is by changing the distribution used in the simulation from a normal distribution to a t-distribution.\nFiveThirtyEight predicted a probability of 71%."
+  },
+  {
+    "objectID": "slides/inference/26-bayes.html",
+    "href": "slides/inference/26-bayes.html",
+    "title": "Bayesian Models",
+    "section": "",
+    "text": "In 2016 FiveThirtyEight showed this diagram:\n\n\n\n\n\nThe colored areas represent values with an 80% chance of including the actual result, according to the FiveThirtyEight model."
+  },
+  {
+    "objectID": "slides/inference/25-models.html",
+    "href": "slides/inference/25-models.html",
+    "title": "Data-driven models",
+    "section": "",
+    "text": "“All models are wrong, but some are useful.” –George E.P. Box."
   }
 ]

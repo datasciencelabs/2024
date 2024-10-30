@@ -459,6 +459,8 @@ $$
 - CLT tells us that Z is approximately normally distributed with expected value 0 and standard error 1.
 
 
+## The t-distribution
+
 - But in practice we don't know $\sigma$, so we use:
 
 
@@ -467,21 +469,15 @@ t = \frac{\bar{X} - \mu}{s/\sqrt{N}}
 $$ 
 
 
+- This is referred to as a *t-statistic*.
 
 ## The t-distribution
-
-- This is referred to as a *t-statistic*.
 
 - By substituting $\sigma$ with $s$, we introduce some variability.
 
-- The theory tells us that $t$ follows a *student t-distribution* with $N-1$ *degrees of freedom*.
+- Theory tells us that $t$ follows a *student t-distribution* with $N-1$ *degrees of freedom (df)*.
 
-
-
-
-## The t-distribution
-
-- The degrees of freedom is a parameter that controls the variability via fatter tails:
+- The df is a parameter that controls the variability via fatter tails:
 
 ```{r t-distribution-examples, echo=FALSE} 
 x <- seq(-5, 5, len = 100) 
@@ -525,12 +521,6 @@ one_poll_per_pollster |>
 
 ```{r} 
 qt(0.975, 14) 
-``` 
-
-- is bigger than:
-
-
-```{r} 
 qnorm(0.975) 
 ``` 
 

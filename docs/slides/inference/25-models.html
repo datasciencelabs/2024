@@ -820,25 +820,27 @@ s = \sqrt{ \frac{1}{N-1} \sum_{i=1}^N (X_i - \bar{X})^2 }
 Z = \frac{\bar{X} - \mu}{\sigma/\sqrt{N}}
 \]</span></p>
 <ul>
-<li><p>CLT tells us that Z is approximately normally distributed with expected value 0 and standard error 1.</p></li>
-<li><p>But in practice we don’t know <span class="math inline">\(\sigma\)</span>, so we use:</p></li>
+<li>CLT tells us that Z is approximately normally distributed with expected value 0 and standard error 1.</li>
 </ul>
-<p><span class="math display">\[
-t = \frac{\bar{X} - \mu}{s/\sqrt{N}}
-\]</span></p>
 </section>
 <section id="the-t-distribution-3" class="slide level2">
 <h2>The t-distribution</h2>
 <ul>
-<li><p>This is referred to as a <em>t-statistic</em>.</p></li>
-<li><p>By substituting <span class="math inline">\(\sigma\)</span> with <span class="math inline">\(s\)</span>, we introduce some variability.</p></li>
-<li><p>The theory tells us that <span class="math inline">\(t\)</span> follows a <em>student t-distribution</em> with <span class="math inline">\(N-1\)</span> <em>degrees of freedom</em>.</p></li>
+<li>But in practice we don’t know <span class="math inline">\(\sigma\)</span>, so we use:</li>
+</ul>
+<p><span class="math display">\[
+t = \frac{\bar{X} - \mu}{s/\sqrt{N}}
+\]</span></p>
+<ul>
+<li>This is referred to as a <em>t-statistic</em>.</li>
 </ul>
 </section>
 <section id="the-t-distribution-4" class="slide level2">
 <h2>The t-distribution</h2>
 <ul>
-<li>The degrees of freedom is a parameter that controls the variability via fatter tails:</li>
+<li><p>By substituting <span class="math inline">\(\sigma\)</span> with <span class="math inline">\(s\)</span>, we introduce some variability.</p></li>
+<li><p>Theory tells us that <span class="math inline">\(t\)</span> follows a <em>student t-distribution</em> with <span class="math inline">\(N-1\)</span> <em>degrees of freedom (df)</em>.</p></li>
+<li><p>The df is a parameter that controls the variability via fatter tails:</p></li>
 </ul>
 
 <img data-src="25-models_files/figure-revealjs/t-distribution-examples-1.png" width="960" class="r-stretch"></section>
@@ -884,11 +886,6 @@ t = \frac{\bar{X} - \mu}{s/\sqrt{N}}
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.144787</code></pre>
 </div>
-</div>
-<ul>
-<li>is bigger than:</li>
-</ul>
-<div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="fu">qnorm</span>(<span class="fl">0.975</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.959964</code></pre>

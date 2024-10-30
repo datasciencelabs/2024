@@ -58,7 +58,7 @@
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/index.html</loc>
-    <lastmod>2024-10-28T02:34:32.868Z</lastmod>
+    <lastmod>2024-10-28T21:21:43.599Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/psets/pset-04-wrangling.html</loc>
@@ -138,7 +138,7 @@
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/inference/25-models.html</loc>
-    <lastmod>2024-10-28T02:39:49.580Z</lastmod>
+    <lastmod>2024-10-28T17:39:36.405Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/productivity/02-rstudio.html</loc>
@@ -147,5 +147,13 @@
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/productivity/04-git.html</loc>
     <lastmod>2024-09-09T15:56:17.788Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/inference/26-bayes.html</loc>
+    <lastmod>2024-10-28T19:25:06.160Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/inference/27-hierarchical-models.html</loc>
+    <lastmod>2024-10-28T21:13:36.911Z</lastmod>
   </url>
 </urlset>
