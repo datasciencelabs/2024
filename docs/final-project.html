@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>BST 260 Introduction to Data Science – BST 260: Introduction to Data Science</title>
+<title>Final Project – BST 260: Introduction to Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -78,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Home</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./final-project.html">Final Project</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -108,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
@@ -132,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./final-project.html" class="sidebar-item-text sidebar-link">
+  <a href="./final-project.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Final Project</span></a>
   </div>
 </li>
@@ -146,20 +146,45 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#course-information" id="toc-course-information" class="nav-link active" data-scroll-target="#course-information">Course Information</a></li>
-  <li><a href="#lectures" id="toc-lectures" class="nav-link" data-scroll-target="#lectures">Lectures</a></li>
-  <li><a href="#problem-sets" id="toc-problem-sets" class="nav-link" data-scroll-target="#problem-sets">Problem sets</a></li>
-  <li><a href="#office-hour-times" id="toc-office-hour-times" class="nav-link" data-scroll-target="#office-hour-times">Office hour times</a></li>
-  <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments">Acknowledgments</a></li>
+  <li><a href="#general-instructions" id="toc-general-instructions" class="nav-link active" data-scroll-target="#general-instructions">General Instructions</a>
+  <ul class="collapse">
+  <li><a href="#sections" id="toc-sections" class="nav-link" data-scroll-target="#sections">Sections</a>
+  <ul class="collapse">
+  <li><a href="#abstract-150-200-words" id="toc-abstract-150-200-words" class="nav-link" data-scroll-target="#abstract-150-200-words">Abstract (150-200 words)</a></li>
+  <li><a href="#introduction-500-600-words" id="toc-introduction-500-600-words" class="nav-link" data-scroll-target="#introduction-500-600-words">Introduction (500-600 words)</a></li>
+  <li><a href="#methods-600-700-words" id="toc-methods-600-700-words" class="nav-link" data-scroll-target="#methods-600-700-words">Methods (600-700 words)</a></li>
+  <li><a href="#results-500-600-words" id="toc-results-500-600-words" class="nav-link" data-scroll-target="#results-500-600-words">Results (500-600 words)</a></li>
+  <li><a href="#discussion-600-700-words" id="toc-discussion-600-700-words" class="nav-link" data-scroll-target="#discussion-600-700-words">Discussion (600-700 words)</a></li>
+  </ul></li>
+  <li><a href="#supplementary-methods-no-limit" id="toc-supplementary-methods-no-limit" class="nav-link" data-scroll-target="#supplementary-methods-no-limit">Supplementary Methods (no limit)</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
+  <li><a href="#githut-repository" id="toc-githut-repository" class="nav-link" data-scroll-target="#githut-repository">GitHut Repository</a></li>
+  </ul></li>
+  <li><a href="#covid-19" id="toc-covid-19" class="nav-link" data-scroll-target="#covid-19">Covid-19</a>
+  <ul class="collapse">
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#tasks-and-questions" id="toc-tasks-and-questions" class="nav-link" data-scroll-target="#tasks-and-questions">Tasks and questions</a></li>
+  </ul></li>
+  <li><a href="#excess-mortality" id="toc-excess-mortality" class="nav-link" data-scroll-target="#excess-mortality">Excess mortality</a>
+  <ul class="collapse">
+  <li><a href="#data-1" id="toc-data-1" class="nav-link" data-scroll-target="#data-1">Data</a></li>
+  <li><a href="#tasks-and-questions-1" id="toc-tasks-and-questions-1" class="nav-link" data-scroll-target="#tasks-and-questions-1">Tasks and questions</a></li>
+  </ul></li>
+  <li><a href="#election-dashboard" id="toc-election-dashboard" class="nav-link" data-scroll-target="#election-dashboard">Election Dashboard {#}</a>
+  <ul class="collapse">
+  <li><a href="#data-2" id="toc-data-2" class="nav-link" data-scroll-target="#data-2">Data</a></li>
+  <li><a href="#tasks-and-questions-2" id="toc-tasks-and-questions-2" class="nav-link" data-scroll-target="#tasks-and-questions-2">Tasks and questions</a></li>
+  <li><a href="#github" id="toc-github" class="nav-link" data-scroll-target="#github">GitHub</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/datasciencelabs/2024/blob/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/datasciencelabs/2024/blob/main/final-project.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">BST 260 Introduction to Data Science</h1>
+<h1 class="title">Final Project</h1>
 </div>
 
 
@@ -176,264 +201,147 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="course-information" class="level2">
-<h2 class="anchored" data-anchor-id="course-information">Course Information</h2>
+<section id="general-instructions" class="level1">
+<h1>General Instructions</h1>
+<p>For the final project you will choose one of these topics:</p>
+<ol type="1">
+<li>COVID-19 pandemic in the US</li>
+<li>Excess mortality in Puerto Rico after Hurricane María.</li>
+<li>Topic of your choice (needs instructor approval).</li>
+<li>Election results dashboard.</li>
+</ol>
+<p>You will submit your project using Git. Your project should be completely reproducible, meaning all the code and data needed to render your report from scratch should be in the repository.</p>
+<p>You can work alone or in groups of at most three people.</p>
+<p>If you select option 4 you can skip to <span class="citation" data-cites="dashboard">@dashboard</span>.</p>
+<section id="sections" class="level2">
+<h2 class="anchored" data-anchor-id="sections">Sections</h2>
+<p>For the first three options, you will prepare a comprehensive report following the style of an academic paper. This report will be divided into the following five structured sections, with approximate word counts to help you reach a target of 2,500 to 3,000 words, up to four figures and up to two tables.</p>
+<section id="abstract-150-200-words" class="level3 nonumber">
+<h3 class="nonumber anchored" data-anchor-id="abstract-150-200-words">Abstract (150-200 words)</h3>
 <ul>
-<li>Instructor: <a href="https://rafalab.dfci.harvard.edu/">Rafael A.Irizarry</a></li>
-<li>Teaching fellows: Corri Sept, Nikhil Vytla, and Yuan Wang</li>
-<li>Location: Kresge 202A and 202B, Harvard School of Public Health</li>
-<li>Date and time: Mon &amp; Wed 9.45 - 11:15am</li>
-<li>Textbooks: <a href="https://github.com/rafalab/dsbook-part-1" class="uri">https://github.com/rafalab/dsbook-part-1</a>, <a href="https://github.com/rafalab/dsbook-part-2" class="uri">https://github.com/rafalab/dsbook-part-2</a></li>
-<li>Slack: <a href="https://bst260fall2024.slack.com/" class="uri">https://bst260fall2024.slack.com/</a></li>
-<li>Canvas: <a href="https://canvas.harvard.edu/courses/143922/pages/Course%20Information" class="uri">https://canvas.harvard.edu/courses/143922/pages/Course%20Information</a></li>
-<li>GitHub repo: <a href="https://github.com/datasciencelabs/2024" class="uri">https://github.com/datasciencelabs/2024</a></li>
-<li>Remember to read the <a href="./syllabus.html">syllabus</a>, <a href="https://www.youtube.com/embed/aL_fP5axQV4">listen to SD</a>.</li>
+<li><strong>Purpose</strong>: The abstract provides a concise summary of your project, including its objectives, key findings, and significance. Write this section last, after completing all other sections, to accurately reflect your project’s focus and main results.</li>
+<li><strong>Guidelines</strong>: Limit this section to 150-200 words. Briefly outline the purpose of your study, the approach you used, and the primary results and conclusions. The abstract should be clear, succinct, and give readers an immediate understanding of what your project entails.</li>
 </ul>
 </section>
-<section id="lectures" class="level2">
-<h2 class="anchored" data-anchor-id="lectures">Lectures</h2>
-<p>Lecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Dates</th>
-<th style="text-align: left;">Topic</th>
-<th style="text-align: left;">Slides</th>
-<th style="text-align: left;">Reading</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Sep 04</td>
-<td style="text-align: left;">Productivity Tools</td>
-<td style="text-align: left;"><a href="./slides/00-intro.html">Intro</a>, <a href="./slides/productivity/01-unix.html">Unix</a></td>
-<td style="text-align: left;">Installing R and RStudio on <a href="https://teacherscollege.screenstepslive.com/a/1108074-install-r-and-rstudio-for-windows">Windows</a> or <a href="https://teacherscollege.screenstepslive.com/a/1135059-install-r-and-rstudio-for-mac">Mac</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/R/getting-started.html">Getting Started</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/unix.html">Unix</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Sep 09, Sep 11</td>
-<td style="text-align: left;">Productivity Tools</td>
-<td style="text-align: left;"><a href="./slides/productivity/02-rstudio.html">RStudio</a>, <a href="./slides/productivity/03-quarto.html">Quarto</a>, <a href="./slides/productivity/04-git.html">Git and GitHub</a></td>
-<td style="text-align: left;"><a href="https://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/reproducible-projects.html">RStudio Projects, Quarto</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/git.html">Git</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Sep 16, Sep 19</td>
-<td style="text-align: left;">R</td>
-<td style="text-align: left;"><a href="./slides/R/05-r-basics.html">R basics</a>, <a href="./slides/R/06-vectorization.html">Vectorization</a></td>
-<td style="text-align: left;"><a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/R/R-basics.html">R Basics</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/R/programming-basics.html#sec-vectorization">Vectorization</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Sep 23</td>
-<td style="text-align: left;">R</td>
-<td style="text-align: left;"><a href="./slides/R/07-tidyverse.html">Tidyverse</a>, <a href="./slides/R/08-ggplot2.html">ggplot2</a></td>
-<td style="text-align: left;"><a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/R/tidyverse.html">dplyr</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/dataviz/ggplot2.html">ggplot2</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Sep 25</td>
-<td style="text-align: left;">R</td>
-<td style="text-align: left;"><a href="./slides/R/09-tidyr.html">Tyding data</a></td>
-<td style="text-align: left;"><a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/reshaping-data.html">Reshaping Data</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Sep 30, Oct 02</td>
-<td style="text-align: left;">Wrangling</td>
-<td style="text-align: left;"><a href="./slides/wrangling/10-intro-to-wrangling.html">Intro</a>, <a href="./slides/wrangling/11-importing-files.html">Data Importing</a>, <a href="./slides/wrangling/12-dates-and-times.html">Dates and Times</a>, <a href="./slides/wrangling/13-locales.html">Locales</a>, <a href="./slides/wrangling/14-data-apis.html">Data APIs</a>, <a href="./slides/wrangling/15-web-scraping.html">Web scraping</a>, <a href="./slides/wrangling/16-joining-tables.html">Joining tables</a></td>
-<td style="text-align: left;"><a href="https://rafalab.dfci.harvard.edu/dsbook-part-1/R/importing-data.html">Importing data</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/dates-and-times.html">dates and times</a>, <a href="https://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/locales.html">Locales</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/joining-tables.html">Joining Tables</a>, <a href="https://rafalab.dfci.harvard.edu/dsbook-part-1/wrangling/web-scraping.html">Extracting data from the web</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Oct 07, Oct 09</td>
-<td style="text-align: left;">Data visualization</td>
-<td style="text-align: left;"><a href="./slides/dataviz/17-dataviz-principles.html">Data Viz Principles</a>, <a href="./slides/dataviz/18-distributions.html">Distributions</a>, <a href="./slides/dataviz/19-dataviz-in-practice.html">Dataviz in practice</a></td>
-<td style="text-align: left;"><a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/dataviz/distributions.html">Distributions</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/dataviz/dataviz-principles.html">Dataviz Principles</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Oct 16</td>
-<td style="text-align: left;">Midterm 1</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Covers material from Sep 04-Oct 11</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Oct 21</td>
-<td style="text-align: left;">Probability</td>
-<td style="text-align: left;"><a href="./slides/prob/20-intro-to-prob.html">Intro</a>, <a href="./slides/prob/21-inference-foundations.html">Foundations for Inference</a></td>
-<td style="text-align: left;"><a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/prob/continuous-probability.html#monte-carlo">Monte Carlo</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/prob/random-variables-sampling-models-clt.html">Random Variables &amp; CLT</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Oct 23</td>
-<td style="text-align: left;">Inference</td>
-<td style="text-align: left;"><a href="./slides/inference/22-intro-inference.html">Intro</a>, <a href="./slides/inference/23-parameters-estimates.html">Parameter and estimates</a>, <a href="./slides/inference/24-confidence-intervals.html">Confidence Intervals</a></td>
-<td style="text-align: left;"><a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/inference/parameters-estimates.html">Parameters &amp; Estimates</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/inference/confidence-intervals.html">Confidence Intervals</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Oct 28, Oct 30</td>
-<td style="text-align: left;">Statistical Models</td>
-<td style="text-align: left;"><a href="./slides/inference/25-models.html">Models</a>, <a href="./slides/inference/26-bayes.html">Bayes</a>, <a href="./slides/inference/27-hierarchical-models.html">Hierarchical Models</a></td>
-<td style="text-align: left;"><a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/inference/models.html">Data-driven Models</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/inference/bayes.html">Bayesian Statistics</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/inference/hierarchical-models.html">Hierarchical Models</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Nov 04, Nov 06</td>
-<td style="text-align: left;">Linear models</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/linear-models/regression.html">Regression</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/linear-models/multivariate-regression.html">Multivariate Regression</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Nov 13</td>
-<td style="text-align: left;">Linear models</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/linear-models/measurement-error-models.html">Measurement Error Models</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/linear-models/treatment-effect-models.html">Treatment Effect Models</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/linear-models/association-tests.html">Association Tests</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/linear-models/association-not-causation.html">Association Not Causation</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Nov 18, Nov 20</td>
-<td style="text-align: left;">High dimensional data</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><a href="https://rafalab.dfci.harvard.edu/dsbook-part-2/highdim/matrices-in-R.html">Matrices in R</a>, <a href="https://rafalab.dfci.harvard.edu/dsbook-part-2/highdim/linear-algebra.html">Applied Linear Algebra</a>, <a href="https://rafalab.dfci.harvard.edu/dsbook-part-2/highdim/dimension-reduction.html">Dimension Reduction</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Nov 25</td>
-<td style="text-align: left;">Midterm 2</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Midterm 2: cover material from Sep 04-Nov 22</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Dec 02, Dec 04</td>
-<td style="text-align: left;">Machine Learning</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><a href="https://rafalab.dfci.harvard.edu/dsbook-part-2/ml/notation-and-terminology.html">Notation and terminology</a>, <a href="https://rafalab.dfci.harvard.edu/dsbook-part-2/ml/evaluation-metrics.html">Evaluation Metrics</a>, <a href="https://rafalab.dfci.harvard.edu/dsbook-part-2/ml/conditionals.html">conditional probabilities</a>, <a href="https://rafalab.dfci.harvard.edu/dsbook-part-2/ml/smoothing.html">smoothing</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Dec 09, Dec 11</td>
-<td style="text-align: left;">Machine Learning</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><a href="https://rafalab.dfci.harvard.edu/dsbook-part-2/ml/resampling-methods.html">Resampling methods</a>, <a href="https://rafalab.dfci.harvard.edu/dsbook-part-2/ml/algorithms.html">ML algorithms</a>, <a href="https://rafalab.dfci.harvard.edu/dsbook-part-2/ml/ml-in-practice.html">ML in practice</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Dec 16, Dec 18</td>
-<td style="text-align: left;">Other topics</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
+<section id="introduction-500-600-words" class="level3 nonumber">
+<h3 class="nonumber anchored" data-anchor-id="introduction-500-600-words">Introduction (500-600 words)</h3>
+<ul>
+<li><strong>Purpose</strong>: The introduction sets the stage for your project, presenting the background and rationale for your analysis. Explain why the topic is significant.</li>
+<li><strong>Guidelines</strong>: Start with a broad overview of the topic, gradually narrowing down to your specific focus. Conclude with a clear statement of your research questions, hypotheses, or objectives. Use 2-3 paragraphs to establish a solid foundation for the rest of the paper.</li>
+</ul>
 </section>
-<section id="problem-sets" class="level2">
-<h2 class="anchored" data-anchor-id="problem-sets">Problem sets</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Problem set</th>
-<th style="text-align: left;">Topic</th>
-<th style="text-align: left;">Due Date</th>
-<th style="text-align: left;">Difficulty</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><a href="./psets/pset-01-unix-quarto.html">01</a></td>
-<td style="text-align: left;">Unix, Quarto</td>
-<td style="text-align: left;">Sep 11</td>
-<td style="text-align: left;">easy</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><a href="./psets/pset-02-r-vectorization.html">02</a></td>
-<td style="text-align: left;">R</td>
-<td style="text-align: left;">Sep 19</td>
-<td style="text-align: left;">easy</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><a href="./psets/pset-03-tidyverse.html">03</a></td>
-<td style="text-align: left;">Tidyverse</td>
-<td style="text-align: left;">Sep 27</td>
-<td style="text-align: left;">medium</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><a href="./psets/pset-04-wrangling.html">04</a></td>
-<td style="text-align: left;">Wrangling</td>
-<td style="text-align: left;">Oct 4</td>
-<td style="text-align: left;">medium</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><a href="./psets/pset-05-dataviz.html">05</a></td>
-<td style="text-align: left;">Covid 19 data visualization</td>
-<td style="text-align: left;">Oct 11</td>
-<td style="text-align: left;">medium</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><a href="./psets/pset-06-prob.html">06</a></td>
-<td style="text-align: left;">Probability</td>
-<td style="text-align: left;">Oct 25</td>
-<td style="text-align: left;">easy</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><a href="./psets/pset-07-election.html">07</a></td>
-<td style="text-align: left;">Predict the election</td>
-<td style="text-align: left;">Nov 04</td>
-<td style="text-align: left;">hard</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">08</td>
-<td style="text-align: left;">Confidence intervals for excess mortality</td>
-<td style="text-align: left;">Nov 15</td>
-<td style="text-align: left;">hard</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">09</td>
-<td style="text-align: left;">Matrices</td>
-<td style="text-align: left;">Nov 22</td>
-<td style="text-align: left;">easy</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">10</td>
-<td style="text-align: left;">Digit reading</td>
-<td style="text-align: left;">Dec 13</td>
-<td style="text-align: left;">hard</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Final Project</td>
-<td style="text-align: left;">Your choice</td>
-<td style="text-align: left;">Dec 20</td>
-<td style="text-align: left;">hard</td>
-</tr>
-</tbody>
-</table>
+<section id="methods-600-700-words" class="level3 nonumber">
+<h3 class="nonumber anchored" data-anchor-id="methods-600-700-words">Methods (600-700 words)</h3>
+<ul>
+<li><strong>Purpose</strong>: This section details the data sources, methods, and analytical techniques you used to conduct your analysis. It should be specific enough that someone else could replicate your study using the same resources and approach.</li>
+<li><strong>Guidelines</strong>: Describe the dataset(s) you used, including information about data collection (e.g., sources, time frame). Outline your approach for cleaning and analyzing the data, including any statistical or computational methods applied. Clearly explain any assumptions or limitations in your approach.</li>
+</ul>
 </section>
-<section id="office-hour-times" class="level2">
-<h2 class="anchored" data-anchor-id="office-hour-times">Office hour times</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Meeting</th>
-<th>Time</th>
-<th>Location</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Rafael Irizarry</td>
-<td>Mon 8:45-9:45AM</td>
-<td>Kresge 203</td>
-</tr>
-<tr class="even">
-<td>Corri Sept</td>
-<td>Tue 3:00-4:00PM</td>
-<td>Kresge 201</td>
-</tr>
-<tr class="odd">
-<td>Nikhil Vytla</td>
-<td>Wed 2:00-3:00PM</td>
-<td>Kresge 201</td>
-</tr>
-<tr class="even">
-<td>Yuan Wang</td>
-<td>Fri 1:00-2:00PM</td>
-<td><a href="https://harvard.zoom.us/j/98901120095?pwd=CrhPTA0Nco2rY6ggzYIfq6kQmP4VZn.1">Zoom</a></td>
-</tr>
-</tbody>
-</table>
+<section id="results-500-600-words" class="level3 nonumber">
+<h3 class="nonumber anchored" data-anchor-id="results-500-600-words">Results (500-600 words)</h3>
+<ul>
+<li><strong>Purpose</strong>: The results section presents the main findings of your analysis without interpretation. Organize the data logically to highlight key insights, using tables, figures, and charts to illustrate trends and comparisons.</li>
+<li><strong>Guidelines</strong>: For each result, briefly describe it and refer to relevant visuals or tables where appropriate. Do not provide explanations or discuss implications in this section; focus only on presenting the findings clearly and accurately.</li>
+</ul>
 </section>
-<section id="acknowledgments" class="level2">
-<h2 class="anchored" data-anchor-id="acknowledgments">Acknowledgments</h2>
-<p>We thank <a href="https://github.com/matackett">Maria Tackett</a> and <a href="https://github.com/mine-cetinkaya-rundel">Mine Çetinkaya-Rundel</a> for sharing their <a href="https://github.com/rstudio-conf-2022/teach-ds-course-website/tree/main">web page template</a>, which we used in creating this website.</p>
+<section id="discussion-600-700-words" class="level3 nonumber">
+<h3 class="nonumber anchored" data-anchor-id="discussion-600-700-words">Discussion (600-700 words)</h3>
+<ul>
+<li><strong>Purpose</strong>: In the discussion, interpret the significance of your findings, explore potential implications, and relate the results back to your initial research questions or hypotheses. This section allows you to discuss any patterns, unexpected findings, or limitations and suggest possible future research.</li>
+<li><strong>Guidelines</strong>: Analyze your results in the context of your research question, linking them back to the background information from the introduction. Consider what your findings reveal, any limitations they may have, and how they might impact future work or policy. End with a brief conclusion summarizing your main insights.</li>
+</ul>
+<p>Your final report should be professionally formatted, with each section clearly labeled and referenced. Aim for clarity, precision, and a well-organized presentation of your analysis.</p>
+<p><strong>Total Word Count</strong>: Approximately 2,500-3,000 words.</p>
+</section>
+</section>
+<section id="supplementary-methods-no-limit" class="level2 nonumber">
+<h2 class="nonumber anchored" data-anchor-id="supplementary-methods-no-limit">Supplementary Methods (no limit)</h2>
+<p>You can include a <strong>separate document</strong> titled Supplementary Methods.</p>
+<ul>
+<li><p><strong>Purpose</strong>: Share any mathematical derivations, data visualizations, or tables needed to justify the choices described in the Methods Section. You can also provide further support for the claims made in the Results Section. You can refer to this document in the main report.</p></li>
+<li><p><strong>Guidelines</strong>: There is no limits in the length of this section nor on the number of figures and tables. However, be careful not to drown the graders with too much information.</p></li>
+</ul>
+</section>
+<section id="examples" class="level2">
+<h2 class="anchored" data-anchor-id="examples">Examples</h2>
+<p>Here are two examples or papers related to the two first topics:</p>
+<ul>
+<li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10200579/">A Flexible Statistical Framework for Estimating Excess Mortality</a></li>
+<li><a href="https://www.bmj.com/content/373/bmj.n1137">Excess deaths associated with covid-19 pandemic in 2020: age and sex disaggregated time series analysis in 29 high income countries</a></li>
+</ul>
+</section>
+<section id="githut-repository" class="level2 nonumber">
+<h2 class="nonumber anchored" data-anchor-id="githut-repository">GitHut Repository</h2>
+<p>We recommend your repository include:</p>
+<ul>
+<li>Directories <code>code</code>, <code>data</code>, and <code>docs</code>.</li>
+<li>At least one script for wrangling in the <code>code</code> directory.</li>
+<li>There should be one file called <code>final-project.qmd</code> that can be rendered to produce the final report. This can be in the <code>code</code> or home directories as long as it renders.</li>
+<li>You should include a <code>README</code> file explaining how to reproduce all the results.</li>
+<li>If you need to share raw data include it in the <code>raw-data</code> directory. Alternatively, you can include code that downloads the necessary data from the internet.</li>
+</ul>
+<p>We expect to see at least five commits by each person.</p>
+</section>
+</section>
+<section id="covid-19" class="level1">
+<h1>Covid-19</h1>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
+<p>You can use the data we downloaded in problem set 4.</p>
+<p>We want you to examine the entire pandemic, until at least December 1, 2024 which means you will need to obtain population estimates for 2023 and 2024.</p>
+<p><strong>For those working in groups</strong> we want you to obtain daily or weekly mortality data for each state.</p>
+</section>
+<section id="tasks-and-questions" class="level2">
+<h2 class="anchored" data-anchor-id="tasks-and-questions">Tasks and questions</h2>
+<ol type="1">
+<li><p>Divide the pandemic period, January 2020 to December 2024 into <em>waves</em>. Justify your choice with data visualization.</p></li>
+<li><p>For each period compute the deaths rates by state. Describe which states did better or worse during the different periods.</p></li>
+<li><p>Describe if COVID-19 became less or more virulent across the different periods.</p></li>
+<li><p><strong>For those working in groups</strong>: Estimate excess mortality for each week for each state. Do COVID-19 deaths explain the excess mortality?</p></li>
+<li><p><strong>For those working in groups</strong>: Repeat 2 but for excess mortality instead of COVID-19 deaths.</p></li>
+</ol>
+</section>
+</section>
+<section id="excess-mortality" class="level1">
+<h1>Excess mortality</h1>
+<section id="data-1" class="level2">
+<h2 class="anchored" data-anchor-id="data-1">Data</h2>
+<p>You can use <code>puerto_rico_counts</code> in the <strong>excessmort</strong> package.</p>
+<p><strong>For those working in groups</strong> we want you to wrangle the data from the pdf report shared by the New York Times. <code>https://github.com/c2-d2/pr_mort_official/raw/master/data/Mortalidad-RegDem-2015-17-NYT-part1.pdf</code></p>
+</section>
+<section id="tasks-and-questions-1" class="level2">
+<h2 class="anchored" data-anchor-id="tasks-and-questions-1">Tasks and questions</h2>
+<ol type="1">
+<li><p>Examine the population sizes by age group and sex. Describe any interesting patterns.</p></li>
+<li><p>Use data from before 2017 to estimate expected mortality and a standard deviation for each week. Do this by age group and sex. Describe tendencies you observe. You can combine data into bigger age groups if the data show they have similar death rates.</p></li>
+<li><p>Explore the data to see if there are periods during or before 2017 that appear to have excess mortality. If so, explain and recompute expected death rates removing these periods.</p></li>
+<li><p>Estimate excess deaths for each week of 2017-2018. Make sure you define the weeks so that one of the weeks starts the day María made landfall. Comment on excess mortality. Which age groups were affected? Were men and women affected differently?</p></li>
+<li><p><strong>For those working in groups</strong>: Extract the data from the PDF shared with NY Times. Comment on how it matches with <strong>excessmort</strong> package data.</p></li>
+</ol>
+</section>
+</section>
+<section id="election-dashboard" class="level1">
+<h1>Election Dashboard {#}</h1>
+<section id="data-2" class="level2">
+<h2 class="anchored" data-anchor-id="data-2">Data</h2>
+<p>Obtain pollster data for 2016, 2018, 2020, 2022 elections. We already provided data from the 2024 election.</p>
+</section>
+<section id="tasks-and-questions-2" class="level2">
+<h2 class="anchored" data-anchor-id="tasks-and-questions-2">Tasks and questions</h2>
+<ol type="1">
+<li><p>We want you to build a shiny dashboard to be ready to predict the 2026 senate election. To do this you will prepare a dashboard for the 2024 senate election.</p></li>
+<li><p>The dashboard should show your prediction for each senate race based on a Bayesian analysis.</p></li>
+<li><p>The dashboard should also show a prediction for the number of seats the democrats will hold. It should display a histogram with your estimate of the probability distribution for each possible outcome.</p></li>
+<li><p>Use data from previous years to motivate the choice of priors.</p></li>
+<li><p><strong>For those working in groups</strong>: Use the previous 4 elections to estimate correlations between states in the polling bias. Use it to improve your model.</p></li>
+</ol>
+</section>
+<section id="github" class="level2">
+<h2 class="anchored" data-anchor-id="github">GitHub</h2>
+<p>All the code needed to construct the shiny app should be included in a GitHub repository, including whatever wrangling you performed for your data analysis.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -862,4 +770,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/datasciencelabs/2024/blob/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/datasciencelabs/2024/blob/main/final-project.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>

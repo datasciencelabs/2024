@@ -261,7 +261,8 @@ $$
 \mbox{E}(\mu \mid \bar{X}) &= B \theta + (1-B) \bar{X}\\ 
 &= \theta + (1-B)(\bar{X}-\theta)\\ 
 \mbox{with } B &= \frac{\sigma^2/N}{\sigma^2/N+\tau^2} \mbox{ and }
-\mbox{SE}(\mu \mid \bar{X})^2 = \frac{1}{1/\sigma^2+1/\tau^2}. 
+\mbox{SE}(\mu \mid \bar{X})^2 = \frac{1}{1/\sigma^2+1/\tau^2}
+\end{aligned} 
 $$ 
 
 ## Priors and posteriors

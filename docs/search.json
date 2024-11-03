@@ -6511,7 +6511,7 @@
     "href": "slides/inference/26-bayes.html#priors-and-posteriors-5",
     "title": "Bayesian Models",
     "section": "Priors and posteriors",
-    "text": "Priors and posteriors\n\nWe can now use calculus and a version of Bayes’ Theorem to derive the distribution of \\(\\mu\\) conditional of the data, referred to as the posterior distribution.\nSpecifically, we can show the \\(\\mu \\mid \\bar{X}\\) follows a normal distribution with expected value:\n\n\\[\n\\begin{aligned}\n\\mbox{E}(\\mu \\mid \\bar{X}) &= B \\theta + (1-B) \\bar{X}\\\\\n&= \\theta + (1-B)(\\bar{X}-\\theta)\\\\\n\\mbox{with } B &= \\frac{\\sigma^2/N}{\\sigma^2/N+\\tau^2} \\mbox{ and }\n\\mbox{SE}(\\mu \\mid \\bar{X})^2 = \\frac{1}{1/\\sigma^2+1/\\tau^2}.\n\\]"
+    "text": "Priors and posteriors\n\nWe can now use calculus and a version of Bayes’ Theorem to derive the distribution of \\(\\mu\\) conditional of the data, referred to as the posterior distribution.\nSpecifically, we can show the \\(\\mu \\mid \\bar{X}\\) follows a normal distribution with expected value:\n\n\\[\n\\begin{aligned}\n\\mbox{E}(\\mu \\mid \\bar{X}) &= B \\theta + (1-B) \\bar{X}\\\\\n&= \\theta + (1-B)(\\bar{X}-\\theta)\\\\\n\\mbox{with } B &= \\frac{\\sigma^2/N}{\\sigma^2/N+\\tau^2} \\mbox{ and }\n\\mbox{SE}(\\mu \\mid \\bar{X})^2 = \\frac{1}{1/\\sigma^2+1/\\tau^2}\n\\end{aligned}\n\\]"
   },
   {
     "objectID": "slides/inference/26-bayes.html#priors-and-posteriors-6",
@@ -7191,5 +7191,125 @@
     "title": "Data-driven models",
     "section": "",
     "text": "“All models are wrong, but some are useful.” –George E.P. Box."
+  },
+  {
+    "objectID": "final-project.html",
+    "href": "final-project.html",
+    "title": "Final Project",
+    "section": "",
+    "text": "For the final project you will choose one of these topics:\n\nCOVID-19 pandemic in the US\nExcess mortality in Puerto Rico after Hurricane María.\nTopic of your choice (needs instructor approval).\nElection results dashboard.\n\nYou will submit your project using Git. Your project should be completely reproducible, meaning all the code and data needed to render your report from scratch should be in the repository.\nYou can work alone or in groups of at most three people.\nIf you select option 4 you can skip to @dashboard.\n\n\nFor the first three options, you will prepare a comprehensive report following the style of an academic paper. This report will be divided into the following five structured sections, with approximate word counts to help you reach a target of 2,500 to 3,000 words, up to four figures and up to two tables.\n\n\n\nPurpose: The abstract provides a concise summary of your project, including its objectives, key findings, and significance. Write this section last, after completing all other sections, to accurately reflect your project’s focus and main results.\nGuidelines: Limit this section to 150-200 words. Briefly outline the purpose of your study, the approach you used, and the primary results and conclusions. The abstract should be clear, succinct, and give readers an immediate understanding of what your project entails.\n\n\n\n\n\nPurpose: The introduction sets the stage for your project, presenting the background and rationale for your analysis. Explain why the topic is significant.\nGuidelines: Start with a broad overview of the topic, gradually narrowing down to your specific focus. Conclude with a clear statement of your research questions, hypotheses, or objectives. Use 2-3 paragraphs to establish a solid foundation for the rest of the paper.\n\n\n\n\n\nPurpose: This section details the data sources, methods, and analytical techniques you used to conduct your analysis. It should be specific enough that someone else could replicate your study using the same resources and approach.\nGuidelines: Describe the dataset(s) you used, including information about data collection (e.g., sources, time frame). Outline your approach for cleaning and analyzing the data, including any statistical or computational methods applied. Clearly explain any assumptions or limitations in your approach.\n\n\n\n\n\nPurpose: The results section presents the main findings of your analysis without interpretation. Organize the data logically to highlight key insights, using tables, figures, and charts to illustrate trends and comparisons.\nGuidelines: For each result, briefly describe it and refer to relevant visuals or tables where appropriate. Do not provide explanations or discuss implications in this section; focus only on presenting the findings clearly and accurately.\n\n\n\n\n\nPurpose: In the discussion, interpret the significance of your findings, explore potential implications, and relate the results back to your initial research questions or hypotheses. This section allows you to discuss any patterns, unexpected findings, or limitations and suggest possible future research.\nGuidelines: Analyze your results in the context of your research question, linking them back to the background information from the introduction. Consider what your findings reveal, any limitations they may have, and how they might impact future work or policy. End with a brief conclusion summarizing your main insights.\n\nYour final report should be professionally formatted, with each section clearly labeled and referenced. Aim for clarity, precision, and a well-organized presentation of your analysis.\nTotal Word Count: Approximately 2,500-3,000 words.\n\n\n\n\nYou can include a separate document titled Supplementary Methods.\n\nPurpose: Share any mathematical derivations, data visualizations, or tables needed to justify the choices described in the Methods Section. You can also provide further support for the claims made in the Results Section. You can refer to this document in the main report.\nGuidelines: There is no limits in the length of this section nor on the number of figures and tables. However, be careful not to drown the graders with too much information.\n\n\n\n\nHere are two examples or papers related to the two first topics:\n\nA Flexible Statistical Framework for Estimating Excess Mortality\nExcess deaths associated with covid-19 pandemic in 2020: age and sex disaggregated time series analysis in 29 high income countries\n\n\n\n\nWe recommend your repository include:\n\nDirectories code, data, and docs.\nAt least one script for wrangling in the code directory.\nThere should be one file called final-project.qmd that can be rendered to produce the final report. This can be in the code or home directories as long as it renders.\nYou should include a README file explaining how to reproduce all the results.\nIf you need to share raw data include it in the raw-data directory. Alternatively, you can include code that downloads the necessary data from the internet.\n\nWe expect to see at least five commits by each person.",
+    "crumbs": [
+      "Final Project"
+    ]
+  },
+  {
+    "objectID": "final-project.html#sections",
+    "href": "final-project.html#sections",
+    "title": "Final Project",
+    "section": "",
+    "text": "For the first three options, you will prepare a comprehensive report following the style of an academic paper. This report will be divided into the following five structured sections, with approximate word counts to help you reach a target of 2,500 to 3,000 words, up to four figures and up to two tables.\n\n\n\nPurpose: The abstract provides a concise summary of your project, including its objectives, key findings, and significance. Write this section last, after completing all other sections, to accurately reflect your project’s focus and main results.\nGuidelines: Limit this section to 150-200 words. Briefly outline the purpose of your study, the approach you used, and the primary results and conclusions. The abstract should be clear, succinct, and give readers an immediate understanding of what your project entails.\n\n\n\n\n\nPurpose: The introduction sets the stage for your project, presenting the background and rationale for your analysis. Explain why the topic is significant.\nGuidelines: Start with a broad overview of the topic, gradually narrowing down to your specific focus. Conclude with a clear statement of your research questions, hypotheses, or objectives. Use 2-3 paragraphs to establish a solid foundation for the rest of the paper.\n\n\n\n\n\nPurpose: This section details the data sources, methods, and analytical techniques you used to conduct your analysis. It should be specific enough that someone else could replicate your study using the same resources and approach.\nGuidelines: Describe the dataset(s) you used, including information about data collection (e.g., sources, time frame). Outline your approach for cleaning and analyzing the data, including any statistical or computational methods applied. Clearly explain any assumptions or limitations in your approach.\n\n\n\n\n\nPurpose: The results section presents the main findings of your analysis without interpretation. Organize the data logically to highlight key insights, using tables, figures, and charts to illustrate trends and comparisons.\nGuidelines: For each result, briefly describe it and refer to relevant visuals or tables where appropriate. Do not provide explanations or discuss implications in this section; focus only on presenting the findings clearly and accurately.\n\n\n\n\n\nPurpose: In the discussion, interpret the significance of your findings, explore potential implications, and relate the results back to your initial research questions or hypotheses. This section allows you to discuss any patterns, unexpected findings, or limitations and suggest possible future research.\nGuidelines: Analyze your results in the context of your research question, linking them back to the background information from the introduction. Consider what your findings reveal, any limitations they may have, and how they might impact future work or policy. End with a brief conclusion summarizing your main insights.\n\nYour final report should be professionally formatted, with each section clearly labeled and referenced. Aim for clarity, precision, and a well-organized presentation of your analysis.\nTotal Word Count: Approximately 2,500-3,000 words.",
+    "crumbs": [
+      "Final Project"
+    ]
+  },
+  {
+    "objectID": "final-project.html#supplementary-methods-no-limit",
+    "href": "final-project.html#supplementary-methods-no-limit",
+    "title": "Final Project",
+    "section": "",
+    "text": "You can include a separate document titled Supplementary Methods.\n\nPurpose: Share any mathematical derivations, data visualizations, or tables needed to justify the choices described in the Methods Section. You can also provide further support for the claims made in the Results Section. You can refer to this document in the main report.\nGuidelines: There is no limits in the length of this section nor on the number of figures and tables. However, be careful not to drown the graders with too much information.",
+    "crumbs": [
+      "Final Project"
+    ]
+  },
+  {
+    "objectID": "final-project.html#examples",
+    "href": "final-project.html#examples",
+    "title": "Final Project",
+    "section": "",
+    "text": "Here are two examples or papers related to the two first topics:\n\nA Flexible Statistical Framework for Estimating Excess Mortality\nExcess deaths associated with covid-19 pandemic in 2020: age and sex disaggregated time series analysis in 29 high income countries",
+    "crumbs": [
+      "Final Project"
+    ]
+  },
+  {
+    "objectID": "final-project.html#githut-repository",
+    "href": "final-project.html#githut-repository",
+    "title": "Final Project",
+    "section": "",
+    "text": "We recommend your repository include:\n\nDirectories code, data, and docs.\nAt least one script for wrangling in the code directory.\nThere should be one file called final-project.qmd that can be rendered to produce the final report. This can be in the code or home directories as long as it renders.\nYou should include a README file explaining how to reproduce all the results.\nIf you need to share raw data include it in the raw-data directory. Alternatively, you can include code that downloads the necessary data from the internet.\n\nWe expect to see at least five commits by each person.",
+    "crumbs": [
+      "Final Project"
+    ]
+  },
+  {
+    "objectID": "final-project.html#data",
+    "href": "final-project.html#data",
+    "title": "Final Project",
+    "section": "Data",
+    "text": "Data\nYou can use the data we downloaded in problem set 4.\nWe want you to examine the entire pandemic, until at least December 1, 2024 which means you will need to obtain population estimates for 2023 and 2024.\nFor those working in groups we want you to obtain daily or weekly mortality data for each state.",
+    "crumbs": [
+      "Final Project"
+    ]
+  },
+  {
+    "objectID": "final-project.html#tasks-and-questions",
+    "href": "final-project.html#tasks-and-questions",
+    "title": "Final Project",
+    "section": "Tasks and questions",
+    "text": "Tasks and questions\n\nDivide the pandemic period, January 2020 to December 2024 into waves. Justify your choice with data visualization.\nFor each period compute the deaths rates by state. Describe which states did better or worse during the different periods.\nDescribe if COVID-19 became less or more virulent across the different periods.\nFor those working in groups: Estimate excess mortality for each week for each state. Do COVID-19 deaths explain the excess mortality?\nFor those working in groups: Repeat 2 but for excess mortality instead of COVID-19 deaths.",
+    "crumbs": [
+      "Final Project"
+    ]
+  },
+  {
+    "objectID": "final-project.html#data-1",
+    "href": "final-project.html#data-1",
+    "title": "Final Project",
+    "section": "Data",
+    "text": "Data\nYou can use puerto_rico_counts in the excessmort package.\nFor those working in groups we want you to wrangle the data from the pdf report shared by the New York Times. https://github.com/c2-d2/pr_mort_official/raw/master/data/Mortalidad-RegDem-2015-17-NYT-part1.pdf",
+    "crumbs": [
+      "Final Project"
+    ]
+  },
+  {
+    "objectID": "final-project.html#tasks-and-questions-1",
+    "href": "final-project.html#tasks-and-questions-1",
+    "title": "Final Project",
+    "section": "Tasks and questions",
+    "text": "Tasks and questions\n\nExamine the population sizes by age group and sex. Describe any interesting patterns.\nUse data from before 2017 to estimate expected mortality and a standard deviation for each week. Do this by age group and sex. Describe tendencies you observe. You can combine data into bigger age groups if the data show they have similar death rates.\nExplore the data to see if there are periods during or before 2017 that appear to have excess mortality. If so, explain and recompute expected death rates removing these periods.\nEstimate excess deaths for each week of 2017-2018. Make sure you define the weeks so that one of the weeks starts the day María made landfall. Comment on excess mortality. Which age groups were affected? Were men and women affected differently?\nFor those working in groups: Extract the data from the PDF shared with NY Times. Comment on how it matches with excessmort package data.",
+    "crumbs": [
+      "Final Project"
+    ]
+  },
+  {
+    "objectID": "final-project.html#data-2",
+    "href": "final-project.html#data-2",
+    "title": "Final Project",
+    "section": "Data",
+    "text": "Data\nObtain pollster data for 2016, 2018, 2020, 2022 elections. We already provided data from the 2024 election.",
+    "crumbs": [
+      "Final Project"
+    ]
+  },
+  {
+    "objectID": "final-project.html#tasks-and-questions-2",
+    "href": "final-project.html#tasks-and-questions-2",
+    "title": "Final Project",
+    "section": "Tasks and questions",
+    "text": "Tasks and questions\n\nWe want you to build a shiny dashboard to be ready to predict the 2026 senate election. To do this you will prepare a dashboard for the 2024 senate election.\nThe dashboard should show your prediction for each senate race based on a Bayesian analysis.\nThe dashboard should also show a prediction for the number of seats the democrats will hold. It should display a histogram with your estimate of the probability distribution for each possible outcome.\nUse data from previous years to motivate the choice of priors.\nFor those working in groups: Use the previous 4 elections to estimate correlations between states in the polling bias. Use it to improve your model.",
+    "crumbs": [
+      "Final Project"
+    ]
+  },
+  {
+    "objectID": "final-project.html#github",
+    "href": "final-project.html#github",
+    "title": "Final Project",
+    "section": "GitHub",
+    "text": "GitHub\nAll the code needed to construct the shiny app should be included in a GitHub repository, including whatever wrangling you performed for your data analysis.",
+    "crumbs": [
+      "Final Project"
+    ]
   }
 ]

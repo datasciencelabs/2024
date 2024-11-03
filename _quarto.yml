@@ -27,6 +27,8 @@ website:
       text: Problem Sets
     - href: syllabus.qmd
       text: Syllabus
+    - href: final-project.qmd
+      text: Final Project
     
 format:
   html:
