@@ -1,0 +1,34 @@
+---
+title: "Introduction"
+keywords: "Linear Models"
+date: 2024-11-05
+format:
+  revealjs:
+    theme: night
+execute: 
+  echo: true
+---
+
+## Linear Models
+
+- We have focused mainly datasets consisting of a single variable.
+
+- In data analyses challenges, it is very common to be interested in the relationship between two or more variables.
+
+- We now introduce _linear models_, a general framework that unifies approaches used for analyzing association between variables.
+
+
+## Linear Models
+
+Linear models are useful for:
+
+- simple and multivariate regression,
+
+- measurement error models, 
+
+- treatment effect models, and 
+
+- association tests.
+
+
+

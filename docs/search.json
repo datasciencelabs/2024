@@ -7311,5 +7311,1027 @@
     "crumbs": [
       "Final Project"
     ]
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#case-study-is-height-hereditary",
+    "href": "slides/linear-models/29-regression.html#case-study-is-height-hereditary",
+    "title": "Regression",
+    "section": "Case study: is height hereditary?",
+    "text": "Case study: is height hereditary?\n\nTo understand the concepts of correlation and simple regression, we actually use the dataset from which regression was born.\nThe example is from genetics.\nFrancis Galton studied the variation and heredity of human traits.\nAmong many other traits, Galton collected and studied height data from families to try to understand heredity."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#case-study-is-height-hereditary-1",
+    "href": "slides/linear-models/29-regression.html#case-study-is-height-hereditary-1",
+    "title": "Regression",
+    "section": "Case study: is height hereditary?",
+    "text": "Case study: is height hereditary?\n\nWhile doing this, he developed the concepts of correlation and regression.\nAt the time this data was collected, our knowledge of genetics was limited compared to what we know today.\nA very specific question Galton tried to answer was: how well can we predict a child’s height based on the parents’ height?"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#case-study-is-height-hereditary-2",
+    "href": "slides/linear-models/29-regression.html#case-study-is-height-hereditary-2",
+    "title": "Regression",
+    "section": "Case study: is height hereditary?",
+    "text": "Case study: is height hereditary?\n\nWe have access to Galton’s family height data through the HistData package.\nThis data contains heights on several dozen families: mothers, fathers, daughters, and sons."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#case-study-is-height-hereditary-3",
+    "href": "slides/linear-models/29-regression.html#case-study-is-height-hereditary-3",
+    "title": "Regression",
+    "section": "Case study: is height hereditary?",
+    "text": "Case study: is height hereditary?\n\nTo imitate Galton’s analysis, we will create a dataset with the heights of fathers and a randomly selected son of each family:\n\n\nlibrary(tidyverse) \nlibrary(HistData) \nset.seed(1983) \ngalton_heights &lt;- GaltonFamilies |&gt; \n  filter(gender == \"male\") |&gt; \n  group_by(family) |&gt; \n  sample_n(1) |&gt; \n  ungroup() |&gt; \n  select(father, childHeight) |&gt; \n  rename(son = childHeight)"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#case-study-is-height-hereditary-4",
+    "href": "slides/linear-models/29-regression.html#case-study-is-height-hereditary-4",
+    "title": "Regression",
+    "section": "Case study: is height hereditary?",
+    "text": "Case study: is height hereditary?\n\nSuppose we were asked to summarize the father and son data.\nSince both distributions are well approximated by the normal distribution, we could use:\n\n\ngalton_heights |&gt;  \n  summarize(mean(father), sd(father), mean(son), sd(son)) \n\n# A tibble: 1 × 4\n  `mean(father)` `sd(father)` `mean(son)` `sd(son)`\n           &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;\n1           69.1         2.55        69.2      2.71"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#case-study-is-height-hereditary-5",
+    "href": "slides/linear-models/29-regression.html#case-study-is-height-hereditary-5",
+    "title": "Regression",
+    "section": "Case study: is height hereditary?",
+    "text": "Case study: is height hereditary?\n\nThis summary fails to describe an important characteristic of the data:"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#case-study-is-height-hereditary-6",
+    "href": "slides/linear-models/29-regression.html#case-study-is-height-hereditary-6",
+    "title": "Regression",
+    "section": "Case study: is height hereditary?",
+    "text": "Case study: is height hereditary?\n\nThe correlation coefficient is an informative summary of how two variables move together.\nIt’s defined for a list of pairs \\((x_1, y_1), \\dots, (x_n,y_n)\\) as:\n\n\\[\n\\rho = \\frac{1}{n} \\sum_{i=1}^n \\left( \\frac{x_i-\\mu_x}{\\sigma_x} \\right)\\left( \\frac{y_i-\\mu_y}{\\sigma_y} \\right)\n\\]\n\nwith \\(\\mu_x, \\mu_y\\) the averages of \\(x_1,\\dots, x_n\\) and \\(y_1, \\dots, y_n\\), respectively, and \\(\\sigma_x, \\sigma_y\\) the standard deviations."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-correlation-coefficient",
+    "href": "slides/linear-models/29-regression.html#the-correlation-coefficient",
+    "title": "Regression",
+    "section": "The correlation coefficient",
+    "text": "The correlation coefficient\n\n\\(\\rho\\) is the greek letter for \\(r\\).\nIt is not a coincidence that \\(r\\) is the first letter in regression.\nWe learn about the connection between correlation and regression."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-correlation-coefficient-1",
+    "href": "slides/linear-models/29-regression.html#the-correlation-coefficient-1",
+    "title": "Regression",
+    "section": "The correlation coefficient",
+    "text": "The correlation coefficient\n\nWe can represent the formula above with R code using:\n\n\nrho &lt;- mean(scale(x) * scale(y))"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-correlation-coefficient-2",
+    "href": "slides/linear-models/29-regression.html#the-correlation-coefficient-2",
+    "title": "Regression",
+    "section": "The correlation coefficient",
+    "text": "The correlation coefficient\n\nTo understand why this equation does in fact summarize how two variables move together, consider the \\(i\\)-th entry of \\(x\\) is \\(\\left( \\frac{x_i-\\mu_x}{\\sigma_x} \\right)\\) SDs away from the average.\nSimilarly, the \\(y_i\\) that is paired with \\(x_i\\), is \\(\\left( \\frac{y_1-\\mu_y}{\\sigma_y} \\right)\\) SDs away from the average \\(y\\).\nIf \\(x\\) and \\(y\\) are unrelated, the product \\(\\left( \\frac{x_i-\\mu_x}{\\sigma_x} \\right)\\left( \\frac{y_i-\\mu_y}{\\sigma_y} \\right)\\) will be positive ( \\(+ \\times +\\) and \\(- \\times -\\) ) as often as negative (\\(+ \\times -\\) and \\(- \\times +\\)) and will average out to about 0."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-correlation-coefficient-3",
+    "href": "slides/linear-models/29-regression.html#the-correlation-coefficient-3",
+    "title": "Regression",
+    "section": "The correlation coefficient",
+    "text": "The correlation coefficient\n\nThis correlation is the average and therefore unrelated variables will have 0 correlation.\nIf instead the quantities vary together, then we are averaging mostly positive products (\\(+ \\times +\\) and \\(- \\times -\\)) and we get a positive correlation.\nIf they vary in opposite directions, we get a negative correlation."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-correlation-coefficient-4",
+    "href": "slides/linear-models/29-regression.html#the-correlation-coefficient-4",
+    "title": "Regression",
+    "section": "The correlation coefficient",
+    "text": "The correlation coefficient\n\nThe correlation coefficient is always between -1 and 1.\nWe can show this mathematically."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-correlation-coefficient-5",
+    "href": "slides/linear-models/29-regression.html#the-correlation-coefficient-5",
+    "title": "Regression",
+    "section": "The correlation coefficient",
+    "text": "The correlation coefficient\n\nThe correlation, computed with the function cor, between father and son’s heights is about 0.5:\n\n\ngalton_heights |&gt; summarize(r = cor(father, son)) |&gt; pull(r) \n\n[1] 0.4334102"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-correlation-coefficient-6",
+    "href": "slides/linear-models/29-regression.html#the-correlation-coefficient-6",
+    "title": "Regression",
+    "section": "The correlation coefficient",
+    "text": "The correlation coefficient\n\nCorrelations ranging from -0.9 to 0.99:"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#sample-correlation-is-a-random-variable",
+    "href": "slides/linear-models/29-regression.html#sample-correlation-is-a-random-variable",
+    "title": "Regression",
+    "section": "Sample correlation is a random variable",
+    "text": "Sample correlation is a random variable\n\nBefore we continue connecting correlation to regression, let’s remind ourselves about random variability.\nIn most data science applications, we observe data that includes random variation.\nFor example, in many cases, we do not observe data for the entire population of interest, but rather for a random sample.\nAs with the average and standard deviation, the sample correlation is the most commonly used estimate of the population correlation."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#sample-correlation-is-a-random-variable-1",
+    "href": "slides/linear-models/29-regression.html#sample-correlation-is-a-random-variable-1",
+    "title": "Regression",
+    "section": "Sample correlation is a random variable",
+    "text": "Sample correlation is a random variable\n\nThis implies that the correlation we compute and use as a summary is a random variable.\nBy way of illustration, let’s assume that the 179 pairs of fathers and sons is our entire population."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#sample-correlation-is-a-random-variable-2",
+    "href": "slides/linear-models/29-regression.html#sample-correlation-is-a-random-variable-2",
+    "title": "Regression",
+    "section": "Sample correlation is a random variable",
+    "text": "Sample correlation is a random variable\n\nA less fortunate geneticist can only afford measurements from a random sample of 25 pairs.\nThe sample correlation can be computed with:\n\n\nR &lt;- sample_n(galton_heights, 25, replace = TRUE) |&gt;  \n  summarize(r = cor(father, son)) |&gt; pull(r) \n\n\nR is a random variable."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#sample-correlation-is-a-random-variable-3",
+    "href": "slides/linear-models/29-regression.html#sample-correlation-is-a-random-variable-3",
+    "title": "Regression",
+    "section": "Sample correlation is a random variable",
+    "text": "Sample correlation is a random variable\n\nWe can run a Monte Carlo simulation to see its distribution:"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#sample-correlation-is-a-random-variable-4",
+    "href": "slides/linear-models/29-regression.html#sample-correlation-is-a-random-variable-4",
+    "title": "Regression",
+    "section": "Sample correlation is a random variable",
+    "text": "Sample correlation is a random variable\n\nWe see that the expected value of R is the population correlation:\n\n\nmean(R) \n\n[1] 0.4307393\n\n\n\nand that it has a relatively high standard error relative to the range of values R can take:\n\n\nsd(R) \n\n[1] 0.1609393"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#sample-correlation-is-a-random-variable-5",
+    "href": "slides/linear-models/29-regression.html#sample-correlation-is-a-random-variable-5",
+    "title": "Regression",
+    "section": "Sample correlation is a random variable",
+    "text": "Sample correlation is a random variable\n\nSo, when interpreting correlations, remember that correlations derived from samples are estimates containing uncertainty.\nAlso, note that because the sample correlation is an average of independent draws, the central limit actually applies.\nTherefore, for large enough \\(N\\), the distribution of R is approximately normal with expected value \\(\\rho\\)."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#sample-correlation-is-a-random-variable-6",
+    "href": "slides/linear-models/29-regression.html#sample-correlation-is-a-random-variable-6",
+    "title": "Regression",
+    "section": "Sample correlation is a random variable",
+    "text": "Sample correlation is a random variable\n\nThe standard deviation, which is somewhat complex to derive, is \\(\\sqrt{\\frac{1-r^2}{N-2}}\\).\nIn our example, \\(N=25\\) does not seem to be large enough to make the approximation a good one:\n\n\n\nIf you increase \\(N\\), you will see the distribution converging to normal."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#correlation-is-not-always-a-useful-summary",
+    "href": "slides/linear-models/29-regression.html#correlation-is-not-always-a-useful-summary",
+    "title": "Regression",
+    "section": "Correlation is not always a useful summary",
+    "text": "Correlation is not always a useful summary\n\nCorrelation is not always a good summary of the relationship between two variables.\nThe following four artificial datasets, referred to as Anscombe’s quartet, famously illustrate this point."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#correlation-is-not-always-a-useful-summary-1",
+    "href": "slides/linear-models/29-regression.html#correlation-is-not-always-a-useful-summary-1",
+    "title": "Regression",
+    "section": "Correlation is not always a useful summary",
+    "text": "Correlation is not always a useful summary\n\nAll these pairs have a correlation of 0.82:"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#correlation-is-not-always-a-useful-summary-2",
+    "href": "slides/linear-models/29-regression.html#correlation-is-not-always-a-useful-summary-2",
+    "title": "Regression",
+    "section": "Correlation is not always a useful summary",
+    "text": "Correlation is not always a useful summary\n\nCorrelation is only meaningful in a particular context.\nTo help us understand when correlation is meaningful as a summary statistic, we return to the example of predicting a son’s height using his father’s height."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#conditional-expectations",
+    "href": "slides/linear-models/29-regression.html#conditional-expectations",
+    "title": "Regression",
+    "section": "Conditional expectations",
+    "text": "Conditional expectations\n\nSuppose we are asked to guess the height of a randomly selected son and we don’t know his father’s height.\nBecause the distribution of sons’ heights is approximately normal, we know the average height, 69.2, is the value with the highest proportion and would be the prediction with the highest chance of minimizing the error.\nBut what if we are told that the father is taller than average, say 72 inches tall, do we still guess 69.2 for the son?"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#conditional-expectations-1",
+    "href": "slides/linear-models/29-regression.html#conditional-expectations-1",
+    "title": "Regression",
+    "section": "Conditional expectations",
+    "text": "Conditional expectations\n\nIt turns out that, if we were able to collect data from a very large number of fathers that are 72 inches, the distribution of their sons’ heights would be normally distributed.\nThis implies that the average of the distribution computed on this subset would be our best prediction.\nWe call this approach conditioning.\nThe general idea is that we stratify a population into groups and compute summaries in each group."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#conditional-expectations-2",
+    "href": "slides/linear-models/29-regression.html#conditional-expectations-2",
+    "title": "Regression",
+    "section": "Conditional expectations",
+    "text": "Conditional expectations\n\nTo provide a mathematical description of conditioning, consider that we have a population of pairs of values \\((x_1,y_1),\\dots,(x_n,y_n)\\), for example all father and son heights in England.\nIn the previous chapter, we learned that if you take a random pair \\((X,Y)\\), the expected value and best predictor of \\(Y\\) is \\(\\mbox{E}(Y) = \\mu_y\\), the population average \\(1/n\\sum_{i=1}^n y_i\\).\nHowever, we are no longer interested in the general population."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#conditional-expectations-3",
+    "href": "slides/linear-models/29-regression.html#conditional-expectations-3",
+    "title": "Regression",
+    "section": "Conditional expectations",
+    "text": "Conditional expectations\n\nInstead, we are interested in only the subset of a population with a specific \\(x_i\\) value, 72 inches in our example.\nThis subset of the population is also a population, and thus, the same principles and properties we have learned apply.\nThe \\(y_i\\) in the subpopulation have a distribution, referred to as the conditional distribution, and this distribution has an expected value referred to as the conditional expectation."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#conditional-expectations-4",
+    "href": "slides/linear-models/29-regression.html#conditional-expectations-4",
+    "title": "Regression",
+    "section": "Conditional expectations",
+    "text": "Conditional expectations\n\nIn our example, the conditional expectation is the average height of all sons in England with fathers that are 72 inches.\nThe statistical notation for the conditional expectation is:\n\n\\[\n\\mbox{E}(Y \\mid X = x)\n\\]\n\nwith \\(x\\) representing the fixed value that defines that subset, for example 72 inches."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#conditional-expectations-5",
+    "href": "slides/linear-models/29-regression.html#conditional-expectations-5",
+    "title": "Regression",
+    "section": "Conditional expectations",
+    "text": "Conditional expectations\n\nSimilarly, we denote the standard deviation of the strata with:\n\n\\[\n\\mbox{SD}(Y \\mid X = x) = \\sqrt{\\mbox{Var}(Y \\mid X = x)}\n\\]"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#conditional-expectations-6",
+    "href": "slides/linear-models/29-regression.html#conditional-expectations-6",
+    "title": "Regression",
+    "section": "Conditional expectations",
+    "text": "Conditional expectations\n\nBecause the conditional expectation \\(E(Y\\mid X=x)\\) is the best predictor for the random variable \\(Y\\) for an individual in the strata defined by \\(X=x\\), many data science challenges reduce to estimating this quantity.\nThe conditional standard deviation quantifies the precision of the prediction.\nIn the example we have been considering, we are interested in computing the average son height conditioned on the father being 72 inches tall.\nWe want to estimate \\(E(Y|X=72)\\) using the sample collected by Galton."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#conditional-expectations-7",
+    "href": "slides/linear-models/29-regression.html#conditional-expectations-7",
+    "title": "Regression",
+    "section": "Conditional expectations",
+    "text": "Conditional expectations\n\nWe previously learned that the sample average is the preferred approach to estimating the population average.\nA challenge when using this approach is that we don’t have many data points matching exactly one value in our sample.\nFor example, we have only:\n\n\nsum(galton_heights$father == 72) \n\n[1] 8\n\n\n\nfathers that are exactly 72 inches."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#conditional-expectations-8",
+    "href": "slides/linear-models/29-regression.html#conditional-expectations-8",
+    "title": "Regression",
+    "section": "Conditional expectations",
+    "text": "Conditional expectations\n\nIf we change the number to 72.5, we get even fewer data points:\n\n\nsum(galton_heights$father == 72.5) \n\n[1] 1"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#conditional-expectations-9",
+    "href": "slides/linear-models/29-regression.html#conditional-expectations-9",
+    "title": "Regression",
+    "section": "Conditional expectations",
+    "text": "Conditional expectations\n\nA practical way to improve these estimates of the conditional expectations is to define strata of observations with similar value of \\(x\\).\nIn our example, we can round father heights to the nearest inch and assume that they are all 72 inches.\nIf we do this, we end up with the following prediction for the son of a father that is 72 inches tall:"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#conditional-expectations-10",
+    "href": "slides/linear-models/29-regression.html#conditional-expectations-10",
+    "title": "Regression",
+    "section": "Conditional expectations",
+    "text": "Conditional expectations\n\nconditional_avg &lt;- galton_heights |&gt;  \n  filter(round(father) == 72) |&gt; \n  summarize(avg = mean(son)) |&gt;  \n  pull(avg) \nconditional_avg \n\n[1] 70.5\n\n\n\nNote that a 72 inch father is taller than average, specifically (72.0 - 69.1)/2.5 = 1.1 standard deviations taller than the average father."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#conditional-expectations-11",
+    "href": "slides/linear-models/29-regression.html#conditional-expectations-11",
+    "title": "Regression",
+    "section": "Conditional expectations",
+    "text": "Conditional expectations\n\nOur prediction 70.5 is also taller than average, but only 0.49 standard deviations larger than the average son.\nThe sons of 72 inch fathers have regressed some to the average height.\nWe notice that the reduction in how many SDs taller is about 0.5, which happens to be the correlation. This is not a coincidence.\nIf we want to make a prediction of any height, not just 72 inches, we could apply the same approach to each strata."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#conditional-expectations-12",
+    "href": "slides/linear-models/29-regression.html#conditional-expectations-12",
+    "title": "Regression",
+    "section": "Conditional expectations",
+    "text": "Conditional expectations\n\nStratification followed by boxplots lets us see the distribution of each group:"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#conditional-expectations-13",
+    "href": "slides/linear-models/29-regression.html#conditional-expectations-13",
+    "title": "Regression",
+    "section": "Conditional expectations",
+    "text": "Conditional expectations\n\nNot surprisingly, the centers of the groups are increasing with height.\nFurthermore, these centers appear to follow a linear relationship.\nBelow, we plot the averages of each group.\nIf we take into account that these averages are random variables with standard errors, the data is consistent with these points following a straight line:"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#conditional-expectations-14",
+    "href": "slides/linear-models/29-regression.html#conditional-expectations-14",
+    "title": "Regression",
+    "section": "Conditional expectations",
+    "text": "Conditional expectations"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-regression-line",
+    "href": "slides/linear-models/29-regression.html#the-regression-line",
+    "title": "Regression",
+    "section": "The regression line",
+    "text": "The regression line\n\nIf we are predicting a random variable \\(Y\\) knowing the value of another \\(X=x\\) using a regression line, then we predict that for every standard deviation, \\(\\sigma_X\\), that \\(x\\) increases above the average \\(\\mu_X\\), our prediction \\(\\hat{Y}\\) increase \\(\\rho\\) standard deviations \\(\\sigma_Y\\) above the average \\(\\mu_Y\\) with \\(\\rho\\) the correlation between \\(X\\) and \\(Y\\)."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-regression-line-1",
+    "href": "slides/linear-models/29-regression.html#the-regression-line-1",
+    "title": "Regression",
+    "section": "The regression line",
+    "text": "The regression line\n\nThe formula for the regression is therefore:\n\n\\[\n\\left( \\frac{\\hat{Y}-\\mu_Y}{\\sigma_Y} \\right) = \\rho \\left( \\frac{x-\\mu_X}{\\sigma_X} \\right)\n\\]"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-regression-line-2",
+    "href": "slides/linear-models/29-regression.html#the-regression-line-2",
+    "title": "Regression",
+    "section": "The regression line",
+    "text": "The regression line\n\nWe can rewrite it like this:\n\n\\[\n\\hat{Y} = \\mu_Y + \\rho \\left( \\frac{x-\\mu_X}{\\sigma_X} \\right) \\sigma_Y\n\\]\n\nIf there is perfect correlation, the regression line predicts an increase that is the same number of SDs.\nIf there is 0 correlation, then we don’t use \\(x\\) at all for the prediction and simply predict the average \\(\\mu_Y\\).\nFor values between 0 and 1, the prediction is somewhere in between.\nIf the correlation is negative, we predict a reduction instead of an increase."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-regression-line-3",
+    "href": "slides/linear-models/29-regression.html#the-regression-line-3",
+    "title": "Regression",
+    "section": "The regression line",
+    "text": "The regression line\n\nNote that if the correlation is positive and lower than 1, our prediction is closer, in standard units, to the average height than the value used to predict, \\(x\\), is to the average of the \\(x\\)s.\nThis is why we call it regression: the son regresses to the average height.\nIn fact, the title of Galton’s paper was: Regression toward mediocrity in hereditary stature."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-regression-line-4",
+    "href": "slides/linear-models/29-regression.html#the-regression-line-4",
+    "title": "Regression",
+    "section": "The regression line",
+    "text": "The regression line\n\nTo add regression lines to plots, we will need the above formula in the form:\n\n\\[\n\\hat{Y} = b + mx \\mbox{ with slope } m = \\rho \\frac{\\sigma_y}{\\sigma_x} \\mbox{ and intercept } b=\\mu_y - m \\mu_x\n\\]"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-regression-line-5",
+    "href": "slides/linear-models/29-regression.html#the-regression-line-5",
+    "title": "Regression",
+    "section": "The regression line",
+    "text": "The regression line\n\nHere we add the regression line to the original data:\n\n\nmu_x &lt;- mean(galton_heights$father) \nmu_y &lt;- mean(galton_heights$son) \ns_x &lt;- sd(galton_heights$father) \ns_y &lt;- sd(galton_heights$son) \nr &lt;- cor(galton_heights$father, galton_heights$son) \ngalton_heights |&gt;  \n  ggplot(aes(father, son)) +  \n  geom_point(alpha = 0.5) + \n  geom_abline(slope = r * s_y/s_x, intercept = mu_y - r * s_y/s_x * mu_x)"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-regression-line-6",
+    "href": "slides/linear-models/29-regression.html#the-regression-line-6",
+    "title": "Regression",
+    "section": "The regression line",
+    "text": "The regression line"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-regression-line-7",
+    "href": "slides/linear-models/29-regression.html#the-regression-line-7",
+    "title": "Regression",
+    "section": "The regression line",
+    "text": "The regression line\n\nThe regression formula implies that if we first standardize the variables, that is subtract the average and divide by the standard deviation, then the regression line has intercept 0 and slope equal to the correlation \\(\\rho\\)."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#regression-improves-precision",
+    "href": "slides/linear-models/29-regression.html#regression-improves-precision",
+    "title": "Regression",
+    "section": "Regression improves precision",
+    "text": "Regression improves precision\n\nLet’s compare the two approaches to prediction that we have presented:\n\nRound fathers’ heights to closest inch, stratify, and then take the average.\nCompute the regression line and use it to predict.\n\nWe use a Monte Carlo simulation sampling \\(N=50\\) families:"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#regression-improves-precision-1",
+    "href": "slides/linear-models/29-regression.html#regression-improves-precision-1",
+    "title": "Regression",
+    "section": "Regression improves precision",
+    "text": "Regression improves precision\n\nB &lt;- 1000 \nN &lt;- 50 \nset.seed(1983) \nconditional_avg &lt;- replicate(B, { \n  dat &lt;- sample_n(galton_heights, N) \n  dat |&gt; filter(round(father) == 72) |&gt;  \n    summarize(avg = mean(son)) |&gt;  \n    pull(avg) \n  }) \nregression_prediction &lt;- replicate(B, { \n  dat &lt;- sample_n(galton_heights, N) \n  mu_x &lt;- mean(dat$father) \n  mu_y &lt;- mean(dat$son) \n  s_x &lt;- sd(dat$father) \n  s_y &lt;- sd(dat$son) \n  r &lt;- cor(dat$father, dat$son) \n  mu_y + r*(72 - mu_x)/s_x*s_y \n})"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#regression-improves-precision-2",
+    "href": "slides/linear-models/29-regression.html#regression-improves-precision-2",
+    "title": "Regression",
+    "section": "Regression improves precision",
+    "text": "Regression improves precision\n\nAlthough the expected value of these two random variables is about the same:\n\n\nmean(conditional_avg, na.rm = TRUE) \n\n[1] 70.49368\n\nmean(regression_prediction) \n\n[1] 70.50941\n\n\n\nThe standard error for the regression prediction is substantially smaller:\n\n\nsd(conditional_avg, na.rm = TRUE) \n\n[1] 0.9635814\n\nsd(regression_prediction) \n\n[1] 0.4520833"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#regression-improves-precision-3",
+    "href": "slides/linear-models/29-regression.html#regression-improves-precision-3",
+    "title": "Regression",
+    "section": "Regression improves precision",
+    "text": "Regression improves precision\n\nThe prediction obtained with the regression line is therefore much more stable than the prediction obtained using the conditional mean.\nThere is an intuitive reason for this."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#regression-improves-precision-4",
+    "href": "slides/linear-models/29-regression.html#regression-improves-precision-4",
+    "title": "Regression",
+    "section": "Regression improves precision",
+    "text": "Regression improves precision\n\nThe conditional average is computed on a relatively small subset: the fathers that are about 72 inches tall.\nIn fact, in some of the permutations we have no data, which is why we use na.rm=TRUE.\nThe regression line is estimated using all the data.\nSo why not always use the regression line for prediction? Because it is not always appropriate."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#regression-improves-precision-5",
+    "href": "slides/linear-models/29-regression.html#regression-improves-precision-5",
+    "title": "Regression",
+    "section": "Regression improves precision",
+    "text": "Regression improves precision\n\nFor example, Anscombe provided cases for which the data does not have a linear relationship.\nSo are we justified in using the regression line to predict? Galton answered this in the positive for height data.\nThe justification, which we include in the next section, is somewhat more advanced than the rest of the chapter.\nCorrelation and the regression slope are a widely used summary statistic, but they are often misused or misinterpreted."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#bivariate-normal-distribution",
+    "href": "slides/linear-models/29-regression.html#bivariate-normal-distribution",
+    "title": "Regression",
+    "section": "Bivariate normal distribution",
+    "text": "Bivariate normal distribution\n\nAnscombe’s examples provide over-simplified cases in which the correlation is not a useful summary.\nBut there are many real-life examples.\nThe main way we motivate appropriate use of correlation as a summary, involves the bivariate normal distribution.\nWhen a pair of random variables is approximated by the bivariate normal distribution, scatterplots look like ovals."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#bivariate-normal-distribution-1",
+    "href": "slides/linear-models/29-regression.html#bivariate-normal-distribution-1",
+    "title": "Regression",
+    "section": "Bivariate normal distribution",
+    "text": "Bivariate normal distribution\n\nAs we saw in earlier they can be thin (high correlation) or circle-shaped (no correlation).\nA more technical way to define the bivariate normal distribution is the following: if \\(X\\) is a normally distributed random variable, \\(Y\\) is also a normally distributed random variable, and the conditional distribution of \\(Y\\) for any \\(X=x\\) is approximately normal, then the pair is approximately bivariate normal."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#bivariate-normal-distribution-2",
+    "href": "slides/linear-models/29-regression.html#bivariate-normal-distribution-2",
+    "title": "Regression",
+    "section": "Bivariate normal distribution",
+    "text": "Bivariate normal distribution\n\nWhen three or more variables have the property that each pair is bivariate normal, we say the variables follow a multivariate normal distribution or that they are jointly normal."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#bivariate-normal-distribution-3",
+    "href": "slides/linear-models/29-regression.html#bivariate-normal-distribution-3",
+    "title": "Regression",
+    "section": "Bivariate normal distribution",
+    "text": "Bivariate normal distribution"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#bivariate-normal-distribution-4",
+    "href": "slides/linear-models/29-regression.html#bivariate-normal-distribution-4",
+    "title": "Regression",
+    "section": "Bivariate normal distribution",
+    "text": "Bivariate normal distribution\n\nIf we think the height data is well approximated by the bivariate normal distribution, then we should see the normal approximation hold for each strata:"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#bivariate-normal-distribution-5",
+    "href": "slides/linear-models/29-regression.html#bivariate-normal-distribution-5",
+    "title": "Regression",
+    "section": "Bivariate normal distribution",
+    "text": "Bivariate normal distribution"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#bivariate-normal-distribution-6",
+    "href": "slides/linear-models/29-regression.html#bivariate-normal-distribution-6",
+    "title": "Regression",
+    "section": "Bivariate normal distribution",
+    "text": "Bivariate normal distribution\n\nNow we come back to defining correlation.\nGalton used mathematical statistics to demonstrate that, when two variables follow a bivariate normal distribution, computing the regression line is equivalent to computing conditional expectations."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#bivariate-normal-distribution-7",
+    "href": "slides/linear-models/29-regression.html#bivariate-normal-distribution-7",
+    "title": "Regression",
+    "section": "Bivariate normal distribution",
+    "text": "Bivariate normal distribution\n\nWe don’t show the derivation here, but we can show that under this assumption, for any given value of \\(x\\), the expected value of the \\(Y\\) in pairs for which \\(X=x\\) is:\n\n\\[\n\\mbox{E}(Y | X=x) = \\mu_Y +  \\rho \\frac{x-\\mu_X}{\\sigma_X}\\sigma_Y\n\\]\nThis is the regression line, with slope \\[\\rho \\frac{\\sigma_Y}{\\sigma_X}\\] and intercept \\(\\mu_y - m\\mu_X\\)."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#variance-explained",
+    "href": "slides/linear-models/29-regression.html#variance-explained",
+    "title": "Regression",
+    "section": "Variance explained",
+    "text": "Variance explained\n\nThe bivariate normal theory also tells us that the standard deviation of the conditional distribution described above is:\n\n\\[\n\\mbox{SD}(Y \\mid X=x ) = \\sigma_Y \\sqrt{1-\\rho^2}  \n\\]\n\nTo see why this is intuitive, notice that without conditioning, \\(\\mbox{SD}(Y) = \\sigma_Y\\), we are looking at the variability of all the sons.\nBut once we condition, we are only looking at the variability of the sons with a tall, 72 inch father."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#variance-explained-1",
+    "href": "slides/linear-models/29-regression.html#variance-explained-1",
+    "title": "Regression",
+    "section": "Variance explained",
+    "text": "Variance explained\n\nThis group will all tend to be somewhat tall so the standard deviation is reduced.\nSpecifically, it is reduced to \\(\\sqrt{1-\\rho^2} = \\sqrt{1 - 0.25}\\) = 0.87 of what it was originally."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#variance-explained-2",
+    "href": "slides/linear-models/29-regression.html#variance-explained-2",
+    "title": "Regression",
+    "section": "Variance explained",
+    "text": "Variance explained\n\nWe could say that father heights “explain” 13% of the variability observed in son heights.\nThe statement “\\(X\\) explains such and such percent of the variability” is commonly used in academic papers.\nIn this case, this percent actually refers to the variance (the SD squared)."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#variance-explained-3",
+    "href": "slides/linear-models/29-regression.html#variance-explained-3",
+    "title": "Regression",
+    "section": "Variance explained",
+    "text": "Variance explained\n\nSo if the data is bivariate normal, the variance is reduced by \\(1-\\rho^2\\), so we say that \\(X\\) explains \\(1- (1-\\rho^2)=\\rho^2\\) (the correlation squared) of the variance.\nBut it is important to remember that the “variance explained” statement only makes sense when the data is approximated by a bivariate normal distribution."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#there-are-two-regression-lines",
+    "href": "slides/linear-models/29-regression.html#there-are-two-regression-lines",
+    "title": "Regression",
+    "section": "There are two regression lines",
+    "text": "There are two regression lines\n\nWe computed a regression line to predict the son’s height from father’s height.\nWe used these calculations:\n\n\nmu_x &lt;- mean(galton_heights$father) \nmu_y &lt;- mean(galton_heights$son) \ns_x &lt;- sd(galton_heights$father) \ns_y &lt;- sd(galton_heights$son) \nr &lt;- cor(galton_heights$father, galton_heights$son) \nm_1 &lt;-  r * s_y / s_x \nb_1 &lt;- mu_y - m_1*mu_x \n\n\nwhich gives us the function \\(\\mbox{E}(Y\\mid X=x) =\\) 37.3 + 0.46 \\(x\\)."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#there-are-two-regression-lines-1",
+    "href": "slides/linear-models/29-regression.html#there-are-two-regression-lines-1",
+    "title": "Regression",
+    "section": "There are two regression lines",
+    "text": "There are two regression lines\n\nWhat if we want to predict the father’s height based on the son’s? It is important to know that this is not determined by computing the inverse function: \\(x = \\{ \\mbox{E}(Y\\mid X=x) -\\) 37.3 \\(\\} /\\) 0.5.\nWe need to compute \\(\\mbox{E}(X \\mid Y=y)\\).\nSince the data is approximately bivariate normal, the theory described earlier tells us that this conditional expectation will follow a line with slope and intercept:\n\n\nm_2 &lt;-  r * s_x / s_y \nb_2 &lt;- mu_x - m_2 * mu_y"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#there-are-two-regression-lines-2",
+    "href": "slides/linear-models/29-regression.html#there-are-two-regression-lines-2",
+    "title": "Regression",
+    "section": "There are two regression lines",
+    "text": "There are two regression lines\n\nSo we get \\(\\mbox{E}(X \\mid Y=y) =\\) 40.9 + 0.41y.\nAgain, we see regression to the average: the prediction for the father is closer to the father average than the son heights \\(y\\) is to the son average.\nNext we show plot showing the two regression lines, with blue for the predicting son heights with father heights, and red for predicting father heights with son heights:"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#linear-models",
+    "href": "slides/linear-models/29-regression.html#linear-models",
+    "title": "Regression",
+    "section": "Linear models",
+    "text": "Linear models\n\nWe are now ready to understand the connection between regression and linear models.\nWe have described how, if data is bivariate normal, then the conditional expectations follow the regression line.\nThe fact that the conditional expectation is a line is not an extra assumption, but rather a derived result."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#linear-models-1",
+    "href": "slides/linear-models/29-regression.html#linear-models-1",
+    "title": "Regression",
+    "section": "Linear models",
+    "text": "Linear models\n\nHowever, in practice it is common to explicitly write down a model that describes the relationship between two or more variables using a linear model.\nWe note that linear here does not refer to lines exclusively, but rather to the fact that the conditional expectation is a linear combination of known quantities."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#linear-models-2",
+    "href": "slides/linear-models/29-regression.html#linear-models-2",
+    "title": "Regression",
+    "section": "Linear models",
+    "text": "Linear models\n\nIn mathematics, when we multiply each variable by a constant and then add them together, we say we formed a linear combination of the variables.\nFor example, \\(3x - 4y + 5z\\) is a linear combination of \\(x\\), \\(y\\), and \\(z\\)."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#linear-models-3",
+    "href": "slides/linear-models/29-regression.html#linear-models-3",
+    "title": "Regression",
+    "section": "Linear models",
+    "text": "Linear models\n\nWe can also add a constant so \\(2 + 3x - 4y + 5z\\) is also a linear combination of \\(x\\), \\(y\\), and \\(z\\).\nWe previously described how if \\(X\\) and \\(Y\\) are bivariate normal, then if we look at only the pairs with \\(X=x\\), then \\(Y \\mid X=x\\) follows a normal distribution with expected value \\(\\mu_Y +  \\rho \\frac{x-\\mu_X}{\\sigma_X}\\sigma_Y\\), which is a linear function of \\(x\\), and standard deviation \\(\\sigma_Y \\sqrt{1-\\rho^2}\\) that does not depend on \\(x\\)."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#linear-models-4",
+    "href": "slides/linear-models/29-regression.html#linear-models-4",
+    "title": "Regression",
+    "section": "Linear models",
+    "text": "Linear models\n\nNote that if we write:\n\n\\[\nY = \\beta_0 + \\beta_1 x + \\varepsilon\n\\]\n\nIf we assume \\(\\varepsilon\\) follows a normal distribution with expected value 0 and fixed standard deviation, then \\(Y\\) has the same properties as the regression setup gave us: it follows a normal distribution, the expected value is a linear function \\(x\\), and the standard deviation does not depend on \\(x\\)."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#linear-models-5",
+    "href": "slides/linear-models/29-regression.html#linear-models-5",
+    "title": "Regression",
+    "section": "Linear models",
+    "text": "Linear models\n\nIf we were to specify a linear model for Galton’s data, we would denote the \\(N\\) observed father heights with \\(x_1, \\dots, x_n\\), then we model the \\(N\\) son heights we are trying to predict with:\n\n\\[\nY_i = \\beta_0 + \\beta_1 x_i + \\varepsilon_i, \\, i=1,\\dots,N.  \n\\]\n\nHere \\(x_i\\) is the father’s height, which is fixed (not random) due to the conditioning, and \\(Y_i\\) is the random son’s height that we want to predict."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#linear-models-6",
+    "href": "slides/linear-models/29-regression.html#linear-models-6",
+    "title": "Regression",
+    "section": "Linear models",
+    "text": "Linear models\n\nWe can further assume that \\(\\varepsilon_i\\) are independent from each other and all have the same standard deviation.\nIn the above model, we know the \\(x_i\\), but to have a useful model for prediction, we need \\(\\beta_0\\) and \\(\\beta_1\\).\nWe estimate these from the data."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#linear-models-7",
+    "href": "slides/linear-models/29-regression.html#linear-models-7",
+    "title": "Regression",
+    "section": "Linear models",
+    "text": "Linear models\n\nOnce we do this, we can predict son’s heights for any father’s height \\(x\\).\nAlthough this model is exactly the same one we derived earlier by assuming bivariate normal data, a somewhat nuanced difference is that, in the first approach, we assumed the data was bivariate normal and the linear model was derived, not assumed."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#linear-models-8",
+    "href": "slides/linear-models/29-regression.html#linear-models-8",
+    "title": "Regression",
+    "section": "Linear models",
+    "text": "Linear models\n\nIn practice, linear models are just assumed without necessarily assuming normality: the distribution of the \\(\\varepsilon\\)s is not necessarily specified.\nNevertheless, if your data is bivariate normal, the above linear model holds.\nIf your data is not bivariate normal, then you will need to have other ways of justifying the model."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#linear-models-9",
+    "href": "slides/linear-models/29-regression.html#linear-models-9",
+    "title": "Regression",
+    "section": "Linear models",
+    "text": "Linear models\n\nOne reason linear models are popular is that they are interpretable.\nIn the case of Galton’s data, we can interpret the data like this: due to inherited genes, the son’s height prediction grows by \\(\\beta_1\\) for each inch we increase the father’s height \\(x\\).\nBecause not all sons with fathers of height \\(x\\) are of equal height, we need the term \\(\\varepsilon\\), which explains the remaining variability."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#linear-models-10",
+    "href": "slides/linear-models/29-regression.html#linear-models-10",
+    "title": "Regression",
+    "section": "Linear models",
+    "text": "Linear models\n\nThis remaining variability includes the mother’s genetic effect, environmental factors, and other biological randomness.\nGiven how we wrote the model above, the intercept \\(\\beta_0\\) is not very interpretable, as it is the predicted height of a son with a father with no height.\nDue to regression to the mean, the prediction will usually be a bit larger than 0."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#linear-models-11",
+    "href": "slides/linear-models/29-regression.html#linear-models-11",
+    "title": "Regression",
+    "section": "Linear models",
+    "text": "Linear models\n\nTo make the slope parameter more interpretable, we can rewrite the model slightly as:\n\n\\[\nY_i = \\beta_0 + \\beta_1 (x_i - \\bar{x}) + \\varepsilon_i, \\, i=1,\\dots,N  \n\\]\n\nwith \\(\\bar{x} = 1/N \\sum_{i=1}^N x_i\\) the average of the \\(x\\).\nIn this case, \\(\\beta_0\\) represents the height when \\(x_i = \\bar{x}\\), which is the height of the son of an average father."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#linear-models-12",
+    "href": "slides/linear-models/29-regression.html#linear-models-12",
+    "title": "Regression",
+    "section": "Linear models",
+    "text": "Linear models\n\nLater, we will see how the linear model representation permits us to use the same mathematical frameworks in other contexts and to achieve more complicated goals than predict one variable from another."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#least-squares-estimates",
+    "href": "slides/linear-models/29-regression.html#least-squares-estimates",
+    "title": "Regression",
+    "section": "Least Squares Estimates",
+    "text": "Least Squares Estimates\n\nFor linear models to be useful, we have to estimate the unknown \\(\\beta\\)s.\nThe standard approach is to find the values that minimize the distance of the fitted model to the data.\nSpecifically, we find the \\(\\beta\\)s that minize the least squares (LS) equation show below."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#least-squares-estimates-1",
+    "href": "slides/linear-models/29-regression.html#least-squares-estimates-1",
+    "title": "Regression",
+    "section": "Least Squares Estimates",
+    "text": "Least Squares Estimates\n\nFor Galton’s data, the LS equation looks like this:\n\n\\[\nRSS = \\sum_{i=1}^n \\left\\{  y_i - \\left(\\beta_0 + \\beta_1 x_i \\right)\\right\\}^2  \n\\]"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#least-squares-estimates-2",
+    "href": "slides/linear-models/29-regression.html#least-squares-estimates-2",
+    "title": "Regression",
+    "section": "Least Squares Estimates",
+    "text": "Least Squares Estimates\n\nThe quantity we try to minimize is called the residual sum of squares (RSS).\nOnce we find the values that minimize the RSS, we will call the values the least squares estimates (LSE) and denote them by placing a hat over the parameters."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#least-squares-estimates-3",
+    "href": "slides/linear-models/29-regression.html#least-squares-estimates-3",
+    "title": "Regression",
+    "section": "Least Squares Estimates",
+    "text": "Least Squares Estimates\n\nIn our example we use \\(\\hat{\\beta}_0\\) and \\(\\hat{\\beta}_1\\).\nWe will demonstrate how we find these values using the previously defined galton_heights dataset."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#least-squares-estimates-4",
+    "href": "slides/linear-models/29-regression.html#least-squares-estimates-4",
+    "title": "Regression",
+    "section": "Least Squares Estimates",
+    "text": "Least Squares Estimates\n\nLet’s start by writing a function that computes the RSS for any pair of values \\(\\beta_0\\) and \\(\\beta_1\\).\n\n\nrss &lt;- function(beta0, beta1, data){ \n  resid &lt;- galton_heights$son - (beta0 + beta1*galton_heights$father) \n  return(sum(resid^2)) \n} \n\n\nSo for any pair of values, we get an RSS."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#least-squares-estimates-5",
+    "href": "slides/linear-models/29-regression.html#least-squares-estimates-5",
+    "title": "Regression",
+    "section": "Least Squares Estimates",
+    "text": "Least Squares Estimates\n\nHere is a plot of the RSS as a function of \\(\\beta_1\\), when we keep the \\(\\beta_0\\) fixed at 25."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#least-squares-estimates-6",
+    "href": "slides/linear-models/29-regression.html#least-squares-estimates-6",
+    "title": "Regression",
+    "section": "Least Squares Estimates",
+    "text": "Least Squares Estimates\n\nWe can see a clear minimum for \\(\\beta_1\\) at around 0.65.\nHowever, this minimum for \\(\\beta_1\\) is for when \\(\\beta_0 = 25\\), a value we arbitrarily picked.\nWe don’t know if (25, 0.65) is the pair that minimizes the equation across all possible pairs.\nTrial and error is not going to work in this case."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#least-squares-estimates-7",
+    "href": "slides/linear-models/29-regression.html#least-squares-estimates-7",
+    "title": "Regression",
+    "section": "Least Squares Estimates",
+    "text": "Least Squares Estimates\n\nWe could search for a minimum within a fine grid of \\(\\beta_0\\) and \\(\\beta_1\\) values, but this is unnecessarily time-consuming since we can use calculus.\nSpecifically, we take the partial derivatives, set them to 0, and solve for \\(\\beta_1\\) and \\(\\beta_2\\).\nOf course, if we have many parameters, these equations can get rather complex."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#least-squares-estimates-8",
+    "href": "slides/linear-models/29-regression.html#least-squares-estimates-8",
+    "title": "Regression",
+    "section": "Least Squares Estimates",
+    "text": "Least Squares Estimates\n\nThere are functions in R that do these calculations for us.\nTo learn the mathematics behind this, you can consult a book on linear models."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-lm-function",
+    "href": "slides/linear-models/29-regression.html#the-lm-function",
+    "title": "Regression",
+    "section": "The lm function",
+    "text": "The lm function\n\nIn R, we can obtain the least squares estimates using the lm function.\nTo fit the model:\n\n\\[\nY_i = \\beta_0 + \\beta_1 x_i + \\varepsilon_i\n\\]\n\nwith \\(Y_i\\) being the son’s height and \\(x_i\\) being the father’s height, we can use this code to obtain the least squares estimates."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-lm-function-1",
+    "href": "slides/linear-models/29-regression.html#the-lm-function-1",
+    "title": "Regression",
+    "section": "The lm function",
+    "text": "The lm function\n\nfit &lt;- lm(son ~ father, data = galton_heights) \nfit$coefficients \n\n(Intercept)      father \n  37.287605    0.461392 \n\n\n\nThe most common way we use lm is by using the character ~ to let lm know which is the variable we are predicting (left of ~) and which we are using to predict (right of ~).\nThe intercept is added automatically to the model that will be fit."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-lm-function-2",
+    "href": "slides/linear-models/29-regression.html#the-lm-function-2",
+    "title": "Regression",
+    "section": "The lm function",
+    "text": "The lm function\n\nThe object fit includes more information.\nWe can use the function summary to extract more of this information:\n\n\nsummary(fit) \n\n\nCall:\nlm(formula = son ~ father, data = galton_heights)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-9.3543 -1.5657 -0.0078  1.7263  9.4150 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 37.28761    4.98618   7.478 3.37e-12 ***\nfather       0.46139    0.07211   6.398 1.36e-09 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 2.45 on 177 degrees of freedom\nMultiple R-squared:  0.1878,    Adjusted R-squared:  0.1833 \nF-statistic: 40.94 on 1 and 177 DF,  p-value: 1.36e-09"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-lm-function-3",
+    "href": "slides/linear-models/29-regression.html#the-lm-function-3",
+    "title": "Regression",
+    "section": "The lm function",
+    "text": "The lm function\n\nTo understand some of the information included in this summary, we need to remember that the LSE are random variables.\nMathematical statistics gives us some ideas of the distribution of these random variables."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#lse-are-random-variables",
+    "href": "slides/linear-models/29-regression.html#lse-are-random-variables",
+    "title": "Regression",
+    "section": "LSE are random variables",
+    "text": "LSE are random variables\n\nThe LSE is derived from the data \\(y_1,\\dots,y_N\\), which are a realization of random variables \\(Y_1, \\dots, Y_N\\).\nThis implies that our estimates are random variables."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#lse-are-random-variables-1",
+    "href": "slides/linear-models/29-regression.html#lse-are-random-variables-1",
+    "title": "Regression",
+    "section": "LSE are random variables",
+    "text": "LSE are random variables\n\nTo see this, we can run a Monte Carlo simulation in which we assume the son and father height data defines a population, take a random sample of size \\(N=50\\), and compute the regression slope coefficient for each one:\n\n\nB &lt;- 1000 \nN &lt;- 50 \nlse &lt;- replicate(B, { \n  sample_n(galton_heights, N, replace = TRUE) |&gt;  \n    lm(son ~ father, data = _) |&gt;  \n    coef() \n}) \nlse &lt;- data.frame(beta_0 = lse[1,], beta_1 = lse[2,])"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#lse-are-random-variables-2",
+    "href": "slides/linear-models/29-regression.html#lse-are-random-variables-2",
+    "title": "Regression",
+    "section": "LSE are random variables",
+    "text": "LSE are random variables\n\nWe can see the variability of the estimates by plotting their distributions:"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#lse-are-random-variables-3",
+    "href": "slides/linear-models/29-regression.html#lse-are-random-variables-3",
+    "title": "Regression",
+    "section": "LSE are random variables",
+    "text": "LSE are random variables\n\nThe reason these look normal is because the central limit theorem applies here as well: for large enough \\(N\\), the least squares estimates will be approximately normal with expected value \\(\\beta_0\\) and \\(\\beta_1\\), respectively.\nThe standard errors are a bit complicated to compute, but mathematical theory does allow us to compute them and they are included in the summary provided by the lm function."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#lse-are-random-variables-4",
+    "href": "slides/linear-models/29-regression.html#lse-are-random-variables-4",
+    "title": "Regression",
+    "section": "LSE are random variables",
+    "text": "LSE are random variables\n\nThe function summary shows us the standard error estimates:\n\n\nsample_n(galton_heights, N, replace = TRUE) |&gt;  \n  lm(son ~ father, data = _) |&gt;  \n  summary() |&gt;  \n  coef() \n\n              Estimate Std. Error  t value     Pr(&gt;|t|)\n(Intercept) 24.5722201 11.0734543 2.219020 0.0312467290\nfather       0.6479396  0.1602234 4.043975 0.0001896386"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#lse-are-random-variables-5",
+    "href": "slides/linear-models/29-regression.html#lse-are-random-variables-5",
+    "title": "Regression",
+    "section": "LSE are random variables",
+    "text": "LSE are random variables\n\nYou can see that the standard errors estimates reported above are close to the standard errors from the simulation:\n\n\nlse |&gt; summarize(se_0 = sd(beta_0), se_1 = sd(beta_1)) \n\n      se_0      se_1\n1 8.669471 0.1256726\n\n\n\nThe summary function also reports t-statistics (t value) and p-values (Pr(&gt;|t|)).\nThe t-statistic is not actually based on the central limit theorem, but rather on the assumption that the \\(\\varepsilon\\)s follow a normal distribution."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#lse-are-random-variables-6",
+    "href": "slides/linear-models/29-regression.html#lse-are-random-variables-6",
+    "title": "Regression",
+    "section": "LSE are random variables",
+    "text": "LSE are random variables\n\nUnder this assumption, mathematical theory tells us that the LSE divided by their standard error, \\(\\hat{\\beta}_0 / \\hat{\\mbox{SE}}(\\hat{\\beta}_0 )\\) and \\(\\hat{\\beta}_1 / \\hat{\\mbox{SE}}(\\hat{\\beta}_1 )\\), follow a t-distribution with \\(N-p\\) degrees of freedom, with \\(p\\) the number of parameters in our model.\nIn our example \\(p=2\\), and the two p-values are obtained from testing the null hypothesis that \\(\\beta_0 = 0\\) and \\(\\beta_1=0\\), respectively.\nRemember that, as we described earlier, for large enough \\(N\\), the CLT works and the t-distribution becomes almost the same as the normal distribution."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#lse-are-random-variables-7",
+    "href": "slides/linear-models/29-regression.html#lse-are-random-variables-7",
+    "title": "Regression",
+    "section": "LSE are random variables",
+    "text": "LSE are random variables\n\nAlso, notice that we can construct confidence intervals, but we will soon learn about broom, an add-on package that makes this easy.\nAlthough we do not show examples in this book, hypothesis testing with regression models is commonly used in epidemiology and economics to make statements such as “the effect of A on B was statistically significant after adjusting for X, Y, and Z”.\nHowever, several assumptions have to hold for these statements to be true."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#predicted-values-are-random-variables",
+    "href": "slides/linear-models/29-regression.html#predicted-values-are-random-variables",
+    "title": "Regression",
+    "section": "Predicted values are random variables",
+    "text": "Predicted values are random variables\n\nOnce we fit our model, we can obtain prediction of \\(Y\\) by plugging in the estimates into the regression model.\nFor example, if the father’s height is \\(x\\), then our prediction \\(\\hat{Y}\\) for the son’s height will be:\n\n\\[\\hat{Y} = \\hat{\\beta}_0 + \\hat{\\beta}_1 x\\]"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#predicted-values-are-random-variables-1",
+    "href": "slides/linear-models/29-regression.html#predicted-values-are-random-variables-1",
+    "title": "Regression",
+    "section": "Predicted values are random variables",
+    "text": "Predicted values are random variables\n\nWhen we plot \\(\\hat{Y}\\) versus \\(x\\), we see the regression line.\nKeep in mind that the prediction \\(\\hat{Y}\\) is also a random variable and mathematical theory tells us what the standard errors are."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#predicted-values-are-random-variables-2",
+    "href": "slides/linear-models/29-regression.html#predicted-values-are-random-variables-2",
+    "title": "Regression",
+    "section": "Predicted values are random variables",
+    "text": "Predicted values are random variables\n\nIf we assume the errors are normal, or have a large enough sample size, we can use theory to construct confidence intervals as well.\nIn fact, the ggplot2 layer geom_smooth(method = \"lm\") that we previously used plots \\(\\hat{Y}\\) and surrounds it by confidence intervals:\n\n\ngalton_heights |&gt; ggplot(aes(son, father)) + \n  geom_point() + \n  geom_smooth(method = \"lm\")"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#predicted-values-are-random-variables-3",
+    "href": "slides/linear-models/29-regression.html#predicted-values-are-random-variables-3",
+    "title": "Regression",
+    "section": "Predicted values are random variables",
+    "text": "Predicted values are random variables"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#diagnostic-plots",
+    "href": "slides/linear-models/29-regression.html#diagnostic-plots",
+    "title": "Regression",
+    "section": "Diagnostic plots",
+    "text": "Diagnostic plots\n\nWhen the linear model is assumed, rather than derived, all interpretations depend on the usefulness of the model.\nThe lm function will fit the model and return summaries even when the model is wrong and not useful.\nVisually inspecting residuals, defined as the difference between observed values and predicted values:\n\n\\[\nr = Y - \\hat{Y} = Y - \\left(\\hat{\\beta}_0 - \\hat{\\beta}_1 x_i\\right),\n\\]"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#diagnostic-plots-1",
+    "href": "slides/linear-models/29-regression.html#diagnostic-plots-1",
+    "title": "Regression",
+    "section": "Diagnostic plots",
+    "text": "Diagnostic plots\n\nand summaries of the residuals, is a powerful way to diagnose if the model is useful.\nNote that the residuals can be thought of estimates of the errors since:\n\n\\[\n\\varepsilon = Y - \\left(\\beta_0 + \\beta_1 x_i \\right).\n\\]\n\nIn fact residuals are often denoted as \\(\\hat{\\varepsilon}\\).\nThis motivates several diagnostic plots."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#diagnostic-plots-2",
+    "href": "slides/linear-models/29-regression.html#diagnostic-plots-2",
+    "title": "Regression",
+    "section": "Diagnostic plots",
+    "text": "Diagnostic plots\n\nBecause we observe \\(r\\), but don’t observe \\(\\varepsilon\\), we based the plots on the residuals.\n\nBecause the errors are assumed not to depend on the expected value of \\(Y\\), a plot of \\(r\\) versus the fitted values \\(\\hat{Y}\\) should show no relationship.\nIn cases in which we assume the errors follow a normal distribution, a qqplot of standardized \\(r\\) should fall on a line when plotted against theoretical quantiles."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#diagnostic-plots-3",
+    "href": "slides/linear-models/29-regression.html#diagnostic-plots-3",
+    "title": "Regression",
+    "section": "Diagnostic plots",
+    "text": "Diagnostic plots\n\nBecause we assume the standard deviation of the errors is constant, if we plot the absolute value of the residuals, it should appear constant."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#diagnostic-plots-4",
+    "href": "slides/linear-models/29-regression.html#diagnostic-plots-4",
+    "title": "Regression",
+    "section": "Diagnostic plots",
+    "text": "Diagnostic plots\n\nWe prefer plots rather than summaries based on correlation because correlation is not always the best summary of association.\nThe function plot applied to an lm object automatically plots these."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#diagnostic-plots-5",
+    "href": "slides/linear-models/29-regression.html#diagnostic-plots-5",
+    "title": "Regression",
+    "section": "Diagnostic plots",
+    "text": "Diagnostic plots"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#diagnostic-plots-6",
+    "href": "slides/linear-models/29-regression.html#diagnostic-plots-6",
+    "title": "Regression",
+    "section": "Diagnostic plots",
+    "text": "Diagnostic plots\n\nplot(fit, which = 1:3)"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#diagnostic-plots-7",
+    "href": "slides/linear-models/29-regression.html#diagnostic-plots-7",
+    "title": "Regression",
+    "section": "Diagnostic plots",
+    "text": "Diagnostic plots"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#diagnostic-plots-8",
+    "href": "slides/linear-models/29-regression.html#diagnostic-plots-8",
+    "title": "Regression",
+    "section": "Diagnostic plots",
+    "text": "Diagnostic plots\n\nThis function can produce six different plots, and the argument which let’s you specify which you want to see.\nYou can learn more by reading the plot.lm help file.\nHowever, some of the plots are based on more advanced concepts beyond the scope of this book.\nTo learn more, we recommend an advanced book on regression analysis.\nWe later introduce data analysis challenges in which we may decide to not to include certain variables in the model."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-regression-fallacy",
+    "href": "slides/linear-models/29-regression.html#the-regression-fallacy",
+    "title": "Regression",
+    "section": "The regression fallacy",
+    "text": "The regression fallacy\n\nWikipedia defines the sophomore slump as:\n\nA sophomore slump or sophomore jinx or sophomore jitters refers to an instance in which a second, or sophomore, effort fails to live up to the standards of the first effort.\n\nIt is commonly used to refer to the apathy of students (second year of high school, college or university), the performance of athletes (second season of play), singers/bands (second album), television shows (second seasons) and movies (sequels/prequels)."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-regression-fallacy-1",
+    "href": "slides/linear-models/29-regression.html#the-regression-fallacy-1",
+    "title": "Regression",
+    "section": "The regression fallacy",
+    "text": "The regression fallacy\n\nIn Major League Baseball, the rookie of the year (ROY) award is given to the first-year player who is judged to have performed the best.\nThe sophomore slump phrase is used to describe the observation that ROY award winners don’t do as well during their second year.\nFor example, this Fox Sports article[^linear-models-1] asks “Will MLB’s tremendous rookie class of 2015 suffer a sophomore slump?”."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-regression-fallacy-2",
+    "href": "slides/linear-models/29-regression.html#the-regression-fallacy-2",
+    "title": "Regression",
+    "section": "The regression fallacy",
+    "text": "The regression fallacy\n\nhttps://web.archive.org/web20160815063904/http://www.foxsports.com/mlb/story/kris-bryant-carlos-correa-rookies-of-year-award-matt-duffy-francisco-lindor-kang-sano-120715\nDoes the data confirm the existence of a sophomore slump? Let’s take a look.\nExamining the data for a widely used measure of success, the batting average, we see that this observation holds true for the top performing ROYs:"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-regression-fallacy-3",
+    "href": "slides/linear-models/29-regression.html#the-regression-fallacy-3",
+    "title": "Regression",
+    "section": "The regression fallacy",
+    "text": "The regression fallacy\n\nIn fact, the proportion of players that have a lower batting average during their sophomore year is 0.7090909.\nSo is it “jitters” or “jinx”? To answer this question, let’s turn our attention to all the players that played the 2013 and 2014 seasons and batted more than 130 times (minimum to win Rookie of the Year)."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-regression-fallacy-4",
+    "href": "slides/linear-models/29-regression.html#the-regression-fallacy-4",
+    "title": "Regression",
+    "section": "The regression fallacy",
+    "text": "The regression fallacy\n\nThe same pattern arises when we look at the top performers: batting averages go down for most of the top performers.\n\n\nBut these are not rookies! Also, look at what happens to the worst performers of 2013:\n\n\nTheir batting averages mostly go up! Is this some sort of reverse sophomore slump? It is not.\nThere is no such thing as a sophomore slump."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-regression-fallacy-5",
+    "href": "slides/linear-models/29-regression.html#the-regression-fallacy-5",
+    "title": "Regression",
+    "section": "The regression fallacy",
+    "text": "The regression fallacy\n\nThis is all explained with a simple statistical fact: the correlation for performance in two separate years is high, but not perfect."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-regression-fallacy-6",
+    "href": "slides/linear-models/29-regression.html#the-regression-fallacy-6",
+    "title": "Regression",
+    "section": "The regression fallacy",
+    "text": "The regression fallacy"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-regression-fallacy-7",
+    "href": "slides/linear-models/29-regression.html#the-regression-fallacy-7",
+    "title": "Regression",
+    "section": "The regression fallacy",
+    "text": "The regression fallacy\n\nThe correlation is 0.460254 and the data look very much like a bivariate normal distribution, which means we predict a 2014 batting average \\(Y\\) for any given player that had a 2013 batting average \\(X\\) with:\n\n\\[ \\frac{Y - .255}{.032} = 0.46 \\left( \\frac{X - .261}{.023}\\right) \\]\n\nBecause the correlation is not perfect, regression tells us that, on average, expect high performers from 2013 to do a bit worse in 2014.\nIt’s not a jinx; it’s just due to chance."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-regression-fallacy-8",
+    "href": "slides/linear-models/29-regression.html#the-regression-fallacy-8",
+    "title": "Regression",
+    "section": "The regression fallacy",
+    "text": "The regression fallacy\n\nThe ROY are selected from the top values of \\(X\\), so it is expected that \\(Y\\) will regress to the mean."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-regression-fallacy-9",
+    "href": "slides/linear-models/29-regression.html#the-regression-fallacy-9",
+    "title": "Regression",
+    "section": "The regression fallacy",
+    "text": "The regression fallacy\n\nThe correlation is 0.460254 and the data look very much like a bivariate normal distribution, which means we predict a 2014 batting average \\(Y\\) for any given player that had a 2013 batting average \\(X\\) with:\n\n\\[ \\frac{Y - .255}{.032} = 0.46 \\left( \\frac{X - .261}{.023}\\right) \\]\n\nBecause the correlation is not perfect, regression tells us that, on average, expect high performers from 2013 to do a bit worse in 2014.\nIt’s not a jinx; it’s just due to chance."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-regression-fallacy-10",
+    "href": "slides/linear-models/29-regression.html#the-regression-fallacy-10",
+    "title": "Regression",
+    "section": "The regression fallacy",
+    "text": "The regression fallacy\n\nThe ROY are selected from the top values of \\(X\\), so it is expected that \\(Y\\) will regress to the mean."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#sample-correlation-is-random",
+    "href": "slides/linear-models/29-regression.html#sample-correlation-is-random",
+    "title": "Regression",
+    "section": "Sample correlation is random",
+    "text": "Sample correlation is random\n\nBefore we continue connecting correlation to regression, let’s remind ourselves about random variability.\nIn most applications, we observe data that includes random variation.\nFor example, in many cases, we do not observe data for the entire population of interest, but rather for a random sample.\nAs with the average and standard deviation, the sample correlation is the most commonly used estimate of the population correlation."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#sample-correlation-is-random-1",
+    "href": "slides/linear-models/29-regression.html#sample-correlation-is-random-1",
+    "title": "Regression",
+    "section": "Sample correlation is random",
+    "text": "Sample correlation is random\n\nThis implies that the correlation we compute and use as a summary is a random variable.\nBy way of illustration, let’s assume that the 179 pairs of fathers and sons is our entire population."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#sample-correlation-is-random-2",
+    "href": "slides/linear-models/29-regression.html#sample-correlation-is-random-2",
+    "title": "Regression",
+    "section": "Sample correlation is random",
+    "text": "Sample correlation is random\n\nA less fortunate geneticist can only afford measurements from a random sample of 25 pairs.\nThe sample correlation can be computed with:\n\n\nr &lt;- sample_n(galton_heights, 25, replace = TRUE) |&gt;  \n  summarize(r = cor(father, son)) |&gt; pull(r) \n\n\nr is a random variable."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#sample-correlation-is-random-3",
+    "href": "slides/linear-models/29-regression.html#sample-correlation-is-random-3",
+    "title": "Regression",
+    "section": "Sample correlation is random",
+    "text": "Sample correlation is random\n\nWe can run a Monte Carlo simulation to see its distribution:"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#sample-correlation-is-random-4",
+    "href": "slides/linear-models/29-regression.html#sample-correlation-is-random-4",
+    "title": "Regression",
+    "section": "Sample correlation is random",
+    "text": "Sample correlation is random\n\nWe see that the expected value of r is the population correlation:\n\n\nmean(r) \n\n[1] 0.4307393\n\n\n\nand that it has a relatively high standard error relative to the range of values r can take:\n\n\nsd(r) \n\n[1] 0.1609393"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#sample-correlation-is-random-5",
+    "href": "slides/linear-models/29-regression.html#sample-correlation-is-random-5",
+    "title": "Regression",
+    "section": "Sample correlation is random",
+    "text": "Sample correlation is random\n\nSo, when interpreting correlations, remember that correlations derived from samples are estimates containing uncertainty.\nAlso, note that because the sample correlation is an average of independent draws, the central limit actually applies.\nTherefore, for large enough \\(N\\), the distribution of r is approximately normal with expected value \\(\\rho\\)."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#sample-correlation-is-random-6",
+    "href": "slides/linear-models/29-regression.html#sample-correlation-is-random-6",
+    "title": "Regression",
+    "section": "Sample correlation is random",
+    "text": "Sample correlation is random\n\nThe standard deviation, which is somewhat complex to derive, is \\(\\sqrt{\\frac{1-r^2}{N-2}}\\)."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#sample-correlation-is-random-7",
+    "href": "slides/linear-models/29-regression.html#sample-correlation-is-random-7",
+    "title": "Regression",
+    "section": "Sample correlation is random",
+    "text": "Sample correlation is random\n\n\\(N=25\\) does not seem to be large enough:"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#correlation-not-always-useful",
+    "href": "slides/linear-models/29-regression.html#correlation-not-always-useful",
+    "title": "Regression",
+    "section": "Correlation not always useful",
+    "text": "Correlation not always useful\n\nCorrelation is not always a good summary of the relationship between two variables.\nThe following four artificial datasets, referred to as Anscombe’s quartet, famously illustrate this point."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#correlation-not-always-useful-1",
+    "href": "slides/linear-models/29-regression.html#correlation-not-always-useful-1",
+    "title": "Regression",
+    "section": "Correlation not always useful",
+    "text": "Correlation not always useful\n\nAll these pairs have a correlation of 0.82:"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#correlation-not-always-useful-2",
+    "href": "slides/linear-models/29-regression.html#correlation-not-always-useful-2",
+    "title": "Regression",
+    "section": "Correlation not always useful",
+    "text": "Correlation not always useful\n\nCorrelation is only meaningful in a particular context.\nTo help us understand when correlation is meaningful as a summary statistic, we return to the example of predicting a son’s height using his father’s height."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#conditional-expectations-15",
+    "href": "slides/linear-models/29-regression.html#conditional-expectations-15",
+    "title": "Regression",
+    "section": "Conditional expectations",
+    "text": "Conditional expectations\n\nThe fact that these conditional averages follow a line is not a coincidence.\nThe line these averages follow is what we call the regression line.\nHowever, it is not always appropriate to estimate conditional expectations with the regression line, so we also describe Galton’s theoretical justification for using the regression line."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#the-regression-line-8",
+    "href": "slides/linear-models/29-regression.html#the-regression-line-8",
+    "title": "Regression",
+    "section": "The regression line",
+    "text": "The regression line\n\nYou can make same plot, but using standard units like this:\n\n\ngalton_heights |&gt;  \n  ggplot(aes(scale(father), scale(son))) +  \n  geom_point(alpha = 0.5) + \n  geom_abline(intercept = 0, slope = r)"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#bivariate-normal-distribution-8",
+    "href": "slides/linear-models/29-regression.html#bivariate-normal-distribution-8",
+    "title": "Regression",
+    "section": "Bivariate normal distribution",
+    "text": "Bivariate normal distribution\nThis is equivalent to the regression equation we showed earlier which can be written like this:\n\\[\n\\frac{\\mbox{E}(Y \\mid X=x)  - \\mu_Y}{\\sigma_Y} = \\rho \\frac{x-\\mu_X}{\\sigma_X}\n\\]\n\nThis implies that, if our data is approximately bivariate, the regression line gives the conditional probability.\nTherefore, we can obtain a much more stable estimate of the conditional expectation by finding the regression line and using it to predict."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#bivariate-normal-distribution-9",
+    "href": "slides/linear-models/29-regression.html#bivariate-normal-distribution-9",
+    "title": "Regression",
+    "section": "Bivariate normal distribution",
+    "text": "Bivariate normal distribution\n\nIn summary, if our data is approximately bivariate, then the conditional expectation, the best prediction of \\(Y\\) given we know the value of \\(X\\), is given by the regression line."
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#there-are-two-regression-lines-3",
+    "href": "slides/linear-models/29-regression.html#there-are-two-regression-lines-3",
+    "title": "Regression",
+    "section": "There are two regression lines",
+    "text": "There are two regression lines"
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#predicted-values-are-random-variables-4",
+    "href": "slides/linear-models/29-regression.html#predicted-values-are-random-variables-4",
+    "title": "Regression",
+    "section": "Predicted values are random variables",
+    "text": "Predicted values are random variables\n\nThe R function predict takes an lm object as input and returns the prediction.\nIf requested, the standard errors and other information from which we can construct confidence intervals is provided:\n\n\nfit &lt;- galton_heights |&gt; lm(son ~ father, data = _)  \ny_hat &lt;- predict(fit, se.fit = TRUE) \nnames(y_hat) \n\n[1] \"fit\"            \"se.fit\"         \"df\"             \"residual.scale\""
+  },
+  {
+    "objectID": "slides/linear-models/29-regression.html#diagnostic-plots-9",
+    "href": "slides/linear-models/29-regression.html#diagnostic-plots-9",
+    "title": "Regression",
+    "section": "Diagnostic plots",
+    "text": "Diagnostic plots\n\nIn these cases, an important diagnostic test to add checks if the residuals are related to variables not included in the model."
+  },
+  {
+    "objectID": "slides/linear-models/28-intro-to-linear-models.html#linear-models",
+    "href": "slides/linear-models/28-intro-to-linear-models.html#linear-models",
+    "title": "Introduction",
+    "section": "Linear Models",
+    "text": "Linear Models\n\nWe have focused mainly datasets consisting of a single variable.\nIn data analyses challenges, it is very common to be interested in the relationship between two or more variables.\nWe now introduce linear models, a general framework that unifies approaches used for analyzing association between variables."
+  },
+  {
+    "objectID": "slides/linear-models/28-intro-to-linear-models.html#linear-models-1",
+    "href": "slides/linear-models/28-intro-to-linear-models.html#linear-models-1",
+    "title": "Introduction",
+    "section": "Linear Models",
+    "text": "Linear Models\nLinear models are useful for:\n\nsimple and multivariate regression,\nmeasurement error models,\ntreatment effect models, and\nassociation tests."
   }
 ]

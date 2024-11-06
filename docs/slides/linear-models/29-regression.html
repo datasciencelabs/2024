@@ -1,0 +1,2137 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.5.57">
+
+  <meta name="dcterms.date" content="2024-11-05">
+  <meta name="keywords" content="Linear Models">
+  <title>BST 260: Introduction to Data Science – Regression</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #f07178; background-color: #2a0f15; font-weight: bold; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #00e0e0; } /* Attribute */
+    code span.bn { color: #d4d0ab; } /* BaseN */
+    code span.bu { color: #abe338; } /* BuiltIn */
+    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffd700; } /* Constant */
+    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
+    code span.cv { color: #ffd700; } /* CommentVar */
+    code span.do { color: #f8f8f2; } /* Documentation */
+    code span.dt { color: #ffa07a; } /* DataType */
+    code span.dv { color: #d4d0ab; } /* DecVal */
+    code span.er { color: #f07178; text-decoration: underline; } /* Error */
+    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
+    code span.fl { color: #d4d0ab; } /* Float */
+    code span.fu { color: #ffa07a; } /* Function */
+    code span.im { color: #abe338; } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
+    code span.op { color: #ffa07a; } /* Operator */
+    code span.ot { color: #00e0e0; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
+    code span.sc { color: #abe338; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #00e0e0; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #dcc6e0; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-dark">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Regression</h1>
+
+<div class="quarto-title-authors">
+</div>
+
+  <p class="date">2024-11-05</p>
+</section>
+<section id="case-study-is-height-hereditary" class="slide level2">
+<h2>Case study: is height hereditary?</h2>
+<ul>
+<li><p>To understand the concepts of correlation and simple regression, we actually use the dataset from which regression was born.</p></li>
+<li><p>The example is from genetics.</p></li>
+<li><p>Francis Galton studied the variation and heredity of human traits.</p></li>
+<li><p>Among many other traits, Galton collected and studied height data from families to try to understand heredity.</p></li>
+</ul>
+</section>
+<section id="case-study-is-height-hereditary-1" class="slide level2">
+<h2>Case study: is height hereditary?</h2>
+<ul>
+<li><p>While doing this, he developed the concepts of correlation and regression.</p></li>
+<li><p>At the time this data was collected, our knowledge of genetics was limited compared to what we know today.</p></li>
+<li><p>A very specific question Galton tried to answer was: <strong>how well can we predict a child’s height based on the parents’ height?</strong></p></li>
+</ul>
+</section>
+<section id="case-study-is-height-hereditary-2" class="slide level2">
+<h2>Case study: is height hereditary?</h2>
+<ul>
+<li><p>We have access to Galton’s family height data through the <strong>HistData</strong> package.</p></li>
+<li><p>This data contains heights on several dozen families: mothers, fathers, daughters, and sons.</p></li>
+</ul>
+</section>
+<section id="case-study-is-height-hereditary-3" class="slide level2">
+<h2>Case study: is height hereditary?</h2>
+<ul>
+<li>To imitate Galton’s analysis, we will create a dataset with the heights of fathers and a randomly selected son of each family:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse) </span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(HistData) </span>
+<span id="cb1-3"><a></a><span class="fu">set.seed</span>(<span class="dv">1983</span>) </span>
+<span id="cb1-4"><a></a>galton_heights <span class="ot">&lt;-</span> GaltonFamilies <span class="sc">|&gt;</span> </span>
+<span id="cb1-5"><a></a>  <span class="fu">filter</span>(gender <span class="sc">==</span> <span class="st">"male"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb1-6"><a></a>  <span class="fu">group_by</span>(family) <span class="sc">|&gt;</span> </span>
+<span id="cb1-7"><a></a>  <span class="fu">sample_n</span>(<span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb1-8"><a></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb1-9"><a></a>  <span class="fu">select</span>(father, childHeight) <span class="sc">|&gt;</span> </span>
+<span id="cb1-10"><a></a>  <span class="fu">rename</span>(<span class="at">son =</span> childHeight) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="case-study-is-height-hereditary-4" class="slide level2">
+<h2>Case study: is height hereditary?</h2>
+<ul>
+<li><p>Suppose we were asked to summarize the father and son data.</p></li>
+<li><p>Since both distributions are well approximated by the normal distribution, we could use:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>galton_heights <span class="sc">|&gt;</span>  </span>
+<span id="cb2-2"><a></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(father), <span class="fu">sd</span>(father), <span class="fu">mean</span>(son), <span class="fu">sd</span>(son)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 4
+  `mean(father)` `sd(father)` `mean(son)` `sd(son)`
+           &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;
+1           69.1         2.55        69.2      2.71</code></pre>
+</div>
+</div>
+</section>
+<section id="case-study-is-height-hereditary-5" class="slide level2">
+<h2>Case study: is height hereditary?</h2>
+<ul>
+<li>This summary fails to describe an important characteristic of the data:</li>
+</ul>
+
+<img data-src="29-regression_files/figure-revealjs/scatterplot-run-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:40.0%"></section>
+<section id="case-study-is-height-hereditary-6" class="slide level2">
+<h2>Case study: is height hereditary?</h2>
+<ul>
+<li><p>The correlation coefficient is an informative summary of how two variables move together.</p></li>
+<li><p>It’s defined for a list of pairs <span class="math inline">\((x_1, y_1), \dots, (x_n,y_n)\)</span> as:</p></li>
+</ul>
+<p><span class="math display">\[
+\rho = \frac{1}{n} \sum_{i=1}^n \left( \frac{x_i-\mu_x}{\sigma_x} \right)\left( \frac{y_i-\mu_y}{\sigma_y} \right)
+\]</span></p>
+<ul>
+<li>with <span class="math inline">\(\mu_x, \mu_y\)</span> the averages of <span class="math inline">\(x_1,\dots, x_n\)</span> and <span class="math inline">\(y_1, \dots, y_n\)</span>, respectively, and <span class="math inline">\(\sigma_x, \sigma_y\)</span> the standard deviations.</li>
+</ul>
+</section>
+<section id="the-correlation-coefficient" class="slide level2">
+<h2>The correlation coefficient</h2>
+<ul>
+<li><p><span class="math inline">\(\rho\)</span> is the greek letter for <span class="math inline">\(r\)</span>.</p></li>
+<li><p>It is not a coincidence that <span class="math inline">\(r\)</span> is the first letter in <em>regression</em>.</p></li>
+<li><p>We learn about the connection between correlation and regression.</p></li>
+</ul>
+</section>
+<section id="the-correlation-coefficient-1" class="slide level2">
+<h2>The correlation coefficient</h2>
+<ul>
+<li>We can represent the formula above with R code using:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>rho <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">scale</span>(x) <span class="sc">*</span> <span class="fu">scale</span>(y)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="the-correlation-coefficient-2" class="slide level2">
+<h2>The correlation coefficient</h2>
+<ul>
+<li><p>To understand why this equation does in fact summarize how two variables move together, consider the <span class="math inline">\(i\)</span>-th entry of <span class="math inline">\(x\)</span> is <span class="math inline">\(\left( \frac{x_i-\mu_x}{\sigma_x} \right)\)</span> SDs away from the average.</p></li>
+<li><p>Similarly, the <span class="math inline">\(y_i\)</span> that is paired with <span class="math inline">\(x_i\)</span>, is <span class="math inline">\(\left( \frac{y_1-\mu_y}{\sigma_y} \right)\)</span> SDs away from the average <span class="math inline">\(y\)</span>.</p></li>
+<li><p>If <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are unrelated, the product <span class="math inline">\(\left( \frac{x_i-\mu_x}{\sigma_x} \right)\left( \frac{y_i-\mu_y}{\sigma_y} \right)\)</span> will be positive ( <span class="math inline">\(+ \times +\)</span> and <span class="math inline">\(- \times -\)</span> ) as often as negative (<span class="math inline">\(+ \times -\)</span> and <span class="math inline">\(- \times +\)</span>) and will average out to about 0.</p></li>
+</ul>
+</section>
+<section id="the-correlation-coefficient-3" class="slide level2">
+<h2>The correlation coefficient</h2>
+<ul>
+<li><p>This correlation is the average and therefore unrelated variables will have 0 correlation.</p></li>
+<li><p>If instead the quantities vary together, then we are averaging mostly positive products (<span class="math inline">\(+ \times +\)</span> and <span class="math inline">\(- \times -\)</span>) and we get a positive correlation.</p></li>
+<li><p>If they vary in opposite directions, we get a negative correlation.</p></li>
+</ul>
+</section>
+<section id="the-correlation-coefficient-4" class="slide level2">
+<h2>The correlation coefficient</h2>
+<ul>
+<li><p>The correlation coefficient is always between -1 and 1.</p></li>
+<li><p>We can show this mathematically.</p></li>
+</ul>
+</section>
+<section id="the-correlation-coefficient-5" class="slide level2">
+<h2>The correlation coefficient</h2>
+<ul>
+<li>The correlation, computed with the function <code>cor</code>, between father and son’s heights is about 0.5:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>galton_heights <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">r =</span> <span class="fu">cor</span>(father, son)) <span class="sc">|&gt;</span> <span class="fu">pull</span>(r) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.4334102</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>The function <code>cor(x, y)</code> computes the sample correlation, which divides the sum of products by <code>length(x)-1</code> rather than <code>length(x)</code>.</p></li>
+<li><p>The rationale for this is akin to the reason we divide by <code>length(x)-1</code> when computing the sample standard deviation <code>sd(x)</code>.</p></li>
+<li><p>Namely, this adjustment helps account for the degrees of freedom in the sample, which is necessary for unbiased estimates.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="the-correlation-coefficient-6" class="slide level2">
+<h2>The correlation coefficient</h2>
+<ul>
+<li>Correlations ranging from -0.9 to 0.99:</li>
+</ul>
+
+<img data-src="29-regression_files/figure-revealjs/what-correlation-looks-like-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="sample-correlation-is-random" class="slide level2">
+<h2>Sample correlation is random</h2>
+<ul>
+<li><p>Before we continue connecting correlation to regression, let’s remind ourselves about random variability.</p></li>
+<li><p>In most applications, we observe data that includes random variation.</p></li>
+<li><p>For example, in many cases, we do not observe data for the entire population of interest, but rather for a random sample.</p></li>
+<li><p>As with the average and standard deviation, the <em>sample correlation</em> is the most commonly used estimate of the population correlation.</p></li>
+</ul>
+</section>
+<section id="sample-correlation-is-random-1" class="slide level2">
+<h2>Sample correlation is random</h2>
+<ul>
+<li><p>This implies that the correlation we compute and use as a summary is a random variable.</p></li>
+<li><p>By way of illustration, let’s assume that the 179 pairs of fathers and sons is our entire population.</p></li>
+</ul>
+</section>
+<section id="sample-correlation-is-random-2" class="slide level2">
+<h2>Sample correlation is random</h2>
+<ul>
+<li><p>A less fortunate geneticist can only afford measurements from a random sample of 25 pairs.</p></li>
+<li><p>The sample correlation can be computed with:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>r <span class="ot">&lt;-</span> <span class="fu">sample_n</span>(galton_heights, <span class="dv">25</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span>  </span>
+<span id="cb7-2"><a></a>  <span class="fu">summarize</span>(<span class="at">r =</span> <span class="fu">cor</span>(father, son)) <span class="sc">|&gt;</span> <span class="fu">pull</span>(r) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><code>r</code> is a random variable.</li>
+</ul>
+</section>
+<section id="sample-correlation-is-random-3" class="slide level2">
+<h2>Sample correlation is random</h2>
+<ul>
+<li>We can run a Monte Carlo simulation to see its distribution:</li>
+</ul>
+
+<img data-src="29-regression_files/figure-revealjs/sample-correlation-distribution-run-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="sample-correlation-is-random-4" class="slide level2">
+<h2>Sample correlation is random</h2>
+<ul>
+<li>We see that the expected value of <code>r</code> is the population correlation:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">mean</span>(r) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.4307393</code></pre>
+</div>
+</div>
+<ul>
+<li>and that it has a relatively high standard error relative to the range of values <code>r</code> can take:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">sd</span>(r) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1609393</code></pre>
+</div>
+</div>
+</section>
+<section id="sample-correlation-is-random-5" class="slide level2">
+<h2>Sample correlation is random</h2>
+<ul>
+<li><p>So, when interpreting correlations, remember that correlations derived from samples are estimates containing uncertainty.</p></li>
+<li><p>Also, note that because the sample correlation is an average of independent draws, the central limit actually applies.</p></li>
+<li><p>Therefore, for large enough <span class="math inline">\(N\)</span>, the distribution of <code>r</code> is approximately normal with expected value <span class="math inline">\(\rho\)</span>.</p></li>
+</ul>
+</section>
+<section id="sample-correlation-is-random-6" class="slide level2">
+<h2>Sample correlation is random</h2>
+<ul>
+<li>The standard deviation, which is somewhat complex to derive, is <span class="math inline">\(\sqrt{\frac{1-r^2}{N-2}}\)</span>.</li>
+</ul>
+</section>
+<section id="sample-correlation-is-random-7" class="slide level2">
+<h2>Sample correlation is random</h2>
+<ul>
+<li><span class="math inline">\(N=25\)</span> does not seem to be large enough:</li>
+</ul>
+
+<img data-src="29-regression_files/figure-revealjs/small-sample-correlation-not-normal-run-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="correlation-not-always-useful" class="slide level2">
+<h2>Correlation not always useful</h2>
+<ul>
+<li><p>Correlation is not always a good summary of the relationship between two variables.</p></li>
+<li><p>The following four artificial datasets, referred to as Anscombe’s quartet, famously illustrate this point.</p></li>
+</ul>
+</section>
+<section id="correlation-not-always-useful-1" class="slide level2">
+<h2>Correlation not always useful</h2>
+<ul>
+<li>All these pairs have a correlation of 0.82:</li>
+</ul>
+
+<img data-src="29-regression_files/figure-revealjs/ascombe-quartet-1.png" width="960" class="r-stretch"></section>
+<section id="correlation-not-always-useful-2" class="slide level2">
+<h2>Correlation not always useful</h2>
+<ul>
+<li><p>Correlation is only meaningful in a particular context.</p></li>
+<li><p>To help us understand when correlation is meaningful as a summary statistic, we return to the example of predicting a son’s height using his father’s height.</p></li>
+</ul>
+</section>
+<section id="conditional-expectations" class="slide level2">
+<h2>Conditional expectations</h2>
+<ul>
+<li><p>Suppose we are asked to guess the height of a randomly selected son and we don’t know his father’s height.</p></li>
+<li><p>Because the distribution of sons’ heights is approximately normal, we know the average height, 69.2, is the value with the highest proportion and would be the prediction with the highest chance of minimizing the error.</p></li>
+<li><p>But what if we are told that the father is taller than average, say 72 inches tall, do we still guess 69.2 for the son?</p></li>
+</ul>
+</section>
+<section id="conditional-expectations-1" class="slide level2">
+<h2>Conditional expectations</h2>
+<ul>
+<li><p>It turns out that, if we were able to collect data from a very large number of fathers that are 72 inches, the distribution of their sons’ heights would be normally distributed.</p></li>
+<li><p>This implies that the average of the distribution computed on this subset would be our best prediction.</p></li>
+<li><p>We call this approach <em>conditioning</em>.</p></li>
+<li><p>The general idea is that we stratify a population into groups and compute summaries in each group.</p></li>
+</ul>
+</section>
+<section id="conditional-expectations-2" class="slide level2">
+<h2>Conditional expectations</h2>
+<ul>
+<li><p>To provide a mathematical description of conditioning, consider that we have a population of pairs of values <span class="math inline">\((x_1,y_1),\dots,(x_n,y_n)\)</span>, for example all father and son heights in England.</p></li>
+<li><p>In the previous chapter, we learned that if you take a random pair <span class="math inline">\((X,Y)\)</span>, the expected value and best predictor of <span class="math inline">\(Y\)</span> is <span class="math inline">\(\mbox{E}(Y) = \mu_y\)</span>, the population average <span class="math inline">\(1/n\sum_{i=1}^n y_i\)</span>.</p></li>
+<li><p>However, we are no longer interested in the general population.</p></li>
+</ul>
+</section>
+<section id="conditional-expectations-3" class="slide level2">
+<h2>Conditional expectations</h2>
+<ul>
+<li><p>Instead, we are interested in only the subset of a population with a specific <span class="math inline">\(x_i\)</span> value, 72 inches in our example.</p></li>
+<li><p>This subset of the population is also a population, and thus, the same principles and properties we have learned apply.</p></li>
+<li><p>The <span class="math inline">\(y_i\)</span> in the subpopulation have a distribution, referred to as the <em>conditional distribution</em>, and this distribution has an expected value referred to as the <em>conditional expectation</em>.</p></li>
+</ul>
+</section>
+<section id="conditional-expectations-4" class="slide level2">
+<h2>Conditional expectations</h2>
+<ul>
+<li><p>In our example, the conditional expectation is the average height of all sons in England with fathers that are 72 inches.</p></li>
+<li><p>The statistical notation for the conditional expectation is:</p></li>
+</ul>
+<p><span class="math display">\[
+\mbox{E}(Y \mid X = x)
+\]</span></p>
+<ul>
+<li>with <span class="math inline">\(x\)</span> representing the fixed value that defines that subset, for example 72 inches.</li>
+</ul>
+</section>
+<section id="conditional-expectations-5" class="slide level2">
+<h2>Conditional expectations</h2>
+<ul>
+<li>Similarly, we denote the standard deviation of the strata with:</li>
+</ul>
+<p><span class="math display">\[
+\mbox{SD}(Y \mid X = x) = \sqrt{\mbox{Var}(Y \mid X = x)}
+\]</span></p>
+</section>
+<section id="conditional-expectations-6" class="slide level2">
+<h2>Conditional expectations</h2>
+<ul>
+<li><p>Because the conditional expectation <span class="math inline">\(E(Y\mid X=x)\)</span> is the best predictor for the random variable <span class="math inline">\(Y\)</span> for an individual in the strata defined by <span class="math inline">\(X=x\)</span>, many data science challenges reduce to estimating this quantity.</p></li>
+<li><p>The conditional standard deviation quantifies the precision of the prediction.</p></li>
+<li><p>In the example we have been considering, we are interested in computing the average son height <em>conditioned</em> on the father being 72 inches tall.</p></li>
+<li><p>We want to estimate <span class="math inline">\(E(Y|X=72)\)</span> using the sample collected by Galton.</p></li>
+</ul>
+</section>
+<section id="conditional-expectations-7" class="slide level2">
+<h2>Conditional expectations</h2>
+<ul>
+<li><p>We previously learned that the sample average is the preferred approach to estimating the population average.</p></li>
+<li><p>A challenge when using this approach is that we don’t have many data points matching exactly one value in our sample.</p></li>
+<li><p>For example, we have only:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">sum</span>(galton_heights<span class="sc">$</span>father <span class="sc">==</span> <span class="dv">72</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8</code></pre>
+</div>
+</div>
+<ul>
+<li>fathers that are exactly 72 inches.</li>
+</ul>
+</section>
+<section id="conditional-expectations-8" class="slide level2">
+<h2>Conditional expectations</h2>
+<ul>
+<li>If we change the number to 72.5, we get even fewer data points:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">sum</span>(galton_heights<span class="sc">$</span>father <span class="sc">==</span> <span class="fl">72.5</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+</section>
+<section id="conditional-expectations-9" class="slide level2">
+<h2>Conditional expectations</h2>
+<ul>
+<li><p>A practical way to improve these estimates of the conditional expectations is to define strata of observations with similar value of <span class="math inline">\(x\)</span>.</p></li>
+<li><p>In our example, we can round father heights to the nearest inch and assume that they are all 72 inches.</p></li>
+<li><p>If we do this, we end up with the following prediction for the son of a father that is 72 inches tall:</p></li>
+</ul>
+</section>
+<section id="conditional-expectations-10" class="slide level2">
+<h2>Conditional expectations</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>conditional_avg <span class="ot">&lt;-</span> galton_heights <span class="sc">|&gt;</span>  </span>
+<span id="cb16-2"><a></a>  <span class="fu">filter</span>(<span class="fu">round</span>(father) <span class="sc">==</span> <span class="dv">72</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb16-3"><a></a>  <span class="fu">summarize</span>(<span class="at">avg =</span> <span class="fu">mean</span>(son)) <span class="sc">|&gt;</span>  </span>
+<span id="cb16-4"><a></a>  <span class="fu">pull</span>(avg) </span>
+<span id="cb16-5"><a></a>conditional_avg </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 70.5</code></pre>
+</div>
+</div>
+<ul>
+<li>Note that a 72 inch father is taller than average, specifically (72.0 - 69.1)/2.5 = 1.1 standard deviations taller than the average father.</li>
+</ul>
+</section>
+<section id="conditional-expectations-11" class="slide level2">
+<h2>Conditional expectations</h2>
+<ul>
+<li><p>Our prediction 70.5 is also taller than average, but only 0.49 standard deviations larger than the average son.</p></li>
+<li><p>The sons of 72 inch fathers have <em>regressed</em> some to the average height.</p></li>
+<li><p>We notice that the reduction in how many SDs taller is about 0.5, which happens to be the correlation. This is not a coincidence.</p></li>
+<li><p>If we want to make a prediction of any height, not just 72 inches, we could apply the same approach to each strata.</p></li>
+</ul>
+</section>
+<section id="conditional-expectations-12" class="slide level2">
+<h2>Conditional expectations</h2>
+<ul>
+<li>Stratification followed by boxplots lets us see the distribution of each group:</li>
+</ul>
+
+<img data-src="29-regression_files/figure-revealjs/boxplot-1-run-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:40.0%"></section>
+<section id="conditional-expectations-13" class="slide level2">
+<h2>Conditional expectations</h2>
+<ul>
+<li><p>Not surprisingly, the centers of the groups are increasing with height.</p></li>
+<li><p>Furthermore, these centers appear to follow a linear relationship.</p></li>
+<li><p>Below, we plot the averages of each group.</p></li>
+<li><p>If we take into account that these averages are random variables with standard errors, the data is consistent with these points following a straight line:</p></li>
+</ul>
+</section>
+<section id="conditional-expectations-14" class="slide level2">
+<h2>Conditional expectations</h2>
+
+<img data-src="29-regression_files/figure-revealjs/conditional-averages-follow-line-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:40.0%"></section>
+<section id="conditional-expectations-15" class="slide level2">
+<h2>Conditional expectations</h2>
+<ul>
+<li><p>The fact that these conditional averages follow a line is not a coincidence.</p></li>
+<li><p>The line these averages follow is what we call the <em>regression line</em>.</p></li>
+<li><p>However, it is not always appropriate to estimate conditional expectations with the regression line, so we also describe Galton’s theoretical justification for using the regression line.</p></li>
+</ul>
+</section>
+<section id="the-regression-line" class="slide level2">
+<h2>The regression line</h2>
+<ul>
+<li>If we are predicting a random variable <span class="math inline">\(Y\)</span> knowing the value of another <span class="math inline">\(X=x\)</span> using a regression line, then we predict that for every standard deviation, <span class="math inline">\(\sigma_X\)</span>, that <span class="math inline">\(x\)</span> increases above the average <span class="math inline">\(\mu_X\)</span>, our prediction <span class="math inline">\(\hat{Y}\)</span> increase <span class="math inline">\(\rho\)</span> standard deviations <span class="math inline">\(\sigma_Y\)</span> above the average <span class="math inline">\(\mu_Y\)</span> with <span class="math inline">\(\rho\)</span> the correlation between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</li>
+</ul>
+</section>
+<section id="the-regression-line-1" class="slide level2">
+<h2>The regression line</h2>
+<ul>
+<li>The formula for the regression is therefore:</li>
+</ul>
+<p><span class="math display">\[
+\left( \frac{\hat{Y}-\mu_Y}{\sigma_Y} \right) = \rho \left( \frac{x-\mu_X}{\sigma_X} \right)
+\]</span></p>
+</section>
+<section id="the-regression-line-2" class="slide level2">
+<h2>The regression line</h2>
+<ul>
+<li>We can rewrite it like this:</li>
+</ul>
+<p><span class="math display">\[
+\hat{Y} = \mu_Y + \rho \left( \frac{x-\mu_X}{\sigma_X} \right) \sigma_Y
+\]</span></p>
+<ul>
+<li><p>If there is perfect correlation, the regression line predicts an increase that is the same number of SDs.</p></li>
+<li><p>If there is 0 correlation, then we don’t use <span class="math inline">\(x\)</span> at all for the prediction and simply predict the average <span class="math inline">\(\mu_Y\)</span>.</p></li>
+<li><p>For values between 0 and 1, the prediction is somewhere in between.</p></li>
+<li><p>If the correlation is negative, we predict a reduction instead of an increase.</p></li>
+</ul>
+</section>
+<section id="the-regression-line-3" class="slide level2">
+<h2>The regression line</h2>
+<ul>
+<li><p>Note that if the correlation is positive and lower than 1, our prediction is closer, in standard units, to the average height than the value used to predict, <span class="math inline">\(x\)</span>, is to the average of the <span class="math inline">\(x\)</span>s.</p></li>
+<li><p>This is why we call it <em>regression</em>: the son regresses to the average height.</p></li>
+<li><p>In fact, the title of Galton’s paper was: <em>Regression toward mediocrity in hereditary stature</em>.</p></li>
+</ul>
+</section>
+<section id="the-regression-line-4" class="slide level2">
+<h2>The regression line</h2>
+<ul>
+<li>To add regression lines to plots, we will need the above formula in the form:</li>
+</ul>
+<p><span class="math display">\[
+\hat{Y} = b + mx \mbox{ with slope } m = \rho \frac{\sigma_y}{\sigma_x} \mbox{ and intercept } b=\mu_y - m \mu_x
+\]</span></p>
+</section>
+<section id="the-regression-line-5" class="slide level2">
+<h2>The regression line</h2>
+<ul>
+<li>Here we add the regression line to the original data:</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>mu_x <span class="ot">&lt;-</span> <span class="fu">mean</span>(galton_heights<span class="sc">$</span>father) </span>
+<span id="cb18-2"><a></a>mu_y <span class="ot">&lt;-</span> <span class="fu">mean</span>(galton_heights<span class="sc">$</span>son) </span>
+<span id="cb18-3"><a></a>s_x <span class="ot">&lt;-</span> <span class="fu">sd</span>(galton_heights<span class="sc">$</span>father) </span>
+<span id="cb18-4"><a></a>s_y <span class="ot">&lt;-</span> <span class="fu">sd</span>(galton_heights<span class="sc">$</span>son) </span>
+<span id="cb18-5"><a></a>r <span class="ot">&lt;-</span> <span class="fu">cor</span>(galton_heights<span class="sc">$</span>father, galton_heights<span class="sc">$</span>son) </span>
+<span id="cb18-6"><a></a>galton_heights <span class="sc">|&gt;</span>  </span>
+<span id="cb18-7"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(father, son)) <span class="sc">+</span>  </span>
+<span id="cb18-8"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb18-9"><a></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> r <span class="sc">*</span> s_y<span class="sc">/</span>s_x, <span class="at">intercept =</span> mu_y <span class="sc">-</span> r <span class="sc">*</span> s_y<span class="sc">/</span>s_x <span class="sc">*</span> mu_x)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="the-regression-line-6" class="slide level2">
+<h2>The regression line</h2>
+
+<img data-src="29-regression_files/figure-revealjs/regression-line-run-1.png" style="width:40.0%" class="r-stretch"></section>
+<section id="the-regression-line-7" class="slide level2">
+<h2>The regression line</h2>
+<ul>
+<li>The regression formula implies that if we first standardize the variables, that is subtract the average and divide by the standard deviation, then the regression line has intercept 0 and slope equal to the correlation <span class="math inline">\(\rho\)</span>.</li>
+</ul>
+</section>
+<section id="the-regression-line-8" class="slide level2">
+<h2>The regression line</h2>
+<ul>
+<li>You can make same plot, but using standard units like this:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>galton_heights <span class="sc">|&gt;</span>  </span>
+<span id="cb19-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="fu">scale</span>(father), <span class="fu">scale</span>(son))) <span class="sc">+</span>  </span>
+<span id="cb19-3"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb19-4"><a></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> r)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="regression-improves-precision" class="slide level2">
+<h2>Regression improves precision</h2>
+<ul>
+<li><p>Let’s compare the two approaches to prediction that we have presented:</p>
+<ol type="1">
+<li><p>Round fathers’ heights to closest inch, stratify, and then take the average.</p></li>
+<li><p>Compute the regression line and use it to predict.</p></li>
+</ol></li>
+<li><p>We use a Monte Carlo simulation sampling <span class="math inline">\(N=50\)</span> families:</p></li>
+</ul>
+</section>
+<section id="regression-improves-precision-1" class="slide level2">
+<h2>Regression improves precision</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>B <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
+<span id="cb20-2"><a></a>N <span class="ot">&lt;-</span> <span class="dv">50</span> </span>
+<span id="cb20-3"><a></a><span class="fu">set.seed</span>(<span class="dv">1983</span>) </span>
+<span id="cb20-4"><a></a>conditional_avg <span class="ot">&lt;-</span> <span class="fu">replicate</span>(B, { </span>
+<span id="cb20-5"><a></a>  dat <span class="ot">&lt;-</span> <span class="fu">sample_n</span>(galton_heights, N) </span>
+<span id="cb20-6"><a></a>  dat <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="fu">round</span>(father) <span class="sc">==</span> <span class="dv">72</span>) <span class="sc">|&gt;</span>  </span>
+<span id="cb20-7"><a></a>    <span class="fu">summarize</span>(<span class="at">avg =</span> <span class="fu">mean</span>(son)) <span class="sc">|&gt;</span>  </span>
+<span id="cb20-8"><a></a>    <span class="fu">pull</span>(avg) </span>
+<span id="cb20-9"><a></a>  }) </span>
+<span id="cb20-10"><a></a>regression_prediction <span class="ot">&lt;-</span> <span class="fu">replicate</span>(B, { </span>
+<span id="cb20-11"><a></a>  dat <span class="ot">&lt;-</span> <span class="fu">sample_n</span>(galton_heights, N) </span>
+<span id="cb20-12"><a></a>  mu_x <span class="ot">&lt;-</span> <span class="fu">mean</span>(dat<span class="sc">$</span>father) </span>
+<span id="cb20-13"><a></a>  mu_y <span class="ot">&lt;-</span> <span class="fu">mean</span>(dat<span class="sc">$</span>son) </span>
+<span id="cb20-14"><a></a>  s_x <span class="ot">&lt;-</span> <span class="fu">sd</span>(dat<span class="sc">$</span>father) </span>
+<span id="cb20-15"><a></a>  s_y <span class="ot">&lt;-</span> <span class="fu">sd</span>(dat<span class="sc">$</span>son) </span>
+<span id="cb20-16"><a></a>  r <span class="ot">&lt;-</span> <span class="fu">cor</span>(dat<span class="sc">$</span>father, dat<span class="sc">$</span>son) </span>
+<span id="cb20-17"><a></a>  mu_y <span class="sc">+</span> r<span class="sc">*</span>(<span class="dv">72</span> <span class="sc">-</span> mu_x)<span class="sc">/</span>s_x<span class="sc">*</span>s_y </span>
+<span id="cb20-18"><a></a>}) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="regression-improves-precision-2" class="slide level2">
+<h2>Regression improves precision</h2>
+<ul>
+<li>Although the expected value of these two random variables is about the same:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">mean</span>(conditional_avg, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 70.49368</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">mean</span>(regression_prediction) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 70.50941</code></pre>
+</div>
+</div>
+<ul>
+<li>The standard error for the regression prediction is substantially smaller:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">sd</span>(conditional_avg, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9635814</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">sd</span>(regression_prediction) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.4520833</code></pre>
+</div>
+</div>
+</section>
+<section id="regression-improves-precision-3" class="slide level2">
+<h2>Regression improves precision</h2>
+<ul>
+<li><p>The prediction obtained with the regression line is therefore much more stable than the prediction obtained using the conditional mean.</p></li>
+<li><p>There is an intuitive reason for this.</p></li>
+</ul>
+</section>
+<section id="regression-improves-precision-4" class="slide level2">
+<h2>Regression improves precision</h2>
+<ul>
+<li><p>The conditional average is computed on a relatively small subset: the fathers that are about 72 inches tall.</p></li>
+<li><p>In fact, in some of the permutations we have no data, which is why we use <code>na.rm=TRUE</code>.</p></li>
+<li><p>The regression line is estimated using all the data.</p></li>
+<li><p>So why not always use the regression line for prediction? Because it is not always appropriate.</p></li>
+</ul>
+</section>
+<section id="regression-improves-precision-5" class="slide level2">
+<h2>Regression improves precision</h2>
+<ul>
+<li><p>For example, Anscombe provided cases for which the data does not have a linear relationship.</p></li>
+<li><p>So are we justified in using the regression line to predict? Galton answered this in the positive for height data.</p></li>
+<li><p>The justification, which we include in the next section, is somewhat more advanced than the rest of the chapter.</p></li>
+<li><p>Correlation and the regression slope are a widely used summary statistic, but they are often misused or misinterpreted.</p></li>
+</ul>
+</section>
+<section id="bivariate-normal-distribution" class="slide level2">
+<h2>Bivariate normal distribution</h2>
+<ul>
+<li><p>Anscombe’s examples provide over-simplified cases in which the correlation is not a useful summary.</p></li>
+<li><p>But there are many real-life examples.</p></li>
+<li><p>The main way we motivate appropriate use of correlation as a summary, involves the <em>bivariate normal distribution</em>.</p></li>
+<li><p>When a pair of random variables is approximated by the bivariate normal distribution, scatterplots look like ovals.</p></li>
+</ul>
+</section>
+<section id="bivariate-normal-distribution-1" class="slide level2">
+<h2>Bivariate normal distribution</h2>
+<ul>
+<li><p>As we saw in earlier they can be thin (high correlation) or circle-shaped (no correlation).</p></li>
+<li><p>A more technical way to define the bivariate normal distribution is the following: if <span class="math inline">\(X\)</span> is a normally distributed random variable, <span class="math inline">\(Y\)</span> is also a normally distributed random variable, and the conditional distribution of <span class="math inline">\(Y\)</span> for any <span class="math inline">\(X=x\)</span> is approximately normal, then the pair is approximately bivariate normal.</p></li>
+</ul>
+</section>
+<section id="bivariate-normal-distribution-2" class="slide level2">
+<h2>Bivariate normal distribution</h2>
+<ul>
+<li>When three or more variables have the property that each pair is bivariate normal, we say the variables follow a <em>multivariate</em> normal distribution or that they are <em>jointly</em> normal.</li>
+</ul>
+</section>
+<section id="bivariate-normal-distribution-3" class="slide level2">
+<h2>Bivariate normal distribution</h2>
+
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Galton%27s_correlation_diagram_1875.jpg" class="r-stretch"></section>
+<section id="bivariate-normal-distribution-4" class="slide level2">
+<h2>Bivariate normal distribution</h2>
+<ul>
+<li>If we think the height data is well approximated by the bivariate normal distribution, then we should see the normal approximation hold for each strata:</li>
+</ul>
+</section>
+<section id="bivariate-normal-distribution-5" class="slide level2">
+<h2>Bivariate normal distribution</h2>
+
+<img data-src="29-regression_files/figure-revealjs/qqnorm-of-strata-run-1.png" width="960" class="r-stretch"></section>
+<section id="bivariate-normal-distribution-6" class="slide level2">
+<h2>Bivariate normal distribution</h2>
+<ul>
+<li><p>Now we come back to defining correlation.</p></li>
+<li><p>Galton used mathematical statistics to demonstrate that, when two variables follow a bivariate normal distribution, computing the regression line is equivalent to computing conditional expectations.</p></li>
+</ul>
+</section>
+<section id="bivariate-normal-distribution-7" class="slide level2">
+<h2>Bivariate normal distribution</h2>
+<ul>
+<li>We don’t show the derivation here, but we can show that under this assumption, for any given value of <span class="math inline">\(x\)</span>, the expected value of the <span class="math inline">\(Y\)</span> in pairs for which <span class="math inline">\(X=x\)</span> is:</li>
+</ul>
+<p><span class="math display">\[
+\mbox{E}(Y | X=x) = \mu_Y +  \rho \frac{x-\mu_X}{\sigma_X}\sigma_Y
+\]</span></p>
+<p>This is the regression line, with slope <span class="math display">\[\rho \frac{\sigma_Y}{\sigma_X}\]</span> and intercept <span class="math inline">\(\mu_y - m\mu_X\)</span>.</p>
+</section>
+<section id="bivariate-normal-distribution-8" class="slide level2">
+<h2>Bivariate normal distribution</h2>
+<p>This is equivalent to the regression equation we showed earlier which can be written like this:</p>
+<p><span class="math display">\[
+\frac{\mbox{E}(Y \mid X=x)  - \mu_Y}{\sigma_Y} = \rho \frac{x-\mu_X}{\sigma_X}
+\]</span></p>
+<ul>
+<li><p>This implies that, if our data is approximately bivariate, the regression line gives the conditional probability.</p></li>
+<li><p>Therefore, we can obtain a much more stable estimate of the conditional expectation by finding the regression line and using it to predict.</p></li>
+</ul>
+</section>
+<section id="bivariate-normal-distribution-9" class="slide level2">
+<h2>Bivariate normal distribution</h2>
+<ul>
+<li>In summary, if our data is approximately bivariate, then the conditional expectation, the best prediction of <span class="math inline">\(Y\)</span> given we know the value of <span class="math inline">\(X\)</span>, is given by the regression line.</li>
+</ul>
+</section>
+<section id="variance-explained" class="slide level2">
+<h2>Variance explained</h2>
+<ul>
+<li>The bivariate normal theory also tells us that the standard deviation of the <em>conditional</em> distribution described above is:</li>
+</ul>
+<p><span class="math display">\[
+\mbox{SD}(Y \mid X=x ) = \sigma_Y \sqrt{1-\rho^2}  
+\]</span></p>
+<ul>
+<li><p>To see why this is intuitive, notice that without conditioning, <span class="math inline">\(\mbox{SD}(Y) = \sigma_Y\)</span>, we are looking at the variability of all the sons.</p></li>
+<li><p>But once we condition, we are only looking at the variability of the sons with a tall, 72 inch father.</p></li>
+</ul>
+</section>
+<section id="variance-explained-1" class="slide level2">
+<h2>Variance explained</h2>
+<ul>
+<li><p>This group will all tend to be somewhat tall so the standard deviation is reduced.</p></li>
+<li><p>Specifically, it is reduced to <span class="math inline">\(\sqrt{1-\rho^2} = \sqrt{1 - 0.25}\)</span> = 0.87 of what it was originally.</p></li>
+</ul>
+</section>
+<section id="variance-explained-2" class="slide level2">
+<h2>Variance explained</h2>
+<ul>
+<li><p>We could say that father heights “explain” 13% of the variability observed in son heights.</p></li>
+<li><p>The statement “<span class="math inline">\(X\)</span> explains such and such percent of the variability” is commonly used in academic papers.</p></li>
+<li><p>In this case, this percent actually refers to the variance (the SD squared).</p></li>
+</ul>
+</section>
+<section id="variance-explained-3" class="slide level2">
+<h2>Variance explained</h2>
+<ul>
+<li><p>So if the data is bivariate normal, the variance is reduced by <span class="math inline">\(1-\rho^2\)</span>, so we say that <span class="math inline">\(X\)</span> explains <span class="math inline">\(1- (1-\rho^2)=\rho^2\)</span> (the correlation squared) of the variance.</p></li>
+<li><p>But it is important to remember that the “variance explained” statement only makes sense when the data is approximated by a bivariate normal distribution.</p></li>
+</ul>
+</section>
+<section id="there-are-two-regression-lines" class="slide level2">
+<h2>There are two regression lines</h2>
+<ul>
+<li><p>We computed a regression line to predict the son’s height from father’s height.</p></li>
+<li><p>We used these calculations:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>mu_x <span class="ot">&lt;-</span> <span class="fu">mean</span>(galton_heights<span class="sc">$</span>father) </span>
+<span id="cb29-2"><a></a>mu_y <span class="ot">&lt;-</span> <span class="fu">mean</span>(galton_heights<span class="sc">$</span>son) </span>
+<span id="cb29-3"><a></a>s_x <span class="ot">&lt;-</span> <span class="fu">sd</span>(galton_heights<span class="sc">$</span>father) </span>
+<span id="cb29-4"><a></a>s_y <span class="ot">&lt;-</span> <span class="fu">sd</span>(galton_heights<span class="sc">$</span>son) </span>
+<span id="cb29-5"><a></a>r <span class="ot">&lt;-</span> <span class="fu">cor</span>(galton_heights<span class="sc">$</span>father, galton_heights<span class="sc">$</span>son) </span>
+<span id="cb29-6"><a></a>m_1 <span class="ot">&lt;-</span>  r <span class="sc">*</span> s_y <span class="sc">/</span> s_x </span>
+<span id="cb29-7"><a></a>b_1 <span class="ot">&lt;-</span> mu_y <span class="sc">-</span> m_1<span class="sc">*</span>mu_x </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>which gives us the function <span class="math inline">\(\mbox{E}(Y\mid X=x) =\)</span> 37.3 + 0.46 <span class="math inline">\(x\)</span>.</li>
+</ul>
+</section>
+<section id="there-are-two-regression-lines-1" class="slide level2">
+<h2>There are two regression lines</h2>
+<ul>
+<li><p>What if we want to predict the father’s height based on the son’s? It is important to know that this is not determined by computing the inverse function: <span class="math inline">\(x = \{ \mbox{E}(Y\mid X=x) -\)</span> 37.3 <span class="math inline">\(\} /\)</span> 0.5.</p></li>
+<li><p>We need to compute <span class="math inline">\(\mbox{E}(X \mid Y=y)\)</span>.</p></li>
+<li><p>Since the data is approximately bivariate normal, the theory described earlier tells us that this conditional expectation will follow a line with slope and intercept:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>m_2 <span class="ot">&lt;-</span>  r <span class="sc">*</span> s_x <span class="sc">/</span> s_y </span>
+<span id="cb30-2"><a></a>b_2 <span class="ot">&lt;-</span> mu_x <span class="sc">-</span> m_2 <span class="sc">*</span> mu_y </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="there-are-two-regression-lines-2" class="slide level2">
+<h2>There are two regression lines</h2>
+<ul>
+<li><p>So we get <span class="math inline">\(\mbox{E}(X \mid Y=y) =\)</span> 40.9 + 0.41y.</p></li>
+<li><p>Again, we see regression to the average: the prediction for the father is closer to the father average than the son heights <span class="math inline">\(y\)</span> is to the son average.</p></li>
+<li><p>Next we show plot showing the two regression lines, with blue for the predicting son heights with father heights, and red for predicting father heights with son heights:</p></li>
+</ul>
+</section>
+<section id="there-are-two-regression-lines-3" class="slide level2">
+<h2>There are two regression lines</h2>
+
+<img data-src="29-regression_files/figure-revealjs/two-regression-lines-run-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:40.0%"></section>
+<section id="linear-models" class="slide level2">
+<h2>Linear models</h2>
+<ul>
+<li><p>We are now ready to understand the connection between regression and <em>linear models</em>.</p></li>
+<li><p>We have described how, if data is bivariate normal, then the conditional expectations follow the regression line.</p></li>
+<li><p>The fact that the conditional expectation is a line is not an extra assumption, but rather a derived result.</p></li>
+</ul>
+</section>
+<section id="linear-models-1" class="slide level2">
+<h2>Linear models</h2>
+<ul>
+<li><p>However, in practice it is common to explicitly write down a model that describes the relationship between two or more variables using a <em>linear model</em>.</p></li>
+<li><p>We note that <em>linear</em> here does not refer to lines exclusively, but rather to the fact that the conditional expectation is a linear combination of known quantities.</p></li>
+</ul>
+</section>
+<section id="linear-models-2" class="slide level2">
+<h2>Linear models</h2>
+<ul>
+<li><p>In mathematics, when we multiply each variable by a constant and then add them together, we say we formed a <em>linear combination</em> of the variables.</p></li>
+<li><p>For example, <span class="math inline">\(3x - 4y + 5z\)</span> is a linear combination of <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>, and <span class="math inline">\(z\)</span>.</p></li>
+</ul>
+</section>
+<section id="linear-models-3" class="slide level2">
+<h2>Linear models</h2>
+<ul>
+<li><p>We can also add a constant so <span class="math inline">\(2 + 3x - 4y + 5z\)</span> is also a linear combination of <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>, and <span class="math inline">\(z\)</span>.</p></li>
+<li><p>We previously described how if <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are bivariate normal, then if we look at only the pairs with <span class="math inline">\(X=x\)</span>, then <span class="math inline">\(Y \mid X=x\)</span> follows a normal distribution with expected value <span class="math inline">\(\mu_Y +  \rho \frac{x-\mu_X}{\sigma_X}\sigma_Y\)</span>, which is a linear function of <span class="math inline">\(x\)</span>, and standard deviation <span class="math inline">\(\sigma_Y \sqrt{1-\rho^2}\)</span> that does not depend on <span class="math inline">\(x\)</span>.</p></li>
+</ul>
+</section>
+<section id="linear-models-4" class="slide level2">
+<h2>Linear models</h2>
+<ul>
+<li>Note that if we write:</li>
+</ul>
+<p><span class="math display">\[
+Y = \beta_0 + \beta_1 x + \varepsilon
+\]</span></p>
+<ul>
+<li>If we assume <span class="math inline">\(\varepsilon\)</span> follows a normal distribution with expected value 0 and fixed standard deviation, then <span class="math inline">\(Y\)</span> has the same properties as the regression setup gave us: it follows a normal distribution, the expected value is a linear function <span class="math inline">\(x\)</span>, and the standard deviation does not depend on <span class="math inline">\(x\)</span>.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>In statistical textbooks, the <span class="math inline">\(\varepsilon\)</span>s are referred to as “errors,” which originally represented measurement errors in the initial applications of these models.</p></li>
+<li><p>These errors were associated with inaccuracies in measuring height, weight, or distance.</p></li>
+<li><p>However, the term “error” is now used more broadly, even when the <span class="math inline">\(\varepsilon\)</span>s do not necessarily signify an actual error.</p></li>
+<li><p>For instance, in the case of height, if someone is 2 inches taller than expected, based on their parents’ height, those 2 inches should not be considered an error.</p></li>
+<li><p>Despite its lack of descriptive accuracy, the term “error” is employed to elucidate the unexplained variability in the model, unrelated to other included terms.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="linear-models-5" class="slide level2">
+<h2>Linear models</h2>
+<ul>
+<li>If we were to specify a linear model for Galton’s data, we would denote the <span class="math inline">\(N\)</span> observed father heights with <span class="math inline">\(x_1, \dots, x_n\)</span>, then we model the <span class="math inline">\(N\)</span> son heights we are trying to predict with:</li>
+</ul>
+<p><span class="math display">\[
+Y_i = \beta_0 + \beta_1 x_i + \varepsilon_i, \, i=1,\dots,N.  
+\]</span></p>
+<ul>
+<li>Here <span class="math inline">\(x_i\)</span> is the father’s height, which is fixed (not random) due to the conditioning, and <span class="math inline">\(Y_i\)</span> is the random son’s height that we want to predict.</li>
+</ul>
+</section>
+<section id="linear-models-6" class="slide level2">
+<h2>Linear models</h2>
+<ul>
+<li><p>We can further assume that <span class="math inline">\(\varepsilon_i\)</span> are independent from each other and all have the same standard deviation.</p></li>
+<li><p>In the above model, we know the <span class="math inline">\(x_i\)</span>, but to have a useful model for prediction, we need <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>.</p></li>
+<li><p>We estimate these from the data.</p></li>
+</ul>
+</section>
+<section id="linear-models-7" class="slide level2">
+<h2>Linear models</h2>
+<ul>
+<li><p>Once we do this, we can predict son’s heights for any father’s height <span class="math inline">\(x\)</span>.</p></li>
+<li><p>Although this model is exactly the same one we derived earlier by assuming bivariate normal data, a somewhat nuanced difference is that, in the first approach, we assumed the data was bivariate normal and the linear model was derived, not assumed.</p></li>
+</ul>
+</section>
+<section id="linear-models-8" class="slide level2">
+<h2>Linear models</h2>
+<ul>
+<li><p>In practice, linear models are just assumed without necessarily assuming normality: the distribution of the <span class="math inline">\(\varepsilon\)</span>s is not necessarily specified.</p></li>
+<li><p>Nevertheless, if your data is bivariate normal, the above linear model holds.</p></li>
+<li><p>If your data is not bivariate normal, then you will need to have other ways of justifying the model.</p></li>
+</ul>
+</section>
+<section id="linear-models-9" class="slide level2">
+<h2>Linear models</h2>
+<ul>
+<li><p>One reason linear models are popular is that they are <em>interpretable</em>.</p></li>
+<li><p>In the case of Galton’s data, we can interpret the data like this: due to inherited genes, the son’s height prediction grows by <span class="math inline">\(\beta_1\)</span> for each inch we increase the father’s height <span class="math inline">\(x\)</span>.</p></li>
+<li><p>Because not all sons with fathers of height <span class="math inline">\(x\)</span> are of equal height, we need the term <span class="math inline">\(\varepsilon\)</span>, which explains the remaining variability.</p></li>
+</ul>
+</section>
+<section id="linear-models-10" class="slide level2">
+<h2>Linear models</h2>
+<ul>
+<li><p>This remaining variability includes the mother’s genetic effect, environmental factors, and other biological randomness.</p></li>
+<li><p>Given how we wrote the model above, the intercept <span class="math inline">\(\beta_0\)</span> is not very interpretable, as it is the predicted height of a son with a father with no height.</p></li>
+<li><p>Due to regression to the mean, the prediction will usually be a bit larger than 0.</p></li>
+</ul>
+</section>
+<section id="linear-models-11" class="slide level2">
+<h2>Linear models</h2>
+<ul>
+<li>To make the slope parameter more interpretable, we can rewrite the model slightly as:</li>
+</ul>
+<p><span class="math display">\[
+Y_i = \beta_0 + \beta_1 (x_i - \bar{x}) + \varepsilon_i, \, i=1,\dots,N  
+\]</span></p>
+<ul>
+<li><p>with <span class="math inline">\(\bar{x} = 1/N \sum_{i=1}^N x_i\)</span> the average of the <span class="math inline">\(x\)</span>.</p></li>
+<li><p>In this case, <span class="math inline">\(\beta_0\)</span> represents the height when <span class="math inline">\(x_i = \bar{x}\)</span>, which is the height of the son of an average father.</p></li>
+</ul>
+</section>
+<section id="linear-models-12" class="slide level2">
+<h2>Linear models</h2>
+<ul>
+<li>Later, we will see how the linear model representation permits us to use the same mathematical frameworks in other contexts and to achieve more complicated goals than predict one variable from another.</li>
+</ul>
+</section>
+<section id="least-squares-estimates" class="slide level2">
+<h2>Least Squares Estimates</h2>
+<ul>
+<li><p>For linear models to be useful, we have to estimate the unknown <span class="math inline">\(\beta\)</span>s.</p></li>
+<li><p>The standard approach is to find the values that minimize the distance of the fitted model to the data.</p></li>
+<li><p>Specifically, we find the <span class="math inline">\(\beta\)</span>s that minize the least squares (LS) equation show below.</p></li>
+</ul>
+</section>
+<section id="least-squares-estimates-1" class="slide level2">
+<h2>Least Squares Estimates</h2>
+<ul>
+<li>For Galton’s data, the LS equation looks like this:</li>
+</ul>
+<p><span class="math display">\[
+RSS = \sum_{i=1}^n \left\{  y_i - \left(\beta_0 + \beta_1 x_i \right)\right\}^2  
+\]</span></p>
+</section>
+<section id="least-squares-estimates-2" class="slide level2">
+<h2>Least Squares Estimates</h2>
+<ul>
+<li><p>The quantity we try to minimize is called the residual sum of squares (RSS).</p></li>
+<li><p>Once we find the values that minimize the RSS, we will call the values the least squares estimates (LSE) and denote them by placing a <em>hat</em> over the parameters.</p></li>
+</ul>
+</section>
+<section id="least-squares-estimates-3" class="slide level2">
+<h2>Least Squares Estimates</h2>
+<ul>
+<li><p>In our example we use <span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span>.</p></li>
+<li><p>We will demonstrate how we find these values using the previously defined <code>galton_heights</code> dataset.</p></li>
+</ul>
+</section>
+<section id="least-squares-estimates-4" class="slide level2">
+<h2>Least Squares Estimates</h2>
+<ul>
+<li>Let’s start by writing a function that computes the RSS for any pair of values <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>rss <span class="ot">&lt;-</span> <span class="cf">function</span>(beta0, beta1, data){ </span>
+<span id="cb31-2"><a></a>  resid <span class="ot">&lt;-</span> galton_heights<span class="sc">$</span>son <span class="sc">-</span> (beta0 <span class="sc">+</span> beta1<span class="sc">*</span>galton_heights<span class="sc">$</span>father) </span>
+<span id="cb31-3"><a></a>  <span class="fu">return</span>(<span class="fu">sum</span>(resid<span class="sc">^</span><span class="dv">2</span>)) </span>
+<span id="cb31-4"><a></a>} </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>So for any pair of values, we get an RSS.</li>
+</ul>
+</section>
+<section id="least-squares-estimates-5" class="slide level2">
+<h2>Least Squares Estimates</h2>
+<ul>
+<li>Here is a plot of the RSS as a function of <span class="math inline">\(\beta_1\)</span>, when we keep the <span class="math inline">\(\beta_0\)</span> fixed at 25.</li>
+</ul>
+
+<img data-src="29-regression_files/figure-revealjs/rss-versus-estimate-run-1.png" width="960" class="r-stretch"></section>
+<section id="least-squares-estimates-6" class="slide level2">
+<h2>Least Squares Estimates</h2>
+<ul>
+<li><p>We can see a clear minimum for <span class="math inline">\(\beta_1\)</span> at around 0.65.</p></li>
+<li><p>However, this minimum for <span class="math inline">\(\beta_1\)</span> is for when <span class="math inline">\(\beta_0 = 25\)</span>, a value we arbitrarily picked.</p></li>
+<li><p>We don’t know if (25, 0.65) is the pair that minimizes the equation across all possible pairs.</p></li>
+<li><p>Trial and error is not going to work in this case.</p></li>
+</ul>
+</section>
+<section id="least-squares-estimates-7" class="slide level2">
+<h2>Least Squares Estimates</h2>
+<ul>
+<li><p>We could search for a minimum within a fine grid of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> values, but this is unnecessarily time-consuming since we can use calculus.</p></li>
+<li><p>Specifically, we take the partial derivatives, set them to 0, and solve for <span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_2\)</span>.</p></li>
+<li><p>Of course, if we have many parameters, these equations can get rather complex.</p></li>
+</ul>
+</section>
+<section id="least-squares-estimates-8" class="slide level2">
+<h2>Least Squares Estimates</h2>
+<ul>
+<li><p>There are functions in R that do these calculations for us.</p></li>
+<li><p>To learn the mathematics behind this, you can consult a book on linear models.</p></li>
+</ul>
+</section>
+<section id="the-lm-function" class="slide level2">
+<h2>The <code>lm</code> function</h2>
+<ul>
+<li><p>In R, we can obtain the least squares estimates using the <code>lm</code> function.</p></li>
+<li><p>To fit the model:</p></li>
+</ul>
+<p><span class="math display">\[
+Y_i = \beta_0 + \beta_1 x_i + \varepsilon_i
+\]</span></p>
+<ul>
+<li>with <span class="math inline">\(Y_i\)</span> being the son’s height and <span class="math inline">\(x_i\)</span> being the father’s height, we can use this code to obtain the least squares estimates.</li>
+</ul>
+</section>
+<section id="the-lm-function-1" class="slide level2">
+<h2>The <code>lm</code> function</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(son <span class="sc">~</span> father, <span class="at">data =</span> galton_heights) </span>
+<span id="cb32-2"><a></a>fit<span class="sc">$</span>coefficients </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)      father 
+  37.287605    0.461392 </code></pre>
+</div>
+</div>
+<ul>
+<li><p>The most common way we use <code>lm</code> is by using the character <code>~</code> to let <code>lm</code> know which is the variable we are predicting (left of <code>~</code>) and which we are using to predict (right of <code>~</code>).</p></li>
+<li><p>The intercept is added automatically to the model that will be fit.</p></li>
+</ul>
+</section>
+<section id="the-lm-function-2" class="slide level2">
+<h2>The <code>lm</code> function</h2>
+<ul>
+<li><p>The object <code>fit</code> includes more information.</p></li>
+<li><p>We can use the function <code>summary</code> to extract more of this information:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="fu">summary</span>(fit) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = son ~ father, data = galton_heights)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-9.3543 -1.5657 -0.0078  1.7263  9.4150 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 37.28761    4.98618   7.478 3.37e-12 ***
+father       0.46139    0.07211   6.398 1.36e-09 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.45 on 177 degrees of freedom
+Multiple R-squared:  0.1878,    Adjusted R-squared:  0.1833 
+F-statistic: 40.94 on 1 and 177 DF,  p-value: 1.36e-09</code></pre>
+</div>
+</div>
+</section>
+<section id="the-lm-function-3" class="slide level2">
+<h2>The <code>lm</code> function</h2>
+<ul>
+<li><p>To understand some of the information included in this summary, we need to remember that the LSE are random variables.</p></li>
+<li><p>Mathematical statistics gives us some ideas of the distribution of these random variables.</p></li>
+</ul>
+</section>
+<section id="lse-are-random-variables" class="slide level2">
+<h2>LSE are random variables</h2>
+<ul>
+<li><p>The LSE is derived from the data <span class="math inline">\(y_1,\dots,y_N\)</span>, which are a realization of random variables <span class="math inline">\(Y_1, \dots, Y_N\)</span>.</p></li>
+<li><p>This implies that our estimates are random variables.</p></li>
+</ul>
+</section>
+<section id="lse-are-random-variables-1" class="slide level2">
+<h2>LSE are random variables</h2>
+<ul>
+<li>To see this, we can run a Monte Carlo simulation in which we assume the son and father height data defines a population, take a random sample of size <span class="math inline">\(N=50\)</span>, and compute the regression slope coefficient for each one:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>B <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
+<span id="cb36-2"><a></a>N <span class="ot">&lt;-</span> <span class="dv">50</span> </span>
+<span id="cb36-3"><a></a>lse <span class="ot">&lt;-</span> <span class="fu">replicate</span>(B, { </span>
+<span id="cb36-4"><a></a>  <span class="fu">sample_n</span>(galton_heights, N, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span>  </span>
+<span id="cb36-5"><a></a>    <span class="fu">lm</span>(son <span class="sc">~</span> father, <span class="at">data =</span> _) <span class="sc">|&gt;</span>  </span>
+<span id="cb36-6"><a></a>    <span class="fu">coef</span>() </span>
+<span id="cb36-7"><a></a>}) </span>
+<span id="cb36-8"><a></a>lse <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">beta_0 =</span> lse[<span class="dv">1</span>,], <span class="at">beta_1 =</span> lse[<span class="dv">2</span>,])  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="lse-are-random-variables-2" class="slide level2">
+<h2>LSE are random variables</h2>
+<ul>
+<li>We can see the variability of the estimates by plotting their distributions:</li>
+</ul>
+
+<img data-src="29-regression_files/figure-revealjs/lse-distributions-1.png" style="width:100.0%" class="r-stretch"></section>
+<section id="lse-are-random-variables-3" class="slide level2">
+<h2>LSE are random variables</h2>
+<ul>
+<li><p>The reason these look normal is because the central limit theorem applies here as well: for large enough <span class="math inline">\(N\)</span>, the least squares estimates will be approximately normal with expected value <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>, respectively.</p></li>
+<li><p>The standard errors are a bit complicated to compute, but mathematical theory does allow us to compute them and they are included in the summary provided by the <code>lm</code> function.</p></li>
+</ul>
+</section>
+<section id="lse-are-random-variables-4" class="slide level2">
+<h2>LSE are random variables</h2>
+<ul>
+<li>The function <code>summary</code> shows us the standard error estimates:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="fu">sample_n</span>(galton_heights, N, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span>  </span>
+<span id="cb37-2"><a></a>  <span class="fu">lm</span>(son <span class="sc">~</span> father, <span class="at">data =</span> _) <span class="sc">|&gt;</span>  </span>
+<span id="cb37-3"><a></a>  <span class="fu">summary</span>() <span class="sc">|&gt;</span>  </span>
+<span id="cb37-4"><a></a>  <span class="fu">coef</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              Estimate Std. Error  t value     Pr(&gt;|t|)
+(Intercept) 24.5722201 11.0734543 2.219020 0.0312467290
+father       0.6479396  0.1602234 4.043975 0.0001896386</code></pre>
+</div>
+</div>
+</section>
+<section id="lse-are-random-variables-5" class="slide level2">
+<h2>LSE are random variables</h2>
+<ul>
+<li>You can see that the standard errors estimates reported above are close to the standard errors from the simulation:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>lse <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">se_0 =</span> <span class="fu">sd</span>(beta_0), <span class="at">se_1 =</span> <span class="fu">sd</span>(beta_1)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      se_0      se_1
+1 8.669471 0.1256726</code></pre>
+</div>
+</div>
+<ul>
+<li><p>The <code>summary</code> function also reports t-statistics (<code>t value</code>) and p-values (<code>Pr(&gt;|t|)</code>).</p></li>
+<li><p>The t-statistic is not actually based on the central limit theorem, but rather on the assumption that the <span class="math inline">\(\varepsilon\)</span>s follow a normal distribution.</p></li>
+</ul>
+</section>
+<section id="lse-are-random-variables-6" class="slide level2">
+<h2>LSE are random variables</h2>
+<ul>
+<li><p>Under this assumption, mathematical theory tells us that the LSE divided by their standard error, <span class="math inline">\(\hat{\beta}_0 / \hat{\mbox{SE}}(\hat{\beta}_0 )\)</span> and <span class="math inline">\(\hat{\beta}_1 / \hat{\mbox{SE}}(\hat{\beta}_1 )\)</span>, follow a t-distribution with <span class="math inline">\(N-p\)</span> degrees of freedom, with <span class="math inline">\(p\)</span> the number of parameters in our model.</p></li>
+<li><p>In our example <span class="math inline">\(p=2\)</span>, and the two p-values are obtained from testing the null hypothesis that <span class="math inline">\(\beta_0 = 0\)</span> and <span class="math inline">\(\beta_1=0\)</span>, respectively.</p></li>
+<li><p>Remember that, as we described earlier, for large enough <span class="math inline">\(N\)</span>, the CLT works and the t-distribution becomes almost the same as the normal distribution.</p></li>
+</ul>
+</section>
+<section id="lse-are-random-variables-7" class="slide level2">
+<h2>LSE are random variables</h2>
+<ul>
+<li><p>Also, notice that we can construct confidence intervals, but we will soon learn about <strong>broom</strong>, an add-on package that makes this easy.</p></li>
+<li><p>Although we do not show examples in this book, hypothesis testing with regression models is commonly used in epidemiology and economics to make statements such as “the effect of A on B was statistically significant after adjusting for X, Y, and Z”.</p></li>
+<li><p>However, several assumptions have to hold for these statements to be true.</p></li>
+</ul>
+</section>
+<section id="predicted-values-are-random-variables" class="slide level2">
+<h2>Predicted values are random variables</h2>
+<ul>
+<li><p>Once we fit our model, we can obtain prediction of <span class="math inline">\(Y\)</span> by plugging in the estimates into the regression model.</p></li>
+<li><p>For example, if the father’s height is <span class="math inline">\(x\)</span>, then our prediction <span class="math inline">\(\hat{Y}\)</span> for the son’s height will be:</p></li>
+</ul>
+<p><span class="math display">\[\hat{Y} = \hat{\beta}_0 + \hat{\beta}_1 x\]</span></p>
+</section>
+<section id="predicted-values-are-random-variables-1" class="slide level2">
+<h2>Predicted values are random variables</h2>
+<ul>
+<li><p>When we plot <span class="math inline">\(\hat{Y}\)</span> versus <span class="math inline">\(x\)</span>, we see the regression line.</p></li>
+<li><p>Keep in mind that the prediction <span class="math inline">\(\hat{Y}\)</span> is also a random variable and mathematical theory tells us what the standard errors are.</p></li>
+</ul>
+</section>
+<section id="predicted-values-are-random-variables-2" class="slide level2">
+<h2>Predicted values are random variables</h2>
+<ul>
+<li><p>If we assume the errors are normal, or have a large enough sample size, we can use theory to construct confidence intervals as well.</p></li>
+<li><p>In fact, the <strong>ggplot2</strong> layer <code>geom_smooth(method = "lm")</code> that we previously used plots <span class="math inline">\(\hat{Y}\)</span> and surrounds it by confidence intervals:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>galton_heights <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(son, father)) <span class="sc">+</span> </span>
+<span id="cb41-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb41-3"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="predicted-values-are-random-variables-3" class="slide level2">
+<h2>Predicted values are random variables</h2>
+
+<img data-src="29-regression_files/figure-revealjs/father-son-regression-run-1.png" width="960" class="r-stretch"></section>
+<section id="predicted-values-are-random-variables-4" class="slide level2">
+<h2>Predicted values are random variables</h2>
+<ul>
+<li><p>The R function <code>predict</code> takes an <code>lm</code> object as input and returns the prediction.</p></li>
+<li><p>If requested, the standard errors and other information from which we can construct confidence intervals is provided:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a>fit <span class="ot">&lt;-</span> galton_heights <span class="sc">|&gt;</span> <span class="fu">lm</span>(son <span class="sc">~</span> father, <span class="at">data =</span> _)  </span>
+<span id="cb42-2"><a></a>y_hat <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit, <span class="at">se.fit =</span> <span class="cn">TRUE</span>) </span>
+<span id="cb42-3"><a></a><span class="fu">names</span>(y_hat) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "fit"            "se.fit"         "df"             "residual.scale"</code></pre>
+</div>
+</div>
+</section>
+<section id="diagnostic-plots" class="slide level2">
+<h2>Diagnostic plots</h2>
+<ul>
+<li><p>When the linear model is assumed, rather than derived, all interpretations depend on the usefulness of the model.</p></li>
+<li><p>The <code>lm</code> function will fit the model and return summaries even when the model is wrong and not useful.</p></li>
+<li><p>Visually inspecting residuals, defined as the difference between observed values and predicted values:</p></li>
+</ul>
+<p><span class="math display">\[
+r = Y - \hat{Y} = Y - \left(\hat{\beta}_0 - \hat{\beta}_1 x_i\right),
+\]</span></p>
+</section>
+<section id="diagnostic-plots-1" class="slide level2">
+<h2>Diagnostic plots</h2>
+<ul>
+<li><p>and summaries of the residuals, is a powerful way to diagnose if the model is useful.</p></li>
+<li><p>Note that the residuals can be thought of estimates of the errors since:</p></li>
+</ul>
+<p><span class="math display">\[
+\varepsilon = Y - \left(\beta_0 + \beta_1 x_i \right).
+\]</span></p>
+<ul>
+<li><p>In fact residuals are often denoted as <span class="math inline">\(\hat{\varepsilon}\)</span>.</p></li>
+<li><p>This motivates several <em>diagnostic</em> plots.</p></li>
+</ul>
+</section>
+<section id="diagnostic-plots-2" class="slide level2">
+<h2>Diagnostic plots</h2>
+<ul>
+<li><p>Because we observe <span class="math inline">\(r\)</span>, but don’t observe <span class="math inline">\(\varepsilon\)</span>, we based the plots on the residuals.</p>
+<ol type="1">
+<li><p>Because the errors are assumed not to depend on the expected value of <span class="math inline">\(Y\)</span>, a plot of <span class="math inline">\(r\)</span> versus the fitted values <span class="math inline">\(\hat{Y}\)</span> should show no relationship.</p></li>
+<li><p>In cases in which we assume the errors follow a normal distribution, a qqplot of standardized <span class="math inline">\(r\)</span> should fall on a line when plotted against theoretical quantiles.</p></li>
+</ol></li>
+</ul>
+</section>
+<section id="diagnostic-plots-3" class="slide level2">
+<h2>Diagnostic plots</h2>
+<ol start="3" type="1">
+<li>Because we assume the standard deviation of the errors is constant, if we plot the absolute value of the residuals, it should appear constant.</li>
+</ol>
+</section>
+<section id="diagnostic-plots-4" class="slide level2">
+<h2>Diagnostic plots</h2>
+<ul>
+<li><p>We prefer plots rather than summaries based on correlation because correlation is not always the best summary of association.</p></li>
+<li><p>The function <code>plot</code> applied to an <code>lm</code> object automatically plots these.</p></li>
+</ul>
+</section>
+<section id="diagnostic-plots-5" class="slide level2">
+<h2>Diagnostic plots</h2>
+
+<img data-src="29-regression_files/figure-revealjs/diagnostic-plots-run-1.png" style="width:100.0%" class="r-stretch"></section>
+<section id="diagnostic-plots-6" class="slide level2">
+<h2>Diagnostic plots</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a><span class="fu">plot</span>(fit, <span class="at">which =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="diagnostic-plots-7" class="slide level2">
+<h2>Diagnostic plots</h2>
+</section>
+<section id="diagnostic-plots-8" class="slide level2">
+<h2>Diagnostic plots</h2>
+<ul>
+<li><p>This function can produce six different plots, and the argument <code>which</code> let’s you specify which you want to see.</p></li>
+<li><p>You can learn more by reading the <code>plot.lm</code> help file.</p></li>
+<li><p>However, some of the plots are based on more advanced concepts beyond the scope of this book.</p></li>
+<li><p>To learn more, we recommend an advanced book on regression analysis.</p></li>
+<li><p>We later introduce data analysis challenges in which we may decide to not to include certain variables in the model.</p></li>
+</ul>
+</section>
+<section id="diagnostic-plots-9" class="slide level2">
+<h2>Diagnostic plots</h2>
+<ul>
+<li>In these cases, an important diagnostic test to add checks if the residuals are related to variables not included in the model.</li>
+</ul>
+</section>
+<section id="the-regression-fallacy" class="slide level2">
+<h2>The regression fallacy</h2>
+<ul>
+<li><p>Wikipedia defines the <em>sophomore slump</em> as:</p></li>
+<li><blockquote>
+<p>A sophomore slump or sophomore jinx or sophomore jitters refers to an instance in which a second, or sophomore, effort fails to live up to the standards of the first effort.</p>
+</blockquote></li>
+<li><p>It is commonly used to refer to the apathy of students (second year of high school, college or university), the performance of athletes (second season of play), singers/bands (second album), television shows (second seasons) and movies (sequels/prequels).</p></li>
+</ul>
+</section>
+<section id="the-regression-fallacy-1" class="slide level2">
+<h2>The regression fallacy</h2>
+<ul>
+<li><p>In Major League Baseball, the rookie of the year (ROY) award is given to the first-year player who is judged to have performed the best.</p></li>
+<li><p>The <em>sophomore slump</em> phrase is used to describe the observation that ROY award winners don’t do as well during their second year.</p></li>
+<li><p>For example, this Fox Sports article[^linear-models-1] asks “Will MLB’s tremendous rookie class of 2015 suffer a sophomore slump?”.</p></li>
+</ul>
+</section>
+<section id="the-regression-fallacy-2" class="slide level2">
+<h2>The regression fallacy</h2>
+<ul>
+<li><p><a href="https://web.archive.org/web20160815063904/http://www.foxsports.com/mlb/story/kris-bryant-carlos-correa-rookies-of-year-award-matt-duffy-francisco-lindor-kang-sano-120715" class="uri">https://web.archive.org/web20160815063904/http://www.foxsports.com/mlb/story/kris-bryant-carlos-correa-rookies-of-year-award-matt-duffy-francisco-lindor-kang-sano-120715</a></p></li>
+<li><p>Does the data confirm the existence of a sophomore slump? Let’s take a look.</p></li>
+<li><p>Examining the data for a widely used measure of success, the batting average, we see that this observation holds true for the top performing ROYs:</p></li>
+</ul>
+</section>
+<section id="the-regression-fallacy-3" class="slide level2">
+<h2>The regression fallacy</h2>
+<ul>
+<li><p>In fact, the proportion of players that have a lower batting average during their sophomore year is 0.7090909.</p></li>
+<li><p>So is it “jitters” or “jinx”? To answer this question, let’s turn our attention to all the players that played the 2013 and 2014 seasons and batted more than 130 times (minimum to win Rookie of the Year).</p></li>
+</ul>
+</section>
+<section id="the-regression-fallacy-4" class="slide level2">
+<h2>The regression fallacy</h2>
+<ul>
+<li>The same pattern arises when we look at the top performers: batting averages go down for most of the top performers.</li>
+</ul>
+<ul>
+<li>But these are not rookies! Also, look at what happens to the worst performers of 2013:</li>
+</ul>
+<ul>
+<li><p>Their batting averages mostly go up! Is this some sort of reverse sophomore slump? It is not.</p></li>
+<li><p>There is no such thing as a sophomore slump.</p></li>
+</ul>
+</section>
+<section id="the-regression-fallacy-5" class="slide level2">
+<h2>The regression fallacy</h2>
+<ul>
+<li>This is all explained with a simple statistical fact: the correlation for performance in two separate years is high, but not perfect.</li>
+</ul>
+</section>
+<section id="the-regression-fallacy-6" class="slide level2">
+<h2>The regression fallacy</h2>
+
+<img data-src="29-regression_files/figure-revealjs/regression-fallacy-1.png" style="width:40.0%" class="r-stretch"></section>
+<section id="the-regression-fallacy-7" class="slide level2">
+<h2>The regression fallacy</h2>
+<ul>
+<li>The correlation is 0.460254 and the data look very much like a bivariate normal distribution, which means we predict a 2014 batting average <span class="math inline">\(Y\)</span> for any given player that had a 2013 batting average <span class="math inline">\(X\)</span> with:</li>
+</ul>
+<p><span class="math display">\[ \frac{Y - .255}{.032} = 0.46 \left( \frac{X - .261}{.023}\right) \]</span></p>
+<ul>
+<li><p>Because the correlation is not perfect, regression tells us that, on average, expect high performers from 2013 to do a bit worse in 2014.</p></li>
+<li><p>It’s not a jinx; it’s just due to chance.</p></li>
+</ul>
+</section>
+<section id="the-regression-fallacy-8" class="slide level2">
+<h2>The regression fallacy</h2>
+<ul>
+<li>The ROY are selected from the top values of <span class="math inline">\(X\)</span>, so it is expected that <span class="math inline">\(Y\)</span> will regress to the mean.</li>
+</ul>
+
+<div class="quarto-auto-generated-content">
+<div class="footer footer-default">
+
+</div>
+</div>
+</section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp("http:\/\/datasciencelabs\.github\.io\/2024");
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
