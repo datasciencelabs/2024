@@ -102,7 +102,7 @@ harris_ev <- replicate(10000, {
     summarize(harris = sum(harris)) |> 
     pull(harris)
 }) 
-plot(table(harris_ev))
+plot(table(harris_ev), xlab = "Harris electoral votes", ylab = "Number of trials")
 hist(harris_ev, breaks = seq(150,450,5))
 mean(harris_ev  > 269)
 mean(harris_ev)
