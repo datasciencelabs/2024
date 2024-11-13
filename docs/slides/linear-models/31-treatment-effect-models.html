@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.5.57">
+
+  <meta name="dcterms.date" content="2024-11-12">
+  <meta name="keywords" content="Linear Models">
+  <title>BST 260: Introduction to Data Science – Treatment Effect Models</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #f07178; background-color: #2a0f15; font-weight: bold; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #00e0e0; } /* Attribute */
+    code span.bn { color: #d4d0ab; } /* BaseN */
+    code span.bu { color: #abe338; } /* BuiltIn */
+    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffd700; } /* Constant */
+    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
+    code span.cv { color: #ffd700; } /* CommentVar */
+    code span.do { color: #f8f8f2; } /* Documentation */
+    code span.dt { color: #ffa07a; } /* DataType */
+    code span.dv { color: #d4d0ab; } /* DecVal */
+    code span.er { color: #f07178; text-decoration: underline; } /* Error */
+    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
+    code span.fl { color: #d4d0ab; } /* Float */
+    code span.fu { color: #ffa07a; } /* Function */
+    code span.im { color: #abe338; } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
+    code span.op { color: #ffa07a; } /* Operator */
+    code span.ot { color: #00e0e0; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
+    code span.sc { color: #abe338; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #00e0e0; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #dcc6e0; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-dark">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Treatment Effect Models</h1>
+
+<div class="quarto-title-authors">
+</div>
+
+  <p class="date">2024-11-12</p>
+</section>
+<section id="treatment-effect-models" class="slide level2">
+<h2>Treatment effect models</h2>
+<ul>
+<li><p>Up to now, all our linear models have been applied to two or more continuous random variables.</p></li>
+<li><p>We assume the random variables are multivariate normal and use this to motivate a linear model.</p></li>
+<li><p>This approach covers many real-life examples of linear regression.</p></li>
+</ul>
+</section>
+<section id="treatment-effect-models-1" class="slide level2">
+<h2>Treatment effect models</h2>
+<ul>
+<li><p>However, linear models have many other applications.</p></li>
+<li><p>One of the most popular is to quantify treatment effects in randomized and controlled experiments.</p></li>
+<li><p>One of the first applications was in agriculture, where different plots of lands were treated with different combinations of fertilizers to try to determine if they were effective.</p></li>
+<li><p>In fact, the use of <span class="math inline">\(Y\)</span> for the outcome in statistics is due to the mathematical theory being developed for crop <em>yield</em> as the outcome.</p></li>
+</ul>
+</section>
+<section id="treatment-effect-models-2" class="slide level2">
+<h2>Treatment effect models</h2>
+<ul>
+<li><p>Since then, the same ideas have been applied in other areas, such as randomized trials developed to determine if drugs cure or prevent diseases or if policies have an effect on social or educational outcomes.</p></li>
+<li><p>In the latter example, we think of the policy intervention as a <em>treatment</em> and follow the same mathematical procedure.</p></li>
+<li><p>The analyses used in <em>A/B testing</em>, widely used today by internet companies, are based on treatment effects models.</p></li>
+</ul>
+</section>
+<section id="treatment-effect-models-3" class="slide level2">
+<h2>Treatment effect models</h2>
+<ul>
+<li><p>Moreover, these models have been applied in observational studies where analysts attempt to use linear models to estimate effects of interest while accounting for potential confounders.</p></li>
+<li><p>For example, to estimate the effect of a diet high in fruits and vegetables on blood pressure, we would have to adjust for <em>factors</em> such as age, sex, and smoking status.</p></li>
+</ul>
+</section>
+<section id="case-study" class="slide level2">
+<h2>Case study</h2>
+<ul>
+<li><p>Mice were randomly selected and divided into two groups: one group receiving a high-fat diet, considered the <em>treatment</em>, while the other group served as the control and received the usual <em>chow</em> diet.</p></li>
+<li><p>The data is included in the <strong>dslabs</strong> package:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(dslabs) </span>
+<span id="cb1-2"><a></a><span class="fu">table</span>(mice_weights<span class="sc">$</span>diet) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+chow   hf 
+ 394  386 </code></pre>
+</div>
+</div>
+</section>
+<section id="treatment-effect-models-4" class="slide level2">
+<h2>Treatment effect models</h2>
+<ul>
+<li>A boxplot shows that the high fat diet mice are, on average, heavier.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">with</span>(mice_weights, <span class="fu">boxplot</span>(body_weight <span class="sc">~</span> diet)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="treatment-effect-models-5" class="slide level2">
+<h2>Treatment effect models</h2>
+
+<img data-src="31-treatment-effect-models_files/figure-revealjs/weight-by-diet-boxplots-run-1.png" width="960" class="r-stretch"></section>
+<section id="treatment-effect-models-6" class="slide level2">
+<h2>Treatment effect models</h2>
+<ul>
+<li>However, given that we divided the mice randomly, is it possible that the observed difference is simply due to chance? Here, we can compute the sample average and standard deviation of each group and perform statistical inference on the difference of these means.</li>
+</ul>
+</section>
+<section id="comparing-group-means" class="slide level2">
+<h2>Comparing group means</h2>
+<ul>
+<li>The sample averages for the two groups, high-fat and chow diets, are different:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">library</span>(tidyverse) </span>
+<span id="cb4-2"><a></a>mice_weights <span class="sc">|&gt;</span> <span class="fu">group_by</span>(diet) <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">average =</span> <span class="fu">mean</span>(body_weight)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  diet  average
+  &lt;fct&gt;   &lt;dbl&gt;
+1 chow     31.5
+2 hf       36.7</code></pre>
+</div>
+</div>
+</section>
+<section id="comparing-group-means-1" class="slide level2">
+<h2>Comparing group means</h2>
+<ul>
+<li><p>However, this is a random sample of mice, and the assignment to the diet group is also done randomly.</p></li>
+<li><p>So is this difference due to chance?</p></li>
+</ul>
+</section>
+<section id="comparing-group-means-2" class="slide level2">
+<h2>Comparing group means</h2>
+<ul>
+<li><p><span class="math inline">\(\bar{X}_1 - \bar{X}_0\)</span> follows a normal distribution,</p></li>
+<li><p>with expected value <span class="math inline">\(\mu_1-\mu_0\)</span></p></li>
+<li><p>and standard error <span class="math inline">\(\sqrt{\frac{\sigma_1^2}{N_1} + \frac{\sigma_0^2}{N_0}}\)</span>.</p></li>
+</ul>
+</section>
+<section id="comparing-group-means-3" class="slide level2">
+<h2>Comparing group means</h2>
+<ul>
+<li>If we define the null hypothesis as the high-fat diet having no effect, or <span class="math inline">\(\mu_1 - \mu_0 = 0\)</span>, this implies that.</li>
+</ul>
+<p><span class="math display">\[
+\frac{\bar{X}_1 - \bar{X}_0}{\sqrt{\frac{\sigma_1^2}{N_1} + \frac{\sigma_0^2}{N_0}}}
+\]</span></p>
+<ul>
+<li>has expected value 0 and standard error 1 and therefore approximately follows a standard normal distribution.</li>
+</ul>
+</section>
+<section id="comparing-group-means-4" class="slide level2">
+<h2>Comparing group means</h2>
+<ul>
+<li><p>Note that we can’t compute this quantity in practice because the <span class="math inline">\(\sigma_1\)</span> and <span class="math inline">\(\sigma_0\)</span> are unknown.</p></li>
+<li><p>However, if we estimate them with the sample standard deviations the CLT still holds and:</p></li>
+</ul>
+<p><span class="math display">\[
+t = \frac{\bar{X}_1 - \bar{X}_0}{\sqrt{\frac{s_1^2}{N_1} + \frac{s_0^2}{N_0}}}
+\]</span></p>
+<ul>
+<li>follows a standard normal distribution when the null hypothesis is true.</li>
+</ul>
+</section>
+<section id="comparing-group-means-5" class="slide level2">
+<h2>Comparing group means</h2>
+<ul>
+<li>This implies that we can easily compute the probability of observing a value as large as the one we obtained:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>stats <span class="ot">&lt;-</span> mice_weights <span class="sc">|&gt;</span>  </span>
+<span id="cb6-2"><a></a>  <span class="fu">group_by</span>(diet) <span class="sc">|&gt;</span>  </span>
+<span id="cb6-3"><a></a>  <span class="fu">summarize</span>(<span class="at">xbar =</span> <span class="fu">mean</span>(body_weight), <span class="at">s =</span> <span class="fu">sd</span>(body_weight), <span class="at">n =</span> <span class="fu">n</span>())  </span>
+<span id="cb6-4"><a></a>t_stat <span class="ot">&lt;-</span> <span class="fu">with</span>(stats, (xbar[<span class="dv">2</span>] <span class="sc">-</span> xbar[<span class="dv">1</span>])<span class="sc">/</span><span class="fu">sqrt</span>(s[<span class="dv">2</span>]<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>n[<span class="dv">2</span>] <span class="sc">+</span> s[<span class="dv">1</span>]<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>n[<span class="dv">1</span>])) </span>
+<span id="cb6-5"><a></a>t_stat </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 9.339096</code></pre>
+</div>
+</div>
+<ul>
+<li>Here <span class="math inline">\(t\)</span> is well over 3, so we don’t really need to compute the p-value <code>1-pnorm(t_stat)</code> as we know it will be very small.</li>
+</ul>
+</section>
+<section id="comparing-group-means-6" class="slide level2">
+<h2>Comparing group means</h2>
+<ul>
+<li><p>Note that when <span class="math inline">\(N\)</span> is not large enough, then the CLT does not apply and we use the t-distribution:</p></li>
+<li><p>So the calculation of the p-value is the same except that we use <code>pt</code> instead of <code>pnorm</code>.</p></li>
+<li><p>Specifically, we use</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pt</span>(t_stat, <span class="fu">with</span>(stats, n[<span class="dv">2</span>]<span class="sc">+</span>n[<span class="dv">1</span>]<span class="sc">-</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>In the computation above, we computed the probability of <code>t</code> being as large as what we observed.</p></li>
+<li><p>However, when our interest spans both directions, for example, either an increase or decrease in weight, we need to compute the probability of <code>t</code> being <em>as extreme</em> as what we observe.</p></li>
+<li><p>The formula simply changes to using the absolute value: <code>1 - pnorm(abs(t-test))</code> or <code>1-pt(abs(t_stat), with(stats, n[2]+n[1]-2))</code>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="one-factor-design" class="slide level2">
+<h2>One factor design</h2>
+<ul>
+<li><p>Although the t-test is useful for cases in which we compare two treatments, it is common to have other variables affect our outcomes.</p></li>
+<li><p>Linear models permit hypothesis testing in these more general situations.</p></li>
+</ul>
+</section>
+<section id="one-factor-design-1" class="slide level2">
+<h2>One factor design</h2>
+<ul>
+<li>If we assume that the weight distributions for both chow and high-fat diets are normally distributed, we can write:</li>
+</ul>
+<p><span class="math display">\[
+Y_i = \beta_0 + \beta_1 x_i + \varepsilon_i
+\]</span></p>
+<ul>
+<li>with <span class="math inline">\(X_i\)</span> 1, if the <span class="math inline">\(i\)</span>-th mice was fed the high-fat diet, and 0 otherwise, and the errors <span class="math inline">\(\varepsilon_i\)</span> IID normal with expected value 0 and standard deviation <span class="math inline">\(\sigma\)</span>.</li>
+</ul>
+</section>
+<section id="one-factor-design-2" class="slide level2">
+<h2>One factor design</h2>
+<ul>
+<li>Note that this mathematical formula looks exactly like the model we wrote out for the father-son heights.</li>
+</ul>
+<p><span class="math display">\[
+Y_i = \beta_0 + \beta_1 x_i + \varepsilon_i
+\]</span></p>
+<ul>
+<li><p><span class="math inline">\(x_i\)</span> being 0 or 1 rather than a continuous variable, allows us to use it in this different context.</p></li>
+<li><p>Now <span class="math inline">\(\beta_0\)</span> represents the population average height of the mice on the chow diet and</p></li>
+<li><p><span class="math inline">\(\beta_0 + \beta_1\)</span> represents the population average for the weight of the mice on the high-fat diet.</p></li>
+</ul>
+</section>
+<section id="one-factor-design-3" class="slide level2">
+<h2>One factor design</h2>
+<ul>
+<li><p>A nice feature of this model is that <span class="math inline">\(\beta_1\)</span> represents the <em>treatment effect</em> of receiving the high-fat diet.</p></li>
+<li><p>The null hypothesis that the high-fat diet has no effect can be quantified as <span class="math inline">\(\beta_1 = 0\)</span>.</p></li>
+</ul>
+</section>
+<section id="one-factor-design-4" class="slide level2">
+<h2>One factor design</h2>
+<ul>
+<li>A powerful characteristic of linear models is that we can estimate the <span class="math inline">\(\beta\)</span>s and their standard errors with the same LSE machinery:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_weight <span class="sc">~</span> diet, <span class="at">data =</span> mice_weights) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="one-factor-design-5" class="slide level2">
+<h2>One factor design</h2>
+<ul>
+<li><p>Because <code>diet</code> is a factor with two entries, the <code>lm</code> function knows to fit the linear model above with a <span class="math inline">\(x_i\)</span> a indicator variable.</p></li>
+<li><p>The <code>summary</code> function shows us the resulting estimate, standard error, and p-value:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">coefficients</span>(<span class="fu">summary</span>(fit)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Estimate Std. Error   t value     Pr(&gt;|t|)
+(Intercept) 31.537005  0.3858192 81.740369 0.000000e+00
+diethf       5.136078  0.5484506  9.364705 8.021959e-20</code></pre>
+</div>
+</div>
+</section>
+<section id="one-factor-design-6" class="slide level2">
+<h2>One factor design</h2>
+<ul>
+<li>Using <code>broom</code>, we can write:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">library</span>(broom) </span>
+<span id="cb13-2"><a></a><span class="fu">tidy</span>(fit, <span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">"diethf"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 7
+  term   estimate std.error statistic  p.value conf.low conf.high
+  &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+1 diethf     5.14     0.548      9.36 8.02e-20     4.06      6.21</code></pre>
+</div>
+</div>
+</section>
+<section id="one-factor-design-7" class="slide level2">
+<h2>One factor design</h2>
+<ul>
+<li>The <code>statistic</code> computed here is the estimate divided by its standard error:</li>
+</ul>
+<p><span class="math display">\[\hat{\beta}_1 / \hat{\mbox{SE}}(\hat{\beta}_1)\]</span></p>
+<ul>
+<li>In the case of the simple one-factor model, we can show that this statistic is almost equivalent to the t-statistics computed in the previous section:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">c</span>(<span class="fu">coefficients</span>(<span class="fu">summary</span>(fit))[<span class="dv">2</span>,<span class="dv">3</span>], t_stat) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 9.364705 9.339096</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>In the linear model description provided here, we assumed <span class="math inline">\(\varepsilon\)</span> follows a normal distribution.</p></li>
+<li><p>This assumption permits us to show that the statistics formed by dividing estimates by their estimated standard errors follow t-distribution, which in turn allows us to estimate p-values or confidence intervals.</p></li>
+<li><p>However, note that we do not need this assumption to compute the expected value and standard error of the least squared estimates.</p></li>
+<li><p>Furthermore, if the number of observations is large enough, then the central limit theorem applies and we can obtain p-values and confidence intervals even without the normal distribution assumption for the errors.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="two-factor-designs" class="slide level2">
+<h2>Two factor designs</h2>
+<ul>
+<li><p>Note that this experiment included male and female mice, and male mice are known to be heavier.</p></li>
+<li><p>This explains why the residuals depend on the sex variable:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">boxplot</span>(fit<span class="sc">$</span>residuals <span class="sc">~</span> mice_weights<span class="sc">$</span>sex) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="two-factor-designs-1" class="slide level2">
+<h2>Two factor designs</h2>
+
+<img data-src="31-treatment-effect-models_files/figure-revealjs/lm-residual-boxplots-run-1.png" width="960" class="r-stretch"></section>
+<section id="two-factor-designs-2" class="slide level2">
+<h2>Two factor designs</h2>
+<ul>
+<li><p>This misspecification can have real implications; for instance, if more male mice received the high-fat diet, then this could explain the increase.</p></li>
+<li><p>Conversely, if fewer received it, we might underestimate the diet effect.</p></li>
+<li><p>Sex could be a confounder, indicating that our model can certainly be improved.</p></li>
+</ul>
+</section>
+<section id="two-factor-designs-3" class="slide level2">
+<h2>Two factor designs</h2>
+<ul>
+<li>We can examine the data:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>mice_weights <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(diet, <span class="fu">log2</span>(body_weight), <span class="at">fill =</span> sex)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="two-factor-designs-4" class="slide level2">
+<h2>Two factor designs</h2>
+
+<img data-src="31-treatment-effect-models_files/figure-revealjs/weight-by-sex-diet-boxplots-run-1.png" width="960" class="r-stretch"></section>
+<section id="two-factor-designs-5" class="slide level2">
+<h2>Two factor designs</h2>
+<ul>
+<li>A linear model that permits a different expected value for the following four groups, 1) female on chow diet, 2) females on high-fat diet, 3) male on chow diet, and 4) males on high-fat diet, can be written like this:</li>
+</ul>
+<p><span class="math display">\[
+Y_i = \beta_1 x_{i,1} + \beta_2 x_{i,2}  + \beta_3 x_{i,3}  + \beta_4 x_{i,4}  + \varepsilon_i
+\]</span></p>
+<ul>
+<li>with <span class="math inline">\(x_{i,1},\dots,x_{i,4}\)</span> indicator variables for each of the four groups.</li>
+</ul>
+</section>
+<section id="two-factor-designs-6" class="slide level2">
+<h2>Two factor designs</h2>
+<ul>
+<li><p>Note that with this representation we allow the diet effect to be different for males and females.</p></li>
+<li><p>However, with this representation, none of the <span class="math inline">\(\beta\)</span>s represent the effect of interest: the diet effect.</p></li>
+<li><p>A powerful feature of linear models is that we can rewrite the model so that the expected value for each group remains the same, but the parameters represent the effects we are interested in.</p></li>
+</ul>
+</section>
+<section id="two-factor-designs-7" class="slide level2">
+<h2>Two factor designs</h2>
+<ul>
+<li>So, for example, in the representation.</li>
+</ul>
+<p><span class="math display">\[
+Y_i = \beta_0 + \beta_1 x_{i,1}  + \beta_2 x_{i,2}  + \beta_3 x_{i,1} x_{i,2}  + \varepsilon_i
+\]</span></p>
+<ul>
+<li>with <span class="math inline">\(x_{i,1}\)</span> an indicator that is 1 if individual <span class="math inline">\(i\)</span> is on the high-fat diet <span class="math inline">\(x_{i,2}\)</span> an indicator that is 1 if you are male, the <span class="math inline">\(\beta_1\)</span> is interpreted as the diet effect for females, <span class="math inline">\(\beta_2\)</span> as the average difference between males and females, and <span class="math inline">\(\beta_3\)</span> the difference in the diet effect between males and females.</li>
+</ul>
+</section>
+<section id="two-factor-designs-8" class="slide level2">
+<h2>Two factor designs</h2>
+<ul>
+<li><p>In statistics, <span class="math inline">\(\beta_3\)</span> is referred to as an <em>interaction effect</em>.</p></li>
+<li><p>The <span class="math inline">\(\beta_0\)</span> is considered the baseline value, which is the average weight of females on the chow diet.</p></li>
+</ul>
+</section>
+<section id="two-factor-designs-9" class="slide level2">
+<h2>Two factor designs</h2>
+<ul>
+<li><p>Statistical textbooks describe several other ways in which the model can be rewritten to obtain other types of interpretations.</p></li>
+<li><p>For example, we might want <span class="math inline">\(\beta_2\)</span> to represent the overall diet effect (the average between female and male effect) rather than the diet effect on females.</p></li>
+</ul>
+</section>
+<section id="two-factor-designs-10" class="slide level2">
+<h2>Two factor designs</h2>
+<ul>
+<li><p>This is achieved by defining what <em>contrasts</em> we are interested in.</p></li>
+<li><p>In R, we can specific the linear model above using the following:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_weight <span class="sc">~</span> diet<span class="sc">*</span>sex, <span class="at">data =</span> mice_weights) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>The <code>*</code> implies that the term that multiplies <span class="math inline">\(x_{i,1}\)</span> and <span class="math inline">\(x_{i,2}\)</span> should be included, along with the <span class="math inline">\(x_{i,1}\)</span> and <span class="math inline">\(x_{i,2}\)</span> terms.</li>
+</ul>
+</section>
+<section id="two-factor-designs-11" class="slide level2">
+<h2>Two factor designs</h2>
+<ul>
+<li>Here are the estimates:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">tidy</span>(fit, <span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">str_detect</span>(term, <span class="st">"Intercept"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 7
+  term        estimate std.error statistic  p.value conf.low conf.high
+  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+1 diethf          3.88     0.624      6.22 8.02e-10    2.66       5.10
+2 sexM            7.53     0.627     12.0  1.27e-30    6.30       8.76
+3 diethf:sexM     2.66     0.891      2.99 2.91e- 3    0.912      4.41</code></pre>
+</div>
+</div>
+<ul>
+<li>Note that the male effect is larger that the diet effect, and the diet effect is statistically significant for both sexes, with diet affecting males more by between 1 and 4.5 grams.</li>
+</ul>
+</section>
+<section id="two-factor-designs-12" class="slide level2">
+<h2>Two factor designs</h2>
+<ul>
+<li>A common approach applied when more than one factor is thought to affect the measurement is to simply include an additive effect for each factor, like this:</li>
+</ul>
+<p><span class="math display">\[
+Y_i = \beta_0 + \beta_1 x_{i,1}  + \beta_2 x_{i,2}   + \varepsilon_i
+\]</span></p>
+<ul>
+<li>In this model, the <span class="math inline">\(\beta_1\)</span> is a general diet effect that applies regardless of sex.</li>
+</ul>
+</section>
+<section id="two-factor-designs-13" class="slide level2">
+<h2>Two factor designs</h2>
+<ul>
+<li>In R, we use the following code, employing a <code>+</code> instead of <code>*</code>:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_weight <span class="sc">~</span> diet <span class="sc">+</span> sex, <span class="at">data =</span> mice_weights) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Note that this model does not account for the difference in diet effect between males and females.</li>
+</ul>
+</section>
+<section id="two-factor-designs-14" class="slide level2">
+<h2>Two factor designs</h2>
+<ul>
+<li>Diagnostic plots would reveal this deficiency by showing that the residuals are biased: they are, on average, negative for females on the diet and positive for males on the diet, rather than being centered around 0.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">plot</span>(fit, <span class="at">which =</span> <span class="dv">1</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="two-factor-designs-15" class="slide level2">
+<h2>Two factor designs</h2>
+
+<img data-src="31-treatment-effect-models_files/figure-revealjs/lm-diagnostic-plot-run-1.png" width="960" class="r-stretch"></section>
+<section id="two-factor-designs-16" class="slide level2">
+<h2>Two factor designs</h2>
+<ul>
+<li><p>Scientific studies, particularly within epidemiology and social sciences, frequently omit interaction terms from models due to the high number of variables.</p></li>
+<li><p>Adding interactions necessitates numerous parameters, which in extreme cases may prevent the model from fitting.</p></li>
+<li><p>However, this approach assumes that the interaction terms are zero, and if incorrect, it can skew the interpretation of the results.</p></li>
+<li><p>Conversely, when this assumption is valid, models excluding interactions are simpler to interpret, as parameters are typically viewed as the extent to which the outcome increases with the assigned treatment.</p></li>
+</ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>Linear models are highly flexible and applicable in many contexts.</p></li>
+<li><p>For example, we can include many more factors than just 2.</p></li>
+<li><p>We have only just scratched the surface of how linear models can be used to estimate treatment effects.</p></li>
+<li><p>We highly recommend learning more about this by exploring linear model textbooks and R manuals that cover the use of functions such as <code>lm</code>, <code>contrasts</code>, and <code>model.matrix</code>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="contrasts" class="slide level2">
+<h2>Contrasts</h2>
+<ul>
+<li><p>In the examples we have examined, each treatment had only two groups: diet had chow/high-fat, and sex had female/male.</p></li>
+<li><p>However, variables of interest often have more than one level.</p></li>
+<li><p>For example, we might have tested a third diet on the mice.</p></li>
+<li><p>In statistics textbooks, these variables are referred to as a <em>factor</em>, and the groups in each factor are called its <em>levels</em>.</p></li>
+</ul>
+</section>
+<section id="contrasts-1" class="slide level2">
+<h2>Contrasts</h2>
+<ul>
+<li><p>When a factor is included in the formula, the default behavior for <code>lm</code> is to define the intercept term as the expected value for the first level, and the other coefficient are to represent the difference, or <em>contrast</em>, between the other levels and first.</p></li>
+<li><p>We can see when we estimate the sex effect with <code>lm</code> like this:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_weight <span class="sc">~</span> sex, <span class="at">data =</span> mice_weights) </span>
+<span id="cb24-2"><a></a><span class="fu">coefficients</span>(fit) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)        sexM 
+  29.758844    8.820658 </code></pre>
+</div>
+</div>
+</section>
+<section id="contrasts-2" class="slide level2">
+<h2>Contrasts</h2>
+<ul>
+<li>To recover the expected mean for males, we can simply add the two coefficients:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="fu">sum</span>(fit<span class="sc">$</span>coefficients[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 38.5795</code></pre>
+</div>
+</div>
+<ul>
+<li>The package <strong>emmeans</strong> simplifies the calculation and also calculates standard errors:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="fu">library</span>(emmeans) </span>
+<span id="cb28-2"><a></a><span class="fu">emmeans</span>(fit, <span class="sc">~</span>sex) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> sex emmean    SE  df lower.CL upper.CL
+ F     29.8 0.339 778     29.1     30.4
+ M     38.6 0.346 778     37.9     39.3
+
+Confidence level used: 0.95 </code></pre>
+</div>
+</div>
+</section>
+<section id="contrasts-3" class="slide level2">
+<h2>Contrasts</h2>
+<ul>
+<li>Now, what if we really didn’t want to define a reference level? What if we wanted a parameter to represent the difference from each group to the overall mean? Can we write a model like this:</li>
+</ul>
+<p><span class="math display">\[
+Y_i = \beta_0 + \beta_1 x_{i,1} + \beta_2 x_{i,2} + \varepsilon_i
+\]</span></p>
+<ul>
+<li>with <span class="math inline">\(x_{i,1} = 1\)</span>, if observation <span class="math inline">\(i\)</span> is female and 0 otherwise, and <span class="math inline">\(x_{i,2}=1\)</span>, if observation <span class="math inline">\(i\)</span> is male and 0 otherwise?</li>
+</ul>
+</section>
+<section id="contrasts-4" class="slide level2">
+<h2>Contrasts</h2>
+<ul>
+<li><p>Unfortunately, this representation has a problem.</p></li>
+<li><p>Note that the mean for females and males are represented by <span class="math inline">\(\beta_0 + \beta_1\)</span> and <span class="math inline">\(\beta_0 + \beta_2\)</span>, respectively.</p></li>
+<li><p>This is a problem because the expected value for each group is just one number, say <span class="math inline">\(\mu_f\)</span> and <span class="math inline">\(\mu_m\)</span>, and there is an infinite number of ways <span class="math inline">\(\beta_0 + \beta_1 = \mu_f\)</span> and <span class="math inline">\(\beta_0 +\beta_2 = \mu_m\)</span> (three unknowns with two equations).</p></li>
+<li><p>This implies that we can’t obtain a unique least squares estimates.</p></li>
+<li><p>The model, or parameters, are <em>unidentifiable</em>.</p></li>
+</ul>
+</section>
+<section id="contrasts-5" class="slide level2">
+<h2>Contrasts</h2>
+<ul>
+<li><p>The default behavior in R solves this problem by requiring <span class="math inline">\(\beta_1 = 0\)</span>, forcing <span class="math inline">\(\beta_0 = \mu_m\)</span>, which permits us to solve the system of equations.</p></li>
+<li><p>Keep in mind that this is not the only constraint that permits estimation of the parameters.</p></li>
+</ul>
+</section>
+<section id="contrasts-6" class="slide level2">
+<h2>Contrasts</h2>
+<ul>
+<li><p>Any linear constraint will do as it adds a third equation to our system.</p></li>
+<li><p>A widely used constraint is to require <span class="math inline">\(\beta_1 + \beta_2 = 0\)</span>.</p></li>
+<li><p>To achieve this in R, we can use the argument <code>contrast</code> in the following way:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_weight <span class="sc">~</span> sex, <span class="at">data =</span> mice_weights,  </span>
+<span id="cb30-2"><a></a>          <span class="at">contrasts =</span> <span class="fu">list</span>(<span class="at">sex =</span> contr.sum)) </span>
+<span id="cb30-3"><a></a><span class="fu">coefficients</span>(fit) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)        sex1 
+  34.169173   -4.410329 </code></pre>
+</div>
+</div>
+</section>
+<section id="contrasts-7" class="slide level2">
+<h2>Contrasts</h2>
+<ul>
+<li><p>We see that the intercept is now larger, reflecting the overall mean rather than just the mean for females.</p></li>
+<li><p>The other coefficient, <span class="math inline">\(\beta_1\)</span>, represents the contrast between females and the overall mean in our model.</p></li>
+<li><p>The coefficient for men is not shown because it is redundant: <span class="math inline">\(\beta_1= -\beta_2\)</span>.</p></li>
+</ul>
+</section>
+<section id="contrasts-8" class="slide level2">
+<h2>Contrasts</h2>
+<ul>
+<li>If we want to see all the estimates, the <strong>emmeans</strong> package also makes the calculations for us:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a><span class="fu">contrast</span>(<span class="fu">emmeans</span>(fit, <span class="sc">~</span>sex)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> contrast estimate    SE  df t.ratio p.value
+ F effect    -4.41 0.242 778 -18.203  &lt;.0001
+ M effect     4.41 0.242 778  18.203  &lt;.0001
+
+P value adjustment: fdr method for 2 tests </code></pre>
+</div>
+</div>
+</section>
+<section id="contrasts-9" class="slide level2">
+<h2>Contrasts</h2>
+<ul>
+<li><p>The use of this alternative constraint is more practical when a factor has more than one level, and choosing a baseline becomes less convenient.</p></li>
+<li><p>Furthermore, we might be more interested in the variance of the coefficients rather than the contrasts between groups and the reference level.</p></li>
+</ul>
+</section>
+<section id="contrasts-10" class="slide level2">
+<h2>Contrasts</h2>
+<ul>
+<li>As an example, consider that the mice in our dataset are actually from several generations:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="fu">table</span>(mice_weights<span class="sc">$</span>gen) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  4   7   8   9  11 
+ 97 195 193  97 198 </code></pre>
+</div>
+</div>
+</section>
+<section id="contrasts-11" class="slide level2">
+<h2>Contrasts</h2>
+<ul>
+<li>To estimate the variability due to the different generations, a convenient model is:</li>
+</ul>
+<p><span class="math display">\[
+Y_i = \beta_0 + \sum_{j=1}^J \beta_j x_{i,j} + \varepsilon_i
+\]</span></p>
+<ul>
+<li>with <span class="math inline">\(x_{i,j}\)</span> indicator variables: <span class="math inline">\(x_{i,j}=1\)</span> if mouse <span class="math inline">\(i\)</span> is in level <span class="math inline">\(j\)</span> and 0 otherwise, <span class="math inline">\(J\)</span> representing the number of levels, in our example 5 generations, and the level effects constrained with.</li>
+</ul>
+<p><span class="math display">\[
+\frac{1}{J} \sum_{j=1}^J \beta_j = 0 \implies \sum_{j=1}^J \beta_j = 0.  
+\]</span></p>
+</section>
+<section id="contrasts-12" class="slide level2">
+<h2>Contrasts</h2>
+<ul>
+<li>The constraint makes the model identifiable and also allows us to quantify the variability due to generations with:</li>
+</ul>
+<p><span class="math display">\[
+\sigma^2_{\text{gen}} \equiv \frac{1}{J}\sum_{j=1}^J \beta_j^2
+\]</span></p>
+</section>
+<section id="contrasts-13" class="slide level2">
+<h2>Contrasts</h2>
+<ul>
+<li>We can see the estimated coefficients using the following:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_weight <span class="sc">~</span> gen,  <span class="at">data =</span> mice_weights,  </span>
+<span id="cb36-2"><a></a>          <span class="at">contrasts =</span> <span class="fu">list</span>(<span class="at">gen =</span> contr.sum)) </span>
+<span id="cb36-3"><a></a><span class="fu">contrast</span>(<span class="fu">emmeans</span>(fit, <span class="sc">~</span>gen))  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> contrast     estimate    SE  df t.ratio p.value
+ gen4 effect    -0.122 0.705 775  -0.174  0.8621
+ gen7 effect    -0.812 0.542 775  -1.497  0.3372
+ gen8 effect    -0.113 0.544 775  -0.207  0.8621
+ gen9 effect     0.149 0.705 775   0.212  0.8621
+ gen11 effect    0.897 0.540 775   1.663  0.3372
+
+P value adjustment: fdr method for 5 tests </code></pre>
+</div>
+</div>
+</section>
+<section id="analysis-of-variance-anova" class="slide level2">
+<h2>Analysis of variance (ANOVA)</h2>
+<ul>
+<li><p>When a factor has more than one level, it is common to want to determine if there is significant variability across the levels rather than specific difference between any given pair of levels.</p></li>
+<li><p>Analysis of variances (ANOVA) provides tools to do this.</p></li>
+<li><p>ANOVA provides an estimate of <span class="math inline">\(\sigma^2_{\text{gen}}\)</span> and a statistical test for the null hypothesis that the factor contributes no variability: <span class="math inline">\(\sigma^2_{\text{gen}} =0\)</span>.</p></li>
+<li><p>Once a linear model is fit using one or more factors, the <code>aov</code> function can be used to perform ANOVA.</p></li>
+</ul>
+</section>
+<section id="analysis-of-variance-anova-1" class="slide level2">
+<h2>Analysis of variance (ANOVA)</h2>
+<ul>
+<li>Specifically, the estimate of the factor variability is computed along with a statistic that can be used for hypothesis testing:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a><span class="fu">summary</span>(<span class="fu">aov</span>(fit)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Df Sum Sq Mean Sq F value Pr(&gt;F)
+gen           4    294   73.50   1.128  0.342
+Residuals   775  50479   65.13               </code></pre>
+</div>
+</div>
+</section>
+<section id="analysis-of-variance-anova-2" class="slide level2">
+<h2>Analysis of variance (ANOVA)</h2>
+<ul>
+<li>Keep in mind that if given a model formula, <code>aov</code> will fit the model:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a><span class="fu">summary</span>(<span class="fu">aov</span>(body_weight <span class="sc">~</span> gen, <span class="at">data =</span> mice_weights)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>We do not need to specify the constraint because ANOVA needs to constrain the sum to be 0 for the results to be interpretable.</p></li>
+<li><p>This analysis indicates that generation is not statistically significant.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>We do not include many details, for example, on how the summary statistics and p-values shown by <code>aov</code> are defined and motivated.</p></li>
+<li><p>There are several books dedicated to the analysis of variance, and textbooks on linear models often include chapters on this topic.</p></li>
+<li><p>Those interested in learning more about these topics can consult one of these textbooks.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="multiple-factors" class="slide level2">
+<h2>Multiple factors</h2>
+<ul>
+<li><p>ANOVA was developed to analyze agricultural data, which included several factors.</p></li>
+<li><p>We can perform ANOVA with multiple factors:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a><span class="fu">summary</span>(<span class="fu">aov</span>(body_weight <span class="sc">~</span> sex <span class="sc">+</span> diet <span class="sc">+</span> gen,  <span class="at">data =</span> mice_weights)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Df Sum Sq Mean Sq F value Pr(&gt;F)    
+sex           1  15165   15165 389.799 &lt;2e-16 ***
+diet          1   5238    5238 134.642 &lt;2e-16 ***
+gen           4    295      74   1.895  0.109    
+Residuals   773  30074      39                   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<ul>
+<li>This analysis suggests that sex is the biggest source of variability, which is consistent with previously made exploratory plots.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>One of the key aspects of ANOVA (Analysis of Variance) is its ability to decompose the total variance in the data, represented by <span class="math inline">\(\sum_{i=1}^n Y_i^2\)</span>, into individual contributions attributable to each factor in the study.</p></li>
+<li><p>However, for the mathematical underpinnings of ANOVA to be valid, the experimental design must be balanced.</p></li>
+<li><p>This means that for every level of any given factor, there must be an equal representation of the levels of all other factors.</p></li>
+<li><p>In our study involving mice, the design is unbalanced, requiring a cautious approach in the interpretation of the ANOVA results.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="array-representation" class="slide level2">
+<h2>Array representation</h2>
+<ul>
+<li>When the model includes more than one factor, writing down linear models can become cumbersome.</li>
+</ul>
+</section>
+<section id="array-representation-1" class="slide level2">
+<h2>Array representation</h2>
+<ul>
+<li>For example, in our two factor model, we include indicator variables for both factors:</li>
+</ul>
+<p><span class="math display">\[
+Y_i = \beta_0 + \sum_{j=1}^J \beta_j x_{i,j} + \sum_{k=1}^K \beta_{J+k} x_{i,J+k} + \varepsilon_i \\
+\mbox{ with }\sum_{j=1}^J \beta_j=0 \mbox{ and } \sum_{k=1}^K \beta_{J+k} = 0,
+\]</span></p>
+<ul>
+<li>the <span class="math inline">\(x\)</span>s are indicator functions for the different levels.</li>
+</ul>
+</section>
+<section id="array-representation-2" class="slide level2">
+<h2>Array representation</h2>
+<p>Specifically, in</p>
+<p><span class="math display">\[
+Y_i = \beta_0 + \sum_{j=1}^J \beta_j x_{i,j} + \sum_{k=1}^K \beta_{J+k} x_{i,J+k} + \varepsilon_i
+\]</span></p>
+<p>the <span class="math inline">\(x_{i,1},\dots,x_{i,J}\)</span> indicator functions for the <span class="math inline">\(J\)</span> levels in the first factor and <span class="math inline">\(x_{i,J+1},\dots,x_{i,J+K}\)</span> indicator functions for the <span class="math inline">\(K\)</span> levels in the second factor.</p>
+</section>
+<section id="array-representation-3" class="slide level2">
+<h2>Array representation</h2>
+<ul>
+<li>An alternative approach widely used in ANOVA to avoid indicators variables, is to save the data in an array, using different Greek letters to denote factors and indices to denote levels:</li>
+</ul>
+<p><span class="math display">\[
+Y_{i,j,k} = \mu + \alpha_j + \beta_k + \varepsilon_{i,j,k}
+\]</span></p>
+<ul>
+<li>with <span class="math inline">\(\mu\)</span> the overall mean, <span class="math inline">\(\alpha_j\)</span> the effect of level <span class="math inline">\(j\)</span> in the first factor, and <span class="math inline">\(\beta_k\)</span> the effect of level <span class="math inline">\(k\)</span> in the second factor.</li>
+</ul>
+</section>
+<section id="array-representation-4" class="slide level2">
+<h2>Array representation</h2>
+<ul>
+<li>The constraint can now be written as:</li>
+</ul>
+<p><span class="math display">\[
+\sum_{j=1}^J \alpha_j = 0 \text{ and } \sum_{k=1}^K \beta_k = 0
+\]</span></p>
+<ul>
+<li>This notation lends itself to estimating the effects by computing means across dimensions of the array.</li>
+</ul>
+
+<div class="quarto-auto-generated-content">
+<div class="footer footer-default">
+
+</div>
+</div>
+</section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp("http:\/\/datasciencelabs\.github\.io\/2024");
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

@@ -58,7 +58,7 @@
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/index.html</loc>
-    <lastmod>2024-11-09T07:01:30.374Z</lastmod>
+    <lastmod>2024-11-13T14:44:03.202Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/psets/pset-04-wrangling.html</loc>
@@ -162,7 +162,7 @@
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/linear-models/29-regression.html</loc>
-    <lastmod>2024-11-06T15:13:18.319Z</lastmod>
+    <lastmod>2024-11-12T20:06:30.993Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/linear-models/28-intro-to-linear-models.html</loc>
@@ -171,5 +171,13 @@
   <url>
     <loc>http://datasciencelabs.github.io/2024/psets/pset-08-linear-models.html</loc>
     <lastmod>2024-11-09T06:57:37.551Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/linear-models/30-multivariate-regression.html</loc>
+    <lastmod>2024-11-13T01:25:44.681Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/linear-models/31-treatment-effect-models.html</loc>
+    <lastmod>2024-11-13T14:41:50.958Z</lastmod>
   </url>
 </urlset>

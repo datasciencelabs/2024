@@ -3448,7 +3448,7 @@
     "href": "index.html#lectures",
     "title": "BST 260 Introduction to Data Science",
     "section": "Lectures",
-    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09, Sep 11\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git\n\n\nSep 16, Sep 19\nR\nR basics, Vectorization\nR Basics, Vectorization\n\n\nSep 23\nR\nTidyverse, ggplot2\ndplyr, ggplot2\n\n\nSep 25\nR\nTyding data\nReshaping Data\n\n\nSep 30, Oct 02\nWrangling\nIntro, Data Importing, Dates and Times, Locales, Data APIs, Web scraping, Joining tables\nImporting data, dates and times, Locales, Joining Tables, Extracting data from the web\n\n\nOct 07, Oct 09\nData visualization\nData Viz Principles, Distributions, Dataviz in practice\nDistributions, Dataviz Principles\n\n\nOct 16\nMidterm 1\n\nCovers material from Sep 04-Oct 11\n\n\nOct 21\nProbability\nIntro, Foundations for Inference\nMonte Carlo, Random Variables & CLT\n\n\nOct 23\nInference\nIntro, Parameter and estimates, Confidence Intervals\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\nModels, Bayes, Hierarchical Models\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\nIntro, Regression\nRegression, Multivariate Regression\n\n\nNov 13\nLinear models\n\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 18, Nov 20\nHigh dimensional data\n\nMatrices in R, Applied Linear Algebra, Dimension Reduction\n\n\nNov 25\nMidterm 2\n\nMidterm 2: cover material from Sep 04-Nov 22\n\n\nDec 02, Dec 04\nMachine Learning\n\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nDec 09, Dec 11\nMachine Learning\n\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
+    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09, Sep 11\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git\n\n\nSep 16, Sep 19\nR\nR basics, Vectorization\nR Basics, Vectorization\n\n\nSep 23\nR\nTidyverse, ggplot2\ndplyr, ggplot2\n\n\nSep 25\nR\nTyding data\nReshaping Data\n\n\nSep 30, Oct 02\nWrangling\nIntro, Data Importing, Dates and Times, Locales, Data APIs, Web scraping, Joining tables\nImporting data, dates and times, Locales, Joining Tables, Extracting data from the web\n\n\nOct 07, Oct 09\nData visualization\nData Viz Principles, Distributions, Dataviz in practice\nDistributions, Dataviz Principles\n\n\nOct 16\nMidterm 1\n\nCovers material from Sep 04-Oct 11\n\n\nOct 21\nProbability\nIntro, Foundations for Inference\nMonte Carlo, Random Variables & CLT\n\n\nOct 23\nInference\nIntro, Parameter and estimates, Confidence Intervals\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\nModels, Bayes, Hierarchical Models\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\nIntro, Regression\nRegression, Multivariate Regression\n\n\nNov 13\nLinear models\nMultivariate regression, Treatment effect models\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 18, Nov 20\nHigh dimensional data\n\nMatrices in R, Applied Linear Algebra, Dimension Reduction\n\n\nNov 25\nMidterm 2\n\nMidterm 2: cover material from Sep 04-Nov 22\n\n\nDec 02, Dec 04\nMachine Learning\n\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nDec 09, Dec 11\nMachine Learning\n\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
     "crumbs": [
       "Home"
     ]
@@ -8108,14 +8108,14 @@
     "href": "slides/linear-models/29-regression.html#diagnostic-plots-7",
     "title": "Regression",
     "section": "Diagnostic plots",
-    "text": "Diagnostic plots"
+    "text": "Diagnostic plots\n\nThis function can produce six different plots, and the argument which let’s you specify which you want to see.\nYou can learn more by reading the plot.lm help file.\nHowever, some of the plots are based on more advanced concepts beyond the scope of this book.\nTo learn more, we recommend an advanced book on regression analysis.\nWe later introduce data analysis challenges in which we may decide to not to include certain variables in the model."
   },
   {
     "objectID": "slides/linear-models/29-regression.html#diagnostic-plots-8",
     "href": "slides/linear-models/29-regression.html#diagnostic-plots-8",
     "title": "Regression",
     "section": "Diagnostic plots",
-    "text": "Diagnostic plots\n\nThis function can produce six different plots, and the argument which let’s you specify which you want to see.\nYou can learn more by reading the plot.lm help file.\nHowever, some of the plots are based on more advanced concepts beyond the scope of this book.\nTo learn more, we recommend an advanced book on regression analysis.\nWe later introduce data analysis challenges in which we may decide to not to include certain variables in the model."
+    "text": "Diagnostic plots\n\nIn these cases, an important diagnostic test to add checks if the residuals are related to variables not included in the model."
   },
   {
     "objectID": "slides/linear-models/29-regression.html#the-regression-fallacy",
@@ -8340,5 +8340,901 @@
     "title": "Problem set 7",
     "section": "",
     "text": "Load the HistData package. Create a galton_height data with the father’s height and one randomly selected daughter from each family. Exclude families with no female children. Set the seed at 2007 and use the function sample_n to select the random child. You should end up with a heights dataset with two columns: father and daughter.\n\n\nlibrary(HistData)\nnames(GaltonFamilies)\nset.seed(2007)\nheights &lt;- GaltonFamilies |&gt; ## your code here\n\n\nEstimate the intercept and slope of the regression line for predicting daughter height \\(Y\\) using father height \\(X\\). Use the following regression line formula:\n\n\\[\n\\frac{\\hat{Y} - \\mu_Y}{\\sigma_Y} = \\rho \\frac{x - \\mu_x}{\\sigma_x}\n\\]\n\n## your code here\n\n\nMake a plot to confirm the regression line goes through the data.\n\n\nheights |&gt; ggplot(aes(father, daughter)) + ## your code here\n\n\nRecompute the slope and intercept coefficients, this time using lm and confirm you get the same answer as with the formula used in problem 2.\n\n\n## your code here\n\n\nNote that the interpretation of the intercept is: the height prediction for the daughter whose father is 0 inches tall. This is not a very useful interpretation. Re-run the regression but instead of father height use inches above average for each father: instead of using the \\(x_i\\)s use \\(x_i - \\bar{x}\\). What is the interpretation of the intercept now? Does the slope estimate change?\n\n\n##your code here\n\n\nWhen using the centered father heights as a predictor, is the intercept the same as the average daughter height? Check if this is the case with the values you computed and then show that mathematically this has to be the case.\n\n\n##your code here\n\nFor the next exercises install the excessmort package. For the latest version use\n\nlibrary(devtools)\ninstall_github(\"rafalab/excessmort\")\n\n\nDefine an object counts by wrangling puerto_rico_counts to 1) include data only from 2002-2017 and counts for people 60 or over. We will focus in this older subset throughout the rest of the problem set.\n\n\nlibrary(excessmort) \ncounts &lt;- puerto_rico_counts |&gt; ##your code\n\n\nUse R to determine what day of the week María made landfall in PR (September 20, 2017).\n\n\nmaria &lt;- make_date(2017, 9, 20)\n##your code here\n\n\nRedefine the date column to be the start of the week that date is part of: in other words, round the date down to the nearest week. Use the day of the week María made landfall as the first day. So, for example, 2017-09-20, 2017-09-21, 2017-09-22 should all be rounded down to 2017-09-20, while 2017-09-19 should be rounded down to 2017-09-13. Save the resulting table in weekly_counts.\n\n\nweekly_counts &lt;- counts |&gt; \n  ##your code here\n\n\nNow collapse the weekly_count data frame to store only one mortality value for each week, for each sex and agegroup. To this by by redefining outcome to have the total deaths that week for each sex and agegroup. Remove weeks that have less the 7 days of data. Finally, add a column with the MMWR week. Name the resulting data frame weekly_counts.\n\n\nweekly_counts &lt;- weekly_counts |&gt; \n  ## your code here\n\n\nComparing mortality totals is often unfair because the two groups begin compared have different population sizes. It is particularly important we consider rates rather than totals in this dataset because the demographics in Puerto Rico changed dramatically in the last 20 years. To see this use puerto_rico_counts to plot the population sizes by age group and gender. Provide a two sentence description of what you see.\n\n\npuerto_rico_counts |&gt; ## your code here\n\n\nMake a boxplot for each MMWR week’s mortality rate based on the 2002-2016 data. Each week has 15 data points, one for each year. Then add the 2017 data as red points.\n\n\n###your code here\n\n\nNote twp things: 1) there is a strong week effect and 2) 2017 is lower than expected. Plot the yearly rates (per 1,000) for 2002-2016:\n\n\nweekly_counts |&gt; \n  filter(year(date) &lt; 2017) |&gt;\n ## your code here\n\n\nThe plot made in 14 explains why 2017 is below what is expected: there appears to be a general decrease in mortality with time. A possible explanation is that medical care is improving and people are living more healthy lives.\n\nFit a linear model to the weekly data for the 65 and older to the 2002-2016 data that accounts for:\n\nA changing population.\nThe trend observed in 12.\nThe week effect.\nAge effect.\nA sex effect.\n\nUse rate as the outcome in the model.\n\ndat &lt;- weekly_counts |&gt; \n  mutate(rate = outcome/population, ##your code here\n\nfit &lt;- ## your code here\n\n\nNow obtain expected counts for the entire dataset, including 2017. Compute the difference between the observed count and expected count and plot the total excess death for each week. Hint: use the predict function.\n\n\n## your code here\n\n\nFinally, plot the observed rates and predicted rates from the model for each agegroup and sex. Comment on how well the model fits and what you might do differently.\n\n\n##your code here"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#multivariate-regression",
+    "href": "slides/linear-models/30-multivariate-regression.html#multivariate-regression",
+    "title": "Multivariate Regression",
+    "section": "Multivariate Regression",
+    "text": "Multivariate Regression\n\nSince Galton’s original development, regression has become one of the most widely used tools in data analysis.\nOne reason is the fact that an adaptation of the original regression approach, based on linear models, permits us to find relationships between two variables taking into account the effects of other variables that affect both.\nThis has been particularly popular in fields where randomized experiments are hard to run, such as economics and epidemiology."
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#multivariate-regression-1",
+    "href": "slides/linear-models/30-multivariate-regression.html#multivariate-regression-1",
+    "title": "Multivariate Regression",
+    "section": "Multivariate Regression",
+    "text": "Multivariate Regression\n\nWhen we are unable to randomly assign each individual to a treatment or control group, confounding becomes particularly prevalent.\nFor instance, consider estimating the effect of eating fast foods on life expectancy using data collected from a random sample of people in a jurisdiction.\nFast food consumers are more likely to be smokers, drinkers, and have lower incomes.\nConsequently, a naive regression model may lead to an overestimate of the negative health effects of fast food."
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#multivariate-regression-2",
+    "href": "slides/linear-models/30-multivariate-regression.html#multivariate-regression-2",
+    "title": "Multivariate Regression",
+    "section": "Multivariate Regression",
+    "text": "Multivariate Regression\n\nSo, how do we account for confounding in practice?\nToday we learn how multivariate regression can help with such situations and can be used to describe how one or more variables affect an outcome variable.\nWe illustrate with a real-world example in which data was used to help pick underappreciated players to improve a resource limited sports team."
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#case-study-moneyball",
+    "href": "slides/linear-models/30-multivariate-regression.html#case-study-moneyball",
+    "title": "Multivariate Regression",
+    "section": "Case study: Moneyball",
+    "text": "Case study: Moneyball"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#moneyball",
+    "href": "slides/linear-models/30-multivariate-regression.html#moneyball",
+    "title": "Multivariate Regression",
+    "section": "Moneyball",
+    "text": "Moneyball"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#moneyball-1",
+    "href": "slides/linear-models/30-multivariate-regression.html#moneyball-1",
+    "title": "Multivariate Regression",
+    "section": "Moneyball",
+    "text": "Moneyball"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#case-study-moneyball-1",
+    "href": "slides/linear-models/30-multivariate-regression.html#case-study-moneyball-1",
+    "title": "Multivariate Regression",
+    "section": "Case study: Moneyball",
+    "text": "Case study: Moneyball"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#examples",
+    "href": "slides/linear-models/30-multivariate-regression.html#examples",
+    "title": "Multivariate Regression",
+    "section": "Examples",
+    "text": "Examples\n\nHere is a video showing a success: https://www.youtube.com/watch?v=HL-XjMCPfio.\nAnd here is one showing a failure: https://www.youtube.com/watch?v=NeloljCx-1g."
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#baseball-basics",
+    "href": "slides/linear-models/30-multivariate-regression.html#baseball-basics",
+    "title": "Multivariate Regression",
+    "section": "Baseball basics",
+    "text": "Baseball basics"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#baseball-basics-1",
+    "href": "slides/linear-models/30-multivariate-regression.html#baseball-basics-1",
+    "title": "Multivariate Regression",
+    "section": "Baseball basics",
+    "text": "Baseball basics\n\nBases on balls (BB): The pitcher fails to throw the ball through a predefined area considered to be hittable (the strike zone), so the batter is permitted to go to first base.\nSingle: The batter hits the ball and gets to first base.\nDouble (2B): The batter hits the ball and gets to second base.\nTriple (3B): The batter hits the ball and gets to third base.\nHome Run (HR): The batter hits the ball and goes all the way home and scores a run."
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#baseball-basics-2",
+    "href": "slides/linear-models/30-multivariate-regression.html#baseball-basics-2",
+    "title": "Multivariate Regression",
+    "section": "Baseball basics",
+    "text": "Baseball basics\n\nHere is an example of a HR: https://www.youtube.com/watch?v=xYxSZJ9GZ-w."
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#baseball-basics-3",
+    "href": "slides/linear-models/30-multivariate-regression.html#baseball-basics-3",
+    "title": "Multivariate Regression",
+    "section": "Baseball basics",
+    "text": "Baseball basics\n\nHere is an example of a stolen base: https://www.youtube.com/watch?v=JSE5kfxkzfk.\nAll these events are tracked throughout the season and are available to us through the Lahman package.\nNow, we can begin discussing how data analysis can help us determine how to use these statistics to evaluate players."
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#baseball-basics-4",
+    "href": "slides/linear-models/30-multivariate-regression.html#baseball-basics-4",
+    "title": "Multivariate Regression",
+    "section": "Baseball basics",
+    "text": "Baseball basics\n\nHere is an example of a stolen base: https://www.youtube.com/watch?v=JSE5kfxkzfk.\nAll these events are tracked throughout the season and are available to us through the Lahman package.\nNow, we can begin discussing how data analysis can help us determine how to use these statistics to evaluate players."
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#no-awards-for-base-on-balls",
+    "href": "slides/linear-models/30-multivariate-regression.html#no-awards-for-base-on-balls",
+    "title": "Multivariate Regression",
+    "section": "No awards for base on balls",
+    "text": "No awards for base on balls"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#base-on-balls-or-stolen-bases",
+    "href": "slides/linear-models/30-multivariate-regression.html#base-on-balls-or-stolen-bases",
+    "title": "Multivariate Regression",
+    "section": "Base on balls or stolen bases?",
+    "text": "Base on balls or stolen bases?\n\nlibrary(tidyverse) \nlibrary(Lahman) \ndat &lt;- Teams |&gt; filter(yearID %in% 1962:2002) |&gt; \n  mutate(team = teamID, year = yearID, r = R/G,  \n         singles = (H - X2B - X3B - HR)/G,  \n         doubles = X2B/G, triples = X3B/G, hr = HR/G, \n         sb = SB/G, bb = BB/G) |&gt; \n  select(team, year, r, singles, doubles, triples, hr, sb, bb)"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#base-on-balls-or-stolen-bases-1",
+    "href": "slides/linear-models/30-multivariate-regression.html#base-on-balls-or-stolen-bases-1",
+    "title": "Multivariate Regression",
+    "section": "Base on balls or stolen bases?",
+    "text": "Base on balls or stolen bases?\n\nNow let’s start with a obvious question: do teams that hit more home runs score more runs? When exploring the relationship between two variables, The visualization of choice is a scatterplot:"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#base-on-balls-or-stolen-bases-2",
+    "href": "slides/linear-models/30-multivariate-regression.html#base-on-balls-or-stolen-bases-2",
+    "title": "Multivariate Regression",
+    "section": "Base on balls or stolen bases?",
+    "text": "Base on balls or stolen bases?"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#base-on-balls-or-stolen-bases-3",
+    "href": "slides/linear-models/30-multivariate-regression.html#base-on-balls-or-stolen-bases-3",
+    "title": "Multivariate Regression",
+    "section": "Base on balls or stolen bases?",
+    "text": "Base on balls or stolen bases?"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#base-on-balls-or-stolen-bases-4",
+    "href": "slides/linear-models/30-multivariate-regression.html#base-on-balls-or-stolen-bases-4",
+    "title": "Multivariate Regression",
+    "section": "Base on balls or stolen bases?",
+    "text": "Base on balls or stolen bases?\n\nBut does this mean that increasing a team’s BBs causes an increase in runs?"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#regression-applied-to-baseball",
+    "href": "slides/linear-models/30-multivariate-regression.html#regression-applied-to-baseball",
+    "title": "Multivariate Regression",
+    "section": "Regression applied to baseball",
+    "text": "Regression applied to baseball\n\nCan we use regression with these data?"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#regression-applied-to-baseball-1",
+    "href": "slides/linear-models/30-multivariate-regression.html#regression-applied-to-baseball-1",
+    "title": "Multivariate Regression",
+    "section": "Regression applied to baseball",
+    "text": "Regression applied to baseball\n\nNow we are ready to use linear regression to predict the number of runs a team will score, if we know how many home runs the team hits using regression:\n\n\nhr_fit  &lt;- lm(r ~ hr, data = dat)$coef \np + geom_abline(intercept = hr_fit[[1]], slope = hr_fit[[2]])"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#regression-applied-to-baseball-2",
+    "href": "slides/linear-models/30-multivariate-regression.html#regression-applied-to-baseball-2",
+    "title": "Multivariate Regression",
+    "section": "Regression applied to baseball",
+    "text": "Regression applied to baseball\nIn ggplot we can do this:\n\np + geom_smooth(method = \"lm\")"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#the-broom-package",
+    "href": "slides/linear-models/30-multivariate-regression.html#the-broom-package",
+    "title": "Multivariate Regression",
+    "section": "The broom package",
+    "text": "The broom package\n\nlibrary(broom) \nfit &lt;- lm(r ~ bb, data = dat) \ntidy(fit, conf.int = TRUE) \n\n# A tibble: 2 × 7\n  term        estimate std.error statistic  p.value conf.low conf.high\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;\n1 (Intercept)    1.93     0.116       16.7 1.91e-55    1.70      2.15 \n2 bb             0.739    0.0348      21.2 1.90e-83    0.671     0.807\n\n\n\nThe other functions provided by broom, glance and augment, relate to model-specific and observation-specific outcomes, respectively."
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#confounding",
+    "href": "slides/linear-models/30-multivariate-regression.html#confounding",
+    "title": "Multivariate Regression",
+    "section": "Confounding",
+    "text": "Confounding\n\nPreviously, we noted a strong relationship between Runs and BB.\nIf we find the regression line for predicting runs from bases on balls, we a get slope of:\n\n\nbb_slope &lt;- lm(r ~ bb, data = dat)$coef[2] \nbb_slope  \n\n       bb \n0.7388725"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#confounding-1",
+    "href": "slides/linear-models/30-multivariate-regression.html#confounding-1",
+    "title": "Multivariate Regression",
+    "section": "Confounding",
+    "text": "Confounding\n\nThe data does provide strong evidence that a team with two more BB per game than the average team, scores 1.5 runs per game.\nBut this does not mean that BB are the cause."
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#confounding-2",
+    "href": "slides/linear-models/30-multivariate-regression.html#confounding-2",
+    "title": "Multivariate Regression",
+    "section": "Confounding",
+    "text": "Confounding\n\nNote that, if we compute the regression line slope for singles, we get:\n\n\nlm(r ~ singles, data = dat)$coef[2] \n\n  singles \n0.4324101"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#confounding-3",
+    "href": "slides/linear-models/30-multivariate-regression.html#confounding-3",
+    "title": "Multivariate Regression",
+    "section": "Confounding",
+    "text": "Confounding\n\nHere we show the correlation between HR, BB, and singles:\n\n\ndat |&gt; summarize(cor(bb, hr), cor(singles, hr), cor(bb, singles)) \n\n  cor(bb, hr) cor(singles, hr) cor(bb, singles)\n1   0.4064585       -0.1862848      -0.05126617"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#confounding-4",
+    "href": "slides/linear-models/30-multivariate-regression.html#confounding-4",
+    "title": "Multivariate Regression",
+    "section": "Confounding",
+    "text": "Confounding\n\nA first approach is to keep HRs fixed at a certain value and then examine the relationship between BB and runs.\n\n\ndat |&gt; mutate(hr_strata = round(hr, 1)) |&gt;  \n  filter(hr_strata &gt;= 0.4 & hr_strata &lt;= 1.2) |&gt; \n  ggplot(aes(bb, r)) +   \n  geom_point(alpha = 0.5) + \n  geom_smooth(method = \"lm\") + \n  facet_wrap(~hr_strata)"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#understanding-confounding-through-stratification",
+    "href": "slides/linear-models/30-multivariate-regression.html#understanding-confounding-through-stratification",
+    "title": "Multivariate Regression",
+    "section": "Understanding confounding through stratification",
+    "text": "Understanding confounding through stratification"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#understanding-confounding-through-stratification-1",
+    "href": "slides/linear-models/30-multivariate-regression.html#understanding-confounding-through-stratification-1",
+    "title": "Multivariate Regression",
+    "section": "Understanding confounding through stratification",
+    "text": "Understanding confounding through stratification\n\nRemember that the regression slope for predicting runs with BB was 0.7.\nOnce we stratify by HR, these slopes are substantially reduced:\n\n\ndat |&gt; mutate(hr_strata = round(hr, 1)) |&gt;  \n  filter(hr_strata &gt;= 0.5 & hr_strata &lt;= 1.2) |&gt;   \n  group_by(hr_strata) |&gt; \n  reframe(tidy(lm(r ~ bb))) |&gt; \n  filter(term == \"bb\") \n\n# A tibble: 8 × 6\n  hr_strata term  estimate std.error statistic  p.value\n      &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1       0.5 bb       0.566    0.110       5.14 3.02e- 6\n2       0.6 bb       0.405    0.0984      4.12 7.46e- 5\n3       0.7 bb       0.284    0.0717      3.96 1.13e- 4\n4       0.8 bb       0.378    0.0638      5.92 1.75e- 8\n5       0.9 bb       0.254    0.0762      3.33 1.08e- 3\n6       1   bb       0.506    0.0720      7.02 9.46e-11\n7       1.1 bb       0.444    0.0878      5.06 2.77e- 6\n8       1.2 bb       0.469    0.0804      5.84 2.91e- 7"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#counfounding",
+    "href": "slides/linear-models/30-multivariate-regression.html#counfounding",
+    "title": "Multivariate Regression",
+    "section": "Counfounding",
+    "text": "Counfounding\n\ndat |&gt; mutate(bb_strata = round(bb, 1)) |&gt;  \n  filter(bb_strata &gt;= 3 & bb_strata &lt;= 4) |&gt;   \n  group_by(bb_strata) |&gt; \n  reframe(tidy(lm(r ~ hr))) |&gt; \n  filter(term == \"hr\") \n\n# A tibble: 11 × 6\n   bb_strata term  estimate std.error statistic  p.value\n       &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n 1       3   hr        1.51     0.182      8.31 1.47e-12\n 2       3.1 hr        1.49     0.168      8.87 3.10e-14\n 3       3.2 hr        1.61     0.150     10.8  6.96e-18\n 4       3.3 hr        1.57     0.167      9.39 5.73e-15\n 5       3.4 hr        1.55     0.153     10.1  3.77e-16\n 6       3.5 hr        1.64     0.174      9.43 4.96e-14\n 7       3.6 hr        1.78     0.197      8.99 6.68e-13\n 8       3.7 hr        1.47     0.196      7.50 6.37e-10\n 9       3.8 hr        1.66     0.202      8.24 9.64e-11\n10       3.9 hr        1.29     0.289      4.45 1.15e- 4\n11       4   hr        1.36     0.218      6.27 4.38e- 7"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#multivariable-regression",
+    "href": "slides/linear-models/30-multivariate-regression.html#multivariable-regression",
+    "title": "Multivariate Regression",
+    "section": "Multivariable regression",
+    "text": "Multivariable regression\n\nIt is somewhat complex to be computing regression lines for each strata.\nWe are essentially fitting models like this:\n\n\\[\n\\mbox{E}[R \\mid BB = x_1, \\, HR = x_2] = \\beta_0 + \\beta_1(x_2) x_1 + \\beta_2(x_1) x_2\n\\]\n\nwith the slopes for \\(x_1\\) changing for different values of \\(x_2\\) and vice versa.\nBut is there an easier approach?"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#multivariable-regression-1",
+    "href": "slides/linear-models/30-multivariate-regression.html#multivariable-regression-1",
+    "title": "Multivariate Regression",
+    "section": "Multivariable regression",
+    "text": "Multivariable regression\n\nIf we take random variability into account, the slopes in the strata don’t appear to change much.\nIf these slopes are in fact the same, this implies that \\(\\beta_1(x_2)\\) and \\(\\beta_2(x_1)\\) are constants.\nThis, in turn, implies that the expectation of runs conditioned on HR and BB can be written as follows:\n\n\\[\n\\mbox{E}[R \\mid BB = x_1, \\, HR = x_2] = \\beta_0 + \\beta_1 x_1 + \\beta_2 x_2\n\\]"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#multivariable-regression-2",
+    "href": "slides/linear-models/30-multivariate-regression.html#multivariable-regression-2",
+    "title": "Multivariate Regression",
+    "section": "Multivariable regression",
+    "text": "Multivariable regression\n\nThis model suggests that, if the number of HR is fixed at \\(x_2\\), we observe a linear relationship between runs and BB with an intercept of \\(\\beta_0 + \\beta_2 x_2\\).\nOur exploratory data analysis suggested that this is the case.\nThe model also suggests that as the number of HR grows, the intercept growth is linear as well and determined by \\(\\beta_1\\).\nIn this analysis, referred to as multivariable regression, you will often hear people say that the BB slope \\(\\beta_1\\) is adjusted for the HR effect."
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#multivariable-regression-3",
+    "href": "slides/linear-models/30-multivariate-regression.html#multivariable-regression-3",
+    "title": "Multivariate Regression",
+    "section": "Multivariable regression",
+    "text": "Multivariable regression\n\nBecause the data is approximately normal and conditional distributions were also normal, we are justified in using a linear model:\n\n\\[\nY_i = \\beta_0 + \\beta_1 x_{i,1} + \\beta_2 x_{i,2} + \\varepsilon_i\n\\]\n\nwith \\(Y_i\\) runs per game for team \\(i\\), \\(x_{i,1}\\) walks per game, and \\(x_{i,2}\\)."
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#multivariable-regression-4",
+    "href": "slides/linear-models/30-multivariate-regression.html#multivariable-regression-4",
+    "title": "Multivariate Regression",
+    "section": "Multivariable regression",
+    "text": "Multivariable regression\n\nTo use lm here, we need to let the function know we have two predictor variables.\nWe therefore use the + symbol as follows:\n\n\ntidy(lm(r ~ bb + hr, data = dat), conf.int = TRUE)  \n\n# A tibble: 3 × 7\n  term        estimate std.error statistic   p.value conf.low conf.high\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;\n1 (Intercept)    1.74     0.0820      21.2 3.38e- 83    1.58      1.90 \n2 bb             0.387    0.0269      14.4 8.41e- 43    0.334     0.440\n3 hr             1.57     0.0488      32.1 1.39e-157    1.47      1.66"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#multivariable-regression-5",
+    "href": "slides/linear-models/30-multivariate-regression.html#multivariable-regression-5",
+    "title": "Multivariate Regression",
+    "section": "Multivariable regression",
+    "text": "Multivariable regression\n\nWhen we fit the model with only one variable, the estimated slopes were 0.74 and 1.85 for BB and HR, respectively.\nNote that when fitting the multivariable model both go down, with the BB effect decreasing much more."
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team",
+    "href": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team",
+    "title": "Multivariate Regression",
+    "section": "Building a baseball team",
+    "text": "Building a baseball team\n\\[\nY_i = \\beta_0 + \\beta_1 x_{i,1} + \\beta_2 x_{i,2} + \\beta_3 x_{i,3}+ \\beta_4 x_{i,4} + \\beta_5 x_{i,5} + \\varepsilon_i\n\\]\n\nwith \\(x_{i,1}, x_{i,2}, x_{i,3}, x_{i,4}, x_{i,5}\\) representing BB, singles, doubles, triples, and HR respectively."
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-1",
+    "href": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-1",
+    "title": "Multivariate Regression",
+    "section": "Building a baseball team",
+    "text": "Building a baseball team\n\nUsing lm, we can quickly find the LSE for the parameters using:\n\n\nfit &lt;- dat |&gt;  filter(year &lt;= 2001) |&gt;  \n  lm(r ~ bb + singles + doubles + triples + hr, data = _)"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-2",
+    "href": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-2",
+    "title": "Multivariate Regression",
+    "section": "Building a baseball team",
+    "text": "Building a baseball team\n\nWe can see the coefficients using tidy:\n\n\ntidy(fit, conf.int = TRUE) |&gt; filter(term != \"(Intercept)\") \n\n# A tibble: 5 × 7\n  term    estimate std.error statistic   p.value conf.low conf.high\n  &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;\n1 bb         0.370    0.0119      31.2 1.00e-149    0.347     0.393\n2 singles    0.517    0.0128      40.5 5.29e-213    0.492     0.543\n3 doubles    0.775    0.0229      33.8 7.09e-168    0.730     0.820\n4 triples    1.24     0.0778      15.9 4.62e- 51    1.09      1.39 \n5 hr         1.44     0.0248      58.1 1.98e-323    1.39      1.49"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-3",
+    "href": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-3",
+    "title": "Multivariate Regression",
+    "section": "Building a baseball team",
+    "text": "Building a baseball team\n\nTo see how well our metric actually predicts runs, we can predict the number of runs for each team in 2002 using the function predict, then make a plot:\n\n\ndat |&gt; mutate(r_hat = predict(fit, newdata = dat)) |&gt; \n  filter(year == 2002) %&gt;% \n  ggplot(aes(r_hat, r, label = team)) +  \n  geom_point() + \n  geom_text(nudge_x = 0.1, cex = 2) +  \n  geom_abline()"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-4",
+    "href": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-4",
+    "title": "Multivariate Regression",
+    "section": "Building a baseball team",
+    "text": "Building a baseball team"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-5",
+    "href": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-5",
+    "title": "Multivariate Regression",
+    "section": "Building a baseball team",
+    "text": "Building a baseball team\n\nThe formula would look like this: -2.76 + 0.37 \\(\\times\\) BB + 0.52 \\(\\times\\) singles + 0.78 \\(\\times\\) doubles + 1.24 \\(\\times\\) triples + 1.44 \\(\\times\\) HR.\nTo define a player-specific metric, we have a bit more work to do."
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-6",
+    "href": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-6",
+    "title": "Multivariate Regression",
+    "section": "Building a baseball team",
+    "text": "Building a baseball team\n\npa_per_game &lt;- Batting |&gt; filter(yearID == 2002) |&gt;  \n  group_by(teamID) |&gt; \n  summarize(pa_per_game = sum(AB + BB)/162) |&gt;  \n  pull(pa_per_game) |&gt;  \n  mean()"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-7",
+    "href": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-7",
+    "title": "Multivariate Regression",
+    "section": "Building a baseball team",
+    "text": "Building a baseball team\n\nplayers &lt;- Batting |&gt;  \n  filter(yearID %in% 1997:2001) |&gt;  \n  group_by(playerID) |&gt; \n  mutate(pa = BB + AB) |&gt; \n  summarize(g = sum(pa)/pa_per_game, \n    bb = sum(BB)/g, \n    singles = sum(H - X2B - X3B - HR)/g, \n    doubles = sum(X2B)/g,  \n    triples = sum(X3B)/g,  \n    hr = sum(HR)/g, \n    avg = sum(H)/sum(AB), \n    pa = sum(pa)) |&gt; \n  filter(pa &gt;= 1000) |&gt; \n  select(-g) \nplayers$r_hat = predict(fit, newdata = players)"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-8",
+    "href": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-8",
+    "title": "Multivariate Regression",
+    "section": "Building a baseball team",
+    "text": "Building a baseball team\n\nhist(players$r_hat, main = \"Predicted runs per game\")"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-9",
+    "href": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-9",
+    "title": "Multivariate Regression",
+    "section": "Building a baseball team",
+    "text": "Building a baseball team"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-10",
+    "href": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-10",
+    "title": "Multivariate Regression",
+    "section": "Building a baseball team",
+    "text": "Building a baseball team\n\nplayers &lt;- Salaries |&gt;  \n  filter(yearID == 2002) |&gt; \n  select(playerID, salary) |&gt; \n  right_join(players, by = \"playerID\")"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-11",
+    "href": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-11",
+    "title": "Multivariate Regression",
+    "section": "Building a baseball team",
+    "text": "Building a baseball team\n\nposition_names &lt;-  \n  paste0(\"G_\", c(\"p\",\"c\",\"1b\",\"2b\",\"3b\",\"ss\",\"lf\",\"cf\",\"rf\", \"dh\")) \ntmp &lt;- Appearances |&gt;  \n  filter(yearID == 2002) |&gt;  \n  group_by(playerID) |&gt; \n  summarize_at(position_names, sum) |&gt; \n  ungroup() \npos &lt;- tmp |&gt; \n  select(all_of(position_names)) |&gt; \n  apply(X = _, 1, which.max)  \nplayers &lt;- tibble(playerID = tmp$playerID, POS = position_names[pos]) |&gt; \n  mutate(POS = str_to_upper(str_remove(POS, \"G_\"))) |&gt; \n  filter(POS != \"P\") |&gt; \n  right_join(players, by = \"playerID\") |&gt; \n  filter(!is.na(POS)  & !is.na(salary))"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-12",
+    "href": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-12",
+    "title": "Multivariate Regression",
+    "section": "Building a baseball team",
+    "text": "Building a baseball team\n\nplayers &lt;- People |&gt; \n  select(playerID, nameFirst, nameLast, debut) |&gt; \n  mutate(debut = as.Date(debut)) |&gt; \n  right_join(players, by = \"playerID\")"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-13",
+    "href": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-13",
+    "title": "Multivariate Regression",
+    "section": "Building a baseball team",
+    "text": "Building a baseball team\n\nIf you are a baseball fan, you will recognize the top 10 players:\n\n\nplayers |&gt; select(nameFirst, nameLast, POS, salary, r_hat) |&gt; arrange(desc(r_hat)) |&gt; head(10)  \n\n   nameFirst nameLast POS   salary    r_hat\n1      Barry    Bonds  LF 15000000 8.052460\n2      Larry   Walker  RF 12666667 7.960583\n3       Todd   Helton  1B  5000000 7.403074\n4      Manny  Ramirez  LF 15462727 7.352475\n5      Sammy     Sosa  RF 15000000 7.201670\n6       Jeff  Bagwell  1B 11000000 7.053805\n7       Mike   Piazza   C 10571429 6.993616\n8      Jason   Giambi  1B 10428571 6.916405\n9      Edgar Martinez  DH  7086668 6.912145\n10       Jim    Thome  1B  8000000 6.885270"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-14",
+    "href": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-14",
+    "title": "Multivariate Regression",
+    "section": "Building a baseball team",
+    "text": "Building a baseball team\n\n\n\n\n\nnameFirst\nnameLast\nPOS\nsalary\nr_hat\n\n\n\n\nTodd\nHelton\n1B\n5000000\n7.403073\n\n\nMike\nPiazza\nC\n10571429\n6.993616\n\n\nEdgar\nMartinez\nDH\n7086668\n6.912145\n\n\nJim\nEdmonds\nCF\n7333333\n6.231373\n\n\nJeff\nKent\n2B\n6000000\n6.079064\n\n\nPhil\nNevin\n3B\n2600000\n5.857409\n\n\nMatt\nStairs\nRF\n500000\n5.758631\n\n\nHenry\nRodriguez\nLF\n300000\n5.640563\n\n\nJohn\nValentin\nSS\n550000\n5.000417"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-15",
+    "href": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-15",
+    "title": "Multivariate Regression",
+    "section": "Building a baseball team",
+    "text": "Building a baseball team\n\n\n\n\n\nnameLast\nbb\nsingles\ndoubles\ntriples\nhr\navg\nr_hat\n\n\n\n\nHelton\n0.91\n-0.21\n2.65\n-0.31\n1.52\n2.67\n2.54\n\n\nPiazza\n0.33\n0.42\n0.20\n-1.42\n1.83\n2.20\n2.09\n\n\nMartinez\n2.14\n-0.01\n1.26\n-1.22\n0.81\n2.20\n2.00\n\n\nEdmonds\n1.07\n-0.56\n0.79\n-1.15\n0.97\n0.85\n1.26\n\n\nKent\n0.23\n-0.73\n2.01\n0.45\n0.77\n0.79\n1.09\n\n\nNevin\n0.31\n-0.91\n0.48\n-1.19\n1.19\n0.10\n0.85\n\n\nStairs\n1.10\n-1.51\n-0.05\n-1.13\n1.12\n-0.56\n0.74\n\n\nRodriguez\n0.20\n-1.60\n0.33\n-0.78\n1.32\n-0.67\n0.61\n\n\nValentin\n0.18\n-0.93\n1.79\n-0.43\n-0.05\n-0.47\n-0.09"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-16",
+    "href": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-16",
+    "title": "Multivariate Regression",
+    "section": "Building a baseball team",
+    "text": "Building a baseball team\n\n\n\n\n\nnameFirst\nnameLast\nPOS\nsalary\nr_hat\n\n\n\n\nTodd\nHelton\n1B\n5000000\n7.403073\n\n\nMike\nPiazza\nC\n10571429\n6.993616\n\n\nEdgar\nMartinez\nDH\n7086668\n6.912145\n\n\nJim\nEdmonds\nCF\n7333333\n6.231373\n\n\nJeff\nKent\n2B\n6000000\n6.079064\n\n\nPhil\nNevin\n3B\n2600000\n5.857409\n\n\nMatt\nStairs\nRF\n500000\n5.758631\n\n\nHenry\nRodriguez\nLF\n300000\n5.640563\n\n\nJohn\nValentin\nSS\n550000\n5.000417"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-17",
+    "href": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-17",
+    "title": "Multivariate Regression",
+    "section": "Building a baseball team",
+    "text": "Building a baseball team"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#confounding-5",
+    "href": "slides/linear-models/30-multivariate-regression.html#confounding-5",
+    "title": "Multivariate Regression",
+    "section": "Confounding",
+    "text": "Confounding"
+  },
+  {
+    "objectID": "slides/linear-models/30-multivariate-regression.html#confounding-6",
+    "href": "slides/linear-models/30-multivariate-regression.html#confounding-6",
+    "title": "Multivariate Regression",
+    "section": "Confounding",
+    "text": "Confounding\n\nOnce we stratify by HR, these slopes are substantially reduced:\n\n\ndat |&gt; mutate(hr_strata = round(hr, 1)) |&gt;  \n  filter(hr_strata &gt;= 0.5 & hr_strata &lt;= 1.2) |&gt;   \n  group_by(hr_strata) |&gt; \n  reframe(tidy(lm(r ~ bb))) |&gt; \n  filter(term == \"bb\") \n\n# A tibble: 8 × 6\n  hr_strata term  estimate std.error statistic  p.value\n      &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1       0.5 bb       0.566    0.110       5.14 3.02e- 6\n2       0.6 bb       0.405    0.0984      4.12 7.46e- 5\n3       0.7 bb       0.284    0.0717      3.96 1.13e- 4\n4       0.8 bb       0.378    0.0638      5.92 1.75e- 8\n5       0.9 bb       0.254    0.0762      3.33 1.08e- 3\n6       1   bb       0.506    0.0720      7.02 9.46e-11\n7       1.1 bb       0.444    0.0878      5.06 2.77e- 6\n8       1.2 bb       0.469    0.0804      5.84 2.91e- 7"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#treatment-effect-models",
+    "href": "slides/linear-models/31-treatment-effect-models.html#treatment-effect-models",
+    "title": "Treatment Effect Models",
+    "section": "Treatment effect models",
+    "text": "Treatment effect models\n\nUp to now, all our linear models have been applied to two or more continuous random variables.\nWe assume the random variables are multivariate normal and use this to motivate a linear model.\nThis approach covers many real-life examples of linear regression."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#treatment-effect-models-1",
+    "href": "slides/linear-models/31-treatment-effect-models.html#treatment-effect-models-1",
+    "title": "Treatment Effect Models",
+    "section": "Treatment effect models",
+    "text": "Treatment effect models\n\nHowever, linear models have many other applications.\nOne of the most popular is to quantify treatment effects in randomized and controlled experiments.\nOne of the first applications was in agriculture, where different plots of lands were treated with different combinations of fertilizers to try to determine if they were effective.\nIn fact, the use of \\(Y\\) for the outcome in statistics is due to the mathematical theory being developed for crop yield as the outcome."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#treatment-effect-models-2",
+    "href": "slides/linear-models/31-treatment-effect-models.html#treatment-effect-models-2",
+    "title": "Treatment Effect Models",
+    "section": "Treatment effect models",
+    "text": "Treatment effect models\n\nSince then, the same ideas have been applied in other areas, such as randomized trials developed to determine if drugs cure or prevent diseases or if policies have an effect on social or educational outcomes.\nIn the latter example, we think of the policy intervention as a treatment and follow the same mathematical procedure.\nThe analyses used in A/B testing, widely used today by internet companies, are based on treatment effects models."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#treatment-effect-models-3",
+    "href": "slides/linear-models/31-treatment-effect-models.html#treatment-effect-models-3",
+    "title": "Treatment Effect Models",
+    "section": "Treatment effect models",
+    "text": "Treatment effect models\n\nMoreover, these models have been applied in observational studies where analysts attempt to use linear models to estimate effects of interest while accounting for potential confounders.\nFor example, to estimate the effect of a diet high in fruits and vegetables on blood pressure, we would have to adjust for factors such as age, sex, and smoking status."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#treatment-effect-models-4",
+    "href": "slides/linear-models/31-treatment-effect-models.html#treatment-effect-models-4",
+    "title": "Treatment Effect Models",
+    "section": "Treatment effect models",
+    "text": "Treatment effect models\n\nA boxplot shows that the high fat diet mice are, on average, heavier.\n\n\nwith(mice_weights, boxplot(body_weight ~ diet))"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#treatment-effect-models-5",
+    "href": "slides/linear-models/31-treatment-effect-models.html#treatment-effect-models-5",
+    "title": "Treatment Effect Models",
+    "section": "Treatment effect models",
+    "text": "Treatment effect models"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#treatment-effect-models-6",
+    "href": "slides/linear-models/31-treatment-effect-models.html#treatment-effect-models-6",
+    "title": "Treatment Effect Models",
+    "section": "Treatment effect models",
+    "text": "Treatment effect models\n\nHowever, given that we divided the mice randomly, is it possible that the observed difference is simply due to chance? Here, we can compute the sample average and standard deviation of each group and perform statistical inference on the difference of these means."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means",
+    "href": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means",
+    "title": "Treatment Effect Models",
+    "section": "Comparing group means",
+    "text": "Comparing group means\n\nThe sample averages for the two groups, high-fat and chow diets, are different:\n\n\nlibrary(tidyverse) \nmice_weights |&gt; group_by(diet) |&gt; summarize(average = mean(body_weight)) \n\n# A tibble: 2 × 2\n  diet  average\n  &lt;fct&gt;   &lt;dbl&gt;\n1 chow     31.5\n2 hf       36.7"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-1",
+    "href": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-1",
+    "title": "Treatment Effect Models",
+    "section": "Comparing group means",
+    "text": "Comparing group means\n\nHowever, this is a random sample of mice, and the assignment to the diet group is also done randomly.\nSo is this difference due to chance?"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-2",
+    "href": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-2",
+    "title": "Treatment Effect Models",
+    "section": "Comparing group means",
+    "text": "Comparing group means\n\n\\(\\bar{X}_1 - \\bar{X}_0\\) follows a normal distribution,\nwith expected value \\(\\mu_1-\\mu_0\\)\nand standard error \\(\\sqrt{\\frac{\\sigma_1^2}{N_1} + \\frac{\\sigma_0^2}{N_0}}\\)."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-3",
+    "href": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-3",
+    "title": "Treatment Effect Models",
+    "section": "Comparing group means",
+    "text": "Comparing group means\n\nIf we define the null hypothesis as the high-fat diet having no effect, or \\(\\mu_1 - \\mu_0 = 0\\), this implies that.\n\n\\[\n\\frac{\\bar{X}_1 - \\bar{X}_0}{\\sqrt{\\frac{\\sigma_1^2}{N_1} + \\frac{\\sigma_0^2}{N_0}}}\n\\]\n\nhas expected value 0 and standard error 1 and therefore approximately follows a standard normal distribution."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-4",
+    "href": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-4",
+    "title": "Treatment Effect Models",
+    "section": "Comparing group means",
+    "text": "Comparing group means\n\nNote that we can’t compute this quantity in practice because the \\(\\sigma_1\\) and \\(\\sigma_0\\) are unknown.\nHowever, if we estimate them with the sample standard deviations the CLT still holds and:\n\n\\[\nt = \\frac{\\bar{X}_1 - \\bar{X}_0}{\\sqrt{\\frac{s_1^2}{N_1} + \\frac{s_0^2}{N_0}}}\n\\]\n\nfollows a standard normal distribution when the null hypothesis is true."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-5",
+    "href": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-5",
+    "title": "Treatment Effect Models",
+    "section": "Comparing group means",
+    "text": "Comparing group means\n\nThis implies that we can easily compute the probability of observing a value as large as the one we obtained:\n\n\nstats &lt;- mice_weights |&gt;  \n  group_by(diet) |&gt;  \n  summarize(xbar = mean(body_weight), s = sd(body_weight), n = n())  \nt_stat &lt;- with(stats, (xbar[2] - xbar[1])/sqrt(s[2]^2/n[2] + s[1]^2/n[1])) \nt_stat \n\n[1] 9.339096\n\n\n\nHere \\(t\\) is well over 3, so we don’t really need to compute the p-value 1-pnorm(t_stat) as we know it will be very small."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-6",
+    "href": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-6",
+    "title": "Treatment Effect Models",
+    "section": "Comparing group means",
+    "text": "Comparing group means\n\nNote that when \\(N\\) is not large enough, then the CLT does not apply and we use the t-distribution:\nSo the calculation of the p-value is the same except that we use pt instead of pnorm.\nSpecifically, we use\n\n\n1 - pt(t_stat, with(stats, n[2]+n[1]-2))\n\n[1] 0"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-7",
+    "href": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-7",
+    "title": "Treatment Effect Models",
+    "section": "Comparing group means",
+    "text": "Comparing group means\n\nDifferences in means are commonly examined in the scientific studies.\nAs a result this t-statistic is one of the most widely reported summaries.\nWhen used to determine if an observed difference is statistically significant, we refer to the procedure as “performing a t test”.\n:::{.callout-warning}.\nIn the computation above, we computed the probability of t being as large as what we observed."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#one-factor-design",
+    "href": "slides/linear-models/31-treatment-effect-models.html#one-factor-design",
+    "title": "Treatment Effect Models",
+    "section": "One factor design",
+    "text": "One factor design\n\nAlthough the t-test is useful for cases in which we compare two treatments, it is common to have other variables affect our outcomes.\nLinear models permit hypothesis testing in these more general situations."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#one-factor-design-1",
+    "href": "slides/linear-models/31-treatment-effect-models.html#one-factor-design-1",
+    "title": "Treatment Effect Models",
+    "section": "One factor design",
+    "text": "One factor design\n\nIf we assume that the weight distributions for both chow and high-fat diets are normally distributed, we can write:\n\n\\[\nY_i = \\beta_0 + \\beta_1 x_i + \\varepsilon_i\n\\]\n\nwith \\(X_i\\) 1, if the \\(i\\)-th mice was fed the high-fat diet, and 0 otherwise, and the errors \\(\\varepsilon_i\\) IID normal with expected value 0 and standard deviation \\(\\sigma\\)."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#one-factor-design-2",
+    "href": "slides/linear-models/31-treatment-effect-models.html#one-factor-design-2",
+    "title": "Treatment Effect Models",
+    "section": "One factor design",
+    "text": "One factor design\n\nNote that this mathematical formula looks exactly like the model we wrote out for the father-son heights.\n\n\\[\nY_i = \\beta_0 + \\beta_1 x_i + \\varepsilon_i\n\\]\n\n\\(x_i\\) being 0 or 1 rather than a continuous variable, allows us to use it in this different context.\nNow \\(\\beta_0\\) represents the population average height of the mice on the chow diet and\n\\(\\beta_0 + \\beta_1\\) represents the population average for the weight of the mice on the high-fat diet."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#one-factor-design-3",
+    "href": "slides/linear-models/31-treatment-effect-models.html#one-factor-design-3",
+    "title": "Treatment Effect Models",
+    "section": "One factor design",
+    "text": "One factor design\n\nA nice feature of this model is that \\(\\beta_1\\) represents the treatment effect of receiving the high-fat diet.\nThe null hypothesis that the high-fat diet has no effect can be quantified as \\(\\beta_1 = 0\\)."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#one-factor-design-4",
+    "href": "slides/linear-models/31-treatment-effect-models.html#one-factor-design-4",
+    "title": "Treatment Effect Models",
+    "section": "One factor design",
+    "text": "One factor design\n\nA powerful characteristic of linear models is that we can estimate the \\(\\beta\\)s and their standard errors with the same LSE machinery:\n\n\nfit &lt;- lm(body_weight ~ diet, data = mice_weights)"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#one-factor-design-5",
+    "href": "slides/linear-models/31-treatment-effect-models.html#one-factor-design-5",
+    "title": "Treatment Effect Models",
+    "section": "One factor design",
+    "text": "One factor design\n\nBecause diet is a factor with two entries, the lm function knows to fit the linear model above with a \\(x_i\\) a indicator variable.\nThe summary function shows us the resulting estimate, standard error, and p-value:\n\n\ncoefficients(summary(fit)) \n\n             Estimate Std. Error   t value     Pr(&gt;|t|)\n(Intercept) 31.537005  0.3858192 81.740369 0.000000e+00\ndiethf       5.136078  0.5484506  9.364705 8.021959e-20"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#one-factor-design-6",
+    "href": "slides/linear-models/31-treatment-effect-models.html#one-factor-design-6",
+    "title": "Treatment Effect Models",
+    "section": "One factor design",
+    "text": "One factor design\n\nUsing broom, we can write:\n\n\nlibrary(broom) \ntidy(fit, conf.int = TRUE) |&gt; filter(term == \"diethf\") \n\n# A tibble: 1 × 7\n  term   estimate std.error statistic  p.value conf.low conf.high\n  &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;\n1 diethf     5.14     0.548      9.36 8.02e-20     4.06      6.21"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#one-factor-design-7",
+    "href": "slides/linear-models/31-treatment-effect-models.html#one-factor-design-7",
+    "title": "Treatment Effect Models",
+    "section": "One factor design",
+    "text": "One factor design\n\nThe statistic computed here is the estimate divided by its standard error:\n\n\\[\\hat{\\beta}_1 / \\hat{\\mbox{SE}}(\\hat{\\beta}_1)\\]\n\nIn the case of the simple one-factor model, we can show that this statistic is almost equivalent to the t-statistics computed in the previous section:\n\n\nc(coefficients(summary(fit))[2,3], t_stat) \n\n[1] 9.364705 9.339096"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#one-factor-design-8",
+    "href": "slides/linear-models/31-treatment-effect-models.html#one-factor-design-8",
+    "title": "Treatment Effect Models",
+    "section": "One factor design",
+    "text": "One factor design\n\nThe statistic computed here is the estimate divided by its standard error:\n\n\\[\\hat{\\beta}_1 / \\hat{\\mbox{SE}}(\\hat{\\beta}_1)\\]\n\nIn the case of the simple one-factor model, we can show that this statistic is almost equivalent to the t-statistics computed in the previous section:\n\n\nc(coefficients(summary(fit))[2,3], t_stat) \n\n[1] 9.364705 9.339096"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs",
+    "href": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs",
+    "title": "Treatment Effect Models",
+    "section": "Two factor designs",
+    "text": "Two factor designs\n\nNote that this experiment included male and female mice, and male mice are known to be heavier.\nThis explains why the residuals depend on the sex variable:\n\n\nboxplot(fit$residuals ~ mice_weights$sex)"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-1",
+    "href": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-1",
+    "title": "Treatment Effect Models",
+    "section": "Two factor designs",
+    "text": "Two factor designs"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-2",
+    "href": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-2",
+    "title": "Treatment Effect Models",
+    "section": "Two factor designs",
+    "text": "Two factor designs\n\nThis misspecification can have real implications; for instance, if more male mice received the high-fat diet, then this could explain the increase.\nConversely, if fewer received it, we might underestimate the diet effect.\nSex could be a confounder, indicating that our model can certainly be improved."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-3",
+    "href": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-3",
+    "title": "Treatment Effect Models",
+    "section": "Two factor designs",
+    "text": "Two factor designs\n\nWe can examine the data:\n\n\nmice_weights |&gt; ggplot(aes(diet, log2(body_weight), fill = sex)) + geom_boxplot()"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-4",
+    "href": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-4",
+    "title": "Treatment Effect Models",
+    "section": "Two factor designs",
+    "text": "Two factor designs"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-5",
+    "href": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-5",
+    "title": "Treatment Effect Models",
+    "section": "Two factor designs",
+    "text": "Two factor designs\n\nA linear model that permits a different expected value for the following four groups, 1) female on chow diet, 2) females on high-fat diet, 3) male on chow diet, and 4) males on high-fat diet, can be written like this:\n\n\\[\nY_i = \\beta_1 x_{i,1} + \\beta_2 x_{i,2}  + \\beta_3 x_{i,3}  + \\beta_4 x_{i,4}  + \\varepsilon_i\n\\]\n\nwith \\(x_{i,1},\\dots,x_{i,4}\\) indicator variables for each of the four groups."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-6",
+    "href": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-6",
+    "title": "Treatment Effect Models",
+    "section": "Two factor designs",
+    "text": "Two factor designs\n\nNote that with this representation we allow the diet effect to be different for males and females.\nHowever, with this representation, none of the \\(\\beta\\)s represent the effect of interest: the diet effect.\nA powerful feature of linear models is that we can rewrite the model so that the expected value for each group remains the same, but the parameters represent the effects we are interested in."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-7",
+    "href": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-7",
+    "title": "Treatment Effect Models",
+    "section": "Two factor designs",
+    "text": "Two factor designs\n\nSo, for example, in the representation.\n\n\\[\nY_i = \\beta_0 + \\beta_1 x_{i,1}  + \\beta_2 x_{i,2}  + \\beta_3 x_{i,1} x_{i,2}  + \\varepsilon_i\n\\]\n\nwith \\(x_{i,1}\\) an indicator that is 1 if individual \\(i\\) is on the high-fat diet \\(x_{i,2}\\) an indicator that is 1 if you are male, the \\(\\beta_1\\) is interpreted as the diet effect for females, \\(\\beta_2\\) as the average difference between males and females, and \\(\\beta_3\\) the difference in the diet effect between males and females."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-8",
+    "href": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-8",
+    "title": "Treatment Effect Models",
+    "section": "Two factor designs",
+    "text": "Two factor designs\n\nIn statistics, \\(\\beta_3\\) is referred to as an interaction effect.\nThe \\(\\beta_0\\) is considered the baseline value, which is the average weight of females on the chow diet."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-9",
+    "href": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-9",
+    "title": "Treatment Effect Models",
+    "section": "Two factor designs",
+    "text": "Two factor designs\n\nStatistical textbooks describe several other ways in which the model can be rewritten to obtain other types of interpretations.\nFor example, we might want \\(\\beta_2\\) to represent the overall diet effect (the average between female and male effect) rather than the diet effect on females."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-10",
+    "href": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-10",
+    "title": "Treatment Effect Models",
+    "section": "Two factor designs",
+    "text": "Two factor designs\n\nThis is achieved by defining what contrasts we are interested in.\nIn R, we can specific the linear model above using the following:\n\n\nfit &lt;- lm(body_weight ~ diet*sex, data = mice_weights) \n\n\nThe * implies that the term that multiplies \\(x_{i,1}\\) and \\(x_{i,2}\\) should be included, along with the \\(x_{i,1}\\) and \\(x_{i,2}\\) terms."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-11",
+    "href": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-11",
+    "title": "Treatment Effect Models",
+    "section": "Two factor designs",
+    "text": "Two factor designs\n\nHere are the estimates:\n\n\ntidy(fit, conf.int = TRUE) |&gt; filter(!str_detect(term, \"Intercept\")) \n\n# A tibble: 3 × 7\n  term        estimate std.error statistic  p.value conf.low conf.high\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;\n1 diethf          3.88     0.624      6.22 8.02e-10    2.66       5.10\n2 sexM            7.53     0.627     12.0  1.27e-30    6.30       8.76\n3 diethf:sexM     2.66     0.891      2.99 2.91e- 3    0.912      4.41\n\n\n\nNote that the male effect is larger that the diet effect, and the diet effect is statistically significant for both sexes, with diet affecting males more by between 1 and 4.5 grams."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-12",
+    "href": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-12",
+    "title": "Treatment Effect Models",
+    "section": "Two factor designs",
+    "text": "Two factor designs\n\nA common approach applied when more than one factor is thought to affect the measurement is to simply include an additive effect for each factor, like this:\n\n\\[\nY_i = \\beta_0 + \\beta_1 x_{i,1}  + \\beta_2 x_{i,2}   + \\varepsilon_i\n\\]\n\nIn this model, the \\(\\beta_1\\) is a general diet effect that applies regardless of sex."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-13",
+    "href": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-13",
+    "title": "Treatment Effect Models",
+    "section": "Two factor designs",
+    "text": "Two factor designs\n\nIn R, we use the following code, employing a + instead of *:\n\n\nfit &lt;- lm(body_weight ~ diet + sex, data = mice_weights) \n\n\nNote that this model does not account for the difference in diet effect between males and females."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-14",
+    "href": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-14",
+    "title": "Treatment Effect Models",
+    "section": "Two factor designs",
+    "text": "Two factor designs\n\nDiagnostic plots would reveal this deficiency by showing that the residuals are biased: they are, on average, negative for females on the diet and positive for males on the diet, rather than being centered around 0.\n\n\nplot(fit, which = 1)"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#contrasts",
+    "href": "slides/linear-models/31-treatment-effect-models.html#contrasts",
+    "title": "Treatment Effect Models",
+    "section": "Contrasts",
+    "text": "Contrasts\n\nIn the examples we have examined, each treatment had only two groups: diet had chow/high-fat, and sex had female/male.\nHowever, variables of interest often have more than one level.\nFor example, we might have tested a third diet on the mice.\nIn statistics textbooks, these variables are referred to as a factor, and the groups in each factor are called its levels."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#contrasts-1",
+    "href": "slides/linear-models/31-treatment-effect-models.html#contrasts-1",
+    "title": "Treatment Effect Models",
+    "section": "Contrasts",
+    "text": "Contrasts\n\nWhen a factor is included in the formula, the default behavior for lm is to define the intercept term as the expected value for the first level, and the other coefficient are to represent the difference, or contrast, between the other levels and first.\nWe can see when we estimate the sex effect with lm like this:\n\n\nfit &lt;- lm(body_weight ~ sex, data = mice_weights) \ncoefficients(fit) \n\n(Intercept)        sexM \n  29.758844    8.820658"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#contrasts-2",
+    "href": "slides/linear-models/31-treatment-effect-models.html#contrasts-2",
+    "title": "Treatment Effect Models",
+    "section": "Contrasts",
+    "text": "Contrasts\n\nTo recover the expected mean for males, we can simply add the two coefficients:\n\n\nsum(fit$coefficients[1:2]) \n\n[1] 38.5795\n\n\n\nThe package emmeans simplifies the calculation and also calculates standard errors:\n\n\nlibrary(emmeans) \nemmeans(fit, ~sex) \n\n sex emmean    SE  df lower.CL upper.CL\n F     29.8 0.339 778     29.1     30.4\n M     38.6 0.346 778     37.9     39.3\n\nConfidence level used: 0.95"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#contrasts-3",
+    "href": "slides/linear-models/31-treatment-effect-models.html#contrasts-3",
+    "title": "Treatment Effect Models",
+    "section": "Contrasts",
+    "text": "Contrasts\n\nNow, what if we really didn’t want to define a reference level? What if we wanted a parameter to represent the difference from each group to the overall mean? Can we write a model like this:\n\n\\[\nY_i = \\beta_0 + \\beta_1 x_{i,1} + \\beta_2 x_{i,2} + \\varepsilon_i\n\\]\n\nwith \\(x_{i,1} = 1\\), if observation \\(i\\) is female and 0 otherwise, and \\(x_{i,2}=1\\), if observation \\(i\\) is male and 0 otherwise?"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#contrasts-4",
+    "href": "slides/linear-models/31-treatment-effect-models.html#contrasts-4",
+    "title": "Treatment Effect Models",
+    "section": "Contrasts",
+    "text": "Contrasts\n\nUnfortunately, this representation has a problem.\nNote that the mean for females and males are represented by \\(\\beta_0 + \\beta_1\\) and \\(\\beta_0 + \\beta_2\\), respectively.\nThis is a problem because the expected value for each group is just one number, say \\(\\mu_f\\) and \\(\\mu_m\\), and there is an infinite number of ways \\(\\beta_0 + \\beta_1 = \\mu_f\\) and \\(\\beta_0 +\\beta_2 = \\mu_m\\) (three unknowns with two equations).\nThis implies that we can’t obtain a unique least squares estimates.\nThe model, or parameters, are unidentifiable."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#contrasts-5",
+    "href": "slides/linear-models/31-treatment-effect-models.html#contrasts-5",
+    "title": "Treatment Effect Models",
+    "section": "Contrasts",
+    "text": "Contrasts\n\nThe default behavior in R solves this problem by requiring \\(\\beta_1 = 0\\), forcing \\(\\beta_0 = \\mu_m\\), which permits us to solve the system of equations.\nKeep in mind that this is not the only constraint that permits estimation of the parameters."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#contrasts-6",
+    "href": "slides/linear-models/31-treatment-effect-models.html#contrasts-6",
+    "title": "Treatment Effect Models",
+    "section": "Contrasts",
+    "text": "Contrasts\n\nAny linear constraint will do as it adds a third equation to our system.\nA widely used constraint is to require \\(\\beta_1 + \\beta_2 = 0\\).\nTo achieve this in R, we can use the argument contrast in the following way:\n\n\nfit &lt;- lm(body_weight ~ sex, data = mice_weights,  \n          contrasts = list(sex = contr.sum)) \ncoefficients(fit) \n\n(Intercept)        sex1 \n  34.169173   -4.410329"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#contrasts-7",
+    "href": "slides/linear-models/31-treatment-effect-models.html#contrasts-7",
+    "title": "Treatment Effect Models",
+    "section": "Contrasts",
+    "text": "Contrasts\n\nWe see that the intercept is now larger, reflecting the overall mean rather than just the mean for females.\nThe other coefficient, \\(\\beta_1\\), represents the contrast between females and the overall mean in our model.\nThe coefficient for men is not shown because it is redundant: \\(\\beta_1= -\\beta_2\\)."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#contrasts-8",
+    "href": "slides/linear-models/31-treatment-effect-models.html#contrasts-8",
+    "title": "Treatment Effect Models",
+    "section": "Contrasts",
+    "text": "Contrasts\n\nIf we want to see all the estimates, the emmeans package also makes the calculations for us:\n\n\ncontrast(emmeans(fit, ~sex)) \n\n contrast estimate    SE  df t.ratio p.value\n F effect    -4.41 0.242 778 -18.203  &lt;.0001\n M effect     4.41 0.242 778  18.203  &lt;.0001\n\nP value adjustment: fdr method for 2 tests"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#contrasts-9",
+    "href": "slides/linear-models/31-treatment-effect-models.html#contrasts-9",
+    "title": "Treatment Effect Models",
+    "section": "Contrasts",
+    "text": "Contrasts\n\nThe use of this alternative constraint is more practical when a factor has more than one level, and choosing a baseline becomes less convenient.\nFurthermore, we might be more interested in the variance of the coefficients rather than the contrasts between groups and the reference level."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#analysis-of-variance-anova",
+    "href": "slides/linear-models/31-treatment-effect-models.html#analysis-of-variance-anova",
+    "title": "Treatment Effect Models",
+    "section": "Analysis of variance (ANOVA)",
+    "text": "Analysis of variance (ANOVA)\n\nWhen a factor has more than one level, it is common to want to determine if there is significant variability across the levels rather than specific difference between any given pair of levels.\nAnalysis of variances (ANOVA) provides tools to do this.\nANOVA provides an estimate of \\(\\sigma^2_{\\text{gen}}\\) and a statistical test for the null hypothesis that the factor contributes no variability: \\(\\sigma^2_{\\text{gen}} =0\\).\nOnce a linear model is fit using one or more factors, the aov function can be used to perform ANOVA."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#analysis-of-variance-anova-1",
+    "href": "slides/linear-models/31-treatment-effect-models.html#analysis-of-variance-anova-1",
+    "title": "Treatment Effect Models",
+    "section": "Analysis of variance (ANOVA)",
+    "text": "Analysis of variance (ANOVA)\n\nSpecifically, the estimate of the factor variability is computed along with a statistic that can be used for hypothesis testing:\n\n\nsummary(aov(fit)) \n\n             Df Sum Sq Mean Sq F value Pr(&gt;F)\ngen           4    294   73.50   1.128  0.342\nResiduals   775  50479   65.13"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#analysis-of-variance-anova-2",
+    "href": "slides/linear-models/31-treatment-effect-models.html#analysis-of-variance-anova-2",
+    "title": "Treatment Effect Models",
+    "section": "Analysis of variance (ANOVA)",
+    "text": "Analysis of variance (ANOVA)\n\nKeep in mind that if given a model formula, aov will fit the model:\n\n\nsummary(aov(body_weight ~ gen, data = mice_weights)) \n\n\nWe do not need to specify the constraint because ANOVA needs to constrain the sum to be 0 for the results to be interpretable.\nThis analysis indicates that generation is not statistically significant."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#analysis-of-variance-anova-3",
+    "href": "slides/linear-models/31-treatment-effect-models.html#analysis-of-variance-anova-3",
+    "title": "Treatment Effect Models",
+    "section": "Analysis of variance (ANOVA)",
+    "text": "Analysis of variance (ANOVA)\n\nThose interested in learning more about these topics can consult one of these textbooks.\n:::"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#multiple-factors",
+    "href": "slides/linear-models/31-treatment-effect-models.html#multiple-factors",
+    "title": "Treatment Effect Models",
+    "section": "Multiple factors",
+    "text": "Multiple factors\n\nANOVA was developed to analyze agricultural data, which included several factors.\nWe can perform ANOVA with multiple factors:\n\n\nsummary(aov(body_weight ~ sex + diet + gen,  data = mice_weights)) \n\n             Df Sum Sq Mean Sq F value Pr(&gt;F)    \nsex           1  15165   15165 389.799 &lt;2e-16 ***\ndiet          1   5238    5238 134.642 &lt;2e-16 ***\ngen           4    295      74   1.895  0.109    \nResiduals   773  30074      39                   \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\n\nThis analysis suggests that sex is the biggest source of variability, which is consistent with previously made exploratory plots."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#multiple-factors-1",
+    "href": "slides/linear-models/31-treatment-effect-models.html#multiple-factors-1",
+    "title": "Treatment Effect Models",
+    "section": "Multiple factors",
+    "text": "Multiple factors\n\nOne of the key aspects of ANOVA (Analysis of Variance) is its ability to decompose the total variance in the data, represented by \\(\\sum_{i=1}^n Y_i^2\\), into individual contributions attributable to each factor in the study.\nHowever, for the mathematical underpinnings of ANOVA to be valid, the experimental design must be balanced.\nThis means that for every level of any given factor, there must be an equal representation of the levels of all other factors."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#multiple-factors-2",
+    "href": "slides/linear-models/31-treatment-effect-models.html#multiple-factors-2",
+    "title": "Treatment Effect Models",
+    "section": "Multiple factors",
+    "text": "Multiple factors\n\nIn our study involving mice, the design is unbalanced, requiring a cautious approach in the interpretation of the ANOVA results.\n:::"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#array-representation",
+    "href": "slides/linear-models/31-treatment-effect-models.html#array-representation",
+    "title": "Treatment Effect Models",
+    "section": "Array representation",
+    "text": "Array representation\n\nWhen the model includes more than one factor, writing down linear models can become cumbersome."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#array-representation-1",
+    "href": "slides/linear-models/31-treatment-effect-models.html#array-representation-1",
+    "title": "Treatment Effect Models",
+    "section": "Array representation",
+    "text": "Array representation\n\nFor example, in our two factor model, we include indicator variables for both factors:\n\n\\[\nY_i = \\beta_0 + \\sum_{j=1}^J \\beta_j x_{i,j} + \\sum_{k=1}^K \\beta_{J+k} x_{i,J+k} + \\varepsilon_i \\\\\n\\mbox{ with }\\sum_{j=1}^J \\beta_j=0 \\mbox{ and } \\sum_{k=1}^K \\beta_{J+k} = 0,\n\\]\n\nthe \\(x\\)s are indicator functions for the different levels."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#array-representation-2",
+    "href": "slides/linear-models/31-treatment-effect-models.html#array-representation-2",
+    "title": "Treatment Effect Models",
+    "section": "Array representation",
+    "text": "Array representation\nSpecifically, in\n\\[\nY_i = \\beta_0 + \\sum_{j=1}^J \\beta_j x_{i,j} + \\sum_{k=1}^K \\beta_{J+k} x_{i,J+k} + \\varepsilon_i\n\\]\nthe \\(x_{i,1},\\dots,x_{i,J}\\) indicator functions for the \\(J\\) levels in the first factor and \\(x_{i,J+1},\\dots,x_{i,J+K}\\) indicator functions for the \\(K\\) levels in the second factor."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#treatment-effect-models-7",
+    "href": "slides/linear-models/31-treatment-effect-models.html#treatment-effect-models-7",
+    "title": "Treatment Effect Models",
+    "section": "Treatment effect models",
+    "text": "Treatment effect models\n\nHowever, given that we divided the mice randomly, is it possible that the observed difference is simply due to chance? Here, we can compute the sample average and standard deviation of each group and perform statistical inference on the difference of these means."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-8",
+    "href": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-8",
+    "title": "Treatment Effect Models",
+    "section": "Comparing group means",
+    "text": "Comparing group means\n\nHowever, when our interest spans both directions, for example, either an increase or decrease in weight, we need to compute the probability of t being as extreme as what we observe.\nThe formula simply changes to using the absolute value: 1 - pnorm(abs(t-test)) or 1-pt(abs(t_stat), with(stats, n[2]+n[1]-2).\n:::"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-9",
+    "href": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-9",
+    "title": "Treatment Effect Models",
+    "section": "Comparing group means",
+    "text": "Comparing group means\n\nHowever, when our interest spans both directions, for example, either an increase or decrease in weight, we need to compute the probability of t being as extreme as what we observe.\nThe formula simply changes to using the absolute value: 1 - pnorm(abs(t-test)) or 1-pt(abs(t_stat), with(stats, n[2]+n[1]-2).\n:::"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#case-study",
+    "href": "slides/linear-models/31-treatment-effect-models.html#case-study",
+    "title": "Treatment Effect Models",
+    "section": "Case study",
+    "text": "Case study\n\nMice were randomly selected and divided into two groups: one group receiving a high-fat diet, considered the treatment, while the other group served as the control and received the usual chow diet.\nThe data is included in the dslabs package:\n\n\nlibrary(dslabs) \ntable(mice_weights$diet) \n\n\nchow   hf \n 394  386"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-15",
+    "href": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-15",
+    "title": "Treatment Effect Models",
+    "section": "Two factor designs",
+    "text": "Two factor designs"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-16",
+    "href": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-16",
+    "title": "Treatment Effect Models",
+    "section": "Two factor designs",
+    "text": "Two factor designs\n\nScientific studies, particularly within epidemiology and social sciences, frequently omit interaction terms from models due to the high number of variables.\nAdding interactions necessitates numerous parameters, which in extreme cases may prevent the model from fitting.\nHowever, this approach assumes that the interaction terms are zero, and if incorrect, it can skew the interpretation of the results.\nConversely, when this assumption is valid, models excluding interactions are simpler to interpret, as parameters are typically viewed as the extent to which the outcome increases with the assigned treatment.\n\n\n\n\n\n\n\nTip\n\n\n\nLinear models are highly flexible and applicable in many contexts.\nFor example, we can include many more factors than just 2.\nWe have only just scratched the surface of how linear models can be used to estimate treatment effects.\nWe highly recommend learning more about this by exploring linear model textbooks and R manuals that cover the use of functions such as lm, contrasts, and model.matrix."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#contrasts-10",
+    "href": "slides/linear-models/31-treatment-effect-models.html#contrasts-10",
+    "title": "Treatment Effect Models",
+    "section": "Contrasts",
+    "text": "Contrasts\n\nAs an example, consider that the mice in our dataset are actually from several generations:\n\n\ntable(mice_weights$gen) \n\n\n  4   7   8   9  11 \n 97 195 193  97 198"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#contrasts-11",
+    "href": "slides/linear-models/31-treatment-effect-models.html#contrasts-11",
+    "title": "Treatment Effect Models",
+    "section": "Contrasts",
+    "text": "Contrasts\n\nTo estimate the variability due to the different generations, a convenient model is:\n\n\\[\nY_i = \\beta_0 + \\sum_{j=1}^J \\beta_j x_{i,j} + \\varepsilon_i\n\\]\n\nwith \\(x_{i,j}\\) indicator variables: \\(x_{i,j}=1\\) if mouse \\(i\\) is in level \\(j\\) and 0 otherwise, \\(J\\) representing the number of levels, in our example 5 generations, and the level effects constrained with.\n\n\\[\n\\frac{1}{J} \\sum_{j=1}^J \\beta_j = 0 \\implies \\sum_{j=1}^J \\beta_j = 0.  \n\\]"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#contrasts-12",
+    "href": "slides/linear-models/31-treatment-effect-models.html#contrasts-12",
+    "title": "Treatment Effect Models",
+    "section": "Contrasts",
+    "text": "Contrasts\n\nThe constraint makes the model identifiable and also allows us to quantify the variability due to generations with:\n\n\\[\n\\sigma^2_{\\text{gen}} \\equiv \\frac{1}{J}\\sum_{j=1}^J \\beta_j^2\n\\]"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#contrasts-13",
+    "href": "slides/linear-models/31-treatment-effect-models.html#contrasts-13",
+    "title": "Treatment Effect Models",
+    "section": "Contrasts",
+    "text": "Contrasts\n\nWe can see the estimated coefficients using the following:\n\n\nfit &lt;- lm(body_weight ~ gen,  data = mice_weights,  \n          contrasts = list(gen = contr.sum)) \ncontrast(emmeans(fit, ~gen))  \n\n contrast     estimate    SE  df t.ratio p.value\n gen4 effect    -0.122 0.705 775  -0.174  0.8621\n gen7 effect    -0.812 0.542 775  -1.497  0.3372\n gen8 effect    -0.113 0.544 775  -0.207  0.8621\n gen9 effect     0.149 0.705 775   0.212  0.8621\n gen11 effect    0.897 0.540 775   1.663  0.3372\n\nP value adjustment: fdr method for 5 tests"
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#array-representation-3",
+    "href": "slides/linear-models/31-treatment-effect-models.html#array-representation-3",
+    "title": "Treatment Effect Models",
+    "section": "Array representation",
+    "text": "Array representation\n\nAn alternative approach widely used in ANOVA to avoid indicators variables, is to save the data in an array, using different Greek letters to denote factors and indices to denote levels:\n\n\\[\nY_{i,j,k} = \\mu + \\alpha_j + \\beta_k + \\varepsilon_{i,j,k}\n\\]\n\nwith \\(\\mu\\) the overall mean, \\(\\alpha_j\\) the effect of level \\(j\\) in the first factor, and \\(\\beta_k\\) the effect of level \\(k\\) in the second factor."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#array-representation-4",
+    "href": "slides/linear-models/31-treatment-effect-models.html#array-representation-4",
+    "title": "Treatment Effect Models",
+    "section": "Array representation",
+    "text": "Array representation\n\nThe constraint can now be written as:\n\n\\[\n\\sum_{j=1}^J \\alpha_j = 0 \\text{ and } \\sum_{k=1}^K \\beta_k = 0\n\\]\n\nThis notation lends itself to estimating the effects by computing means across dimensions of the array."
   }
 ]

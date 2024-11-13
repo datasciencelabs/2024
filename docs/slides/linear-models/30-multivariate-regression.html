@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.5.57">
+
+  <meta name="dcterms.date" content="2024-11-12">
+  <meta name="keywords" content="Linear Models">
+  <title>BST 260: Introduction to Data Science – Multivariate Regression</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #f07178; background-color: #2a0f15; font-weight: bold; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #00e0e0; } /* Attribute */
+    code span.bn { color: #d4d0ab; } /* BaseN */
+    code span.bu { color: #abe338; } /* BuiltIn */
+    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffd700; } /* Constant */
+    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
+    code span.cv { color: #ffd700; } /* CommentVar */
+    code span.do { color: #f8f8f2; } /* Documentation */
+    code span.dt { color: #ffa07a; } /* DataType */
+    code span.dv { color: #d4d0ab; } /* DecVal */
+    code span.er { color: #f07178; text-decoration: underline; } /* Error */
+    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
+    code span.fl { color: #d4d0ab; } /* Float */
+    code span.fu { color: #ffa07a; } /* Function */
+    code span.im { color: #abe338; } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
+    code span.op { color: #ffa07a; } /* Operator */
+    code span.ot { color: #00e0e0; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
+    code span.sc { color: #abe338; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #00e0e0; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #dcc6e0; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+  <link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+</head>
+<body class="quarto-dark">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Multivariate Regression</h1>
+
+<div class="quarto-title-authors">
+</div>
+
+  <p class="date">2024-11-12</p>
+</section>
+<section id="multivariate-regression" class="slide level2">
+<h2>Multivariate Regression</h2>
+<ul>
+<li><p>Since Galton’s original development, regression has become one of the most widely used tools in data analysis.</p></li>
+<li><p>One reason is the fact that an adaptation of the original regression approach, based on linear models, permits us to find relationships between two variables taking into account the effects of other variables that affect both.</p></li>
+<li><p>This has been particularly popular in fields where randomized experiments are hard to run, such as economics and epidemiology.</p></li>
+</ul>
+</section>
+<section id="multivariate-regression-1" class="slide level2">
+<h2>Multivariate Regression</h2>
+<ul>
+<li><p>When we are unable to randomly assign each individual to a treatment or control group, confounding becomes particularly prevalent.</p></li>
+<li><p>For instance, consider estimating the effect of eating fast foods on life expectancy using data collected from a random sample of people in a jurisdiction.</p></li>
+<li><p>Fast food consumers are more likely to be smokers, drinkers, and have lower incomes.</p></li>
+<li><p>Consequently, a naive regression model may lead to an overestimate of the negative health effects of fast food.</p></li>
+</ul>
+</section>
+<section id="multivariate-regression-2" class="slide level2">
+<h2>Multivariate Regression</h2>
+<ul>
+<li><p>So, how do we account for confounding in practice?</p></li>
+<li><p>Today we learn how <em>multivariate regression</em> can help with such situations and can be used to describe how one or more variables affect an outcome variable.</p></li>
+<li><p>We illustrate with a real-world example in which data was used to help pick underappreciated players to improve a resource limited sports team.</p></li>
+</ul>
+</section>
+<section id="case-study-moneyball" class="slide level2">
+<h2>Case study: Moneyball</h2>
+
+<img data-src="https://gloat.com/wp-content/uploads/2020/06/rsz_moneyball-poster.jpg" class="r-stretch"></section>
+<section id="moneyball" class="slide level2">
+<h2>Moneyball</h2>
+
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Paul_DePodesta_2011.jpg/440px-Paul_DePodesta_2011.jpg" class="r-stretch"></section>
+<section id="moneyball-1" class="slide level2">
+<h2>Moneyball</h2>
+
+<img data-src="http://dreamsandvisions.squarespace.com/storage/moneyball_06.jpg?__SQUARESPACE_CACHEVERSION=1330905208350" class="r-stretch"></section>
+<section id="case-study-moneyball-1" class="slide level2">
+<h2>Case study: Moneyball</h2>
+
+<img data-src="30-multivariate-regression_files/figure-revealjs/mlb-2002-payroll-1.png" width="960" class="r-stretch"></section>
+<section id="examples" class="slide level2">
+<h2>Examples</h2>
+<ul>
+<li><p>Here is a video showing a success: <a href="https://www.youtube.com/watch?v=HL-XjMCPfio" class="uri">https://www.youtube.com/watch?v=HL-XjMCPfio</a>.</p></li>
+<li><p>And here is one showing a failure: <a href="https://www.youtube.com/watch?v=NeloljCx-1g" class="uri">https://www.youtube.com/watch?v=NeloljCx-1g</a>.</p></li>
+</ul>
+</section>
+<section id="baseball-basics" class="slide level2">
+<h2>Baseball basics</h2>
+
+<img data-src="https://rafalab.dfci.harvard.edu/dsbook-part-2/linear-models/img/Baseball_Diamond1.png" class="r-stretch"></section>
+<section id="baseball-basics-1" class="slide level2">
+<h2>Baseball basics</h2>
+<ul>
+<li><p>Bases on balls (BB): The pitcher fails to throw the ball through a predefined area considered to be hittable (the strike zone), so the batter is permitted to go to first base.</p></li>
+<li><p>Single: The batter hits the ball and gets to first base.</p></li>
+<li><p>Double (2B): The batter hits the ball and gets to second base.</p></li>
+<li><p>Triple (3B): The batter hits the ball and gets to third base.</p></li>
+<li><p>Home Run (HR): The batter hits the ball and goes all the way home and scores a run.</p></li>
+</ul>
+</section>
+<section id="baseball-basics-2" class="slide level2">
+<h2>Baseball basics</h2>
+<ul>
+<li>Here is an example of a HR: <a href="https://www.youtube.com/watch?v=xYxSZJ9GZ-w" class="uri">https://www.youtube.com/watch?v=xYxSZJ9GZ-w</a>.</li>
+</ul>
+</section>
+<section id="baseball-basics-3" class="slide level2">
+<h2>Baseball basics</h2>
+<ul>
+<li><p>Here is an example of a stolen base: <a href="https://www.youtube.com/watch?v=JSE5kfxkzfk" class="uri">https://www.youtube.com/watch?v=JSE5kfxkzfk</a>.</p></li>
+<li><p>All these events are tracked throughout the season and are available to us through the <strong>Lahman</strong> package.</p></li>
+<li><p>Now, we can begin discussing how data analysis can help us determine how to use these statistics to evaluate players.</p></li>
+</ul>
+</section>
+<section id="no-awards-for-base-on-balls" class="slide level2">
+<h2>No awards for base on balls</h2>
+
+<img data-src="https://rafalab.dfci.harvard.edu/dsbook-part-2/linear-models/img/JumboTron.png" class="r-stretch"></section>
+<section id="base-on-balls-or-stolen-bases" class="slide level2">
+<h2>Base on balls or stolen bases?</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse) </span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(Lahman) </span>
+<span id="cb1-3"><a></a>dat <span class="ot">&lt;-</span> Teams <span class="sc">|&gt;</span> <span class="fu">filter</span>(yearID <span class="sc">%in%</span> <span class="dv">1962</span><span class="sc">:</span><span class="dv">2002</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb1-4"><a></a>  <span class="fu">mutate</span>(<span class="at">team =</span> teamID, <span class="at">year =</span> yearID, <span class="at">r =</span> R<span class="sc">/</span>G,  </span>
+<span id="cb1-5"><a></a>         <span class="at">singles =</span> (H <span class="sc">-</span> X2B <span class="sc">-</span> X3B <span class="sc">-</span> HR)<span class="sc">/</span>G,  </span>
+<span id="cb1-6"><a></a>         <span class="at">doubles =</span> X2B<span class="sc">/</span>G, <span class="at">triples =</span> X3B<span class="sc">/</span>G, <span class="at">hr =</span> HR<span class="sc">/</span>G, </span>
+<span id="cb1-7"><a></a>         <span class="at">sb =</span> SB<span class="sc">/</span>G, <span class="at">bb =</span> BB<span class="sc">/</span>G) <span class="sc">|&gt;</span> </span>
+<span id="cb1-8"><a></a>  <span class="fu">select</span>(team, year, r, singles, doubles, triples, hr, sb, bb) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="base-on-balls-or-stolen-bases-1" class="slide level2">
+<h2>Base on balls or stolen bases?</h2>
+<ul>
+<li>Now let’s start with a obvious question: do teams that hit more home runs score more runs? When exploring the relationship between two variables, The visualization of choice is a scatterplot:</li>
+</ul>
+
+<img data-src="30-multivariate-regression_files/figure-revealjs/runs-vs-hrs-run-1.png" width="960" class="r-stretch"></section>
+<section id="base-on-balls-or-stolen-bases-2" class="slide level2">
+<h2>Base on balls or stolen bases?</h2>
+
+<img data-src="30-multivariate-regression_files/figure-revealjs/runs-vs-sb-run-1.png" width="960" class="r-stretch"></section>
+<section id="base-on-balls-or-stolen-bases-3" class="slide level2">
+<h2>Base on balls or stolen bases?</h2>
+
+<img data-src="30-multivariate-regression_files/figure-revealjs/runs-vs-bb-run-1.png" width="960" class="r-stretch"></section>
+<section id="base-on-balls-or-stolen-bases-4" class="slide level2">
+<h2>Base on balls or stolen bases?</h2>
+<ul>
+<li>But does this mean that increasing a team’s BBs <strong>causes</strong> an increase in runs?</li>
+</ul>
+
+<img data-src="30-multivariate-regression_files/figure-revealjs/bb-vs-hrs-run-1.png" width="960" class="r-stretch"></section>
+<section id="regression-applied-to-baseball" class="slide level2">
+<h2>Regression applied to baseball</h2>
+<ul>
+<li>Can we use regression with these data?</li>
+</ul>
+
+<img data-src="30-multivariate-regression_files/figure-revealjs/hr-by-runs-qq-run-1.png" width="960" class="r-stretch"></section>
+<section id="regression-applied-to-baseball-1" class="slide level2">
+<h2>Regression applied to baseball</h2>
+<ul>
+<li>Now we are ready to use linear regression to predict the number of runs a team will score, if we know how many home runs the team hits using regression:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>hr_fit  <span class="ot">&lt;-</span> <span class="fu">lm</span>(r <span class="sc">~</span> hr, <span class="at">data =</span> dat)<span class="sc">$</span>coef </span>
+<span id="cb2-2"><a></a>p <span class="sc">+</span> <span class="fu">geom_abline</span>(<span class="at">intercept =</span> hr_fit[[<span class="dv">1</span>]], <span class="at">slope =</span> hr_fit[[<span class="dv">2</span>]]) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="30-multivariate-regression_files/figure-revealjs/hr-versus-runs-regression-1.png" width="960" class="r-stretch"></section>
+<section id="regression-applied-to-baseball-2" class="slide level2">
+<h2>Regression applied to baseball</h2>
+<p>In <strong>ggplot</strong> we can do this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>p <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="the-broom-package" class="slide level2">
+<h2>The broom package</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">library</span>(broom) </span>
+<span id="cb4-2"><a></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(r <span class="sc">~</span> bb, <span class="at">data =</span> dat) </span>
+<span id="cb4-3"><a></a><span class="fu">tidy</span>(fit, <span class="at">conf.int =</span> <span class="cn">TRUE</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 7
+  term        estimate std.error statistic  p.value conf.low conf.high
+  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+1 (Intercept)    1.93     0.116       16.7 1.91e-55    1.70      2.15 
+2 bb             0.739    0.0348      21.2 1.90e-83    0.671     0.807</code></pre>
+</div>
+</div>
+<ul>
+<li>The other functions provided by <strong>broom</strong>, <code>glance</code> and <code>augment</code>, relate to model-specific and observation-specific outcomes, respectively.</li>
+</ul>
+</section>
+<section id="confounding" class="slide level2">
+<h2>Confounding</h2>
+<ul>
+<li><p>Previously, we noted a strong relationship between Runs and BB.</p></li>
+<li><p>If we find the regression line for predicting runs from bases on balls, we a get slope of:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>bb_slope <span class="ot">&lt;-</span> <span class="fu">lm</span>(r <span class="sc">~</span> bb, <span class="at">data =</span> dat)<span class="sc">$</span>coef[<span class="dv">2</span>] </span>
+<span id="cb6-2"><a></a>bb_slope  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       bb 
+0.7388725 </code></pre>
+</div>
+</div>
+</section>
+<section id="confounding-1" class="slide level2">
+<h2>Confounding</h2>
+<ul>
+<li><p>The data does provide strong evidence that a team with two more BB per game than the average team, scores 1.5 runs per game.</p></li>
+<li><p>But this does not mean that BB are the cause.</p></li>
+</ul>
+</section>
+<section id="confounding-2" class="slide level2">
+<h2>Confounding</h2>
+<ul>
+<li>Note that, if we compute the regression line slope for singles, we get:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">lm</span>(r <span class="sc">~</span> singles, <span class="at">data =</span> dat)<span class="sc">$</span>coef[<span class="dv">2</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  singles 
+0.4324101 </code></pre>
+</div>
+</div>
+</section>
+<section id="confounding-3" class="slide level2">
+<h2>Confounding</h2>
+<ul>
+<li>Here we show the correlation between HR, BB, and singles:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>dat <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="fu">cor</span>(bb, hr), <span class="fu">cor</span>(singles, hr), <span class="fu">cor</span>(bb, singles)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  cor(bb, hr) cor(singles, hr) cor(bb, singles)
+1   0.4064585       -0.1862848      -0.05126617</code></pre>
+</div>
+</div>
+</section>
+<section id="confounding-4" class="slide level2">
+<h2>Confounding</h2>
+<ul>
+<li>A first approach is to keep HRs fixed at a certain value and then examine the relationship between BB and runs.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>dat <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">hr_strata =</span> <span class="fu">round</span>(hr, <span class="dv">1</span>)) <span class="sc">|&gt;</span>  </span>
+<span id="cb12-2"><a></a>  <span class="fu">filter</span>(hr_strata <span class="sc">&gt;=</span> <span class="fl">0.4</span> <span class="sc">&amp;</span> hr_strata <span class="sc">&lt;=</span> <span class="fl">1.2</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb12-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(bb, r)) <span class="sc">+</span>   </span>
+<span id="cb12-4"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb12-5"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span> </span>
+<span id="cb12-6"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>hr_strata)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="confounding-5" class="slide level2">
+<h2>Confounding</h2>
+
+<img data-src="30-multivariate-regression_files/figure-revealjs/runs-vs-bb-by-hr-strata-run-1.png" style="width:80.0%" class="r-stretch"></section>
+<section id="confounding-6" class="slide level2">
+<h2>Confounding</h2>
+<ul>
+<li>Once we stratify by HR, these slopes are substantially reduced:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>dat <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">hr_strata =</span> <span class="fu">round</span>(hr, <span class="dv">1</span>)) <span class="sc">|&gt;</span>  </span>
+<span id="cb13-2"><a></a>  <span class="fu">filter</span>(hr_strata <span class="sc">&gt;=</span> <span class="fl">0.5</span> <span class="sc">&amp;</span> hr_strata <span class="sc">&lt;=</span> <span class="fl">1.2</span>) <span class="sc">|&gt;</span>   </span>
+<span id="cb13-3"><a></a>  <span class="fu">group_by</span>(hr_strata) <span class="sc">|&gt;</span> </span>
+<span id="cb13-4"><a></a>  <span class="fu">reframe</span>(<span class="fu">tidy</span>(<span class="fu">lm</span>(r <span class="sc">~</span> bb))) <span class="sc">|&gt;</span> </span>
+<span id="cb13-5"><a></a>  <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">"bb"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 6
+  hr_strata term  estimate std.error statistic  p.value
+      &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+1       0.5 bb       0.566    0.110       5.14 3.02e- 6
+2       0.6 bb       0.405    0.0984      4.12 7.46e- 5
+3       0.7 bb       0.284    0.0717      3.96 1.13e- 4
+4       0.8 bb       0.378    0.0638      5.92 1.75e- 8
+5       0.9 bb       0.254    0.0762      3.33 1.08e- 3
+6       1   bb       0.506    0.0720      7.02 9.46e-11
+7       1.1 bb       0.444    0.0878      5.06 2.77e- 6
+8       1.2 bb       0.469    0.0804      5.84 2.91e- 7</code></pre>
+</div>
+</div>
+</section>
+<section id="counfounding" class="slide level2">
+<h2>Counfounding</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>dat <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">bb_strata =</span> <span class="fu">round</span>(bb, <span class="dv">1</span>)) <span class="sc">|&gt;</span>  </span>
+<span id="cb15-2"><a></a>  <span class="fu">filter</span>(bb_strata <span class="sc">&gt;=</span> <span class="dv">3</span> <span class="sc">&amp;</span> bb_strata <span class="sc">&lt;=</span> <span class="dv">4</span>) <span class="sc">|&gt;</span>   </span>
+<span id="cb15-3"><a></a>  <span class="fu">group_by</span>(bb_strata) <span class="sc">|&gt;</span> </span>
+<span id="cb15-4"><a></a>  <span class="fu">reframe</span>(<span class="fu">tidy</span>(<span class="fu">lm</span>(r <span class="sc">~</span> hr))) <span class="sc">|&gt;</span> </span>
+<span id="cb15-5"><a></a>  <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">"hr"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11 × 6
+   bb_strata term  estimate std.error statistic  p.value
+       &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+ 1       3   hr        1.51     0.182      8.31 1.47e-12
+ 2       3.1 hr        1.49     0.168      8.87 3.10e-14
+ 3       3.2 hr        1.61     0.150     10.8  6.96e-18
+ 4       3.3 hr        1.57     0.167      9.39 5.73e-15
+ 5       3.4 hr        1.55     0.153     10.1  3.77e-16
+ 6       3.5 hr        1.64     0.174      9.43 4.96e-14
+ 7       3.6 hr        1.78     0.197      8.99 6.68e-13
+ 8       3.7 hr        1.47     0.196      7.50 6.37e-10
+ 9       3.8 hr        1.66     0.202      8.24 9.64e-11
+10       3.9 hr        1.29     0.289      4.45 1.15e- 4
+11       4   hr        1.36     0.218      6.27 4.38e- 7</code></pre>
+</div>
+</div>
+</section>
+<section id="multivariable-regression" class="slide level2">
+<h2>Multivariable regression</h2>
+<ul>
+<li><p>It is somewhat complex to be computing regression lines for each strata.</p></li>
+<li><p>We are essentially fitting models like this:</p></li>
+</ul>
+<p><span class="math display">\[
+\mbox{E}[R \mid BB = x_1, \, HR = x_2] = \beta_0 + \beta_1(x_2) x_1 + \beta_2(x_1) x_2
+\]</span></p>
+<ul>
+<li><p>with the slopes for <span class="math inline">\(x_1\)</span> changing for different values of <span class="math inline">\(x_2\)</span> and vice versa.</p></li>
+<li><p>But is there an easier approach?</p></li>
+</ul>
+</section>
+<section id="multivariable-regression-1" class="slide level2">
+<h2>Multivariable regression</h2>
+<ul>
+<li><p>If we take random variability into account, the slopes in the strata don’t appear to change much.</p></li>
+<li><p>If these slopes are in fact the same, this implies that <span class="math inline">\(\beta_1(x_2)\)</span> and <span class="math inline">\(\beta_2(x_1)\)</span> are constants.</p></li>
+<li><p>This, in turn, implies that the expectation of runs conditioned on HR and BB can be written as follows:</p></li>
+</ul>
+<p><span class="math display">\[
+\mbox{E}[R \mid BB = x_1, \, HR = x_2] = \beta_0 + \beta_1 x_1 + \beta_2 x_2
+\]</span></p>
+</section>
+<section id="multivariable-regression-2" class="slide level2">
+<h2>Multivariable regression</h2>
+<ul>
+<li><p>This model suggests that, if the number of HR is fixed at <span class="math inline">\(x_2\)</span>, we observe a linear relationship between runs and BB with an intercept of <span class="math inline">\(\beta_0 + \beta_2 x_2\)</span>.</p></li>
+<li><p>Our exploratory data analysis suggested that this is the case.</p></li>
+<li><p>The model also suggests that as the number of HR grows, the intercept growth is linear as well and determined by <span class="math inline">\(\beta_1\)</span>.</p></li>
+<li><p>In this analysis, referred to as <em>multivariable regression</em>, you will often hear people say that the BB slope <span class="math inline">\(\beta_1\)</span> is <em>adjusted</em> for the HR effect.</p></li>
+</ul>
+</section>
+<section id="multivariable-regression-3" class="slide level2">
+<h2>Multivariable regression</h2>
+<ul>
+<li>Because the data is approximately normal and conditional distributions were also normal, we are justified in using a linear model:</li>
+</ul>
+<p><span class="math display">\[
+Y_i = \beta_0 + \beta_1 x_{i,1} + \beta_2 x_{i,2} + \varepsilon_i
+\]</span></p>
+<ul>
+<li>with <span class="math inline">\(Y_i\)</span> runs per game for team <span class="math inline">\(i\)</span>, <span class="math inline">\(x_{i,1}\)</span> walks per game, and <span class="math inline">\(x_{i,2}\)</span>.</li>
+</ul>
+</section>
+<section id="multivariable-regression-4" class="slide level2">
+<h2>Multivariable regression</h2>
+<ul>
+<li><p>To use <code>lm</code> here, we need to let the function know we have two predictor variables.</p></li>
+<li><p>We therefore use the <code>+</code> symbol as follows:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">tidy</span>(<span class="fu">lm</span>(r <span class="sc">~</span> bb <span class="sc">+</span> hr, <span class="at">data =</span> dat), <span class="at">conf.int =</span> <span class="cn">TRUE</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 7
+  term        estimate std.error statistic   p.value conf.low conf.high
+  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+1 (Intercept)    1.74     0.0820      21.2 3.38e- 83    1.58      1.90 
+2 bb             0.387    0.0269      14.4 8.41e- 43    0.334     0.440
+3 hr             1.57     0.0488      32.1 1.39e-157    1.47      1.66 </code></pre>
+</div>
+</div>
+</section>
+<section id="multivariable-regression-5" class="slide level2">
+<h2>Multivariable regression</h2>
+<ul>
+<li><p>When we fit the model with only one variable, the estimated slopes were 0.74 and 1.85 for BB and HR, respectively.</p></li>
+<li><p>Note that when fitting the multivariable model both go down, with the BB effect decreasing much more.</p></li>
+</ul>
+</section>
+<section id="building-a-baseball-team" class="slide level2">
+<h2>Building a baseball team</h2>
+<p><span class="math display">\[
+Y_i = \beta_0 + \beta_1 x_{i,1} + \beta_2 x_{i,2} + \beta_3 x_{i,3}+ \beta_4 x_{i,4} + \beta_5 x_{i,5} + \varepsilon_i
+\]</span></p>
+<ul>
+<li>with <span class="math inline">\(x_{i,1}, x_{i,2}, x_{i,3}, x_{i,4}, x_{i,5}\)</span> representing BB, singles, doubles, triples, and HR respectively.</li>
+</ul>
+</section>
+<section id="building-a-baseball-team-1" class="slide level2">
+<h2>Building a baseball team</h2>
+<ul>
+<li>Using <code>lm</code>, we can quickly find the LSE for the parameters using:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>fit <span class="ot">&lt;-</span> dat <span class="sc">|&gt;</span>  <span class="fu">filter</span>(year <span class="sc">&lt;=</span> <span class="dv">2001</span>) <span class="sc">|&gt;</span>  </span>
+<span id="cb19-2"><a></a>  <span class="fu">lm</span>(r <span class="sc">~</span> bb <span class="sc">+</span> singles <span class="sc">+</span> doubles <span class="sc">+</span> triples <span class="sc">+</span> hr, <span class="at">data =</span> _) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="building-a-baseball-team-2" class="slide level2">
+<h2>Building a baseball team</h2>
+<ul>
+<li>We can see the coefficients using <code>tidy</code>:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">tidy</span>(fit, <span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(term <span class="sc">!=</span> <span class="st">"(Intercept)"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 7
+  term    estimate std.error statistic   p.value conf.low conf.high
+  &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+1 bb         0.370    0.0119      31.2 1.00e-149    0.347     0.393
+2 singles    0.517    0.0128      40.5 5.29e-213    0.492     0.543
+3 doubles    0.775    0.0229      33.8 7.09e-168    0.730     0.820
+4 triples    1.24     0.0778      15.9 4.62e- 51    1.09      1.39 
+5 hr         1.44     0.0248      58.1 1.98e-323    1.39      1.49 </code></pre>
+</div>
+</div>
+</section>
+<section id="building-a-baseball-team-3" class="slide level2">
+<h2>Building a baseball team</h2>
+<ul>
+<li>To see how well our metric actually predicts runs, we can predict the number of runs for each team in 2002 using the function <code>predict</code>, then make a plot:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>dat <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">r_hat =</span> <span class="fu">predict</span>(fit, <span class="at">newdata =</span> dat)) <span class="sc">|&gt;</span> </span>
+<span id="cb22-2"><a></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2002</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(r_hat, r, <span class="at">label =</span> team)) <span class="sc">+</span>  </span>
+<span id="cb22-4"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb22-5"><a></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x =</span> <span class="fl">0.1</span>, <span class="at">cex =</span> <span class="dv">2</span>) <span class="sc">+</span>  </span>
+<span id="cb22-6"><a></a>  <span class="fu">geom_abline</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="building-a-baseball-team-4" class="slide level2">
+<h2>Building a baseball team</h2>
+
+<img data-src="30-multivariate-regression_files/figure-revealjs/model-predicts-runs-run-1.png" width="960" class="r-stretch"></section>
+<section id="building-a-baseball-team-5" class="slide level2">
+<h2>Building a baseball team</h2>
+<ul>
+<li><p>The formula would look like this: -2.76 + 0.37 <span class="math inline">\(\times\)</span> BB + 0.52 <span class="math inline">\(\times\)</span> singles + 0.78 <span class="math inline">\(\times\)</span> doubles + 1.24 <span class="math inline">\(\times\)</span> triples + 1.44 <span class="math inline">\(\times\)</span> HR.</p></li>
+<li><p>To define a player-specific metric, we have a bit more work to do.</p></li>
+</ul>
+</section>
+<section id="building-a-baseball-team-6" class="slide level2">
+<h2>Building a baseball team</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>pa_per_game <span class="ot">&lt;-</span> Batting <span class="sc">|&gt;</span> <span class="fu">filter</span>(yearID <span class="sc">==</span> <span class="dv">2002</span>) <span class="sc">|&gt;</span>  </span>
+<span id="cb23-2"><a></a>  <span class="fu">group_by</span>(teamID) <span class="sc">|&gt;</span> </span>
+<span id="cb23-3"><a></a>  <span class="fu">summarize</span>(<span class="at">pa_per_game =</span> <span class="fu">sum</span>(AB <span class="sc">+</span> BB)<span class="sc">/</span><span class="dv">162</span>) <span class="sc">|&gt;</span>  </span>
+<span id="cb23-4"><a></a>  <span class="fu">pull</span>(pa_per_game) <span class="sc">|&gt;</span>  </span>
+<span id="cb23-5"><a></a>  <span class="fu">mean</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="building-a-baseball-team-7" class="slide level2">
+<h2>Building a baseball team</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>players <span class="ot">&lt;-</span> Batting <span class="sc">|&gt;</span>  </span>
+<span id="cb24-2"><a></a>  <span class="fu">filter</span>(yearID <span class="sc">%in%</span> <span class="dv">1997</span><span class="sc">:</span><span class="dv">2001</span>) <span class="sc">|&gt;</span>  </span>
+<span id="cb24-3"><a></a>  <span class="fu">group_by</span>(playerID) <span class="sc">|&gt;</span> </span>
+<span id="cb24-4"><a></a>  <span class="fu">mutate</span>(<span class="at">pa =</span> BB <span class="sc">+</span> AB) <span class="sc">|&gt;</span> </span>
+<span id="cb24-5"><a></a>  <span class="fu">summarize</span>(<span class="at">g =</span> <span class="fu">sum</span>(pa)<span class="sc">/</span>pa_per_game, </span>
+<span id="cb24-6"><a></a>    <span class="at">bb =</span> <span class="fu">sum</span>(BB)<span class="sc">/</span>g, </span>
+<span id="cb24-7"><a></a>    <span class="at">singles =</span> <span class="fu">sum</span>(H <span class="sc">-</span> X2B <span class="sc">-</span> X3B <span class="sc">-</span> HR)<span class="sc">/</span>g, </span>
+<span id="cb24-8"><a></a>    <span class="at">doubles =</span> <span class="fu">sum</span>(X2B)<span class="sc">/</span>g,  </span>
+<span id="cb24-9"><a></a>    <span class="at">triples =</span> <span class="fu">sum</span>(X3B)<span class="sc">/</span>g,  </span>
+<span id="cb24-10"><a></a>    <span class="at">hr =</span> <span class="fu">sum</span>(HR)<span class="sc">/</span>g, </span>
+<span id="cb24-11"><a></a>    <span class="at">avg =</span> <span class="fu">sum</span>(H)<span class="sc">/</span><span class="fu">sum</span>(AB), </span>
+<span id="cb24-12"><a></a>    <span class="at">pa =</span> <span class="fu">sum</span>(pa)) <span class="sc">|&gt;</span> </span>
+<span id="cb24-13"><a></a>  <span class="fu">filter</span>(pa <span class="sc">&gt;=</span> <span class="dv">1000</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb24-14"><a></a>  <span class="fu">select</span>(<span class="sc">-</span>g) </span>
+<span id="cb24-15"><a></a>players<span class="sc">$</span>r_hat <span class="ot">=</span> <span class="fu">predict</span>(fit, <span class="at">newdata =</span> players) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="building-a-baseball-team-8" class="slide level2">
+<h2>Building a baseball team</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">hist</span>(players<span class="sc">$</span>r_hat, <span class="at">main =</span> <span class="st">"Predicted runs per game"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="building-a-baseball-team-9" class="slide level2">
+<h2>Building a baseball team</h2>
+
+<img data-src="30-multivariate-regression_files/figure-revealjs/r-hat-hist-run-1.png" width="960" class="r-stretch"></section>
+<section id="building-a-baseball-team-10" class="slide level2">
+<h2>Building a baseball team</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>players <span class="ot">&lt;-</span> Salaries <span class="sc">|&gt;</span>  </span>
+<span id="cb26-2"><a></a>  <span class="fu">filter</span>(yearID <span class="sc">==</span> <span class="dv">2002</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb26-3"><a></a>  <span class="fu">select</span>(playerID, salary) <span class="sc">|&gt;</span> </span>
+<span id="cb26-4"><a></a>  <span class="fu">right_join</span>(players, <span class="at">by =</span> <span class="st">"playerID"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="building-a-baseball-team-11" class="slide level2">
+<h2>Building a baseball team</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>position_names <span class="ot">&lt;-</span>  </span>
+<span id="cb27-2"><a></a>  <span class="fu">paste0</span>(<span class="st">"G_"</span>, <span class="fu">c</span>(<span class="st">"p"</span>,<span class="st">"c"</span>,<span class="st">"1b"</span>,<span class="st">"2b"</span>,<span class="st">"3b"</span>,<span class="st">"ss"</span>,<span class="st">"lf"</span>,<span class="st">"cf"</span>,<span class="st">"rf"</span>, <span class="st">"dh"</span>)) </span>
+<span id="cb27-3"><a></a>tmp <span class="ot">&lt;-</span> Appearances <span class="sc">|&gt;</span>  </span>
+<span id="cb27-4"><a></a>  <span class="fu">filter</span>(yearID <span class="sc">==</span> <span class="dv">2002</span>) <span class="sc">|&gt;</span>  </span>
+<span id="cb27-5"><a></a>  <span class="fu">group_by</span>(playerID) <span class="sc">|&gt;</span> </span>
+<span id="cb27-6"><a></a>  <span class="fu">summarize_at</span>(position_names, sum) <span class="sc">|&gt;</span> </span>
+<span id="cb27-7"><a></a>  <span class="fu">ungroup</span>() </span>
+<span id="cb27-8"><a></a>pos <span class="ot">&lt;-</span> tmp <span class="sc">|&gt;</span> </span>
+<span id="cb27-9"><a></a>  <span class="fu">select</span>(<span class="fu">all_of</span>(position_names)) <span class="sc">|&gt;</span> </span>
+<span id="cb27-10"><a></a>  <span class="fu">apply</span>(<span class="at">X =</span> _, <span class="dv">1</span>, which.max)  </span>
+<span id="cb27-11"><a></a>players <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">playerID =</span> tmp<span class="sc">$</span>playerID, <span class="at">POS =</span> position_names[pos]) <span class="sc">|&gt;</span> </span>
+<span id="cb27-12"><a></a>  <span class="fu">mutate</span>(<span class="at">POS =</span> <span class="fu">str_to_upper</span>(<span class="fu">str_remove</span>(POS, <span class="st">"G_"</span>))) <span class="sc">|&gt;</span> </span>
+<span id="cb27-13"><a></a>  <span class="fu">filter</span>(POS <span class="sc">!=</span> <span class="st">"P"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb27-14"><a></a>  <span class="fu">right_join</span>(players, <span class="at">by =</span> <span class="st">"playerID"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb27-15"><a></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(POS)  <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(salary)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="building-a-baseball-team-12" class="slide level2">
+<h2>Building a baseball team</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>players <span class="ot">&lt;-</span> People <span class="sc">|&gt;</span> </span>
+<span id="cb28-2"><a></a>  <span class="fu">select</span>(playerID, nameFirst, nameLast, debut) <span class="sc">|&gt;</span> </span>
+<span id="cb28-3"><a></a>  <span class="fu">mutate</span>(<span class="at">debut =</span> <span class="fu">as.Date</span>(debut)) <span class="sc">|&gt;</span> </span>
+<span id="cb28-4"><a></a>  <span class="fu">right_join</span>(players, <span class="at">by =</span> <span class="st">"playerID"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="building-a-baseball-team-13" class="slide level2">
+<h2>Building a baseball team</h2>
+<ul>
+<li>If you are a baseball fan, you will recognize the top 10 players:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>players <span class="sc">|&gt;</span> <span class="fu">select</span>(nameFirst, nameLast, POS, salary, r_hat) <span class="sc">|&gt;</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(r_hat)) <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="dv">10</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   nameFirst nameLast POS   salary    r_hat
+1      Barry    Bonds  LF 15000000 8.052460
+2      Larry   Walker  RF 12666667 7.960583
+3       Todd   Helton  1B  5000000 7.403074
+4      Manny  Ramirez  LF 15462727 7.352475
+5      Sammy     Sosa  RF 15000000 7.201670
+6       Jeff  Bagwell  1B 11000000 7.053805
+7       Mike   Piazza   C 10571429 6.993616
+8      Jason   Giambi  1B 10428571 6.916405
+9      Edgar Martinez  DH  7086668 6.912145
+10       Jim    Thome  1B  8000000 6.885270</code></pre>
+</div>
+</div>
+</section>
+<section id="building-a-baseball-team-14" class="slide level2">
+<h2>Building a baseball team</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-striped caption-top" data-quarto-postprocess="true" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">nameFirst</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">nameLast</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">POS</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">salary</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">r_hat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Todd</td>
+<td style="text-align: left;">Helton</td>
+<td style="text-align: left;">1B</td>
+<td style="text-align: right;">5000000</td>
+<td style="text-align: right;">7.403073</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mike</td>
+<td style="text-align: left;">Piazza</td>
+<td style="text-align: left;">C</td>
+<td style="text-align: right;">10571429</td>
+<td style="text-align: right;">6.993616</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Edgar</td>
+<td style="text-align: left;">Martinez</td>
+<td style="text-align: left;">DH</td>
+<td style="text-align: right;">7086668</td>
+<td style="text-align: right;">6.912145</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Jim</td>
+<td style="text-align: left;">Edmonds</td>
+<td style="text-align: left;">CF</td>
+<td style="text-align: right;">7333333</td>
+<td style="text-align: right;">6.231373</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Jeff</td>
+<td style="text-align: left;">Kent</td>
+<td style="text-align: left;">2B</td>
+<td style="text-align: right;">6000000</td>
+<td style="text-align: right;">6.079064</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Phil</td>
+<td style="text-align: left;">Nevin</td>
+<td style="text-align: left;">3B</td>
+<td style="text-align: right;">2600000</td>
+<td style="text-align: right;">5.857409</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Matt</td>
+<td style="text-align: left;">Stairs</td>
+<td style="text-align: left;">RF</td>
+<td style="text-align: right;">500000</td>
+<td style="text-align: right;">5.758631</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Henry</td>
+<td style="text-align: left;">Rodriguez</td>
+<td style="text-align: left;">LF</td>
+<td style="text-align: right;">300000</td>
+<td style="text-align: right;">5.640563</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">John</td>
+<td style="text-align: left;">Valentin</td>
+<td style="text-align: left;">SS</td>
+<td style="text-align: right;">550000</td>
+<td style="text-align: right;">5.000417</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</section>
+<section id="building-a-baseball-team-15" class="slide level2">
+<h2>Building a baseball team</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-striped caption-top" data-quarto-postprocess="true" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">nameLast</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">bb</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">singles</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">doubles</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">triples</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">hr</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">avg</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">r_hat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Helton</td>
+<td style="text-align: right;">0.91</td>
+<td style="text-align: right;">-0.21</td>
+<td style="text-align: right;">2.65</td>
+<td style="text-align: right;">-0.31</td>
+<td style="text-align: right;">1.52</td>
+<td style="text-align: right;">2.67</td>
+<td style="text-align: right;">2.54</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Piazza</td>
+<td style="text-align: right;">0.33</td>
+<td style="text-align: right;">0.42</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">-1.42</td>
+<td style="text-align: right;">1.83</td>
+<td style="text-align: right;">2.20</td>
+<td style="text-align: right;">2.09</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Martinez</td>
+<td style="text-align: right;">2.14</td>
+<td style="text-align: right;">-0.01</td>
+<td style="text-align: right;">1.26</td>
+<td style="text-align: right;">-1.22</td>
+<td style="text-align: right;">0.81</td>
+<td style="text-align: right;">2.20</td>
+<td style="text-align: right;">2.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Edmonds</td>
+<td style="text-align: right;">1.07</td>
+<td style="text-align: right;">-0.56</td>
+<td style="text-align: right;">0.79</td>
+<td style="text-align: right;">-1.15</td>
+<td style="text-align: right;">0.97</td>
+<td style="text-align: right;">0.85</td>
+<td style="text-align: right;">1.26</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kent</td>
+<td style="text-align: right;">0.23</td>
+<td style="text-align: right;">-0.73</td>
+<td style="text-align: right;">2.01</td>
+<td style="text-align: right;">0.45</td>
+<td style="text-align: right;">0.77</td>
+<td style="text-align: right;">0.79</td>
+<td style="text-align: right;">1.09</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nevin</td>
+<td style="text-align: right;">0.31</td>
+<td style="text-align: right;">-0.91</td>
+<td style="text-align: right;">0.48</td>
+<td style="text-align: right;">-1.19</td>
+<td style="text-align: right;">1.19</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.85</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Stairs</td>
+<td style="text-align: right;">1.10</td>
+<td style="text-align: right;">-1.51</td>
+<td style="text-align: right;">-0.05</td>
+<td style="text-align: right;">-1.13</td>
+<td style="text-align: right;">1.12</td>
+<td style="text-align: right;">-0.56</td>
+<td style="text-align: right;">0.74</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rodriguez</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">-1.60</td>
+<td style="text-align: right;">0.33</td>
+<td style="text-align: right;">-0.78</td>
+<td style="text-align: right;">1.32</td>
+<td style="text-align: right;">-0.67</td>
+<td style="text-align: right;">0.61</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Valentin</td>
+<td style="text-align: right;">0.18</td>
+<td style="text-align: right;">-0.93</td>
+<td style="text-align: right;">1.79</td>
+<td style="text-align: right;">-0.43</td>
+<td style="text-align: right;">-0.05</td>
+<td style="text-align: right;">-0.47</td>
+<td style="text-align: right;">-0.09</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+
+<div class="quarto-auto-generated-content">
+<div class="footer footer-default">
+
+</div>
+</div>
+</section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp("http:\/\/datasciencelabs\.github\.io\/2024");
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

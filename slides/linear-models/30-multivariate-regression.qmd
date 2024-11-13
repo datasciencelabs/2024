@@ -1,0 +1,596 @@
+---
+title: "Multivariate Regression"
+keywords: "Linear Models"
+date: 2024-11-12
+format:
+  revealjs:
+    theme: night
+execute: 
+  echo: true
+---
+
+## Multivariate Regression
+
+- Since Galton's original development, regression has become one of the most widely used tools in data analysis.
+
+- One reason is the fact that an adaptation of the original regression approach, based on linear models, permits us to find relationships between two variables taking into account the effects of other variables that affect both.
+
+- This has been particularly popular in fields where randomized experiments are hard to run, such as economics and epidemiology.
+
+
+
+## Multivariate Regression
+
+- When we are unable to randomly assign each individual to a treatment or control group, confounding becomes particularly prevalent.
+
+- For instance, consider estimating the effect of eating fast foods on life expectancy using data collected from a random sample of people in a jurisdiction.
+
+- Fast food consumers are more likely to be smokers, drinkers, and have lower incomes.
+
+- Consequently, a naive regression model may lead to an overestimate of the negative health effects of fast food.
+
+
+
+## Multivariate Regression
+
+- So, how do we account for confounding in practice? 
+
+- Today we learn how _multivariate regression_ can help with such situations and can be used to describe how one or more variables affect an outcome variable.
+
+- We illustrate with a real-world example in which data was used to help pick underappreciated players to improve a resource limited sports team.
+
+
+
+## Case study: Moneyball
+
+
+![](https://gloat.com/wp-content/uploads/2020/06/rsz_moneyball-poster.jpg)
+
+
+## Moneyball
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Paul_DePodesta_2011.jpg/440px-Paul_DePodesta_2011.jpg)
+
+
+## Moneyball
+
+![](http://dreamsandvisions.squarespace.com/storage/moneyball_06.jpg?__SQUARESPACE_CACHEVERSION=1330905208350)
+
+
+
+
+## Case study: Moneyball
+
+```{r mlb-2002-payroll, echo=FALSE, message=FALSE, warning=FALSE, fig.height = 4.5} 
+library(tidyverse) 
+library(rvest) 
+url <- "http://www.stevetheump.com/Payrolls.htm" 
+h <- read_html(url)  
+i <- h |> html_nodes(".style3") |> html_text() |> stringr::str_which("2002") 
+h |> html_nodes("table") |>  
+  (\(x) x[[i]])() |>  
+  html_table(header = TRUE) |>   
+  mutate(Payroll = parse_number(Payroll)/10^6) |> 
+  mutate(Team = reorder(Team, Payroll)) |> 
+  ggplot(aes(Team, Payroll)) + 
+  geom_bar(stat = "identity") + 
+  ylab("Payroll in Millions") +  
+  coord_flip() 
+``` 
+
+
+## Examples
+
+- Here is a video showing a success: <https://www.youtube.com/watch?v=HL-XjMCPfio>.
+
+- And here is one showing a failure: <https://www.youtube.com/watch?v=NeloljCx-1g>.
+
+
+
+
+## Baseball basics
+
+![](https://rafalab.dfci.harvard.edu/dsbook-part-2/linear-models/img/Baseball_Diamond1.png)
+
+
+## Baseball basics
+
+-   Bases on balls (BB): The pitcher fails to throw the ball through a predefined area considered to be hittable (the strike zone), so the batter is permitted to go to first base.
+
+-    Single: The batter hits the ball and gets to first base.
+
+-    Double (2B): The batter hits the ball and gets to second base.
+
+-    Triple (3B): The batter hits the ball and gets to third base.
+
+-    Home Run (HR): The batter hits the ball and goes all the way home and scores a run.
+
+
+
+## Baseball basics
+
+- Here is an example of a HR: <https://www.youtube.com/watch?v=xYxSZJ9GZ-w>.
+
+
+## Baseball basics
+
+- Here is an example of a stolen base: <https://www.youtube.com/watch?v=JSE5kfxkzfk>.
+
+- All these events are tracked throughout the season and are available to us through the **Lahman** package.
+
+- Now, we can begin discussing how data analysis can help us determine how to use these statistics to evaluate players.
+
+
+
+## No awards for base on balls
+
+![](https://rafalab.dfci.harvard.edu/dsbook-part-2/linear-models/img/JumboTron.png)
+
+## Base on balls or stolen bases?
+
+```{r, cache=FALSE, message=FALSE, warning=FALSE} 
+library(tidyverse) 
+library(Lahman) 
+dat <- Teams |> filter(yearID %in% 1962:2002) |> 
+  mutate(team = teamID, year = yearID, r = R/G,  
+         singles = (H - X2B - X3B - HR)/G,  
+         doubles = X2B/G, triples = X3B/G, hr = HR/G, 
+         sb = SB/G, bb = BB/G) |> 
+  select(team, year, r, singles, doubles, triples, hr, sb, bb) 
+``` 
+
+
+## Base on balls or stolen bases?
+
+- Now let's start with a obvious question: do teams that hit more home runs score more runs? When exploring the relationship between two variables, The visualization of choice is a scatterplot:
+
+```{r runs-vs-hrs-run, message=FALSE, warning=FALSE, echo=FALSE} 
+p <- dat |> ggplot(aes(hr, r)) + geom_point(alpha = 0.5) 
+p  
+``` 
+
+
+## Base on balls or stolen bases?
+
+```{r runs-vs-sb-run, echo=FALSE} 
+dat |> ggplot(aes(sb, r)) + geom_point(alpha = 0.5) 
+``` 
+
+
+## Base on balls or stolen bases?
+
+```{r runs-vs-bb-run, echo=FALSE} 
+dat |> ggplot(aes(bb, r)) + geom_point(alpha = 0.5) 
+``` 
+
+
+## Base on balls or stolen bases?
+
+- But does this mean that increasing a team's BBs **causes** an increase in runs? 
+
+```{r bb-vs-hrs-run, echo=FALSE} 
+dat |> ggplot(aes(hr, bb)) + geom_point(alpha = 0.5) 
+``` 
+
+
+## Regression applied to baseball
+
+- Can we use regression with these data? 
+
+```{r hr-by-runs-qq-run, echo=FALSE} 
+dat |> mutate(z_hr = round(scale(hr))) |> 
+  filter(z_hr %in% -2:3) |> 
+  ggplot() +   
+  stat_qq(aes(sample = r)) + 
+  facet_wrap(~z_hr)  
+``` 
+
+
+## Regression applied to baseball
+
+- Now we are ready to use linear regression to predict the number of runs a team will score, if we know how many home runs the team hits using regression:
+
+```{r hr-versus-runs-regression} 
+hr_fit  <- lm(r ~ hr, data = dat)$coef 
+p + geom_abline(intercept = hr_fit[[1]], slope = hr_fit[[2]]) 
+``` 
+
+## Regression applied to baseball
+
+In **ggplot** we can do this:
+
+```{r  hr-versus-runs-regression-easy, message=FALSE, eval=FALSE} 
+p + geom_smooth(method = "lm") 
+``` 
+
+
+## The broom package
+
+
+```{r} 
+library(broom) 
+fit <- lm(r ~ bb, data = dat) 
+tidy(fit, conf.int = TRUE) 
+``` 
+
+- The other functions provided by **broom**, `glance` and `augment`, relate to model-specific and observation-specific outcomes, respectively.
+
+
+
+## Confounding
+
+- Previously, we noted a strong relationship between Runs and BB.
+
+- If we find the regression line for predicting runs from bases on balls, we a get slope of:
+
+```{r, warning=FALSE, message=FALSE} 
+bb_slope <- lm(r ~ bb, data = dat)$coef[2] 
+bb_slope  
+``` 
+
+## Confounding
+
+- The data does provide strong evidence that a team with two more BB per game than the average team, scores `r round(bb_slope*2, 1)` runs per game.
+
+- But this does not mean that BB are the cause.
+
+## Confounding
+
+- Note that, if we compute the regression line slope for singles, we get:
+
+```{r} 
+lm(r ~ singles, data = dat)$coef[2] 
+``` 
+
+## Confounding
+
+- Here we show the correlation between HR, BB, and singles:
+
+```{r} 
+dat |> summarize(cor(bb, hr), cor(singles, hr), cor(bb, singles)) 
+``` 
+
+
+## Confounding
+
+
+- A first approach is to keep HRs fixed at a certain value and then examine the relationship between BB and runs.
+
+```{r runs-vs-bb-by-hr-strata, out.width="80%", fig.height=5, message=FALSE, warning=FALSE, eval=FALSE} 
+dat |> mutate(hr_strata = round(hr, 1)) |>  
+  filter(hr_strata >= 0.4 & hr_strata <= 1.2) |> 
+  ggplot(aes(bb, r)) +   
+  geom_point(alpha = 0.5) + 
+  geom_smooth(method = "lm") + 
+  facet_wrap(~hr_strata)  
+``` 
+
+
+## Confounding
+
+```{r runs-vs-bb-by-hr-strata-run, out.width="80%", fig.height=5, message=FALSE, warning=FALSE, echo=FALSE} 
+dat |> mutate(hr_strata = round(hr, 1)) |>  
+  filter(hr_strata >= 0.4 & hr_strata <= 1.2) |> 
+  ggplot(aes(bb, r)) +   
+  geom_point(alpha = 0.5) + 
+  geom_smooth(method = "lm") + 
+  facet_wrap(~hr_strata)  
+``` 
+
+
+## Confounding
+
+
+- Once we stratify by HR, these slopes are substantially reduced:
+
+```{r} 
+dat |> mutate(hr_strata = round(hr, 1)) |>  
+  filter(hr_strata >= 0.5 & hr_strata <= 1.2) |>   
+  group_by(hr_strata) |> 
+  reframe(tidy(lm(r ~ bb))) |> 
+  filter(term == "bb") 
+``` 
+
+
+
+## Counfounding
+
+```{r} 
+dat |> mutate(bb_strata = round(bb, 1)) |>  
+  filter(bb_strata >= 3 & bb_strata <= 4) |>   
+  group_by(bb_strata) |> 
+  reframe(tidy(lm(r ~ hr))) |> 
+  filter(term == "hr") 
+``` 
+
+## Multivariable regression
+
+- It is somewhat complex to be computing regression lines for each strata.
+
+- We are essentially fitting models like this:
+
+
+$$
+\mbox{E}[R \mid BB = x_1, \, HR = x_2] = \beta_0 + \beta_1(x_2) x_1 + \beta_2(x_1) x_2 
+$$
+
+- with the slopes for $x_1$ changing for different values of $x_2$ and vice versa.
+
+- But is there an easier approach?
+
+
+
+## Multivariable regression
+
+- If we take random variability into account, the slopes in the strata don't appear to change much.
+
+- If these slopes are in fact the same, this implies that $\beta_1(x_2)$ and $\beta_2(x_1)$ are constants.
+
+- This, in turn, implies that the expectation of runs conditioned on HR and BB can be written as follows:
+
+
+$$
+\mbox{E}[R \mid BB = x_1, \, HR = x_2] = \beta_0 + \beta_1 x_1 + \beta_2 x_2 
+$$
+
+
+
+## Multivariable regression
+
+- This model suggests that, if the number of HR is fixed at $x_2$, we observe a linear relationship between runs and BB with an intercept of $\beta_0 + \beta_2 x_2$.
+
+- Our exploratory data analysis suggested that this is the case.
+
+- The model also suggests that as the number of HR grows, the intercept growth is linear as well and determined by $\beta_1$.
+
+- In this analysis, referred to as *multivariable regression*, you will often hear people say that the BB slope $\beta_1$ is *adjusted* for the HR effect.
+
+
+
+## Multivariable regression
+
+- Because the data is approximately normal and conditional distributions were also normal, we are justified in using a linear model:
+
+
+$$
+Y_i = \beta_0 + \beta_1 x_{i,1} + \beta_2 x_{i,2} + \varepsilon_i 
+$$
+
+- with $Y_i$ runs per game for team $i$, $x_{i,1}$ walks per game, and $x_{i,2}$.
+
+
+
+
+## Multivariable regression
+
+- To use `lm` here, we need to let the function know we have two predictor variables.
+
+- We therefore use the `+` symbol as follows:
+
+```{r} 
+tidy(lm(r ~ bb + hr, data = dat), conf.int = TRUE)  
+``` 
+
+## Multivariable regression
+
+- When we fit the model with only one variable, the estimated slopes were `r round(lm(r ~ bb, data = dat)$coef[2], 2)` and `r round(lm(r ~ hr, data = dat)$coef[2], 2)` for BB and HR, respectively.
+
+- Note that when fitting the multivariable model both go down, with the BB effect decreasing much more.
+
+## Building a baseball team
+
+
+$$
+Y_i = \beta_0 + \beta_1 x_{i,1} + \beta_2 x_{i,2} + \beta_3 x_{i,3}+ \beta_4 x_{i,4} + \beta_5 x_{i,5} + \varepsilon_i 
+$$
+
+- with $x_{i,1}, x_{i,2}, x_{i,3}, x_{i,4}, x_{i,5}$ representing BB, singles, doubles, triples, and HR respectively.
+
+## Building a baseball team
+
+
+- Using `lm`, we can quickly find the LSE for the parameters using:
+
+```{r} 
+#| cache: false 
+fit <- dat |>  filter(year <= 2001) |>  
+  lm(r ~ bb + singles + doubles + triples + hr, data = _) 
+``` 
+
+
+
+## Building a baseball team
+
+
+- We can see the coefficients using `tidy`:
+
+```{r} 
+tidy(fit, conf.int = TRUE) |> filter(term != "(Intercept)") 
+``` 
+
+## Building a baseball team
+
+
+
+- To see how well our metric actually predicts runs, we can predict the number of runs for each team in 2002 using the function `predict`, then make a plot:
+
+```{r model-predicts-runs, eval=FALSE} 
+dat |> mutate(r_hat = predict(fit, newdata = dat)) |> 
+  filter(year == 2002) %>% 
+  ggplot(aes(r_hat, r, label = team)) +  
+  geom_point() + 
+  geom_text(nudge_x = 0.1, cex = 2) +  
+  geom_abline() 
+``` 
+
+
+## Building a baseball team
+
+```{r model-predicts-runs-run, echo=FALSE} 
+dat |> mutate(r_hat = predict(fit, newdata = dat)) |> 
+  filter(year == 2002) %>% 
+  ggplot(aes(r_hat, r, label = team)) +  
+  geom_point() + 
+  geom_text(nudge_x = 0.1, cex = 2) +  
+  geom_abline() 
+``` 
+
+
+
+
+## Building a baseball team
+
+- The formula would look like this: `r round(coef(fit), 2)[1]` + `r round(coef(fit), 2)[2]` $\times$ BB + `r round(coef(fit), 2)[3]` $\times$ singles + `r round(coef(fit), 2)[4]` $\times$ doubles + `r round(coef(fit), 2)[5]` $\times$ triples + `r round(coef(fit), 2)[6]` $\times$ HR.
+
+- To define a player-specific metric, we have a bit more work to do.
+
+
+## Building a baseball team
+
+
+
+```{r} 
+pa_per_game <- Batting |> filter(yearID == 2002) |>  
+  group_by(teamID) |> 
+  summarize(pa_per_game = sum(AB + BB)/162) |>  
+  pull(pa_per_game) |>  
+  mean() 
+``` 
+
+
+## Building a baseball team
+
+```{r} 
+players <- Batting |>  
+  filter(yearID %in% 1997:2001) |>  
+  group_by(playerID) |> 
+  mutate(pa = BB + AB) |> 
+  summarize(g = sum(pa)/pa_per_game, 
+    bb = sum(BB)/g, 
+    singles = sum(H - X2B - X3B - HR)/g, 
+    doubles = sum(X2B)/g,  
+    triples = sum(X3B)/g,  
+    hr = sum(HR)/g, 
+    avg = sum(H)/sum(AB), 
+    pa = sum(pa)) |> 
+  filter(pa >= 1000) |> 
+  select(-g) 
+players$r_hat = predict(fit, newdata = players) 
+``` 
+
+
+
+## Building a baseball team
+
+```{r r-hat-hist, eval=FALSE} 
+hist(players$r_hat, main = "Predicted runs per game") 
+``` 
+
+
+## Building a baseball team
+
+```{r r-hat-hist-run, echo=FALSE} 
+hist(players$r_hat, main = "Predicted runs per game") 
+``` 
+
+
+## Building a baseball team
+
+
+```{r} 
+players <- Salaries |>  
+  filter(yearID == 2002) |> 
+  select(playerID, salary) |> 
+  right_join(players, by = "playerID") 
+``` 
+
+
+
+
+
+
+## Building a baseball team
+
+```{r} 
+position_names <-  
+  paste0("G_", c("p","c","1b","2b","3b","ss","lf","cf","rf", "dh")) 
+tmp <- Appearances |>  
+  filter(yearID == 2002) |>  
+  group_by(playerID) |> 
+  summarize_at(position_names, sum) |> 
+  ungroup() 
+pos <- tmp |> 
+  select(all_of(position_names)) |> 
+  apply(X = _, 1, which.max)  
+players <- tibble(playerID = tmp$playerID, POS = position_names[pos]) |> 
+  mutate(POS = str_to_upper(str_remove(POS, "G_"))) |> 
+  filter(POS != "P") |> 
+  right_join(players, by = "playerID") |> 
+  filter(!is.na(POS)  & !is.na(salary)) 
+``` 
+
+
+
+## Building a baseball team
+
+
+```{r} 
+players <- People |> 
+  select(playerID, nameFirst, nameLast, debut) |> 
+  mutate(debut = as.Date(debut)) |> 
+  right_join(players, by = "playerID") 
+``` 
+
+## Building a baseball team
+
+- If you are a baseball fan, you will recognize the top 10 players:
+
+```{r} 
+players |> select(nameFirst, nameLast, POS, salary, r_hat) |> arrange(desc(r_hat)) |> head(10)  
+``` 
+
+## Building a baseball team
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE, cache = FALSE} 
+library(reshape2) 
+library(lpSolve) 
+players <- players |> filter(lubridate::year(debut) < 1998)  
+constraint_matrix <- acast(players, POS ~ playerID, fun.aggregate = length) 
+npos <- nrow(constraint_matrix) 
+constraint_matrix <- rbind(constraint_matrix, salary = players$salary) 
+constraint_dir <- c(rep("==", npos), "<=") 
+constraint_limit <- c(rep(1, npos), 40*10^6) 
+lp_solution <- lp("max", players$r_hat, 
+                  constraint_matrix, constraint_dir, constraint_limit, 
+                  all.int = TRUE)  
+our_team <- players |> 
+  filter(lp_solution$solution == 1) |> 
+  arrange(desc(r_hat)) 
+tmp <- our_team |> select(nameFirst, nameLast, POS, salary, r_hat)  
+knitr::kable(tmp, "html") |> 
+    kableExtra::kable_styling(bootstrap_options = "striped", full_width = FALSE) 
+``` 
+
+
+
+
+
+## Building a baseball team
+
+```{r, echo=FALSE} 
+options(digits = 2)
+my_scale <- function(x) (x - median(x))/mad(x) 
+tmp <- players |> mutate(bb = my_scale(bb),  
+                   singles = my_scale(singles), 
+                   doubles = my_scale(doubles), 
+                   triples = my_scale(triples), 
+                   hr = my_scale(hr), 
+                   avg = my_scale(avg), 
+                   r_hat = my_scale(r_hat)) |> 
+  filter(playerID %in% our_team$playerID) |> 
+  select(nameLast, bb, singles, doubles, triples, hr, avg, r_hat) |> 
+  arrange(desc(r_hat))  
+knitr::kable(tmp, "html") |> 
+    kableExtra::kable_styling(bootstrap_options = "striped", full_width = FALSE) 
+``` 
+

@@ -1,0 +1,758 @@
+---
+title: "Treatment Effect Models"
+keywords: "Linear Models"
+date: 2024-11-12
+format:
+  revealjs:
+    theme: night
+execute: 
+  echo: true
+---
+
+## Treatment effect models
+
+```{r} 
+#| message: FALSE 
+#| echo: FALSE 
+#| cache: false 
+library(tidyverse) 
+library(broom) 
+library(dslabs) 
+``` 
+
+- Up to now, all our linear models have been applied to two or more continuous random variables.
+
+- We assume the random variables are multivariate normal and use this to motivate a linear model.
+
+- This approach covers many real-life examples of linear regression.
+
+
+## Treatment effect models
+
+- However, linear models have many other applications.
+
+- One of the most popular is to quantify treatment effects in randomized and controlled experiments.
+
+- One of the first applications was in agriculture, where different plots of lands were treated with different combinations of fertilizers to try to determine if they were effective.
+
+- In fact, the use of $Y$ for the outcome in statistics is due to the mathematical theory being developed for crop _yield_ as the outcome.
+
+
+
+## Treatment effect models
+
+- Since then, the same ideas have been applied in other areas, such as randomized trials developed to determine if drugs cure or prevent diseases or if policies have an effect on social or educational outcomes.
+
+- In the latter example, we think of the policy intervention as a _treatment_ and follow the same mathematical procedure.
+
+- The analyses used in _A/B testing_, widely used today by internet companies, are based on treatment effects models.
+
+
+
+## Treatment effect models
+
+- Moreover, these models have been applied in observational studies where analysts attempt to use linear models to estimate effects of interest while accounting for potential confounders.
+
+- For example, to estimate the effect of a diet high in fruits and vegetables on blood pressure, we would have to adjust for _factors_ such as age, sex, and smoking status.
+
+
+
+
+## Case study
+
+- Mice were randomly selected and divided into two groups: one group receiving a high-fat diet, considered the _treatment_, while the other group served as the control and received the usual _chow_ diet.
+
+- The data is included in the **dslabs** package:
+
+```{r} 
+library(dslabs) 
+table(mice_weights$diet) 
+``` 
+
+## Treatment effect models
+
+- A boxplot shows that the high fat diet mice are, on average, heavier.
+
+```{r weight-by-diet-boxplots, eval=FALSE} 
+with(mice_weights, boxplot(body_weight ~ diet)) 
+``` 
+
+
+## Treatment effect models
+
+```{r weight-by-diet-boxplots-run, echo=FALSE} 
+with(mice_weights, boxplot(body_weight ~ diet)) 
+``` 
+
+
+## Treatment effect models
+
+- However, given that we divided the mice randomly, is it possible that the observed difference is simply due to chance? Here, we can compute the sample average and standard deviation of each group and perform statistical inference on the difference of these means.
+
+
+
+## Comparing group means
+
+- The sample averages for the two groups, high-fat and chow diets, are different:
+
+```{r} 
+library(tidyverse) 
+mice_weights |> group_by(diet) |> summarize(average = mean(body_weight)) 
+``` 
+
+## Comparing group means
+
+- However, this is a random sample of mice, and the assignment to the diet group is also done randomly.
+
+- So is this difference due to chance? 
+
+
+## Comparing group means
+
+-  $\bar{X}_1 - \bar{X}_0$ follows a normal distribution, 
+
+- with expected value $\mu_1-\mu_0$ 
+
+- and standard error $\sqrt{\frac{\sigma_1^2}{N_1} + \frac{\sigma_0^2}{N_0}}$.
+
+## Comparing group means
+
+- If we define the null hypothesis as the high-fat diet having no effect, or $\mu_1 - \mu_0 = 0$, this implies that.
+
+
+$$
+\frac{\bar{X}_1 - \bar{X}_0}{\sqrt{\frac{\sigma_1^2}{N_1} + \frac{\sigma_0^2}{N_0}}} 
+$$
+
+
+- has expected value 0 and standard error 1 and therefore approximately follows a standard normal distribution.
+
+## Comparing group means
+
+- Note that we can't compute this quantity in practice because the $\sigma_1$ and $\sigma_0$ are unknown.
+
+- However, if we estimate them with the sample standard deviations the CLT still holds and:
+
+
+$$
+t = \frac{\bar{X}_1 - \bar{X}_0}{\sqrt{\frac{s_1^2}{N_1} + \frac{s_0^2}{N_0}}} 
+$$
+
+
+- follows a standard normal distribution when the null hypothesis is true.
+
+## Comparing group means
+
+
+- This implies that we can easily compute the probability of observing a value as large as the one we obtained:
+
+```{r} 
+stats <- mice_weights |>  
+  group_by(diet) |>  
+  summarize(xbar = mean(body_weight), s = sd(body_weight), n = n())  
+t_stat <- with(stats, (xbar[2] - xbar[1])/sqrt(s[2]^2/n[2] + s[1]^2/n[1])) 
+t_stat 
+``` 
+
+- Here $t$ is well over 3, so we don't really need to compute the p-value `1-pnorm(t_stat)` as we know it will be very small.
+
+
+
+## Comparing group means
+
+- Note that when $N$ is not large enough, then the CLT does not apply and we use the t-distribution:
+
+- So the calculation of the p-value is the same except that we use `pt` instead of `pnorm`.
+
+- Specifically, we use 
+
+```{r}
+1 - pt(t_stat, with(stats, n[2]+n[1]-2))
+```
+
+
+---
+
+:::{.callout-warning}
+
+- In the computation above, we computed the probability of `t` being as large as what we observed.
+
+- However, when our interest spans both directions, for example, either an increase or decrease in weight, we need to compute the probability of `t` being _as extreme_ as what we observe.
+
+- The formula simply changes to using the absolute value: `1 - pnorm(abs(t-test))` or `1-pt(abs(t_stat), with(stats, n[2]+n[1]-2))`.
+
+:::
+
+
+
+## One factor design
+
+- Although the t-test is useful for cases in which we compare two treatments, it is common to have other variables affect our outcomes.
+
+- Linear models permit hypothesis testing in these more general situations.
+
+
+## One factor design
+
+- If we assume that the weight distributions for both chow and high-fat diets are normally distributed, we can write:
+
+$$
+Y_i = \beta_0 + \beta_1 x_i + \varepsilon_i 
+$$
+
+- with $X_i$ 1, if the $i$-th mice was fed the high-fat diet, and 0 otherwise, and the errors $\varepsilon_i$ IID normal with expected value 0 and standard deviation $\sigma$.
+
+## One factor design
+
+- Note that this mathematical formula looks exactly like the model we wrote out for the father-son heights.
+
+$$
+Y_i = \beta_0 + \beta_1 x_i + \varepsilon_i 
+$$
+
+
+- $x_i$ being 0 or 1 rather than a continuous variable, allows us to use it in this different context.
+
+- Now $\beta_0$ represents the population average height of the mice on the chow diet and 
+
+- $\beta_0 + \beta_1$ represents the population average for the weight of the mice on the high-fat diet.
+
+## One factor design
+
+- A nice feature of this model is that $\beta_1$ represents the _treatment effect_ of receiving the high-fat diet.
+
+- The null hypothesis that the high-fat diet has no effect can be quantified as $\beta_1 = 0$.
+
+
+
+## One factor design
+
+
+- A powerful characteristic of linear models is that we can estimate the  $\beta$s and their standard errors with the same LSE machinery:
+
+```{r} 
+fit <- lm(body_weight ~ diet, data = mice_weights) 
+``` 
+
+
+## One factor design
+
+- Because `diet` is a factor with two entries, the `lm` function knows to fit the linear model above with a $x_i$ a indicator variable.
+
+- The `summary` function shows us the resulting estimate, standard error, and p-value:
+
+```{r} 
+coefficients(summary(fit)) 
+``` 
+
+## One factor design
+
+- Using `broom`, we can write:
+
+```{r} 
+library(broom) 
+tidy(fit, conf.int = TRUE) |> filter(term == "diethf") 
+``` 
+
+
+## One factor design
+
+- The `statistic` computed here is the estimate divided by its standard error: 
+
+$$\hat{\beta}_1 / \hat{\mbox{SE}}(\hat{\beta}_1)$$
+
+- In the case of the simple one-factor model, we can show that this statistic is almost equivalent to the t-statistics computed in the previous section:
+
+```{r} 
+c(coefficients(summary(fit))[2,3], t_stat) 
+``` 
+
+
+---
+
+:::{.callout-note}
+
+- In the linear model description provided here, we assumed $\varepsilon$ follows a normal distribution.
+
+- This assumption permits us to show that the statistics formed by dividing estimates by their estimated standard errors follow t-distribution, which in turn allows us to estimate p-values or confidence intervals.
+
+- However, note that we do not need this assumption to compute the expected value and standard error of the least squared estimates.
+
+- Furthermore, if the number of observations is large enough, then the central limit theorem applies and we can obtain p-values and confidence intervals even without the normal distribution assumption for the errors.
+
+:::
+
+
+## Two factor designs
+
+- Note that this experiment included male and female mice, and male mice are known to be heavier.
+
+- This explains why the residuals depend on the sex variable:
+
+```{r lm-residual-boxplots, eval=FALSE} 
+boxplot(fit$residuals ~ mice_weights$sex) 
+``` 
+
+
+## Two factor designs
+
+```{r lm-residual-boxplots-run, echo=FALSE} 
+boxplot(fit$residuals ~ mice_weights$sex) 
+``` 
+
+
+## Two factor designs
+
+- This misspecification can have real implications; for instance, if more male mice received the high-fat diet, then this could explain the increase.
+
+- Conversely, if fewer received it, we might underestimate the diet effect.
+
+- Sex could be a confounder, indicating that our model can certainly be improved.
+
+## Two factor designs
+
+- We can examine the data:
+
+```{r weight-by-sex-diet-boxplots, eval=FALSE} 
+mice_weights |> ggplot(aes(diet, log2(body_weight), fill = sex)) + geom_boxplot() 
+``` 
+
+
+## Two factor designs
+
+```{r weight-by-sex-diet-boxplots-run, echo=FALSE} 
+mice_weights |> ggplot(aes(diet, log2(body_weight), fill = sex)) + geom_boxplot() 
+``` 
+
+
+## Two factor designs
+
+
+- A linear model that permits a different expected value for the following four groups, 1) female on chow diet, 2) females on high-fat diet, 3) male on chow diet, and 4) males on high-fat diet, can be written like this:
+
+
+$$
+Y_i = \beta_1 x_{i,1} + \beta_2 x_{i,2}  + \beta_3 x_{i,3}  + \beta_4 x_{i,4}  + \varepsilon_i 
+$$
+
+
+
+- with $x_{i,1},\dots,x_{i,4}$ indicator variables for each of the four groups.
+
+## Two factor designs
+
+- Note that with this representation we allow the diet effect to be different for males and females.
+
+- However, with this representation, none of the $\beta$s represent the effect of interest: the diet effect.
+
+- A powerful feature of linear models is that we can rewrite the model so that the expected value for each group remains the same, but the parameters represent the effects we are interested in.
+
+
+
+## Two factor designs
+
+- So, for example, in the representation.
+
+
+$$
+Y_i = \beta_0 + \beta_1 x_{i,1}  + \beta_2 x_{i,2}  + \beta_3 x_{i,1} x_{i,2}  + \varepsilon_i 
+$$
+
+- with $x_{i,1}$ an indicator that is 1 if individual $i$ is on the high-fat diet $x_{i,2}$ an indicator that is 1 if you are male, the $\beta_1$ is interpreted as the diet effect for females, $\beta_2$ as the average difference between males and females, and $\beta_3$ the difference in the diet effect between males and females.
+
+
+
+## Two factor designs
+
+- In statistics, $\beta_3$ is referred to as an _interaction effect_.
+
+- The $\beta_0$ is considered the baseline value, which is the average weight of females on the chow diet.
+
+## Two factor designs
+
+- Statistical textbooks describe several other ways in which the model can be rewritten to obtain other types of interpretations.
+
+- For example, we might want $\beta_2$ to represent the overall diet effect (the average between female and male effect) rather than the diet effect on females.
+
+
+## Two factor designs
+
+- This is achieved by defining what _contrasts_ we are interested in.
+
+- In R, we can specific the linear model above using the following:
+
+```{r} 
+fit <- lm(body_weight ~ diet*sex, data = mice_weights) 
+``` 
+
+- The `*` implies that the term that multiplies $x_{i,1}$ and $x_{i,2}$ should be included, along with the  $x_{i,1}$ and $x_{i,2}$ terms.
+
+## Two factor designs
+
+- Here are the estimates:
+
+```{r} 
+tidy(fit, conf.int = TRUE) |> filter(!str_detect(term, "Intercept")) 
+``` 
+
+
+
+- Note that the male effect is larger that the diet effect, and the diet effect is statistically significant for both sexes, with diet affecting males more by between 1 and 4.5 grams.
+
+
+## Two factor designs
+
+- A common approach applied when more than one factor is thought to affect the measurement is to simply include an additive effect for each factor, like this:
+
+
+$$
+Y_i = \beta_0 + \beta_1 x_{i,1}  + \beta_2 x_{i,2}   + \varepsilon_i 
+$$
+
+
+
+
+- In this model, the $\beta_1$ is a general diet effect that applies regardless of sex.
+
+## Two factor designs
+
+- In R, we use the following code, employing a `+` instead of `*`:
+
+```{r} 
+fit <- lm(body_weight ~ diet + sex, data = mice_weights) 
+``` 
+
+- Note that this model does not account for the difference in diet effect between males and females.
+
+## Two factor designs
+
+- Diagnostic plots would reveal this deficiency by showing that the residuals are biased: they are, on average, negative for females on the diet and positive for males on the diet, rather than being centered around 0.
+
+```{r lm-diagnostic-plot, eval=FALSE} 
+plot(fit, which = 1) 
+``` 
+
+
+## Two factor designs
+
+```{r lm-diagnostic-plot-run, echo=FALSE} 
+plot(fit, which = 1) 
+``` 
+
+
+## Two factor designs
+
+- Scientific studies, particularly within epidemiology and social sciences, frequently omit interaction terms from models due to the high number of variables.
+
+- Adding interactions necessitates numerous parameters, which in extreme cases may prevent the model from fitting.
+
+- However, this approach assumes that the interaction terms are zero, and if incorrect, it can skew the interpretation of the results.
+
+
+- Conversely, when this assumption is valid, models excluding interactions are simpler to interpret, as parameters are typically viewed as the extent to which the outcome increases with the assigned treatment.
+
+:::{.callout-tip}
+
+- Linear models are highly flexible and applicable in many contexts.
+
+- For example, we can include many more factors than just 2.
+
+- We have only just scratched the surface of how linear models can be used to estimate treatment effects.
+
+- We highly recommend learning more about this by exploring linear model textbooks and R manuals that cover the use of functions such as `lm`, `contrasts`, and `model.matrix`.
+
+:::
+
+
+
+## Contrasts
+
+- In the examples we have examined, each treatment had only two groups: diet had chow/high-fat, and sex had female/male.
+
+- However, variables of interest often have more than one level.
+
+- For example, we might have tested a third diet on the mice.
+
+- In statistics textbooks, these variables are referred to as a _factor_, and the groups in each factor are called its _levels_.
+
+
+
+## Contrasts
+
+- When a factor is included in the formula, the default behavior for `lm` is to define the intercept term as the expected value for the first level, and the other coefficient are to represent the difference, or _contrast_, between the other levels and first.
+
+- We can see when we estimate the sex effect with `lm` like this:
+
+```{r} 
+fit <- lm(body_weight ~ sex, data = mice_weights) 
+coefficients(fit) 
+``` 
+
+## Contrasts
+
+- To recover the expected mean for males, we can simply add the two coefficients:
+
+
+```{r} 
+sum(fit$coefficients[1:2]) 
+``` 
+
+- The package **emmeans** simplifies the calculation and also calculates standard errors:
+
+```{r} 
+library(emmeans) 
+emmeans(fit, ~sex) 
+``` 
+
+## Contrasts
+
+- Now, what if we really didn't want to define a reference level? What if we wanted a parameter to represent the difference from each group to the overall mean? Can we write a model like this:
+
+
+$$
+Y_i = \beta_0 + \beta_1 x_{i,1} + \beta_2 x_{i,2} + \varepsilon_i 
+$$
+
+
+
+
+- with $x_{i,1} = 1$, if observation $i$ is female and 0 otherwise, and $x_{i,2}=1$, if observation $i$ is male and 0 otherwise?
+
+## Contrasts
+
+- Unfortunately, this representation has a problem.
+
+- Note that the mean for females and males are represented by $\beta_0 + \beta_1$ and $\beta_0 + \beta_2$, respectively.
+
+- This is a problem because the expected value for each group is just one number, say $\mu_f$ and $\mu_m$, and there is an infinite number of ways $\beta_0 + \beta_1 = \mu_f$ and $\beta_0 +\beta_2 = \mu_m$ (three unknowns with two equations).
+
+
+- This implies that we can't obtain a unique least squares estimates.
+
+- The model, or parameters, are _unidentifiable_.
+
+## Contrasts
+
+- The default behavior in R solves this problem by requiring $\beta_1 = 0$, forcing $\beta_0 = \mu_m$, which permits us to solve the system of equations.
+
+- Keep in mind that this is not the only constraint that permits estimation of the parameters.
+
+## Contrasts
+
+- Any linear constraint will do as it adds a third equation to our system.
+
+- A widely used constraint is to require $\beta_1 + \beta_2 = 0$.
+
+- To achieve this in R, we can use the argument `contrast` in the following way:
+
+```{r} 
+fit <- lm(body_weight ~ sex, data = mice_weights,  
+          contrasts = list(sex = contr.sum)) 
+coefficients(fit) 
+``` 
+
+## Contrasts
+
+- We see that the intercept is now larger, reflecting the overall mean rather than just the mean for females.
+
+
+
+- The other coefficient, $\beta_1$, represents the contrast between females and the overall mean in our model.
+
+- The coefficient for men is not shown because it is redundant: $\beta_1= -\beta_2$.
+
+## Contrasts
+
+- If we want to see all the estimates, the **emmeans** package also makes the calculations for us:
+
+```{r} 
+contrast(emmeans(fit, ~sex)) 
+``` 
+
+## Contrasts
+
+- The use of this alternative constraint is more practical when a factor has more than one level, and choosing a baseline becomes less convenient.
+
+- Furthermore, we might be more interested in the variance of the coefficients rather than the contrasts between groups and the reference level.
+
+## Contrasts
+
+- As an example, consider that the mice in our dataset are actually from several generations:
+
+```{r} 
+table(mice_weights$gen) 
+``` 
+
+## Contrasts
+
+- To estimate the variability due to the different generations, a convenient model is:
+
+
+$$
+Y_i = \beta_0 + \sum_{j=1}^J \beta_j x_{i,j} + \varepsilon_i 
+$$
+
+
+- with $x_{i,j}$ indicator variables: $x_{i,j}=1$ if mouse $i$ is in level $j$ and 0 otherwise, $J$ representing the number of levels, in our example `r length(unique(mice_weights$gen))` generations, and the level effects constrained with.
+
+
+$$
+\frac{1}{J} \sum_{j=1}^J \beta_j = 0 \implies \sum_{j=1}^J \beta_j = 0.  
+$$
+
+## Contrasts
+
+- The constraint makes the model identifiable and also allows us to quantify the variability due to generations with:
+
+
+$$
+\sigma^2_{\text{gen}} \equiv \frac{1}{J}\sum_{j=1}^J \beta_j^2 
+$$
+
+
+
+## Contrasts
+
+- We can see the estimated coefficients using the following:
+
+```{r} 
+fit <- lm(body_weight ~ gen,  data = mice_weights,  
+          contrasts = list(gen = contr.sum)) 
+contrast(emmeans(fit, ~gen))  
+``` 
+
+
+
+## Analysis of variance (ANOVA)
+
+- When a factor has more than one level, it is common to want to determine if there is significant variability across the levels rather than specific difference between any given pair of levels.
+
+- Analysis of variances (ANOVA) provides tools to do this.
+
+- ANOVA provides an estimate of $\sigma^2_{\text{gen}}$ and a statistical test for the null hypothesis that the factor contributes no variability:  $\sigma^2_{\text{gen}} =0$.
+
+- Once a linear model is fit using one or more factors, the `aov` function can be used to perform ANOVA.
+
+
+
+## Analysis of variance (ANOVA)
+
+- Specifically, the estimate of the factor variability is computed along with a statistic that can be used for hypothesis testing:
+
+```{r} 
+summary(aov(fit)) 
+``` 
+
+## Analysis of variance (ANOVA)
+
+- Keep in mind that if given a model formula, `aov` will fit the model:
+
+```{r} 
+#| eval: false 
+summary(aov(body_weight ~ gen, data = mice_weights)) 
+``` 
+
+- We do not need to specify the constraint because ANOVA needs to constrain the sum to be 0 for the results to be interpretable.
+
+
+
+- This analysis indicates that generation is not statistically significant.
+
+---
+
+:::{.callout-note}
+
+- We do not include many details, for example, on how the summary statistics and p-values shown by `aov` are defined and motivated.
+
+- There are several books dedicated to the analysis of variance, and textbooks on linear models often include chapters on this topic.
+
+- Those interested in learning more about these topics can consult one of these textbooks.
+
+:::
+
+
+
+## Multiple factors
+
+- ANOVA was developed to analyze agricultural data, which included several factors.
+
+- We can perform ANOVA with multiple factors:
+
+```{r} 
+summary(aov(body_weight ~ sex + diet + gen,  data = mice_weights)) 
+``` 
+
+- This analysis suggests that sex is the biggest source of variability, which is consistent with previously made exploratory plots.
+
+---
+
+:::{.callout-warning}
+
+
+- One of the key aspects of ANOVA (Analysis of Variance) is its ability to decompose the total variance in the data, represented by $\sum_{i=1}^n Y_i^2$, into individual contributions attributable to each factor in the study.
+
+- However, for the mathematical underpinnings of ANOVA to be valid, the experimental design must be balanced.
+
+- This means that for every level of any given factor, there must be an equal representation of the levels of all other factors.
+
+
+
+
+- In our study involving mice, the design is unbalanced, requiring a cautious approach in the interpretation of the ANOVA results.
+
+:::
+
+
+
+## Array representation
+
+- When the model includes more than one factor, writing down linear models can become cumbersome.
+
+## Array representation
+
+- For example, in our two factor model, we include indicator variables for both factors:
+
+
+$$
+Y_i = \beta_0 + \sum_{j=1}^J \beta_j x_{i,j} + \sum_{k=1}^K \beta_{J+k} x_{i,J+k} + \varepsilon_i \\
+\mbox{ with }\sum_{j=1}^J \beta_j=0 \mbox{ and } \sum_{k=1}^K \beta_{J+k} = 0, 
+$$
+
+- the $x$s are indicator functions for the different levels.
+
+## Array representation
+
+Specifically, in
+
+$$
+Y_i = \beta_0 + \sum_{j=1}^J \beta_j x_{i,j} + \sum_{k=1}^K \beta_{J+k} x_{i,J+k} + \varepsilon_i 
+$$
+
+
+the $x_{i,1},\dots,x_{i,J}$ indicator functions for the $J$ levels in the first factor and $x_{i,J+1},\dots,x_{i,J+K}$ indicator functions for the $K$ levels in the second factor.
+
+
+
+## Array representation
+
+- An alternative approach widely used in ANOVA to avoid indicators variables, is to save the data in an array, using different Greek letters to denote factors and indices to denote levels:
+
+
+$$
+Y_{i,j,k} = \mu + \alpha_j + \beta_k + \varepsilon_{i,j,k} 
+$$
+
+- with $\mu$ the overall mean, $\alpha_j$ the effect of level $j$ in the first factor, and $\beta_k$ the effect of level $k$ in the second factor.
+
+
+## Array representation
+
+- The constraint can now be written as:
+
+
+$$
+\sum_{j=1}^J \alpha_j = 0 \text{ and } \sum_{k=1}^K \beta_k = 0 
+$$
+
+- This notation lends itself to estimating the effects by computing means across dimensions of the array.
+
