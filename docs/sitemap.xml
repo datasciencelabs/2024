@@ -58,7 +58,7 @@
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/index.html</loc>
-    <lastmod>2024-11-13T14:44:03.202Z</lastmod>
+    <lastmod>2024-11-17T00:06:18.061Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/psets/pset-04-wrangling.html</loc>
@@ -179,5 +179,9 @@
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/linear-models/31-treatment-effect-models.html</loc>
     <lastmod>2024-11-13T14:41:50.958Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/psets/pset-09-matrices.html</loc>
+    <lastmod>2024-11-16T23:46:07.272Z</lastmod>
   </url>
 </urlset>

@@ -1,0 +1,41 @@
+---
+title: Problem set 9
+date: 2024-11-22
+---
+
+You are not allowed to load any package or use for-loop. For exercises 1 and 3-6 you only get to write one line of code for the solution.
+
+For better preparation for midterm, we  recommend not using chatGPT for this homework.
+
+1. Create a 100 by 10 matrix of randomly generated normal numbers. Put the result in `x`.
+
+
+2. Apply the three R functions that give you the dimension of `x`, the number of rows of `x`, and the number of columns of `x`, respectively.
+
+3. Add the scalar 1 to row 1, the scalar 2 to row 2, and so on, to the matrix `x`.
+
+4. Add the scalar 1 to column 1, the scalar 2 to column 2, and so on, to the matrix `x`. Hint: Use `sweep` with `FUN = "+"`.
+
+5. Compute the average of each row of `x`.
+
+6. Compute the average of each column of `x`.
+
+7. For each digit in the MNIST training data, compute the proportion of pixels that are in a *grey area*, defined as values between 50 and 205. Make a boxplot by digit class. Hint: Use logical operators and `rowMeans`.
+
+
+8. Use the function `solve` to solve the following system of equations. Hint: use the function `solve`.
+
+$$
+\begin{align}
+x+2y−2z &=−15\\
+2x+y−5z&=−21\\
+x−4y+z&=18
+\end{align}
+$$
+
+9. Use matrix multiplication to compute the average of each column of `x` and store in a single row matrix. Hint define a $1\times n$ matrix $(1/n, \dots, 1/n)$ with $n$ the `nrow(x)`.
+
+
+10. Use matrix multiplication and other matrix operations to compute the standard deviation of each column. Do not use `sweep` or `apply`.
+
+
