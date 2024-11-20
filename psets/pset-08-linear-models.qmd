@@ -63,7 +63,9 @@ install_github("rafalab/excessmort")
 
 ```{r}
 library(excessmort) 
-counts <- puerto_rico_counts |> ##your code
+counts <- puerto_rico_counts |> 
+  filter(between(year(date), 2002, 2017) &
+           agegroup %in% c("60-64", "65-69", "70-74", "75-80", "80-84", "85-Inf"))
 ```
 
 
@@ -72,7 +74,7 @@ counts <- puerto_rico_counts |> ##your code
 
 ```{r}
 maria <- make_date(2017, 9, 20)
-##your code here
+wday(maria, label = TRUE)
 ```
 
 
@@ -81,14 +83,19 @@ maria <- make_date(2017, 9, 20)
 
 ```{r}
 weekly_counts <- counts |> 
-  ##your code here
+  mutate(date = floor_date(date, week_start = 3, unit = "week"))
 ```
 
 11. Now collapse the `weekly_count` data frame to store only one mortality value for each week, for each `sex` and `agegroup`. To this by by redefining `outcome` to have the total deaths that week for each `sex` and `agegroup`. Remove weeks that have less the 7 days of data. Finally, add a column with the MMWR week. Name the resulting data frame `weekly_counts`. 
 
 ```{r}
 weekly_counts <- weekly_counts |> 
-  ## your code here
+  group_by(date, sex, agegroup) |>
+  summarize(outcome = sum(outcome), population = mean(population), 
+            n = n(), .groups = "drop") |>
+  filter(n == 7) |> 
+  select(-n) |>
+  mutate(week = epiweek(date))
 ```
 
 
@@ -130,9 +137,14 @@ Use rate as the outcome in the model.
 
 ```{r}
 dat <- weekly_counts |> 
-  mutate(rate = outcome/population, ##your code here
+  mutate(rate = outcome/population, sex = as.factor(sex), 
+         day = difftime(date, min(date), units = "week"),
+         week = as.factor(week))
 
-fit <- ## your code here
+fit <- dat |> filter(year(date) < 2017) |>
+  lm(rate ~ sex + agegroup + day + week, data = _)
+
+
 ```
 
 

@@ -3448,7 +3448,7 @@
     "href": "index.html#lectures",
     "title": "BST 260 Introduction to Data Science",
     "section": "Lectures",
-    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09, Sep 11\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git\n\n\nSep 16, Sep 19\nR\nR basics, Vectorization\nR Basics, Vectorization\n\n\nSep 23\nR\nTidyverse, ggplot2\ndplyr, ggplot2\n\n\nSep 25\nR\nTyding data\nReshaping Data\n\n\nSep 30, Oct 02\nWrangling\nIntro, Data Importing, Dates and Times, Locales, Data APIs, Web scraping, Joining tables\nImporting data, dates and times, Locales, Joining Tables, Extracting data from the web\n\n\nOct 07, Oct 09\nData visualization\nData Viz Principles, Distributions, Dataviz in practice\nDistributions, Dataviz Principles\n\n\nOct 16\nMidterm 1\n\nCovers material from Sep 04-Oct 11\n\n\nOct 21\nProbability\nIntro, Foundations for Inference\nMonte Carlo, Random Variables & CLT\n\n\nOct 23\nInference\nIntro, Parameter and estimates, Confidence Intervals\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\nModels, Bayes, Hierarchical Models\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\nIntro, Regression\nRegression, Multivariate Regression\n\n\nNov 13, Nov 18\nLinear models\nMultivariate regression, Treatment effect models\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 20\nHigh dimensional data\n\nMatrices in R, Applied Linear Algebra, Dimension Reduction\n\n\nNov 25\nMidterm 2\n\nMidterm 2: cover material from Sep 04-Nov 22\n\n\nDec 02, Dec 04\nMachine Learning\n\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nDec 09, Dec 11\nMachine Learning\n\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
+    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09, Sep 11\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git\n\n\nSep 16, Sep 19\nR\nR basics, Vectorization\nR Basics, Vectorization\n\n\nSep 23\nR\nTidyverse, ggplot2\ndplyr, ggplot2\n\n\nSep 25\nR\nTyding data\nReshaping Data\n\n\nSep 30, Oct 02\nWrangling\nIntro, Data Importing, Dates and Times, Locales, Data APIs, Web scraping, Joining tables\nImporting data, dates and times, Locales, Joining Tables, Extracting data from the web\n\n\nOct 07, Oct 09\nData visualization\nData Viz Principles, Distributions, Dataviz in practice\nDistributions, Dataviz Principles\n\n\nOct 16\nMidterm 1\n\nCovers material from Sep 04-Oct 11\n\n\nOct 21\nProbability\nIntro, Foundations for Inference\nMonte Carlo, Random Variables & CLT\n\n\nOct 23\nInference\nIntro, Parameter and estimates, Confidence Intervals\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\nModels, Bayes, Hierarchical Models\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\nIntro, Regression\nRegression, Multivariate Regression\n\n\nNov 13, Nov 18\nLinear models\nMultivariate regression, Treatment effect models\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 20\nHigh dimensional data\nIntro to Linear Algebra, Matrices in R\nMatrices in R, Applied Linear Algebra, Dimension Reduction\n\n\nNov 25\nMidterm 2\n\nMidterm 2: cover material from Sep 04-Nov 22\n\n\nDec 02, Dec 04\nMachine Learning\n\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nDec 09, Dec 11\nMachine Learning\n\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
     "crumbs": [
       "Home"
     ]
@@ -8339,7 +8339,7 @@
     "href": "psets/pset-08-linear-models.html",
     "title": "Problem set 7",
     "section": "",
-    "text": "Load the HistData package. Create a galton_height data with the father’s height and one randomly selected daughter from each family. Exclude families with no female children. Set the seed at 2007 and use the function sample_n to select the random child. You should end up with a heights dataset with two columns: father and daughter.\n\n\nlibrary(HistData)\nnames(GaltonFamilies)\nset.seed(2007)\nheights &lt;- GaltonFamilies |&gt; ## your code here\n\n\nEstimate the intercept and slope of the regression line for predicting daughter height \\(Y\\) using father height \\(X\\). Use the following regression line formula:\n\n\\[\n\\frac{\\hat{Y} - \\mu_Y}{\\sigma_Y} = \\rho \\frac{x - \\mu_x}{\\sigma_x}\n\\]\n\n## your code here\n\n\nMake a plot to confirm the regression line goes through the data.\n\n\nheights |&gt; ggplot(aes(father, daughter)) + ## your code here\n\n\nRecompute the slope and intercept coefficients, this time using lm and confirm you get the same answer as with the formula used in problem 2.\n\n\n## your code here\n\n\nNote that the interpretation of the intercept is: the height prediction for the daughter whose father is 0 inches tall. This is not a very useful interpretation. Re-run the regression but instead of father height use inches above average for each father: instead of using the \\(x_i\\)s use \\(x_i - \\bar{x}\\). What is the interpretation of the intercept now? Does the slope estimate change?\n\n\n##your code here\n\n\nWhen using the centered father heights as a predictor, is the intercept the same as the average daughter height? Check if this is the case with the values you computed and then show that mathematically this has to be the case.\n\n\n##your code here\n\nFor the next exercises install the excessmort package. For the latest version use\n\nlibrary(devtools)\ninstall_github(\"rafalab/excessmort\")\n\n\nDefine an object counts by wrangling puerto_rico_counts to 1) include data only from 2002-2017 and counts for people 60 or over. We will focus in this older subset throughout the rest of the problem set.\n\n\nlibrary(excessmort) \ncounts &lt;- puerto_rico_counts |&gt; ##your code\n\n\nUse R to determine what day of the week María made landfall in PR (September 20, 2017).\n\n\nmaria &lt;- make_date(2017, 9, 20)\n##your code here\n\n\nRedefine the date column to be the start of the week that date is part of: in other words, round the date down to the nearest week. Use the day of the week María made landfall as the first day. So, for example, 2017-09-20, 2017-09-21, 2017-09-22 should all be rounded down to 2017-09-20, while 2017-09-19 should be rounded down to 2017-09-13. Save the resulting table in weekly_counts.\n\n\nweekly_counts &lt;- counts |&gt; \n  ##your code here\n\n\nNow collapse the weekly_count data frame to store only one mortality value for each week, for each sex and agegroup. To this by by redefining outcome to have the total deaths that week for each sex and agegroup. Remove weeks that have less the 7 days of data. Finally, add a column with the MMWR week. Name the resulting data frame weekly_counts.\n\n\nweekly_counts &lt;- weekly_counts |&gt; \n  ## your code here\n\n\nComparing mortality totals is often unfair because the two groups begin compared have different population sizes. It is particularly important we consider rates rather than totals in this dataset because the demographics in Puerto Rico changed dramatically in the last 20 years. To see this use puerto_rico_counts to plot the population sizes by age group and gender. Provide a two sentence description of what you see.\n\n\npuerto_rico_counts |&gt; ## your code here\n\n\nMake a boxplot for each MMWR week’s mortality rate based on the 2002-2016 data. Each week has 15 data points, one for each year. Then add the 2017 data as red points.\n\n\n###your code here\n\n\nNote twp things: 1) there is a strong week effect and 2) 2017 is lower than expected. Plot the yearly rates (per 1,000) for 2002-2016:\n\n\nweekly_counts |&gt; \n  filter(year(date) &lt; 2017) |&gt;\n ## your code here\n\n\nThe plot made in 14 explains why 2017 is below what is expected: there appears to be a general decrease in mortality with time. A possible explanation is that medical care is improving and people are living more healthy lives.\n\nFit a linear model to the weekly data for the 65 and older to the 2002-2016 data that accounts for:\n\nA changing population.\nThe trend observed in 12.\nThe week effect.\nAge effect.\nA sex effect.\n\nUse rate as the outcome in the model.\n\ndat &lt;- weekly_counts |&gt; \n  mutate(rate = outcome/population, ##your code here\n\nfit &lt;- ## your code here\n\n\nNow obtain expected counts for the entire dataset, including 2017. Compute the difference between the observed count and expected count and plot the total excess death for each week. Hint: use the predict function.\n\n\n## your code here\n\n\nFinally, plot the observed rates and predicted rates from the model for each agegroup and sex. Comment on how well the model fits and what you might do differently.\n\n\n##your code here"
+    "text": "Load the HistData package. Create a galton_height data with the father’s height and one randomly selected daughter from each family. Exclude families with no female children. Set the seed at 2007 and use the function sample_n to select the random child. You should end up with a heights dataset with two columns: father and daughter.\n\n\nlibrary(HistData)\nnames(GaltonFamilies)\nset.seed(2007)\nheights &lt;- GaltonFamilies |&gt; ## your code here\n\n\nEstimate the intercept and slope of the regression line for predicting daughter height \\(Y\\) using father height \\(X\\). Use the following regression line formula:\n\n\\[\n\\frac{\\hat{Y} - \\mu_Y}{\\sigma_Y} = \\rho \\frac{x - \\mu_x}{\\sigma_x}\n\\]\n\n## your code here\n\n\nMake a plot to confirm the regression line goes through the data.\n\n\nheights |&gt; ggplot(aes(father, daughter)) + ## your code here\n\n\nRecompute the slope and intercept coefficients, this time using lm and confirm you get the same answer as with the formula used in problem 2.\n\n\n## your code here\n\n\nNote that the interpretation of the intercept is: the height prediction for the daughter whose father is 0 inches tall. This is not a very useful interpretation. Re-run the regression but instead of father height use inches above average for each father: instead of using the \\(x_i\\)s use \\(x_i - \\bar{x}\\). What is the interpretation of the intercept now? Does the slope estimate change?\n\n\n##your code here\n\n\nWhen using the centered father heights as a predictor, is the intercept the same as the average daughter height? Check if this is the case with the values you computed and then show that mathematically this has to be the case.\n\n\n##your code here\n\nFor the next exercises install the excessmort package. For the latest version use\n\nlibrary(devtools)\ninstall_github(\"rafalab/excessmort\")\n\n\nDefine an object counts by wrangling puerto_rico_counts to 1) include data only from 2002-2017 and counts for people 60 or over. We will focus in this older subset throughout the rest of the problem set.\n\n\nlibrary(excessmort) \ncounts &lt;- puerto_rico_counts |&gt; \n  filter(between(year(date), 2002, 2017) &\n           agegroup %in% c(\"60-64\", \"65-69\", \"70-74\", \"75-80\", \"80-84\", \"85-Inf\"))\n\n\nUse R to determine what day of the week María made landfall in PR (September 20, 2017).\n\n\nmaria &lt;- make_date(2017, 9, 20)\nwday(maria, label = TRUE)\n\n\nRedefine the date column to be the start of the week that date is part of: in other words, round the date down to the nearest week. Use the day of the week María made landfall as the first day. So, for example, 2017-09-20, 2017-09-21, 2017-09-22 should all be rounded down to 2017-09-20, while 2017-09-19 should be rounded down to 2017-09-13. Save the resulting table in weekly_counts.\n\n\nweekly_counts &lt;- counts |&gt; \n  mutate(date = floor_date(date, week_start = 3, unit = \"week\"))\n\n\nNow collapse the weekly_count data frame to store only one mortality value for each week, for each sex and agegroup. To this by by redefining outcome to have the total deaths that week for each sex and agegroup. Remove weeks that have less the 7 days of data. Finally, add a column with the MMWR week. Name the resulting data frame weekly_counts.\n\n\nweekly_counts &lt;- weekly_counts |&gt; \n  group_by(date, sex, agegroup) |&gt;\n  summarize(outcome = sum(outcome), population = mean(population), \n            n = n(), .groups = \"drop\") |&gt;\n  filter(n == 7) |&gt; \n  select(-n) |&gt;\n  mutate(week = epiweek(date))\n\n\nComparing mortality totals is often unfair because the two groups begin compared have different population sizes. It is particularly important we consider rates rather than totals in this dataset because the demographics in Puerto Rico changed dramatically in the last 20 years. To see this use puerto_rico_counts to plot the population sizes by age group and gender. Provide a two sentence description of what you see.\n\n\npuerto_rico_counts |&gt; ## your code here\n\n\nMake a boxplot for each MMWR week’s mortality rate based on the 2002-2016 data. Each week has 15 data points, one for each year. Then add the 2017 data as red points.\n\n\n###your code here\n\n\nNote twp things: 1) there is a strong week effect and 2) 2017 is lower than expected. Plot the yearly rates (per 1,000) for 2002-2016:\n\n\nweekly_counts |&gt; \n  filter(year(date) &lt; 2017) |&gt;\n ## your code here\n\n\nThe plot made in 14 explains why 2017 is below what is expected: there appears to be a general decrease in mortality with time. A possible explanation is that medical care is improving and people are living more healthy lives.\n\nFit a linear model to the weekly data for the 65 and older to the 2002-2016 data that accounts for:\n\nA changing population.\nThe trend observed in 12.\nThe week effect.\nAge effect.\nA sex effect.\n\nUse rate as the outcome in the model.\n\ndat &lt;- weekly_counts |&gt; \n  mutate(rate = outcome/population, sex = as.factor(sex), \n         day = difftime(date, min(date), units = \"week\"),\n         week = as.factor(week))\n\nfit &lt;- dat |&gt; filter(year(date) &lt; 2017) |&gt;\n  lm(rate ~ sex + agegroup + day + week, data = _)\n\n\nNow obtain expected counts for the entire dataset, including 2017. Compute the difference between the observed count and expected count and plot the total excess death for each week. Construct a confidence interval for the excess mortality estimate for each week. Hint: use the predict function.\n\n\n## your code here\n\n\nFinally, plot the observed rates and predicted rates from the model for each agegroup and sex. Comment on how well the model fits and what you might do differently.\n\n\n##your code here"
   },
   {
     "objectID": "slides/linear-models/30-multivariate-regression.html#multivariate-regression",
@@ -8752,35 +8752,35 @@
     "href": "slides/linear-models/31-treatment-effect-models.html#treatment-effect-models-1",
     "title": "Treatment Effect Models",
     "section": "Treatment effect models",
-    "text": "Treatment effect models\n\nHowever, linear models have many other applications.\nOne of the most popular is to quantify treatment effects in randomized and controlled experiments.\nOne of the first applications was in agriculture, where different plots of lands were treated with different combinations of fertilizers to try to determine if they were effective.\nIn fact, the use of \\(Y\\) for the outcome in statistics is due to the mathematical theory being developed for crop yield as the outcome."
+    "text": "Treatment effect models\n\nLinear models have many other applications.\nOne of the most popular is to quantify treatment effects in randomized and controlled experiments.\nOne of the first applications was in agriculture, where different plots of lands were treated with different combinations of fertilizers.\nThe use of \\(Y\\) for the outcome in statistics is due to the mathematical theory being developed for crop yield as the outcome."
   },
   {
     "objectID": "slides/linear-models/31-treatment-effect-models.html#treatment-effect-models-2",
     "href": "slides/linear-models/31-treatment-effect-models.html#treatment-effect-models-2",
     "title": "Treatment Effect Models",
     "section": "Treatment effect models",
-    "text": "Treatment effect models\n\nSince then, the same ideas have been applied in other areas, such as randomized trials developed to determine if drugs cure or prevent diseases or if policies have an effect on social or educational outcomes.\nIn the latter example, we think of the policy intervention as a treatment and follow the same mathematical procedure.\nThe analyses used in A/B testing, widely used today by internet companies, are based on treatment effects models."
+    "text": "Treatment effect models\n\nThe same ideas have been applied in other areas.\nIn randomized trials developed to determine if drugs cure or prevent diseases or if policies have an effect on social or educational outcomes.\nWe think of the policy intervention as a treatment so we can follow the same mathematical descriptions.\nThe analyses used in A/B testing are based on treatment effects models."
   },
   {
     "objectID": "slides/linear-models/31-treatment-effect-models.html#treatment-effect-models-3",
     "href": "slides/linear-models/31-treatment-effect-models.html#treatment-effect-models-3",
     "title": "Treatment Effect Models",
     "section": "Treatment effect models",
-    "text": "Treatment effect models\n\nMoreover, these models have been applied in observational studies where analysts attempt to use linear models to estimate effects of interest while accounting for potential confounders.\nFor example, to estimate the effect of a diet high in fruits and vegetables on blood pressure, we would have to adjust for factors such as age, sex, and smoking status."
+    "text": "Treatment effect models\n\nThese models have also been applied in observational studies as well.\nWe use linear models to estimate effects of interest while accounting for potential confounders.\nFor example, to estimate the effect of a diet high in fruits and vegetables on blood pressure, we would have to account for factors such as age, sex, and smoking status."
   },
   {
     "objectID": "slides/linear-models/31-treatment-effect-models.html#treatment-effect-models-4",
     "href": "slides/linear-models/31-treatment-effect-models.html#treatment-effect-models-4",
     "title": "Treatment Effect Models",
     "section": "Treatment effect models",
-    "text": "Treatment effect models\n\nA boxplot shows that the high fat diet mice are, on average, heavier.\n\n\nwith(mice_weights, boxplot(body_weight ~ diet))"
+    "text": "Treatment effect models\n\nA boxplot shows that the high fat diet mice are, on average, heavier."
   },
   {
     "objectID": "slides/linear-models/31-treatment-effect-models.html#treatment-effect-models-5",
     "href": "slides/linear-models/31-treatment-effect-models.html#treatment-effect-models-5",
     "title": "Treatment Effect Models",
     "section": "Treatment effect models",
-    "text": "Treatment effect models"
+    "text": "Treatment effect models\n\nHowever, given that we divided the mice randomly, is it possible that the observed difference is simply due to chance? Here, we can compute the sample average and standard deviation of each group and perform statistical inference on the difference of these means."
   },
   {
     "objectID": "slides/linear-models/31-treatment-effect-models.html#treatment-effect-models-6",
@@ -8794,42 +8794,42 @@
     "href": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means",
     "title": "Treatment Effect Models",
     "section": "Comparing group means",
-    "text": "Comparing group means\n\nThe sample averages for the two groups, high-fat and chow diets, are different:\n\n\nlibrary(tidyverse) \nmice_weights |&gt; group_by(diet) |&gt; summarize(average = mean(body_weight)) \n\n# A tibble: 2 × 2\n  diet  average\n  &lt;fct&gt;   &lt;dbl&gt;\n1 chow     31.5\n2 hf       36.7"
+    "text": "Comparing group means\n\nIs it possible that the observed difference is simply due to chance?\nWe can apply the ideas we learned in the statistical inference lectures.\nDefine \\(\\mu_1\\) and \\(\\mu_0\\) the population averagees for treatment and control.\nWe want to know if \\(\\mu_1 - \\mu_0 &gt;0\\)."
   },
   {
     "objectID": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-1",
     "href": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-1",
     "title": "Treatment Effect Models",
     "section": "Comparing group means",
-    "text": "Comparing group means\n\nHowever, this is a random sample of mice, and the assignment to the diet group is also done randomly.\nSo is this difference due to chance?"
+    "text": "Comparing group means\nWe know that the \\(\\bar{X}_1 - \\bar{X}_0\\)\n\nmice_weights |&gt; group_by(diet) |&gt; summarize(average = mean(body_weight)) \n\n# A tibble: 2 × 2\n  diet  average\n  &lt;fct&gt;   &lt;dbl&gt;\n1 chow     31.5\n2 hf       36.7\n\n\nfollows a normal distribution, with expected value \\(\\mu_1-\\mu_0\\) and standard error:\n\\[\n\\sqrt{\\frac{\\sigma_1^2}{N_1} + \\frac{\\sigma_0^2}{N_0}}\n\\]"
   },
   {
     "objectID": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-2",
     "href": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-2",
     "title": "Treatment Effect Models",
     "section": "Comparing group means",
-    "text": "Comparing group means\n\n\\(\\bar{X}_1 - \\bar{X}_0\\) follows a normal distribution,\nwith expected value \\(\\mu_1-\\mu_0\\)\nand standard error \\(\\sqrt{\\frac{\\sigma_1^2}{N_1} + \\frac{\\sigma_0^2}{N_0}}\\)."
+    "text": "Comparing group means\n\nIf we define the null hypothesis as the high-fat diet having no effect, or \\(\\mu_1 - \\mu_0 = 0\\), this implies that.\n\n\\[\n\\frac{\\bar{X}_1 - \\bar{X}_0}{\\sqrt{\\frac{\\sigma_1^2}{N_1} + \\frac{\\sigma_0^2}{N_0}}}\n\\]\n\nhas expected value 0 and standard error 1 and therefore approximately follows a standard normal distribution."
   },
   {
     "objectID": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-3",
     "href": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-3",
     "title": "Treatment Effect Models",
     "section": "Comparing group means",
-    "text": "Comparing group means\n\nIf we define the null hypothesis as the high-fat diet having no effect, or \\(\\mu_1 - \\mu_0 = 0\\), this implies that.\n\n\\[\n\\frac{\\bar{X}_1 - \\bar{X}_0}{\\sqrt{\\frac{\\sigma_1^2}{N_1} + \\frac{\\sigma_0^2}{N_0}}}\n\\]\n\nhas expected value 0 and standard error 1 and therefore approximately follows a standard normal distribution."
+    "text": "Comparing group means\n\nNote that we can’t compute this quantity in practice because the \\(\\sigma_1\\) and \\(\\sigma_0\\) are unknown.\nHowever, if we estimate them with the sample standard deviations the CLT still holds and:\n\n\\[\nt = \\frac{\\bar{X}_1 - \\bar{X}_0}{\\sqrt{\\frac{s_1^2}{N_1} + \\frac{s_0^2}{N_0}}}\n\\]\n\nfollows a standard normal distribution when the null hypothesis is true."
   },
   {
     "objectID": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-4",
     "href": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-4",
     "title": "Treatment Effect Models",
     "section": "Comparing group means",
-    "text": "Comparing group means\n\nNote that we can’t compute this quantity in practice because the \\(\\sigma_1\\) and \\(\\sigma_0\\) are unknown.\nHowever, if we estimate them with the sample standard deviations the CLT still holds and:\n\n\\[\nt = \\frac{\\bar{X}_1 - \\bar{X}_0}{\\sqrt{\\frac{s_1^2}{N_1} + \\frac{s_0^2}{N_0}}}\n\\]\n\nfollows a standard normal distribution when the null hypothesis is true."
+    "text": "Comparing group means\n\nThis implies that we can easily compute the probability of observing a value as large as the one we obtained:\n\n\nstats &lt;- mice_weights |&gt;  \n  group_by(diet) |&gt;  \n  summarize(xbar = mean(body_weight), s = sd(body_weight), n = n())  \nt_stat &lt;- with(stats, (xbar[2] - xbar[1])/sqrt(s[2]^2/n[2] + s[1]^2/n[1])) \nt_stat \n\n[1] 9.339096\n\n\n\nHere \\(t\\) is well over 3, so we don’t really need to compute the p-value 1-pnorm(t_stat) as we know it will be very small."
   },
   {
     "objectID": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-5",
     "href": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-5",
     "title": "Treatment Effect Models",
     "section": "Comparing group means",
-    "text": "Comparing group means\n\nThis implies that we can easily compute the probability of observing a value as large as the one we obtained:\n\n\nstats &lt;- mice_weights |&gt;  \n  group_by(diet) |&gt;  \n  summarize(xbar = mean(body_weight), s = sd(body_weight), n = n())  \nt_stat &lt;- with(stats, (xbar[2] - xbar[1])/sqrt(s[2]^2/n[2] + s[1]^2/n[1])) \nt_stat \n\n[1] 9.339096\n\n\n\nHere \\(t\\) is well over 3, so we don’t really need to compute the p-value 1-pnorm(t_stat) as we know it will be very small."
+    "text": "Comparing group means\n\nNote that when \\(N\\) is not large enough, then the CLT does not apply and we use the t-distribution:\nSo the calculation of the p-value is the same except that we use pt instead of pnorm.\nSpecifically, we use\n\n\n1 - pt(t_stat, with(stats, n[2]+n[1]-2))\n\n[1] 0"
   },
   {
     "objectID": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-6",
@@ -8850,7 +8850,7 @@
     "href": "slides/linear-models/31-treatment-effect-models.html#one-factor-design",
     "title": "Treatment Effect Models",
     "section": "One factor design",
-    "text": "One factor design\n\nAlthough the t-test is useful for cases in which we compare two treatments, it is common to have other variables affect our outcomes.\nLinear models permit hypothesis testing in these more general situations."
+    "text": "One factor design\n\nAlthough the t-test is useful for cases in which we compare two treatments, it is common to have other variables affect our outcomes.\nFor example, what if more male mice received the high-fat diet?\nWhat if their is cage effect?\nLinear models permit hypothesis testing in these more general situations."
   },
   {
     "objectID": "slides/linear-models/31-treatment-effect-models.html#one-factor-design-1",
@@ -9179,7 +9179,7 @@
     "href": "slides/linear-models/31-treatment-effect-models.html#case-study",
     "title": "Treatment Effect Models",
     "section": "Case study",
-    "text": "Case study\n\nMice were randomly selected and divided into two groups: one group receiving a high-fat diet, considered the treatment, while the other group served as the control and received the usual chow diet.\nThe data is included in the dslabs package:\n\n\nlibrary(dslabs) \ntable(mice_weights$diet) \n\n\nchow   hf \n 394  386"
+    "text": "Case study\n\nMice were randomly selected and divided into two groups: one group receiving a high-fat diet while the other group served as the control.\nThe data is included in the dslabs package:\n\n\nlibrary(tidyverse) \nlibrary(dslabs) \ntable(mice_weights$diet) \n\n\nchow   hf \n 394  386"
   },
   {
     "objectID": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs-15",
@@ -9243,5 +9243,908 @@
     "title": "Problem set 9",
     "section": "",
     "text": "You are not allowed to load any package or use for-loop. For exercises 1 and 3-6 you only get to write one line of code for the solution.\nFor better preparation for midterm, we recommend not using chatGPT for this homework.\n\nCreate a 100 by 10 matrix of randomly generated normal numbers. Put the result in x.\nApply the three R functions that give you the dimension of x, the number of rows of x, and the number of columns of x, respectively.\nAdd the scalar 1 to row 1, the scalar 2 to row 2, and so on, to the matrix x.\nAdd the scalar 1 to column 1, the scalar 2 to column 2, and so on, to the matrix x. Hint: Use sweep with FUN = \"+\".\nCompute the average of each row of x.\nCompute the average of each column of x.\nFor each digit in the MNIST training data, compute the proportion of pixels that are in a grey area, defined as values between 50 and 205. Make a boxplot by digit class. Hint: Use logical operators and rowMeans.\nUse the function solve to solve the following system of equations. Hint: use the function solve.\n\n\\[\n\\begin{align}\nx+2y−2z &=−15\\\\\n2x+y−5z&=−21\\\\\nx−4y+z&=18\n\\end{align}\n\\]\n\nUse matrix multiplication to compute the average of each column of x and store in a single row matrix. Hint define a \\(1\\times n\\) matrix \\((1/n, \\dots, 1/n)\\) with \\(n\\) the nrow(x).\nUse matrix multiplication and other matrix operations to compute the standard deviation of each column. Do not use sweep or apply."
+  },
+  {
+    "objectID": "slides/linear-models/31-treatment-effect-models.html#definitions",
+    "href": "slides/linear-models/31-treatment-effect-models.html#definitions",
+    "title": "Treatment Effect Models",
+    "section": "Definitions",
+    "text": "Definitions\n\nFactors: Categorical variables used to define subgroups.\nLevels: The distinct categories or groups within each factor.\nTreatment: The factor we are interested in. Levels are often experimental and control."
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#applied-linear-algebra",
+    "href": "slides/highdim/32-linear-algebra-intro.html#applied-linear-algebra",
+    "title": "Introduction to Linear Algebra",
+    "section": "Applied Linear Algebra",
+    "text": "Applied Linear Algebra\n\nLinear algebra is the main mathematical technique used to describe and motivate statistical methods and machine learning approaches.\nWe introduce some of the mathematical concepts needed to understand these techniques and demonstrate how to work with matrices in R.\nTo learn the mathematical details of statistical and ML theory you will need to learn linear algebra in more detail."
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#applied-linear-algebra-1",
+    "href": "slides/highdim/32-linear-algebra-intro.html#applied-linear-algebra-1",
+    "title": "Intro to linear algebra",
+    "section": "Applied Linear Algebra",
+    "text": "Applied Linear Algebra\n\nWe use these concepts and techniques throughout the remainder of the book.\nWe start the chapter with a motivating example."
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#matrix-multiplication",
+    "href": "slides/highdim/32-linear-algebra-intro.html#matrix-multiplication",
+    "title": "Introduction to Linear Algebra",
+    "section": "Matrix multiplication",
+    "text": "Matrix multiplication\n\nA commonly used operation in data analysis is matrix multiplication.\nLinear algebra originated from mathematicians developing systematic ways to solve systems of linear equations."
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#matrix-multiplication-1",
+    "href": "slides/highdim/32-linear-algebra-intro.html#matrix-multiplication-1",
+    "title": "Introduction to Linear Algebra",
+    "section": "Matrix multiplication",
+    "text": "Matrix multiplication\n\\[\n\\begin{aligned}\nx_1 + x_2 + x_3 + x_4 + x_5 &= 15 \\\\\n2x_1 - x_2 + x_3 - x_4 + x_5 &= 10 \\\\\n-x_1 + 3x_2 - 2x_3 + x_4 - x_5 &= -5 \\\\\nx_1 + 4x_2 + x_3 + 2x_4 + 3x_5 &= 34 \\\\\n3x_1 - 2x_2 + x_3 - x_4 + 2x_5 &= 20\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#matrix-multiplication-2",
+    "href": "slides/highdim/32-linear-algebra-intro.html#matrix-multiplication-2",
+    "title": "Introduction to Linear Algebra",
+    "section": "Matrix multiplication",
+    "text": "Matrix multiplication\n\nMathematicians figured out that by representing linear systems of equations using matrices and vectors, predefined algorithms could be designed to solve any system of linear equations.\nA basic linear algebra class will teach some of these algorithms, such as Gaussian elimination, the Gauss-Jordan elimination, and the LU and QR decompositions.\nThese methods are usually covered in detail in university level linear algebra courses."
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#matrix-multiplication-3",
+    "href": "slides/highdim/32-linear-algebra-intro.html#matrix-multiplication-3",
+    "title": "Introduction to Linear Algebra",
+    "section": "Matrix multiplication",
+    "text": "Matrix multiplication\n\nTo explain matrix multiplication, define two matrices:\n\n\\[\n\\mathbf{A} =  \n\\begin{pmatrix}\na_{11}&a_{12}&\\dots&a_{1n}\\\\\na_{21}&a_{22}&\\dots&a_{2n}\\\\\n\\vdots&\\vdots&\\ddots&\\vdots\\\\\na_{m1}&a_{2}&\\dots&a_{mn}\n\\end{pmatrix}, \\,\n\\mathbf{B} = \\begin{pmatrix}\nb_{11}&b_{12}&\\dots&b_{1p}\\\\\nb_{21}&b_{22}&\\dots&b_{2p}\\\\\n\\vdots&\\vdots&\\ddots&\\vdots\\\\\nb_{n1}&b_{n2}&\\dots&b_{np}\n\\end{pmatrix}\n\\]"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#matrix-multiplication-4",
+    "href": "slides/highdim/32-linear-algebra-intro.html#matrix-multiplication-4",
+    "title": "Introduction to Linear Algebra",
+    "section": "Matrix multiplication",
+    "text": "Matrix multiplication\n\nThe product of matrices \\(\\mathbf{A}\\) and \\(\\mathbf{B}\\) is the matrix \\(\\mathbf{C} = \\mathbf{A}\\mathbf{B}\\) that has entries \\(c_{ij}\\) equal to the sum of the component-wise product of the \\(i\\)th row of \\(\\mathbf{A}\\) with the \\(j\\)th column of \\(\\mathbf{B}\\)."
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#matrix-multiplication-5",
+    "href": "slides/highdim/32-linear-algebra-intro.html#matrix-multiplication-5",
+    "title": "Introduction to Linear Algebra",
+    "section": "Matrix multiplication",
+    "text": "Matrix multiplication\n\nUsing R code, we can define \\(\\mathbf{C}= \\mathbf{A}\\mathbf{B}\\) as follows:\n\n\nm &lt;- nrow(A) \np &lt;- ncol(B) \nC &lt;- matrix(0, m, p) \nfor(i in 1:m){ \n  for(j in 1:p){ \n    C[i,j] &lt;- sum(A[i,] * B[,j]) \n  } \n} \n\n\nBecause this operation is so common, R includes a mathematical operator %*% for matrix multiplication:\n\n\nC &lt;- A %*% B"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#matrix-multiplication-6",
+    "href": "slides/highdim/32-linear-algebra-intro.html#matrix-multiplication-6",
+    "title": "Introduction to Linear Algebra",
+    "section": "Matrix multiplication",
+    "text": "Matrix multiplication\n\nUsing mathematical notation \\(\\mathbf{C} = \\mathbf{A}\\mathbf{B}\\) looks like this:\n\n\\[\n\\tiny\n\\begin{pmatrix}\na_{11}b_{11} + \\dots + a_{1n}b_{n1}&\na_{11}b_{12} + \\dots + a_{1n}b_{n2}&\n\\dots&\na_{11}b_{1p} + \\dots + a_{1n}b_{np}\\\\\na_{21}b_{11} + \\dots + a_{2n}b_{n1}&\na_{21}b_{n2} + \\dots + a_{2n}b_{n2}&\n\\dots&\na_{21}b_{1p} + \\dots + a_{2n}b_{np}\\\\\n\\vdots&\\vdots&\\ddots&\\vdots\\\\\na_{m1}b_{11} + \\dots +a_{mn}b_{n1}&\na_{m1}b_{n2} + \\dots + a_{mn}b_{n2}&\n\\dots&\na_{m1}b_{1p} + \\dots + a_{mn}b_{np}\\\\\n\\end{pmatrix}\n\\]\n\nNote this implies the number of rows of \\(\\mathbf{A}\\) must match the number of columns of \\(\\mathbf{B}\\)."
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#matrix-multiplication-7",
+    "href": "slides/highdim/32-linear-algebra-intro.html#matrix-multiplication-7",
+    "title": "Introduction to Linear Algebra",
+    "section": "Matrix multiplication",
+    "text": "Matrix multiplication\n\nSo how does this definition of matrix multiplication help solve systems of equations?\nAny system of equations\n\n\\[\n\\begin{aligned}\na_{11} x_1 + a_{12} x_2 \\dots + a_{1n}x_n &= b_1\\\\\na_{21} x_1 + a_{22} x_2 \\dots + a_{2n}x_n &= b_2\\\\\n\\vdots\\\\\na_{n1} x_1 + a_{n2} x_2 \\dots + a_{nn}x_n &= b_n\\\\\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#matrix-multiplication-8",
+    "href": "slides/highdim/32-linear-algebra-intro.html#matrix-multiplication-8",
+    "title": "Introduction to Linear Algebra",
+    "section": "Matrix multiplication",
+    "text": "Matrix multiplication\n\ncan be represented as matrix multiplication by defining the following matrices:\n\n\\[\n\\mathbf{A} =\\begin{pmatrix}\na_{11}&a_{12}&\\dots&a_{1n}\\\\\na_{21}&a_{22}&\\dots&a_{2n}\\\\\n\\vdots&\\vdots&\\ddots&\\vdots\\\\\na_{m1}&a_{22}&\\dots&a_{nn}\n\\end{pmatrix}\n,\\,\n\\mathbf{b} =  \n\\begin{pmatrix}\nb_1\\\\\nb_2\\\\\n\\vdots\\\\\nb_n\n\\end{pmatrix}\n,\\, \\mbox{ and }\n\\mathbf{x} =  \n\\begin{pmatrix}\nx_1\\\\\nx_2\\\\\n\\vdots\\\\\nx_n\n\\end{pmatrix}\n\\]"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#matrix-multiplication-9",
+    "href": "slides/highdim/32-linear-algebra-intro.html#matrix-multiplication-9",
+    "title": "Introduction to Linear Algebra",
+    "section": "Matrix multiplication",
+    "text": "Matrix multiplication\n\nWe can rewrite the system of equations like this:\n\n\\[\n\\mathbf{A}\\mathbf{x} =  \\mathbf{b}\n\\]"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#matrix-multiplication-10",
+    "href": "slides/highdim/32-linear-algebra-intro.html#matrix-multiplication-10",
+    "title": "Introduction to Linear Algebra",
+    "section": "Matrix multiplication",
+    "text": "Matrix multiplication\n\nThe linear algebra algorithms listed above, such as Gaussian elimination, provide a way to compute the inverse matrix \\(A^{-1}\\) that solves the equation for \\(\\mathbf{x}\\):\n\n\\[\n\\mathbf{A}^{-1}\\mathbf{A}\\mathbf{x} =   \\mathbf{x} = \\mathbf{A}^{-1} \\mathbf{b}\n\\]"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#matrix-multiplication-11",
+    "href": "slides/highdim/32-linear-algebra-intro.html#matrix-multiplication-11",
+    "title": "Introduction to Linear Algebra",
+    "section": "Matrix multiplication",
+    "text": "Matrix multiplication\n\nTo solve the first equation we wrote out, we can use the function solve:\n\n\n# Define the coefficient matrix A\nA &lt;- matrix(c(1,  1,  1,  1,  1,\n              2, -1,  1, -1,  1,\n             -1,  3, -2,  1, -1,\n              1,  4,  1,  2,  3,\n              3, -2,  1, -1,  2), \n            nrow = 5, byrow = TRUE)\n\nb &lt;- c(15, 10, -5, 34, 20)\n\n# Solve the system of equations\nx &lt;- solve(A, b)"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#matrix-multiplication-12",
+    "href": "slides/highdim/32-linear-algebra-intro.html#matrix-multiplication-12",
+    "title": "Introduction to Linear Algebra",
+    "section": "Matrix multiplication",
+    "text": "Matrix multiplication\n\nTo solve the first equation we wrote out in R, we can use the function qr.solve:\n\n\n# Define the coefficient matrix A\nA &lt;- matrix(c(1,  1,  1,  1,  1,\n              2, -1,  1, -1,  1,\n             -1,  3, -2,  1, -1,\n              1,  4,  1,  2,  3,\n              3, -2,  1, -1,  2), \n            nrow = 5, byrow = TRUE)\n\nb &lt;- c(15, 10, -5, 34, 20)\n\n# Solve the system of equations\nx &lt;- solve(A, b)"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#matrix-multiplication-13",
+    "href": "slides/highdim/32-linear-algebra-intro.html#matrix-multiplication-13",
+    "title": "Intro to linear algebra",
+    "section": "Matrix multiplication",
+    "text": "Matrix multiplication\n\n:::"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#the-identity-matrix",
+    "href": "slides/highdim/32-linear-algebra-intro.html#the-identity-matrix",
+    "title": "Introduction to Linear Algebra",
+    "section": "The identity matrix",
+    "text": "The identity matrix\n\nThe identity matrix, represented with a bold \\(\\mathbf{I}\\), is like the number 1, but for matrices: if you multiply a matrix by the identity matrix, you get back the matrix.\n\n\\[\n\\mathbf{I}\\mathbf{X} = \\mathbf{X}\n\\]"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#the-identity-matrix-1",
+    "href": "slides/highdim/32-linear-algebra-intro.html#the-identity-matrix-1",
+    "title": "Introduction to Linear Algebra",
+    "section": "The identity matrix",
+    "text": "The identity matrix\n\nIf you define \\(\\mathbf{I}\\) as matrix with the same number of rows and columns (referred to as square matrix) with 0s everywhere except the diagonal:\n\n\\[\n\\mathbf{I}=\\begin{pmatrix}\n1&0&\\dots&0\\\\\n0&1&\\dots&0\\\\\n\\vdots&\\vdots&\\ddots&\\vdots\\\\\n0&0&\\dots&1\n\\end{pmatrix}\n\\]\n\nyou will obtain the desired property."
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#the-identity-matrix-2",
+    "href": "slides/highdim/32-linear-algebra-intro.html#the-identity-matrix-2",
+    "title": "Introduction to Linear Algebra",
+    "section": "The identity matrix",
+    "text": "The identity matrix\n\nNote that the definition of an inverse matrix implies that:\n\n\\[\n\\mathbf{A}^{-1}\\mathbf{A} = \\mathbf{1}\n\\]"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#the-identity-matrix-3",
+    "href": "slides/highdim/32-linear-algebra-intro.html#the-identity-matrix-3",
+    "title": "Introduction to Linear Algebra",
+    "section": "The identity matrix",
+    "text": "The identity matrix\n\nBecause the default for the second argument in solve is an identity matrix, if we simply type solve(A), we obtain the inverse \\(\\mathbf{A}^{-1}\\).\nThis means we can also obtain a solution to our system of equations with:\n\n\nsolve(A) %*% b"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#distance",
+    "href": "slides/highdim/32-linear-algebra-intro.html#distance",
+    "title": "Intro to linear algebra",
+    "section": "Distance",
+    "text": "Distance\n\nMany of the analyses we perform with high-dimensional data relate directly or indirectly to distance.\nFor example, most machine learning techniques rely on being able to define distances between observations, using features or predictors.\nClustering algorithms, for example, search of observations that are similar.\nBut what does this mean mathematically?\nTo define distance, we introduce another linear algebra concept: the norm."
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#distance-1",
+    "href": "slides/highdim/32-linear-algebra-intro.html#distance-1",
+    "title": "Intro to linear algebra",
+    "section": "Distance",
+    "text": "Distance\n\nRecall that a point in two dimensions can be represented in polar coordinates as:"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#distance-2",
+    "href": "slides/highdim/32-linear-algebra-intro.html#distance-2",
+    "title": "Intro to linear algebra",
+    "section": "Distance",
+    "text": "Distance"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#distance-3",
+    "href": "slides/highdim/32-linear-algebra-intro.html#distance-3",
+    "title": "Intro to linear algebra",
+    "section": "Distance",
+    "text": "Distance\n\nwith \\(\\theta = \\arctan{\\frac{x2}{x1}}\\) and \\(r = \\sqrt{x_1^2 + x_2^2}\\).\nIf we think of the point as two dimensional column vector \\(\\mathbf{x} = (x_1, x_2)^\\top\\), \\(r\\) defines the norm of \\(\\mathbf{x}\\).\nThe norm can be thought of as the size of the two-dimensional vector disregarding the direction: if we change the angle, the vector changes but the size does not.\nThe point of defining the norm is that we can extrapolate the concept of size to higher dimensions."
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#distance-4",
+    "href": "slides/highdim/32-linear-algebra-intro.html#distance-4",
+    "title": "Intro to linear algebra",
+    "section": "Distance",
+    "text": "Distance\n\nSpecifically, we write the norm for any vector \\(\\mathbf{x}\\) as:\n\n$$\n|||| = $$\n\nWe can use the linear algebra concepts we have learned to define the norm like this:\n\n$$ ||||^2 = ^\n$$"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#distance-5",
+    "href": "slides/highdim/32-linear-algebra-intro.html#distance-5",
+    "title": "Intro to linear algebra",
+    "section": "Distance",
+    "text": "Distance\n\nTo define distance, suppose we have two two-dimensional points: \\(\\mathbf{x}_1\\) and \\(\\mathbf{x}_2\\).\nWe can define how similar they are by simply using euclidean distance:"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#distance-6",
+    "href": "slides/highdim/32-linear-algebra-intro.html#distance-6",
+    "title": "Intro to linear algebra",
+    "section": "Distance",
+    "text": "Distance"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#distance-7",
+    "href": "slides/highdim/32-linear-algebra-intro.html#distance-7",
+    "title": "Intro to linear algebra",
+    "section": "Distance",
+    "text": "Distance\n\nWe know that the distance is equal to the length of the hypotenuse:\n\n\\[\n\\sqrt{(x_{11} - x_{12})^2 + (x_{21} - x_{22})^2}\n\\]\n\nThe reason we introduced the norm is because this distance is the size of the vector between the two points and this can be extrapolated to any dimension.\nThe distance between two points, regardless of the dimensions, is defined as the norm of the difference:"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#distance-8",
+    "href": "slides/highdim/32-linear-algebra-intro.html#distance-8",
+    "title": "Intro to linear algebra",
+    "section": "Distance",
+    "text": "Distance\n$$\n|| _1 - _2||. $$\n\nIf we use the digit data, the distance between the first and second observation will compute distance using all 784 features:\n\n$$ || _1 - _2 || = \n$$"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#distance-9",
+    "href": "slides/highdim/32-linear-algebra-intro.html#distance-9",
+    "title": "Intro to linear algebra",
+    "section": "Distance",
+    "text": "Distance\n\nTo demonstrate, let’s pick the features for three digits:\n\n\nx_1 &lt;- x[6,] \nx_2 &lt;- x[17,] \nx_3 &lt;- x[16,] \n\n\nWe can compute the distances between each pair using the definitions we just learned:\n\n\nc(sum((x_1 - x_2)^2), sum((x_1 - x_3)^2), sum((x_2 - x_3)^2)) |&gt; sqrt() \n\n[1] 2319.867 2331.210 2518.969\n\n\n\nIn R, the function crossprod(x) is convenient for computing norms.\nIt multiplies t(x) by x:"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#distance-10",
+    "href": "slides/highdim/32-linear-algebra-intro.html#distance-10",
+    "title": "Intro to linear algebra",
+    "section": "Distance",
+    "text": "Distance\n\nc(crossprod(x_1 - x_2), crossprod(x_1 - x_3), crossprod(x_2 - x_3)) |&gt; sqrt() \n\n[1] 2319.867 2331.210 2518.969\n\n\n\nNote crossprod takes a matrix as the first argument.\nAs a result, the vectors used here are being coerced into single column matrices.\nAlso, note that crossprod(x,y) multiples t(x) by y.\nWe can see that the distance is smaller between the first two.\nThis agrees with the fact that the first two are 2s and the third is a 7."
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#distance-11",
+    "href": "slides/highdim/32-linear-algebra-intro.html#distance-11",
+    "title": "Intro to linear algebra",
+    "section": "Distance",
+    "text": "Distance\n\ny[c(6, 17, 16)] \n\n[1] 2 2 7\n\n\n\nWe can also compute all the distances at once relatively quickly using the function dist, which computes the distance between each row and produces an object of class dist:\n\n\nd &lt;- dist(x[c(6,17,16),]) \nclass(d) \n\n[1] \"dist\"\n\n\n\nThere are several machine learning related functions in R that take objects of class dist as input.\nTo access the entries using row and column indices, we need to coerce it into a matrix.\nWe can see the distance we calculated above like this:"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#distance-12",
+    "href": "slides/highdim/32-linear-algebra-intro.html#distance-12",
+    "title": "Intro to linear algebra",
+    "section": "Distance",
+    "text": "Distance\n\nd \n\n         1        2\n2 2319.867         \n3 2331.210 2518.969\n\n\n\nThe image function allows us to quickly see an image of distances between observations.\nAs an example, we compute the distance between each of the first 300 observations and then make an image:\n\n\nd &lt;- dist(x[1:300,]) \nimage(as.matrix(d)) \n\n\nIf we order this distance by the labels, we can see yellowish squares near the diagonal."
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#distance-13",
+    "href": "slides/highdim/32-linear-algebra-intro.html#distance-13",
+    "title": "Intro to linear algebra",
+    "section": "Distance",
+    "text": "Distance\n\nThis is because observations from the same digits tend to be closer than to different digits:\n\n\nimage(as.matrix(d)[order(y[1:300]), order(y[1:300])])"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#spaces",
+    "href": "slides/highdim/32-linear-algebra-intro.html#spaces",
+    "title": "Intro to linear algebra",
+    "section": "Spaces",
+    "text": "Spaces\n\nPredictor space is a concept that is often used to describe machine learning algorithms.\nThe term space refers to an advanced mathematical definition for which we provide a simplified explanation to help understand the term predictor space when used in the context of machine learning algorithms.\nWe can think of all predictors \\((x_{i,1}, \\dots, x_{i,p})^\\top\\) for all observations \\(i=1,\\dots,n\\) as \\(n\\) \\(p\\)-dimensional points."
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#spaces-1",
+    "href": "slides/highdim/32-linear-algebra-intro.html#spaces-1",
+    "title": "Intro to linear algebra",
+    "section": "Spaces",
+    "text": "Spaces\n\nA space can be thought of as the collection of all possible points that should be considered for the data analysis in question.\nThis includes points we could see, but have not been observed yet.\nIn the case of the handwritten digits, we can think of the predictor space as any point \\((x_{1}, \\dots, x_{p})^\\top\\) as long as each entry \\(x_i, \\, i = 1, \\dots, p\\) is between 0 and 255.\nSome Machine Learning algorithms also define subspaces."
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#spaces-2",
+    "href": "slides/highdim/32-linear-algebra-intro.html#spaces-2",
+    "title": "Intro to linear algebra",
+    "section": "Spaces",
+    "text": "Spaces\n\nA commonly defined subspace in machine learning are neighborhoods composed of points that are close to a predetermined center.\nWe do this by selecting a center \\(\\mathbf{x}_0\\), a minimum distance \\(r\\), and defining the subspace as the collection of points \\(\\mathbf{x}\\) that satisfy:\n\n$$\n|| - _0 || r. $$"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#spaces-3",
+    "href": "slides/highdim/32-linear-algebra-intro.html#spaces-3",
+    "title": "Intro to linear algebra",
+    "section": "Spaces",
+    "text": "Spaces\n\nWe can think of this subspace as a multidimensional sphere since every point is the same distance away from the center.\nOther machine learning algorithms partition the predictor space into non-overlapping regions and then make different predictions for each region using the data in the region.\nWe will learn about these in ?@sec-trees."
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#mathematical-notation",
+    "href": "slides/highdim/32-linear-algebra-intro.html#mathematical-notation",
+    "title": "Introduction to Linear Algebra",
+    "section": "Mathematical notation",
+    "text": "Mathematical notation\n\nMatrices are usually represented with bold upper case letters:\n\n\\[\n\\mathbf{X} =  \n\\begin{bmatrix}\nx_{1,1}&x_{1,2}&\\dots & x_{1,p}\\\\\nx_{2,1}&x_{2,2}&\\dots & x_{2,p}\\\\\n\\vdots & \\vdots & \\ddots & \\vdots\\\\\nx_{n,1}&x_{n,2}&\\dots&x_{n,p}\\\\\n\\end{bmatrix}\n\\]\n\nwith \\(x_{i,j}\\) representing the \\(j\\)-the feature for the \\(i\\)-th observation."
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#creating-a-matrix",
+    "href": "slides/highdim/32-linear-algebra-intro.html#creating-a-matrix",
+    "title": "Introduction to Linear Algebra",
+    "section": "Creating a matrix",
+    "text": "Creating a matrix\n\nIn R, we can create a matrix using the matrix function.\n\n\nz &lt;- matrix(rnorm(100*2), 100, 2)"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#mathematical-notation-1",
+    "href": "slides/highdim/32-linear-algebra-intro.html#mathematical-notation-1",
+    "title": "Introduction to Linear Algebra",
+    "section": "Mathematical notation",
+    "text": "Mathematical notation\n\nLinear Algebra books denote vectors with lower case bold letters and represent as column vectors.\n\n\\[\n\\mathbf{x} =\n\\begin{bmatrix}\nx_1\\\\\\\nx_2\\\\\\\n\\vdots\\\\\\\nx_p\n\\end{bmatrix}\n\\]\n\nWe use this name because they have one columm, not because they are columns in a matrix."
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#mathematical-notation-2",
+    "href": "slides/highdim/32-linear-algebra-intro.html#mathematical-notation-2",
+    "title": "Introduction to Linear Algebra",
+    "section": "Mathematical notation",
+    "text": "Mathematical notation\n\nR follows this convention:\n\n\nas.matrix(1:5)\n\n     [,1]\n[1,]    1\n[2,]    2\n[3,]    3\n[4,]    4\n[5,]    5"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#mathematical-notation-3",
+    "href": "slides/highdim/32-linear-algebra-intro.html#mathematical-notation-3",
+    "title": "Introduction to Linear Algebra",
+    "section": "Mathematical notation",
+    "text": "Mathematical notation\n\nTo distinguish between features associated with the observations \\(i=1,\\dots,n\\), we add an index:\n\n\\[\n\\mathbf{x}_i = \\begin{bmatrix}\nx_{i,1}\\\\\nx_{i,2}\\\\\n\\vdots\\\\\nx_{i,p}\n\\end{bmatrix}\n\\]"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#mathematical-notation-4",
+    "href": "slides/highdim/32-linear-algebra-intro.html#mathematical-notation-4",
+    "title": "Introduction to Linear Algebra",
+    "section": "Mathematical notation",
+    "text": "Mathematical notation\n\nTo distinguish between features associated with the observations \\(i=1,\\dots,n\\), we add an index:\n\n\\[\n\\mathbf{x}_i = \\begin{bmatrix}\nx_{i,1}\\\\\nx_{i,2}\\\\\n\\vdots\\\\\nx_{i,p}\n\\end{bmatrix}\n\\]"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#the-transpose",
+    "href": "slides/highdim/32-linear-algebra-intro.html#the-transpose",
+    "title": "Introduction to Linear Algebra",
+    "section": "The transpose",
+    "text": "The transpose\n\nA common operation when working with matrices is the transpose.\nWe use the transpose to understand several concepts, such as distance, using matrix notation.\nThis operation simply converts the rows of a matrix into columns.\nWe use the symbols \\(\\top\\) or \\('\\) next to the bold upper case letter to denote the transpose:"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#the-transpose-1",
+    "href": "slides/highdim/32-linear-algebra-intro.html#the-transpose-1",
+    "title": "Introduction to Linear Algebra",
+    "section": "The transpose",
+    "text": "The transpose\n\\[\n\\tiny\n\\text{if } \\,\n\\mathbf{X} =  \n\\begin{bmatrix}\n  x_{1,1}&\\dots & x_{1,p} \\\\\n  x_{2,1}&\\dots & x_{2,p} \\\\\n  \\vdots & \\ddots & \\vdots & \\\\\n  x_{n,1}&\\dots & x_{n,p}  \n  \\end{bmatrix} \\text{ then }\\,\n\\mathbf{X}^\\top =  \n\\begin{bmatrix}\n  x_{1,1}&x_{2,1}&\\dots & x_{n,1} \\\\\n  \\vdots & \\vdots & \\ddots & \\vdots \\\\\n  x_{1,p}&x_{2,p}&\\dots & x_{n,p}  \n  \\end{bmatrix}\n\\]"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#the-transpose-2",
+    "href": "slides/highdim/32-linear-algebra-intro.html#the-transpose-2",
+    "title": "Introduction to Linear Algebra",
+    "section": "The transpose",
+    "text": "The transpose\n\nIn R we compute the transpose using the function t.\n\n\nx &lt;- matrix(1:6, 3, 2)\ndim(x) \n\n[1] 3 2\n\ndim(t(x)) \n\n[1] 2 3"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#the-transpose-3",
+    "href": "slides/highdim/32-linear-algebra-intro.html#the-transpose-3",
+    "title": "Introduction to Linear Algebra",
+    "section": "The transpose",
+    "text": "The transpose\n\nOne use of the transpose is that we can write the matrix \\(\\mathbf{X}\\) as rows of the column vectors representing the features for each individual observation in the following way:\n\n\\[\n\\mathbf{X} =\n\\begin{bmatrix}\n\\mathbf{x}_1^\\top\\\\\n\\mathbf{x}_2^\\top\\\\\n\\vdots\\\\\n\\mathbf{x}_n^\\top\n\\end{bmatrix}\n\\]"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#the-transpose-4",
+    "href": "slides/highdim/32-linear-algebra-intro.html#the-transpose-4",
+    "title": "Introduction to Linear Algebra",
+    "section": "The transpose",
+    "text": "The transpose\n\\[\n\\mathbf{X} =\n\\begin{bmatrix}\n\\mathbf{x}_1^\\top\\\\\n\\mathbf{x}_2^\\top\\\\\n\\vdots\\\\\n\\mathbf{x}_n^\\top\n\\end{bmatrix}\n\\]"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#matrices-in-r",
+    "href": "slides/highdim/33-matrices-in-R.html#matrices-in-r",
+    "title": "Matrices In R",
+    "section": "Matrices in R",
+    "text": "Matrices in R\n\nWhen the number of variables is large and they can all be represented as a number, it is convenient to store them in a matrix and perform the analysis with linear algebra operations, rather than using tidyverse with data frames.\nVariables for each observation are stored in a row, resulting in a matrix with as many columns as variables.\nWe refer to values represented in the rows of the matrix as the covariates or predictors and, in machine learning, we refer to them as the features."
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#matrices-in-r-1",
+    "href": "slides/highdim/33-matrices-in-R.html#matrices-in-r-1",
+    "title": "Matrices In R",
+    "section": "Matrices in R",
+    "text": "Matrices in R\n\nIn linear algebra, we have three types of objects: scalars, vectors, and matrices.\nWe have already learned about vectors in R, and, although there is no data type for scalars, we can represent them as vectors of length 1.\nToday we learn how to work with matrices in R and relate them to linear algebra notation and concepts."
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#case-study-mnist",
+    "href": "slides/highdim/33-matrices-in-R.html#case-study-mnist",
+    "title": "Matrices In R",
+    "section": "Case study: MNIST",
+    "text": "Case study: MNIST\n\nThe first step in handling mail received in the post office is to sort letters by zip code:"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#case-study-mnist-1",
+    "href": "slides/highdim/33-matrices-in-R.html#case-study-mnist-1",
+    "title": "Matrices In R",
+    "section": "Case study: MNIST",
+    "text": "Case study: MNIST\n\nSoon we will describe how we can build computer algorithms to read handwritten digits, which robots then use to sort the letters.\nTo do this, we first need to collect data, which in this case is a high-dimensional dataset and best stored in a matrix."
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#case-study-mnist-2",
+    "href": "slides/highdim/33-matrices-in-R.html#case-study-mnist-2",
+    "title": "Matrices In R",
+    "section": "Case study: MNIST",
+    "text": "Case study: MNIST\n\nThe MNIST dataset was generated by digitizing thousands of handwritten digits, already read and annotated by humans: http://yann.lecun.com/exdb/mnist/"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#case-study-mnist-3",
+    "href": "slides/highdim/33-matrices-in-R.html#case-study-mnist-3",
+    "title": "Matrices In R",
+    "section": "Case study: MNIST",
+    "text": "Case study: MNIST\nExamples:"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#case-study-mnist-4",
+    "href": "slides/highdim/33-matrices-in-R.html#case-study-mnist-4",
+    "title": "Matrices In R",
+    "section": "Case study: MNIST",
+    "text": "Case study: MNIST\n\nThe images are converted into \\(28 \\times 28 = 784\\) pixels:"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#case-study-mnist-5",
+    "href": "slides/highdim/33-matrices-in-R.html#case-study-mnist-5",
+    "title": "Matrices In R",
+    "section": "Case study: MNIST",
+    "text": "Case study: MNIST\n\nFor each digitized image, indexed by \\(i\\), we are provided with 784 variables and a categorical outcome, or label, representing the digit among \\(0, 1, 2, 3, 4, 5, 6, 7 , 8,\\) and \\(9\\) that the image is representing.\nLet’s load the data using the dslabs package:\n\n\nlibrary(tidyverse) \nlibrary(dslabs) \nmnist &lt;- read_mnist()"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#case-study-mnist-6",
+    "href": "slides/highdim/33-matrices-in-R.html#case-study-mnist-6",
+    "title": "Matrices In R",
+    "section": "Case study: MNIST",
+    "text": "Case study: MNIST\n\nIn these cases, the pixel intensities are saved in a matrix:\n\n\nclass(mnist$train$images) \n\n[1] \"matrix\" \"array\" \n\n\n\nThe labels associated with each image are included in a vector:\n\n\ntable(mnist$train$labels) \n\n\n   0    1    2    3    4    5    6    7    8    9 \n5923 6742 5958 6131 5842 5421 5918 6265 5851 5949"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#motivating-tasks",
+    "href": "slides/highdim/33-matrices-in-R.html#motivating-tasks",
+    "title": "Matrices In R",
+    "section": "Motivating tasks",
+    "text": "Motivating tasks\n\nVisualize the original image. The pixel intensities are provided as rows in a matrix.\nDo some digits require more ink to write than others?\nAre some pixels uninformative?\nCan we remove smudges?\nBinarize the data.\nStandardize the digits."
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#motivating-tasks-1",
+    "href": "slides/highdim/33-matrices-in-R.html#motivating-tasks-1",
+    "title": "Matrices In R",
+    "section": "Motivating tasks",
+    "text": "Motivating tasks\n\nThe tidyverse or data.table are not developed to perform these types of mathematical operations.\nFor this task, it is convenient to use matrices.\nTo simplify the code below, we will rename these x and y respectively:\n\n\nx &lt;- mnist$train$images \ny &lt;- mnist$train$labels"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#dimensions-of-a-matrix",
+    "href": "slides/highdim/33-matrices-in-R.html#dimensions-of-a-matrix",
+    "title": "Matrices In R",
+    "section": "Dimensions of a matrix",
+    "text": "Dimensions of a matrix\n\nThe nrow function tells us how many rows that matrix has:\n\n\nnrow(x) \n\n[1] 60000\n\n\nand ncol tells us how many columns:\n\nncol(x) \n\n[1] 784"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#dimensions-of-a-matrix-1",
+    "href": "slides/highdim/33-matrices-in-R.html#dimensions-of-a-matrix-1",
+    "title": "Matrices In R",
+    "section": "Dimensions of a matrix",
+    "text": "Dimensions of a matrix\n\nWe learn that our dataset contains 60,000 observations (images) and 784 features (pixels).\nThe dim function returns the rows and columns:\n\n\ndim(x) \n\n[1] 60000   784"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#creating-a-matrix",
+    "href": "slides/highdim/33-matrices-in-R.html#creating-a-matrix",
+    "title": "Matrices In R",
+    "section": "Creating a matrix",
+    "text": "Creating a matrix\n\nWe saw that we can create a matrix using the matrix function.\n\n\nz &lt;- matrix(rnorm(100*2), 100, 2) \n\n\nNote that by default the matrix is filled in column by column:\n\n\nmatrix(1:15, 3, 5) \n\n     [,1] [,2] [,3] [,4] [,5]\n[1,]    1    4    7   10   13\n[2,]    2    5    8   11   14\n[3,]    3    6    9   12   15"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#creating-a-matrix-1",
+    "href": "slides/highdim/33-matrices-in-R.html#creating-a-matrix-1",
+    "title": "Matrices In R",
+    "section": "Creating a matrix",
+    "text": "Creating a matrix\n\nTo fill the matrix row by row, we can use the byrow argument:\n\n\nmatrix(1:15, 3, 5, byrow = TRUE) \n\n     [,1] [,2] [,3] [,4] [,5]\n[1,]    1    2    3    4    5\n[2,]    6    7    8    9   10\n[3,]   11   12   13   14   15"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#subsetting",
+    "href": "slides/highdim/33-matrices-in-R.html#subsetting",
+    "title": "Matrices In R",
+    "section": "Subsetting",
+    "text": "Subsetting\n\nTo extract a specific entry from a matrix, for example the 300th row of the 100th column, we write:\n\n\nx[300,100]"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#subsetting-1",
+    "href": "slides/highdim/33-matrices-in-R.html#subsetting-1",
+    "title": "Matrices In R",
+    "section": "Subsetting",
+    "text": "Subsetting\n\nWe can extract subsets of the matrices by using vectors of indexes.\nFor example, we can extract the first 100 pixels from the first 300 observations like this:\n\n\nx[1:300,1:100]"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#subsetting-2",
+    "href": "slides/highdim/33-matrices-in-R.html#subsetting-2",
+    "title": "Matrices In R",
+    "section": "Subsetting",
+    "text": "Subsetting\n\nTo extract an entire row or subset of rows, we leave the column dimension blank.\n\n\nx[1:300,]"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#subsetting-3",
+    "href": "slides/highdim/33-matrices-in-R.html#subsetting-3",
+    "title": "Matrices In R",
+    "section": "Subsetting",
+    "text": "Subsetting\n\nSimilarly, we can subset any number of columns by keeping the first dimension blank.\nHere is the code to extract the first 100 pixels:\n\n\nx[,1:100]"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#vectorization-for-matrices",
+    "href": "slides/highdim/33-matrices-in-R.html#vectorization-for-matrices",
+    "title": "Matrices In R",
+    "section": "Vectorization for matrices",
+    "text": "Vectorization for matrices\n\nIn R, if we subtract a vector from a matrix, the first element of the vector is subtracted from the first row, the second element from the second row, and so on."
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#vectorization-for-matrices-1",
+    "href": "slides/highdim/33-matrices-in-R.html#vectorization-for-matrices-1",
+    "title": "Matrices In R",
+    "section": "Vectorization for matrices",
+    "text": "Vectorization for matrices\n\nUsing mathematical notation, we would write it as follows:\n\n\\[\n\\begin{bmatrix}\n  X_{1,1}&\\dots & X_{1,p} \\\\\n  X_{2,1}&\\dots & X_{2,p} \\\\\n   & \\vdots & \\\\\n  X_{n,1}&\\dots & X_{n,p}  \n  \\end{bmatrix}\n-\n\\begin{bmatrix}\na_1\\\\\\\na_2\\\\\\\n\\vdots\\\\\\\na_n\n\\end{bmatrix}\n=\n\\begin{bmatrix}\n  X_{1,1}-a_1&\\dots & X_{1,p} -a_1\\\\\n  X_{2,1}-a_2&\\dots & X_{2,p} -a_2\\\\\n   & \\vdots & \\\\\n  X_{n,1}-a_n&\\dots & X_{n,p} -a_n\n  \\end{bmatrix}\n\\]"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#task-6-standardize-the-digits",
+    "href": "slides/highdim/33-matrices-in-R.html#task-6-standardize-the-digits",
+    "title": "Matrices In R",
+    "section": "Task 6: Standardize the digits",
+    "text": "Task 6: Standardize the digits\n\nThe way R vectorizes arithmetic operations implies that we can scale each row of a matrix as follows:\n\n\n(x - rowMeans(x))/rowSds(x) \n\n\nYet this approach does not work for columns.\nFor columns, we can sweep:\n\n\nx_mean_0 &lt;- sweep(x, 2, colMeans(x)) \n\n\nTo divide by the standard deviation, we change the default arithmetic operation to division as follows:\n\n\nx_standardized &lt;- sweep(x_mean_0, 2, colSds(x), FUN = \"/\")"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#task-6-standardize-the-digits-1",
+    "href": "slides/highdim/33-matrices-in-R.html#task-6-standardize-the-digits-1",
+    "title": "Matrices In R",
+    "section": "Task 6: Standardize the digits",
+    "text": "Task 6: Standardize the digits\n\nIn R, if you add, subtract, multiple or divide two matrices, the operation is done elementwise.\nFor example, if two matrices are stored in x and y, then:\n\n\nx*y \n\n\ndoes not result in matrix multiplication.\nInstead, the entry in row \\(i\\) and column \\(j\\) of this product is the product of the entry in row \\(i\\) and column \\(j\\) of x and y, respectively."
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#creating-a-matrix-2",
+    "href": "slides/highdim/33-matrices-in-R.html#creating-a-matrix-2",
+    "title": "Matrices In R",
+    "section": "Creating a matrix",
+    "text": "Creating a matrix\n\nThe function as.vector converts a matrix back into a vector:\n\n\nas.vector(matrix(1:15, 3, 5)) \n\n [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#visualize-the-original-image",
+    "href": "slides/highdim/33-matrices-in-R.html#visualize-the-original-image",
+    "title": "Matrices In R",
+    "section": "Visualize the original image",
+    "text": "Visualize the original image\n\nLet’s try to visualize the third observation.\n\n\nmnist$train$label[3] \n\n[1] 4"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#visualize-the-original-image-1",
+    "href": "slides/highdim/33-matrices-in-R.html#visualize-the-original-image-1",
+    "title": "Matrices In R",
+    "section": "Visualize the original image",
+    "text": "Visualize the original image\n\nThe third row of the matrix x[3,] contains the 784 pixel intensities.\nWe can assume these were entered in order and convert them back to a \\(28 \\times 28\\) matrix using:\n\n\ngrid &lt;- matrix(x[3,], 28, 28)"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#visualize-the-original-image-2",
+    "href": "slides/highdim/33-matrices-in-R.html#visualize-the-original-image-2",
+    "title": "Matrices In R",
+    "section": "Visualize the original image",
+    "text": "Visualize the original image\n\nTo visualize the data, we can use image in the followin way:\n\n\nimage(1:28, 1:28, grid)"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#visualize-the-original-image-3",
+    "href": "slides/highdim/33-matrices-in-R.html#visualize-the-original-image-3",
+    "title": "Matrices In R",
+    "section": "Visualize the original image",
+    "text": "Visualize the original image\n\nTo flip it back we can use:\n\n\nimage(1:28, 1:28, grid[, 28:1])"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#row-and-column-summaries",
+    "href": "slides/highdim/33-matrices-in-R.html#row-and-column-summaries",
+    "title": "Matrices In R",
+    "section": "Row and column summaries",
+    "text": "Row and column summaries\n\nA common operation with matrices is to apply the same function to each row or to each column.\nFor example, we may want to compute row averages and standard deviations.\nThe apply function lets you do this.\nThe first argument is the matrix, the second is the dimension, 1 for rows, 2 for columns, and the third is the function to be applied."
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#row-and-column-summaries-1",
+    "href": "slides/highdim/33-matrices-in-R.html#row-and-column-summaries-1",
+    "title": "Matrices In R",
+    "section": "Row and column summaries",
+    "text": "Row and column summaries\n\nSo, for example, to compute the averages and standard deviations of each row, we write:\n\n\navgs &lt;- apply(x, 1, mean) \nsds &lt;- apply(x, 1, sd) \n\n\nTo compute these for the columns, we simply change the 1 to a 2:\n\n\navgs &lt;- apply(x, 2, mean) \nsds &lt;- apply(x, 2, sd)"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#row-and-column-summaries-2",
+    "href": "slides/highdim/33-matrices-in-R.html#row-and-column-summaries-2",
+    "title": "Matrices In R",
+    "section": "Row and column summaries",
+    "text": "Row and column summaries\n\nBecause these operations are so common, special functions are available to perform them.\nThe functions rowMeans computes the average of each row:\n\n\navg &lt;- rowMeans(x) \n\n\nand the matrixStats function rowSds computes the standard deviations for each row:\n\n\nlibrary(matrixStats) \nsds &lt;- rowSds(x)"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#task-2-do-some-digits-require-more-ink-to-write-than-others",
+    "href": "slides/highdim/33-matrices-in-R.html#task-2-do-some-digits-require-more-ink-to-write-than-others",
+    "title": "Matrices In R",
+    "section": "Task 2: Do some digits require more ink to write than others?",
+    "text": "Task 2: Do some digits require more ink to write than others?\n\nFor the second task, related to total pixel darkness, we want to see the average use of ink plotted against digit.\nWe have already computed this average and can generate a boxplot to answer the question:\n\n\navg &lt;- rowMeans(x) \nboxplot(avg ~ y)"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#task-2-do-some-digits-require-more-ink-to-write-than-others-1",
+    "href": "slides/highdim/33-matrices-in-R.html#task-2-do-some-digits-require-more-ink-to-write-than-others-1",
+    "title": "Matrices In R",
+    "section": "Task 2: Do some digits require more ink to write than others?",
+    "text": "Task 2: Do some digits require more ink to write than others?"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#task-2-do-some-digits-require-more-ink-to-write-than-others-2",
+    "href": "slides/highdim/33-matrices-in-R.html#task-2-do-some-digits-require-more-ink-to-write-than-others-2",
+    "title": "Matrices In R",
+    "section": "Task 2: Do some digits require more ink to write than others?",
+    "text": "Task 2: Do some digits require more ink to write than others?\n\nFrom this plot we see that, not surprisingly, 1s use less ink than other digits."
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#conditional-filtering",
+    "href": "slides/highdim/33-matrices-in-R.html#conditional-filtering",
+    "title": "Matrices In R",
+    "section": "Conditional filtering",
+    "text": "Conditional filtering\n\nOne of the advantages of matrices operations over tidyverse operations is that we can easily select columns based on summaries of the columns.\nNote that logical filters can be used to subset matrices in a similar way in which they can be used to subset vectors."
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#conditional-filtering-1",
+    "href": "slides/highdim/33-matrices-in-R.html#conditional-filtering-1",
+    "title": "Matrices In R",
+    "section": "Conditional filtering",
+    "text": "Conditional filtering\n\nHere is a simple example subsetting columns with logicals:\n\n\nmatrix(1:15, 3, 5)[,c(FALSE, TRUE, TRUE, FALSE, TRUE)] \n\n     [,1] [,2] [,3]\n[1,]    4    7   13\n[2,]    5    8   14\n[3,]    6    9   15\n\n\n\nThis implies that we can select rows with conditional expression."
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#task-3-are-some-pixels-uninformative",
+    "href": "slides/highdim/33-matrices-in-R.html#task-3-are-some-pixels-uninformative",
+    "title": "Matrices In R",
+    "section": "Task 3: Are some pixels uninformative?",
+    "text": "Task 3: Are some pixels uninformative?\n\nWe can use these ideas to remove columns associated with pixels that don’t change much and thus do not inform digit classification.\nWe will quantify the variation of each pixel with its standard deviation across all entries.\nSince each column represents a pixel, we use the colSds function from the matrixStats package:\n\n\nsds &lt;- colSds(x) \n\n\nA quick look at the distribution of these values shows that some pixels have very low entry to entry variability:"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#task-3-are-some-pixels-uninformative-1",
+    "href": "slides/highdim/33-matrices-in-R.html#task-3-are-some-pixels-uninformative-1",
+    "title": "Matrices In R",
+    "section": "Task 3: Are some pixels uninformative?",
+    "text": "Task 3: Are some pixels uninformative?"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#task-3-are-some-pixels-uninformative-2",
+    "href": "slides/highdim/33-matrices-in-R.html#task-3-are-some-pixels-uninformative-2",
+    "title": "Matrices In R",
+    "section": "Task 3: Are some pixels uninformative?",
+    "text": "Task 3: Are some pixels uninformative?\n\nhist(sds, breaks = 30, main = \"SDs\")"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#task-3-are-some-pixels-uninformative-3",
+    "href": "slides/highdim/33-matrices-in-R.html#task-3-are-some-pixels-uninformative-3",
+    "title": "Matrices In R",
+    "section": "Task 3: Are some pixels uninformative?",
+    "text": "Task 3: Are some pixels uninformative?"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#task-3-are-some-pixels-uninformative-4",
+    "href": "slides/highdim/33-matrices-in-R.html#task-3-are-some-pixels-uninformative-4",
+    "title": "Matrices In R",
+    "section": "Task 3: Are some pixels uninformative?",
+    "text": "Task 3: Are some pixels uninformative?\n\nThis makes sense since we don’t write in some parts of the box.\nHere is the variance plotted by location:\n\n\nimage(1:28, 1:28, matrix(sds, 28, 28)[, 28:1]) \n\n\n\nWe see that there is little variation in the corners.\nWe could remove features that have no variation since these can’t help us predict."
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#task-3-are-some-pixels-uninformative-5",
+    "href": "slides/highdim/33-matrices-in-R.html#task-3-are-some-pixels-uninformative-5",
+    "title": "Matrices In R",
+    "section": "Task 3: Are some pixels uninformative?",
+    "text": "Task 3: Are some pixels uninformative?\n\nSo if we wanted to remove uninformative predictors from our matrix, we could write this one line of code:\n\n\nnew_x &lt;- x[,colSds(x) &gt; 60] \ndim(new_x) \n\n[1] 60000   322\n\n\n\nOnly the columns for which the standard deviation is above 60 are kept, which removes over half the predictors."
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#indexing-with-matrices",
+    "href": "slides/highdim/33-matrices-in-R.html#indexing-with-matrices",
+    "title": "Matrices In R",
+    "section": "Indexing with matrices",
+    "text": "Indexing with matrices\n\nAn operation that facilitates efficient coding is that we can change entries of a matrix based on conditionals applied to that same matrix.\nHere is a simple example:\n\n\nmat &lt;- matrix(1:15, 3, 5) \nmat[mat &gt; 6 & mat &lt; 12] &lt;- 0 \nmat \n\n     [,1] [,2] [,3] [,4] [,5]\n[1,]    1    4    0    0   13\n[2,]    2    5    0    0   14\n[3,]    3    6    0   12   15"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#task-4-can-we-remove-smudges",
+    "href": "slides/highdim/33-matrices-in-R.html#task-4-can-we-remove-smudges",
+    "title": "Matrices In R",
+    "section": "Task 4: Can we remove smudges?",
+    "text": "Task 4: Can we remove smudges?\n\nA histogram of all our predictor data:"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#task-4-can-we-remove-smudges-1",
+    "href": "slides/highdim/33-matrices-in-R.html#task-4-can-we-remove-smudges-1",
+    "title": "Matrices In R",
+    "section": "Task 4: Can we remove smudges?",
+    "text": "Task 4: Can we remove smudges?"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#task-4-can-we-remove-smudges-2",
+    "href": "slides/highdim/33-matrices-in-R.html#task-4-can-we-remove-smudges-2",
+    "title": "Matrices In R",
+    "section": "Task 4: Can we remove smudges?",
+    "text": "Task 4: Can we remove smudges?\n\nhist(as.vector(x), breaks = 30, main = \"Pixel intensities\")"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#task-4-can-we-remove-smudges-3",
+    "href": "slides/highdim/33-matrices-in-R.html#task-4-can-we-remove-smudges-3",
+    "title": "Matrices In R",
+    "section": "Task 4: Can we remove smudges?",
+    "text": "Task 4: Can we remove smudges?"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#task-4-can-we-remove-smudges-4",
+    "href": "slides/highdim/33-matrices-in-R.html#task-4-can-we-remove-smudges-4",
+    "title": "Matrices In R",
+    "section": "Task 4: Can we remove smudges?",
+    "text": "Task 4: Can we remove smudges?\n\nshows a clear dichotomy which is explained as parts of the image with ink and parts without.\nIf we think that values below, say, 50 are smudges, we can quickly make them zero using:\n\n\nnew_x &lt;- x \nnew_x[new_x &lt; 50] &lt;- 0"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#task-5-binarizing-the-data",
+    "href": "slides/highdim/33-matrices-in-R.html#task-5-binarizing-the-data",
+    "title": "Matrices In R",
+    "section": "Task 5: Binarizing the data",
+    "text": "Task 5: Binarizing the data\n\nThe histogram above seems to suggest that this data is mostly binary.\nA pixel either has ink or does not.\nApplying what we have learned, we can binarize the data using just matrix operations:\n\n\nbin_x &lt;- x \nbin_x[bin_x &lt; 255/2] &lt;- 0  \nbin_x[bin_x &gt; 255/2] &lt;- 1 \n\n\nWe can also convert to a matrix of logicals and then coerce to numbers like this:"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#task-5-binarizing-the-data-1",
+    "href": "slides/highdim/33-matrices-in-R.html#task-5-binarizing-the-data-1",
+    "title": "Matrices In R",
+    "section": "Task 5: Binarizing the data",
+    "text": "Task 5: Binarizing the data\n\nbin_X &lt;- (x &gt; 255/2)*1"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#vectorization-for-matrices-2",
+    "href": "slides/highdim/33-matrices-in-R.html#vectorization-for-matrices-2",
+    "title": "Matrices In R",
+    "section": "Vectorization for matrices",
+    "text": "Vectorization for matrices\n\nThe same holds true for other arithmetic operations.\nThe function sweep facilitates this type of operation.\nIt works similarly to apply.\nIt takes each entry of a vector and applies an arithmetic operation to the corresponding row."
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#vectorization-for-matrices-3",
+    "href": "slides/highdim/33-matrices-in-R.html#vectorization-for-matrices-3",
+    "title": "Matrices In R",
+    "section": "Vectorization for matrices",
+    "text": "Vectorization for matrices\n\nSubtraction is the default arithmetic operation.\nSo, for example, to center each row around the average, we can use:\n\n\nsweep(x, 1, rowMeans(x))"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#row-and-column-summaries-3",
+    "href": "slides/highdim/33-matrices-in-R.html#row-and-column-summaries-3",
+    "title": "Matrices In R",
+    "section": "Row and column summaries",
+    "text": "Row and column summaries\n\nThe functions colMeans and colSds provide the version for columns.\nFor more fast implementations consider the functions available in matrixStats."
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#do-some-digits-require-more-ink-to-write-than-others",
+    "href": "slides/highdim/33-matrices-in-R.html#do-some-digits-require-more-ink-to-write-than-others",
+    "title": "Matrices In R",
+    "section": "Do some digits require more ink to write than others?",
+    "text": "Do some digits require more ink to write than others?\n\nFor the second task, related to total pixel darkness, we want to see the average use of ink plotted against digit.\nWe have already computed this average and can generate a boxplot to answer the question:\n\n\navg &lt;- rowMeans(x) \nboxplot(avg ~ y)"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#do-some-digits-require-more-ink-to-write-than-others-1",
+    "href": "slides/highdim/33-matrices-in-R.html#do-some-digits-require-more-ink-to-write-than-others-1",
+    "title": "Matrices In R",
+    "section": "Do some digits require more ink to write than others?",
+    "text": "Do some digits require more ink to write than others?"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#conditional-filtering-2",
+    "href": "slides/highdim/33-matrices-in-R.html#conditional-filtering-2",
+    "title": "Matrices In R",
+    "section": "Conditional filtering",
+    "text": "Conditional filtering\n\nIn the following example we remove all observations containing at least one NA:\n\n\nx[apply(!is.na(x), 1, all),] \n\n\nThis being a common operation, we have a matrixStats function to do it faster:\n\n\nx[!rowAnyNAs(x),]"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#are-some-pixels-uninformative",
+    "href": "slides/highdim/33-matrices-in-R.html#are-some-pixels-uninformative",
+    "title": "Matrices In R",
+    "section": "Are some pixels uninformative?",
+    "text": "Are some pixels uninformative?\n\nWe can use these ideas to remove columns associated with pixels that don’t change much and thus do not inform digit classification.\nWe will quantify the variation of each pixel with its standard deviation across all entries."
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#are-some-pixels-uninformative-1",
+    "href": "slides/highdim/33-matrices-in-R.html#are-some-pixels-uninformative-1",
+    "title": "Matrices In R",
+    "section": "Are some pixels uninformative?",
+    "text": "Are some pixels uninformative?\n\nSince each column represents a pixel, we use the colSds function from the matrixStats package:\n\n\nsds &lt;- colSds(x)"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#are-some-pixels-uninformative-2",
+    "href": "slides/highdim/33-matrices-in-R.html#are-some-pixels-uninformative-2",
+    "title": "Matrices In R",
+    "section": "Are some pixels uninformative?",
+    "text": "Are some pixels uninformative?\n\nA quick look at the distribution of these values shows that some pixels have very low entry to entry variability:"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#are-some-pixels-uninformative-3",
+    "href": "slides/highdim/33-matrices-in-R.html#are-some-pixels-uninformative-3",
+    "title": "Matrices In R",
+    "section": "Are some pixels uninformative?",
+    "text": "Are some pixels uninformative?\n\nHere is the variance plotted by location:\n\n\nimage(1:28, 1:28, matrix(sds, 28, 28)[, 28:1])"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#are-some-pixels-uninformative-4",
+    "href": "slides/highdim/33-matrices-in-R.html#are-some-pixels-uninformative-4",
+    "title": "Matrices In R",
+    "section": "Are some pixels uninformative?",
+    "text": "Are some pixels uninformative?\n\nWe could remove features that have no variation since these can’t help us predict.\nSo if we wanted to remove uninformative predictors from our matrix, we could write this one line of code:\n\n\nnew_x &lt;- x[,colSds(x) &gt; 60] \ndim(new_x) \n\n[1] 60000   322\n\n\n\nOnly the columns for which the standard deviation is above 60 are kept, which removes over half the predictors."
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#are-some-pixels-uninformative-5",
+    "href": "slides/highdim/33-matrices-in-R.html#are-some-pixels-uninformative-5",
+    "title": "Matrices In R",
+    "section": "Are some pixels uninformative?",
+    "text": "Are some pixels uninformative?\n\nHere is the variance plotted by location:\n\n\nimage(1:28, 1:28, matrix(sds, 28, 28)[, 28:1])"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#are-some-pixels-uninformative-6",
+    "href": "slides/highdim/33-matrices-in-R.html#are-some-pixels-uninformative-6",
+    "title": "Matrices In R",
+    "section": "Are some pixels uninformative?",
+    "text": "Are some pixels uninformative?\n\nWe could remove features that have no variation since these can’t help us predict.\nSo if we wanted to remove uninformative predictors from our matrix, we could write this one line of code:\n\n\nnew_x &lt;- x[,colSds(x) &gt; 60] \ndim(new_x) \n\n[1] 60000   322\n\n\n\nOnly the columns for which the standard deviation is above 60 are kept, which removes over half the predictors."
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#indexing-with-matrices-1",
+    "href": "slides/highdim/33-matrices-in-R.html#indexing-with-matrices-1",
+    "title": "Matrices In R",
+    "section": "Indexing with matrices",
+    "text": "Indexing with matrices\n\nA useful application is that we can change all the NA entries of a matrix to something else:\n\n\nx[is.na(x)] &lt;- 0"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#can-we-remove-smudges",
+    "href": "slides/highdim/33-matrices-in-R.html#can-we-remove-smudges",
+    "title": "Matrices In R",
+    "section": "Can we remove smudges?",
+    "text": "Can we remove smudges?\n\nA histogram of all our predictor data:"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#can-we-remove-smudges-1",
+    "href": "slides/highdim/33-matrices-in-R.html#can-we-remove-smudges-1",
+    "title": "Matrices In R",
+    "section": "Can we remove smudges?",
+    "text": "Can we remove smudges?\n\nThe plot shows a clear dichotomy which is explained as parts of the image with ink and parts without.\nIf we think that values below, say, 50 are smudges, we can quickly make them zero using:\n\n\nnew_x &lt;- x \nnew_x[new_x &lt; 50] &lt;- 0"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#can-we-remove-smudges-2",
+    "href": "slides/highdim/33-matrices-in-R.html#can-we-remove-smudges-2",
+    "title": "Matrices In R",
+    "section": "Can we remove smudges?",
+    "text": "Can we remove smudges?"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#can-we-remove-smudges-3",
+    "href": "slides/highdim/33-matrices-in-R.html#can-we-remove-smudges-3",
+    "title": "Matrices In R",
+    "section": "Can we remove smudges?",
+    "text": "Can we remove smudges?\n\nshows a clear dichotomy which is explained as parts of the image with ink and parts without.\nIf we think that values below, say, 50 are smudges, we can quickly make them zero using:\n\n\nnew_x &lt;- x \nnew_x[new_x &lt; 50] &lt;- 0"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#can-we-remove-smudges-4",
+    "href": "slides/highdim/33-matrices-in-R.html#can-we-remove-smudges-4",
+    "title": "Matrices In R",
+    "section": "Can we remove smudges?",
+    "text": "Can we remove smudges?\n\nshows a clear dichotomy which is explained as parts of the image with ink and parts without.\nIf we think that values below, say, 50 are smudges, we can quickly make them zero using:\n\n\nnew_x &lt;- x \nnew_x[new_x &lt; 50] &lt;- 0"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#binarizing-the-data",
+    "href": "slides/highdim/33-matrices-in-R.html#binarizing-the-data",
+    "title": "Matrices In R",
+    "section": "Binarizing the data",
+    "text": "Binarizing the data\n\nThe previous histogram seems to suggest that this data is mostly binary.\nA pixel either has ink or does not."
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#binarizing-the-data-1",
+    "href": "slides/highdim/33-matrices-in-R.html#binarizing-the-data-1",
+    "title": "Matrices In R",
+    "section": "Binarizing the data",
+    "text": "Binarizing the data\n\nApplying what we have learned, we can binarize the data using just matrix operations:\n\n\nbin_x &lt;- x \nbin_x[bin_x &lt; 255/2] &lt;- 0  \nbin_x[bin_x &gt; 255/2] &lt;- 1"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#binarizing-the-data-2",
+    "href": "slides/highdim/33-matrices-in-R.html#binarizing-the-data-2",
+    "title": "Matrices In R",
+    "section": "Binarizing the data",
+    "text": "Binarizing the data\n\nWe can also convert to a matrix of logicals and then coerce to numbers like this:\n\n\nbin_X &lt;- (x &gt; 255/2)*1"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#standardize-the-digits",
+    "href": "slides/highdim/33-matrices-in-R.html#standardize-the-digits",
+    "title": "Matrices In R",
+    "section": "Standardize the digits",
+    "text": "Standardize the digits\n\nThe way R vectorizes arithmetic operations implies that we can scale each row of a matrix as follows:\n\n\n(x - rowMeans(x))/rowSds(x)"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#standardize-the-digits-1",
+    "href": "slides/highdim/33-matrices-in-R.html#standardize-the-digits-1",
+    "title": "Matrices In R",
+    "section": "Standardize the digits",
+    "text": "Standardize the digits\n\nYet this approach does not work for columns.\nFor columns, we can sweep:\n\n\nx_mean_0 &lt;- sweep(x, 2, colMeans(x))"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#standardize-the-digits-2",
+    "href": "slides/highdim/33-matrices-in-R.html#standardize-the-digits-2",
+    "title": "Matrices In R",
+    "section": "Standardize the digits",
+    "text": "Standardize the digits\n\nTo divide by the standard deviation, we change the default arithmetic operation to division as follows:\n\n\nx_standardized &lt;- sweep(x_mean_0, 2, colSds(x), FUN = \"/\")"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#standardize-the-digits-3",
+    "href": "slides/highdim/33-matrices-in-R.html#standardize-the-digits-3",
+    "title": "Matrices In R",
+    "section": "Standardize the digits",
+    "text": "Standardize the digits\n\nIn R, if you add, subtract, multiple or divide two matrices, the operation is done elementwise.\nFor example, if two matrices are stored in x and y, then:\n\n\nx*y \n\n\ndoes not result in matrix multiplication.\nInstead, the entry in row \\(i\\) and column \\(j\\) of this product is the product of the entry in row \\(i\\) and column \\(j\\) of x and y, respectively."
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#check-if-it-worked",
+    "href": "slides/highdim/32-linear-algebra-intro.html#check-if-it-worked",
+    "title": "Introduction to Linear Algebra",
+    "section": "Check if it worked",
+    "text": "Check if it worked\n\ncbind(A %*% x, b)\n\n         b\n[1,] 15 15\n[2,] 10 10\n[3,] -5 -5\n[4,] 34 34\n[5,] 20 20"
+  },
+  {
+    "objectID": "slides/highdim/32-linear-algebra-intro.html#mathematical-notation-5",
+    "href": "slides/highdim/32-linear-algebra-intro.html#mathematical-notation-5",
+    "title": "Introduction to Linear Algebra",
+    "section": "Mathematical notation",
+    "text": "Mathematical notation\n\nTo distinguish between features associated with the observations \\(i=1,\\dots,n\\), we add an index:\n\n\\[\n\\mathbf{x}_i = \\begin{bmatrix}\nx_{i,1}\\\\\nx_{i,2}\\\\\n\\vdots\\\\\nx_{i,p}\n\\end{bmatrix}\n\\]"
+  },
+  {
+    "objectID": "slides/highdim/33-matrices-in-R.html#componentwise-multiplication",
+    "href": "slides/highdim/33-matrices-in-R.html#componentwise-multiplication",
+    "title": "Matrices In R",
+    "section": "Componentwise multiplication",
+    "text": "Componentwise multiplication\n\nIn R, if you add, subtract, multiple or divide two matrices, the operation is done elementwise.\nFor example, if two matrices are stored in x and y, then:\n\n\nx*y \n\n\ndoes not result in matrix multiplication.\nInstead, the entry in row \\(i\\) and column \\(j\\) of this product is the product of the entry in row \\(i\\) and column \\(j\\) of x and y, respectively."
   }
 ]

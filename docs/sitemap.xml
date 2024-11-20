@@ -58,7 +58,7 @@
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/index.html</loc>
-    <lastmod>2024-11-17T00:06:18.061Z</lastmod>
+    <lastmod>2024-11-20T01:45:45.396Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/psets/pset-04-wrangling.html</loc>
@@ -170,7 +170,7 @@
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/psets/pset-08-linear-models.html</loc>
-    <lastmod>2024-11-09T06:57:37.551Z</lastmod>
+    <lastmod>2024-11-18T18:12:55.043Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/linear-models/30-multivariate-regression.html</loc>
@@ -178,10 +178,18 @@
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/linear-models/31-treatment-effect-models.html</loc>
-    <lastmod>2024-11-13T14:41:50.958Z</lastmod>
+    <lastmod>2024-11-17T19:58:11.216Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/psets/pset-09-matrices.html</loc>
     <lastmod>2024-11-16T23:46:07.272Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/highdim/32-linear-algebra-intro.html</loc>
+    <lastmod>2024-11-20T13:14:57.281Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/highdim/33-matrices-in-R.html</loc>
+    <lastmod>2024-11-20T13:34:29.054Z</lastmod>
   </url>
 </urlset>

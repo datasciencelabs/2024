@@ -1,0 +1,439 @@
+---
+title: "Introduction to Linear Algebra"
+keywords: "High dimensional data"
+date: 2024-11-12
+format:
+  revealjs:
+    theme: night
+execute: 
+  echo: true
+---
+
+## Applied Linear Algebra
+
+
+- Linear algebra is the main mathematical technique used to describe and motivate statistical methods and machine learning approaches.
+
+- We introduce some of the mathematical concepts needed to understand these techniques and demonstrate how to work with matrices in R.
+
+- To learn the mathematical details of statistical and ML theory you will need to learn linear algebra in more detail.
+
+
+
+## Matrix multiplication
+
+- A commonly used operation in data analysis is matrix multiplication.
+
+- Linear algebra originated from mathematicians developing systematic ways to solve systems of linear equations.
+
+## Matrix multiplication
+
+
+$$
+\begin{aligned} 
+x_1 + x_2 + x_3 + x_4 + x_5 &= 15 \\
+2x_1 - x_2 + x_3 - x_4 + x_5 &= 10 \\
+-x_1 + 3x_2 - 2x_3 + x_4 - x_5 &= -5 \\
+x_1 + 4x_2 + x_3 + 2x_4 + 3x_5 &= 34 \\
+3x_1 - 2x_2 + x_3 - x_4 + 2x_5 &= 20
+\end{aligned}
+$$
+
+## Mathematical notation
+
+- Matrices are usually represented with bold upper case letters:
+
+
+$$
+\mathbf{X} =  
+\begin{bmatrix} 
+x_{1,1}&x_{1,2}&\dots & x_{1,p}\\ 
+x_{2,1}&x_{2,2}&\dots & x_{2,p}\\ 
+\vdots & \vdots & \ddots & \vdots\\ 
+x_{n,1}&x_{n,2}&\dots&x_{n,p}\\ 
+\end{bmatrix} 
+$$
+
+
+- with $x_{i,j}$ representing the $j$-the feature for the $i$-th observation.
+
+## Creating a matrix
+
+- In R, we can create a matrix using the `matrix` function.
+
+
+```{r} 
+z <- matrix(rnorm(100*2), 100, 2) 
+``` 
+
+## Mathematical notation
+
+
+- Linear Algebra books denote vectors with lower case bold letters and represent as *column vectors*.
+
+$$ 
+\mathbf{x} = 
+\begin{bmatrix} 
+x_1\\\ 
+x_2\\\ 
+\vdots\\\ 
+x_p 
+\end{bmatrix} 
+$$
+
+- We use this name because they have one columm,  not because they are columns in a matrix.
+
+## Mathematical notation
+
+- R follows this convention:
+
+```{r}
+as.matrix(1:5)
+```
+
+
+## Mathematical notation
+
+- To distinguish between features associated with the observations $i=1,\dots,n$, we add an index:
+
+
+$$ 
+\mathbf{x}_i = \begin{bmatrix} 
+x_{i,1}\\ 
+x_{i,2}\\ 
+\vdots\\ 
+x_{i,p} 
+\end{bmatrix} 
+$$
+
+
+---
+
+:::{.callout-warning}
+
+- Bold lower case letters are also commonly used to represent matrix columns rather than rows.
+
+- This can be confusing because $\mathbf{x}_1$ can represent either the first row or the first column of $\mathbf{X}$.
+
+- One way to distinguish is to use computer code, with $:$ representint *all*: $\mathbf{X}_{1,:}$ represents the first row and $\mathbf{X}_{:,1}$ is the first column.
+
+- Another approach is to distinguish by the letter used to index, with $i$ used for rows and $j$ used for columns. So $\mathbf{x}_i$ is $i$th row and $\mathbf{x}_j$ is $j$th column.
+
+- With this approach, it is important to clarify which dimension, row or column is being represented.
+
+- Further confusion can arise because it is common to represent all vectors, including the rows of a matrix, as one-column matrices.
+
+:::
+
+
+## Matrix multiplication
+
+- Mathematicians figured out that by representing linear systems of equations using matrices and vectors, predefined algorithms could be designed to solve any system of linear equations.
+
+- A basic linear algebra class will teach some of these algorithms, such as **Gaussian elimination**, the **Gauss-Jordan elimination**, and the **LU** and **QR decompositions**.
+
+- These methods are usually covered in detail in university level linear algebra courses.
+
+
+## Matrix multiplication
+
+- To explain matrix multiplication, define two matrices: 
+
+
+$$
+\mathbf{A} =  
+\begin{pmatrix} 
+a_{11}&a_{12}&\dots&a_{1n}\\ 
+a_{21}&a_{22}&\dots&a_{2n}\\ 
+\vdots&\vdots&\ddots&\vdots\\ 
+a_{m1}&a_{2}&\dots&a_{mn} 
+\end{pmatrix}, \, 
+\mathbf{B} = \begin{pmatrix} 
+b_{11}&b_{12}&\dots&b_{1p}\\ 
+b_{21}&b_{22}&\dots&b_{2p}\\ 
+\vdots&\vdots&\ddots&\vdots\\ 
+b_{n1}&b_{n2}&\dots&b_{np} 
+\end{pmatrix} 
+$$
+
+
+
+## Matrix multiplication
+
+- The product of matrices $\mathbf{A}$ and $\mathbf{B}$ is the matrix $\mathbf{C} = \mathbf{A}\mathbf{B}$ that has entries $c_{ij}$ equal to the sum of the component-wise product of the $i$th row of $\mathbf{A}$ with the $j$th column of $\mathbf{B}$.
+
+
+
+
+## Matrix multiplication
+
+- Using R code, we can define $\mathbf{C}= \mathbf{A}\mathbf{B}$ as follows:
+
+```{r, eval=FALSE} 
+m <- nrow(A) 
+p <- ncol(B) 
+C <- matrix(0, m, p) 
+for(i in 1:m){ 
+  for(j in 1:p){ 
+    C[i,j] <- sum(A[i,] * B[,j]) 
+  } 
+} 
+``` 
+
+
+- Because this operation is so common, R includes a mathematical operator `%*%` for matrix multiplication:
+
+```{r, eval=FALSE} 
+C <- A %*% B 
+``` 
+
+
+
+## Matrix multiplication
+
+
+- Using mathematical notation $\mathbf{C} = \mathbf{A}\mathbf{B}$ looks like this:
+
+
+$$
+\tiny
+\begin{pmatrix} 
+a_{11}b_{11} + \dots + a_{1n}b_{n1}& 
+a_{11}b_{12} + \dots + a_{1n}b_{n2}& 
+\dots& 
+a_{11}b_{1p} + \dots + a_{1n}b_{np}\\ 
+a_{21}b_{11} + \dots + a_{2n}b_{n1}& 
+a_{21}b_{n2} + \dots + a_{2n}b_{n2}& 
+\dots& 
+a_{21}b_{1p} + \dots + a_{2n}b_{np}\\ 
+\vdots&\vdots&\ddots&\vdots\\ 
+a_{m1}b_{11} + \dots +a_{mn}b_{n1}& 
+a_{m1}b_{n2} + \dots + a_{mn}b_{n2}& 
+\dots& 
+a_{m1}b_{1p} + \dots + a_{mn}b_{np}\\ 
+\end{pmatrix} 
+$$
+
+- Note this implies the number of rows of $\mathbf{A}$ must match the number of columns of $\mathbf{B}$.
+
+
+## Matrix multiplication
+
+
+- So how does this definition of matrix multiplication help solve systems of equations? 
+
+- Any system of equations 
+
+
+$$
+\begin{aligned} 
+a_{11} x_1 + a_{12} x_2 \dots + a_{1n}x_n &= b_1\\ 
+a_{21} x_1 + a_{22} x_2 \dots + a_{2n}x_n &= b_2\\ 
+\vdots\\ 
+a_{n1} x_1 + a_{n2} x_2 \dots + a_{nn}x_n &= b_n\\ 
+\end{aligned} 
+$$
+
+
+
+## Matrix multiplication
+
+- can  be represented as matrix multiplication by defining the following matrices:
+
+$$
+\mathbf{A} =\begin{pmatrix} 
+a_{11}&a_{12}&\dots&a_{1n}\\ 
+a_{21}&a_{22}&\dots&a_{2n}\\ 
+\vdots&\vdots&\ddots&\vdots\\ 
+a_{m1}&a_{22}&\dots&a_{nn} 
+\end{pmatrix} 
+,\, 
+\mathbf{b} =  
+\begin{pmatrix} 
+b_1\\ 
+b_2\\ 
+\vdots\\ 
+b_n 
+\end{pmatrix} 
+,\, \mbox{ and } 
+\mathbf{x} =  
+\begin{pmatrix} 
+x_1\\ 
+x_2\\ 
+\vdots\\ 
+x_n 
+\end{pmatrix} 
+$$
+
+
+
+## Matrix multiplication
+
+- We can rewrite the system of equations like this:
+
+
+$$
+\mathbf{A}\mathbf{x} =  \mathbf{b} 
+$$
+
+## Matrix multiplication
+
+- The linear algebra algorithms listed above, such as Gaussian elimination, provide a way to compute the *inverse* matrix $A^{-1}$ that solves the equation for $\mathbf{x}$:
+
+
+$$
+\mathbf{A}^{-1}\mathbf{A}\mathbf{x} =   \mathbf{x} = \mathbf{A}^{-1} \mathbf{b} 
+$$
+
+
+
+## Matrix multiplication
+
+- To solve the first equation we wrote out, we can use the function `solve`:
+
+```{r} 
+# Define the coefficient matrix A
+A <- matrix(c(1,  1,  1,  1,  1,
+              2, -1,  1, -1,  1,
+             -1,  3, -2,  1, -1,
+              1,  4,  1,  2,  3,
+              3, -2,  1, -1,  2), 
+            nrow = 5, byrow = TRUE)
+
+b <- c(15, 10, -5, 34, 20)
+
+# Solve the system of equations
+x <- solve(A, b)
+``` 
+
+## Check if it worked
+
+```{r}
+cbind(A %*% x, b)
+```
+
+---
+:::{.callout-note}
+
+- The function `solve` works well when dealing with small to medium-sized matrices with a similar range for each column and not too many 0s.
+
+- The function `qr.solve` can be used when this is not the case.
+
+
+:::
+
+
+
+## The identity matrix
+
+- The identity matrix, represented with a bold $\mathbf{I}$, is like the number 1, but for matrices: if you multiply a matrix by the identity matrix, you get back the matrix.
+
+
+$$
+\mathbf{I}\mathbf{X} = \mathbf{X} 
+$$ 
+
+## The identity matrix
+
+- If you define $\mathbf{I}$ as matrix with the same number of rows and columns (referred to as square matrix) with 0s everywhere except the diagonal:
+
+
+$$
+\mathbf{I}=\begin{pmatrix} 
+1&0&\dots&0\\ 
+0&1&\dots&0\\ 
+\vdots&\vdots&\ddots&\vdots\\ 
+0&0&\dots&1 
+\end{pmatrix} 
+$$ 
+
+
+- you will obtain the desired property.
+
+## The identity matrix
+
+
+- Note that the definition of an inverse matrix implies that:
+
+
+$$
+\mathbf{A}^{-1}\mathbf{A} = \mathbf{1} 
+$$
+
+## The identity matrix
+
+- Because the default for the second argument in `solve` is an identity matrix, if we simply type `solve(A)`, we obtain the inverse $\mathbf{A}^{-1}$.
+
+- This means we can also obtain a solution to our system of equations with:
+
+
+```{r, eval=FALSE} 
+solve(A) %*% b 
+``` 
+
+
+
+
+
+## The transpose
+
+- A common operation when working with matrices is the *transpose*.
+
+- We use the transpose to understand several concepts, such as distance, using matrix notation.
+
+- This operation simply converts the rows of a matrix into columns.
+
+- We use the symbols $\top$ or $'$ next to the bold upper case letter to denote the transpose:
+
+
+
+## The transpose
+
+
+$$
+\tiny
+\text{if } \, 
+\mathbf{X} =  
+\begin{bmatrix} 
+  x_{1,1}&\dots & x_{1,p} \\ 
+  x_{2,1}&\dots & x_{2,p} \\ 
+  \vdots & \ddots & \vdots & \\ 
+  x_{n,1}&\dots & x_{n,p}  
+  \end{bmatrix} \text{ then }\, 
+\mathbf{X}^\top =  
+\begin{bmatrix} 
+  x_{1,1}&x_{2,1}&\dots & x_{n,1} \\ 
+  \vdots & \vdots & \ddots & \vdots \\ 
+  x_{1,p}&x_{2,p}&\dots & x_{n,p}  
+  \end{bmatrix} 
+$$
+
+
+
+## The transpose
+
+- In R we compute the transpose using the function `t`.
+
+```{r} 
+x <- matrix(1:6, 3, 2)
+dim(x) 
+dim(t(x)) 
+``` 
+
+## The transpose
+
+- One use of the transpose is that we can write the matrix $\mathbf{X}$ as rows of the column vectors representing the features for each individual observation in the following way:
+
+
+$$
+\mathbf{X} = 
+\begin{bmatrix} 
+\mathbf{x}_1^\top\\ 
+\mathbf{x}_2^\top\\ 
+\vdots\\ 
+\mathbf{x}_n^\top 
+\end{bmatrix} 
+$$
+
+
+

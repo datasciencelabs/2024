@@ -29,42 +29,55 @@ library(dslabs)
 
 ## Treatment effect models
 
-- However, linear models have many other applications.
+- Linear models have many other applications.
 
 - One of the most popular is to quantify treatment effects in randomized and controlled experiments.
 
-- One of the first applications was in agriculture, where different plots of lands were treated with different combinations of fertilizers to try to determine if they were effective.
+- One of the first applications was in agriculture, where different plots of lands were treated with different combinations of fertilizers.
 
-- In fact, the use of $Y$ for the outcome in statistics is due to the mathematical theory being developed for crop _yield_ as the outcome.
-
-
-
-## Treatment effect models
-
-- Since then, the same ideas have been applied in other areas, such as randomized trials developed to determine if drugs cure or prevent diseases or if policies have an effect on social or educational outcomes.
-
-- In the latter example, we think of the policy intervention as a _treatment_ and follow the same mathematical procedure.
-
-- The analyses used in _A/B testing_, widely used today by internet companies, are based on treatment effects models.
+- The use of $Y$ for the outcome in statistics is due to the mathematical theory being developed for crop _yield_ as the outcome.
 
 
 
 ## Treatment effect models
 
-- Moreover, these models have been applied in observational studies where analysts attempt to use linear models to estimate effects of interest while accounting for potential confounders.
+- The same ideas have been applied in other areas.
 
-- For example, to estimate the effect of a diet high in fruits and vegetables on blood pressure, we would have to adjust for _factors_ such as age, sex, and smoking status.
+- In randomized trials developed to determine if drugs cure or prevent diseases or if policies have an effect on social or educational outcomes.
+
+- We think of the policy intervention as a _treatment_ so we can follow the same mathematical descriptions.
+
+- The analyses used in _A/B testing_ are based on treatment effects models.
+
+
+## Definitions 
+
+- Factors: Categorical variables used to define subgroups.
+
+- Levels: The distinct categories or groups within each factor.
+
+- Treatment: The factor we are interested in. Levels are often experimental and control.
+
+
+## Treatment effect models
+
+- These models have also been applied in observational studies as well.
+
+- We use linear models to estimate effects of interest while accounting for potential confounders.
+
+- For example, to estimate the effect of a diet high in fruits and vegetables on blood pressure, we would have to account for _factors_ such as age, sex, and smoking status.
 
 
 
 
 ## Case study
 
-- Mice were randomly selected and divided into two groups: one group receiving a high-fat diet, considered the _treatment_, while the other group served as the control and received the usual _chow_ diet.
+- Mice were randomly selected and divided into two groups: one group receiving a high-fat diet while the other group served as the control.
 
 - The data is included in the **dslabs** package:
 
 ```{r} 
+library(tidyverse) 
 library(dslabs) 
 table(mice_weights$diet) 
 ``` 
@@ -73,47 +86,36 @@ table(mice_weights$diet)
 
 - A boxplot shows that the high fat diet mice are, on average, heavier.
 
-```{r weight-by-diet-boxplots, eval=FALSE} 
-with(mice_weights, boxplot(body_weight ~ diet)) 
-``` 
-
-
-## Treatment effect models
-
 ```{r weight-by-diet-boxplots-run, echo=FALSE} 
 with(mice_weights, boxplot(body_weight ~ diet)) 
 ``` 
 
 
-## Treatment effect models
+## Comparing group means
 
-- However, given that we divided the mice randomly, is it possible that the observed difference is simply due to chance? Here, we can compute the sample average and standard deviation of each group and perform statistical inference on the difference of these means.
+- Is it possible that the observed difference is simply due to chance? 
 
+- We can apply the ideas we learned in the statistical inference lectures.
+
+- Define $\mu_1$ and $\mu_0$ the population averagees for treatment and control.
+
+- We want to know if $\mu_1 - \mu_0 >0$.
 
 
 ## Comparing group means
 
-- The sample averages for the two groups, high-fat and chow diets, are different:
+We know that the $\bar{X}_1 - \bar{X}_0$ 
 
 ```{r} 
-library(tidyverse) 
 mice_weights |> group_by(diet) |> summarize(average = mean(body_weight)) 
 ``` 
 
-## Comparing group means
+follows a normal distribution, with expected value $\mu_1-\mu_0$ 
+and standard error:
 
-- However, this is a random sample of mice, and the assignment to the diet group is also done randomly.
-
-- So is this difference due to chance? 
-
-
-## Comparing group means
-
--  $\bar{X}_1 - \bar{X}_0$ follows a normal distribution, 
-
-- with expected value $\mu_1-\mu_0$ 
-
-- and standard error $\sqrt{\frac{\sigma_1^2}{N_1} + \frac{\sigma_0^2}{N_0}}$.
+$$
+\sqrt{\frac{\sigma_1^2}{N_1} + \frac{\sigma_0^2}{N_0}}
+$$
 
 ## Comparing group means
 
@@ -188,6 +190,10 @@ t_stat
 ## One factor design
 
 - Although the t-test is useful for cases in which we compare two treatments, it is common to have other variables affect our outcomes.
+
+- For example, what if more male mice received the high-fat diet?
+
+- What if their is cage effect?
 
 - Linear models permit hypothesis testing in these more general situations.
 
