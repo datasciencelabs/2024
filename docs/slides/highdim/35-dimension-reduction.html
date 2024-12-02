@@ -1,339 +1,414 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-<meta name="dcterms.date" content="2024-11-12">
-<meta name="keywords" content="High dimensional data">
-
-<title>Dimension Reduction – BST 260: Introduction to Data Science</title>
-<style>
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-</style>
-
-
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<html lang="en"><head>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
-  }
-}</script>
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.5.57">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
+  <meta name="dcterms.date" content="2024-11-12">
+  <meta name="keywords" content="High dimensional data">
+  <title>BST 260: Introduction to Data Science – Dimension Reduction</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #f07178; background-color: #2a0f15; font-weight: bold; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #00e0e0; } /* Attribute */
+    code span.bn { color: #d4d0ab; } /* BaseN */
+    code span.bu { color: #abe338; } /* BuiltIn */
+    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffd700; } /* Constant */
+    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
+    code span.cv { color: #ffd700; } /* CommentVar */
+    code span.do { color: #f8f8f2; } /* Documentation */
+    code span.dt { color: #ffa07a; } /* DataType */
+    code span.dv { color: #d4d0ab; } /* DecVal */
+    code span.er { color: #f07178; text-decoration: underline; } /* Error */
+    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
+    code span.fl { color: #d4d0ab; } /* Float */
+    code span.fu { color: #ffa07a; } /* Function */
+    code span.im { color: #abe338; } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
+    code span.op { color: #ffa07a; } /* Operator */
+    code span.ot { color: #00e0e0; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
+    code span.sc { color: #abe338; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #00e0e0; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #dcc6e0; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
   }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
 </head>
+<body class="quarto-dark">
+  <div class="reveal">
+    <div class="slides">
 
-<body class="nav-sidebar docked">
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Dimension Reduction</h1>
 
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Dimension Reduction</li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="../../index.html" class="sidebar-logo-link">
-      <img src="../../images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
-      </a>
-      <div class="sidebar-tools-main">
-    <a href="https://github.com/datasciencelabs/2024" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
-</div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Home</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../slides.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Slides</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../psets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Problem Sets</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../syllabus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Syllabus</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../final-project.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Final Project</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#dimension-reduction" id="toc-dimension-reduction" class="nav-link active" data-scroll-target="#dimension-reduction">Dimension reduction</a></li>
-  <li><a href="#dimension-reduction-1" id="toc-dimension-reduction-1" class="nav-link" data-scroll-target="#dimension-reduction-1">Dimension reduction</a></li>
-  <li><a href="#motivation-preserving-distance" id="toc-motivation-preserving-distance" class="nav-link" data-scroll-target="#motivation-preserving-distance">Motivation: preserving distance</a></li>
-  <li><a href="#motivation-preserving-distance-1" id="toc-motivation-preserving-distance-1" class="nav-link" data-scroll-target="#motivation-preserving-distance-1">Motivation: preserving distance</a></li>
-  <li><a href="#motivation-preserving-distance-2" id="toc-motivation-preserving-distance-2" class="nav-link" data-scroll-target="#motivation-preserving-distance-2">Motivation: preserving distance</a></li>
-  <li><a href="#motivation-preserving-distance-3" id="toc-motivation-preserving-distance-3" class="nav-link" data-scroll-target="#motivation-preserving-distance-3">Motivation: preserving distance</a></li>
-  <li><a href="#motivation-preserving-distance-4" id="toc-motivation-preserving-distance-4" class="nav-link" data-scroll-target="#motivation-preserving-distance-4">Motivation: preserving distance</a></li>
-  <li><a href="#motivation-preserving-distance-5" id="toc-motivation-preserving-distance-5" class="nav-link" data-scroll-target="#motivation-preserving-distance-5">Motivation: preserving distance</a></li>
-  <li><a href="#motivation-preserving-distance-6" id="toc-motivation-preserving-distance-6" class="nav-link" data-scroll-target="#motivation-preserving-distance-6">Motivation: preserving distance</a></li>
-  <li><a href="#rotations" id="toc-rotations" class="nav-link" data-scroll-target="#rotations">Rotations</a></li>
-  <li><a href="#rotations-1" id="toc-rotations-1" class="nav-link" data-scroll-target="#rotations-1">Rotations</a></li>
-  <li><a href="#rotations-2" id="toc-rotations-2" class="nav-link" data-scroll-target="#rotations-2">Rotations</a></li>
-  <li><a href="#rotations-3" id="toc-rotations-3" class="nav-link" data-scroll-target="#rotations-3">Rotations</a></li>
-  <li><a href="#rotations-4" id="toc-rotations-4" class="nav-link" data-scroll-target="#rotations-4">Rotations</a></li>
-  <li><a href="#rotations-5" id="toc-rotations-5" class="nav-link" data-scroll-target="#rotations-5">Rotations</a></li>
-  <li><a href="#linear-transformations" id="toc-linear-transformations" class="nav-link" data-scroll-target="#linear-transformations">Linear transformations</a></li>
-  <li><a href="#linear-transformations-1" id="toc-linear-transformations-1" class="nav-link" data-scroll-target="#linear-transformations-1">Linear transformations</a></li>
-  <li><a href="#linear-transformations-2" id="toc-linear-transformations-2" class="nav-link" data-scroll-target="#linear-transformations-2">Linear transformations</a></li>
-  <li><a href="#linear-transformations-3" id="toc-linear-transformations-3" class="nav-link" data-scroll-target="#linear-transformations-3">Linear transformations</a></li>
-  <li><a href="#linear-transformations-4" id="toc-linear-transformations-4" class="nav-link" data-scroll-target="#linear-transformations-4">Linear transformations</a></li>
-  <li><a href="#linear-transformations-5" id="toc-linear-transformations-5" class="nav-link" data-scroll-target="#linear-transformations-5">Linear transformations</a></li>
-  <li><a href="#linear-transformations-6" id="toc-linear-transformations-6" class="nav-link" data-scroll-target="#linear-transformations-6">Linear transformations</a></li>
-  <li><a href="#linear-transformations-7" id="toc-linear-transformations-7" class="nav-link" data-scroll-target="#linear-transformations-7">Linear transformations</a></li>
-  <li><a href="#linear-transformations-8" id="toc-linear-transformations-8" class="nav-link" data-scroll-target="#linear-transformations-8">Linear transformations</a></li>
-  <li><a href="#linear-transformations-9" id="toc-linear-transformations-9" class="nav-link" data-scroll-target="#linear-transformations-9">Linear transformations</a></li>
-  <li><a href="#linear-transformations-10" id="toc-linear-transformations-10" class="nav-link" data-scroll-target="#linear-transformations-10">Linear transformations</a></li>
-  <li><a href="#linear-transformations-11" id="toc-linear-transformations-11" class="nav-link" data-scroll-target="#linear-transformations-11">Linear transformations</a></li>
-  <li><a href="#linear-transformations-12" id="toc-linear-transformations-12" class="nav-link" data-scroll-target="#linear-transformations-12">Linear transformations</a></li>
-  <li><a href="#orthogonal-transformations" id="toc-orthogonal-transformations" class="nav-link" data-scroll-target="#orthogonal-transformations">Orthogonal transformations</a></li>
-  <li><a href="#orthogonal-transformations-1" id="toc-orthogonal-transformations-1" class="nav-link" data-scroll-target="#orthogonal-transformations-1">Orthogonal transformations</a></li>
-  <li><a href="#orthogonal-transformations-2" id="toc-orthogonal-transformations-2" class="nav-link" data-scroll-target="#orthogonal-transformations-2">Orthogonal transformations</a></li>
-  <li><a href="#orthogonal-transformations-3" id="toc-orthogonal-transformations-3" class="nav-link" data-scroll-target="#orthogonal-transformations-3">Orthogonal transformations</a></li>
-  <li><a href="#transformations" id="toc-transformations" class="nav-link" data-scroll-target="#transformations">Transformations</a></li>
-  <li><a href="#principal-component-analysis" id="toc-principal-component-analysis" class="nav-link" data-scroll-target="#principal-component-analysis">Principal Component Analysis</a></li>
-  <li><a href="#principal-component-analysis-1" id="toc-principal-component-analysis-1" class="nav-link" data-scroll-target="#principal-component-analysis-1">Principal Component Analysis</a></li>
-  <li><a href="#principal-component-analysis-2" id="toc-principal-component-analysis-2" class="nav-link" data-scroll-target="#principal-component-analysis-2">Principal Component Analysis</a></li>
-  <li><a href="#principal-component-analysis-3" id="toc-principal-component-analysis-3" class="nav-link" data-scroll-target="#principal-component-analysis-3">Principal Component Analysis</a></li>
-  <li><a href="#principal-component-analysis-4" id="toc-principal-component-analysis-4" class="nav-link" data-scroll-target="#principal-component-analysis-4">Principal Component Analysis</a></li>
-  <li><a href="#principal-component-analysis-5" id="toc-principal-component-analysis-5" class="nav-link" data-scroll-target="#principal-component-analysis-5">Principal Component Analysis</a></li>
-  <li><a href="#principal-component-analysis-6" id="toc-principal-component-analysis-6" class="nav-link" data-scroll-target="#principal-component-analysis-6">Principal Component Analysis</a></li>
-  <li><a href="#principal-component-analysis-7" id="toc-principal-component-analysis-7" class="nav-link" data-scroll-target="#principal-component-analysis-7">Principal Component Analysis</a></li>
-  <li><a href="#principal-component-analysis-8" id="toc-principal-component-analysis-8" class="nav-link" data-scroll-target="#principal-component-analysis-8">Principal Component Analysis</a></li>
-  <li><a href="#principal-component-analysis-9" id="toc-principal-component-analysis-9" class="nav-link" data-scroll-target="#principal-component-analysis-9">Principal Component Analysis</a></li>
-  <li><a href="#principal-component-analysis-10" id="toc-principal-component-analysis-10" class="nav-link" data-scroll-target="#principal-component-analysis-10">Principal Component Analysis</a></li>
-  <li><a href="#principal-component-analysis-11" id="toc-principal-component-analysis-11" class="nav-link" data-scroll-target="#principal-component-analysis-11">Principal Component Analysis</a></li>
-  <li><a href="#principal-component-analysis-12" id="toc-principal-component-analysis-12" class="nav-link" data-scroll-target="#principal-component-analysis-12">Principal Component Analysis</a></li>
-  <li><a href="#principal-component-analysis-13" id="toc-principal-component-analysis-13" class="nav-link" data-scroll-target="#principal-component-analysis-13">Principal Component Analysis</a></li>
-  <li><a href="#principal-component-analysis-14" id="toc-principal-component-analysis-14" class="nav-link" data-scroll-target="#principal-component-analysis-14">Principal Component Analysis</a></li>
-  <li><a href="#principal-component-analysis-15" id="toc-principal-component-analysis-15" class="nav-link" data-scroll-target="#principal-component-analysis-15">Principal Component Analysis</a></li>
-  <li><a href="#principal-component-analysis-16" id="toc-principal-component-analysis-16" class="nav-link" data-scroll-target="#principal-component-analysis-16">Principal Component Analysis</a></li>
-  <li><a href="#principal-component-analysis-17" id="toc-principal-component-analysis-17" class="nav-link" data-scroll-target="#principal-component-analysis-17">Principal Component Analysis</a></li>
-  <li><a href="#principal-component-analysis-18" id="toc-principal-component-analysis-18" class="nav-link" data-scroll-target="#principal-component-analysis-18">Principal Component Analysis</a></li>
-  <li><a href="#iris-example" id="toc-iris-example" class="nav-link" data-scroll-target="#iris-example">Iris example</a></li>
-  <li><a href="#iris-example-1" id="toc-iris-example-1" class="nav-link" data-scroll-target="#iris-example-1">Iris example</a></li>
-  <li><a href="#iris-example-2" id="toc-iris-example-2" class="nav-link" data-scroll-target="#iris-example-2">Iris example</a></li>
-  <li><a href="#iris-example-3" id="toc-iris-example-3" class="nav-link" data-scroll-target="#iris-example-3">Iris example</a></li>
-  <li><a href="#iris-example-4" id="toc-iris-example-4" class="nav-link" data-scroll-target="#iris-example-4">Iris example</a></li>
-  <li><a href="#iris-example-5" id="toc-iris-example-5" class="nav-link" data-scroll-target="#iris-example-5">Iris example</a></li>
-  <li><a href="#iris-example-6" id="toc-iris-example-6" class="nav-link" data-scroll-target="#iris-example-6">Iris example</a></li>
-  <li><a href="#pca-visualized" id="toc-pca-visualized" class="nav-link" data-scroll-target="#pca-visualized">PCA visualized</a></li>
-  <li><a href="#iris-example-7" id="toc-iris-example-7" class="nav-link" data-scroll-target="#iris-example-7">Iris example</a></li>
-  <li><a href="#mnist-example" id="toc-mnist-example" class="nav-link" data-scroll-target="#mnist-example">MNIST example</a></li>
-  <li><a href="#mnist-example-1" id="toc-mnist-example-1" class="nav-link" data-scroll-target="#mnist-example-1">MNIST example</a></li>
-  <li><a href="#mnist-example-2" id="toc-mnist-example-2" class="nav-link" data-scroll-target="#mnist-example-2">MNIST example</a></li>
-  <li><a href="#mnist-example-3" id="toc-mnist-example-3" class="nav-link" data-scroll-target="#mnist-example-3">MNIST example</a></li>
-  <li><a href="#mnist-example-4" id="toc-mnist-example-4" class="nav-link" data-scroll-target="#mnist-example-4">MNIST example</a></li>
-  <li><a href="#first-four-pcs" id="toc-first-four-pcs" class="nav-link" data-scroll-target="#first-four-pcs">First four PCs</a></li>
-  <li><a href="#first-pc" id="toc-first-pc" class="nav-link" data-scroll-target="#first-pc">First PC</a></li>
-  <li><a href="#second-pc" id="toc-second-pc" class="nav-link" data-scroll-target="#second-pc">Second PC</a></li>
-  <li><a href="#third-pc" id="toc-third-pc" class="nav-link" data-scroll-target="#third-pc">Third PC</a></li>
-  <li><a href="#fourth-pc" id="toc-fourth-pc" class="nav-link" data-scroll-target="#fourth-pc">Fourth PC</a></li>
-  <li><a href="#mnist-example-5" id="toc-mnist-example-5" class="nav-link" data-scroll-target="#mnist-example-5">MNIST example</a></li>
-  <li><a href="#last-four-pcs" id="toc-last-four-pcs" class="nav-link" data-scroll-target="#last-four-pcs">Last four PCs</a></li>
-  <li><a href="#dimensions-approximation" id="toc-dimensions-approximation" class="nav-link" data-scroll-target="#dimensions-approximation">200 dimensions approximation</a></li>
-  <li><a href="#dimensions-approximation-1" id="toc-dimensions-approximation-1" class="nav-link" data-scroll-target="#dimensions-approximation-1">200 dimensions approximation</a></li>
-  <li><a href="#dimensions-approximation-2" id="toc-dimensions-approximation-2" class="nav-link" data-scroll-target="#dimensions-approximation-2">36 dimensions approximation</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/datasciencelabs/2024/blob/main/slides/highdim/35-dimension-reduction.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="35-dimension-reduction.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
-    </div>
-<!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Dimension Reduction</h1>
+<div class="quarto-title-authors">
 </div>
 
-
-
-<div class="quarto-title-meta">
-
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">November 12, 2024</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-<div>
-  <div class="keywords">
-    <div class="block-title">Keywords</div>
-    <p>High dimensional data</p>
-  </div>
-</div>
-
-</header>
-
-
-<section id="dimension-reduction" class="level2">
-<h2 class="anchored" data-anchor-id="dimension-reduction">Dimension reduction</h2>
+  <p class="date">2024-11-12</p>
+</section>
+<section id="dimension-reduction" class="slide level2">
+<h2>Dimension reduction</h2>
 <ul>
 <li><p>A typical machine learning task involves working with a large number of predictors which can make data analysis challenging.</p></li>
 <li><p>For example, to compare each of the 784 features in our predicting digits example, we would have to create 306,936 scatterplots.</p></li>
 <li><p>Creating one single scatterplot of the data is impossible due to the high dimensionality.</p></li>
 </ul>
 </section>
-<section id="dimension-reduction-1" class="level2">
-<h2 class="anchored" data-anchor-id="dimension-reduction-1">Dimension reduction</h2>
+<section id="dimension-reduction-1" class="slide level2">
+<h2>Dimension reduction</h2>
 <ul>
 <li><p>The general idea of <em>dimension reduction</em> is to reduce the dimension of the dataset while preserving important characteristics, such as the distance between features or observations.</p></li>
 <li><p>With fewer dimensions, data analysis becomes more feasible.</p></li>
@@ -341,8 +416,8 @@ window.Quarto = {
 <li><p>We will describe Principal Component Analysis (PCA).</p></li>
 </ul>
 </section>
-<section id="motivation-preserving-distance" class="level2">
-<h2 class="anchored" data-anchor-id="motivation-preserving-distance">Motivation: preserving distance</h2>
+<section id="motivation-preserving-distance" class="slide level2">
+<h2>Motivation: preserving distance</h2>
 <ul>
 <li><p>We consider an example with twin heights.</p></li>
 <li><p>Some pairs are adults, the others are children.</p></li>
@@ -350,67 +425,51 @@ window.Quarto = {
 <li><p>Each point is a pair of twins.</p></li>
 </ul>
 </section>
-<section id="motivation-preserving-distance-1" class="level2">
-<h2 class="anchored" data-anchor-id="motivation-preserving-distance-1">Motivation: preserving distance</h2>
+<section id="motivation-preserving-distance-1" class="slide level2">
+<h2>Motivation: preserving distance</h2>
 <ul>
 <li>We see correlation is high and two clusters of twins:</li>
 </ul>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="35-dimension-reduction_files/figure-html/distance-illustration-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="motivation-preserving-distance-2" class="level2">
-<h2 class="anchored" data-anchor-id="motivation-preserving-distance-2">Motivation: preserving distance</h2>
+
+<img data-src="35-dimension-reduction_files/figure-revealjs/distance-illustration-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
+<section id="motivation-preserving-distance-2" class="slide level2">
+<h2>Motivation: preserving distance</h2>
 <ul>
 <li><p>Our features are <span class="math inline">\(n\)</span> two-dimensional points.</p></li>
 <li><p>We will pretend that visualizing two dimensions is too challenging and want to explore the data through one histogram.</p></li>
 <li><p>We want to reduce the dimensions from two to one, but still be able to understand important characteristics of the data.</p></li>
 </ul>
 </section>
-<section id="motivation-preserving-distance-3" class="level2">
-<h2 class="anchored" data-anchor-id="motivation-preserving-distance-3">Motivation: preserving distance</h2>
+<section id="motivation-preserving-distance-3" class="slide level2">
+<h2>Motivation: preserving distance</h2>
 <ul>
 <li>Start by standardizing data</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(matrixStats) </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sweep</span>(x, <span class="dv">2</span>, <span class="fu">colMeans</span>(x)) </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sweep</span>(x, <span class="dv">2</span>, <span class="fu">colSds</span>(x), <span class="st">"/"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(matrixStats) </span>
+<span id="cb1-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">sweep</span>(x, <span class="dv">2</span>, <span class="fu">colMeans</span>(x)) </span>
+<span id="cb1-3"><a></a>x <span class="ot">&lt;-</span> <span class="fu">sweep</span>(x, <span class="dv">2</span>, <span class="fu">colSds</span>(x), <span class="st">"/"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="motivation-preserving-distance-4" class="level2">
-<h2 class="anchored" data-anchor-id="motivation-preserving-distance-4">Motivation: preserving distance</h2>
+<section id="motivation-preserving-distance-4" class="slide level2">
+<h2>Motivation: preserving distance</h2>
 <ul>
 <li>We highlight the distance between observation 1 and 2 (blue), and observation 1 and 51 (red).</li>
 </ul>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="35-dimension-reduction_files/figure-html/distance-illustration-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="motivation-preserving-distance-5" class="level2">
-<h2 class="anchored" data-anchor-id="motivation-preserving-distance-5">Motivation: preserving distance</h2>
+
+<img data-src="35-dimension-reduction_files/figure-revealjs/distance-illustration-2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
+<section id="motivation-preserving-distance-5" class="slide level2">
+<h2>Motivation: preserving distance</h2>
 <ul>
 <li>We can compute these distances using <code>dist</code>:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">dist</span>(x) </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.matrix</span>(d)[<span class="dv">1</span>, <span class="dv">2</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>d <span class="ot">&lt;-</span> <span class="fu">dist</span>(x) </span>
+<span id="cb2-2"><a></a><span class="fu">as.matrix</span>(d)[<span class="dv">1</span>, <span class="dv">2</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.5949407</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.matrix</span>(d)[<span class="dv">2</span>, <span class="dv">51</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">as.matrix</span>(d)[<span class="dv">2</span>, <span class="dv">51</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.388275</code></pre>
 </div>
@@ -420,8 +479,8 @@ window.Quarto = {
 <li><p>We want our one dimension summary to approximate these distances.</p></li>
 </ul>
 </section>
-<section id="motivation-preserving-distance-6" class="level2">
-<h2 class="anchored" data-anchor-id="motivation-preserving-distance-6">Motivation: preserving distance</h2>
+<section id="motivation-preserving-distance-6" class="slide level2">
+<h2>Motivation: preserving distance</h2>
 <ul>
 <li><p>Note the blue and red line are almost diagonal.</p></li>
 <li><p>An intuition is that most the information about distance is in that <em>direction</em>.</p></li>
@@ -429,8 +488,8 @@ window.Quarto = {
 <li><p>Using this method, we keep more of the <em>information</em> about distances in the first dimension.</p></li>
 </ul>
 </section>
-<section id="rotations" class="level2">
-<h2 class="anchored" data-anchor-id="rotations">Rotations</h2>
+<section id="rotations" class="slide level2">
+<h2>Rotations</h2>
 <ul>
 <li>We saw that any point <span class="math inline">\((x_1, x_2)^\top\)</span> can be written as the base and height of a triangle with a hypotenuse going from <span class="math inline">\((0,0)^\top\)</span> to <span class="math inline">\((x_1, x_2)^\top\)</span>:</li>
 </ul>
@@ -441,8 +500,8 @@ x_1 = r \cos\phi, \,\, x_2 = r \sin\phi
 <li>with <span class="math inline">\(r\)</span> the length of the hypotenuse and <span class="math inline">\(\phi\)</span> the angle between the hypotenuse and the x-axis.</li>
 </ul>
 </section>
-<section id="rotations-1" class="level2">
-<h2 class="anchored" data-anchor-id="rotations-1">Rotations</h2>
+<section id="rotations-1" class="slide level2">
+<h2>Rotations</h2>
 <ul>
 <li>To <em>rotate</em> the point <span class="math inline">\((x_1, x_2)^\top\)</span> around a circle with center <span class="math inline">\((0,0)^\top\)</span> and radius <span class="math inline">\(r\)</span> by an angle <span class="math inline">\(\theta\)</span> we change the angle to <span class="math inline">\(\phi + \theta\)</span>:</li>
 </ul>
@@ -451,20 +510,12 @@ z_1 = r \cos(\phi+ \theta), \,\,
 z_2 = r \sin(\phi + \theta)
 \]</span></p>
 </section>
-<section id="rotations-2" class="level2">
-<h2 class="anchored" data-anchor-id="rotations-2">Rotations</h2>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="35-dimension-reduction_files/figure-html/rotation-diagram-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="rotations-3" class="level2">
-<h2 class="anchored" data-anchor-id="rotations-3">Rotations</h2>
+<section id="rotations-2" class="slide level2">
+<h2>Rotations</h2>
+
+<img data-src="35-dimension-reduction_files/figure-revealjs/rotation-diagram-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="rotations-3" class="slide level2">
+<h2>Rotations</h2>
 <ul>
 <li>We can use trigonometric identities to rewrite <span class="math inline">\((z_1, z_2)\)</span>:</li>
 </ul>
@@ -479,23 +530,15 @@ z_2 &amp;= r \sin(\phi + \theta)\\
 \end{aligned}
 \]</span></p>
 </section>
-<section id="rotations-4" class="level2">
-<h2 class="anchored" data-anchor-id="rotations-4">Rotations</h2>
+<section id="rotations-4" class="slide level2">
+<h2>Rotations</h2>
 <ul>
 <li>Here we rotate all points by a <span class="math inline">\(-45\)</span> degrees:</li>
 </ul>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="35-dimension-reduction_files/figure-html/before-after-rotation-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="576"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="rotations-5" class="level2">
-<h2 class="anchored" data-anchor-id="rotations-5">Rotations</h2>
+
+<img data-src="35-dimension-reduction_files/figure-revealjs/before-after-rotation-1.png" class="quarto-figure quarto-figure-center r-stretch" width="576"></section>
+<section id="rotations-5" class="slide level2">
+<h2>Rotations</h2>
 <ul>
 <li><p>The variability of <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> are similar.</p></li>
 <li><p>The variability of <span class="math inline">\(z_1\)</span> is larger than that of <span class="math inline">\(z_2\)</span>.</p></li>
@@ -503,8 +546,8 @@ z_2 &amp;= r \sin(\phi + \theta)\\
 <li><p>We soon show, mathematically, that distance is preserved.</p></li>
 </ul>
 </section>
-<section id="linear-transformations" class="level2">
-<h2 class="anchored" data-anchor-id="linear-transformations">Linear transformations</h2>
+<section id="linear-transformations" class="slide level2">
+<h2>Linear transformations</h2>
 <ul>
 <li>Any time a matrix <span class="math inline">\(\mathbf{X}\)</span> is multiplied by another matrix <span class="math inline">\(\mathbf{A}\)</span>, we refer to the product</li>
 </ul>
@@ -514,8 +557,8 @@ z_2 &amp;= r \sin(\phi + \theta)\\
 <li>We can show that the previously shown rotation is a linear transformation.</li>
 </ul>
 </section>
-<section id="linear-transformations-1" class="level2">
-<h2 class="anchored" data-anchor-id="linear-transformations-1">Linear transformations</h2>
+<section id="linear-transformations-1" class="slide level2">
+<h2>Linear transformations</h2>
 <ul>
 <li>To see this, note that for any row <span class="math inline">\(i\)</span>, the first entry was:</li>
 </ul>
@@ -526,8 +569,8 @@ z_{i,1} = a_{1,1} x_{i,1} + a_{2,1} x_{i,2}
 <li>with <span class="math inline">\(a_{1,1} = \cos\theta\)</span> and <span class="math inline">\(a_{2,1} = -\sin\theta\)</span>.</li>
 </ul>
 </section>
-<section id="linear-transformations-2" class="level2">
-<h2 class="anchored" data-anchor-id="linear-transformations-2">Linear transformations</h2>
+<section id="linear-transformations-2" class="slide level2">
+<h2>Linear transformations</h2>
 <ul>
 <li>The second entry was also a linear transformation:</li>
 </ul>
@@ -536,8 +579,8 @@ z_{i,1} = a_{1,1} x_{i,1} + a_{2,1} x_{i,2}
 <li>with <span class="math inline">\(a_{1,2} = \sin\theta\)</span> and <span class="math inline">\(a_{2,2} = \cos\theta\)</span>.</li>
 </ul>
 </section>
-<section id="linear-transformations-3" class="level2">
-<h2 class="anchored" data-anchor-id="linear-transformations-3">Linear transformations</h2>
+<section id="linear-transformations-3" class="slide level2">
+<h2>Linear transformations</h2>
 <ul>
 <li>We can therefore write these trasformation using the folowing matrix notation:</li>
 </ul>
@@ -555,8 +598,8 @@ x_1\\x_2
 \end{pmatrix}
 \]</span></p>
 </section>
-<section id="linear-transformations-4" class="level2">
-<h2 class="anchored" data-anchor-id="linear-transformations-4">Linear transformations</h2>
+<section id="linear-transformations-4" class="slide level2">
+<h2>Linear transformations</h2>
 <ul>
 <li>An advantage of using linear algebra is that we can write the transformation for the entire dataset by saving all observations in a <span class="math inline">\(N \times 2\)</span> matrix:</li>
 </ul>
@@ -574,8 +617,8 @@ x_{n,1}&amp;x_{n,2}
 \end{bmatrix}
 \]</span></p>
 </section>
-<section id="linear-transformations-5" class="level2">
-<h2 class="anchored" data-anchor-id="linear-transformations-5">Linear transformations</h2>
+<section id="linear-transformations-5" class="slide level2">
+<h2>Linear transformations</h2>
 <ul>
 <li>We can then obtain the rotated values <span class="math inline">\(\mathbf{z}_i\)</span> for each row <span class="math inline">\(i\)</span> by applying a <em>linear transformation</em> of <span class="math inline">\(X\)</span>:</li>
 </ul>
@@ -597,28 +640,28 @@ a_{2,1}&amp;a_{2,2}
 <li>The columns of <span class="math inline">\(\mathbf{A}\)</span> are referred to as <em>directions</em> because if we draw a vector from <span class="math inline">\((0,0)\)</span> to <span class="math inline">\((a_{1,j}, a_{2,j})\)</span>, it points in the direction of the line that will become the <span class="math inline">\(j-th\)</span> dimension.</li>
 </ul>
 </section>
-<section id="linear-transformations-6" class="level2">
-<h2 class="anchored" data-anchor-id="linear-transformations-6">Linear transformations</h2>
+<section id="linear-transformations-6" class="slide level2">
+<h2>Linear transformations</h2>
 <ul>
 <li>If we define:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">45</span> <span class="sc">*</span> <span class="dv">2</span><span class="sc">*</span>pi<span class="sc">/</span><span class="dv">360</span> <span class="co">#convert to radians </span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fu">cos</span>(theta), <span class="sc">-</span><span class="fu">sin</span>(theta), <span class="fu">sin</span>(theta), <span class="fu">cos</span>(theta)), <span class="dv">2</span>, <span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>theta <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">45</span> <span class="sc">*</span> <span class="dv">2</span><span class="sc">*</span>pi<span class="sc">/</span><span class="dv">360</span> <span class="co">#convert to radians </span></span>
+<span id="cb6-2"><a></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fu">cos</span>(theta), <span class="sc">-</span><span class="fu">sin</span>(theta), <span class="fu">sin</span>(theta), <span class="fu">cos</span>(theta)), <span class="dv">2</span>, <span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>We can write code implementing a rotation by any angle <span class="math inline">\(\theta\)</span> using linear algebra:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>rotate <span class="ot">&lt;-</span> <span class="cf">function</span>(x, theta){ </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  theta <span class="ot">&lt;-</span> theta<span class="sc">*</span><span class="dv">2</span><span class="sc">*</span>pi<span class="sc">/</span><span class="dv">360</span> </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fu">cos</span>(theta), <span class="sc">-</span><span class="fu">sin</span>(theta), <span class="fu">sin</span>(theta), <span class="fu">cos</span>(theta)), <span class="dv">2</span>, <span class="dv">2</span>) </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">%*%</span> A </span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>} </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>rotate <span class="ot">&lt;-</span> <span class="cf">function</span>(x, theta){ </span>
+<span id="cb7-2"><a></a>  theta <span class="ot">&lt;-</span> theta<span class="sc">*</span><span class="dv">2</span><span class="sc">*</span>pi<span class="sc">/</span><span class="dv">360</span> </span>
+<span id="cb7-3"><a></a>  A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fu">cos</span>(theta), <span class="sc">-</span><span class="fu">sin</span>(theta), <span class="fu">sin</span>(theta), <span class="fu">cos</span>(theta)), <span class="dv">2</span>, <span class="dv">2</span>) </span>
+<span id="cb7-4"><a></a>  x <span class="sc">%*%</span> A </span>
+<span id="cb7-5"><a></a>} </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="linear-transformations-7" class="level2">
-<h2 class="anchored" data-anchor-id="linear-transformations-7">Linear transformations</h2>
+<section id="linear-transformations-7" class="slide level2">
+<h2>Linear transformations</h2>
 <ul>
 <li>Another advantage of linear algebra we can convert <span class="math inline">\(\mathbf{Z}\)</span> back to <span class="math inline">\(\mathbf{X}\)</span> by multiplying by the inverse $^{-1}.</li>
 </ul>
@@ -626,8 +669,8 @@ a_{2,1}&amp;a_{2,2}
 \mathbf{Z} \mathbf{A}^\top = \mathbf{X} \mathbf{A}\mathbf{A}^\top\ = \mathbf{X}
 \]</span></p>
 </section>
-<section id="linear-transformations-8" class="level2">
-<h2 class="anchored" data-anchor-id="linear-transformations-8">Linear transformations</h2>
+<section id="linear-transformations-8" class="slide level2">
+<h2>Linear transformations</h2>
 <ul>
 <li>In this particular case, we can use trigonometry to show that:</li>
 </ul>
@@ -639,8 +682,8 @@ x_{i,2} = b_{1,2} z_{i,1} + b_{2,2} z_{i,2}
 <li>with <span class="math inline">\(b_{2,1} = \cos\theta\)</span>, <span class="math inline">\(b_{2,1} = \sin\theta\)</span>, <span class="math inline">\(b_{1,2} = -\sin\theta\)</span>, and <span class="math inline">\(b_{2,2} = \cos\theta\)</span>.</li>
 </ul>
 </section>
-<section id="linear-transformations-9" class="level2">
-<h2 class="anchored" data-anchor-id="linear-transformations-9">Linear transformations</h2>
+<section id="linear-transformations-9" class="slide level2">
+<h2>Linear transformations</h2>
 <ul>
 <li>This implies that:</li>
 </ul>
@@ -655,8 +698,8 @@ x_{i,2} = b_{1,2} z_{i,1} + b_{2,2} z_{i,2}
 <li>This implies that all the information in <span class="math inline">\(\mathbf{X}\)</span> is included in the rotation <span class="math inline">\(\mathbf{Z}\)</span>.</li>
 </ul>
 </section>
-<section id="linear-transformations-10" class="level2">
-<h2 class="anchored" data-anchor-id="linear-transformations-10">Linear transformations</h2>
+<section id="linear-transformations-10" class="slide level2">
+<h2>Linear transformations</h2>
 <ul>
 <li>Note that in this case</li>
 </ul>
@@ -672,26 +715,28 @@ x_{i,2} = b_{1,2} z_{i,1} + b_{2,2} z_{i,2}
 \mathbf{Z} \mathbf{A}^\top = \mathbf{X} \mathbf{A}\mathbf{A}^\top\ = \mathbf{X}
 \]</span></p>
 <p>and therefore that <span class="math inline">\(\mathbf{A}^\top\)</span> is the inverse of <span class="math inline">\(\mathbf{A}\)</span>.</p>
-<hr>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+</section>
+<section class="slide level2">
+
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-Note
+<p><strong>Note</strong></p>
 </div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="callout-content">
 <ul>
 <li><p>Remember that we represent the rows of a matrix as column vectors.</p></li>
 <li><p>This explains why we use <span class="math inline">\(\mathbf{A}\)</span> when showing the multiplication for the matrix <span class="math inline">\(\mathbf{Z}=\mathbf{X}\mathbf{A}\)</span>, but transpose the operation when showing the transformation for just one observation: <span class="math inline">\(\mathbf{z}_i = \mathbf{A}^\top\mathbf{x}_i\)</span>.</p></li>
 </ul>
 </div>
 </div>
+</div>
 </section>
-<section id="linear-transformations-11" class="level2">
-<h2 class="anchored" data-anchor-id="linear-transformations-11">Linear transformations</h2>
+<section id="linear-transformations-11" class="slide level2">
+<h2>Linear transformations</h2>
 <ul>
 <li>To see that distance is preserved note that the distance between two points <span class="math inline">\(\mathbf{z}_h\)</span> and <span class="math inline">\(\mathbf{z}_i\)</span> is</li>
 </ul>
@@ -705,13 +750,13 @@ Note
 \end{aligned}
 \]</span></p>
 </section>
-<section id="linear-transformations-12" class="level2">
-<h2 class="anchored" data-anchor-id="linear-transformations-12">Linear transformations</h2>
+<section id="linear-transformations-12" class="slide level2">
+<h2>Linear transformations</h2>
 <ul>
 <li>Here is an example for a 30 degree rotation, although it works for any angle:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">all.equal</span>(<span class="fu">as.matrix</span>(<span class="fu">dist</span>(<span class="fu">rotate</span>(x, <span class="dv">30</span>))), <span class="fu">as.matrix</span>(<span class="fu">dist</span>(x))) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">all.equal</span>(<span class="fu">as.matrix</span>(<span class="fu">dist</span>(<span class="fu">rotate</span>(x, <span class="dv">30</span>))), <span class="fu">as.matrix</span>(<span class="fu">dist</span>(x))) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
@@ -720,8 +765,8 @@ Note
 <li>Using linear algebra, we can rewrite the quantity above as:</li>
 </ul>
 </section>
-<section id="orthogonal-transformations" class="level2">
-<h2 class="anchored" data-anchor-id="orthogonal-transformations">Orthogonal transformations</h2>
+<section id="orthogonal-transformations" class="slide level2">
+<h2>Orthogonal transformations</h2>
 <ul>
 <li><p>We refer to transformation with the property <span class="math inline">\(\mathbf{A} \mathbf{A}^\top = \mathbf{I}\)</span> as <em>orthogonal transformations</em>.</p></li>
 <li><p>These are guaranteed to preserve the distance between any two points.</p></li>
@@ -729,7 +774,7 @@ Note
 <li><p>We can confirm using R:</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">%*%</span> <span class="fu">t</span>(A) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>A <span class="sc">%*%</span> <span class="fu">t</span>(A) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             [,1]         [,2]
 [1,] 1.000000e+00 1.014654e-17
@@ -737,8 +782,8 @@ Note
 </div>
 </div>
 </section>
-<section id="orthogonal-transformations-1" class="level2">
-<h2 class="anchored" data-anchor-id="orthogonal-transformations-1">Orthogonal transformations</h2>
+<section id="orthogonal-transformations-1" class="slide level2">
+<h2>Orthogonal transformations</h2>
 <ul>
 <li><span class="math inline">\(\mathbf{A}\)</span> being orthogonal also guarantees that the total sum of squares (TSS) of <span class="math inline">\(\mathbf{X}\)</span>, defined as <span class="math inline">\(\sum_{i=1}^n \sum_{j=1}^p x_{i,j}^2\)</span> is equal to the total sum of squares of the rotation <span class="math inline">\(\mathbf{Z} = \mathbf{X}\mathbf{A}^\top\)</span>.</li>
 </ul>
@@ -746,38 +791,38 @@ Note
 \sum_{1=1}^n ||\mathbf{z}_i||^2 = \sum_{i=1}^n ||\mathbf{A}^\top\mathbf{x}_i||^2 = \sum_{i=1}^n \mathbf{x}_i^\top \mathbf{A}\mathbf{A}^\top  \mathbf{x}_i = \sum_{i=1}^n \mathbf{x}_i^\top\mathbf{x}_i = \sum_{i=1}^n||\mathbf{x}_i||^2  
 \]</span></p>
 </section>
-<section id="orthogonal-transformations-2" class="level2">
-<h2 class="anchored" data-anchor-id="orthogonal-transformations-2">Orthogonal transformations</h2>
+<section id="orthogonal-transformations-2" class="slide level2">
+<h2>Orthogonal transformations</h2>
 <ul>
 <li>We can confirm using R:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">45</span> </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">rotate</span>(x, theta) <span class="co"># works for any theta </span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(x<span class="sc">^</span><span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>theta <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">45</span> </span>
+<span id="cb12-2"><a></a>z <span class="ot">&lt;-</span> <span class="fu">rotate</span>(x, theta) <span class="co"># works for any theta </span></span>
+<span id="cb12-3"><a></a><span class="fu">sum</span>(x<span class="sc">^</span><span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 198</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(z<span class="sc">^</span><span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">sum</span>(z<span class="sc">^</span><span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 198</code></pre>
 </div>
 </div>
 </section>
-<section id="orthogonal-transformations-3" class="level2">
-<h2 class="anchored" data-anchor-id="orthogonal-transformations-3">Orthogonal transformations</h2>
+<section id="orthogonal-transformations-3" class="slide level2">
+<h2>Orthogonal transformations</h2>
 <ul>
 <li><p>This can be interpreted as a consequence of the fact that an orthogonal transformation guarantees that all the information is preserved.</p></li>
 <li><p>However, although the total is preserved, the sum of squares for the individual columns changes.</p></li>
 </ul>
 </section>
-<section id="transformations" class="level2">
-<h2 class="anchored" data-anchor-id="transformations">Transformations</h2>
+<section id="transformations" class="slide level2">
+<h2>Transformations</h2>
 <ul>
 <li>Here we compute the proportion of TSS attributed to each column, referred to as the <em>variance explained</em> or <em>variance captured</em> by each column, for <span class="math inline">\(\mathbf{X}\)</span>:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(x<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">sum</span>(x<span class="sc">^</span><span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">colSums</span>(x<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">sum</span>(x<span class="sc">^</span><span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.5 0.5</code></pre>
 </div>
@@ -786,7 +831,7 @@ Note
 <li>and <span class="math inline">\(\mathbf{Z}\)</span>:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(z<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">sum</span>(z<span class="sc">^</span><span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">colSums</span>(z<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">sum</span>(z<span class="sc">^</span><span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.98477912 0.01522088</code></pre>
 </div>
@@ -795,8 +840,8 @@ Note
 <li>We now explain how useful this property can be.</li>
 </ul>
 </section>
-<section id="principal-component-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="principal-component-analysis">Principal Component Analysis</h2>
+<section id="principal-component-analysis" class="slide level2">
+<h2>Principal Component Analysis</h2>
 <ul>
 <li><p>We have established that orthogonal transformations preserve the distance between observations and the total sum of squares.</p></li>
 <li><p>We have also established that, while the TSS remains the same, the way this total is distributed across the columns can change.</p></li>
@@ -804,34 +849,26 @@ Note
 <li><p>We can then focus on these few columns, effectively reducing the dimension of the problem.</p></li>
 </ul>
 </section>
-<section id="principal-component-analysis-1" class="level2">
-<h2 class="anchored" data-anchor-id="principal-component-analysis-1">Principal Component Analysis</h2>
+<section id="principal-component-analysis-1" class="slide level2">
+<h2>Principal Component Analysis</h2>
 <ul>
 <li>In our specific example, we are looking for the rotation that maximizes the variance explained in the first column:</li>
 </ul>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="35-dimension-reduction_files/figure-html/max-rotation-1.png" class="img-fluid figure-img" style="width:50.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="principal-component-analysis-2" class="level2">
-<h2 class="anchored" data-anchor-id="principal-component-analysis-2">Principal Component Analysis</h2>
+
+<img data-src="35-dimension-reduction_files/figure-revealjs/max-rotation-1.png" style="width:50.0%" class="r-stretch"></section>
+<section id="principal-component-analysis-2" class="slide level2">
+<h2>Principal Component Analysis</h2>
 <ul>
 <li><p>We find that a -45 degree rotation appears to achieve the maximum, with over 98% of the total variability explained by the first dimension.</p></li>
 <li><p>We denote this rotation matrix with <span class="math inline">\(\mathbf{V}\)</span>:</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">*</span>pi<span class="sc">*-</span><span class="dv">45</span><span class="sc">/</span><span class="dv">360</span> <span class="co">#convert to radians </span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>V <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fu">cos</span>(theta), <span class="sc">-</span><span class="fu">sin</span>(theta), <span class="fu">sin</span>(theta), <span class="fu">cos</span>(theta)), <span class="dv">2</span>, <span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>theta <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">*</span>pi<span class="sc">*-</span><span class="dv">45</span><span class="sc">/</span><span class="dv">360</span> <span class="co">#convert to radians </span></span>
+<span id="cb20-2"><a></a>V <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fu">cos</span>(theta), <span class="sc">-</span><span class="fu">sin</span>(theta), <span class="fu">sin</span>(theta), <span class="fu">cos</span>(theta)), <span class="dv">2</span>, <span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="principal-component-analysis-3" class="level2">
-<h2 class="anchored" data-anchor-id="principal-component-analysis-3">Principal Component Analysis</h2>
+<section id="principal-component-analysis-3" class="slide level2">
+<h2>Principal Component Analysis</h2>
 <ul>
 <li>We can rotate the entire dataset using:</li>
 </ul>
@@ -842,94 +879,60 @@ Note
 <li>In R:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> x <span class="sc">%*%</span> V </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>z <span class="ot">&lt;-</span> x <span class="sc">%*%</span> V </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="principal-component-analysis-4" class="level2">
-<h2 class="anchored" data-anchor-id="principal-component-analysis-4">Principal Component Analysis</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://rafalab.dfci.harvard.edu/dsbook-part-2/highdim/img/pca.gif" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="principal-component-analysis-5" class="level2">
-<h2 class="anchored" data-anchor-id="principal-component-analysis-5">Principal Component Analysis</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="35-dimension-reduction_files/figure-html/pca-demo-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="principal-component-analysis-6" class="level2">
-<h2 class="anchored" data-anchor-id="principal-component-analysis-6">Principal Component Analysis</h2>
+<section id="principal-component-analysis-4" class="slide level2">
+<h2>Principal Component Analysis</h2>
+
+<img data-src="https://rafalab.dfci.harvard.edu/dsbook-part-2/highdim/img/pca.gif" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="principal-component-analysis-5" class="slide level2">
+<h2>Principal Component Analysis</h2>
+
+<img data-src="35-dimension-reduction_files/figure-revealjs/pca-demo-1.png" width="960" class="r-stretch"></section>
+<section id="principal-component-analysis-6" class="slide level2">
+<h2>Principal Component Analysis</h2>
 <ul>
 <li><p>The first dimension of <code>z</code> is referred to as the <em>first principal component (PC)</em>.</p></li>
 <li><p>Because almost all the variation is explained by this first PC, the distance between rows in <code>x</code> can be very well approximated by the distance calculated with just <code>z[,1]</code>.</p></li>
 </ul>
 </section>
-<section id="principal-component-analysis-7" class="level2">
-<h2 class="anchored" data-anchor-id="principal-component-analysis-7">Principal Component Analysis</h2>
+<section id="principal-component-analysis-7" class="slide level2">
+<h2>Principal Component Analysis</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>rafalib<span class="sc">::</span><span class="fu">mypar</span>() </span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">dist</span>(x), <span class="fu">dist</span>(z[,<span class="dv">1</span>])) </span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="dv">0</span>,<span class="dv">1</span>, <span class="at">col =</span> <span class="st">"red"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="35-dimension-reduction_files/figure-html/distance-approx-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>rafalib<span class="sc">::</span><span class="fu">mypar</span>() </span>
+<span id="cb22-2"><a></a><span class="fu">plot</span>(<span class="fu">dist</span>(x), <span class="fu">dist</span>(z[,<span class="dv">1</span>])) </span>
+<span id="cb22-3"><a></a><span class="fu">abline</span>(<span class="dv">0</span>,<span class="dv">1</span>, <span class="at">col =</span> <span class="st">"red"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 </div>
-</div>
-</div>
-</section>
-<section id="principal-component-analysis-8" class="level2">
-<h2 class="anchored" data-anchor-id="principal-component-analysis-8">Principal Component Analysis</h2>
+<img data-src="35-dimension-reduction_files/figure-revealjs/distance-approx-2-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="principal-component-analysis-8" class="slide level2">
+<h2>Principal Component Analysis</h2>
 <ul>
 <li>The two groups can be clearly observed with the one dimension:</li>
 </ul>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="35-dimension-reduction_files/figure-html/histograms-of-dimensions-run-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<ul>
+
+<img data-src="35-dimension-reduction_files/figure-revealjs/histograms-of-dimensions-run-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><ul>
 <li>Better than with any of the two original dimensions.</li>
 </ul>
 </section>
-<section id="principal-component-analysis-9" class="level2">
-<h2 class="anchored" data-anchor-id="principal-component-analysis-9">Principal Component Analysis</h2>
+<section id="principal-component-analysis-9" class="slide level2">
+<h2>Principal Component Analysis</h2>
 <ul>
 <li>We can visualize these to see how the first component summarizes the data:</li>
 </ul>
-<div class="cell" height="5">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="35-dimension-reduction_files/figure-html/illustrate-pca-twin-heights-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="principal-component-analysis-10" class="level2">
-<h2 class="anchored" data-anchor-id="principal-component-analysis-10">Principal Component Analysis</h2>
+
+<img data-src="35-dimension-reduction_files/figure-revealjs/illustrate-pca-twin-heights-1.png" style="width:70.0%" class="r-stretch"></section>
+<section id="principal-component-analysis-10" class="slide level2">
+<h2>Principal Component Analysis</h2>
 <ul>
 <li><p>This idea generalizes to dimensions higher than 2.</p></li>
 <li><p>As done in our two dimensional example, we start by finding the <span class="math inline">\(p \times 1\)</span> vector <span class="math inline">\(\mathbf{v}_1\)</span> with <span class="math inline">\(||\mathbf{v}_1||=1\)</span> that maximizes <span class="math inline">\(||\mathbf{X} \mathbf{v}_1||\)</span>.</p></li>
 <li><p>The projection <span class="math inline">\(\mathbf{X} \mathbf{v}_1\)</span> is the first PC.</p></li>
 </ul>
 </section>
-<section id="principal-component-analysis-11" class="level2">
-<h2 class="anchored" data-anchor-id="principal-component-analysis-11">Principal Component Analysis</h2>
+<section id="principal-component-analysis-11" class="slide level2">
+<h2>Principal Component Analysis</h2>
 <ul>
 <li>To find the second PC, we subtract the variation explained by first PC from <span class="math inline">\(\mathbf{X}\)</span>:</li>
 </ul>
@@ -941,8 +944,8 @@ Note
 <li><p>The projection <span class="math inline">\(\mathbf{X} \mathbf{v}_2\)</span> is the second PC.</p></li>
 </ul>
 </section>
-<section id="principal-component-analysis-12" class="level2">
-<h2 class="anchored" data-anchor-id="principal-component-analysis-12">Principal Component Analysis</h2>
+<section id="principal-component-analysis-12" class="slide level2">
+<h2>Principal Component Analysis</h2>
 <ul>
 <li>We then subtract the variation explained by the first two PCs, and continue this process until we have the entire <em>rotation</em> matrix and matrix of principal components, respectively:</li>
 </ul>
@@ -957,24 +960,25 @@ Note
 <li>The ideas of distance preservation extends to higher dimensions.</li>
 </ul>
 </section>
-<section id="principal-component-analysis-13" class="level2">
-<h2 class="anchored" data-anchor-id="principal-component-analysis-13">Principal Component Analysis</h2>
+<section id="principal-component-analysis-13" class="slide level2">
+<h2>Principal Component Analysis</h2>
 <ul>
 <li><p>For a multidimensional matrix with <span class="math inline">\(p\)</span> columns, we can find an orthogonal transformation <span class="math inline">\(\mathbf{A}\)</span> that preserves the distance between rows, but with the variance explained by the columns in decreasing order.</p></li>
 <li><p>If the variances of the columns <span class="math inline">\(\mathbf{Z}_j\)</span>, <span class="math inline">\(j&gt;k\)</span> are very small, these dimensions have little to contribute to the distance calculation and we can approximate the distance between any two points with just <span class="math inline">\(k\)</span> dimensions.</p></li>
 <li><p>If <span class="math inline">\(k\)</span> is much smaller than <span class="math inline">\(p\)</span>, then we can achieve a very efficient summary of our data.</p></li>
 </ul>
-<hr>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
+</section>
+<section class="slide level2">
+
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-Warning
+<p><strong>Warning</strong></p>
 </div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="callout-content">
 <ul>
 <li><p>Notice that the solution to this maximization problem is not unique because <span class="math inline">\(||\mathbf{X} \mathbf{v}|| = ||-\mathbf{X} \mathbf{v}||\)</span>.</p></li>
 <li><p>Also, note that if we multiply a column of <span class="math inline">\(\mathbf{A}\)</span> by <span class="math inline">\(-1\)</span>, we still represent <span class="math inline">\(\mathbf{X}\)</span> as <span class="math inline">\(\mathbf{Z}\mathbf{V}^\top\)</span> as long as we also multiple the corresponding column of <span class="math inline">\(\mathbf{V}\)</span> by -1.</p></li>
@@ -982,27 +986,28 @@ Warning
 </ul>
 </div>
 </div>
+</div>
 </section>
-<section id="principal-component-analysis-14" class="level2">
-<h2 class="anchored" data-anchor-id="principal-component-analysis-14">Principal Component Analysis</h2>
+<section id="principal-component-analysis-14" class="slide level2">
+<h2>Principal Component Analysis</h2>
 <ul>
 <li>In R, we can find the principal components of any matrix with the function <code>prcomp</code>:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(x, <span class="at">center =</span> <span class="cn">FALSE</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(x, <span class="at">center =</span> <span class="cn">FALSE</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>The default behavior is to center the columns of <code>x</code> before computing the PCs, an operation we don’t currently need because our matrix is scaled.</li>
 </ul>
 </section>
-<section id="principal-component-analysis-15" class="level2">
-<h2 class="anchored" data-anchor-id="principal-component-analysis-15">Principal Component Analysis</h2>
+<section id="principal-component-analysis-15" class="slide level2">
+<h2>Principal Component Analysis</h2>
 <ul>
 <li><p>The object <code>pca</code> includes the rotated data <span class="math inline">\(Z\)</span> in <code>pca$x</code> and the rotation <span class="math inline">\(\mathbf{V}\)</span> in <code>pca$rotation</code>.</p></li>
 <li><p>We can see that columns of the <code>pca$rotation</code> are indeed the rotation obtained with -45 (remember the sign is arbitrary):</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>pca<span class="sc">$</span>rotation </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>pca<span class="sc">$</span>rotation </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            PC1        PC2
 [1,] -0.7071068  0.7071068
@@ -1010,26 +1015,26 @@ Warning
 </div>
 </div>
 </section>
-<section id="principal-component-analysis-16" class="level2">
-<h2 class="anchored" data-anchor-id="principal-component-analysis-16">Principal Component Analysis</h2>
+<section id="principal-component-analysis-16" class="slide level2">
+<h2>Principal Component Analysis</h2>
 <ul>
 <li><p>The square root of the variation of each column is included in the <code>pca$sdev</code> component.</p></li>
 <li><p>This implies we can compute the variance explained by each PC using:</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>pca<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="fu">sum</span>(pca<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>pca<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="fu">sum</span>(pca<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.98477912 0.01522088</code></pre>
 </div>
 </div>
 </section>
-<section id="principal-component-analysis-17" class="level2">
-<h2 class="anchored" data-anchor-id="principal-component-analysis-17">Principal Component Analysis</h2>
+<section id="principal-component-analysis-17" class="slide level2">
+<h2>Principal Component Analysis</h2>
 <ul>
 <li>The function <code>summary</code> performs this calculation:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="fu">summary</span>(pca) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Importance of components:
                           PC1     PC2
@@ -1039,63 +1044,55 @@ Cumulative Proportion  0.9848 1.00000</code></pre>
 </div>
 </div>
 </section>
-<section id="principal-component-analysis-18" class="level2">
-<h2 class="anchored" data-anchor-id="principal-component-analysis-18">Principal Component Analysis</h2>
+<section id="principal-component-analysis-18" class="slide level2">
+<h2>Principal Component Analysis</h2>
 <ul>
 <li>We also see that we can rotate <code>x</code> (<span class="math inline">\(\mathbf{X}\)</span>) and <code>pca$x</code> (<span class="math inline">\(\mathbf{Z}\)</span>) as explained with the mathematical earlier:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">all.equal</span>(pca<span class="sc">$</span>x, x <span class="sc">%*%</span> pca<span class="sc">$</span>rotation) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="fu">all.equal</span>(pca<span class="sc">$</span>x, x <span class="sc">%*%</span> pca<span class="sc">$</span>rotation) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">all.equal</span>(x, pca<span class="sc">$</span>x <span class="sc">%*%</span> <span class="fu">t</span>(pca<span class="sc">$</span>rotation)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a><span class="fu">all.equal</span>(x, pca<span class="sc">$</span>x <span class="sc">%*%</span> <span class="fu">t</span>(pca<span class="sc">$</span>rotation)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
 </div>
 </section>
-<section id="iris-example" class="level2">
-<h2 class="anchored" data-anchor-id="iris-example">Iris example</h2>
+<section id="iris-example" class="slide level2">
+<h2>Iris example</h2>
 <ul>
 <li><p>The iris data is a widely used example.</p></li>
 <li><p>It includes four botanical measurements related to three flower species:</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(iris) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="fu">names</span>(iris) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Sepal.Length" "Sepal.Width"  "Petal.Length" "Petal.Width"  "Species"     </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris<span class="sc">$</span>Species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a><span class="fu">head</span>(iris<span class="sc">$</span>Species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] setosa setosa setosa setosa setosa setosa
 Levels: setosa versicolor virginica</code></pre>
 </div>
 </div>
 </section>
-<section id="iris-example-1" class="level2">
-<h2 class="anchored" data-anchor-id="iris-example-1">Iris example</h2>
+<section id="iris-example-1" class="slide level2">
+<h2>Iris example</h2>
 <ul>
 <li>If we visualize the distances, we see the three species:</li>
 </ul>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="35-dimension-reduction_files/figure-html/iris-distances-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="iris-example-2" class="level2">
-<h2 class="anchored" data-anchor-id="iris-example-2">Iris example</h2>
+
+<img data-src="35-dimension-reduction_files/figure-revealjs/iris-distances-1.png" class="quarto-figure quarto-figure-center r-stretch" width="384"></section>
+<section id="iris-example-2" class="slide level2">
+<h2>Iris example</h2>
 <ul>
 <li><p>Our features matrix has four dimensions</p></li>
 <li><p>Three are very correlated:</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a><span class="fu">cor</span>(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             Sepal.Length Sepal.Width Petal.Length Petal.Width
 Sepal.Length    1.0000000  -0.1175698    0.8717538   0.8179411
@@ -1105,15 +1102,15 @@ Petal.Width     0.8179411  -0.3661259    0.9628654   1.0000000</code></pre>
 </div>
 </div>
 </section>
-<section id="iris-example-3" class="level2">
-<h2 class="anchored" data-anchor-id="iris-example-3">Iris example</h2>
+<section id="iris-example-3" class="slide level2">
+<h2>Iris example</h2>
 <ul>
 <li><p>If we apply PCA, we should be able to approximate this distance with just two dimensions, compressing the highly correlated dimensions.</p></li>
 <li><p>Using the <code>summary</code> function, we can see the variability explained by each PC:</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(x) </span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a>pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(x) </span>
+<span id="cb40-2"><a></a><span class="fu">summary</span>(pca) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Importance of components:
                           PC1     PC2    PC3     PC4
@@ -1123,666 +1120,564 @@ Cumulative Proportion  0.9246 0.97769 0.9948 1.00000</code></pre>
 </div>
 </div>
 </section>
-<section id="iris-example-4" class="level2">
-<h2 class="anchored" data-anchor-id="iris-example-4">Iris example</h2>
+<section id="iris-example-4" class="slide level2">
+<h2>Iris example</h2>
 <ul>
 <li>We are able to approximate the distances with two dimensions:</li>
 </ul>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="35-dimension-reduction_files/figure-html/dist-approx-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="288"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="iris-example-5" class="level2">
-<h2 class="anchored" data-anchor-id="iris-example-5">Iris example</h2>
+
+<img data-src="35-dimension-reduction_files/figure-revealjs/dist-approx-4-1.png" class="quarto-figure quarto-figure-center r-stretch" width="288"></section>
+<section id="iris-example-5" class="slide level2">
+<h2>Iris example</h2>
 <ul>
 <li>A useful application is we can now visualize with a two-dimensional plot:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(pca<span class="sc">$</span>x[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="at">Species =</span> iris<span class="sc">$</span>Species) <span class="sc">|&gt;</span> </span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(PC1, PC2, <span class="at">fill =</span> Species)) <span class="sc">+</span> </span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">cex =</span> <span class="dv">3</span>, <span class="at">pch =</span> <span class="dv">21</span>) <span class="sc">+</span> </span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="at">ratio =</span> <span class="dv">1</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a><span class="fu">data.frame</span>(pca<span class="sc">$</span>x[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="at">Species =</span> iris<span class="sc">$</span>Species) <span class="sc">|&gt;</span> </span>
+<span id="cb42-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(PC1, PC2, <span class="at">fill =</span> Species)) <span class="sc">+</span> </span>
+<span id="cb42-3"><a></a>  <span class="fu">geom_point</span>(<span class="at">cex =</span> <span class="dv">3</span>, <span class="at">pch =</span> <span class="dv">21</span>) <span class="sc">+</span> </span>
+<span id="cb42-4"><a></a>  <span class="fu">coord_fixed</span>(<span class="at">ratio =</span> <span class="dv">1</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="iris-example-6" class="level2">
-<h2 class="anchored" data-anchor-id="iris-example-6">Iris example</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="35-dimension-reduction_files/figure-html/iris-pca-run-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="pca-visualized" class="level2">
-<h2 class="anchored" data-anchor-id="pca-visualized">PCA visualized</h2>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="35-dimension-reduction_files/figure-html/illustrate-pca-twin-heights-iris-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="iris-example-7" class="level2">
-<h2 class="anchored" data-anchor-id="iris-example-7">Iris example</h2>
+<section id="iris-example-6" class="slide level2">
+<h2>Iris example</h2>
+
+<img data-src="35-dimension-reduction_files/figure-revealjs/iris-pca-run-1.png" width="960" class="r-stretch"></section>
+<section id="pca-visualized" class="slide level2">
+<h2>PCA visualized</h2>
+
+<img data-src="35-dimension-reduction_files/figure-revealjs/illustrate-pca-twin-heights-iris-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="iris-example-7" class="slide level2">
+<h2>Iris example</h2>
 <p>We learn that:</p>
 <ul>
 <li><p>the first PC ia weighted average of sepal length, petal length, and petal width (red in first column), and subtracting a a quantity proportional to sepal width (blue in first column).</p></li>
 <li><p>The second PC is a weighted average of petal length and petal width, minus a weighted average of sepal length and petal width.</p></li>
 </ul>
 </section>
-<section id="mnist-example" class="level2">
-<h2 class="anchored" data-anchor-id="mnist-example">MNIST example</h2>
+<section id="mnist-example" class="slide level2">
+<h2>MNIST example</h2>
 <ul>
 <li><p>The written digits example has 784 features.</p></li>
 <li><p>Is there any room for data reduction? We will use PCA to answer this.</p></li>
 <li><p>We expect pixels close to each other on the grid to be correlated: dimension reduction should be possible.</p></li>
 </ul>
 </section>
-<section id="mnist-example-1" class="level2">
-<h2 class="anchored" data-anchor-id="mnist-example-1">MNIST example</h2>
+<section id="mnist-example-1" class="slide level2">
+<h2>MNIST example</h2>
 <ul>
 <li>Let’s compute the PCs:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(mnist<span class="sc">$</span>train<span class="sc">$</span>images) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a>pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(mnist<span class="sc">$</span>train<span class="sc">$</span>images) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="mnist-example-2" class="level2">
-<h2 class="anchored" data-anchor-id="mnist-example-2">MNIST example</h2>
+<section id="mnist-example-2" class="slide level2">
+<h2>MNIST example</h2>
 <p>And look at the variance explained:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pca<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="fu">sum</span>(pca<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span>), <span class="at">xlab =</span> <span class="st">"PC"</span>, <span class="at">ylab =</span> <span class="st">"Variance explained"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="35-dimension-reduction_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a><span class="fu">plot</span>(pca<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="fu">sum</span>(pca<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span>), <span class="at">xlab =</span> <span class="st">"PC"</span>, <span class="at">ylab =</span> <span class="st">"Variance explained"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 </div>
-</div>
-</div>
-</section>
-<section id="mnist-example-3" class="level2">
-<h2 class="anchored" data-anchor-id="mnist-example-3">MNIST example</h2>
+<img data-src="35-dimension-reduction_files/figure-revealjs/unnamed-chunk-23-1.png" width="960" class="r-stretch"></section>
+<section id="mnist-example-3" class="slide level2">
+<h2>MNIST example</h2>
 <ul>
 <li>First two PCs for a random sample of 500 digits:</li>
 </ul>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="35-dimension-reduction_files/figure-html/mnist-pca-1-2-scatter-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="mnist-example-4" class="level2">
-<h2 class="anchored" data-anchor-id="mnist-example-4">MNIST example</h2>
+
+<img data-src="35-dimension-reduction_files/figure-revealjs/mnist-pca-1-2-scatter-1.png" width="960" class="r-stretch"></section>
+<section id="mnist-example-4" class="slide level2">
+<h2>MNIST example</h2>
 <ul>
 <li>We can also <em>see</em> the rotation values on the 28 <span class="math inline">\(\times\)</span> 28 grid to get an idea of how pixels are being weighted in the transformations that result in the PCs.</li>
 </ul>
 </section>
-<section id="first-four-pcs" class="level2">
-<h2 class="anchored" data-anchor-id="first-four-pcs">First four PCs</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="35-dimension-reduction_files/figure-html/mnist-pca-1-4-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="first-pc" class="level2">
-<h2 class="anchored" data-anchor-id="first-pc">First PC</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="35-dimension-reduction_files/figure-html/digit-pc-boxplot-run-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="second-pc" class="level2">
-<h2 class="anchored" data-anchor-id="second-pc">Second PC</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="35-dimension-reduction_files/figure-html/digit-pc-boxplot-run-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="third-pc" class="level2">
-<h2 class="anchored" data-anchor-id="third-pc">Third PC</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="35-dimension-reduction_files/figure-html/digit-pc-boxplot-run-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="fourth-pc" class="level2">
-<h2 class="anchored" data-anchor-id="fourth-pc">Fourth PC</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="35-dimension-reduction_files/figure-html/digit-pc-boxplot-run-4-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="mnist-example-5" class="level2">
-<h2 class="anchored" data-anchor-id="mnist-example-5">MNIST example</h2>
+<section id="first-four-pcs" class="slide level2">
+<h2>First four PCs</h2>
+
+<img data-src="35-dimension-reduction_files/figure-revealjs/mnist-pca-1-4-1.png" style="width:100.0%" class="r-stretch"></section>
+<section id="first-pc" class="slide level2">
+<h2>First PC</h2>
+
+<img data-src="35-dimension-reduction_files/figure-revealjs/digit-pc-boxplot-run-1-1.png" width="960" class="r-stretch"></section>
+<section id="second-pc" class="slide level2">
+<h2>Second PC</h2>
+
+<img data-src="35-dimension-reduction_files/figure-revealjs/digit-pc-boxplot-run-2-1.png" width="960" class="r-stretch"></section>
+<section id="third-pc" class="slide level2">
+<h2>Third PC</h2>
+
+<img data-src="35-dimension-reduction_files/figure-revealjs/digit-pc-boxplot-run-3-1.png" width="960" class="r-stretch"></section>
+<section id="fourth-pc" class="slide level2">
+<h2>Fourth PC</h2>
+
+<img data-src="35-dimension-reduction_files/figure-revealjs/digit-pc-boxplot-run-4-1.png" width="960" class="r-stretch"></section>
+<section id="mnist-example-5" class="slide level2">
+<h2>MNIST example</h2>
 <ul>
 <li>We can also confirm that the lower variance PCs appear related to unimportant variability, mainly smudges in the corners.</li>
 </ul>
 </section>
-<section id="last-four-pcs" class="level2">
-<h2 class="anchored" data-anchor-id="last-four-pcs">Last four PCs</h2>
+<section id="last-four-pcs" class="slide level2">
+<h2>Last four PCs</h2>
+
+<img data-src="35-dimension-reduction_files/figure-revealjs/mnist-pca-last,-1.png" style="width:100.0%" class="r-stretch"></section>
+<section id="dimensions-approximation" class="slide level2">
+<h2>200 dimensions approximation</h2>
 <div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="35-dimension-reduction_files/figure-html/mnist-pca-last,-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a>images_hat <span class="ot">&lt;-</span> pca<span class="sc">$</span>x[,<span class="dv">1</span><span class="sc">:</span><span class="dv">200</span>] <span class="sc">%*%</span> <span class="fu">t</span>(pca<span class="sc">$</span>rotation[,<span class="dv">1</span><span class="sc">:</span><span class="dv">200</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="dimensions-approximation" class="level2">
-<h2 class="anchored" data-anchor-id="dimensions-approximation">200 dimensions approximation</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>images_hat <span class="ot">&lt;-</span> pca<span class="sc">$</span>x[,<span class="dv">1</span><span class="sc">:</span><span class="dv">200</span>] <span class="sc">%*%</span> <span class="fu">t</span>(pca<span class="sc">$</span>rotation[,<span class="dv">1</span><span class="sc">:</span><span class="dv">200</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="dimensions-approximation-1" class="level2">
-<h2 class="anchored" data-anchor-id="dimensions-approximation-1">200 dimensions approximation</h2>
-<div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ lubridate 1.9.3     ✔ tibble    3.2.1
-✔ purrr     1.0.2     ✔ tidyr     1.3.1
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::combine() masks gridExtra::combine()
-✖ dplyr::count()   masks matrixStats::count()
-✖ dplyr::filter()  masks stats::filter()
-✖ dplyr::lag()     masks stats::lag()
-✖ dplyr::select()  masks MASS::select()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="35-dimension-reduction_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="dimensions-approximation-2" class="level2">
-<h2 class="anchored" data-anchor-id="dimensions-approximation-2">36 dimensions approximation</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="35-dimension-reduction_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<section id="dimensions-approximation-1" class="slide level2">
+<h2>200 dimensions approximation</h2>
+
+<img data-src="35-dimension-reduction_files/figure-revealjs/unnamed-chunk-25-1.png" width="960" class="r-stretch"></section>
+<section id="dimensions-approximation-2" class="slide level2">
+<h2>36 dimensions approximation</h2>
 
 
-</section>
+<img data-src="35-dimension-reduction_files/figure-revealjs/unnamed-chunk-26-1.png" width="960" class="r-stretch"><div class="quarto-auto-generated-content">
+<div class="footer footer-default">
 
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+</div>
+</div>
+</section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
         }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("http:\/\/datasciencelabs\.github\.io\/2024");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
         }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
       }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
       }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
       });
-    }
-  }
-});
-</script>
-</div> <!-- /content -->
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp("http:\/\/datasciencelabs\.github\.io\/2024");
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
 
-
-
-
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/datasciencelabs/2024/blob/main/slides/highdim/35-dimension-reduction.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
+</body></html>
