@@ -3448,7 +3448,7 @@
     "href": "index.html#lectures",
     "title": "BST 260 Introduction to Data Science",
     "section": "Lectures",
-    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09, Sep 11\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git\n\n\nSep 16, Sep 19\nR\nR basics, Vectorization\nR Basics, Vectorization\n\n\nSep 23\nR\nTidyverse, ggplot2\ndplyr, ggplot2\n\n\nSep 25\nR\nTyding data\nReshaping Data\n\n\nSep 30, Oct 02\nWrangling\nIntro, Data Importing, Dates and Times, Locales, Data APIs, Web scraping, Joining tables\nImporting data, dates and times, Locales, Joining Tables, Extracting data from the web\n\n\nOct 07, Oct 09\nData visualization\nData Viz Principles, Distributions, Dataviz in practice\nDistributions, Dataviz Principles\n\n\nOct 16\nMidterm 1\n\nCovers material from Sep 04-Oct 11\n\n\nOct 21\nProbability\nIntro, Foundations for Inference\nMonte Carlo, Random Variables & CLT\n\n\nOct 23\nInference\nIntro, Parameter and estimates, Confidence Intervals\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\nModels, Bayes, Hierarchical Models\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\nIntro, Regression\nRegression, Multivariate Regression\n\n\nNov 13, Nov 18\nLinear models\nMultivariate regression, Treatment effect models\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 20\nHigh dimensional data\nIntro to Linear Algebra, Matrices in R\nMatrices in R, Applied Linear Algebra, Dimension Reduction\n\n\nNov 25\nMidterm 2\n\nMidterm 2: cover material from Sep 04-Nov 22\n\n\nDec 02, Dec 04\nMachine Learning\n\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nDec 09, Dec 11\nMachine Learning\n\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
+    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09, Sep 11\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git\n\n\nSep 16, Sep 19\nR\nR basics, Vectorization\nR Basics, Vectorization\n\n\nSep 23\nR\nTidyverse, ggplot2\ndplyr, ggplot2\n\n\nSep 25\nR\nTyding data\nReshaping Data\n\n\nSep 30, Oct 02\nWrangling\nIntro, Data Importing, Dates and Times, Locales, Data APIs, Web scraping, Joining tables\nImporting data, dates and times, Locales, Joining Tables, Extracting data from the web\n\n\nOct 07, Oct 09\nData visualization\nData Viz Principles, Distributions, Dataviz in practice\nDistributions, Dataviz Principles\n\n\nOct 16\nMidterm 1\n\nCovers material from Sep 04-Oct 11\n\n\nOct 21\nProbability\nIntro, Foundations for Inference\nMonte Carlo, Random Variables & CLT\n\n\nOct 23\nInference\nIntro, Parameter and estimates, Confidence Intervals\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\nModels, Bayes, Hierarchical Models\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\nIntro, Regression\nRegression, Multivariate Regression\n\n\nNov 13, Nov 18\nLinear models\nMultivariate regression, Treatment effect models\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 20\nHigh dimensional data\nIntro to Linear Algebra, Matrices in R\nMatrices in R, Applied Linear Algebra,\n\n\nNov 25\nMidterm 2\n\nMidterm 2: cover material from Sep 04-Nov 22\n\n\nDec 02\nHigh dimensional data\nDistance, Dimension reduction\nDimension Reduction\n\n\nDec 04\nMachine Learning\n\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nDec 09, Dec 11\nMachine Learning\n\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
     "crumbs": [
       "Home"
     ]
@@ -3582,7 +3582,7 @@
     "href": "psets.html",
     "title": "Problem Sets",
     "section": "",
-    "text": "Topic\n\n\nDue date (at 11:59 PM)\n\n\n\n\n\n\nProblem set 1\n\n\nWed, Sep 11\n\n\n\n\nProblem set 2\n\n\nThu, Sep 19\n\n\n\n\nProblem set 3\n\n\nFri, Sep 27\n\n\n\n\nProblem set 4\n\n\nFri, Oct 04\n\n\n\n\nProblem set 5\n\n\nFri, Oct 11\n\n\n\n\nProblem set 6\n\n\nFri, Oct 25\n\n\n\n\nProblem set 7\n\n\nMon, Nov 04\n\n\n\n\nProblem set 7\n\n\nFri, Nov 15\n\n\n\n\nProblem set 9\n\n\nFri, Nov 22\n\n\n\n\n\nNo matching items",
+    "text": "Topic\n\n\nDue date (at 11:59 PM)\n\n\n\n\n\n\nProblem set 1\n\n\nWed, Sep 11\n\n\n\n\nProblem set 2\n\n\nThu, Sep 19\n\n\n\n\nProblem set 3\n\n\nFri, Sep 27\n\n\n\n\nProblem set 4\n\n\nFri, Oct 04\n\n\n\n\nProblem set 5\n\n\nFri, Oct 11\n\n\n\n\nProblem set 6\n\n\nFri, Oct 25\n\n\n\n\nProblem set 7\n\n\nMon, Nov 04\n\n\n\n\nProblem set 8\n\n\nFri, Nov 15\n\n\n\n\nProblem set 9\n\n\nFri, Nov 22\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Problem Sets"
     ]
@@ -8337,9 +8337,9 @@
   {
     "objectID": "psets/pset-08-linear-models.html",
     "href": "psets/pset-08-linear-models.html",
-    "title": "Problem set 7",
+    "title": "Problem set 8",
     "section": "",
-    "text": "Load the HistData package. Create a galton_height data with the father’s height and one randomly selected daughter from each family. Exclude families with no female children. Set the seed at 2007 and use the function sample_n to select the random child. You should end up with a heights dataset with two columns: father and daughter.\n\n\nlibrary(HistData)\nnames(GaltonFamilies)\nset.seed(2007)\nheights &lt;- GaltonFamilies |&gt; ## your code here\n\n\nEstimate the intercept and slope of the regression line for predicting daughter height \\(Y\\) using father height \\(X\\). Use the following regression line formula:\n\n\\[\n\\frac{\\hat{Y} - \\mu_Y}{\\sigma_Y} = \\rho \\frac{x - \\mu_x}{\\sigma_x}\n\\]\n\n## your code here\n\n\nMake a plot to confirm the regression line goes through the data.\n\n\nheights |&gt; ggplot(aes(father, daughter)) + ## your code here\n\n\nRecompute the slope and intercept coefficients, this time using lm and confirm you get the same answer as with the formula used in problem 2.\n\n\n## your code here\n\n\nNote that the interpretation of the intercept is: the height prediction for the daughter whose father is 0 inches tall. This is not a very useful interpretation. Re-run the regression but instead of father height use inches above average for each father: instead of using the \\(x_i\\)s use \\(x_i - \\bar{x}\\). What is the interpretation of the intercept now? Does the slope estimate change?\n\n\n##your code here\n\n\nWhen using the centered father heights as a predictor, is the intercept the same as the average daughter height? Check if this is the case with the values you computed and then show that mathematically this has to be the case.\n\n\n##your code here\n\nFor the next exercises install the excessmort package. For the latest version use\n\nlibrary(devtools)\ninstall_github(\"rafalab/excessmort\")\n\n\nDefine an object counts by wrangling puerto_rico_counts to 1) include data only from 2002-2017 and counts for people 60 or over. We will focus in this older subset throughout the rest of the problem set.\n\n\nlibrary(excessmort) \ncounts &lt;- puerto_rico_counts |&gt; \n  filter(between(year(date), 2002, 2017) &\n           agegroup %in% c(\"60-64\", \"65-69\", \"70-74\", \"75-80\", \"80-84\", \"85-Inf\"))\n\n\nUse R to determine what day of the week María made landfall in PR (September 20, 2017).\n\n\nmaria &lt;- make_date(2017, 9, 20)\nwday(maria, label = TRUE)\n\n\nRedefine the date column to be the start of the week that date is part of: in other words, round the date down to the nearest week. Use the day of the week María made landfall as the first day. So, for example, 2017-09-20, 2017-09-21, 2017-09-22 should all be rounded down to 2017-09-20, while 2017-09-19 should be rounded down to 2017-09-13. Save the resulting table in weekly_counts.\n\n\nweekly_counts &lt;- counts |&gt; \n  mutate(date = floor_date(date, week_start = 3, unit = \"week\"))\n\n\nNow collapse the weekly_count data frame to store only one mortality value for each week, for each sex and agegroup. To this by by redefining outcome to have the total deaths that week for each sex and agegroup. Remove weeks that have less the 7 days of data. Finally, add a column with the MMWR week. Name the resulting data frame weekly_counts.\n\n\nweekly_counts &lt;- weekly_counts |&gt; \n  group_by(date, sex, agegroup) |&gt;\n  summarize(outcome = sum(outcome), population = mean(population), \n            n = n(), .groups = \"drop\") |&gt;\n  filter(n == 7) |&gt; \n  select(-n) |&gt;\n  mutate(week = epiweek(date))\n\n\nComparing mortality totals is often unfair because the two groups begin compared have different population sizes. It is particularly important we consider rates rather than totals in this dataset because the demographics in Puerto Rico changed dramatically in the last 20 years. To see this use puerto_rico_counts to plot the population sizes by age group and gender. Provide a two sentence description of what you see.\n\n\npuerto_rico_counts |&gt; ## your code here\n\n\nMake a boxplot for each MMWR week’s mortality rate based on the 2002-2016 data. Each week has 15 data points, one for each year. Then add the 2017 data as red points.\n\n\n###your code here\n\n\nNote twp things: 1) there is a strong week effect and 2) 2017 is lower than expected. Plot the yearly rates (per 1,000) for 2002-2016:\n\n\nweekly_counts |&gt; \n  filter(year(date) &lt; 2017) |&gt;\n ## your code here\n\n\nThe plot made in 14 explains why 2017 is below what is expected: there appears to be a general decrease in mortality with time. A possible explanation is that medical care is improving and people are living more healthy lives.\n\nFit a linear model to the weekly data for the 65 and older to the 2002-2016 data that accounts for:\n\nA changing population.\nThe trend observed in 12.\nThe week effect.\nAge effect.\nA sex effect.\n\nUse rate as the outcome in the model.\n\ndat &lt;- weekly_counts |&gt; \n  mutate(rate = outcome/population, sex = as.factor(sex), \n         day = difftime(date, min(date), units = \"week\"),\n         week = as.factor(week))\n\nfit &lt;- dat |&gt; filter(year(date) &lt; 2017) |&gt;\n  lm(rate ~ sex + agegroup + day + week, data = _)\n\n\nNow obtain expected counts for the entire dataset, including 2017. Compute the difference between the observed count and expected count and plot the total excess death for each week. Construct a confidence interval for the excess mortality estimate for each week. Hint: use the predict function.\n\n\n## your code here\n\n\nFinally, plot the observed rates and predicted rates from the model for each agegroup and sex. Comment on how well the model fits and what you might do differently.\n\n\n##your code here"
+    "text": "Load the HistData package. Create a galton_height data with the father’s height and one randomly selected daughter from each family. Exclude families with no female children. Set the seed at 2007 and use the function sample_n to select the random child. You should end up with a heights dataset with two columns: father and daughter.\n\n\nlibrary(HistData)\nnames(GaltonFamilies)\nset.seed(2007)\nheights &lt;- GaltonFamilies |&gt; ## your code here\n\n\nEstimate the intercept and slope of the regression line for predicting daughter height \\(Y\\) using father height \\(X\\). Use the following regression line formula:\n\n\\[\n\\frac{\\hat{Y} - \\mu_Y}{\\sigma_Y} = \\rho \\frac{x - \\mu_x}{\\sigma_x}\n\\]\n\n## your code here\n\n\nMake a plot to confirm the regression line goes through the data.\n\n\nheights |&gt; ggplot(aes(father, daughter)) + ## your code here\n\n\nRecompute the slope and intercept coefficients, this time using lm and confirm you get the same answer as with the formula used in problem 2.\n\n\n## your code here\n\n\nNote that the interpretation of the intercept is: the height prediction for the daughter whose father is 0 inches tall. This is not a very useful interpretation. Re-run the regression but instead of father height use inches above average for each father: instead of using the \\(x_i\\)s use \\(x_i - \\bar{x}\\). What is the interpretation of the intercept now? Does the slope estimate change?\n\n\n##your code here\n\n\nWhen using the centered father heights as a predictor, is the intercept the same as the average daughter height? Check if this is the case with the values you computed and then show that mathematically this has to be the case.\n\n\n##your code here\n\nFor the next exercises install the excessmort package. For the latest version use\n\nlibrary(devtools)\ninstall_github(\"rafalab/excessmort\")\n\n\nDefine an object counts by wrangling puerto_rico_counts to 1) include data only from 2002-2017 and counts for people 60 or over. We will focus in this older subset throughout the rest of the problem set.\n\n\nlibrary(excessmort) \n\n\nUse R to determine what day of the week María made landfall in PR (September 20, 2017).\n\n\n##your code here\n\n\nRedefine the date column to be the start of the week that date is part of: in other words, round the date down to the nearest week. Use the day of the week María made landfall as the first day. So, for example, 2017-09-20, 2017-09-21, 2017-09-22 should all be rounded down to 2017-09-20, while 2017-09-19 should be rounded down to 2017-09-13. Save the resulting table in weekly_counts.\n\n\n##your code here\n\n\nNow collapse the weekly_count data frame to store only one mortality value for each week, for each sex and agegroup. To this by by redefining outcome to have the total deaths that week for each sex and agegroup. Remove weeks that have less the 7 days of data. Finally, add a column with the MMWR week. Name the resulting data frame weekly_counts.\n\n\n##your code here\n\n\nComparing mortality totals is often unfair because the two groups begin compared have different population sizes. It is particularly important we consider rates rather than totals in this dataset because the demographics in Puerto Rico changed dramatically in the last 20 years. To see this use puerto_rico_counts to plot the population sizes by age group and gender. Provide a two sentence description of what you see.\n\n\npuerto_rico_counts |&gt; ## your code here\n\n\nMake a boxplot for each MMWR week’s mortality rate based on the 2002-2016 data. Each week has 15 data points, one for each year. Then add the 2017 data as red points.\n\n\n###your code here\n\n\nNote twp things: 1) there is a strong week effect and 2) 2017 is lower than expected. Plot the yearly rates (per 1,000) for 2002-2016:\n\n\nweekly_counts |&gt; \n  filter(year(date) &lt; 2017) |&gt;\n ## your code here\n\n\nThe plot made in 14 explains why 2017 is below what is expected: there appears to be a general decrease in mortality with time. A possible explanation is that medical care is improving and people are living more healthy lives.\n\nFit a linear model to the weekly data for the 65 and older to the 2002-2016 data that accounts for:\n\nA changing population.\nThe trend observed in 12.\nThe week effect.\nAge effect.\nA sex effect.\n\nUse rate as the outcome in the model.\n\n##your code here\n\n\nNow obtain expected counts for the entire dataset, including 2017. Compute the difference between the observed count and expected count and plot the total excess death for each week. Construct a confidence interval for the excess mortality estimate for each week. Hint: use the predict function.\n\n\n##your code here\n\n\nFinally, plot the observed rates and predicted rates from the model for each agegroup and sex. Comment on how well the model fits and what you might do differently.\n\n\n##your code here"
   },
   {
     "objectID": "slides/linear-models/30-multivariate-regression.html#multivariate-regression",
@@ -10146,5 +10146,1006 @@
     "title": "Matrices In R",
     "section": "Componentwise multiplication",
     "text": "Componentwise multiplication\n\nIn R, if you add, subtract, multiple or divide two matrices, the operation is done elementwise.\nFor example, if two matrices are stored in x and y, then:\n\n\nx*y \n\n\ndoes not result in matrix multiplication.\nInstead, the entry in row \\(i\\) and column \\(j\\) of this product is the product of the entry in row \\(i\\) and column \\(j\\) of x and y, respectively."
+  },
+  {
+    "objectID": "slides/highdim/34-distance.html#distance",
+    "href": "slides/highdim/34-distance.html#distance",
+    "title": "Distance",
+    "section": "Distance",
+    "text": "Distance\n\nMany of the analyses we perform with high-dimensional data relate directly or indirectly to distance.\nMany machine learning techniques rely on defining distances between observations.\nClustering algorithms search of observations that are similar.\nBut what does this mean mathematically?"
+  },
+  {
+    "objectID": "slides/highdim/34-distance.html#the-norm",
+    "href": "slides/highdim/34-distance.html#the-norm",
+    "title": "Distance",
+    "section": "The norm",
+    "text": "The norm\n\nA point can be represented in polar coordinates:"
+  },
+  {
+    "objectID": "slides/highdim/34-distance.html#the-norm-1",
+    "href": "slides/highdim/34-distance.html#the-norm-1",
+    "title": "Distance",
+    "section": "The norm",
+    "text": "The norm\n\nIf \\(\\mathbf{x} = (x_1, x_2)^\\top\\), \\(r\\) defines the norm of \\(\\mathbf{x}\\)."
+  },
+  {
+    "objectID": "slides/highdim/34-distance.html#the-norm-2",
+    "href": "slides/highdim/34-distance.html#the-norm-2",
+    "title": "Distance",
+    "section": "The norm",
+    "text": "The norm\n\nThe point of defining the norm is to extrapolate the concept of size to higher dimensions.\nSpecifically, we write the norm for any vector \\(\\mathbf{x}\\) as:\n\n\\[\n||\\mathbf{x}|| = \\sqrt{x_1^2 + x_2^2 + \\dots + x_p^2}\n\\]\n\nSometimes convenient to write like this:\n\n\\[\n||\\mathbf{x}||^2 = x_1^2 + x_2^2 + \\dots + x_p^2\n\\]"
+  },
+  {
+    "objectID": "slides/highdim/34-distance.html#the-norm-3",
+    "href": "slides/highdim/34-distance.html#the-norm-3",
+    "title": "Distance",
+    "section": "The norm",
+    "text": "The norm\n\nWe define the norm like this:\n\n\\[\n||\\mathbf{x}||^2 = \\mathbf{x}^\\top\\mathbf{x}\n\\]"
+  },
+  {
+    "objectID": "slides/highdim/34-distance.html#distance-1",
+    "href": "slides/highdim/34-distance.html#distance-1",
+    "title": "Distance",
+    "section": "Distance",
+    "text": "Distance\n\nDistance is the norm of the difference:"
+  },
+  {
+    "objectID": "slides/highdim/34-distance.html#distance-2",
+    "href": "slides/highdim/34-distance.html#distance-2",
+    "title": "Distance",
+    "section": "Distance",
+    "text": "Distance\n-We can see this using the definition we know:\n\\[\n\\mbox{distance} = \\sqrt{(x_{11} - x_{12})^2 + (x_{21} - x_{22})^2}\n\\]"
+  },
+  {
+    "objectID": "slides/highdim/34-distance.html#distance-3",
+    "href": "slides/highdim/34-distance.html#distance-3",
+    "title": "Distance",
+    "section": "Distance",
+    "text": "Distance\n\nUsing the norm definition can be extrapolated to any dimension:\n\n\\[\n\\mbox{distance} = || \\mathbf{x}_1 - \\mathbf{x}_2||\n\\]"
+  },
+  {
+    "objectID": "slides/highdim/34-distance.html#distance-4",
+    "href": "slides/highdim/34-distance.html#distance-4",
+    "title": "Distance",
+    "section": "Distance",
+    "text": "Distance\n\nFor example, the distance between the first and second observation will compute distance using all 784 features:\n\n\\[\n|| \\mathbf{x}_1 - \\mathbf{x}_2 ||^2 = \\sum_{j=1}^{784} (x_{1,j}-x_{2,j })^2\n\\]"
+  },
+  {
+    "objectID": "slides/highdim/34-distance.html#distance-5",
+    "href": "slides/highdim/34-distance.html#distance-5",
+    "title": "Distance",
+    "section": "Distance",
+    "text": "Distance\n\nDefine the features and labels:\n\n\nmnist &lt;- read_mnist()\nx &lt;- mnist$train$images  \ny &lt;- mnist$train$labels \n\n\nx_1 &lt;- x[6,] \nx_2 &lt;- x[17,] \nx_3 &lt;- x[16,] \n\n\nCompute the distances:\n\n\nc(sum((x_1 - x_2)^2), sum((x_1 - x_3)^2), sum((x_2 - x_3)^2)) |&gt; sqrt() \n\n[1] 2319.867 2331.210 2518.969\n\n\n\nChecks out:\n\n\ny[c(6,17,16)]\n\n[1] 2 2 7"
+  },
+  {
+    "objectID": "slides/highdim/34-distance.html#distance-6",
+    "href": "slides/highdim/34-distance.html#distance-6",
+    "title": "Distance",
+    "section": "Distance",
+    "text": "Distance\n\nIn R, the function crossprod(x) is convenient for computing norms.\nIt multiplies t(x) by x:\n\n\nc(crossprod(x_1 - x_2), crossprod(x_1 - x_3), crossprod(x_2 - x_3)) |&gt; sqrt() \n\n[1] 2319.867 2331.210 2518.969"
+  },
+  {
+    "objectID": "slides/highdim/34-distance.html#distance-7",
+    "href": "slides/highdim/34-distance.html#distance-7",
+    "title": "Distance",
+    "section": "Distance",
+    "text": "Distance\n\nWe can also compute all the distances at once:\n\n\nd &lt;- dist(x[c(6,17,16),]) \nd\n\n         1        2\n2 2319.867         \n3 2331.210 2518.969\n\n\n\ndist produces an object of class dist\n\n\nclass(d) \n\n[1] \"dist\"\n\n\n\nThere are several machine learning related functions in R that take objects of class dist as input."
+  },
+  {
+    "objectID": "slides/highdim/34-distance.html#distance-8",
+    "href": "slides/highdim/34-distance.html#distance-8",
+    "title": "Distance",
+    "section": "Distance",
+    "text": "Distance\n\ndist objects are similar but not equal to a matrices.\nTo access the entries using row and column indices, we need to coerce it into a matrix.\n\n\nas.matrix(d)[2,3]\n\n[1] 2518.969"
+  },
+  {
+    "objectID": "slides/highdim/34-distance.html#distance-9",
+    "href": "slides/highdim/34-distance.html#distance-9",
+    "title": "Distance",
+    "section": "Distance",
+    "text": "Distance\n\nThe image function allows us to quickly see an image of distances between observations.\n\n\nd &lt;- dist(x[1:300,]) \nimage(as.matrix(d))"
+  },
+  {
+    "objectID": "slides/highdim/34-distance.html#distance-10",
+    "href": "slides/highdim/34-distance.html#distance-10",
+    "title": "Distance",
+    "section": "Distance",
+    "text": "Distance\n\nIf we order distance by the labels:\n\n\nimage(as.matrix(d)[order(y[1:300]), order(y[1:300])])"
+  },
+  {
+    "objectID": "slides/highdim/34-distance.html#distance-11",
+    "href": "slides/highdim/34-distance.html#distance-11",
+    "title": "Distance",
+    "section": "Distance",
+    "text": "Distance\n\nThe image function allows us to quickly see an image of distances between observations.\n\n\nd &lt;- dist(x[1:300,]) \nimage(as.matrix(d))"
+  },
+  {
+    "objectID": "slides/highdim/34-distance.html#distance-12",
+    "href": "slides/highdim/34-distance.html#distance-12",
+    "title": "Distance",
+    "section": "Distance",
+    "text": "Distance\n\nIf we order this distance by the labels, we can see yellowish squares near the diagonal.\n\n\nimage(as.matrix(d)[order(y[1:300]), order(y[1:300])])"
+  },
+  {
+    "objectID": "slides/highdim/34-distance.html#distance-13",
+    "href": "slides/highdim/34-distance.html#distance-13",
+    "title": "Distance",
+    "section": "Distance",
+    "text": "Distance\n\nIf we order this distance by the labels, we can see yellowish squares near the diagonal.\n\n\nimage(as.matrix(d)[order(y[1:300]), order(y[1:300])])"
+  },
+  {
+    "objectID": "slides/highdim/34-distance.html#spaces",
+    "href": "slides/highdim/34-distance.html#spaces",
+    "title": "Distance",
+    "section": "Spaces",
+    "text": "Spaces\n\nPredictor space is a concept that is often used to describe machine learning algorithms.\nWe can think of all predictors \\((x_{i,1}, \\dots, x_{i,p})^\\top\\) for all observations \\(i=1,\\dots,n\\) as \\(n\\) \\(p\\)-dimensional points.\nThe space is the collection of all possible points that should be considered for the data analysis in question, including points we have not observed yet.\nIn the case of the handwritten digits, we can think of the predictor space as any point \\((x_{1}, \\dots, x_{p})^\\top\\) as long as each entry \\(x_i, \\, i = 1, \\dots, p\\) is between 0 and 255."
+  },
+  {
+    "objectID": "slides/highdim/34-distance.html#spaces-1",
+    "href": "slides/highdim/34-distance.html#spaces-1",
+    "title": "Distance",
+    "section": "Spaces",
+    "text": "Spaces\n\nSome Machine Learning algorithms also define subspaces.\nA commonly defined subspace in machine learning are neighborhoods composed of points that are close to a predetermined center.\nWe do this by selecting a center \\(\\mathbf{x}_0\\), a minimum distance \\(r\\), and defining the subspace as the collection of points \\(\\mathbf{x}\\) that satisfy:\n\n\\[\n|| \\mathbf{x} - \\mathbf{x}_0 || \\leq r.\n\\]"
+  },
+  {
+    "objectID": "slides/highdim/34-distance.html#spaces-2",
+    "href": "slides/highdim/34-distance.html#spaces-2",
+    "title": "Distance",
+    "section": "Spaces",
+    "text": "Spaces\n\nWe can think of this subspace as a multidimensional sphere since every point is the same distance away from the center.\nOther machine learning algorithms partition the predictor space into non-overlapping regions and then make different predictions for each region using the data in the region."
+  },
+  {
+    "objectID": "slides/highdim/34-distance.html#spaces-3",
+    "href": "slides/highdim/34-distance.html#spaces-3",
+    "title": "Distance",
+    "section": "Spaces",
+    "text": "Spaces\n\nWe can think of this subspace as a multidimensional sphere since every point is the same distance away from the center.\nOther machine learning algorithms partition the predictor space into non-overlapping regions and then make different predictions for each region using the data in the region."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#dimension-reduction",
+    "href": "slides/highdim/35-dimension-reduction.html#dimension-reduction",
+    "title": "Dimension Reduction",
+    "section": "",
+    "text": "A typical machine learning task involves working with a large number of predictors which can make data analysis challenging.\nFor example, to compare each of the 784 features in our predicting digits example, we would have to create 306,936 scatterplots.\nCreating one single scatterplot of the data is impossible due to the high dimensionality."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#dimension-reduction-1",
+    "href": "slides/highdim/35-dimension-reduction.html#dimension-reduction-1",
+    "title": "Dimension Reduction",
+    "section": "Dimension reduction",
+    "text": "Dimension reduction\n\nThe general idea of dimension reduction is to reduce the dimension of the dataset while preserving important characteristics, such as the distance between features or observations.\nWith fewer dimensions, data analysis becomes more feasible.\nThe general technique behind it all, the singular value decomposition, is also useful in other contexts.\nWe will describe Principal Component Analysis (PCA)."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#motivation-preserving-distance",
+    "href": "slides/highdim/35-dimension-reduction.html#motivation-preserving-distance",
+    "title": "Dimension Reduction",
+    "section": "Motivation: preserving distance",
+    "text": "Motivation: preserving distance\n\nWe consider an example with twin heights.\nSome pairs are adults, the others are children.\nHere we simulate 100 two-dimensional points that represent the number of standard deviations each individual is from the mean height.\nEach point is a pair of twins."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#motivation-preserving-distance-1",
+    "href": "slides/highdim/35-dimension-reduction.html#motivation-preserving-distance-1",
+    "title": "Dimension Reduction",
+    "section": "Motivation: preserving distance",
+    "text": "Motivation: preserving distance\n\nWe see correlation is high and two clusters of twins:"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#motivation-preserving-distance-2",
+    "href": "slides/highdim/35-dimension-reduction.html#motivation-preserving-distance-2",
+    "title": "Dimension Reduction",
+    "section": "Motivation: preserving distance",
+    "text": "Motivation: preserving distance\n\nOur features are \\(n\\) two-dimensional points.\nWe will pretend that visualizing two dimensions is too challenging and want to explore the data through one histogram.\nWe want to reduce the dimensions from two to one, but still be able to understand important characteristics of the data."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#motivation-preserving-distance-3",
+    "href": "slides/highdim/35-dimension-reduction.html#motivation-preserving-distance-3",
+    "title": "Dimension Reduction",
+    "section": "Motivation: preserving distance",
+    "text": "Motivation: preserving distance\n\nStart by standardizing data\n\n\nlibrary(matrixStats) \nx &lt;- sweep(x, 2, colMeans(x)) \nx &lt;- sweep(x, 2, colSds(x), \"/\")"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#motivation-preserving-distance-4",
+    "href": "slides/highdim/35-dimension-reduction.html#motivation-preserving-distance-4",
+    "title": "Dimension Reduction",
+    "section": "Motivation: preserving distance",
+    "text": "Motivation: preserving distance\n\nWe highlight the distance between observation 1 and 2 (blue), and observation 1 and 51 (red)."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#motivation-preserving-distance-5",
+    "href": "slides/highdim/35-dimension-reduction.html#motivation-preserving-distance-5",
+    "title": "Dimension Reduction",
+    "section": "Motivation: preserving distance",
+    "text": "Motivation: preserving distance\n\nWe can compute these distances using dist:\n\n\nd &lt;- dist(x) \nas.matrix(d)[1, 2] \n\n[1] 0.5949407\n\nas.matrix(d)[2, 51] \n\n[1] 1.388275\n\n\n\nNote that the blue line is shorter.\nWe want our one dimension summary to approximate these distances."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#motivation-preserving-distance-6",
+    "href": "slides/highdim/35-dimension-reduction.html#motivation-preserving-distance-6",
+    "title": "Dimension Reduction",
+    "section": "Motivation: preserving distance",
+    "text": "Motivation: preserving distance\n\nNote the blue and red line are almost diagonal.\nAn intuition is that most the information about distance is in that direction.\nWe can rotate the points in a way that preserve the distance between points, while increasing the variability in one dimension and reducing it on the other.\nUsing this method, we keep more of the information about distances in the first dimension."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#motivation-preserving-distance-7",
+    "href": "slides/highdim/35-dimension-reduction.html#motivation-preserving-distance-7",
+    "title": "Dimension Reduction",
+    "section": "Motivation: preserving distance",
+    "text": "Motivation: preserving distance"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#motivation-preserving-distance-8",
+    "href": "slides/highdim/35-dimension-reduction.html#motivation-preserving-distance-8",
+    "title": "Dimension Reduction",
+    "section": "Motivation: preserving distance",
+    "text": "Motivation: preserving distance\n\nThis one number summary does ok at preserving distances, but, can we pick a one-dimensional summary that improves the approximation?\nIf we look back at the scatterplot and visualize a line between any pair of points, the length of this line is the distance between the two points.\nThese lines tend to go along the direction of the diagonal.\nWe will learn that we can rotate the points in a way that preserve the distance between points, while increasing the variability in one dimension and reducing it on the other."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#motivation-preserving-distance-9",
+    "href": "slides/highdim/35-dimension-reduction.html#motivation-preserving-distance-9",
+    "title": "Dimension Reduction",
+    "section": "Motivation: preserving distance",
+    "text": "Motivation: preserving distance\n\nUsing this method, we keep more of the information about distances in the first dimension.\nIn the next section, we describe a mathematical approach that permits us to find rotations that preserve distance between points.\nWe can then find the rotation that maximizes the variability in the first dimension."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#rotations",
+    "href": "slides/highdim/35-dimension-reduction.html#rotations",
+    "title": "Dimension Reduction",
+    "section": "Rotations",
+    "text": "Rotations\n\nWe saw that any point \\((x_1, x_2)^\\top\\) can be written as the base and height of a triangle with a hypotenuse going from \\((0,0)^\\top\\) to \\((x_1, x_2)^\\top\\):\n\n\\[\nx_1 = r \\cos\\phi, \\,\\, x_2 = r \\sin\\phi\n\\]\n\nwith \\(r\\) the length of the hypotenuse and \\(\\phi\\) the angle between the hypotenuse and the x-axis."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#rotations-1",
+    "href": "slides/highdim/35-dimension-reduction.html#rotations-1",
+    "title": "Dimension Reduction",
+    "section": "Rotations",
+    "text": "Rotations\n\nTo rotate the point \\((x_1, x_2)^\\top\\) around a circle with center \\((0,0)^\\top\\) and radius \\(r\\) by an angle \\(\\theta\\) we change the angle to \\(\\phi + \\theta\\):\n\n\\[\nz_1 = r \\cos(\\phi+ \\theta), \\,\\,\nz_2 = r \\sin(\\phi + \\theta)\n\\]"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#rotations-2",
+    "href": "slides/highdim/35-dimension-reduction.html#rotations-2",
+    "title": "Dimension Reduction",
+    "section": "Rotations",
+    "text": "Rotations"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#rotations-3",
+    "href": "slides/highdim/35-dimension-reduction.html#rotations-3",
+    "title": "Dimension Reduction",
+    "section": "Rotations",
+    "text": "Rotations\n\nWe can use trigonometric identities to rewrite \\((z_1, z_2)\\):\n\n\\[\n\\begin{aligned}\nz_1 &= r \\cos(\\phi + \\theta)\\\\\n&= r \\cos \\phi \\cos\\theta -  r \\sin\\phi \\sin\\theta\\\\\n&=  x_1 \\cos(\\theta) -  x_2 \\sin(\\theta)\\\\\nz_2 &= r \\sin(\\phi + \\theta)\\\\\n&=  r \\cos\\phi \\sin\\theta + r \\sin\\phi \\cos\\theta\\\\\n&=  x_1 \\sin(\\theta) + x_2 \\cos(\\theta)\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#rotations-4",
+    "href": "slides/highdim/35-dimension-reduction.html#rotations-4",
+    "title": "Dimension Reduction",
+    "section": "Rotations",
+    "text": "Rotations\n\nHere we rotate all points by a \\(-45\\) degrees:"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#rotations-5",
+    "href": "slides/highdim/35-dimension-reduction.html#rotations-5",
+    "title": "Dimension Reduction",
+    "section": "Rotations",
+    "text": "Rotations\n\nThe variability of \\(x_1\\) and \\(x_2\\) are similar.\nThe variability of \\(z_1\\) is larger than that of \\(z_2\\).\nThe distances between points appear to be preserved.\nWe soon show, mathematically, that distance is preserved."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#rotations-6",
+    "href": "slides/highdim/35-dimension-reduction.html#rotations-6",
+    "title": "Dimension Reduction",
+    "section": "Rotations",
+    "text": "Rotations\n\nNote that while the variability of \\(x_1\\) and \\(x_2\\) are similar, the variability of \\(z_1\\) is much larger than the variability of \\(z_2\\).\nAlso, notice that the distances between points appear to be preserved.\nIn the next sections, we show mathematically that this in fact the case."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#linear-transformations",
+    "href": "slides/highdim/35-dimension-reduction.html#linear-transformations",
+    "title": "Dimension Reduction",
+    "section": "Linear transformations",
+    "text": "Linear transformations\n\nAny time a matrix \\(\\mathbf{X}\\) is multiplied by another matrix \\(\\mathbf{A}\\), we refer to the product\n\n\\[\\mathbf{Z} = \\mathbf{X}\\mathbf{A}\\]\nas a linear transformation of \\(\\mathbf{X}\\).\n\nWe can show that the previously shown rotation is a linear transformation."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#linear-transformations-1",
+    "href": "slides/highdim/35-dimension-reduction.html#linear-transformations-1",
+    "title": "Dimension Reduction",
+    "section": "Linear transformations",
+    "text": "Linear transformations\n\nTo see this, note that for any row \\(i\\), the first entry was:\n\n\\[\nz_{i,1} = a_{1,1} x_{i,1} + a_{2,1} x_{i,2}\n\\]\n\nwith \\(a_{1,1} = \\cos\\theta\\) and \\(a_{2,1} = -\\sin\\theta\\)."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#linear-transformations-2",
+    "href": "slides/highdim/35-dimension-reduction.html#linear-transformations-2",
+    "title": "Dimension Reduction",
+    "section": "Linear transformations",
+    "text": "Linear transformations\n\nThe second entry was also a linear transformation:\n\n\\[z_{i,2} = a_{1,2} x_{i,1} + a_{2,2} x_{i,2}\\]\n\nwith \\(a_{1,2} = \\sin\\theta\\) and \\(a_{2,2} = \\cos\\theta\\)."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#linear-transformations-3",
+    "href": "slides/highdim/35-dimension-reduction.html#linear-transformations-3",
+    "title": "Dimension Reduction",
+    "section": "Linear transformations",
+    "text": "Linear transformations\n\nWe can therefore write these trasformation using the folowing matrix notation:\n\n\\[\n\\begin{pmatrix}\nz_1\\\\z_2\n\\end{pmatrix}\n=\n\\begin{pmatrix}\na_{1,1}&a_{1,2}\\\\\na_{2,1}&a_{2,2}\n\\end{pmatrix}^\\top\n\\begin{pmatrix}\nx_1\\\\x_2\n\\end{pmatrix}\n\\]"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#linear-transformations-4",
+    "href": "slides/highdim/35-dimension-reduction.html#linear-transformations-4",
+    "title": "Dimension Reduction",
+    "section": "Linear transformations",
+    "text": "Linear transformations\n\nAn advantage of using linear algebra is that we can write the transformation for the entire dataset by saving all observations in a \\(N \\times 2\\) matrix:\n\n\\[\n\\mathbf{X} \\equiv  \n\\begin{bmatrix}\n\\mathbf{x_1}^\\top\\\\\n\\vdots\\\\\n\\mathbf{x_n}^\\top\n\\end{bmatrix} =  \n\\begin{bmatrix}\nx_{1,1}&x_{1,2}\\\\\n\\vdots&\\vdots\\\\\nx_{n,1}&x_{n,2}\n\\end{bmatrix}\n\\]"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#linear-transformations-5",
+    "href": "slides/highdim/35-dimension-reduction.html#linear-transformations-5",
+    "title": "Dimension Reduction",
+    "section": "Linear transformations",
+    "text": "Linear transformations\n\nWe can then obtain the rotated values \\(\\mathbf{z}_i\\) for each row \\(i\\) by applying a linear transformation of \\(X\\):\n\n\\[\n\\mathbf{Z} = \\mathbf{X} \\mathbf{A}\n\\mbox{ with }\n\\mathbf{A} = \\,\n\\begin{pmatrix}\na_{1,1}&a_{1,2}\\\\\na_{2,1}&a_{2,2}\n\\end{pmatrix} =  \n\\begin{pmatrix}\n\\cos \\theta&\\sin \\theta\\\\\n-\\sin \\theta&\\cos \\theta\n\\end{pmatrix}  \n.\n\\]\n\nThe columns of \\(\\mathbf{A}\\) are referred to as directions because if we draw a vector from \\((0,0)\\) to \\((a_{1,j}, a_{2,j})\\), it points in the direction of the line that will become the \\(j-th\\) dimension."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#linear-transformations-6",
+    "href": "slides/highdim/35-dimension-reduction.html#linear-transformations-6",
+    "title": "Dimension Reduction",
+    "section": "Linear transformations",
+    "text": "Linear transformations\n\nIf we define:\n\n\ntheta &lt;- -45 * 2*pi/360 #convert to radians \nA &lt;- matrix(c(cos(theta), -sin(theta), sin(theta), cos(theta)), 2, 2) \n\n\nWe can write code implementing a rotation by any angle \\(\\theta\\) using linear algebra:\n\n\nrotate &lt;- function(x, theta){ \n  theta &lt;- theta*2*pi/360 \n  A &lt;- matrix(c(cos(theta), -sin(theta), sin(theta), cos(theta)), 2, 2) \n  x %*% A \n}"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#linear-transformations-7",
+    "href": "slides/highdim/35-dimension-reduction.html#linear-transformations-7",
+    "title": "Dimension Reduction",
+    "section": "Linear transformations",
+    "text": "Linear transformations\n\nAnother advantage of linear algebra we can convert \\(\\mathbf{Z}\\) back to \\(\\mathbf{X}\\) by multiplying by the inverse $^{-1}.\n\n\\[\n\\mathbf{Z} \\mathbf{A}^\\top = \\mathbf{X} \\mathbf{A}\\mathbf{A}^\\top\\ = \\mathbf{X}\n\\]"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#linear-transformations-8",
+    "href": "slides/highdim/35-dimension-reduction.html#linear-transformations-8",
+    "title": "Dimension Reduction",
+    "section": "Linear transformations",
+    "text": "Linear transformations\n\nIn this particular case, we can use trigonometry to show that:\n\n\\[\nx_{i,1} = b_{1,1} z_{i,1} + b_{2,1} z_{i,2}\\\\\nx_{i,2} = b_{1,2} z_{i,1} + b_{2,2} z_{i,2}\n\\]\n\nwith \\(b_{2,1} = \\cos\\theta\\), \\(b_{2,1} = \\sin\\theta\\), \\(b_{1,2} = -\\sin\\theta\\), and \\(b_{2,2} = \\cos\\theta\\)."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#linear-transformations-9",
+    "href": "slides/highdim/35-dimension-reduction.html#linear-transformations-9",
+    "title": "Dimension Reduction",
+    "section": "Linear transformations",
+    "text": "Linear transformations\n\nThis implies that:\n\n\\[\n\\mathbf{X} = \\mathbf{Z}  \n\\begin{pmatrix}\n\\cos \\theta&-\\sin \\theta\\\\\n\\sin \\theta&\\cos \\theta\n\\end{pmatrix}  \n\\]\n\nThis implies that all the information in \\(\\mathbf{X}\\) is included in the rotation \\(\\mathbf{Z}\\)."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#linear-transformations-10",
+    "href": "slides/highdim/35-dimension-reduction.html#linear-transformations-10",
+    "title": "Dimension Reduction",
+    "section": "Linear transformations",
+    "text": "Linear transformations\n\nNote that in this case\n\n\\[\n\\begin{pmatrix}\n\\cos \\theta&-\\sin \\theta\\\\\n\\sin \\theta&\\cos \\theta\n\\end{pmatrix} =\n\\mathbf{A}^\\top\n\\]\nwhich implies\n\\[\n\\mathbf{Z} \\mathbf{A}^\\top = \\mathbf{X} \\mathbf{A}\\mathbf{A}^\\top\\ = \\mathbf{X}\n\\]\nand therefore that \\(\\mathbf{A}^\\top\\) is the inverse of \\(\\mathbf{A}\\).\n\n\n\n\n\n\n\nNote\n\n\n\n\nRemember that we represent the rows of a matrix as column vectors.\nThis explains why we use \\(\\mathbf{A}\\) when showing the multiplication for the matrix \\(\\mathbf{Z}=\\mathbf{X}\\mathbf{A}\\), but transpose the operation when showing the transformation for just one observation: \\(\\mathbf{z}_i = \\mathbf{A}^\\top\\mathbf{x}_i\\)."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#linear-transformations-11",
+    "href": "slides/highdim/35-dimension-reduction.html#linear-transformations-11",
+    "title": "Dimension Reduction",
+    "section": "Linear transformations",
+    "text": "Linear transformations\n\nTo see that distance is preserved note that the distance between two points \\(\\mathbf{z}_h\\) and \\(\\mathbf{z}_i\\) is\n\n\\[\n\\begin{aligned}\n||\\mathbf{z}_h - \\mathbf{z}_i|| &= ||\\mathbf{A} \\mathbf{x}_h - \\mathbf{A} \\mathbf{x}_i||   \\\\\n&= || \\mathbf{A} (\\mathbf{x}_h - \\mathbf{x}_i) || \\\\\n&= (\\mathbf{x}_h - \\mathbf{x}_i)^{\\top} \\mathbf{A}^{\\top} \\mathbf{A} (\\mathbf{x}_h - \\mathbf{x}_i) \\\\\n&=(\\mathbf{x}_h - \\mathbf{x}_i)^{\\top} (\\mathbf{x}_h - \\mathbf{x}_i) \\\\\n&= || \\mathbf{x}_h - \\mathbf{x}_i||\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#orthogonal-transformations",
+    "href": "slides/highdim/35-dimension-reduction.html#orthogonal-transformations",
+    "title": "Dimension Reduction",
+    "section": "Orthogonal transformations",
+    "text": "Orthogonal transformations\n\nWe refer to transformation with the property \\(\\mathbf{A} \\mathbf{A}^\\top = \\mathbf{I}\\) as orthogonal transformations.\nThese are guaranteed to preserve the distance between any two points.\nWe previously demonstrated our rotation has this property.\nWe can confirm using R:\n\n\nA %*% t(A) \n\n             [,1]         [,2]\n[1,] 1.000000e+00 1.014654e-17\n[2,] 1.014654e-17 1.000000e+00"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#orthogonal-transformations-1",
+    "href": "slides/highdim/35-dimension-reduction.html#orthogonal-transformations-1",
+    "title": "Dimension Reduction",
+    "section": "Orthogonal transformations",
+    "text": "Orthogonal transformations\n\n\\(\\mathbf{A}\\) being orthogonal also guarantees that the total sum of squares (TSS) of \\(\\mathbf{X}\\), defined as \\(\\sum_{i=1}^n \\sum_{j=1}^p x_{i,j}^2\\) is equal to the total sum of squares of the rotation \\(\\mathbf{Z} = \\mathbf{X}\\mathbf{A}^\\top\\).\n\n\\[\n\\sum_{1=1}^n ||\\mathbf{z}_i||^2 = \\sum_{i=1}^n ||\\mathbf{A}^\\top\\mathbf{x}_i||^2 = \\sum_{i=1}^n \\mathbf{x}_i^\\top \\mathbf{A}\\mathbf{A}^\\top  \\mathbf{x}_i = \\sum_{i=1}^n \\mathbf{x}_i^\\top\\mathbf{x}_i = \\sum_{i=1}^n||\\mathbf{x}_i||^2  \n\\]"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#orthogonal-transformations-2",
+    "href": "slides/highdim/35-dimension-reduction.html#orthogonal-transformations-2",
+    "title": "Dimension Reduction",
+    "section": "Orthogonal transformations",
+    "text": "Orthogonal transformations\n\nWe can confirm using R:\n\n\ntheta &lt;- -45 \nz &lt;- rotate(x, theta) # works for any theta \nsum(x^2) \n\n[1] 198\n\nsum(z^2) \n\n[1] 198"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#orthogonal-transformations-3",
+    "href": "slides/highdim/35-dimension-reduction.html#orthogonal-transformations-3",
+    "title": "Dimension Reduction",
+    "section": "Orthogonal transformations",
+    "text": "Orthogonal transformations\n\nThis can be interpreted as a consequence of the fact that an orthogonal transformation guarantees that all the information is preserved.\nHowever, although the total is preserved, the sum of squares for the individual columns changes."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#orthogonal-transformations-4",
+    "href": "slides/highdim/35-dimension-reduction.html#orthogonal-transformations-4",
+    "title": "Dimension Reduction",
+    "section": "Orthogonal transformations",
+    "text": "Orthogonal transformations\n\nNotice that \\(\\mathbf{A}\\) being orthogonal also guarantees that the total sum of squares (TSS) of \\(\\mathbf{X}\\), defined as \\(\\sum_{i=1}^n \\sum_{j=1}^p x_{i,j}^2\\) is equal to the total sum of squares of the rotation \\(\\mathbf{Z} = \\mathbf{X}\\mathbf{A}^\\top\\).\nTo illustrate, observe that if we denote the rows of \\(\\mathbf{Z}\\) as \\(\\mathbf{z}_1, \\dots, \\mathbf{z}_n\\), then sum of squares can be written as:\n\n\\[\n\\sum_{1=1}^n ||\\mathbf{z}_i||^2 = \\sum_{i=1}^n ||\\mathbf{A}^\\top\\mathbf{x}_i||^2 = \\sum_{i=1}^n \\mathbf{x}_i^\\top \\mathbf{A}\\mathbf{A}^\\top  \\mathbf{x}_i = \\sum_{i=1}^n \\mathbf{x}_i^\\top\\mathbf{x}_i = \\sum_{i=1}^n||\\mathbf{x}_i||^2  \n\\]"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#orthogonal-transformations-5",
+    "href": "slides/highdim/35-dimension-reduction.html#orthogonal-transformations-5",
+    "title": "Dimension Reduction",
+    "section": "Orthogonal transformations",
+    "text": "Orthogonal transformations\n\nWe can confirm using R:\n\n\ntheta &lt;- -45 \nz &lt;- rotate(x, theta) # works for any theta \nsum(x^2) \n\n[1] 198\n\nsum(z^2) \n\n[1] 198\n\n\n\nThis can be interpreted as a consequence of the fact that an orthogonal transformation guarantees that all the information is preserved.\nHowever, although the total is preserved, the sum of squares for the individual columns changes."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#orthogonal-transformations-6",
+    "href": "slides/highdim/35-dimension-reduction.html#orthogonal-transformations-6",
+    "title": "Dimension Reduction",
+    "section": "Orthogonal transformations",
+    "text": "Orthogonal transformations\n\nHere we compute the proportion of TSS attributed to each column, referred to as the variance explained or variance captured by each column, for \\(\\mathbf{X}\\):\n\n\ncolSums(x^2)/sum(x^2) \n\n[1] 0.5 0.5\n\n\n\nand \\(\\mathbf{Z}\\):\n\n\ncolSums(z^2)/sum(z^2) \n\n[1] 0.98477912 0.01522088\n\n\n\nIn the next section, we describe how this last mathematical result can be useful."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis (PCA)",
+    "text": "Principal Component Analysis (PCA)\n\nWe have established that orthogonal transformations preserve the distance between observations and the total sum of squares.\nWe have also established that, while the TSS remains the same, the way this total is distributed across the columns can change.\nThe general idea behind Principal Component Analysis (PCA) is to try to find orthogonal transformations that concentrate the variance explained in the first few columns.\nWe can then focus on these few columns, effectively reducing the dimension of the problem."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-1",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-1",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis (PCA)",
+    "text": "Principal Component Analysis (PCA)\n\nIn our specific example, we are looking for the rotation that maximizes the variance explained in the first column.\nThe following code performs a grid search across rotations from -90 to 0:"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-2",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-2",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis (PCA)",
+    "text": "Principal Component Analysis (PCA)"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-3",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-3",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis (PCA)",
+    "text": "Principal Component Analysis (PCA)\n\nangles &lt;- seq(0, -90) \nv &lt;- sapply(angles, function(angle) colSums(rotate(x, angle)^2)) \nvariance_explained &lt;- v[1,]/sum(x^2) \nplot(angles, variance_explained, type = \"l\")"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-4",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-4",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis (PCA)",
+    "text": "Principal Component Analysis (PCA)\n\nWe find that a -45 degree rotation appears to achieve the maximum, with over 98% of the total variability explained by the first dimension.\nWe denote this rotation matrix with \\(\\mathbf{V}\\):\n\n\ntheta &lt;- 2*pi*-45/360 #convert to radians \nV &lt;- matrix(c(cos(theta), -sin(theta), sin(theta), cos(theta)), 2, 2) \n\n\nWe can rotate the entire dataset using:\n\n\\[\n\\mathbf{Z} = \\mathbf{X}\\mathbf{V}\n\\]"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-5",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-5",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis (PCA)",
+    "text": "Principal Component Analysis (PCA)\n\nz &lt;- x %*% V \n\n\nThe following animation further illustrates how different rotations affect the variability explained by the dimensions of the rotated data:"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-6",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-6",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis (PCA)",
+    "text": "Principal Component Analysis (PCA)"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-7",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-7",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis (PCA)",
+    "text": "Principal Component Analysis (PCA)"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-8",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-8",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis (PCA)",
+    "text": "Principal Component Analysis (PCA)\n\nThe first dimension of z is referred to as the first principal component (PC).\nBecause almost all the variation is explained by this first PC, the distance between rows in x can be very well approximated by the distance calculated with just z[,1]."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-9",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-9",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis (PCA)",
+    "text": "Principal Component Analysis (PCA)"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-10",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-10",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis (PCA)",
+    "text": "Principal Component Analysis (PCA)\n\nWe also notice that the two groups, adults and children, can be clearly observed with the one number summary, better than with any of the two original dimensions."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-11",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-11",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis (PCA)",
+    "text": "Principal Component Analysis (PCA)"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-12",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-12",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis (PCA)",
+    "text": "Principal Component Analysis (PCA)\n\nhist(x[,1], breaks = seq(-4,4,0.5)) \nhist(x[,2], breaks = seq(-4,4,0.5)) \nhist(z[,1], breaks = seq(-4,4,0.5))"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-13",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-13",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis (PCA)",
+    "text": "Principal Component Analysis (PCA)"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-14",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-14",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis (PCA)",
+    "text": "Principal Component Analysis (PCA)\n\nWe can visualize these to see how the first component summarizes the data.\nIn the plot below, red represents high values and blue negative values:"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-15",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-15",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis (PCA)",
+    "text": "Principal Component Analysis (PCA)"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-16",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-16",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis (PCA)",
+    "text": "Principal Component Analysis (PCA)\n\nThis idea generalizes to dimensions higher than 2.\nAs done in our two dimensional example, we start by finding the \\(p \\times 1\\) vector \\(\\mathbf{v}_1\\) with \\(||\\mathbf{v}_1||=1\\) that maximizes \\(||\\mathbf{X} \\mathbf{v}_1||\\).\nThe projection \\(\\mathbf{X} \\mathbf{v}_1\\) is the first PC.\nTo find the second PC, we subtract the variation explained by first PC from \\(\\mathbf{X}\\):\n\n\\[\n\\mathbf{r} = \\mathbf{X} - \\mathbf{X} \\mathbf{v}_1 \\mathbf{v}_1^\\top\n\\]"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-17",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-17",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis (PCA)",
+    "text": "Principal Component Analysis (PCA)\n\nand then find the vector \\(\\mathbf{v}_2\\) with\\(||\\mathbf{v}_2||=1\\) that maximizes \\(||\\mathbf{r} \\mathbf{v}_2||\\).\nThe projection \\(\\mathbf{X} \\mathbf{v}_2\\) is the second PC.\nWe then subtract the variation explained by the first two PCs, and continue this process until we have the entire rotation matrix and matrix of principal components, respectively:"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-18",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-18",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis (PCA)",
+    "text": "Principal Component Analysis (PCA)\n\\[\n\\mathbf{V} =\n\\begin{bmatrix}  \n\\mathbf{v}_1&\\dots&\\mathbf{v}_p\n\\end{bmatrix},\n\\mathbf{Z} = \\mathbf{X}\\mathbf{V}\n\\]\n\nThe ideas of distance preservation extends to higher dimensions."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-19",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-19",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis (PCA)",
+    "text": "Principal Component Analysis (PCA)\n\nFor a multidimensional matrix with \\(p\\) columns, the \\(\\mathbf{A}\\) transformation preserves the distance between rows, but with the variance explained by the columns in decreasing order.If the variances of the columns \\(\\mathbf{Z}_j\\), \\(j&gt;k\\) are very small, these dimensions have little to contribute to the distance calculation and we can approximate the distance between any two points with just \\(k\\) dimensions.\nIf \\(k\\) is much smaller than \\(p\\), then we can achieve a very efficient summary of our data.\n\n\n\n\n\n\nWarning"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-20",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-20",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis (PCA)",
+    "text": "Principal Component Analysis (PCA)\n\nNotice that the solution to this maximization problem is not unique because \\(||\\mathbf{X} \\mathbf{v}|| = ||-\\mathbf{X} \\mathbf{v}||\\).\nAlso, note that if we multiply a column of \\(\\mathbf{A}\\) by \\(-1\\), we still represent \\(\\mathbf{X}\\) as \\(\\mathbf{Z}\\mathbf{V}^\\top\\) as long as we also multiple the corresponding column of \\(\\mathbf{V}\\) by -1.\nThis implies that we can arbitrarily change the sign of each column of the rotation \\(\\mathbf{V}\\) and principal component matrix \\(\\mathbf{Z}\\).\n:::"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-21",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-21",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis (PCA)",
+    "text": "Principal Component Analysis (PCA)\n\nIn R, we can find the principal components of any matrix with the function prcomp:\n\n\npca &lt;- prcomp(x, center = FALSE) \n\n\nKeep in mind that default behavior is to center the columns of x before computing the PCs, an operation we don’t need because our matrix is scaled.\nThe object pca includes the rotated data \\(Z\\) in pca$x and the rotation \\(\\mathbf{V}\\) in pca$rotation.\nWe can see that columns of the pca$rotation are indeed the rotation obtained with -45 (remember the sign is arbitrary):"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-22",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-22",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis (PCA)",
+    "text": "Principal Component Analysis (PCA)\n\npca$rotation \n\n            PC1        PC2\n[1,] -0.7071068  0.7071068\n[2,] -0.7071068 -0.7071068\n\n\n\nThe square root of the variation of each column is included in the pca$sdev component.\nThis implies we can compute the variance explained by each PC using:\n\n\npca$sdev^2/sum(pca$sdev^2) \n\n[1] 0.98477912 0.01522088\n\n\n\nThe function summary performs this calculation for us:\n\n\nsummary(pca) \n\nImportance of components:\n                          PC1     PC2\nStandard deviation     1.4034 0.17448\nProportion of Variance 0.9848 0.01522\nCumulative Proportion  0.9848 1.00000\n\n\n\nWe also see that we can rotate x (\\(\\mathbf{X}\\)) and pca$x (\\(\\mathbf{Z}\\)) as explained with the mathematical formulas above:"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-23",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-pca-23",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis (PCA)",
+    "text": "Principal Component Analysis (PCA)\n\nall.equal(pca$x, x %*% pca$rotation) \n\n[1] TRUE\n\nall.equal(x, pca$x %*% t(pca$rotation)) \n\n[1] TRUE"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#examples",
+    "href": "slides/highdim/35-dimension-reduction.html#examples",
+    "title": "Dimension Reduction",
+    "section": "Examples",
+    "text": "Examples"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#iris-example",
+    "href": "slides/highdim/35-dimension-reduction.html#iris-example",
+    "title": "Dimension Reduction",
+    "section": "Iris example",
+    "text": "Iris example\n\nThe iris data is a widely used example.\nIt includes four botanical measurements related to three flower species:\n\n\nnames(iris) \n\n[1] \"Sepal.Length\" \"Sepal.Width\"  \"Petal.Length\" \"Petal.Width\"  \"Species\"     \n\nhead(iris$Species)\n\n[1] setosa setosa setosa setosa setosa setosa\nLevels: setosa versicolor virginica"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#iris-example-1",
+    "href": "slides/highdim/35-dimension-reduction.html#iris-example-1",
+    "title": "Dimension Reduction",
+    "section": "Iris example",
+    "text": "Iris example\n\nIf we visualize the distances, we see the three species:"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#iris-example-2",
+    "href": "slides/highdim/35-dimension-reduction.html#iris-example-2",
+    "title": "Dimension Reduction",
+    "section": "Iris example",
+    "text": "Iris example\n\nOur features matrix has four dimensions\nThree are very correlated:\n\n\ncor(x) \n\n             Sepal.Length Sepal.Width Petal.Length Petal.Width\nSepal.Length    1.0000000  -0.1175698    0.8717538   0.8179411\nSepal.Width    -0.1175698   1.0000000   -0.4284401  -0.3661259\nPetal.Length    0.8717538  -0.4284401    1.0000000   0.9628654\nPetal.Width     0.8179411  -0.3661259    0.9628654   1.0000000"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#iris-example-3",
+    "href": "slides/highdim/35-dimension-reduction.html#iris-example-3",
+    "title": "Dimension Reduction",
+    "section": "Iris example",
+    "text": "Iris example\n\nIf we apply PCA, we should be able to approximate this distance with just two dimensions, compressing the highly correlated dimensions.\nUsing the summary function, we can see the variability explained by each PC:\n\n\npca &lt;- prcomp(x) \nsummary(pca) \n\nImportance of components:\n                          PC1     PC2    PC3     PC4\nStandard deviation     2.0563 0.49262 0.2797 0.15439\nProportion of Variance 0.9246 0.05307 0.0171 0.00521\nCumulative Proportion  0.9246 0.97769 0.9948 1.00000"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#iris-example-4",
+    "href": "slides/highdim/35-dimension-reduction.html#iris-example-4",
+    "title": "Dimension Reduction",
+    "section": "Iris example",
+    "text": "Iris example\n\nWe are able to approximate the distances with two dimensions:"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#iris-example-5",
+    "href": "slides/highdim/35-dimension-reduction.html#iris-example-5",
+    "title": "Dimension Reduction",
+    "section": "Iris example",
+    "text": "Iris example\n\nA useful application is we can now visualize with a two-dimensional plot:\n\n\ndata.frame(pca$x[,1:2], Species = iris$Species) |&gt; \n  ggplot(aes(PC1, PC2, fill = Species)) + \n  geom_point(cex = 3, pch = 21) + \n  coord_fixed(ratio = 1)"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#iris-example-6",
+    "href": "slides/highdim/35-dimension-reduction.html#iris-example-6",
+    "title": "Dimension Reduction",
+    "section": "Iris example",
+    "text": "Iris example"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#iris-example-7",
+    "href": "slides/highdim/35-dimension-reduction.html#iris-example-7",
+    "title": "Dimension Reduction",
+    "section": "Iris example",
+    "text": "Iris example\nWe learn that:\n\nthe first PC ia weighted average of sepal length, petal length, and petal width (red in first column), and subtracting a a quantity proportional to sepal width (blue in first column).\nThe second PC is a weighted average of petal length and petal width, minus a weighted average of sepal length and petal width."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#iris-example-8",
+    "href": "slides/highdim/35-dimension-reduction.html#iris-example-8",
+    "title": "Dimension Reduction",
+    "section": "Iris example",
+    "text": "Iris example\n\nwe learn that the first PC is obtained by taking a weighted average of sepal length, petal length, and petal width (red in first column), and subtracting a a quantity proportional to sepal width (blue in first column)."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#mnist-example",
+    "href": "slides/highdim/35-dimension-reduction.html#mnist-example",
+    "title": "Dimension Reduction",
+    "section": "MNIST example",
+    "text": "MNIST example\n\nThe written digits example has 784 features.\nIs there any room for data reduction? We will use PCA to answer this.\nWe expect pixels close to each other on the grid to be correlated: dimension reduction should be possible."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#mnist-example-1",
+    "href": "slides/highdim/35-dimension-reduction.html#mnist-example-1",
+    "title": "Dimension Reduction",
+    "section": "MNIST example",
+    "text": "MNIST example\n\nLet’s compute the PCs:\n\n\npca &lt;- prcomp(mnist$train$images)"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#mnist-example-2",
+    "href": "slides/highdim/35-dimension-reduction.html#mnist-example-2",
+    "title": "Dimension Reduction",
+    "section": "MNIST example",
+    "text": "MNIST example\nAnd look at the variance explained:\n\nplot(pca$sdev^2/sum(pca$sdev^2), xlab = \"PC\", ylab = \"Variance explained\")"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#mnist-example-3",
+    "href": "slides/highdim/35-dimension-reduction.html#mnist-example-3",
+    "title": "Dimension Reduction",
+    "section": "MNIST example",
+    "text": "MNIST example\n\nFirst two PCs for a random sample of 500 digits:"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#mnist-example-4",
+    "href": "slides/highdim/35-dimension-reduction.html#mnist-example-4",
+    "title": "Dimension Reduction",
+    "section": "MNIST example",
+    "text": "MNIST example\n\nWe can also see the rotation values on the 28 \\(\\times\\) 28 grid to get an idea of how pixels are being weighted in the transformations that result in the PCs."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#mnist-example-5",
+    "href": "slides/highdim/35-dimension-reduction.html#mnist-example-5",
+    "title": "Dimension Reduction",
+    "section": "MNIST example",
+    "text": "MNIST example\n\nWe can also confirm that the lower variance PCs appear related to unimportant variability, mainly smudges in the corners."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#mnist-example-6",
+    "href": "slides/highdim/35-dimension-reduction.html#mnist-example-6",
+    "title": "Dimension Reduction",
+    "section": "MNIST example",
+    "text": "MNIST example"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#mnist-example-7",
+    "href": "slides/highdim/35-dimension-reduction.html#mnist-example-7",
+    "title": "Dimension Reduction",
+    "section": "MNIST example",
+    "text": "MNIST example\n\nWe can clearly see that first PC appears to be separating the 1s (red) from the 0s (blue).\nWe can vaguely discern digits, or parts of digits, in the other three PCs as well.\nBy looking at the PCs stratified by digits, we get further insights.\nFor example, we see that the second PC separates 4s, 7s, and 9s from the rest:"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#mnist-example-8",
+    "href": "slides/highdim/35-dimension-reduction.html#mnist-example-8",
+    "title": "Dimension Reduction",
+    "section": "MNIST example",
+    "text": "MNIST example"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#mnist-example-9",
+    "href": "slides/highdim/35-dimension-reduction.html#mnist-example-9",
+    "title": "Dimension Reduction",
+    "section": "MNIST example",
+    "text": "MNIST example\n\nWe can also confirm that the lower variance PCs appear related to unimportant variability, mainly smudges in the corners:"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#mnist-example-10",
+    "href": "slides/highdim/35-dimension-reduction.html#mnist-example-10",
+    "title": "Dimension Reduction",
+    "section": "MNIST example",
+    "text": "MNIST example"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#mnist-example-11",
+    "href": "slides/highdim/35-dimension-reduction.html#mnist-example-11",
+    "title": "Dimension Reduction",
+    "section": "MNIST example",
+    "text": "MNIST example"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#mnist-example-12",
+    "href": "slides/highdim/35-dimension-reduction.html#mnist-example-12",
+    "title": "Dimension Reduction",
+    "section": "MNIST example",
+    "text": "MNIST example"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#linear-transformations-12",
+    "href": "slides/highdim/35-dimension-reduction.html#linear-transformations-12",
+    "title": "Dimension Reduction",
+    "section": "Linear transformations",
+    "text": "Linear transformations\n\nHere is an example for a 30 degree rotation, although it works for any angle:\n\n\nall.equal(as.matrix(dist(rotate(x, 30))), as.matrix(dist(x))) \n\n[1] TRUE\n\n\n\nUsing linear algebra, we can rewrite the quantity above as:"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#transformations",
+    "href": "slides/highdim/35-dimension-reduction.html#transformations",
+    "title": "Dimension Reduction",
+    "section": "Transformations",
+    "text": "Transformations\n\nHere we compute the proportion of TSS attributed to each column, referred to as the variance explained or variance captured by each column, for \\(\\mathbf{X}\\):\n\n\ncolSums(x^2)/sum(x^2) \n\n[1] 0.5 0.5\n\n\n\nand \\(\\mathbf{Z}\\):\n\n\ncolSums(z^2)/sum(z^2) \n\n[1] 0.98477912 0.01522088\n\n\n\nWe now explain how useful this property can be."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis",
+    "text": "Principal Component Analysis\n\nWe have established that orthogonal transformations preserve the distance between observations and the total sum of squares.\nWe have also established that, while the TSS remains the same, the way this total is distributed across the columns can change.\nThe general idea behind Principal Component Analysis (PCA) is to try to find orthogonal transformations that concentrate the variance explained in the first few columns.\nWe can then focus on these few columns, effectively reducing the dimension of the problem."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-1",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-1",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis",
+    "text": "Principal Component Analysis\n\nIn our specific example, we are looking for the rotation that maximizes the variance explained in the first column:"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-2",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-2",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis",
+    "text": "Principal Component Analysis\n\nWe find that a -45 degree rotation appears to achieve the maximum, with over 98% of the total variability explained by the first dimension.\nWe denote this rotation matrix with \\(\\mathbf{V}\\):\n\n\ntheta &lt;- 2*pi*-45/360 #convert to radians \nV &lt;- matrix(c(cos(theta), -sin(theta), sin(theta), cos(theta)), 2, 2)"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-3",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-3",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis",
+    "text": "Principal Component Analysis\n\nWe can rotate the entire dataset using:\n\n\\[\n\\mathbf{Z} = \\mathbf{X}\\mathbf{V}\n\\]\n\nIn R:\n\n\nz &lt;- x %*% V"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-4",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-4",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis",
+    "text": "Principal Component Analysis"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-5",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-5",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis",
+    "text": "Principal Component Analysis"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-6",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-6",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis",
+    "text": "Principal Component Analysis\n\nThe first dimension of z is referred to as the first principal component (PC).\nBecause almost all the variation is explained by this first PC, the distance between rows in x can be very well approximated by the distance calculated with just z[,1]."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-7",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-7",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis",
+    "text": "Principal Component Analysis\n\nrafalib::mypar() \nplot(dist(x), dist(z[,1])) \nabline(0,1, col = \"red\")"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-8",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-8",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis",
+    "text": "Principal Component Analysis\n\nThe two groups can be clearly observed with the one dimension:\n\n\n\n\n\n\n\n\n\n\n\nBetter than with any of the two original dimensions."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-9",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-9",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis",
+    "text": "Principal Component Analysis\n\nWe can visualize these to see how the first component summarizes the data:"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-10",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-10",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis",
+    "text": "Principal Component Analysis\n\nThis idea generalizes to dimensions higher than 2.\nAs done in our two dimensional example, we start by finding the \\(p \\times 1\\) vector \\(\\mathbf{v}_1\\) with \\(||\\mathbf{v}_1||=1\\) that maximizes \\(||\\mathbf{X} \\mathbf{v}_1||\\).\nThe projection \\(\\mathbf{X} \\mathbf{v}_1\\) is the first PC."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-11",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-11",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis",
+    "text": "Principal Component Analysis\n\nTo find the second PC, we subtract the variation explained by first PC from \\(\\mathbf{X}\\):\n\n\\[\n\\mathbf{r} = \\mathbf{X} - \\mathbf{X} \\mathbf{v}_1 \\mathbf{v}_1^\\top\n\\]\n\nand then find the vector \\(\\mathbf{v}_2\\) with\\(||\\mathbf{v}_2||=1\\) that maximizes \\(||\\mathbf{r} \\mathbf{v}_2||\\).\nThe projection \\(\\mathbf{X} \\mathbf{v}_2\\) is the second PC."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-12",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-12",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis",
+    "text": "Principal Component Analysis\n\nWe then subtract the variation explained by the first two PCs, and continue this process until we have the entire rotation matrix and matrix of principal components, respectively:\n\n\\[\n\\mathbf{V} =\n\\begin{bmatrix}  \n\\mathbf{v}_1&\\dots&\\mathbf{v}_p\n\\end{bmatrix},\n\\mathbf{Z} = \\mathbf{X}\\mathbf{V}\n\\]\n\nThe ideas of distance preservation extends to higher dimensions."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-13",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-13",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis",
+    "text": "Principal Component Analysis\n\nFor a multidimensional matrix with \\(p\\) columns, we can find an orthogonal transformation \\(\\mathbf{A}\\) that preserves the distance between rows, but with the variance explained by the columns in decreasing order.\nIf the variances of the columns \\(\\mathbf{Z}_j\\), \\(j&gt;k\\) are very small, these dimensions have little to contribute to the distance calculation and we can approximate the distance between any two points with just \\(k\\) dimensions.\nIf \\(k\\) is much smaller than \\(p\\), then we can achieve a very efficient summary of our data.\n\n\n\n\n\n\n\n\nWarning\n\n\n\n\nNotice that the solution to this maximization problem is not unique because \\(||\\mathbf{X} \\mathbf{v}|| = ||-\\mathbf{X} \\mathbf{v}||\\).\nAlso, note that if we multiply a column of \\(\\mathbf{A}\\) by \\(-1\\), we still represent \\(\\mathbf{X}\\) as \\(\\mathbf{Z}\\mathbf{V}^\\top\\) as long as we also multiple the corresponding column of \\(\\mathbf{V}\\) by -1.\nThis implies that we can arbitrarily change the sign of each column of the rotation \\(\\mathbf{V}\\) and principal component matrix \\(\\mathbf{Z}\\)."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-14",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-14",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis",
+    "text": "Principal Component Analysis\n\nIn R, we can find the principal components of any matrix with the function prcomp:\n\n\npca &lt;- prcomp(x, center = FALSE) \n\n\nThe default behavior is to center the columns of x before computing the PCs, an operation we don’t currently need because our matrix is scaled."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-15",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-15",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis",
+    "text": "Principal Component Analysis\n\nThe object pca includes the rotated data \\(Z\\) in pca$x and the rotation \\(\\mathbf{V}\\) in pca$rotation.\nWe can see that columns of the pca$rotation are indeed the rotation obtained with -45 (remember the sign is arbitrary):\n\n\npca$rotation \n\n            PC1        PC2\n[1,] -0.7071068  0.7071068\n[2,] -0.7071068 -0.7071068"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-16",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-16",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis",
+    "text": "Principal Component Analysis\n\nThe square root of the variation of each column is included in the pca$sdev component.\nThis implies we can compute the variance explained by each PC using:\n\n\npca$sdev^2/sum(pca$sdev^2) \n\n[1] 0.98477912 0.01522088"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-17",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-17",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis",
+    "text": "Principal Component Analysis\n\nThe function summary performs this calculation:\n\n\nsummary(pca) \n\nImportance of components:\n                          PC1     PC2\nStandard deviation     1.4034 0.17448\nProportion of Variance 0.9848 0.01522\nCumulative Proportion  0.9848 1.00000"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-18",
+    "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-18",
+    "title": "Dimension Reduction",
+    "section": "Principal Component Analysis",
+    "text": "Principal Component Analysis\n\nWe also see that we can rotate x (\\(\\mathbf{X}\\)) and pca$x (\\(\\mathbf{Z}\\)) as explained with the mathematical earlier:\n\n\nall.equal(pca$x, x %*% pca$rotation) \n\n[1] TRUE\n\nall.equal(x, pca$x %*% t(pca$rotation)) \n\n[1] TRUE"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#iris-example-9",
+    "href": "slides/highdim/35-dimension-reduction.html#iris-example-9",
+    "title": "Dimension Reduction",
+    "section": "Iris example",
+    "text": "Iris example\n\nThe second PC is a weighted average of petal length and petal width, minus a weighted average of sepal length and petal width."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#pca-visualized",
+    "href": "slides/highdim/35-dimension-reduction.html#pca-visualized",
+    "title": "Dimension Reduction",
+    "section": "PCA visualized",
+    "text": "PCA visualized"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#first-four-pcs",
+    "href": "slides/highdim/35-dimension-reduction.html#first-four-pcs",
+    "title": "Dimension Reduction",
+    "section": "First four PCs",
+    "text": "First four PCs"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#first-pc",
+    "href": "slides/highdim/35-dimension-reduction.html#first-pc",
+    "title": "Dimension Reduction",
+    "section": "First PC",
+    "text": "First PC"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#second-pc",
+    "href": "slides/highdim/35-dimension-reduction.html#second-pc",
+    "title": "Dimension Reduction",
+    "section": "Second PC",
+    "text": "Second PC"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#third-pc",
+    "href": "slides/highdim/35-dimension-reduction.html#third-pc",
+    "title": "Dimension Reduction",
+    "section": "Third PC",
+    "text": "Third PC"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#fourth-pc",
+    "href": "slides/highdim/35-dimension-reduction.html#fourth-pc",
+    "title": "Dimension Reduction",
+    "section": "Fourth PC",
+    "text": "Fourth PC"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#last-four-pcs",
+    "href": "slides/highdim/35-dimension-reduction.html#last-four-pcs",
+    "title": "Dimension Reduction",
+    "section": "Last four PCs",
+    "text": "Last four PCs"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#approximation-with-200-dimensions",
+    "href": "slides/highdim/35-dimension-reduction.html#approximation-with-200-dimensions",
+    "title": "Dimension Reduction",
+    "section": "Approximation with 200 dimensions",
+    "text": "Approximation with 200 dimensions\n\nimages_hat &lt;- pca$x[,1:200] %*% t(pca$rotation[,1:200])"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#approximation-with-200-dimensions-1",
+    "href": "slides/highdim/35-dimension-reduction.html#approximation-with-200-dimensions-1",
+    "title": "Dimension Reduction",
+    "section": "Approximation with 200 dimensions",
+    "text": "Approximation with 200 dimensions"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#approximation-with-36-dimensions",
+    "href": "slides/highdim/35-dimension-reduction.html#approximation-with-36-dimensions",
+    "title": "Dimension Reduction",
+    "section": "Approximation with 36 dimensions",
+    "text": "Approximation with 36 dimensions"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html",
+    "href": "slides/highdim/35-dimension-reduction.html",
+    "title": "Dimension Reduction",
+    "section": "",
+    "text": "A typical machine learning task involves working with a large number of predictors which can make data analysis challenging.\nFor example, to compare each of the 784 features in our predicting digits example, we would have to create 306,936 scatterplots.\nCreating one single scatterplot of the data is impossible due to the high dimensionality."
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#dimensions-approximation",
+    "href": "slides/highdim/35-dimension-reduction.html#dimensions-approximation",
+    "title": "Dimension Reduction",
+    "section": "200 dimensions approximation",
+    "text": "200 dimensions approximation\n\nimages_hat &lt;- pca$x[,1:200] %*% t(pca$rotation[,1:200])"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#dimensions-approximation-1",
+    "href": "slides/highdim/35-dimension-reduction.html#dimensions-approximation-1",
+    "title": "Dimension Reduction",
+    "section": "200 dimensions approximation",
+    "text": "200 dimensions approximation\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ lubridate 1.9.3     ✔ tibble    3.2.1\n✔ purrr     1.0.2     ✔ tidyr     1.3.1\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::combine() masks gridExtra::combine()\n✖ dplyr::count()   masks matrixStats::count()\n✖ dplyr::filter()  masks stats::filter()\n✖ dplyr::lag()     masks stats::lag()\n✖ dplyr::select()  masks MASS::select()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors"
+  },
+  {
+    "objectID": "slides/highdim/35-dimension-reduction.html#dimensions-approximation-2",
+    "href": "slides/highdim/35-dimension-reduction.html#dimensions-approximation-2",
+    "title": "Dimension Reduction",
+    "section": "36 dimensions approximation",
+    "text": "36 dimensions approximation"
   }
 ]

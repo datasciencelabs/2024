@@ -1,0 +1,279 @@
+---
+title: "Distance"
+keywords: "High dimensional data"
+date: 2024-11-12
+format:
+  revealjs:
+    theme: night
+execute: 
+  echo: true
+---
+
+
+## Distance
+
+- Many of the analyses we perform with high-dimensional data relate directly or indirectly to distance.
+
+- Many machine learning techniques rely on defining distances between observations.
+
+- Clustering algorithms search of observations that are *similar*.
+
+- But what does this mean mathematically?
+
+
+
+
+## The norm
+
+
+- A point can be represented in polar coordinates:
+
+
+```{r polar-coords, echo=FALSE, fig.asp=0.7, fig.align='center'} 
+draw.circle <- function(angle, start = 0, center = c(0,0), r = 0.25){ 
+  th <- seq(start, start + angle, length.out = 100) 
+  x <- center[1] + r*cos(th) 
+  y <- center[2] + r*sin(th) 
+  lines(x, y) 
+} 
+rafalib::mypar() 
+rafalib::nullplot(-0.25, 1.25,-0.25, .75, axes = FALSE) 
+abline(h = 0,v = 0, col = "grey") 
+theta <- pi/6 
+arrows(0, 0, 0.975*cos(theta), 0.975*sin(theta), length = 0.1) 
+points(cos(theta), sin(theta), pch = 16) 
+text(0.3*cos(theta/2), 0.3*sin(theta/2), expression(theta), font = 2) 
+text(cos(theta), sin(theta), expression('(' * x[1] * ',' * x[2] *  ') = (' * phantom(.) * 'r' * phantom(.) * 'cos('*theta*'), r' * phantom(.) * 'sin('*theta*')' * phantom(.) * ')' ), 
+     pos = 4) 
+draw.circle(theta) 
+``` 
+
+
+## The norm
+
+
+- If $\mathbf{x} = (x_1, x_2)^\top$, $r$ defines the norm of $\mathbf{x}$.
+
+```{r polar-coords-2, echo=FALSE, fig.asp=0.7, fig.align='center'} 
+rafalib::mypar() 
+rafalib::nullplot(-0.25, 1.25,-0.25, .75, axes = FALSE) 
+abline(h = 0,v = 0, col = "grey") 
+theta <- pi/6 
+arrows(0, 0, 0.975*cos(theta), 0.975*sin(theta), length = 0.1) 
+points(cos(theta), sin(theta), pch = 16) 
+text(0.3*cos(theta/2), 0.3*sin(theta/2), expression(theta), font = 2) 
+text(cos(theta), sin(theta), expression('(' * x[1] * ',' * x[2] *  ') = (' * phantom(.) * 'r' * phantom(.) * 'cos('*theta*'), r' * phantom(.) * 'sin('*theta*')' * phantom(.) * ')' ), 
+     pos = 4) 
+draw.circle(theta) 
+text(0.5 * cos(theta), 0.5 * sin(theta) + 0.1, "r", font = 2)
+``` 
+
+
+
+
+## The norm
+
+- The point of defining the norm is to extrapolate the concept of *size* to higher dimensions.
+
+
+- Specifically, we write the norm for any vector $\mathbf{x}$ as:
+
+
+$$
+||\mathbf{x}|| = \sqrt{x_1^2 + x_2^2 + \dots + x_p^2}
+$$
+
+* Sometimes convenient to write like this:
+
+$$
+||\mathbf{x}||^2 = x_1^2 + x_2^2 + \dots + x_p^2
+$$
+
+## The norm
+
+- We define the norm like this:
+
+
+$$
+||\mathbf{x}||^2 = \mathbf{x}^\top\mathbf{x} 
+$$
+
+
+
+## Distance
+
+- Distance is the norm of the difference:
+
+```{r euclidean-dist-diagram, echo=FALSE, fig.asp=0.7, fig.align='center'} 
+rafalib::mypar() 
+rafalib::nullplot(-0.5, 4,-0.5, 2, axes = FALSE) 
+abline(h = 0,v = 0, col = "grey") 
+x1 <- 1; x2 <- 1; y1 <- 3; y2 <- 1.5 
+points(x1, x2, pch = 16) 
+text(x1 - 0.35, x2,expression('(' * x[11] * ',' * x[21] *  ')')) 
+points(y1, y2, pch = 16) 
+text(y1, y2 + 0.15,expression('(' * x[12] * ',' * x[22] *  ')')) 
+lines(c(x1,y1),c(x2,y2)) 
+pBrackets::brackets(x1, x2 - 0.05, y1, x2 - 0.05, h = -0.1) 
+text((x1 + y1)/2, x1 - 0.2, expression(x[11] - x[12])) 
+pBrackets::brackets(y1 + 0.05, x2, y1 + 0.05, y2, h = -0.1) 
+text(y1 + 0.25,(x2 + y2)/2, srt = 270, expression(x[21] - x[22])) 
+``` 
+
+
+## Distance
+
+-We can see this using the definition we know:
+
+
+$$
+\mbox{distance} = \sqrt{(x_{11} - x_{12})^2 + (x_{21} - x_{22})^2} 
+$$
+
+## Distance
+
+- Using the norm definition can be extrapolated to any dimension:
+
+
+$$
+\mbox{distance} = || \mathbf{x}_1 - \mathbf{x}_2||
+$$
+
+## Distance
+
+- For example, the distance between the first and second observation will compute distance using all 784 features:
+
+
+$$
+|| \mathbf{x}_1 - \mathbf{x}_2 ||^2 = \sum_{j=1}^{784} (x_{1,j}-x_{2,j })^2 
+$$
+
+
+
+## Distance
+
+* Define the features and labels:
+
+```{r, echo=FALSE}
+library(dslabs) 
+mnist <- read_mnist("~/Downloads/mnist")
+x <- mnist$train$images  
+y <- mnist$train$labels 
+```
+
+```{r, eval=FALSE}
+mnist <- read_mnist()
+x <- mnist$train$images  
+y <- mnist$train$labels 
+```
+
+
+```{r} 
+x_1 <- x[6,] 
+x_2 <- x[17,] 
+x_3 <- x[16,] 
+``` 
+
+- Compute the distances:
+
+```{r} 
+c(sum((x_1 - x_2)^2), sum((x_1 - x_3)^2), sum((x_2 - x_3)^2)) |> sqrt() 
+``` 
+
+- Checks out:
+
+```{r}
+y[c(6,17,16)]
+```
+
+## Distance
+
+- In R, the function `crossprod(x)` is convenient for computing norms.
+
+- It multiplies `t(x)` by `x`:
+
+
+```{r} 
+c(crossprod(x_1 - x_2), crossprod(x_1 - x_3), crossprod(x_2 - x_3)) |> sqrt() 
+``` 
+
+
+## Distance
+
+- We can also compute **all** the distances at once:
+
+```{r} 
+d <- dist(x[c(6,17,16),]) 
+d
+```
+
+- `dist` produces an object of class `dist`
+
+```{r}
+class(d) 
+``` 
+
+- There are several machine learning related functions in R that take objects of class `dist` as input.
+
+## Distance
+
+- `dist` objects are similar but not equal to a matrices.
+
+- To access the entries using row and column indices, we need to coerce it into a matrix.
+
+```{r}
+as.matrix(d)[2,3]
+```
+
+## Distance 
+
+- The `image` function allows us to quickly see an image of distances between observations.
+
+```{r distance-image, fig.width = 4, fig.height = 4, fig.align='center'} 
+d <- dist(x[1:300,]) 
+image(as.matrix(d)) 
+``` 
+
+## Distance 
+
+- If we order distance by the labels:
+
+```{r diatance-image-ordered, fig.width = 4, fig.height = 4, out.width="50%", fig.align='center'} 
+image(as.matrix(d)[order(y[1:300]), order(y[1:300])]) 
+``` 
+
+
+
+## Spaces
+
+- *Predictor space* is a concept that is often used to describe machine learning algorithms.
+
+- We can think of all predictors $(x_{i,1}, \dots, x_{i,p})^\top$ for all observations $i=1,\dots,n$ as $n$ $p$-dimensional points.
+
+
+- The  *space* is the collection of all possible points that should be considered for the data analysis in question, including points we have not observed yet.
+
+- In the case of the handwritten digits, we can think of the predictor space as any point $(x_{1}, \dots, x_{p})^\top$ as long as each entry $x_i, \, i = 1, \dots, p$ is between 0 and 255.
+
+## Spaces
+
+- Some Machine Learning algorithms also define subspaces.
+
+- A commonly defined subspace in machine learning are _neighborhoods_ composed of points that are close to a predetermined *center*.
+
+- We do this by selecting a center $\mathbf{x}_0$, a minimum distance $r$, and defining the subspace as the collection of points $\mathbf{x}$ that satisfy:
+
+
+$$
+|| \mathbf{x} - \mathbf{x}_0 || \leq r.
+$$
+
+
+
+## Spaces
+
+- We can think of this subspace as a multidimensional sphere since every point is the same distance away from the center.
+
+- Other machine learning algorithms partition the predictor space into non-overlapping regions and then make different predictions for each region using the data in the region.
+
+

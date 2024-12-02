@@ -58,7 +58,7 @@
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/index.html</loc>
-    <lastmod>2024-11-20T01:45:45.396Z</lastmod>
+    <lastmod>2024-12-02T14:40:38.005Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/psets/pset-04-wrangling.html</loc>
@@ -170,7 +170,7 @@
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/psets/pset-08-linear-models.html</loc>
-    <lastmod>2024-11-18T18:12:55.043Z</lastmod>
+    <lastmod>2024-12-02T14:42:18.250Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/linear-models/30-multivariate-regression.html</loc>
@@ -191,5 +191,13 @@
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/highdim/33-matrices-in-R.html</loc>
     <lastmod>2024-11-20T13:34:29.054Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/highdim/34-distance.html</loc>
+    <lastmod>2024-12-01T15:44:27.021Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/highdim/35-dimension-reduction.html</loc>
+    <lastmod>2024-12-02T14:36:00.904Z</lastmod>
   </url>
 </urlset>
