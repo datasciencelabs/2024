@@ -6,10 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Rafael A. Irizarry">
 <meta name="dcterms.date" content="2024-12-02">
-<meta name="keywords" content="High dimensional data">
+<meta name="keywords" content="Machine Learning">
 
-<title>Distance – BST 260: Introduction to Data Science</title>
+<title>Introduction – BST 260: Introduction to Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,40 +22,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -143,7 +110,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Distance</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Introduction</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -211,39 +178,43 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#distance" id="toc-distance" class="nav-link active" data-scroll-target="#distance">Distance</a></li>
-  <li><a href="#the-norm" id="toc-the-norm" class="nav-link" data-scroll-target="#the-norm">The norm</a></li>
-  <li><a href="#the-norm-1" id="toc-the-norm-1" class="nav-link" data-scroll-target="#the-norm-1">The norm</a></li>
-  <li><a href="#the-norm-2" id="toc-the-norm-2" class="nav-link" data-scroll-target="#the-norm-2">The norm</a></li>
-  <li><a href="#the-norm-3" id="toc-the-norm-3" class="nav-link" data-scroll-target="#the-norm-3">The norm</a></li>
-  <li><a href="#distance-1" id="toc-distance-1" class="nav-link" data-scroll-target="#distance-1">Distance</a></li>
-  <li><a href="#distance-2" id="toc-distance-2" class="nav-link" data-scroll-target="#distance-2">Distance</a></li>
-  <li><a href="#distance-3" id="toc-distance-3" class="nav-link" data-scroll-target="#distance-3">Distance</a></li>
-  <li><a href="#distance-4" id="toc-distance-4" class="nav-link" data-scroll-target="#distance-4">Distance</a></li>
-  <li><a href="#distance-5" id="toc-distance-5" class="nav-link" data-scroll-target="#distance-5">Distance</a></li>
-  <li><a href="#distance-6" id="toc-distance-6" class="nav-link" data-scroll-target="#distance-6">Distance</a></li>
-  <li><a href="#distance-7" id="toc-distance-7" class="nav-link" data-scroll-target="#distance-7">Distance</a></li>
-  <li><a href="#distance-8" id="toc-distance-8" class="nav-link" data-scroll-target="#distance-8">Distance</a></li>
-  <li><a href="#distance-9" id="toc-distance-9" class="nav-link" data-scroll-target="#distance-9">Distance</a></li>
-  <li><a href="#distance-10" id="toc-distance-10" class="nav-link" data-scroll-target="#distance-10">Distance</a></li>
-  <li><a href="#spaces" id="toc-spaces" class="nav-link" data-scroll-target="#spaces">Spaces</a></li>
-  <li><a href="#spaces-1" id="toc-spaces-1" class="nav-link" data-scroll-target="#spaces-1">Spaces</a></li>
-  <li><a href="#spaces-2" id="toc-spaces-2" class="nav-link" data-scroll-target="#spaces-2">Spaces</a></li>
+  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link active" data-scroll-target="#machine-learning">Machine Learning</a></li>
+  <li><a href="#machine-learning-1" id="toc-machine-learning-1" class="nav-link" data-scroll-target="#machine-learning-1">Machine Learning</a></li>
+  <li><a href="#machine-learning-2" id="toc-machine-learning-2" class="nav-link" data-scroll-target="#machine-learning-2">Machine Learning</a></li>
+  <li><a href="#machine-learning-3" id="toc-machine-learning-3" class="nav-link" data-scroll-target="#machine-learning-3">Machine Learning</a></li>
+  <li><a href="#terminology" id="toc-terminology" class="nav-link" data-scroll-target="#terminology">Terminology</a></li>
+  <li><a href="#terminology-1" id="toc-terminology-1" class="nav-link" data-scroll-target="#terminology-1">Terminology</a></li>
+  <li><a href="#categorical" id="toc-categorical" class="nav-link" data-scroll-target="#categorical">Categorical</a></li>
+  <li><a href="#continuous" id="toc-continuous" class="nav-link" data-scroll-target="#continuous">Continuous</a></li>
+  <li><a href="#notation" id="toc-notation" class="nav-link" data-scroll-target="#notation">Notation</a></li>
+  <li><a href="#notation-1" id="toc-notation-1" class="nav-link" data-scroll-target="#notation-1">Notation</a></li>
+  <li><a href="#notation-2" id="toc-notation-2" class="nav-link" data-scroll-target="#notation-2">Notation</a></li>
+  <li><a href="#the-machine-learning-challenge" id="toc-the-machine-learning-challenge" class="nav-link" data-scroll-target="#the-machine-learning-challenge">The machine learning challenge</a></li>
+  <li><a href="#the-machine-learning-challenge-1" id="toc-the-machine-learning-challenge-1" class="nav-link" data-scroll-target="#the-machine-learning-challenge-1">The machine learning challenge</a></li>
+  <li><a href="#the-machine-learning-challenge-2" id="toc-the-machine-learning-challenge-2" class="nav-link" data-scroll-target="#the-machine-learning-challenge-2">The machine learning challenge</a></li>
+  <li><a href="#the-machine-learning-challenge-3" id="toc-the-machine-learning-challenge-3" class="nav-link" data-scroll-target="#the-machine-learning-challenge-3">The machine learning challenge</a></li>
+  <li><a href="#the-machine-learning-challenge-4" id="toc-the-machine-learning-challenge-4" class="nav-link" data-scroll-target="#the-machine-learning-challenge-4">The machine learning challenge</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/datasciencelabs/2024/blob/main/slides/highdim/34-distance.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="34-distance.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/datasciencelabs/2024/blob/main/slides/ml/36-intro-ml.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="36-intro-ml.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Distance</h1>
+<h1 class="title">Introduction</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Rafael A. Irizarry </p>
+          </div>
+  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
@@ -259,262 +230,225 @@ window.Quarto = {
 <div>
   <div class="keywords">
     <div class="block-title">Keywords</div>
-    <p>High dimensional data</p>
+    <p>Machine Learning</p>
   </div>
 </div>
 
 </header>
 
 
-<section id="distance" class="level2">
-<h2 class="anchored" data-anchor-id="distance">Distance</h2>
+<section id="machine-learning" class="level2">
+<h2 class="anchored" data-anchor-id="machine-learning">Machine Learning</h2>
 <ul>
-<li><p>Many of the analyses we perform with high-dimensional data relate directly or indirectly to distance.</p></li>
-<li><p>Many machine learning techniques rely on defining distances between observations.</p></li>
-<li><p>Clustering algorithms search of observations that are <em>similar</em>.</p></li>
-<li><p>But what does this mean mathematically?</p></li>
+<li><p>Machine learning has achieved remarkable successes in a variety of applications.</p></li>
+<li><p>These range from the postal service’s use of machine learning for reading handwritten zip codes to the development of voice recognition systems.</p></li>
 </ul>
 </section>
-<section id="the-norm" class="level2">
-<h2 class="anchored" data-anchor-id="the-norm">The norm</h2>
+<section id="machine-learning-1" class="level2">
+<h2 class="anchored" data-anchor-id="machine-learning-1">Machine Learning</h2>
 <ul>
-<li>A point can be represented in polar coordinates:</li>
+<li><p>Other significant advances include movie recommendation systems, spam and malware detection, housing price prediction algorithms, and the ongoing development of autonomous vehicles.</p></li>
+<li><p>The field of <em>Artificial Intelligence (AI)</em> has been evolving for several decades.</p></li>
 </ul>
-<div class="cell" data-layout-align="center">
+</section>
+<section id="machine-learning-2" class="level2">
+<h2 class="anchored" data-anchor-id="machine-learning-2">Machine Learning</h2>
+<ul>
+<li><p>Traditional AI systems, including some chess-playing machines, often relied on decision-making based on preset rules and knowledge representation.</p></li>
+<li><p>However, with the advent of data availability, machine learning has gained prominence.</p></li>
+<li><p>It focuses on decision-making through algorithms trained with data.</p></li>
+<li><p>In recent years, the terms AI and Machine Learning have been used interchangeably in many contexts, though they have distinct meanings.</p></li>
+</ul>
+</section>
+<section id="machine-learning-3" class="level2">
+<h2 class="anchored" data-anchor-id="machine-learning-3">Machine Learning</h2>
+<ul>
+<li><p>Machine learning has achieved remarkable successes, ranging from the postal service’s handwritten zip code readers to voice recognition systems like Apple’s Siri.</p></li>
+<li><p>These advances also include movie recommendation systems, spam and malware detection, housing price prediction algorithms, and the development of driverless cars.</p></li>
+</ul>
+</section>
+<section id="terminology" class="level2">
+<h2 class="anchored" data-anchor-id="terminology">Terminology</h2>
+<ul>
+<li><p><em>Outcome</em> - what we want to predict</p></li>
+<li><p><em>Features</em> - what we use to predict the outcome.</p></li>
+<li><p>Algorithms that take feature values as input and returns a prediction for the outcome.</p></li>
+<li><p>We <em>train</em> an algorithm using a dataset for which we do know the outcome, and then apply algorithm when we don’t know the outcome.</p></li>
+</ul>
+</section>
+<section id="terminology-1" class="level2">
+<h2 class="anchored" data-anchor-id="terminology-1">Terminology</h2>
+<ul>
+<li>Prediction problems can be divided into <em>categorical</em> and <em>continuous</em> outcomes.</li>
+</ul>
+</section>
+<section id="categorical" class="level2">
+<h2 class="anchored" data-anchor-id="categorical">Categorical</h2>
+<ul>
+<li><p>The number of classes can vary greatly across applications.</p></li>
+<li><p>We denote the <span class="math inline">\(K\)</span> categories with indexes <span class="math inline">\(k=1,\dots,K\)</span>.</p></li>
+<li><p>However, for binary data we will use <span class="math inline">\(k=0,1\)</span> for mathematical conveniences that we demonstrate later.</p></li>
+</ul>
+</section>
+<section id="continuous" class="level2">
+<h2 class="anchored" data-anchor-id="continuous">Continuous</h2>
+<p>Examples of outcomes include:</p>
+<ul>
+<li>stock prices</li>
+<li>realestate prices</li>
+<li>temperature next week</li>
+<li>student perforamnce</li>
+</ul>
+</section>
+<section id="notation" class="level2">
+<h2 class="anchored" data-anchor-id="notation">Notation</h2>
+<ul>
+<li><p>We use <span class="math inline">\(y_i\)</span> to denote the i-th outcome</p></li>
+<li><p><span class="math inline">\(x_{i,1}, \dots, x_{i,p}\)</span> the corresponding features.</p></li>
+<li><p>Also referred to as predictors or covariates.</p></li>
+<li><p>We use matrix notation <span class="math inline">\(\mathbf{x}_i = (x_{i,1}, \dots, x_{i,p})^\top\)</span> to denote the vector of predictors.</p></li>
+</ul>
+</section>
+<section id="notation-1" class="level2">
+<h2 class="anchored" data-anchor-id="notation-1">Notation</h2>
+<ul>
+<li>Because, we often use statistical models to motivate algorithms we also use capital letters:</li>
+</ul>
+<p><span class="math display">\[
+Y \mbox{ and } \mathbf{X} = (X_{1}, \dots, X_{p})
+\]</span></p>
+<ul>
+<li><p>Note we drop the index <span class="math inline">\(i\)</span> because it represents the random variable that generates observations.</p></li>
+<li><p>We use lower case, for example <span class="math inline">\(\mathbf{X} = \mathbf{x}\)</span>, to denote observed values.</p></li>
+</ul>
+</section>
+<section id="notation-2" class="level2">
+<h2 class="anchored" data-anchor-id="notation-2">Notation</h2>
+<ul>
+<li>The machine learning task is to build an algorithm that returns a prediction for any of the possible values of the features:</li>
+</ul>
+<p><span class="math display">\[
+\hat{y} = f(x_1,x_2,\dots,x_p)
+\]</span></p>
+<ul>
+<li>We will learn several approaches to building these algorithms.</li>
+</ul>
+</section>
+<section id="the-machine-learning-challenge" class="level2">
+<h2 class="anchored" data-anchor-id="the-machine-learning-challenge">The machine learning challenge</h2>
+<ul>
+<li><p>The general setup is as follows.</p></li>
+<li><p>We have a series of features and an unknown outcome we want to predict:</p></li>
+</ul>
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="34-distance_files/figure-html/polar-coords-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
-</figure>
-</div>
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">outcome</th>
+<th style="text-align: left;">feature 1</th>
+<th style="text-align: left;">feature 2</th>
+<th style="text-align: left;">feature 3</th>
+<th style="text-align: left;"><span class="math inline">\(\dots\)</span></th>
+<th style="text-align: left;">feature p</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">?</td>
+<td style="text-align: left;"><span class="math inline">\(X_1\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(X_2\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(X_3\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\dots\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(X_p\)</span></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </section>
-<section id="the-norm-1" class="level2">
-<h2 class="anchored" data-anchor-id="the-norm-1">The norm</h2>
+<section id="the-machine-learning-challenge-1" class="level2">
+<h2 class="anchored" data-anchor-id="the-machine-learning-challenge-1">The machine learning challenge</h2>
 <ul>
-<li>If <span class="math inline">\(\mathbf{x} = (x_1, x_2)^\top\)</span>, <span class="math inline">\(r\)</span> defines the norm of <span class="math inline">\(\mathbf{x}\)</span>.</li>
+<li>To <em>build a model</em> that provides a prediction for any set of observed values <span class="math inline">\(X_1=x_1, X_2=x_2, \dots X_p=x_p\)</span>, we collect data for which we know the outcome:</li>
 </ul>
-<div class="cell" data-layout-align="center">
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="34-distance_files/figure-html/polar-coords-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
-</figure>
-</div>
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">outcome</th>
+<th style="text-align: left;">feature 1</th>
+<th style="text-align: left;">feature 2</th>
+<th style="text-align: left;">feature 3</th>
+<th style="text-align: left;"><span class="math inline">\(\dots\)</span></th>
+<th style="text-align: left;">feature 5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(y_{1}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(x_{1,1}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(x_{1,2}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(x_{1,3}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\dots\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(x_{1,p}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(y_{2}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(x_{2,1}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(x_{2,2}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(x_{2,3}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\dots\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(x_{2,p}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\vdots\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\vdots\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\vdots\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\vdots\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\ddots\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\vdots\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(y_n\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(x_{n,1}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(x_{n,2}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(x_{n,3}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\dots\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(x_{n,p}\)</span></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </section>
-<section id="the-norm-2" class="level2">
-<h2 class="anchored" data-anchor-id="the-norm-2">The norm</h2>
+<section id="the-machine-learning-challenge-2" class="level2">
+<h2 class="anchored" data-anchor-id="the-machine-learning-challenge-2">The machine learning challenge</h2>
 <ul>
-<li><p>The point of defining the norm is to extrapolate the concept of <em>size</em> to higher dimensions.</p></li>
-<li><p>Specifically, we write the norm for any vector <span class="math inline">\(\mathbf{x}\)</span> as:</p></li>
+<li><p>When the output is continuous, we refer to the ML task as <em>prediction</em>.</p></li>
+<li><p>We use the term <em>actual outcome</em> <span class="math inline">\(y\)</span> to denote what we end up observing.</p></li>
+<li><p>We want the prediction <span class="math inline">\(\hat{y}\)</span> to match the actual outcome <span class="math inline">\(y\)</span> as best as possible.</p></li>
+<li><p>We define <em>error</em> as the difference between the prediction and the actual outcome <span class="math inline">\(y - \hat{y}\)</span>.</p></li>
+</ul>
+</section>
+<section id="the-machine-learning-challenge-3" class="level2">
+<h2 class="anchored" data-anchor-id="the-machine-learning-challenge-3">The machine learning challenge</h2>
+<ul>
+<li><p>When the outcome is categorical, we refer to the machine learning task as <em>classification</em></p></li>
+<li><p>The main output of the model will be a <em>decision rule</em> which prescribes which of the <span class="math inline">\(K\)</span> classes we should predict.</p></li>
+</ul>
+</section>
+<section id="the-machine-learning-challenge-4" class="level2">
+<h2 class="anchored" data-anchor-id="the-machine-learning-challenge-4">The machine learning challenge</h2>
+<ul>
+<li>Most models provide functions for each class <span class="math inline">\(k\)</span>, <span class="math inline">\(f_k(x_1, x_2, \dots, x_p)\)</span>, that are used to make this decision such as</li>
 </ul>
 <p><span class="math display">\[
-||\mathbf{x}|| = \sqrt{x_1^2 + x_2^2 + \dots + x_p^2}
+\mbox{When } f_k(x_1, x_2, \dots, x_p) &gt; C, \mbox{ predict category } k
 \]</span></p>
 <ul>
-<li>Sometimes convenient to write like this:</li>
-</ul>
-<p><span class="math display">\[
-||\mathbf{x}||^2 = x_1^2 + x_2^2 + \dots + x_p^2
-\]</span></p>
-</section>
-<section id="the-norm-3" class="level2">
-<h2 class="anchored" data-anchor-id="the-norm-3">The norm</h2>
-<ul>
-<li>We define the norm like this:</li>
-</ul>
-<p><span class="math display">\[
-||\mathbf{x}||^2 = \mathbf{x}^\top\mathbf{x}
-\]</span></p>
-</section>
-<section id="distance-1" class="level2">
-<h2 class="anchored" data-anchor-id="distance-1">Distance</h2>
-<ul>
-<li>Distance is the norm of the difference:</li>
-</ul>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="34-distance_files/figure-html/euclidean-dist-diagram-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="distance-2" class="level2">
-<h2 class="anchored" data-anchor-id="distance-2">Distance</h2>
-<p>-We can see this using the definition we know:</p>
-<p><span class="math display">\[
-\mbox{distance} = \sqrt{(x_{11} - x_{12})^2 + (x_{21} - x_{22})^2}
-\]</span></p>
-</section>
-<section id="distance-3" class="level2">
-<h2 class="anchored" data-anchor-id="distance-3">Distance</h2>
-<ul>
-<li>Using the norm definition can be extrapolated to any dimension:</li>
-</ul>
-<p><span class="math display">\[
-\mbox{distance} = || \mathbf{x}_1 - \mathbf{x}_2||
-\]</span></p>
-</section>
-<section id="distance-4" class="level2">
-<h2 class="anchored" data-anchor-id="distance-4">Distance</h2>
-<ul>
-<li>For example, the distance between the first and second observation will compute distance using all 784 features:</li>
-</ul>
-<p><span class="math display">\[
-|| \mathbf{x}_1 - \mathbf{x}_2 ||^2 = \sum_{j=1}^{784} (x_{1,j}-x_{2,j })^2
-\]</span></p>
-</section>
-<section id="distance-5" class="level2">
-<h2 class="anchored" data-anchor-id="distance-5">Distance</h2>
-<ul>
-<li>Define the features and labels:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>mnist <span class="ot">&lt;-</span> <span class="fu">read_mnist</span>()</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> mnist<span class="sc">$</span>train<span class="sc">$</span>images  </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> mnist<span class="sc">$</span>train<span class="sc">$</span>labels </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x_1 <span class="ot">&lt;-</span> x[<span class="dv">6</span>,] </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x_2 <span class="ot">&lt;-</span> x[<span class="dv">17</span>,] </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>x_3 <span class="ot">&lt;-</span> x[<span class="dv">16</span>,] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>Compute the distances:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="fu">sum</span>((x_1 <span class="sc">-</span> x_2)<span class="sc">^</span><span class="dv">2</span>), <span class="fu">sum</span>((x_1 <span class="sc">-</span> x_3)<span class="sc">^</span><span class="dv">2</span>), <span class="fu">sum</span>((x_2 <span class="sc">-</span> x_3)<span class="sc">^</span><span class="dv">2</span>)) <span class="sc">|&gt;</span> <span class="fu">sqrt</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2319.867 2331.210 2518.969</code></pre>
-</div>
-</div>
-<ul>
-<li>Checks out:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>y[<span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">17</span>,<span class="dv">16</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2 2 7</code></pre>
-</div>
-</div>
-</section>
-<section id="distance-6" class="level2">
-<h2 class="anchored" data-anchor-id="distance-6">Distance</h2>
-<ul>
-<li><p>In R, the function <code>crossprod(x)</code> is convenient for computing norms.</p></li>
-<li><p>It multiplies <code>t(x)</code> by <code>x</code>:</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="fu">crossprod</span>(x_1 <span class="sc">-</span> x_2), <span class="fu">crossprod</span>(x_1 <span class="sc">-</span> x_3), <span class="fu">crossprod</span>(x_2 <span class="sc">-</span> x_3)) <span class="sc">|&gt;</span> <span class="fu">sqrt</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2319.867 2331.210 2518.969</code></pre>
-</div>
-</div>
-</section>
-<section id="distance-7" class="level2">
-<h2 class="anchored" data-anchor-id="distance-7">Distance</h2>
-<ul>
-<li>We can also compute <strong>all</strong> the distances at once:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">dist</span>(x[<span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">17</span>,<span class="dv">16</span>),]) </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>         1        2
-2 2319.867         
-3 2331.210 2518.969</code></pre>
-</div>
-</div>
-<ul>
-<li><code>dist</code> produces an object of class <code>dist</code></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(d) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "dist"</code></pre>
-</div>
-</div>
-<ul>
-<li>There are several machine learning related functions in R that take objects of class <code>dist</code> as input.</li>
-</ul>
-</section>
-<section id="distance-8" class="level2">
-<h2 class="anchored" data-anchor-id="distance-8">Distance</h2>
-<ul>
-<li><p><code>dist</code> objects are similar but not equal to a matrices.</p></li>
-<li><p>To access the entries using row and column indices, we need to coerce it into a matrix.</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.matrix</span>(d)[<span class="dv">2</span>,<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2518.969</code></pre>
-</div>
-</div>
-</section>
-<section id="distance-9" class="level2">
-<h2 class="anchored" data-anchor-id="distance-9">Distance</h2>
-<ul>
-<li>The <code>image</code> function allows us to quickly see an image of distances between observations.</li>
-</ul>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">dist</span>(x[<span class="dv">1</span><span class="sc">:</span><span class="dv">300</span>,]) </span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">image</span>(<span class="fu">as.matrix</span>(d)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="34-distance_files/figure-html/distance-image-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="distance-10" class="level2">
-<h2 class="anchored" data-anchor-id="distance-10">Distance</h2>
-<ul>
-<li>If we order distance by the labels:</li>
-</ul>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">image</span>(<span class="fu">as.matrix</span>(d)[<span class="fu">order</span>(y[<span class="dv">1</span><span class="sc">:</span><span class="dv">300</span>]), <span class="fu">order</span>(y[<span class="dv">1</span><span class="sc">:</span><span class="dv">300</span>])]) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="34-distance_files/figure-html/diatance-image-ordered-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="spaces" class="level2">
-<h2 class="anchored" data-anchor-id="spaces">Spaces</h2>
-<ul>
-<li><p><em>Predictor space</em> is a concept that is often used to describe machine learning algorithms.</p></li>
-<li><p>We can think of all predictors <span class="math inline">\((x_{i,1}, \dots, x_{i,p})^\top\)</span> for all observations <span class="math inline">\(i=1,\dots,n\)</span> as <span class="math inline">\(n\)</span> <span class="math inline">\(p\)</span>-dimensional points.</p></li>
-<li><p>The <em>space</em> is the collection of all possible points that should be considered for the data analysis in question, including points we have not observed yet.</p></li>
-<li><p>In the case of the handwritten digits, we can think of the predictor space as any point <span class="math inline">\((x_{1}, \dots, x_{p})^\top\)</span> as long as each entry <span class="math inline">\(x_i, \, i = 1, \dots, p\)</span> is between 0 and 255.</p></li>
-</ul>
-</section>
-<section id="spaces-1" class="level2">
-<h2 class="anchored" data-anchor-id="spaces-1">Spaces</h2>
-<ul>
-<li><p>Some Machine Learning algorithms also define subspaces.</p></li>
-<li><p>A commonly defined subspace in machine learning are <em>neighborhoods</em> composed of points that are close to a predetermined <em>center</em>.</p></li>
-<li><p>We do this by selecting a center <span class="math inline">\(\mathbf{x}_0\)</span>, a minimum distance <span class="math inline">\(r\)</span>, and defining the subspace as the collection of points <span class="math inline">\(\mathbf{x}\)</span> that satisfy:</p></li>
-</ul>
-<p><span class="math display">\[
-|| \mathbf{x} - \mathbf{x}_0 || \leq r.
-\]</span></p>
-</section>
-<section id="spaces-2" class="level2">
-<h2 class="anchored" data-anchor-id="spaces-2">Spaces</h2>
-<ul>
-<li><p>We can think of this subspace as a multidimensional sphere since every point is the same distance away from the center.</p></li>
-<li><p>Other machine learning algorithms partition the predictor space into non-overlapping regions and then make different predictions for each region using the data in the region.</p></li>
+<li>Here predictions will be either right or wrong.</li>
 </ul>
 
 
@@ -946,4 +880,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/datasciencelabs/2024/blob/main/slides/highdim/34-distance.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/datasciencelabs/2024/blob/main/slides/ml/36-intro-ml.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>

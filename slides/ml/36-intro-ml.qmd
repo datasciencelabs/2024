@@ -1,0 +1,193 @@
+---
+title: "Introduction"
+author: "Rafael A. Irizarry"
+keywords: "Machine Learning"
+date: "2024-12-02"
+format:
+  revealjs:
+    theme: night
+execute:
+  echo: true
+  fig-align: center
+---
+
+```{r setup, include=FALSE}
+options(digits = 3)
+```
+
+## Machine Learning
+
+- Machine learning has achieved remarkable successes in a variety of applications.
+
+- These range from the postal service's use of machine learning for reading handwritten zip codes to the development of voice recognition systems.
+
+## Machine Learning
+
+- Other significant advances include movie recommendation systems, spam and malware detection, housing price prediction algorithms, and the ongoing development of autonomous vehicles.
+
+- The field of _Artificial Intelligence (AI)_ has been evolving for several decades.
+
+
+
+## Machine Learning
+
+- Traditional AI systems, including some chess-playing machines, often relied on decision-making based on preset rules and knowledge representation.
+
+- However, with the advent of data availability, machine learning has gained prominence.
+
+- It focuses on decision-making through algorithms trained with data.
+
+- In recent years, the terms AI and Machine Learning have been used interchangeably in many contexts, though they have distinct meanings.
+
+
+## Machine Learning
+
+- Machine learning has achieved remarkable successes, ranging from the postal service's handwritten zip code readers to voice recognition systems like Apple's Siri.
+
+- These advances also include movie recommendation systems, spam and malware detection, housing price prediction algorithms, and the development of driverless cars.
+
+
+
+
+## Terminology
+
+- *Outcome* - what we want to predict 
+
+- *Features* - what we use to predict the outcome.
+
+- Algorithms that take feature values as input and returns a prediction for the outcome.
+
+- We *train* an algorithm using a dataset for which we do know the outcome, and then apply algorithm when we don't know the outcome.
+
+
+## Terminology
+
+- Prediction problems can be divided into _categorical_ and _continuous_ outcomes.
+
+## Categorical
+
+- The number of classes can vary greatly across applications.
+
+- We denote the $K$ categories with indexes $k=1,\dots,K$.
+
+- However, for binary data we will use $k=0,1$ for mathematical conveniences that we demonstrate later.
+
+## Continuous
+
+Examples of outcomes include:
+
+- stock prices
+- realestate prices
+- temperature next week
+- student perforamnce
+
+
+## Notation
+
+- We use $y_i$ to denote the i-th outcome 
+
+- $x_{i,1}, \dots, x_{i,p}$ the corresponding features.
+
+- Also referred to as predictors or covariates.
+
+- We use matrix notation $\mathbf{x}_i = (x_{i,1}, \dots, x_{i,p})^\top$ to denote the vector of predictors.
+
+
+## Notation
+
+- Because, we often use statistical models to motivate algorithms we also use capital letters:
+
+$$
+Y \mbox{ and } \mathbf{X} = (X_{1}, \dots, X_{p})
+$$
+
+
+- Note we drop the index $i$ because it represents the random variable that generates observations.
+
+
+- We use lower case, for example $\mathbf{X} = \mathbf{x}$, to denote observed values.
+
+## Notation
+
+
+- The machine learning task is to build an algorithm that returns a prediction for any of the possible values of the features:
+
+$$
+\hat{y} = f(x_1,x_2,\dots,x_p)
+$$
+
+- We will learn several approaches to building these algorithms.
+
+
+
+## The machine learning challenge
+
+- The general setup is as follows.
+
+- We have a series of features and an unknown outcome we want to predict:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+library(tidyverse) 
+library(knitr) 
+library(dslabs) 
+tmp <- tibble(outcome = "?",  
+              'feature 1' = "$X_1$", 
+              'feature 2' = "$X_2$", 
+              'feature 3' = "$X_3$", 
+              '$\\dots$' = "$\\dots$", 
+              'feature p' = "$X_p$") 
+knitr::kable(tmp, "markdown") 
+``` 
+
+
+
+## The machine learning challenge
+
+- To *build a model* that provides a prediction for any set of observed values $X_1=x_1, X_2=x_2, \dots X_p=x_p$, we collect data for which we know the outcome:
+
+
+```{r, echo=FALSE} 
+n <- 2 
+tmp <- tibble(outcome = paste0("$y_{", 1:n,"}$"),  
+              'feature 1' = paste0("$x_{",1:n,",1}$"), 
+              'feature 2' = paste0("$x_{",1:n,",2}$"), 
+              'feature 3' = paste0("$x_{",1:n,",3}$"), 
+              '$\\dots$' = paste0("$\\dots$"), 
+              'feature 5' = paste0("$x_{",1:n,",p}$")) 
+tmp_2 <- rbind(c("$\\vdots$", "$\\vdots$", "$\\vdots$", "$\\vdots$", "$\\ddots$", "$\\vdots$"), 
+               c("$y_n$", "$x_{n,1}$","$x_{n,2}$","$x_{n,3}$","$\\dots$","$x_{n,p}$")) 
+colnames(tmp_2) <- names(tmp) 
+tmp <- bind_rows(tmp, as_tibble(tmp_2)) 
+knitr::kable(tmp, "markdown") 
+``` 
+
+
+
+## The machine learning challenge
+
+- When the output is continuous, we refer to the ML task as *prediction*.
+
+- We use the term *actual outcome* $y$ to denote what we end up observing.
+
+- We want the prediction $\hat{y}$ to match the actual outcome $y$ as best as possible.
+
+- We define *error* as the difference between the prediction and the actual outcome $y - \hat{y}$.
+
+
+## The machine learning challenge
+
+
+- When the outcome is categorical, we refer to the machine learning task as *classification*
+
+- The main output of the model will be a *decision rule* which prescribes which of the $K$ classes we should predict.
+
+## The machine learning challenge
+
+- Most models provide functions for each class $k$, $f_k(x_1, x_2, \dots, x_p)$, that are used to make this decision such as 
+
+$$
+\mbox{When } f_k(x_1, x_2, \dots, x_p) > C, \mbox{ predict category } k
+$$
+
+- Here predictions will be either right or wrong.
+

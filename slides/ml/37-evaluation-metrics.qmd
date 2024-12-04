@@ -1,0 +1,597 @@
+---
+title: "Evaluation Metrics"
+keywords: "Machine Learning"
+date: "2024-12-04"
+format:
+  revealjs:
+    theme: night
+execute:
+  echo: true
+  fig-align: center
+---
+
+```{r setup, include=FALSE}
+options(digits = 3)
+```
+
+## Evaluation metrics
+
+- Here we describe ways in which machine learning algorithms are evaluated.
+
+- We need to quantify what we mean when we say an algorithm performs better.
+
+- We demonstrate with  a boring and simple example: how to predict sex using height.
+
+
+
+## Evaluation metrics
+
+
+- We introduce the **caret** package, which provides useful functions to facilitate machine learning in R.
+
+- We describe **caret** it in more detail later
+
+
+## Evaluation metrics
+
+- For our first example, we use the height data provided by the **dslabs** package.
+
+
+```{r, message=FALSE, warning=FALSE, cache=FALSE} 
+library(caret) 
+library(dslabs) 
+``` 
+
+- We start by defining the outcome and predictors.
+
+```{r} 
+y <- heights$sex 
+x <- heights$height 
+``` 
+
+
+
+
+## Training and test sets
+
+```{r} 
+set.seed(2007) 
+test_index <- createDataPartition(y, times = 1, p = 0.5, list = FALSE) 
+``` 
+
+
+- We can use the result of the `createDataPartition` function call to define the training and test sets as follows:
+
+```{r} 
+test_set <- heights[test_index, ] 
+train_set <- heights[-test_index, ] 
+``` 
+
+
+
+
+## Overall accuracy
+
+- Let's start by developing the simplest possible machine algorithm: guessing the outcome.
+
+```{r} 
+y_hat <- sample(c("Male", "Female"), length(test_index), replace = TRUE) |> 
+  factor(levels = levels(test_set$sex)) 
+``` 
+
+- The _overall accuracy_ is simply defined as the overall proportion that is predicted correctly:
+
+```{r} 
+mean(y_hat == test_set$sex) 
+``` 
+
+
+
+## Overall accuracy
+
+- Can we do better?
+
+- Exploratory data analysis suggests we can because, on average, males are slightly taller than females:
+
+```{r, warning=FALSE, message=FALSE} 
+library(tidyverse) 
+heights |> group_by(sex) |> summarize(avg = mean(height), sd = sd(height)) 
+``` 
+
+- How do we make use of this insight?
+
+
+
+## Overall accuracy
+
+- Let's try another simple approach: predict `Male` if height is within two standard deviations from the average male.
+
+```{r} 
+y_hat <- factor(ifelse(x > 62, "Male", "Female"), levels(test_set$sex)) 
+``` 
+
+- The accuracy goes up from 0.50 to about 0.80:
+
+```{r} 
+mean(y == y_hat) 
+``` 
+
+- But can we do even better?
+
+
+
+
+
+## Overall accuracy
+
+- Here we examine the accuracy of 10 different cutoffs and pick the one yielding the best result:
+
+```{r} 
+cutoff <- seq(61, 70) 
+accuracy <- sapply(cutoff, function(x){ 
+  y_hat <- factor(ifelse(train_set$height > x, "Male", "Female"), levels = levels(test_set$sex)) 
+  mean(y_hat == train_set$sex) 
+}) 
+``` 
+
+
+
+
+## Overall accuracy
+
+- We can make a plot showing the accuracy obtained on the training set for males and females:
+
+```{r accuracy-vs-cutoff, echo=FALSE} 
+data.frame(cutoff, accuracy) |>  
+  ggplot(aes(cutoff, accuracy)) +  
+  geom_point() +  
+  geom_line()  
+``` 
+
+
+## Overall accuracy
+
+- We see that the maximum value is:
+
+```{r} 
+max(accuracy) 
+``` 
+
+- which is much higher than 0.5.
+
+- The cutoff resulting in this accuracy is:
+
+```{r} 
+best_cutoff <- cutoff[which.max(accuracy)] 
+best_cutoff 
+``` 
+
+
+
+
+## Overall accuracy
+
+- We can now test this cutoff on our test set to make sure our accuracy is not overly optimistic:
+
+```{r} 
+y_hat <- ifelse(test_set$height > best_cutoff, "Male", "Female") |>  
+  factor(levels = levels(test_set$sex)) 
+y_hat <- factor(y_hat) 
+mean(y_hat == test_set$sex) 
+``` 
+
+- The estimate of accuracy is biased due to slight over-training.
+
+- But ultimately we tested on a dataset that we did not train on.
+
+
+## Problem 
+
+- The prediction rule we developed in the previous section predicts `Male` if the student is taller than `r best_cutoff` inches.
+
+
+## The confusion matrix
+
+```{r} 
+cm <- confusionMatrix(data = y_hat, reference = test_set$sex) 
+cm$table 
+``` 
+
+- If we study this table closely, it reveals a problem.
+
+
+## The confusion matrix
+
+- If we compute the accuracy separately we get:
+
+```{r} 
+cm$byClass[c("Sensitivity", "Specificity")] 
+``` 
+
+
+
+
+## The confusion matrix
+
+- This is because the _prevalence_ of males is high.
+
+- These heights were collected from three data sciences courses, two of which had higher male enrollment:
+
+```{r} 
+cm$byClass["Prevalence"] 
+``` 
+
+- So when computing overall accuracy, the high percentage of mistakes made for females is outweighed by the gains in correct calls for men.
+
+- This type of bias can actually be a big problem in practice.
+
+- If your training data is biased in some way, you are likely to develop algorithms that are biased as well.
+
+
+
+## The confusion matrix
+
+- The fact that we used a test set does not matter because it is also derived from the original biased dataset.
+
+- This is one of the reasons we look at metrics other than overall accuracy when evaluating a machine learning algorithm.
+
+
+- A general improvement to using overall accuracy is to study _sensitivity_ and _specificity_ separately.
+
+
+
+
+
+## Sensitivity and specificity
+
+- Need binary outcome.
+
+-  _Sensitivity_ is defined as the ability of an algorithm to predict a positive outcome when the actual outcome is positive: $\hat{y}=1$ when $y=1$.
+
+- Because an algorithm that calls everything positive has perfect sensitivity, this metric on its own is not enough to judge an algorithm.
+
+- _Specificity_, is the ability of an algorithm to not predict a positive $\hat{y}=0$ when the actual outcome is not a positive $y=0$.
+
+
+
+
+## Sensitivity and specificity
+
+- We can summarize in the following way:
+
+- High sensitivity: $y=1 \implies \hat{y}=1$.
+
+- High specificity: $y=0 \implies \hat{y} = 0$.
+
+- Although the above is often considered the definition of specificity, another way to think of specificity is by the proportion of positive calls that are actually positive:
+
+- High specificity:  $\hat{y}=1 \implies y=1$.
+
+
+
+
+## Sensitivity and specificity
+
+- To provide precise definitions, we name the four entries of the confusion matrix:
+
+```{r, echo=FALSE} 
+library(knitr)
+library(kableExtra)
+mat <- matrix(c("True positives (TP)", "False negatives (FN)",  
+                "False positives (FP)", "True negatives (TN)"), 2, 2) 
+colnames(mat) <- c("Actually Positive", "Actually Negative") 
+rownames(mat) <- c("Predicted positive", "Predicted negative") 
+tmp <- as.data.frame(mat) 
+kable(tmp, "html") |> 
+  kable_styling(bootstrap_options = "striped", full_width = FALSE) 
+``` 
+
+
+
+## Sensitivity and specificity
+
+- Sensitivity is typically quantified by $TP/(TP+FN)$.
+
+- This quantity is referred to as the _true positive rate_ (TPR) or _recall_.
+
+- Specificity is defined as $TN/(TN+FP)$.
+
+- This quantity is also called the true negative rate (TNR).
+
+
+
+## Sensitivity and specificity
+
+- There is another way of quantifying specificity which is $TP/(TP+FP)$
+
+- This quantity is referred to as _positive predictive value (PPV)_ and also as _precision_.
+
+- Note that, unlike TPR and TNR, precision depends on prevalence since higher prevalence implies you can get higher precision even when guessing.
+
+- The multiple names can be confusing, so we include a table to help us remember the terms.
+
+
+
+## Sensitivity and specificity
+
+
+
+<font size = "5">
+
+| Measure of | Name_1 | Name_2 | Definition | Probability representation |
+|---------|-----|----------|--------|------------------| 
+| sensitivity | TPR | Recall | $\frac{\mbox{TP}}{\mbox{TP} + \mbox{FN}}$ | $\mbox{Pr}(\hat{Y}=1 \mid Y=1)$ |.
+| specificity | TNR | 1-FPR | $\frac{\mbox{TN}}{\mbox{TN}+\mbox{FP}}$ | $\mbox{Pr}(\hat{Y}=0 \mid Y=0)$ |
+| specificity |  PPV | Precision | $\frac{\mbox{TP}}{\mbox{TP}+\mbox{FP}}$ | $\mbox{Pr}(Y=1 \mid \hat{Y}=1)$|.
+
+</font>
+
+## Sensitivity and specificity
+
+- The __caret__ function `confusionMatrix` computes all these metrics:
+
+```{r} 
+cm$overall["Accuracy"] 
+cm$byClass[c("Sensitivity","Specificity", "Prevalence")] 
+``` 
+
+
+
+
+## Sensitivity and specificity
+
+- Because prevalence is low, failing to predict actual females as females (low sensitivity) does not lower the overall accuracy as much as failing to predict actual males as males (low specificity).
+
+- This is an example of why it is important to examine sensitivity and specificity and not just accuracy.
+
+- Before applying this algorithm to general datasets, we need to ask ourselves if prevalence will be the same.
+
+
+
+## Balanced accuracy and $F_1$ score
+
+
+$$
+\frac{1}{\frac{1}{2}\left(\frac{1}{\mbox{recall}} +  
+    \frac{1}{\mbox{precision}}\right) } 
+$$
+
+## Balanced accuracy and $F_1$ score
+
+- Because it is easier to write, you often see this harmonic average rewritten as:
+
+
+$$
+2 \times \frac{\mbox{precision} \cdot \mbox{recall}} 
+{\mbox{precision} + \mbox{recall}} 
+$$
+
+
+
+## Balanced accuracy and $F_1$ score
+
+- The $F_1$-score can be adapted to weigh specificity and sensitivity differently.
+
+
+$$
+\frac{1}{\frac{\beta^2}{1+\beta^2}\frac{1}{\mbox{recall}} +  
+    \frac{1}{1+\beta^2}\frac{1}{\mbox{precision}} } 
+$$
+
+
+
+## Balanced accuracy and $F_1$ score
+
+- The `F_meas` function in the __caret__ package computes this summary with `beta` defaulting to 1.
+
+- Let's rebuild our prediction algorithm, but this time maximizing the F-score instead of overall accuracy:
+
+```{r} 
+cutoff <- seq(61, 70) 
+F_1 <- sapply(cutoff, function(x){ 
+  y_hat <- factor(ifelse(train_set$height > x, "Male", "Female"), levels(test_set$sex)) 
+  F_meas(data = y_hat, reference = factor(train_set$sex)) 
+}) 
+``` 
+
+
+
+
+## Balanced accuracy and $F_1$ score
+
+- As before, we can plot these $F_1$ measures versus the cutoffs:
+
+```{r f_1-vs-cutoff, echo=FALSE} 
+data.frame(cutoff, F_1) |>  
+  ggplot(aes(cutoff, F_1)) +  
+  geom_point() +  
+  geom_line()  
+``` 
+
+
+## Balanced accuracy and $F_1$ score
+
+- We see that it is maximized at $F_1$ value of:
+
+```{r} 
+max(F_1) 
+``` 
+
+- This maximum is achieved when we use the following cutoff:
+
+```{r} 
+best_cutoff <- cutoff[which.max(F_1)] 
+best_cutoff 
+``` 
+
+- A cutoff of `r best_cutoff` makes more sense than 64.
+
+## Balanced accuracy and $F_1$ score
+
+- Furthermore, it balances the specificity and sensitivity of our confusion matrix:
+
+
+
+```{r} 
+y_hat <- ifelse(test_set$height > best_cutoff, "Male", "Female") |>  
+  factor(levels = levels(test_set$sex)) 
+sensitivity(data = y_hat, reference = test_set$sex) 
+specificity(data = y_hat, reference = test_set$sex) 
+``` 
+
+- We now see that we do much better than guessing, that both sensitivity and specificity are relatively high.
+
+
+
+## ROC and precision-recall curves
+
+```{r roc-3, echo=FALSE, fig.width=6, fig.height=3} 
+library(ggrepel) 
+probs <- seq(0, 1, length.out = 10) 
+cutoffs <- c(50, seq(60, 75), 80) 
+tmp_1 <- map_df(cutoffs, function(x){ 
+  y_hat <- ifelse(test_set$height > x, "Male", "Female") |>  
+    factor(levels = c("Female", "Male")) 
+   list(method = "Height cutoff", 
+        cutoff = x,  
+        FPR = 1 - specificity(y_hat, test_set$sex), 
+        TPR = sensitivity(y_hat, test_set$sex)) 
+})  
+tmp_2 <- map_df(probs, function(p){ 
+  y_hat <-  
+    sample(c("Male", "Female"), nrow(test_set), replace = TRUE, prob = c(p, 1 - p)) |>  
+    factor(levels = c("Female", "Male")) 
+  list(method = "Guessing", 
+       cutoff = round(p,1), 
+       FPR = 1 - specificity(y_hat, test_set$sex), 
+       TPR = sensitivity(y_hat, test_set$sex)) 
+}) 
+bind_rows(tmp_1, tmp_2) |> 
+  ggplot(aes(FPR, TPR, label = cutoff, color = method)) + 
+  geom_line() + 
+  geom_point() + 
+  geom_text_repel(nudge_x = 0.01, nudge_y = -0.01, show.legend = FALSE) 
+``` 
+
+
+## ROC and precision-recall curves
+
+
+- The packages __pROC__ and __plotROC__ are useful for generating these plots.
+
+
+
+
+
+## ROC and precision-recall curves
+
+```{r precision-recall-1, warning=FALSE, message=FALSE, echo=FALSE} 
+guessing <- map_df(probs[-1], function(p){ 
+  y_hat <- sample(c("Male", "Female"), length(test_index),  
+                  replace = TRUE, prob = c(p, 1 - p)) |>  
+    factor(levels = c("Female", "Male")) 
+  list(method = "Guess", 
+    recall = sensitivity(y_hat, test_set$sex), 
+    precision = precision(y_hat, test_set$sex)) 
+}) 
+height_cutoff <- map_df(cutoffs[-1], function(x){ 
+  y_hat <- ifelse(test_set$height > x, "Male", "Female") |>  
+    factor(levels = c("Female", "Male")) 
+  list(method = "Height cutoff", 
+       recall = sensitivity(y_hat, test_set$sex), 
+    precision = precision(y_hat, test_set$sex)) 
+}) 
+tmp_1 <- bind_rows(guessing, height_cutoff) |> mutate(Positive = "Y = 1 if Female")  
+guessing <- map_df(rev(probs)[-1], function(p){ 
+  y_hat <- sample(c("Male", "Female"), length(test_index), replace = TRUE,  
+                  prob = c(p, 1 - p)) |>  
+    factor(levels = c("Male", "Female")) 
+  list(method = "Guess", 
+    recall = sensitivity(y_hat, relevel(test_set$sex, "Male", "Female")), 
+    precision = precision(y_hat, relevel(test_set$sex, "Male", "Female"))) 
+}) 
+height_cutoff <- map_df(rev(cutoffs)[-1], function(x){ 
+  y_hat <- ifelse(test_set$height > x, "Male", "Female") |>  
+    factor(levels = c("Male", "Female")) 
+  list(method = "Height cutoff", 
+       recall = sensitivity(y_hat, relevel(test_set$sex, "Male", "Female")), 
+    precision = precision(y_hat, relevel(test_set$sex, "Male", "Female"))) 
+}) 
+tmp_2 <- bind_rows(guessing, height_cutoff) |> mutate(Positive = "Y = 1 if Male")  
+bind_rows(tmp_1, tmp_2) |> 
+  ggplot(aes(recall, precision, color = method)) + 
+  geom_line() + 
+  geom_point() + 
+  facet_wrap(~ Positive) 
+``` 
+
+
+
+## Mean Squared Error
+
+- Up to now we have described evaluation metrics that apply exclusively to categorical data.
+
+- Specifically, for binary outcomes, we have described how sensitivity, specificity, accuracy, and $F_1$ can be used as quantification.
+
+- However, these metrics are not useful for continuous outcomes.
+
+- In this section, we describe how the general approach to defining "best" in machine learning is to define a _loss function_, which can be applied to both categorical and continuous data.
+
+
+
+## Mean Squared Error
+
+- Most commont metric to minimize is mean squared error (MSE):
+
+
+$$
+\text{MSE} \equiv \mbox{E}\{(\hat{Y} - Y)^2 \} 
+$$
+
+
+- How do we estimate this?
+
+
+
+## Mean Squared Error
+
+- Because in practice we have tests set with many, say $N$, independent observations, a commonly used observable estimate of the MSE is:
+
+
+$$
+\hat{\mbox{MSE}} = \frac{1}{N}\sum_{i=1}^N (\hat{y}_i - y_i)^2 
+$$
+
+- with the $\hat{y}_i$ generated completely independently from the the $y_i$.
+
+
+--- 
+
+:::{.callout-note} 
+
+In practice, we often report the root mean squared error (RMSE), which is simply $\sqrt{\mbox{MSE}}$, because it is in the same units as the outcomes.
+
+::: 
+
+## Mean Squared Error
+
+- The estimate $\hat{\text{MSE}}$ is a random variable.
+
+- $\text{MSE}$ and $\hat{\text{MSE}}$ are often referred to as the true error and apparent error, respectively.
+
+- It is difficult to derive the statistical properties of how well the apparent error estimates the true error.
+
+- We later introduce cross-validation an approach to estimating the MSE.
+ 
+
+
+## Mean Squared Error
+
+- There are loss functions other than the squared loss.
+
+- For example, the _Mean Absolute Error_ uses absolute values, $|\hat{Y}_i - Y_i|$ instead of squaring the errors.
+
+- $(\hat{Y}_i - Y_i)^2$.
+
+- However, in this book we focus on minimizing square loss since it is the most widely used.
+

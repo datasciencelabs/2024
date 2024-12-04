@@ -3448,7 +3448,7 @@
     "href": "index.html#lectures",
     "title": "BST 260 Introduction to Data Science",
     "section": "Lectures",
-    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09, Sep 11\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git\n\n\nSep 16, Sep 19\nR\nR basics, Vectorization\nR Basics, Vectorization\n\n\nSep 23\nR\nTidyverse, ggplot2\ndplyr, ggplot2\n\n\nSep 25\nR\nTyding data\nReshaping Data\n\n\nSep 30, Oct 02\nWrangling\nIntro, Data Importing, Dates and Times, Locales, Data APIs, Web scraping, Joining tables\nImporting data, dates and times, Locales, Joining Tables, Extracting data from the web\n\n\nOct 07, Oct 09\nData visualization\nData Viz Principles, Distributions, Dataviz in practice\nDistributions, Dataviz Principles\n\n\nOct 16\nMidterm 1\n\nCovers material from Sep 04-Oct 11\n\n\nOct 21\nProbability\nIntro, Foundations for Inference\nMonte Carlo, Random Variables & CLT\n\n\nOct 23\nInference\nIntro, Parameter and estimates, Confidence Intervals\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\nModels, Bayes, Hierarchical Models\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\nIntro, Regression\nRegression, Multivariate Regression\n\n\nNov 13, Nov 18\nLinear models\nMultivariate regression, Treatment effect models\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 20\nHigh dimensional data\nIntro to Linear Algebra, Matrices in R\nMatrices in R, Applied Linear Algebra,\n\n\nNov 25\nMidterm 2\n\nMidterm 2: cover material from Sep 04-Nov 22\n\n\nDec 02\nHigh dimensional data\nDistance, Dimension reduction\nDimension Reduction\n\n\nDec 04\nMachine Learning\n\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nDec 09, Dec 11\nMachine Learning\n\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
+    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09, Sep 11\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git\n\n\nSep 16, Sep 19\nR\nR basics, Vectorization\nR Basics, Vectorization\n\n\nSep 23\nR\nTidyverse, ggplot2\ndplyr, ggplot2\n\n\nSep 25\nR\nTyding data\nReshaping Data\n\n\nSep 30, Oct 02\nWrangling\nIntro, Data Importing, Dates and Times, Locales, Data APIs, Web scraping, Joining tables\nImporting data, dates and times, Locales, Joining Tables, Extracting data from the web\n\n\nOct 07, Oct 09\nData visualization\nData Viz Principles, Distributions, Dataviz in practice\nDistributions, Dataviz Principles\n\n\nOct 16\nMidterm 1\n\nCovers material from Sep 04-Oct 11\n\n\nOct 21\nProbability\nIntro, Foundations for Inference\nMonte Carlo, Random Variables & CLT\n\n\nOct 23\nInference\nIntro, Parameter and estimates, Confidence Intervals\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\nModels, Bayes, Hierarchical Models\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\nIntro, Regression\nRegression, Multivariate Regression\n\n\nNov 13, Nov 18\nLinear models\nMultivariate regression, Treatment effect models\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 20\nHigh dimensional data\nIntro to Linear Algebra, Matrices in R\nMatrices in R, Applied Linear Algebra,\n\n\nNov 25\nMidterm 2\n\nMidterm 2: cover material from Sep 04-Nov 22\n\n\nDec 02\nHigh dimensional data\nDistance, Dimension reduction\nDimension Reduction\n\n\nDec 04\nMachine Learning\n\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nDec 09, Dec 11\nMachine Learning\nIntro, Metrics, Conditionals, Smoothing\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
     "crumbs": [
       "Home"
     ]
@@ -10151,8 +10151,8 @@
     "objectID": "slides/highdim/34-distance.html#distance",
     "href": "slides/highdim/34-distance.html#distance",
     "title": "Distance",
-    "section": "Distance",
-    "text": "Distance\n\nMany of the analyses we perform with high-dimensional data relate directly or indirectly to distance.\nMany machine learning techniques rely on defining distances between observations.\nClustering algorithms search of observations that are similar.\nBut what does this mean mathematically?"
+    "section": "",
+    "text": "Many of the analyses we perform with high-dimensional data relate directly or indirectly to distance.\nMany machine learning techniques rely on defining distances between observations.\nClustering algorithms search of observations that are similar.\nBut what does this mean mathematically?"
   },
   {
     "objectID": "slides/highdim/34-distance.html#the-norm",
@@ -10305,8 +10305,8 @@
     "objectID": "slides/highdim/35-dimension-reduction.html#dimension-reduction",
     "href": "slides/highdim/35-dimension-reduction.html#dimension-reduction",
     "title": "Dimension Reduction",
-    "section": "Dimension reduction",
-    "text": "Dimension reduction\n\nA typical machine learning task involves working with a large number of predictors which can make data analysis challenging.\nFor example, to compare each of the 784 features in our predicting digits example, we would have to create 306,936 scatterplots.\nCreating one single scatterplot of the data is impossible due to the high dimensionality."
+    "section": "",
+    "text": "A typical machine learning task involves working with a large number of predictors which can make data analysis challenging.\nFor example, to compare each of the 784 features in our predicting digits example, we would have to create 306,936 scatterplots.\nCreating one single scatterplot of the data is impossible due to the high dimensionality."
   },
   {
     "objectID": "slides/highdim/35-dimension-reduction.html#dimension-reduction-1",
@@ -10509,7 +10509,7 @@
     "href": "slides/highdim/35-dimension-reduction.html#linear-transformations-10",
     "title": "Dimension Reduction",
     "section": "Linear transformations",
-    "text": "Linear transformations\n\nNote that in this case\n\n\\[\n\\begin{pmatrix}\n\\cos \\theta&-\\sin \\theta\\\\\n\\sin \\theta&\\cos \\theta\n\\end{pmatrix} =\n\\mathbf{A}^\\top\n\\]\nwhich implies\n\\[\n\\mathbf{Z} \\mathbf{A}^\\top = \\mathbf{X} \\mathbf{A}\\mathbf{A}^\\top\\ = \\mathbf{X}\n\\]\nand therefore that \\(\\mathbf{A}^\\top\\) is the inverse of \\(\\mathbf{A}\\)."
+    "text": "Linear transformations\n\nNote that in this case\n\n\\[\n\\begin{pmatrix}\n\\cos \\theta&-\\sin \\theta\\\\\n\\sin \\theta&\\cos \\theta\n\\end{pmatrix} =\n\\mathbf{A}^\\top\n\\]\nwhich implies\n\\[\n\\mathbf{Z} \\mathbf{A}^\\top = \\mathbf{X} \\mathbf{A}\\mathbf{A}^\\top\\ = \\mathbf{X}\n\\]\nand therefore that \\(\\mathbf{A}^\\top\\) is the inverse of \\(\\mathbf{A}\\).\n\n\n\n\n\n\n\nNote\n\n\n\n\nRemember that we represent the rows of a matrix as column vectors.\nThis explains why we use \\(\\mathbf{A}\\) when showing the multiplication for the matrix \\(\\mathbf{Z}=\\mathbf{X}\\mathbf{A}\\), but transpose the operation when showing the transformation for just one observation: \\(\\mathbf{z}_i = \\mathbf{A}^\\top\\mathbf{x}_i\\)."
   },
   {
     "objectID": "slides/highdim/35-dimension-reduction.html#linear-transformations-11",
@@ -10971,7 +10971,7 @@
     "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-8",
     "title": "Dimension Reduction",
     "section": "Principal Component Analysis",
-    "text": "Principal Component Analysis\n\nThe two groups can be clearly observed with the one dimension:\n\n\n\nBetter than with any of the two original dimensions."
+    "text": "Principal Component Analysis\n\nThe two groups can be clearly observed with the one dimension:\n\n\n\n\n\n\n\n\n\n\n\nBetter than with any of the two original dimensions."
   },
   {
     "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-9",
@@ -11006,7 +11006,7 @@
     "href": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-13",
     "title": "Dimension Reduction",
     "section": "Principal Component Analysis",
-    "text": "Principal Component Analysis\n\nFor a multidimensional matrix with \\(p\\) columns, we can find an orthogonal transformation \\(\\mathbf{A}\\) that preserves the distance between rows, but with the variance explained by the columns in decreasing order.\nIf the variances of the columns \\(\\mathbf{Z}_j\\), \\(j&gt;k\\) are very small, these dimensions have little to contribute to the distance calculation and we can approximate the distance between any two points with just \\(k\\) dimensions.\nIf \\(k\\) is much smaller than \\(p\\), then we can achieve a very efficient summary of our data."
+    "text": "Principal Component Analysis\n\nFor a multidimensional matrix with \\(p\\) columns, we can find an orthogonal transformation \\(\\mathbf{A}\\) that preserves the distance between rows, but with the variance explained by the columns in decreasing order.\nIf the variances of the columns \\(\\mathbf{Z}_j\\), \\(j&gt;k\\) are very small, these dimensions have little to contribute to the distance calculation and we can approximate the distance between any two points with just \\(k\\) dimensions.\nIf \\(k\\) is much smaller than \\(p\\), then we can achieve a very efficient summary of our data.\n\n\n\n\n\n\n\n\nWarning\n\n\n\n\nNotice that the solution to this maximization problem is not unique because \\(||\\mathbf{X} \\mathbf{v}|| = ||-\\mathbf{X} \\mathbf{v}||\\).\nAlso, note that if we multiply a column of \\(\\mathbf{A}\\) by \\(-1\\), we still represent \\(\\mathbf{X}\\) as \\(\\mathbf{Z}\\mathbf{V}^\\top\\) as long as we also multiple the corresponding column of \\(\\mathbf{V}\\) by -1.\nThis implies that we can arbitrarily change the sign of each column of the rotation \\(\\mathbf{V}\\) and principal component matrix \\(\\mathbf{Z}\\)."
   },
   {
     "objectID": "slides/highdim/35-dimension-reduction.html#principal-component-analysis-14",
@@ -11139,7 +11139,7 @@
     "href": "slides/highdim/35-dimension-reduction.html#dimensions-approximation-1",
     "title": "Dimension Reduction",
     "section": "200 dimensions approximation",
-    "text": "200 dimensions approximation"
+    "text": "200 dimensions approximation\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ lubridate 1.9.3     ✔ tibble    3.2.1\n✔ purrr     1.0.2     ✔ tidyr     1.3.1\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::combine() masks gridExtra::combine()\n✖ dplyr::count()   masks matrixStats::count()\n✖ dplyr::filter()  masks stats::filter()\n✖ dplyr::lag()     masks stats::lag()\n✖ dplyr::select()  masks MASS::select()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors"
   },
   {
     "objectID": "slides/highdim/35-dimension-reduction.html#dimensions-approximation-2",
@@ -11147,5 +11147,1867 @@
     "title": "Dimension Reduction",
     "section": "36 dimensions approximation",
     "text": "36 dimensions approximation"
+  },
+  {
+    "objectID": "slides/ml/notation-and-terminology.html#terminology",
+    "href": "slides/ml/notation-and-terminology.html#terminology",
+    "title": "Notation And Terminology",
+    "section": "Terminology",
+    "text": "Terminology\n\nOutcome - what we want to predict\nFeatures - what we use to predict the outcome.\nAlgorithms that take feature values as input and returns a prediction for the outcome.\nWe train an algorithm using a dataset for which we do know the outcome, and then apply algorithm when we don’t know the outcome."
+  },
+  {
+    "objectID": "slides/ml/notation-and-terminology.html#terminology-1",
+    "href": "slides/ml/notation-and-terminology.html#terminology-1",
+    "title": "Notation And Terminology",
+    "section": "Terminology",
+    "text": "Terminology\n\nPrediction problems can be divided into categorical and continuous outcomes."
+  },
+  {
+    "objectID": "slides/ml/notation-and-terminology.html#categorical",
+    "href": "slides/ml/notation-and-terminology.html#categorical",
+    "title": "Notation And Terminology",
+    "section": "Categorical",
+    "text": "Categorical\n\nThe number of classes can vary greatly across applications.\nFor example, in the digit reader data, \\(K=10\\) with the classes being the digits 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9.\nIn speech recognition, the outcomes are all possible words or phrases we are trying to detect.\nSpam detection has two outcomes: spam or not spam."
+  },
+  {
+    "objectID": "slides/ml/notation-and-terminology.html#categorical-1",
+    "href": "slides/ml/notation-and-terminology.html#categorical-1",
+    "title": "Notation And Terminology",
+    "section": "Categorical",
+    "text": "Categorical\n\nWe denote the \\(K\\) categories with indexes \\(k=1,\\dots,K\\).\nHowever, for binary data we will use \\(k=0,1\\) for mathematical conveniences that we demonstrate later."
+  },
+  {
+    "objectID": "slides/ml/notation-and-terminology.html#continuous",
+    "href": "slides/ml/notation-and-terminology.html#continuous",
+    "title": "Notation And Terminology",
+    "section": "Continuous",
+    "text": "Continuous\nExamples of outcomes include:\n\nstock prices\nrealestate prices\ntemperature next week\nstudent perforamnce"
+  },
+  {
+    "objectID": "slides/ml/notation-and-terminology.html#notation",
+    "href": "slides/ml/notation-and-terminology.html#notation",
+    "title": "Notation And Terminology",
+    "section": "Notation",
+    "text": "Notation\n\nWe use \\(y_i\\) to denote the i-th outcome\n\\(x_{i,1}, \\dots, x_{i,p}\\) the corresponding features.\nFeatures are sometimes referred to as predictors or covariates.\nWe use matrix notation \\(\\mathbf{x}_i = (x_{i,1}, \\dots, x_{i,p})^\\top\\) to denote the vector of predictors."
+  },
+  {
+    "objectID": "slides/ml/notation-and-terminology.html#notation-1",
+    "href": "slides/ml/notation-and-terminology.html#notation-1",
+    "title": "Notation And Terminology",
+    "section": "Notation",
+    "text": "Notation\n\nBecause, to motivated algorithms, we often use statistical models that assume the features and predictors are random variables, we use captial letters.\nIn this case, when referring to an arbitrary set of features rather than a specific observation, we drop the index \\(i\\) and use \\(Y\\) and \\(\\mathbf{X} = (X_{1}, \\dots, X_{p})\\).\nWe use lower case, for example \\(\\mathbf{X} = \\mathbf{x}\\), to denote observed values."
+  },
+  {
+    "objectID": "slides/ml/notation-and-terminology.html#notation-2",
+    "href": "slides/ml/notation-and-terminology.html#notation-2",
+    "title": "Notation And Terminology",
+    "section": "Notation",
+    "text": "Notation\n\nThe machine learning task is to build an algorithm that returns a prediction for any of the possible values of the features:\n\n\\[\n\\hat{y} = f(x_1,x_2,\\dots,x_p)\n\\]\n\nWe will learn several approaches to building these algorithms."
+  },
+  {
+    "objectID": "slides/ml/notation-and-terminology.html#the-machine-learning-challenge",
+    "href": "slides/ml/notation-and-terminology.html#the-machine-learning-challenge",
+    "title": "Notation And Terminology",
+    "section": "The machine learning challenge",
+    "text": "The machine learning challenge\n\nThe general setup is as follows.\nWe have a series of features and an unknown outcome we want to predict:\n\n\n\n\n\n\noutcome\nfeature 1\nfeature 2\nfeature 3\n\\(\\dots\\)\nfeature p\n\n\n\n\n?\n\\(X_1\\)\n\\(X_2\\)\n\\(X_3\\)\n\\(\\dots\\)\n\\(X_p\\)"
+  },
+  {
+    "objectID": "slides/ml/notation-and-terminology.html#the-machine-learning-challenge-1",
+    "href": "slides/ml/notation-and-terminology.html#the-machine-learning-challenge-1",
+    "title": "Notation And Terminology",
+    "section": "The machine learning challenge",
+    "text": "The machine learning challenge\n\nTo build a model that provides a prediction for any set of observed values \\(X_1=x_1, X_2=x_2, \\dots X_p=x_p\\), we collect data for which we know the outcome:\n\n\n\n\n\n\noutcome\nfeature 1\nfeature 2\nfeature 3\n\\(\\dots\\)\nfeature 5\n\n\n\n\n\\(y_{1}\\)\n\\(x_{1,1}\\)\n\\(x_{1,2}\\)\n\\(x_{1,3}\\)\n\\(\\dots\\)\n\\(x_{1,p}\\)\n\n\n\\(y_{2}\\)\n\\(x_{2,1}\\)\n\\(x_{2,2}\\)\n\\(x_{2,3}\\)\n\\(\\dots\\)\n\\(x_{2,p}\\)\n\n\n\\(\\vdots\\)\n\\(\\vdots\\)\n\\(\\vdots\\)\n\\(\\vdots\\)\n\\(\\ddots\\)\n\\(\\vdots\\)\n\n\n\\(y_n\\)\n\\(x_{n,1}\\)\n\\(x_{n,2}\\)\n\\(x_{n,3}\\)\n\\(\\dots\\)\n\\(x_{n,p}\\)"
+  },
+  {
+    "objectID": "slides/ml/notation-and-terminology.html#the-machine-learning-challenge-2",
+    "href": "slides/ml/notation-and-terminology.html#the-machine-learning-challenge-2",
+    "title": "Notation And Terminology",
+    "section": "The machine learning challenge",
+    "text": "The machine learning challenge\n\nWhen the output is continuous, we refer to the ML task as prediction.\nWe use the term actual outcome \\(y\\) to denote what we end up observing.\nWe want the prediction \\(\\hat{y}\\) to match the actual outcome \\(y\\) as best as possible.\nWe define error as the difference between the prediction and the actual outcome \\(y - \\hat{y}\\)."
+  },
+  {
+    "objectID": "slides/ml/notation-and-terminology.html#the-machine-learning-challenge-3",
+    "href": "slides/ml/notation-and-terminology.html#the-machine-learning-challenge-3",
+    "title": "Notation And Terminology",
+    "section": "The machine learning challenge",
+    "text": "The machine learning challenge\n\nWhen the outcome is categorical, we refer to the machine learning task as classification\nThe main output of the model will be a decision rule which prescribes which of the \\(K\\) classes we should predict."
+  },
+  {
+    "objectID": "slides/ml/notation-and-terminology.html#the-machine-learning-challenge-4",
+    "href": "slides/ml/notation-and-terminology.html#the-machine-learning-challenge-4",
+    "title": "Notation And Terminology",
+    "section": "The machine learning challenge",
+    "text": "The machine learning challenge\n\nMost models provide functions for each class \\(k\\), \\(f_k(x_1, x_2, \\dots, x_p)\\), that are used to make this decision such as\n\n\\[\n\\mbox{When } f_1(x_1, x_2, \\dots, x_p) &gt; C, \\mbox{ predict category 1}\n\\]\n\nOur predictions will be either right or wrong."
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#evaluation-metrics",
+    "href": "slides/ml/evaluation-metrics.html#evaluation-metrics",
+    "title": "Evaluation Metrics",
+    "section": "Evaluation metrics",
+    "text": "Evaluation metrics\n\nHere we describe ways in which machine learning algorithms are evaluated.\nWe need to quantify what we mean when we say an algorithm performs better.\nWe demonstrate with a boring and simple example: how to predict sex using height."
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#evaluation-metrics-1",
+    "href": "slides/ml/evaluation-metrics.html#evaluation-metrics-1",
+    "title": "Evaluation Metrics",
+    "section": "Evaluation metrics",
+    "text": "Evaluation metrics\n\nWe introduce the caret package, which provides useful functions to facilitate machine learning in R.\nWe describe caret it in more detail later"
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#evaluation-metrics-2",
+    "href": "slides/ml/evaluation-metrics.html#evaluation-metrics-2",
+    "title": "Evaluation Metrics",
+    "section": "Evaluation metrics",
+    "text": "Evaluation metrics\n\nFor our first example, we use the height data provided by the dslabs package.\n\n\nlibrary(caret) \nlibrary(dslabs) \n\n\nWe start by defining the outcome and predictors.\n\n\ny &lt;- heights$sex \nx &lt;- heights$height"
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#evaluation-metrics-3",
+    "href": "slides/ml/evaluation-metrics.html#evaluation-metrics-3",
+    "title": "Evaluation Metrics",
+    "section": "Evaluation metrics",
+    "text": "Evaluation metrics\n\nBut can we do better than guessing?\nA machine learning algorithm is evaluated on how it performs in the real world with a new datasets.\nHowever, when developing an algorithm, we usually have a dataset for which we know the outcomes.\nTo mimic the ultimate evaluation process, we split the data into two parts and act as if we don’t know the outcome for one of these.\nWe stop pretending we don’t know the outcome to evaluate the algorithm, but only after we are done constructing it."
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#training-and-test-sets",
+    "href": "slides/ml/evaluation-metrics.html#training-and-test-sets",
+    "title": "Evaluation Metrics",
+    "section": "Training and test sets",
+    "text": "Training and test sets\n\nWe refer to the group for which we know the outcome, and that we use to develop the algorithm, as the training set.\nWe refer to the group for which we pretend we don’t know the outcome as the test set.\nA standard way of generating the training and test sets is by randomly splitting the data."
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#training-and-test-sets-1",
+    "href": "slides/ml/evaluation-metrics.html#training-and-test-sets-1",
+    "title": "Evaluation Metrics",
+    "section": "Training and test sets",
+    "text": "Training and test sets\n\nset.seed(2007) \ntest_index &lt;- createDataPartition(y, times = 1, p = 0.5, list = FALSE) \n\n\nWe can use the result of the createDataPartition function call to define the training and test sets as follows:\n\n\ntest_set &lt;- heights[test_index, ] \ntrain_set &lt;- heights[-test_index, ]"
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#training-and-test-sets-2",
+    "href": "slides/ml/evaluation-metrics.html#training-and-test-sets-2",
+    "title": "Evaluation Metrics",
+    "section": "Training and test sets",
+    "text": "Training and test sets\n\nWe will develop an algorithm using only the training set.\nOnce we are done developing the algorithm, we will freeze it and evaluate it using the test set.\nThe simplest way to evaluate the algorithm when the outcomes are categorical is by simply reporting the proportion of cases that were correctly predicted in the test set.\nThis metric is usually referred to as overall accuracy."
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#overall-accuracy",
+    "href": "slides/ml/evaluation-metrics.html#overall-accuracy",
+    "title": "Evaluation Metrics",
+    "section": "Overall accuracy",
+    "text": "Overall accuracy\n\nLet’s start by developing the simplest possible machine algorithm: guessing the outcome.\n\n\ny_hat &lt;- sample(c(\"Male\", \"Female\"), length(test_index), replace = TRUE) \n\n\nNote that we are completely ignoring the predictor and simply guessing the sex."
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#overall-accuracy-1",
+    "href": "slides/ml/evaluation-metrics.html#overall-accuracy-1",
+    "title": "Evaluation Metrics",
+    "section": "Overall accuracy",
+    "text": "Overall accuracy\n\ncaret works best wtih factors.\nSo convert y_hat to factors using the factor function:\n\n\ny_hat &lt;- sample(c(\"Male\", \"Female\"), length(test_index), replace = TRUE) |&gt; \n  factor(levels = levels(test_set$sex)) \n\n\nThe overall accuracy is simply defined as the overall proportion that is predicted correctly:\n\n\nmean(y_hat == test_set$sex) \n\n[1] 0.51"
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#overall-accuracy-2",
+    "href": "slides/ml/evaluation-metrics.html#overall-accuracy-2",
+    "title": "Evaluation Metrics",
+    "section": "Overall accuracy",
+    "text": "Overall accuracy\n\nCan we do better?\nExploratory data analysis suggests we can because, on average, males are slightly taller than females:\n\n\nlibrary(tidyverse) \nheights |&gt; group_by(sex) |&gt; summarize(avg = mean(height), sd = sd(height)) \n\n# A tibble: 2 × 3\n  sex      avg    sd\n  &lt;fct&gt;  &lt;dbl&gt; &lt;dbl&gt;\n1 Female  64.9  3.76\n2 Male    69.3  3.61\n\n\n\nHow do we make use of this insight?"
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#overall-accuracy-3",
+    "href": "slides/ml/evaluation-metrics.html#overall-accuracy-3",
+    "title": "Evaluation Metrics",
+    "section": "Overall accuracy",
+    "text": "Overall accuracy\n\nLet’s try another simple approach: predict Male if height is within two standard deviations from the average male.\n\n\ny_hat &lt;- factor(ifelse(x &gt; 62, \"Male\", \"Female\"), levels(test_set$sex)) \n\n\nThe accuracy goes up from 0.50 to about 0.80:\n\n\nmean(y == y_hat) \n\n[1] 0.793\n\n\n\nBut can we do even better?"
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#overall-accuracy-4",
+    "href": "slides/ml/evaluation-metrics.html#overall-accuracy-4",
+    "title": "Evaluation Metrics",
+    "section": "Overall accuracy",
+    "text": "Overall accuracy\n\nBut remember, it is important that we optimize the cutoff using only the training set: the test set is only for evaluation.\nAlthough for this simplistic example it is not much of a problem, later we will learn that evaluating an algorithm on the training set can lead to overfitting, which often results in dangerously over-optimistic assessments."
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#overall-accuracy-5",
+    "href": "slides/ml/evaluation-metrics.html#overall-accuracy-5",
+    "title": "Evaluation Metrics",
+    "section": "Overall accuracy",
+    "text": "Overall accuracy\n\nHere we examine the accuracy of 10 different cutoffs and pick the one yielding the best result:\n\n\ncutoff &lt;- seq(61, 70) \naccuracy &lt;- sapply(cutoff, function(x){ \n  y_hat &lt;- factor(ifelse(train_set$height &gt; x, \"Male\", \"Female\"), levels = levels(test_set$sex)) \n  mean(y_hat == train_set$sex) \n})"
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#overall-accuracy-6",
+    "href": "slides/ml/evaluation-metrics.html#overall-accuracy-6",
+    "title": "Evaluation Metrics",
+    "section": "Overall accuracy",
+    "text": "Overall accuracy\n\nWe can make a plot showing the accuracy obtained on the training set for males and females:"
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#overall-accuracy-7",
+    "href": "slides/ml/evaluation-metrics.html#overall-accuracy-7",
+    "title": "Evaluation Metrics",
+    "section": "Overall accuracy",
+    "text": "Overall accuracy\n\nWe see that the maximum value is:\n\n\nmax(accuracy) \n\n[1] 0.85\n\n\n\nwhich is much higher than 0.5.\nThe cutoff resulting in this accuracy is:\n\n\nbest_cutoff &lt;- cutoff[which.max(accuracy)] \nbest_cutoff \n\n[1] 64"
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#overall-accuracy-8",
+    "href": "slides/ml/evaluation-metrics.html#overall-accuracy-8",
+    "title": "Evaluation Metrics",
+    "section": "Overall accuracy",
+    "text": "Overall accuracy\n\nWe can now test this cutoff on our test set to make sure our accuracy is not overly optimistic:\n\n\ny_hat &lt;- ifelse(test_set$height &gt; best_cutoff, \"Male\", \"Female\") |&gt;  \n  factor(levels = levels(test_set$sex)) \ny_hat &lt;- factor(y_hat) \nmean(y_hat == test_set$sex) \n\n[1] 0.804\n\n\n\nWe see that it is a bit lower than the accuracy observed for the training set, but it is still better than guessing.\nAnd by testing on a dataset that we did not train on, we know our result is not due to cherry-picking a good result."
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#the-confusion-matrix",
+    "href": "slides/ml/evaluation-metrics.html#the-confusion-matrix",
+    "title": "Evaluation Metrics",
+    "section": "The confusion matrix",
+    "text": "The confusion matrix\n\nThe prediction rule we developed in the previous section predicts Male if the student is taller than 64 inches.\nGiven that the average female is about 64 inches, this prediction rule seems wrong.\nWhat happened?\nIf a student is the height of the average female, shouldn’t we predict Female?\nGenerally speaking, overall accuracy can be a deceptive measure."
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#the-confusion-matrix-1",
+    "href": "slides/ml/evaluation-metrics.html#the-confusion-matrix-1",
+    "title": "Evaluation Metrics",
+    "section": "The confusion matrix",
+    "text": "The confusion matrix\n\ncm &lt;- confusionMatrix(data = y_hat, reference = test_set$sex) \ncm$table \n\n          Reference\nPrediction Female Male\n    Female     48   32\n    Male       71  374\n\n\n\nIf we study this table closely, it reveals a problem."
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#the-confusion-matrix-2",
+    "href": "slides/ml/evaluation-metrics.html#the-confusion-matrix-2",
+    "title": "Evaluation Metrics",
+    "section": "The confusion matrix",
+    "text": "The confusion matrix\n\nIf we compute the accuracy separately for each sex, we get:\n\n\ncm$byClass[c(\"Sensitivity\", \"Specificity\")] \n\nSensitivity Specificity \n      0.403       0.921 \n\n\n\nWe notice an imbalance: too many females are predicted to be male.\nWe are calling almost half of the females male! How can our overall accuracy be so high then?\nThis is because the prevalence of males in this dataset is high."
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#the-confusion-matrix-3",
+    "href": "slides/ml/evaluation-metrics.html#the-confusion-matrix-3",
+    "title": "Evaluation Metrics",
+    "section": "The confusion matrix",
+    "text": "The confusion matrix\n\nThese heights were collected from three data sciences courses, two of which had higher male enrollment:\n\n\ncm$byClass[\"Prevalence\"] \n\nPrevalence \n     0.227 \n\n\n\nSo when computing overall accuracy, the high percentage of mistakes made for females is outweighed by the gains in correct calls for men.\nThis type of bias can actually be a big problem in practice.\nIf your training data is biased in some way, you are likely to develop algorithms that are biased as well."
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#the-confusion-matrix-4",
+    "href": "slides/ml/evaluation-metrics.html#the-confusion-matrix-4",
+    "title": "Evaluation Metrics",
+    "section": "The confusion matrix",
+    "text": "The confusion matrix\n\nThe fact that we used a test set does not matter because it is also derived from the original biased dataset.\nThis is one of the reasons we look at metrics other than overall accuracy when evaluating a machine learning algorithm.\nThere are several metrics that we can use to evaluate an algorithm in a way that prevalence does not cloud our assessment, and these can all be derived from the confusion matrix.\nA general improvement to using overall accuracy is to study sensitivity and specificity separately."
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#sensitivity-and-specificity",
+    "href": "slides/ml/evaluation-metrics.html#sensitivity-and-specificity",
+    "title": "Evaluation Metrics",
+    "section": "Sensitivity and specificity",
+    "text": "Sensitivity and specificity\n\nTo define sensitivity and specificity, we need a binary outcome.\nWhen the outcomes are categorical, we can define these terms for a specific category.\nIn the digits example, we can ask for the specificity in the case of correctly predicting 2 as opposed to some other digit.\nOnce we specify a category of interest, then we can talk about positive outcomes, \\(Y=1\\), and negative outcomes, \\(Y=0\\)."
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#sensitivity-and-specificity-1",
+    "href": "slides/ml/evaluation-metrics.html#sensitivity-and-specificity-1",
+    "title": "Evaluation Metrics",
+    "section": "Sensitivity and specificity",
+    "text": "Sensitivity and specificity\n\nIn general, sensitivity is defined as the ability of an algorithm to predict a positive outcome when the actual outcome is positive: \\(\\hat{Y}=1\\) when \\(Y=1\\).\nBecause an algorithm that calls everything positive (\\(\\hat{Y}=1\\) no matter what) has perfect sensitivity, this metric on its own is not enough to judge an algorithm.\nFor this reason, we also examine specificity, which is generally defined as the ability of an algorithm to not predict a positive \\(\\hat{Y}=0\\) when the actual outcome is not a positive \\(Y=0\\).\nWe can summarize in the following way:"
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#sensitivity-and-specificity-2",
+    "href": "slides/ml/evaluation-metrics.html#sensitivity-and-specificity-2",
+    "title": "Evaluation Metrics",
+    "section": "Sensitivity and specificity",
+    "text": "Sensitivity and specificity\n\n\nHigh sensitivity: \\(Y=1 \\implies \\hat{Y}=1\\).\n\n\nHigh specificity: \\(Y=0 \\implies \\hat{Y} = 0\\).\n\nAlthough the above is often considered the definition of specificity, another way to think of specificity is by the proportion of positive calls that are actually positive:\n\nHigh specificity: \\(\\hat{Y}=1 \\implies Y=1\\).\n\nTo provide precise definitions, we name the four entries of the confusion matrix:"
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#sensitivity-and-specificity-3",
+    "href": "slides/ml/evaluation-metrics.html#sensitivity-and-specificity-3",
+    "title": "Evaluation Metrics",
+    "section": "Sensitivity and specificity",
+    "text": "Sensitivity and specificity\n\n\n\n\n\n\nActually Positive\nActually Negative\n\n\n\n\nPredicted positive\nTrue positives (TP)\nFalse positives (FP)\n\n\nPredicted negative\nFalse negatives (FN)\nTrue negatives (TN)"
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#sensitivity-and-specificity-4",
+    "href": "slides/ml/evaluation-metrics.html#sensitivity-and-specificity-4",
+    "title": "Evaluation Metrics",
+    "section": "Sensitivity and specificity",
+    "text": "Sensitivity and specificity\n\nSensitivity is typically quantified by \\(TP/(TP+FN)\\), the proportion of actual positives (the first column = \\(TP+FN\\)) that are called positives (\\(TP\\)).\nThis quantity is referred to as the true positive rate (TPR) or recall.\nSpecificity is defined as \\(TN/(TN+FP)\\) or the proportion of negatives (the second column = \\(FP+TN\\)) that are called negatives (\\(TN\\)).\nThis quantity is also called the true negative rate (TNR)."
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#sensitivity-and-specificity-5",
+    "href": "slides/ml/evaluation-metrics.html#sensitivity-and-specificity-5",
+    "title": "Evaluation Metrics",
+    "section": "Sensitivity and specificity",
+    "text": "Sensitivity and specificity\n\nThere is another way of quantifying specificity which is \\(TP/(TP+FP)\\) or the proportion of outcomes called positives (the first row or \\(TP+FP\\)) that are actually positives (\\(TP\\)).\nThis quantity is referred to as positive predictive value (PPV) and also as precision.\nNote that, unlike TPR and TNR, precision depends on prevalence since higher prevalence implies you can get higher precision even when guessing.\nThe multiple names can be confusing, so we include a table to help us remember the terms."
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#sensitivity-and-specificity-6",
+    "href": "slides/ml/evaluation-metrics.html#sensitivity-and-specificity-6",
+    "title": "Evaluation Metrics",
+    "section": "Sensitivity and specificity",
+    "text": "Sensitivity and specificity\n\nThe table includes a column that shows the definition if we think of the proportions as probabilities.\n\n\n\n\n\n\n\n\n\n\n\nMeasure of\nName 1\nName 2\nDefinition\nProbability representation\n\n\n\n\nsensitivity\nTPR\nRecall\n\\(\\frac{\\mbox{TP}}{\\mbox{TP} + \\mbox{FN}}\\)\n\\(\\mbox{Pr}(\\hat{Y}=1 \\mid Y=1)\\)\n\n\nspecificity\nTNR\n1-FPR\n\\(\\frac{\\mbox{TN}}{\\mbox{TN}+\\mbox{FP}}\\)\n\\(\\mbox{Pr}(\\hat{Y}=0 \\mid Y=0)\\)"
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#sensitivity-and-specificity-7",
+    "href": "slides/ml/evaluation-metrics.html#sensitivity-and-specificity-7",
+    "title": "Evaluation Metrics",
+    "section": "Sensitivity and specificity",
+    "text": "Sensitivity and specificity\n\nspecificity | PPV | Precision | \\(\\frac{\\mbox{TP}}{\\mbox{TP}+\\mbox{FP}}\\) | \\(\\mbox{Pr}(Y=1 \\mid \\hat{Y}=1)\\)|.\nThe caret function confusionMatrix computes all these metrics for us once we define which category is the “positive” (Y=1).\nThe function expects factors as input, and the first level is considered the positive outcome or \\(Y=1\\).\nIn our example, Female is the first level because it comes before Male alphabetically."
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#sensitivity-and-specificity-8",
+    "href": "slides/ml/evaluation-metrics.html#sensitivity-and-specificity-8",
+    "title": "Evaluation Metrics",
+    "section": "Sensitivity and specificity",
+    "text": "Sensitivity and specificity\n\nIf you type this into R, you will see several metrics including accuracy, sensitivity, specificity, and PPV.\nYou can access these directly, for example, like this:\n\n\ncm$overall[\"Accuracy\"] \n\nAccuracy \n   0.804 \n\ncm$byClass[c(\"Sensitivity\",\"Specificity\", \"Prevalence\")] \n\nSensitivity Specificity  Prevalence \n      0.403       0.921       0.227 \n\n\n\nWe can see that the high overall accuracy is possible despite relatively low sensitivity.\nAs we hinted at above, the reason this happens is because of the low prevalence (0.23): the proportion of females is low."
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#sensitivity-and-specificity-9",
+    "href": "slides/ml/evaluation-metrics.html#sensitivity-and-specificity-9",
+    "title": "Evaluation Metrics",
+    "section": "Sensitivity and specificity",
+    "text": "Sensitivity and specificity\n\nBecause prevalence is low, failing to predict actual females as females (low sensitivity) does not lower the overall accuracy as much as failing to predict actual males as males (low specificity).\nThis is an example of why it is important to examine sensitivity and specificity and not just accuracy.\nBefore applying this algorithm to general datasets, we need to ask ourselves if prevalence will be the same."
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#balanced-accuracy-and-f_1-score",
+    "href": "slides/ml/evaluation-metrics.html#balanced-accuracy-and-f_1-score",
+    "title": "Evaluation Metrics",
+    "section": "Balanced accuracy and \\(F_1\\) score",
+    "text": "Balanced accuracy and \\(F_1\\) score\n\nAlthough we usually recommend studying both specificity and sensitivity, often it is useful to have a one-number summary, for example, for optimization purposes.\nOne metric that is preferred over overall accuracy is the average of specificity and sensitivity, referred to as balanced accuracy.\nBecause specificity and sensitivity are rates, it is more appropriate to compute the harmonic average.\nIn fact, the \\(F_1\\)-score, a widely used one-number summary, is the harmonic average of precision and recall:"
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#balanced-accuracy-and-f_1-score-1",
+    "href": "slides/ml/evaluation-metrics.html#balanced-accuracy-and-f_1-score-1",
+    "title": "Evaluation Metrics",
+    "section": "Balanced accuracy and \\(F_1\\) score",
+    "text": "Balanced accuracy and \\(F_1\\) score\n\\[\n\\frac{1}{\\frac{1}{2}\\left(\\frac{1}{\\mbox{recall}} +  \n    \\frac{1}{\\mbox{precision}}\\right) }\n\\]\n\nBecause it is easier to write, you often see this harmonic average rewritten as:\n\n\\[\n2 \\times \\frac{\\mbox{precision} \\cdot \\mbox{recall}}\n{\\mbox{precision} + \\mbox{recall}}\n\\]"
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#balanced-accuracy-and-f_1-score-2",
+    "href": "slides/ml/evaluation-metrics.html#balanced-accuracy-and-f_1-score-2",
+    "title": "Evaluation Metrics",
+    "section": "Balanced accuracy and \\(F_1\\) score",
+    "text": "Balanced accuracy and \\(F_1\\) score\n\nwhen defining \\(F_1\\).\nRemember that, depending on the context, some types of errors are more costly than others.\nFor instance, in the case of plane safety, it is much more important to maximize sensitivity over specificity: failing to predict a plane will malfunction before it crashes is a much more costly error than grounding a plane when, in fact, the plane is in perfect condition.\nIn a capital murder criminal case, the opposite is true since a false positive can lead to executing an innocent person."
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#balanced-accuracy-and-f_1-score-3",
+    "href": "slides/ml/evaluation-metrics.html#balanced-accuracy-and-f_1-score-3",
+    "title": "Evaluation Metrics",
+    "section": "Balanced accuracy and \\(F_1\\) score",
+    "text": "Balanced accuracy and \\(F_1\\) score\n\nThe \\(F_1\\)-score can be adapted to weigh specificity and sensitivity differently.\nTo do this, we define \\(\\beta\\) to represent how much more important sensitivity is compared to specificity and consider a weighted harmonic average:\n\n\\[\n\\frac{1}{\\frac{\\beta^2}{1+\\beta^2}\\frac{1}{\\mbox{recall}} +  \n    \\frac{1}{1+\\beta^2}\\frac{1}{\\mbox{precision}} }\n\\]"
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#balanced-accuracy-and-f_1-score-4",
+    "href": "slides/ml/evaluation-metrics.html#balanced-accuracy-and-f_1-score-4",
+    "title": "Evaluation Metrics",
+    "section": "Balanced accuracy and \\(F_1\\) score",
+    "text": "Balanced accuracy and \\(F_1\\) score\n\nThe F_meas function in the caret package computes this summary with beta defaulting to 1.\nLet’s rebuild our prediction algorithm, but this time maximizing the F-score instead of overall accuracy:\n\n\ncutoff &lt;- seq(61, 70) \nF_1 &lt;- sapply(cutoff, function(x){ \n  y_hat &lt;- factor(ifelse(train_set$height &gt; x, \"Male\", \"Female\"), levels(test_set$sex)) \n  F_meas(data = y_hat, reference = factor(train_set$sex)) \n}) \n\n\nAs before, we can plot these \\(F_1\\) measures versus the cutoffs:"
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#balanced-accuracy-and-f_1-score-5",
+    "href": "slides/ml/evaluation-metrics.html#balanced-accuracy-and-f_1-score-5",
+    "title": "Evaluation Metrics",
+    "section": "Balanced accuracy and \\(F_1\\) score",
+    "text": "Balanced accuracy and \\(F_1\\) score"
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#balanced-accuracy-and-f_1-score-6",
+    "href": "slides/ml/evaluation-metrics.html#balanced-accuracy-and-f_1-score-6",
+    "title": "Evaluation Metrics",
+    "section": "Balanced accuracy and \\(F_1\\) score",
+    "text": "Balanced accuracy and \\(F_1\\) score\n\nWe see that it is maximized at \\(F_1\\) value of:\n\n\nmax(F_1) \n\n[1] 0.647\n\n\n\nThis maximum is achieved when we use the following cutoff:\n\n\nbest_cutoff &lt;- cutoff[which.max(F_1)] \nbest_cutoff \n\n[1] 66\n\n\n\nA cutoff of 66 makes more sense than 64.\nFurthermore, it balances the specificity and sensitivity of our confusion matrix:"
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#balanced-accuracy-and-f_1-score-7",
+    "href": "slides/ml/evaluation-metrics.html#balanced-accuracy-and-f_1-score-7",
+    "title": "Evaluation Metrics",
+    "section": "Balanced accuracy and \\(F_1\\) score",
+    "text": "Balanced accuracy and \\(F_1\\) score\n\ny_hat &lt;- ifelse(test_set$height &gt; best_cutoff, \"Male\", \"Female\") |&gt;  \n  factor(levels = levels(test_set$sex)) \nsensitivity(data = y_hat, reference = test_set$sex) \n\n[1] 0.63\n\nspecificity(data = y_hat, reference = test_set$sex) \n\n[1] 0.833\n\n\n\nWe now see that we do much better than guessing, that both sensitivity and specificity are relatively high."
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#prevalence-matters-in-practice",
+    "href": "slides/ml/evaluation-metrics.html#prevalence-matters-in-practice",
+    "title": "Evaluation Metrics",
+    "section": "Prevalence matters in practice",
+    "text": "Prevalence matters in practice\n\nA machine learning algorithm with very high TPR and TNR may not be useful in practice when prevalence is close to either 0 or 1.\nTo see this, consider the case of a doctor that specializes in a rare disease and is interested in developing an algorithm for predicting who has the disease.\nThe doctor shares data with about 1/2 cases and 1/2 controls and some predictors.\nYou then develop an algorithm with TPR=0.99 and TNR = 0.99."
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#prevalence-matters-in-practice-1",
+    "href": "slides/ml/evaluation-metrics.html#prevalence-matters-in-practice-1",
+    "title": "Evaluation Metrics",
+    "section": "Prevalence matters in practice",
+    "text": "Prevalence matters in practice\n\nYou are excited to explain to the doctor that this means that if a patient has the disease, the algorithm is very likely to predict correctly.\nThe doctor is not impressed and explains that your TNR is too low for this algorithm to be used in practice.\nThis is because this is a rare disease with a prevalence in the general population of 0.5%.\nThe doctor reminds you of Bayes formula:\n\n\\[ \\mbox{Pr}(Y = 1\\mid \\hat{Y}=1) = \\mbox{Pr}(\\hat{Y}=1 \\mid Y=1) \\frac{\\mbox{Pr}(Y=1)}{\\mbox{Pr}(\\hat{Y}=1)} \\implies \\text{Precision} = \\text{TPR} \\times \\frac{\\text{Prevalence}}{\\text{TPR}\\times \\text{Prevalence} + \\text{FPR}\\times(1-\\text{Prevalence})} \\approx 0.33  \\]"
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#prevalence-matters-in-practice-2",
+    "href": "slides/ml/evaluation-metrics.html#prevalence-matters-in-practice-2",
+    "title": "Evaluation Metrics",
+    "section": "Prevalence matters in practice",
+    "text": "Prevalence matters in practice\n\nHere is plot of precision as a function of prevalence with TPR and TNR are 95%:"
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#prevalence-matters-in-practice-3",
+    "href": "slides/ml/evaluation-metrics.html#prevalence-matters-in-practice-3",
+    "title": "Evaluation Metrics",
+    "section": "Prevalence matters in practice",
+    "text": "Prevalence matters in practice"
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#prevalence-matters-in-practice-4",
+    "href": "slides/ml/evaluation-metrics.html#prevalence-matters-in-practice-4",
+    "title": "Evaluation Metrics",
+    "section": "Prevalence matters in practice",
+    "text": "Prevalence matters in practice\n\nAlthough your algorithm has a precision of about 95% on the data you train on, with prevalence of 50%, if applied to the general population, the algorithm’s precision would be just 33%.\nThe doctor can’t use an algorithm with 33% of people receiving a positive test actually not having the disease.\nNote that even if your algorithm had perfect sensitivity, the precision would still be around 33%.\nSo you need to greatly decrease your FPR for the algorithm to be useful in practice."
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#roc-and-precision-recall-curves",
+    "href": "slides/ml/evaluation-metrics.html#roc-and-precision-recall-curves",
+    "title": "Evaluation Metrics",
+    "section": "ROC and precision-recall curves",
+    "text": "ROC and precision-recall curves\n\nWhen comparing the two methods (guessing versus using a height cutoff), we looked at accuracy and \\(F_1\\).\nThe second method clearly outperformed the first.\nHowever, while we considered several cutoffs for the second method, for the first we only considered one approach: guessing with equal probability.\nBe aware that guessing Male with higher probability would give us higher accuracy due to the bias in the sample:"
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#roc-and-precision-recall-curves-1",
+    "href": "slides/ml/evaluation-metrics.html#roc-and-precision-recall-curves-1",
+    "title": "Evaluation Metrics",
+    "section": "ROC and precision-recall curves",
+    "text": "ROC and precision-recall curves\n\np &lt;- 0.9 \nn &lt;- length(test_index) \ny_hat &lt;- sample(c(\"Male\", \"Female\"), n, replace = TRUE, prob = c(p, 1 - p)) |&gt;  \n  factor(levels = levels(test_set$sex)) \nmean(y_hat == test_set$sex) \n\n[1] 0.739\n\n\n\nBut, as described above, this would come at the cost of lower sensitivity.\nThe curves we describe in this section will help us see this.\nRemember that for each of these parameters, we can get a different sensitivity and specificity."
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#roc-and-precision-recall-curves-2",
+    "href": "slides/ml/evaluation-metrics.html#roc-and-precision-recall-curves-2",
+    "title": "Evaluation Metrics",
+    "section": "ROC and precision-recall curves",
+    "text": "ROC and precision-recall curves\n\nFor this reason, a very common approach to evaluating methods is to compare them graphically by plotting both.\nA widely used plot that does this is the receiver operating characteristic (ROC) curve.\nIf you are wondering where this name comes from, you can consult the ROC Wikipedia page1.\nThe ROC curve plots sensitivity, represented as the TPR, versus 1 - specificity represented as the false positive rate (FPR).\n\nhttps://en.wikipedia.org/wiki/Receiver_operating_characteristic"
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#roc-and-precision-recall-curves-3",
+    "href": "slides/ml/evaluation-metrics.html#roc-and-precision-recall-curves-3",
+    "title": "Evaluation Metrics",
+    "section": "ROC and precision-recall curves",
+    "text": "ROC and precision-recall curves\n\nHere we compute the TPR and FPR needed for different probabilities of guessing male:\n\n\nprobs &lt;- seq(0, 1, length.out = 10) \nguessing &lt;- sapply(probs, function(p){ \n  y_hat &lt;-  \n    sample(c(\"Male\", \"Female\"), nrow(test_set), TRUE, c(p, 1 - p)) |&gt;  \n    factor(levels = c(\"Female\", \"Male\")) \n  c(FPR = 1 - specificity(y_hat, test_set$sex), \n    TPR = sensitivity(y_hat, test_set$sex)) \n}) \n\n\nWe can use similar code to compute these values for our our second approach."
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#roc-and-precision-recall-curves-4",
+    "href": "slides/ml/evaluation-metrics.html#roc-and-precision-recall-curves-4",
+    "title": "Evaluation Metrics",
+    "section": "ROC and precision-recall curves",
+    "text": "ROC and precision-recall curves\n\nBy plotting both curves together, we are able to compare sensitivity for different values of specificity:"
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#roc-and-precision-recall-curves-5",
+    "href": "slides/ml/evaluation-metrics.html#roc-and-precision-recall-curves-5",
+    "title": "Evaluation Metrics",
+    "section": "ROC and precision-recall curves",
+    "text": "ROC and precision-recall curves"
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#roc-and-precision-recall-curves-6",
+    "href": "slides/ml/evaluation-metrics.html#roc-and-precision-recall-curves-6",
+    "title": "Evaluation Metrics",
+    "section": "ROC and precision-recall curves",
+    "text": "ROC and precision-recall curves\n\nWe see that we obtain higher sensitivity with this approach for all values of specificity, which implies it is in fact a better method.\nKeep in mind that ROC curves for guessing always fall on the identity line.\nAlso, note that when making ROC curves, it is often nice to add the cutoff associated with each point.\nThe packages pROC and plotROC are useful for generating these plots."
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#roc-and-precision-recall-curves-7",
+    "href": "slides/ml/evaluation-metrics.html#roc-and-precision-recall-curves-7",
+    "title": "Evaluation Metrics",
+    "section": "ROC and precision-recall curves",
+    "text": "ROC and precision-recall curves\n\nROC curves have one weakness and it is that neither of the measures plotted depends on prevalence.\nIn cases in which prevalence matters, we may instead make a precision-recall plot.\nThe idea is similar, but we instead plot precision against recall:"
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#roc-and-precision-recall-curves-8",
+    "href": "slides/ml/evaluation-metrics.html#roc-and-precision-recall-curves-8",
+    "title": "Evaluation Metrics",
+    "section": "ROC and precision-recall curves",
+    "text": "ROC and precision-recall curves"
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#roc-and-precision-recall-curves-9",
+    "href": "slides/ml/evaluation-metrics.html#roc-and-precision-recall-curves-9",
+    "title": "Evaluation Metrics",
+    "section": "ROC and precision-recall curves",
+    "text": "ROC and precision-recall curves\n\nFrom the plot on the left, we immediately see that the precision of guessing is not high.\nThis is because the prevalence is low.\nFrom the plot on the right, we also see that if we change \\(Y=1\\) to mean Male instead of Female, the precision increases.\nNote that the ROC curve would remain the same."
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#mean-squared-error",
+    "href": "slides/ml/evaluation-metrics.html#mean-squared-error",
+    "title": "Evaluation Metrics",
+    "section": "Mean Squared Error",
+    "text": "Mean Squared Error\n\nUp to now we have described evaluation metrics that apply exclusively to categorical data.\nSpecifically, for binary outcomes, we have described how sensitivity, specificity, accuracy, and \\(F_1\\) can be used as quantification.\nHowever, these metrics are not useful for continuous outcomes.\nIn this section, we describe how the general approach to defining “best” in machine learning is to define a loss function, which can be applied to both categorical and continuous data."
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#mean-squared-error-1",
+    "href": "slides/ml/evaluation-metrics.html#mean-squared-error-1",
+    "title": "Evaluation Metrics",
+    "section": "Mean Squared Error",
+    "text": "Mean Squared Error\n\nThe most commonly used loss function is the squared loss function.\nIf \\(\\hat{y}\\) is our predictor and \\(y\\) is the observed outcome, the squared loss function is simply: \\((\\hat{y} - y)^2\\).\nBecause we often model \\(y\\) as the outcome of a random process, theoretically, it does not make sense to compare algorithms based on \\((\\hat{y} - y)^2\\) as the minimum can change from sample to sample.\nFor this reason, we minimize mean squared error (MSE):\n\n\\[\n\\text{MSE} \\equiv \\mbox{E}\\{(\\hat{Y} - Y)^2 \\}\n\\]"
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#mean-squared-error-2",
+    "href": "slides/ml/evaluation-metrics.html#mean-squared-error-2",
+    "title": "Evaluation Metrics",
+    "section": "Mean Squared Error",
+    "text": "Mean Squared Error\n\nConsider that if the outcomes are binary, the MSE is equivalent to one minus expected accuracy, since \\((\\hat{y} - y)^2\\) is 0 if the prediction was correct and 1 otherwise.\nDifferent algorithms will result in different predictions \\(\\hat{Y}\\), and therefore different MSE.\nIn general, our goal is to build an algorithm that minimizes the loss so it is as close to 0 as possible.\nHowever, note that the MSE is a theoretical quantity.\nHow do we estimate this?"
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#mean-squared-error-3",
+    "href": "slides/ml/evaluation-metrics.html#mean-squared-error-3",
+    "title": "Evaluation Metrics",
+    "section": "Mean Squared Error",
+    "text": "Mean Squared Error\n\nBecause in practice we have tests set with many, say \\(N\\), independent observations, a commonly used observable estimate of the MSE is:\n\n\\[\n\\hat{\\mbox{MSE}} = \\frac{1}{N}\\sum_{i=1}^N (\\hat{y}_i - y_i)^2\n\\]\n\nwith the \\(\\hat{y}_i\\) generated completely independently from the the \\(y_i\\)."
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#mean-squared-error-4",
+    "href": "slides/ml/evaluation-metrics.html#mean-squared-error-4",
+    "title": "Evaluation Metrics",
+    "section": "Mean Squared Error",
+    "text": "Mean Squared Error\n\nHowever, the estimate \\(\\hat{\\text{MSE}}\\) is a random variable.\nIn fact, \\(\\text{MSE}\\) and \\(\\hat{\\text{MSE}}\\) are often referred to as the true error and apparent error, respectively.\nDue to the complexity of some machine learning, it is difficult to derive the statistical properties of how well the apparent error estimates the true error.\nIn ?@sec-cross-validation, we introduce cross-validation an approach to estimating the MSE."
+  },
+  {
+    "objectID": "slides/ml/evaluation-metrics.html#mean-squared-error-5",
+    "href": "slides/ml/evaluation-metrics.html#mean-squared-error-5",
+    "title": "Evaluation Metrics",
+    "section": "Mean Squared Error",
+    "text": "Mean Squared Error\n\nWe end this chapter by pointing out that there are loss functions other than the squared loss.\nFor example, the Mean Absolute Error uses absolute values, \\(|\\hat{Y}_i - Y_i|\\) instead of squaring the errors.\n\\((\\hat{Y}_i - Y_i)^2\\).\nHowever, in this book we focus on minimizing square loss since it is the most widely used."
+  },
+  {
+    "objectID": "slides/ml/36-intro-ml.html#machine-learning",
+    "href": "slides/ml/36-intro-ml.html#machine-learning",
+    "title": "Introduction",
+    "section": "",
+    "text": "Machine learning has achieved remarkable successes in a variety of applications.\nThese range from the postal service’s use of machine learning for reading handwritten zip codes to the development of voice recognition systems."
+  },
+  {
+    "objectID": "slides/ml/36-intro-ml.html#machine-learning-1",
+    "href": "slides/ml/36-intro-ml.html#machine-learning-1",
+    "title": "Introduction",
+    "section": "Machine Learning",
+    "text": "Machine Learning\n\nOther significant advances include movie recommendation systems, spam and malware detection, housing price prediction algorithms, and the ongoing development of autonomous vehicles.\nThe field of Artificial Intelligence (AI) has been evolving for several decades."
+  },
+  {
+    "objectID": "slides/ml/36-intro-ml.html#machine-learning-2",
+    "href": "slides/ml/36-intro-ml.html#machine-learning-2",
+    "title": "Introduction",
+    "section": "Machine Learning",
+    "text": "Machine Learning\n\nTraditional AI systems, including some chess-playing machines, often relied on decision-making based on preset rules and knowledge representation.\nHowever, with the advent of data availability, machine learning has gained prominence.\nIt focuses on decision-making through algorithms trained with data.\nIn recent years, the terms AI and Machine Learning have been used interchangeably in many contexts, though they have distinct meanings."
+  },
+  {
+    "objectID": "slides/ml/36-intro-ml.html#machine-learning-3",
+    "href": "slides/ml/36-intro-ml.html#machine-learning-3",
+    "title": "Introduction",
+    "section": "Machine Learning",
+    "text": "Machine Learning\n\nMachine learning has achieved remarkable successes, ranging from the postal service’s handwritten zip code readers to voice recognition systems like Apple’s Siri.\nThese advances also include movie recommendation systems, spam and malware detection, housing price prediction algorithms, and the development of driverless cars."
+  },
+  {
+    "objectID": "slides/ml/36-intro-ml.html#terminology",
+    "href": "slides/ml/36-intro-ml.html#terminology",
+    "title": "Introduction",
+    "section": "Terminology",
+    "text": "Terminology\n\nOutcome - what we want to predict\nFeatures - what we use to predict the outcome.\nAlgorithms that take feature values as input and returns a prediction for the outcome.\nWe train an algorithm using a dataset for which we do know the outcome, and then apply algorithm when we don’t know the outcome."
+  },
+  {
+    "objectID": "slides/ml/36-intro-ml.html#terminology-1",
+    "href": "slides/ml/36-intro-ml.html#terminology-1",
+    "title": "Introduction",
+    "section": "Terminology",
+    "text": "Terminology\n\nPrediction problems can be divided into categorical and continuous outcomes."
+  },
+  {
+    "objectID": "slides/ml/36-intro-ml.html#categorical",
+    "href": "slides/ml/36-intro-ml.html#categorical",
+    "title": "Introduction",
+    "section": "Categorical",
+    "text": "Categorical\n\nThe number of classes can vary greatly across applications.\nWe denote the \\(K\\) categories with indexes \\(k=1,\\dots,K\\).\nHowever, for binary data we will use \\(k=0,1\\) for mathematical conveniences that we demonstrate later."
+  },
+  {
+    "objectID": "slides/ml/36-intro-ml.html#categorical-1",
+    "href": "slides/ml/36-intro-ml.html#categorical-1",
+    "title": "Introduction",
+    "section": "Categorical",
+    "text": "Categorical\n\nWe denote the \\(K\\) categories with indexes \\(k=1,\\dots,K\\).\nHowever, for binary data we will use \\(k=0,1\\) for mathematical conveniences that we demonstrate later."
+  },
+  {
+    "objectID": "slides/ml/36-intro-ml.html#continuous",
+    "href": "slides/ml/36-intro-ml.html#continuous",
+    "title": "Introduction",
+    "section": "Continuous",
+    "text": "Continuous\nExamples of outcomes include:\n\nstock prices\nrealestate prices\ntemperature next week\nstudent perforamnce"
+  },
+  {
+    "objectID": "slides/ml/36-intro-ml.html#notation",
+    "href": "slides/ml/36-intro-ml.html#notation",
+    "title": "Introduction",
+    "section": "Notation",
+    "text": "Notation\n\nWe use \\(y_i\\) to denote the i-th outcome\n\\(x_{i,1}, \\dots, x_{i,p}\\) the corresponding features.\nAlso referred to as predictors or covariates.\nWe use matrix notation \\(\\mathbf{x}_i = (x_{i,1}, \\dots, x_{i,p})^\\top\\) to denote the vector of predictors."
+  },
+  {
+    "objectID": "slides/ml/36-intro-ml.html#notation-1",
+    "href": "slides/ml/36-intro-ml.html#notation-1",
+    "title": "Introduction",
+    "section": "Notation",
+    "text": "Notation\n\nBecause, we often use statistical models to motivate algorithms we also use capital letters:\n\n\\[\nY \\mbox{ and } \\mathbf{X} = (X_{1}, \\dots, X_{p})\n\\]\n\nNote we drop the index \\(i\\) because it represents the random variable that generates observations.\nWe use lower case, for example \\(\\mathbf{X} = \\mathbf{x}\\), to denote observed values."
+  },
+  {
+    "objectID": "slides/ml/36-intro-ml.html#notation-2",
+    "href": "slides/ml/36-intro-ml.html#notation-2",
+    "title": "Introduction",
+    "section": "Notation",
+    "text": "Notation\n\nThe machine learning task is to build an algorithm that returns a prediction for any of the possible values of the features:\n\n\\[\n\\hat{y} = f(x_1,x_2,\\dots,x_p)\n\\]\n\nWe will learn several approaches to building these algorithms."
+  },
+  {
+    "objectID": "slides/ml/36-intro-ml.html#the-machine-learning-challenge",
+    "href": "slides/ml/36-intro-ml.html#the-machine-learning-challenge",
+    "title": "Introduction",
+    "section": "The machine learning challenge",
+    "text": "The machine learning challenge\n\nThe general setup is as follows.\nWe have a series of features and an unknown outcome we want to predict:\n\n\n\n\n\n\noutcome\nfeature 1\nfeature 2\nfeature 3\n\\(\\dots\\)\nfeature p\n\n\n\n\n?\n\\(X_1\\)\n\\(X_2\\)\n\\(X_3\\)\n\\(\\dots\\)\n\\(X_p\\)"
+  },
+  {
+    "objectID": "slides/ml/36-intro-ml.html#the-machine-learning-challenge-1",
+    "href": "slides/ml/36-intro-ml.html#the-machine-learning-challenge-1",
+    "title": "Introduction",
+    "section": "The machine learning challenge",
+    "text": "The machine learning challenge\n\nTo build a model that provides a prediction for any set of observed values \\(X_1=x_1, X_2=x_2, \\dots X_p=x_p\\), we collect data for which we know the outcome:\n\n\n\n\n\n\noutcome\nfeature 1\nfeature 2\nfeature 3\n\\(\\dots\\)\nfeature 5\n\n\n\n\n\\(y_{1}\\)\n\\(x_{1,1}\\)\n\\(x_{1,2}\\)\n\\(x_{1,3}\\)\n\\(\\dots\\)\n\\(x_{1,p}\\)\n\n\n\\(y_{2}\\)\n\\(x_{2,1}\\)\n\\(x_{2,2}\\)\n\\(x_{2,3}\\)\n\\(\\dots\\)\n\\(x_{2,p}\\)\n\n\n\\(\\vdots\\)\n\\(\\vdots\\)\n\\(\\vdots\\)\n\\(\\vdots\\)\n\\(\\ddots\\)\n\\(\\vdots\\)\n\n\n\\(y_n\\)\n\\(x_{n,1}\\)\n\\(x_{n,2}\\)\n\\(x_{n,3}\\)\n\\(\\dots\\)\n\\(x_{n,p}\\)"
+  },
+  {
+    "objectID": "slides/ml/36-intro-ml.html#the-machine-learning-challenge-2",
+    "href": "slides/ml/36-intro-ml.html#the-machine-learning-challenge-2",
+    "title": "Introduction",
+    "section": "The machine learning challenge",
+    "text": "The machine learning challenge\n\nWhen the output is continuous, we refer to the ML task as prediction.\nWe use the term actual outcome \\(y\\) to denote what we end up observing.\nWe want the prediction \\(\\hat{y}\\) to match the actual outcome \\(y\\) as best as possible.\nWe define error as the difference between the prediction and the actual outcome \\(y - \\hat{y}\\)."
+  },
+  {
+    "objectID": "slides/ml/36-intro-ml.html#the-machine-learning-challenge-3",
+    "href": "slides/ml/36-intro-ml.html#the-machine-learning-challenge-3",
+    "title": "Introduction",
+    "section": "The machine learning challenge",
+    "text": "The machine learning challenge\n\nWhen the outcome is categorical, we refer to the machine learning task as classification\nThe main output of the model will be a decision rule which prescribes which of the \\(K\\) classes we should predict."
+  },
+  {
+    "objectID": "slides/ml/36-intro-ml.html#the-machine-learning-challenge-4",
+    "href": "slides/ml/36-intro-ml.html#the-machine-learning-challenge-4",
+    "title": "Introduction",
+    "section": "The machine learning challenge",
+    "text": "The machine learning challenge\n\nMost models provide functions for each class \\(k\\), \\(f_k(x_1, x_2, \\dots, x_p)\\), that are used to make this decision such as\n\n\\[\n\\mbox{When } f_k(x_1, x_2, \\dots, x_p) &gt; C, \\mbox{ predict category } k\n\\]\n\nHere predictions will be either right or wrong."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#evaluation-metrics",
+    "href": "slides/ml/37-evaluation-metrics.html#evaluation-metrics",
+    "title": "Evaluation Metrics",
+    "section": "Evaluation metrics",
+    "text": "Evaluation metrics\n\nHere we describe ways in which machine learning algorithms are evaluated.\nWe need to quantify what we mean when we say an algorithm performs better.\nWe demonstrate with a boring and simple example: how to predict sex using height."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#evaluation-metrics-1",
+    "href": "slides/ml/37-evaluation-metrics.html#evaluation-metrics-1",
+    "title": "Evaluation Metrics",
+    "section": "Evaluation metrics",
+    "text": "Evaluation metrics\n\nWe introduce the caret package, which provides useful functions to facilitate machine learning in R.\nWe describe caret it in more detail later"
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#evaluation-metrics-2",
+    "href": "slides/ml/37-evaluation-metrics.html#evaluation-metrics-2",
+    "title": "Evaluation Metrics",
+    "section": "Evaluation metrics",
+    "text": "Evaluation metrics\n\nFor our first example, we use the height data provided by the dslabs package.\n\n\nlibrary(caret) \nlibrary(dslabs) \n\n\nWe start by defining the outcome and predictors.\n\n\ny &lt;- heights$sex \nx &lt;- heights$height"
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#evaluation-metrics-3",
+    "href": "slides/ml/37-evaluation-metrics.html#evaluation-metrics-3",
+    "title": "Evaluation Metrics",
+    "section": "Evaluation metrics",
+    "text": "Evaluation metrics\n\nA machine learning algorithm is evaluated on how it performs in the real world with a new datasets.\nHowever, when developing an algorithm, we usually have a dataset for which we know the outcomes.\nTo mimic the ultimate evaluation process, we split the data into two parts and act as if we don’t know the outcome for one of these.\nWe stop pretending we don’t know the outcome to evaluate the algorithm, but only after we are done constructing it."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#training-and-test-sets",
+    "href": "slides/ml/37-evaluation-metrics.html#training-and-test-sets",
+    "title": "Evaluation Metrics",
+    "section": "Training and test sets",
+    "text": "Training and test sets\n\nset.seed(2007) \ntest_index &lt;- createDataPartition(y, times = 1, p = 0.5, list = FALSE) \n\n\nWe can use the result of the createDataPartition function call to define the training and test sets as follows:\n\n\ntest_set &lt;- heights[test_index, ] \ntrain_set &lt;- heights[-test_index, ]"
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#training-and-test-sets-1",
+    "href": "slides/ml/37-evaluation-metrics.html#training-and-test-sets-1",
+    "title": "Evaluation Metrics",
+    "section": "Training and test sets",
+    "text": "Training and test sets\n\nset.seed(2007) \ntest_index &lt;- createDataPartition(y, times = 1, p = 0.5, list = FALSE) \n\n\nWe can use the result of the createDataPartition function call to define the training and test sets as follows:\n\n\ntest_set &lt;- heights[test_index, ] \ntrain_set &lt;- heights[-test_index, ]"
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#training-and-test-sets-2",
+    "href": "slides/ml/37-evaluation-metrics.html#training-and-test-sets-2",
+    "title": "Evaluation Metrics",
+    "section": "Training and test sets",
+    "text": "Training and test sets\n\nWe develop an algorithm using only the training set.\nOnce we are done developing the algorithm, we will freeze it and evaluate it using the test set.\nThe simplest way to evaluate the algorithm when the outcomes are categorical is by simply reporting the proportion of cases that were correctly predicted in the test set.\nThis metric is usually referred to as overall accuracy."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#overall-accuracy",
+    "href": "slides/ml/37-evaluation-metrics.html#overall-accuracy",
+    "title": "Evaluation Metrics",
+    "section": "Overall accuracy",
+    "text": "Overall accuracy\n\nLet’s start by developing the simplest possible machine algorithm: guessing the outcome.\n\n\ny_hat &lt;- sample(c(\"Male\", \"Female\"), length(test_index), replace = TRUE) |&gt; \n  factor(levels = levels(test_set$sex)) \n\n\nThe overall accuracy is simply defined as the overall proportion that is predicted correctly:\n\n\nmean(y_hat == test_set$sex) \n\n[1] 0.516"
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#overall-accuracy-1",
+    "href": "slides/ml/37-evaluation-metrics.html#overall-accuracy-1",
+    "title": "Evaluation Metrics",
+    "section": "Overall accuracy",
+    "text": "Overall accuracy\n\nCan we do better?\nExploratory data analysis suggests we can because, on average, males are slightly taller than females:\n\n\nlibrary(tidyverse) \nheights |&gt; group_by(sex) |&gt; summarize(avg = mean(height), sd = sd(height)) \n\n# A tibble: 2 × 3\n  sex      avg    sd\n  &lt;fct&gt;  &lt;dbl&gt; &lt;dbl&gt;\n1 Female  64.9  3.76\n2 Male    69.3  3.61\n\n\n\nHow do we make use of this insight?"
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#overall-accuracy-2",
+    "href": "slides/ml/37-evaluation-metrics.html#overall-accuracy-2",
+    "title": "Evaluation Metrics",
+    "section": "Overall accuracy",
+    "text": "Overall accuracy\n\nLet’s try another simple approach: predict Male if height is within two standard deviations from the average male.\n\n\ny_hat &lt;- factor(ifelse(x &gt; 62, \"Male\", \"Female\"), levels(test_set$sex)) \n\n\nThe accuracy goes up from 0.50 to about 0.80:\n\n\nmean(y == y_hat) \n\n[1] 0.793\n\n\n\nBut can we do even better?"
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#overall-accuracy-3",
+    "href": "slides/ml/37-evaluation-metrics.html#overall-accuracy-3",
+    "title": "Evaluation Metrics",
+    "section": "Overall accuracy",
+    "text": "Overall accuracy\n\nHere we examine the accuracy of 10 different cutoffs and pick the one yielding the best result:\n\n\ncutoff &lt;- seq(61, 70) \naccuracy &lt;- sapply(cutoff, function(x){ \n  y_hat &lt;- factor(ifelse(train_set$height &gt; x, \"Male\", \"Female\"), levels = levels(test_set$sex)) \n  mean(y_hat == train_set$sex) \n})"
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#overall-accuracy-4",
+    "href": "slides/ml/37-evaluation-metrics.html#overall-accuracy-4",
+    "title": "Evaluation Metrics",
+    "section": "Overall accuracy",
+    "text": "Overall accuracy\n\nWe can make a plot showing the accuracy obtained on the training set for males and females:"
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#overall-accuracy-5",
+    "href": "slides/ml/37-evaluation-metrics.html#overall-accuracy-5",
+    "title": "Evaluation Metrics",
+    "section": "Overall accuracy",
+    "text": "Overall accuracy\n\nWe see that the maximum value is:\n\n\nmax(accuracy) \n\n[1] 0.85\n\n\n\nwhich is much higher than 0.5.\nThe cutoff resulting in this accuracy is:\n\n\nbest_cutoff &lt;- cutoff[which.max(accuracy)] \nbest_cutoff \n\n[1] 64"
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#overall-accuracy-6",
+    "href": "slides/ml/37-evaluation-metrics.html#overall-accuracy-6",
+    "title": "Evaluation Metrics",
+    "section": "Overall accuracy",
+    "text": "Overall accuracy\n\nWe can now test this cutoff on our test set to make sure our accuracy is not overly optimistic:\n\n\ny_hat &lt;- ifelse(test_set$height &gt; best_cutoff, \"Male\", \"Female\") |&gt;  \n  factor(levels = levels(test_set$sex)) \ny_hat &lt;- factor(y_hat) \nmean(y_hat == test_set$sex) \n\n[1] 0.804\n\n\n\nThe estimate of accuracy is biased due to slight over-training.\nBut ultimately we tested on a dataset that we did not train on."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#overall-accuracy-7",
+    "href": "slides/ml/37-evaluation-metrics.html#overall-accuracy-7",
+    "title": "Evaluation Metrics",
+    "section": "Overall accuracy",
+    "text": "Overall accuracy\n\nWe can now test this cutoff on our test set to make sure our accuracy is not overly optimistic:\n\n\ny_hat &lt;- ifelse(test_set$height &gt; best_cutoff, \"Male\", \"Female\") |&gt;  \n  factor(levels = levels(test_set$sex)) \ny_hat &lt;- factor(y_hat) \nmean(y_hat == test_set$sex) \n\n[1] 0.804"
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#overall-accuracy-8",
+    "href": "slides/ml/37-evaluation-metrics.html#overall-accuracy-8",
+    "title": "Evaluation Metrics",
+    "section": "Overall accuracy",
+    "text": "Overall accuracy\n\nWe see that it is a bit lower than the accuracy observed for the training set, but it is still better than guessing.\nAnd by testing on a dataset that we did not train on, we know our result is not due to cherry-picking a good result."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#the-confusion-matrix",
+    "href": "slides/ml/37-evaluation-metrics.html#the-confusion-matrix",
+    "title": "Evaluation Metrics",
+    "section": "The confusion matrix",
+    "text": "The confusion matrix\n\ncm &lt;- confusionMatrix(data = y_hat, reference = test_set$sex) \ncm$table \n\n          Reference\nPrediction Female Male\n    Female     48   32\n    Male       71  374\n\n\n\nIf we study this table closely, it reveals a problem."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#the-confusion-matrix-1",
+    "href": "slides/ml/37-evaluation-metrics.html#the-confusion-matrix-1",
+    "title": "Evaluation Metrics",
+    "section": "The confusion matrix",
+    "text": "The confusion matrix\n\nIf we compute the accuracy separately we get:\n\n\ncm$byClass[c(\"Sensitivity\", \"Specificity\")] \n\nSensitivity Specificity \n      0.403       0.921"
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#the-confusion-matrix-2",
+    "href": "slides/ml/37-evaluation-metrics.html#the-confusion-matrix-2",
+    "title": "Evaluation Metrics",
+    "section": "The confusion matrix",
+    "text": "The confusion matrix\n\nThis is because the prevalence of males is high.\nThese heights were collected from three data sciences courses, two of which had higher male enrollment:\n\n\ncm$byClass[\"Prevalence\"] \n\nPrevalence \n     0.227 \n\n\n\nSo when computing overall accuracy, the high percentage of mistakes made for females is outweighed by the gains in correct calls for men.\nThis type of bias can actually be a big problem in practice.\nIf your training data is biased in some way, you are likely to develop algorithms that are biased as well."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#the-confusion-matrix-3",
+    "href": "slides/ml/37-evaluation-metrics.html#the-confusion-matrix-3",
+    "title": "Evaluation Metrics",
+    "section": "The confusion matrix",
+    "text": "The confusion matrix\n\nThe fact that we used a test set does not matter because it is also derived from the original biased dataset.\nThis is one of the reasons we look at metrics other than overall accuracy when evaluating a machine learning algorithm.\nA general improvement to using overall accuracy is to study sensitivity and specificity separately."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#the-confusion-matrix-4",
+    "href": "slides/ml/37-evaluation-metrics.html#the-confusion-matrix-4",
+    "title": "Evaluation Metrics",
+    "section": "The confusion matrix",
+    "text": "The confusion matrix\n\nThe fact that we used a test set does not matter because it is also derived from the original biased dataset.\nThis is one of the reasons we look at metrics other than overall accuracy when evaluating a machine learning algorithm.\nThere are several metrics that we can use to evaluate an algorithm in a way that prevalence does not cloud our assessment, and these can all be derived from the confusion matrix.\nA general improvement to using overall accuracy is to study sensitivity and specificity separately."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#sensitivity-and-specificity",
+    "href": "slides/ml/37-evaluation-metrics.html#sensitivity-and-specificity",
+    "title": "Evaluation Metrics",
+    "section": "Sensitivity and specificity",
+    "text": "Sensitivity and specificity\n\nNeed binary outcome.\nSensitivity is defined as the ability of an algorithm to predict a positive outcome when the actual outcome is positive: \\(\\hat{y}=1\\) when \\(y=1\\).\nBecause an algorithm that calls everything positive has perfect sensitivity, this metric on its own is not enough to judge an algorithm.\nSpecificity, is the ability of an algorithm to not predict a positive \\(\\hat{y}=0\\) when the actual outcome is not a positive \\(y=0\\)."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#sensitivity-and-specificity-1",
+    "href": "slides/ml/37-evaluation-metrics.html#sensitivity-and-specificity-1",
+    "title": "Evaluation Metrics",
+    "section": "Sensitivity and specificity",
+    "text": "Sensitivity and specificity\n\nWe can summarize in the following way:\nHigh sensitivity: \\(y=1 \\implies \\hat{y}=1\\).\nHigh specificity: \\(y=0 \\implies \\hat{y} = 0\\).\nAlthough the above is often considered the definition of specificity, another way to think of specificity is by the proportion of positive calls that are actually positive:\nHigh specificity: \\(\\hat{y}=1 \\implies y=1\\)."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#sensitivity-and-specificity-2",
+    "href": "slides/ml/37-evaluation-metrics.html#sensitivity-and-specificity-2",
+    "title": "Evaluation Metrics",
+    "section": "Sensitivity and specificity",
+    "text": "Sensitivity and specificity\n\nTo provide precise definitions, we name the four entries of the confusion matrix:\n\n\n\n\n\n\n\nActually Positive\nActually Negative\n\n\n\n\nPredicted positive\nTrue positives (TP)\nFalse positives (FP)\n\n\nPredicted negative\nFalse negatives (FN)\nTrue negatives (TN)"
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#sensitivity-and-specificity-3",
+    "href": "slides/ml/37-evaluation-metrics.html#sensitivity-and-specificity-3",
+    "title": "Evaluation Metrics",
+    "section": "Sensitivity and specificity",
+    "text": "Sensitivity and specificity\n\nSensitivity is typically quantified by \\(TP/(TP+FN)\\).\nThis quantity is referred to as the true positive rate (TPR) or recall.\nSpecificity is defined as \\(TN/(TN+FP)\\).\nThis quantity is also called the true negative rate (TNR)."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#sensitivity-and-specificity-4",
+    "href": "slides/ml/37-evaluation-metrics.html#sensitivity-and-specificity-4",
+    "title": "Evaluation Metrics",
+    "section": "Sensitivity and specificity",
+    "text": "Sensitivity and specificity\n\nThere is another way of quantifying specificity which is \\(TP/(TP+FP)\\)\nThis quantity is referred to as positive predictive value (PPV) and also as precision.\nNote that, unlike TPR and TNR, precision depends on prevalence since higher prevalence implies you can get higher precision even when guessing.\nThe multiple names can be confusing, so we include a table to help us remember the terms."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#sensitivity-and-specificity-5",
+    "href": "slides/ml/37-evaluation-metrics.html#sensitivity-and-specificity-5",
+    "title": "Evaluation Metrics",
+    "section": "Sensitivity and specificity",
+    "text": "Sensitivity and specificity\n\n\n\n\n\n\n\n\n\n\n\nMeasure of\nName_1\nName_2\nDefinition\nProbability representation\n\n\n\n\nsensitivity\nTPR\nRecall\n\\(\\frac{\\mbox{TP}}{\\mbox{TP} + \\mbox{FN}}\\)\n\\(\\mbox{Pr}(\\hat{Y}=1 \\mid Y=1)\\)\n\n\nspecificity\nTNR\n1-FPR\n\\(\\frac{\\mbox{TN}}{\\mbox{TN}+\\mbox{FP}}\\)\n\\(\\mbox{Pr}(\\hat{Y}=0 \\mid Y=0)\\)\n\n\nspecificity\nPPV\nPrecision\n\\(\\frac{\\mbox{TP}}{\\mbox{TP}+\\mbox{FP}}\\)\n\\(\\mbox{Pr}(Y=1 \\mid \\hat{Y}=1)\\)"
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#sensitivity-and-specificity-6",
+    "href": "slides/ml/37-evaluation-metrics.html#sensitivity-and-specificity-6",
+    "title": "Evaluation Metrics",
+    "section": "Sensitivity and specificity",
+    "text": "Sensitivity and specificity\n\nThe caret function confusionMatrix computes all these metrics:\n\n\ncm$overall[\"Accuracy\"] \n\nAccuracy \n   0.804 \n\ncm$byClass[c(\"Sensitivity\",\"Specificity\", \"Prevalence\")] \n\nSensitivity Specificity  Prevalence \n      0.403       0.921       0.227"
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#sensitivity-and-specificity-7",
+    "href": "slides/ml/37-evaluation-metrics.html#sensitivity-and-specificity-7",
+    "title": "Evaluation Metrics",
+    "section": "Sensitivity and specificity",
+    "text": "Sensitivity and specificity\n\nBecause prevalence is low, failing to predict actual females as females (low sensitivity) does not lower the overall accuracy as much as failing to predict actual males as males (low specificity).\nThis is an example of why it is important to examine sensitivity and specificity and not just accuracy.\nBefore applying this algorithm to general datasets, we need to ask ourselves if prevalence will be the same."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#sensitivity-and-specificity-8",
+    "href": "slides/ml/37-evaluation-metrics.html#sensitivity-and-specificity-8",
+    "title": "Evaluation Metrics",
+    "section": "Sensitivity and specificity",
+    "text": "Sensitivity and specificity\n\nBecause prevalence is low, failing to predict actual females as females (low sensitivity) does not lower the overall accuracy as much as failing to predict actual males as males (low specificity).\nThis is an example of why it is important to examine sensitivity and specificity and not just accuracy.\nBefore applying this algorithm to general datasets, we need to ask ourselves if prevalence will be the same."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#sensitivity-and-specificity-9",
+    "href": "slides/ml/37-evaluation-metrics.html#sensitivity-and-specificity-9",
+    "title": "Evaluation Metrics",
+    "section": "Sensitivity and specificity",
+    "text": "Sensitivity and specificity\n\nBecause prevalence is low, failing to predict actual females as females (low sensitivity) does not lower the overall accuracy as much as failing to predict actual males as males (low specificity).\nThis is an example of why it is important to examine sensitivity and specificity and not just accuracy.\nBefore applying this algorithm to general datasets, we need to ask ourselves if prevalence will be the same."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#balanced-accuracy-and-f_1-score",
+    "href": "slides/ml/37-evaluation-metrics.html#balanced-accuracy-and-f_1-score",
+    "title": "Evaluation Metrics",
+    "section": "Balanced accuracy and \\(F_1\\) score",
+    "text": "Balanced accuracy and \\(F_1\\) score\n\\[\n\\frac{1}{\\frac{1}{2}\\left(\\frac{1}{\\mbox{recall}} +  \n    \\frac{1}{\\mbox{precision}}\\right) }\n\\]"
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#balanced-accuracy-and-f_1-score-1",
+    "href": "slides/ml/37-evaluation-metrics.html#balanced-accuracy-and-f_1-score-1",
+    "title": "Evaluation Metrics",
+    "section": "Balanced accuracy and \\(F_1\\) score",
+    "text": "Balanced accuracy and \\(F_1\\) score\n\nBecause it is easier to write, you often see this harmonic average rewritten as:\n\n\\[\n2 \\times \\frac{\\mbox{precision} \\cdot \\mbox{recall}}\n{\\mbox{precision} + \\mbox{recall}}\n\\]"
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#balanced-accuracy-and-f_1-score-2",
+    "href": "slides/ml/37-evaluation-metrics.html#balanced-accuracy-and-f_1-score-2",
+    "title": "Evaluation Metrics",
+    "section": "Balanced accuracy and \\(F_1\\) score",
+    "text": "Balanced accuracy and \\(F_1\\) score\n\nThe \\(F_1\\)-score can be adapted to weigh specificity and sensitivity differently.\n\n\\[\n\\frac{1}{\\frac{\\beta^2}{1+\\beta^2}\\frac{1}{\\mbox{recall}} +  \n    \\frac{1}{1+\\beta^2}\\frac{1}{\\mbox{precision}} }\n\\]"
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#balanced-accuracy-and-f_1-score-3",
+    "href": "slides/ml/37-evaluation-metrics.html#balanced-accuracy-and-f_1-score-3",
+    "title": "Evaluation Metrics",
+    "section": "Balanced accuracy and \\(F_1\\) score",
+    "text": "Balanced accuracy and \\(F_1\\) score\n\nThe F_meas function in the caret package computes this summary with beta defaulting to 1.\nLet’s rebuild our prediction algorithm, but this time maximizing the F-score instead of overall accuracy:\n\n\ncutoff &lt;- seq(61, 70) \nF_1 &lt;- sapply(cutoff, function(x){ \n  y_hat &lt;- factor(ifelse(train_set$height &gt; x, \"Male\", \"Female\"), levels(test_set$sex)) \n  F_meas(data = y_hat, reference = factor(train_set$sex)) \n})"
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#balanced-accuracy-and-f_1-score-4",
+    "href": "slides/ml/37-evaluation-metrics.html#balanced-accuracy-and-f_1-score-4",
+    "title": "Evaluation Metrics",
+    "section": "Balanced accuracy and \\(F_1\\) score",
+    "text": "Balanced accuracy and \\(F_1\\) score\n\nAs before, we can plot these \\(F_1\\) measures versus the cutoffs:"
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#balanced-accuracy-and-f_1-score-5",
+    "href": "slides/ml/37-evaluation-metrics.html#balanced-accuracy-and-f_1-score-5",
+    "title": "Evaluation Metrics",
+    "section": "Balanced accuracy and \\(F_1\\) score",
+    "text": "Balanced accuracy and \\(F_1\\) score\n\nWe see that it is maximized at \\(F_1\\) value of:\n\n\nmax(F_1) \n\n[1] 0.647\n\n\n\nThis maximum is achieved when we use the following cutoff:\n\n\nbest_cutoff &lt;- cutoff[which.max(F_1)] \nbest_cutoff \n\n[1] 66\n\n\n\nA cutoff of 66 makes more sense than 64."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#balanced-accuracy-and-f_1-score-6",
+    "href": "slides/ml/37-evaluation-metrics.html#balanced-accuracy-and-f_1-score-6",
+    "title": "Evaluation Metrics",
+    "section": "Balanced accuracy and \\(F_1\\) score",
+    "text": "Balanced accuracy and \\(F_1\\) score\n\nFurthermore, it balances the specificity and sensitivity of our confusion matrix:\n\n\ny_hat &lt;- ifelse(test_set$height &gt; best_cutoff, \"Male\", \"Female\") |&gt;  \n  factor(levels = levels(test_set$sex)) \nsensitivity(data = y_hat, reference = test_set$sex) \n\n[1] 0.63\n\nspecificity(data = y_hat, reference = test_set$sex) \n\n[1] 0.833\n\n\n\nWe now see that we do much better than guessing, that both sensitivity and specificity are relatively high."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#balanced-accuracy-and-f_1-score-7",
+    "href": "slides/ml/37-evaluation-metrics.html#balanced-accuracy-and-f_1-score-7",
+    "title": "Evaluation Metrics",
+    "section": "Balanced accuracy and \\(F_1\\) score",
+    "text": "Balanced accuracy and \\(F_1\\) score\n\ny_hat &lt;- ifelse(test_set$height &gt; best_cutoff, \"Male\", \"Female\") |&gt;  \n  factor(levels = levels(test_set$sex)) \nsensitivity(data = y_hat, reference = test_set$sex) \n\n[1] 0.63\n\nspecificity(data = y_hat, reference = test_set$sex) \n\n[1] 0.833\n\n\n\nWe now see that we do much better than guessing, that both sensitivity and specificity are relatively high."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#prevalence-matters-in-practice",
+    "href": "slides/ml/37-evaluation-metrics.html#prevalence-matters-in-practice",
+    "title": "Evaluation Metrics",
+    "section": "Prevalence matters in practice",
+    "text": "Prevalence matters in practice\n\nA machine learning algorithm with very high TPR and TNR may not be useful in practice when prevalence is close to either 0 or 1.\nTo see this, consider the case of a doctor that specializes in a rare disease and is interested in developing an algorithm for predicting who has the disease.\nThe doctor shares data with about 1/2 cases and 1/2 controls and some predictors.\nYou then develop an algorithm with TPR=0.99 and TNR = 0.99."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#prevalence-matters-in-practice-1",
+    "href": "slides/ml/37-evaluation-metrics.html#prevalence-matters-in-practice-1",
+    "title": "Evaluation Metrics",
+    "section": "Prevalence matters in practice",
+    "text": "Prevalence matters in practice\n\nYou are excited to explain to the doctor that this means that if a patient has the disease, the algorithm is very likely to predict correctly.\nThe doctor is not impressed and explains that your TNR is too low for this algorithm to be used in practice.\nThis is because this is a rare disease with a prevalence in the general population of 0.5%.\nThe doctor reminds you of Bayes formula:\n\n\\[ \\mbox{Pr}(Y = 1\\mid \\hat{Y}=1) = \\mbox{Pr}(\\hat{Y}=1 \\mid Y=1) \\frac{\\mbox{Pr}(Y=1)}{\\mbox{Pr}(\\hat{Y}=1)} \\implies \\text{Precision} = \\text{TPR} \\times \\frac{\\text{Prevalence}}{\\text{TPR}\\times \\text{Prevalence} + \\text{FPR}\\times(1-\\text{Prevalence})} \\approx 0.33  \\]"
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#prevalence-matters-in-practice-2",
+    "href": "slides/ml/37-evaluation-metrics.html#prevalence-matters-in-practice-2",
+    "title": "Evaluation Metrics",
+    "section": "Prevalence matters in practice",
+    "text": "Prevalence matters in practice\n\nHere is plot of precision as a function of prevalence with TPR and TNR are 95%:"
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#prevalence-matters-in-practice-3",
+    "href": "slides/ml/37-evaluation-metrics.html#prevalence-matters-in-practice-3",
+    "title": "Evaluation Metrics",
+    "section": "Prevalence matters in practice",
+    "text": "Prevalence matters in practice"
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#prevalence-matters-in-practice-4",
+    "href": "slides/ml/37-evaluation-metrics.html#prevalence-matters-in-practice-4",
+    "title": "Evaluation Metrics",
+    "section": "Prevalence matters in practice",
+    "text": "Prevalence matters in practice\n\nAlthough your algorithm has a precision of about 95% on the data you train on, with prevalence of 50%, if applied to the general population, the algorithm’s precision would be just 33%.\nThe doctor can’t use an algorithm with 33% of people receiving a positive test actually not having the disease.\nNote that even if your algorithm had perfect sensitivity, the precision would still be around 33%.\nSo you need to greatly decrease your FPR for the algorithm to be useful in practice."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#roc-and-precision-recall-curves",
+    "href": "slides/ml/37-evaluation-metrics.html#roc-and-precision-recall-curves",
+    "title": "Evaluation Metrics",
+    "section": "ROC and precision-recall curves",
+    "text": "ROC and precision-recall curves"
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#roc-and-precision-recall-curves-1",
+    "href": "slides/ml/37-evaluation-metrics.html#roc-and-precision-recall-curves-1",
+    "title": "Evaluation Metrics",
+    "section": "ROC and precision-recall curves",
+    "text": "ROC and precision-recall curves\n\nThe packages pROC and plotROC are useful for generating these plots."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#roc-and-precision-recall-curves-2",
+    "href": "slides/ml/37-evaluation-metrics.html#roc-and-precision-recall-curves-2",
+    "title": "Evaluation Metrics",
+    "section": "ROC and precision-recall curves",
+    "text": "ROC and precision-recall curves"
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#roc-and-precision-recall-curves-3",
+    "href": "slides/ml/37-evaluation-metrics.html#roc-and-precision-recall-curves-3",
+    "title": "Evaluation Metrics",
+    "section": "ROC and precision-recall curves",
+    "text": "ROC and precision-recall curves"
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#roc-and-precision-recall-curves-4",
+    "href": "slides/ml/37-evaluation-metrics.html#roc-and-precision-recall-curves-4",
+    "title": "Evaluation Metrics",
+    "section": "ROC and precision-recall curves",
+    "text": "ROC and precision-recall curves\n\nFrom the plot on the left, we immediately see that the precision of guessing is not high.\nThis is because the prevalence is low.\nFrom the plot on the right, we also see that if we change \\(Y=1\\) to mean Male instead of Female, the precision increases.\nNote that the ROC curve would remain the same."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#roc-and-precision-recall-curves-5",
+    "href": "slides/ml/37-evaluation-metrics.html#roc-and-precision-recall-curves-5",
+    "title": "Evaluation Metrics",
+    "section": "ROC and precision-recall curves",
+    "text": "ROC and precision-recall curves"
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#roc-and-precision-recall-curves-6",
+    "href": "slides/ml/37-evaluation-metrics.html#roc-and-precision-recall-curves-6",
+    "title": "Evaluation Metrics",
+    "section": "ROC and precision-recall curves",
+    "text": "ROC and precision-recall curves\n\nWe see that we obtain higher sensitivity with this approach for all values of specificity, which implies it is in fact a better method.\nKeep in mind that ROC curves for guessing always fall on the identity line.\nAlso, note that when making ROC curves, it is often nice to add the cutoff associated with each point.\nThe packages pROC and plotROC are useful for generating these plots."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#roc-and-precision-recall-curves-7",
+    "href": "slides/ml/37-evaluation-metrics.html#roc-and-precision-recall-curves-7",
+    "title": "Evaluation Metrics",
+    "section": "ROC and precision-recall curves",
+    "text": "ROC and precision-recall curves\n\nROC curves have one weakness and it is that neither of the measures plotted depends on prevalence.\nIn cases in which prevalence matters, we may instead make a precision-recall plot.\nThe idea is similar, but we instead plot precision against recall:"
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#roc-and-precision-recall-curves-8",
+    "href": "slides/ml/37-evaluation-metrics.html#roc-and-precision-recall-curves-8",
+    "title": "Evaluation Metrics",
+    "section": "ROC and precision-recall curves",
+    "text": "ROC and precision-recall curves"
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#roc-and-precision-recall-curves-9",
+    "href": "slides/ml/37-evaluation-metrics.html#roc-and-precision-recall-curves-9",
+    "title": "Evaluation Metrics",
+    "section": "ROC and precision-recall curves",
+    "text": "ROC and precision-recall curves\n\nFrom the plot on the left, we immediately see that the precision of guessing is not high.\nThis is because the prevalence is low.\nFrom the plot on the right, we also see that if we change \\(Y=1\\) to mean Male instead of Female, the precision increases.\nNote that the ROC curve would remain the same."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#mean-squared-error",
+    "href": "slides/ml/37-evaluation-metrics.html#mean-squared-error",
+    "title": "Evaluation Metrics",
+    "section": "Mean Squared Error",
+    "text": "Mean Squared Error\n\nUp to now we have described evaluation metrics that apply exclusively to categorical data.\nSpecifically, for binary outcomes, we have described how sensitivity, specificity, accuracy, and \\(F_1\\) can be used as quantification.\nHowever, these metrics are not useful for continuous outcomes.\nIn this section, we describe how the general approach to defining “best” in machine learning is to define a loss function, which can be applied to both categorical and continuous data."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#mean-squared-error-1",
+    "href": "slides/ml/37-evaluation-metrics.html#mean-squared-error-1",
+    "title": "Evaluation Metrics",
+    "section": "Mean Squared Error",
+    "text": "Mean Squared Error\n\nMost commont metric to minimize is mean squared error (MSE):\n\n\\[\n\\text{MSE} \\equiv \\mbox{E}\\{(\\hat{Y} - Y)^2 \\}\n\\]\n\nHow do we estimate this?"
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#mean-squared-error-2",
+    "href": "slides/ml/37-evaluation-metrics.html#mean-squared-error-2",
+    "title": "Evaluation Metrics",
+    "section": "Mean Squared Error",
+    "text": "Mean Squared Error\n\nBecause in practice we have tests set with many, say \\(N\\), independent observations, a commonly used observable estimate of the MSE is:\n\n\\[\n\\hat{\\mbox{MSE}} = \\frac{1}{N}\\sum_{i=1}^N (\\hat{y}_i - y_i)^2\n\\]\n\nwith the \\(\\hat{y}_i\\) generated completely independently from the the \\(y_i\\)."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#mean-squared-error-3",
+    "href": "slides/ml/37-evaluation-metrics.html#mean-squared-error-3",
+    "title": "Evaluation Metrics",
+    "section": "Mean Squared Error",
+    "text": "Mean Squared Error\n\nThe estimate \\(\\hat{\\text{MSE}}\\) is a random variable.\n\\(\\text{MSE}\\) and \\(\\hat{\\text{MSE}}\\) are often referred to as the true error and apparent error, respectively.\nIt is difficult to derive the statistical properties of how well the apparent error estimates the true error.\nWe later introduce cross-validation an approach to estimating the MSE."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#mean-squared-error-4",
+    "href": "slides/ml/37-evaluation-metrics.html#mean-squared-error-4",
+    "title": "Evaluation Metrics",
+    "section": "Mean Squared Error",
+    "text": "Mean Squared Error\n\nThere are loss functions other than the squared loss.\nFor example, the Mean Absolute Error uses absolute values, \\(|\\hat{Y}_i - Y_i|\\) instead of squaring the errors.\n\\((\\hat{Y}_i - Y_i)^2\\).\nHowever, in this book we focus on minimizing square loss since it is the most widely used."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#mean-squared-error-5",
+    "href": "slides/ml/37-evaluation-metrics.html#mean-squared-error-5",
+    "title": "Evaluation Metrics",
+    "section": "Mean Squared Error",
+    "text": "Mean Squared Error\n\nWe end this chapter by pointing out that there are loss functions other than the squared loss.\nFor example, the Mean Absolute Error uses absolute values, \\(|\\hat{Y}_i - Y_i|\\) instead of squaring the errors.\n\\((\\hat{Y}_i - Y_i)^2\\).\nHowever, in this book we focus on minimizing square loss since it is the most widely used."
+  },
+  {
+    "objectID": "slides/ml/38-conditionals.html#conditional-probabilities-and-expectations",
+    "href": "slides/ml/38-conditionals.html#conditional-probabilities-and-expectations",
+    "title": "Conditionals",
+    "section": "Conditional probabilities and expectations",
+    "text": "Conditional probabilities and expectations\n\nIn machine learning applications, we rarely can predict outcomes perfectly.\nThe most common reason for not being able to build perfect algorithms is that it is impossible.\nTo see this, consider that most datasets will include groups of observations with the same exact observed values for all predictors, but with different outcomes."
+  },
+  {
+    "objectID": "slides/ml/38-conditionals.html#conditional-probabilities-and-expectations-1",
+    "href": "slides/ml/38-conditionals.html#conditional-probabilities-and-expectations-1",
+    "title": "Conditionals",
+    "section": "Conditional probabilities and expectations",
+    "text": "Conditional probabilities and expectations\n\nBecause our prediction rules are functions, equal inputs (the predictors) implies equal outputs (the predictions).\nTherefore, for a challenge in which the same predictors are associated with different outcomes across different individual observations, it is impossible to predict correctly for all these cases.\nIt therefor makes sense to consider conditional probabilities:\n\n\\[\n\\mbox{Pr}(Y=k \\mid X_1 = x_1,\\dots,X_p=x_p), \\, \\mbox{for}\\,k=1,\\dots,K\n\\]"
+  },
+  {
+    "objectID": "slides/ml/38-conditionals.html#conditional-probabilities-and-expectations-2",
+    "href": "slides/ml/38-conditionals.html#conditional-probabilities-and-expectations-2",
+    "title": "Conditionals",
+    "section": "Conditional probabilities and expectations",
+    "text": "Conditional probabilities and expectations\n\nHowever, none of this means that we can’t build useful algorithms that are much better than guessing, and in some cases better than expert opinions.\nTo achieve this in an optimal way, we make use of probabilistic representations of the problem based on the ideas presented in ?@sec-conditional-expectation.\nObservations with the same observed values for the predictors may not all be the same, but we can assume that they all have the same probability of this class or that class.\nWe will write this idea out mathematically for the case of categorical data."
+  },
+  {
+    "objectID": "slides/ml/38-conditionals.html#conditional-probabilities",
+    "href": "slides/ml/38-conditionals.html#conditional-probabilities",
+    "title": "Conditionals",
+    "section": "Conditional probabilities",
+    "text": "Conditional probabilities\n\nWe will also use the following notation for the conditional probability of being class \\(k\\):\n\n\\[\np_k(\\mathbf{x}) = \\mbox{Pr}(Y=k \\mid \\mathbf{X}=\\mathbf{x}), \\, \\mbox{for}\\, k=1,\\dots,K\n\\]\n\nNotice that the \\(p_k(\\mathbf{x})\\) have to add up to 1 for each \\(\\mathbf{x}\\), so once we know \\(K-1\\), we know all."
+  },
+  {
+    "objectID": "slides/ml/38-conditionals.html#conditional-probabilities-1",
+    "href": "slides/ml/38-conditionals.html#conditional-probabilities-1",
+    "title": "Conditionals",
+    "section": "Conditional probabilities",
+    "text": "Conditional probabilities\n\nWhen the outcome is binary, we only need to know 1, so we drop the \\(k\\) and use the notation:\n\n\\[p(\\mathbf{x}) = \\mbox{Pr}(Y=1 \\mid \\mathbf{X}=\\mathbf{x})\\]\n\n\n\n\n\n\nNote\n\n\n\nDo not be confused by the fact that we use \\(p\\) for two different things: the conditional probability \\(p(\\mathbf{x})\\) and the number of predictors \\(p\\)."
+  },
+  {
+    "objectID": "slides/ml/38-conditionals.html#conditional-probabilities-2",
+    "href": "slides/ml/38-conditionals.html#conditional-probabilities-2",
+    "title": "Conditionals",
+    "section": "Conditional probabilities",
+    "text": "Conditional probabilities\n\nThese probabilities guide the construction of an algorithm that makes the best prediction:\n\n\\[\\hat{Y} = \\max_k p_k(\\mathbf{x})\\]\n\nIn machine learning, we refer to this as Bayes’ Rule.\nBut this is a theoretical rule since, in practice, we don’t know \\(p_k(\\mathbf{x}), k=1,\\dots,K\\)."
+  },
+  {
+    "objectID": "slides/ml/38-conditionals.html#conditional-probabilities-3",
+    "href": "slides/ml/38-conditionals.html#conditional-probabilities-3",
+    "title": "Conditionals",
+    "section": "Conditional probabilities",
+    "text": "Conditional probabilities\n\nEstimating these conditional probabilities can be thought of as the main challenge of machine learning.\nThe better our probability estimates \\(\\hat{p}_k(\\mathbf{x})\\), the better our predictor \\(\\hat{Y}\\)."
+  },
+  {
+    "objectID": "slides/ml/38-conditionals.html#conditional-probabilities-4",
+    "href": "slides/ml/38-conditionals.html#conditional-probabilities-4",
+    "title": "Conditionals",
+    "section": "Conditional probabilities",
+    "text": "Conditional probabilities\nHow well we predict depends on two things:\n\nhow close are the \\(\\max_k p_k(\\mathbf{x})\\) to 1 or 0 (perfect certainty) and\nhow close our estimates \\(\\hat{p}_k(\\mathbf{x})\\) are to \\(p_k(\\mathbf{x})\\).\n\nWe can’t do anything about the first restriction as it is determined by the nature of the problem, so our energy goes into finding ways to best estimate conditional probabilities."
+  },
+  {
+    "objectID": "slides/ml/38-conditionals.html#conditional-probabilities-5",
+    "href": "slides/ml/38-conditionals.html#conditional-probabilities-5",
+    "title": "Conditionals",
+    "section": "Conditional probabilities",
+    "text": "Conditional probabilities\n\nThe first restriction does imply that we have limits as to how well even the best possible algorithm can perform.\nYou should get used to the idea that while in some challenges we will be able to achieve almost perfect accuracy, with digit readers for example, in others, our success is restricted by the randomness of the process, such as with movie recommendations.\nKeep in mind that defining our prediction by maximizing the probability is not always optimal in practice and depends on the context."
+  },
+  {
+    "objectID": "slides/ml/38-conditionals.html#conditional-probabilities-6",
+    "href": "slides/ml/38-conditionals.html#conditional-probabilities-6",
+    "title": "Conditionals",
+    "section": "Conditional probabilities",
+    "text": "Conditional probabilities\n\nAs discussed in ?@sec-evaluation-metrics, sensitivity and specificity may differ in importance.\nBut even in these cases, having a good estimate of the \\(p_k(x), k=1,\\dots,K\\) will suffice for us to build optimal prediction models, since we can control the balance between specificity and sensitivity however we wish.\nFor instance, we can simply change the cutoffs used to predict one outcome or the other."
+  },
+  {
+    "objectID": "slides/ml/38-conditionals.html#conditional-probabilities-7",
+    "href": "slides/ml/38-conditionals.html#conditional-probabilities-7",
+    "title": "Conditionals",
+    "section": "Conditional probabilities",
+    "text": "Conditional probabilities\n\nIn the plane example, we may ground the plane anytime the probability of malfunction is higher than 1 in a million as opposed to the default 1/2 used when error types are equally undesired."
+  },
+  {
+    "objectID": "slides/ml/38-conditionals.html#conditional-expectations",
+    "href": "slides/ml/38-conditionals.html#conditional-expectations",
+    "title": "Conditionals",
+    "section": "Conditional expectations",
+    "text": "Conditional expectations\n\nFor binary data, you can think of the probability \\(\\mbox{Pr}(Y=1 \\mid \\mathbf{X}=\\mathbf{x})\\) as the proportion of 1s in the stratum of the population for which \\(\\mathbf{X}=\\mathbf{x}\\).\n\n\\[\n\\mbox{E}(Y \\mid \\mathbf{X}=\\mathbf{x})=\\mbox{Pr}(Y=1 \\mid \\mathbf{X}=\\mathbf{x}).\n\\]\n\nAs a result, we often only use the expectation to denote both the conditional probability and conditional expectation."
+  },
+  {
+    "objectID": "slides/ml/38-conditionals.html#conditional-expectations-1",
+    "href": "slides/ml/38-conditionals.html#conditional-expectations-1",
+    "title": "Conditionals",
+    "section": "Conditional expectations",
+    "text": "Conditional expectations\n\nWhy do we care about the conditional expectation in machine learning?\nThis is because the expected value has an attractive mathematical property: it minimizes the MSE.\n\n\\[\n\\hat{Y} = \\mbox{E}(Y \\mid \\mathbf{X}=\\mathbf{x}) \\, \\mbox{ minimizes } \\, \\mbox{E}\\{ (\\hat{Y} - Y)^2  \\mid  \\mathbf{X}=\\mathbf{x} \\}\n\\]"
+  },
+  {
+    "objectID": "slides/ml/38-conditionals.html#conditional-expectations-2",
+    "href": "slides/ml/38-conditionals.html#conditional-expectations-2",
+    "title": "Conditionals",
+    "section": "Conditional expectations",
+    "text": "Conditional expectations\n\nDue to this property, a succinct description of the main task of machine learning is that we use data to estimate:\n\n\\[\nf(\\mathbf{x}) \\equiv \\mbox{E}( Y  \\mid  \\mathbf{X}=\\mathbf{x} )\n\\]\n\nfor any set of features \\(\\mathbf{x} = (x_1, \\dots, x_p)^\\top\\).\nThis is easier said than done, since this function can take any shape and \\(p\\) can be very large."
+  },
+  {
+    "objectID": "slides/ml/38-conditionals.html#conditional-expectations-minimizes-squared-loss-function",
+    "href": "slides/ml/38-conditionals.html#conditional-expectations-minimizes-squared-loss-function",
+    "title": "Conditionals",
+    "section": "Conditional expectations minimizes squared loss function",
+    "text": "Conditional expectations minimizes squared loss function\n\nWhy do we care about the conditional expectation in machine learning?\nThis is because the expected value has an attractive mathematical property: it minimizes the MSE.\n\n\\[\n\\hat{Y} = \\mbox{E}(Y \\mid \\mathbf{X}=\\mathbf{x}) \\, \\mbox{ minimizes } \\, \\mbox{E}\\{ (\\hat{Y} - Y)^2  \\mid  \\mathbf{X}=\\mathbf{x} \\}\n\\]"
+  },
+  {
+    "objectID": "slides/ml/38-conditionals.html#conditional-expectations-minimizes-squared-loss-function-1",
+    "href": "slides/ml/38-conditionals.html#conditional-expectations-minimizes-squared-loss-function-1",
+    "title": "Conditionals",
+    "section": "Conditional expectations minimizes squared loss function",
+    "text": "Conditional expectations minimizes squared loss function\n\nDue to this property, a succinct description of the main task of machine learning is that we use data to estimate:\n\n\\[\nf(\\mathbf{x}) \\equiv \\mbox{E}( Y  \\mid  \\mathbf{X}=\\mathbf{x} )\n\\]\n\nfor any set of features \\(\\mathbf{x} = (x_1, \\dots, x_p)^\\top\\).\nThis is easier said than done, since this function can take any shape and \\(p\\) can be very large."
+  },
+  {
+    "objectID": "slides/ml/38-conditionals.html#conditional-expectations-minimizes-squared-loss-function-2",
+    "href": "slides/ml/38-conditionals.html#conditional-expectations-minimizes-squared-loss-function-2",
+    "title": "Conditionals",
+    "section": "Conditional expectations minimizes squared loss function",
+    "text": "Conditional expectations minimizes squared loss function\n\nThe expectation \\(\\mbox{E}\\{ Y  \\mid  X=x \\}\\) can be any function of \\(x\\): a line, a parabola, a sine wave, a step function, anything.\nIt gets even more complicated when we consider instances with large \\(p\\), in which case \\(f(\\mathbf{x})\\) is a function of a multidimensional vector \\(\\mathbf{x}\\).\nFor example, in our digit reader example \\(p = 784\\)!.\nThe main way in which competing machine learning algorithms differ is in their approach to estimating this conditional expectation."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#smoothing",
+    "href": "slides/ml/39-smoothing.html#smoothing",
+    "title": "Smoothing",
+    "section": "Smoothing",
+    "text": "Smoothing\n\nBefore continuing learning about machine learning algorithms, we introduce the important concept of smoothing.\nSmoothing is a very powerful technique used all across data analysis.\nOther names given to this technique are curve fitting and low pass filtering.\nIt is designed to detect trends in the presence of noisy data in cases in which the shape of the trend is unknown."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#smoothing-1",
+    "href": "slides/ml/39-smoothing.html#smoothing-1",
+    "title": "Smoothing",
+    "section": "Smoothing",
+    "text": "Smoothing\n\nThe smoothing name comes from the fact that to accomplish this feat, we assume that the trend is smooth, as in a smooth surface.\nIn contrast, the noise, or deviation from the trend, is unpredictably wobbly:"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#smoothing-2",
+    "href": "slides/ml/39-smoothing.html#smoothing-2",
+    "title": "Smoothing",
+    "section": "Smoothing",
+    "text": "Smoothing"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#smoothing-3",
+    "href": "slides/ml/39-smoothing.html#smoothing-3",
+    "title": "Smoothing",
+    "section": "Smoothing",
+    "text": "Smoothing\n\nPart of what we explain in this section are the assumptions that permit us to extract the trend from the noise."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#example-is-it-a-2-or-a-7",
+    "href": "slides/ml/39-smoothing.html#example-is-it-a-2-or-a-7",
+    "title": "Smoothing",
+    "section": "Example: Is it a 2 or a 7?",
+    "text": "Example: Is it a 2 or a 7?\n\nTo motivate the need for smoothing and make the connection with machine learning, we will construct a simplified version of the MNIST dataset with just two classes for the outcome and two predictors.\nSpecifically, we define the challenge as building an algorithm that can determine if a digit is a 2 or 7 from the proportion of dark pixels in the upper left quadrant (\\(X_1\\)) and the lower right quadrant (\\(X_2\\)).\nWe also selected a random sample of 1,000 digits, 500 in the training set and 500 in the test set."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#example-is-it-a-2-or-a-7-1",
+    "href": "slides/ml/39-smoothing.html#example-is-it-a-2-or-a-7-1",
+    "title": "Smoothing",
+    "section": "Example: Is it a 2 or a 7?",
+    "text": "Example: Is it a 2 or a 7?\n\nWe provide this dataset in the mnist_27 object in the dslabs package.\nFor the training data, we have \\(n=500\\) observed outcomes \\(y_1,\\dots,y_n\\), with \\(Y\\) defined as \\(1\\) if the digit is 7 and 0 if it’s 2, and \\(n=500\\) features \\(\\mathbf{x}_1, \\dots, \\mathbf{x}_n\\), with each feature a two-dimensional point \\(\\mathbf{x}_i = (x_{i,1}, x_{i,2})^\\top\\).\nHere is a plot of the \\(x_2\\)s versus the \\(x_1\\)s with color determining if \\(y\\) is 1 (blue) or 0 (red):\n\n\nlibrary(caret) \nlibrary(dslabs) \nmnist_27$train |&gt; ggplot(aes(x_1, x_2, color = y)) + geom_point()"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#example-is-it-a-2-or-a-7-2",
+    "href": "slides/ml/39-smoothing.html#example-is-it-a-2-or-a-7-2",
+    "title": "Smoothing",
+    "section": "Example: Is it a 2 or a 7?",
+    "text": "Example: Is it a 2 or a 7?"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#example-is-it-a-2-or-a-7-3",
+    "href": "slides/ml/39-smoothing.html#example-is-it-a-2-or-a-7-3",
+    "title": "Smoothing",
+    "section": "Example: Is it a 2 or a 7?",
+    "text": "Example: Is it a 2 or a 7?\n\nWe can immediately see some patterns.\nFor example, if \\(x_1\\) (the upper left panel) is very large, then the digit is probably a 7.\nAlso, for smaller values of \\(x_1\\), the 2s appear to be in the mid range values of \\(x_2\\).\nTo illustrate how to interpret \\(x_1\\) and \\(x_2\\), we include four example images."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#example-is-it-a-2-or-a-7-4",
+    "href": "slides/ml/39-smoothing.html#example-is-it-a-2-or-a-7-4",
+    "title": "Smoothing",
+    "section": "Example: Is it a 2 or a 7?",
+    "text": "Example: Is it a 2 or a 7?\n\nOn the left are the original images of the two digits with the largest and smallest values for \\(x_1\\) and on the right we have the images corresponding to the largest and smallest values of \\(x_2\\):"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#example-is-it-a-2-or-a-7-5",
+    "href": "slides/ml/39-smoothing.html#example-is-it-a-2-or-a-7-5",
+    "title": "Smoothing",
+    "section": "Example: Is it a 2 or a 7?",
+    "text": "Example: Is it a 2 or a 7?"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#example-is-it-a-2-or-a-7-6",
+    "href": "slides/ml/39-smoothing.html#example-is-it-a-2-or-a-7-6",
+    "title": "Smoothing",
+    "section": "Example: Is it a 2 or a 7?",
+    "text": "Example: Is it a 2 or a 7?\n\nWe can start getting a sense for why these predictors are useful, but also why the problem will be somewhat challenging.\nWe haven’t really learned any algorithms yet, so let’s try building an algorithm using multivariable regression.\nThe model is simply:\n\n\\[\n\\begin{aligned}\np(\\mathbf{x}) &= \\mbox{Pr}(Y=1 \\mid \\mathbf{X}=\\mathbf{x}) = \\mbox{Pr}(Y=1 \\mid X_1=x_1 , X_2 = x_2)\\\\\n&= \\beta_0 + \\beta_1 x_1 + \\beta_2 x_2\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#example-is-it-a-2-or-a-7-7",
+    "href": "slides/ml/39-smoothing.html#example-is-it-a-2-or-a-7-7",
+    "title": "Smoothing",
+    "section": "Example: Is it a 2 or a 7?",
+    "text": "Example: Is it a 2 or a 7?\n\nWe fit can fit this model using least squares and obtain an estimate \\(\\hat{p}(\\mathbf{x})\\) by using the least square estimates \\(\\hat{\\beta}_0\\), \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_2\\).\nWe define a decision rule by predicting \\(\\hat{y}=1\\) if \\(\\hat{p}(\\mathbf{x})&gt;0.5\\) and 0 otherwise.\n\n\nWe get an accuracy of 0.775, well above 50%.\nNot bad for our first try."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#example-is-it-a-2-or-a-7-8",
+    "href": "slides/ml/39-smoothing.html#example-is-it-a-2-or-a-7-8",
+    "title": "Smoothing",
+    "section": "Example: Is it a 2 or a 7?",
+    "text": "Example: Is it a 2 or a 7?\n\nBut can we do better?\nBecause we constructed the mnist_27 example and we had at our disposal 60,000 digits in just the MNIST dataset, we used this to build the true conditional distribution \\(p(\\mathbf{x})\\).\nKeep in mind that in practice we don’t have access to the true conditional distribution.\nWe include it in this educational example because it permits the comparison of \\(\\hat{p}(\\mathbf{x})\\) to the true \\(p(\\mathbf{x})\\)."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#example-is-it-a-2-or-a-7-9",
+    "href": "slides/ml/39-smoothing.html#example-is-it-a-2-or-a-7-9",
+    "title": "Smoothing",
+    "section": "Example: Is it a 2 or a 7?",
+    "text": "Example: Is it a 2 or a 7?\n\nThis comparison teaches us the limitations of different algorithms.\nWe have stored the true \\(p(\\mathbf{x})\\) in the mnist_27 and can plot it as an image.\nWe draw a curve that separates pairs \\((\\mathbf{x})\\) for which \\(p(\\mathbf{x}) &gt; 0.5\\) and pairs for which \\(p(\\mathbf{x}) &lt; 0.5\\):"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#example-is-it-a-2-or-a-7-10",
+    "href": "slides/ml/39-smoothing.html#example-is-it-a-2-or-a-7-10",
+    "title": "Smoothing",
+    "section": "Example: Is it a 2 or a 7?",
+    "text": "Example: Is it a 2 or a 7?"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#example-is-it-a-2-or-a-7-11",
+    "href": "slides/ml/39-smoothing.html#example-is-it-a-2-or-a-7-11",
+    "title": "Smoothing",
+    "section": "Example: Is it a 2 or a 7?",
+    "text": "Example: Is it a 2 or a 7?\n\nTo start understanding the limitations of regression, first note that with regression \\(\\hat{p}(\\mathbf{x})\\) has to be a plane, and as a result the boundary defined by the decision rule is given by:\n\\(\\hat{p}(\\mathbf{x}) = 0.5\\):\n\n\\[\n\\begin{aligned}\n\\hat{\\beta}_0 + \\hat{\\beta}_1 x_1 + \\hat{\\beta}_2 x_2 = 0.5 \\implies \\\\\n\\hat{\\beta}_0 + \\hat{\\beta}_1 x_1 + \\hat{\\beta}_2 x_2 = 0.5  \\implies \\\\\nx_2 = (0.5-\\hat{\\beta}_0)/\\hat{\\beta}_2  -\\hat{\\beta}_1/\\hat{\\beta}_2 x_1\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#example-is-it-a-2-or-a-7-12",
+    "href": "slides/ml/39-smoothing.html#example-is-it-a-2-or-a-7-12",
+    "title": "Smoothing",
+    "section": "Example: Is it a 2 or a 7?",
+    "text": "Example: Is it a 2 or a 7?\n\nThis implies that for the boundary, \\(x_2\\) is a linear function of \\(x_1\\), which suggests that our regression approach has no chance of capturing the non-linear nature of the true \\(p(\\mathbf{x})\\)."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#example-is-it-a-2-or-a-7-13",
+    "href": "slides/ml/39-smoothing.html#example-is-it-a-2-or-a-7-13",
+    "title": "Smoothing",
+    "section": "Example: Is it a 2 or a 7?",
+    "text": "Example: Is it a 2 or a 7?\n\nVisual representation of \\(\\hat{p}(\\mathbf{x})\\):"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#example-is-it-a-2-or-a-7-14",
+    "href": "slides/ml/39-smoothing.html#example-is-it-a-2-or-a-7-14",
+    "title": "Smoothing",
+    "section": "Example: Is it a 2 or a 7?",
+    "text": "Example: Is it a 2 or a 7?\n\nWe need something more flexible: a method that permits estimates with shapes other than a plane.\nSmoothing techniques permit this flexibility.\nWe will start by describing nearest neighbor and kernel approaches.\nTo understand why we cover this topic, remember that the concepts behind smoothing techniques are extremely useful in machine learning because conditional expectations/probabilities can be thought of as trends of unknown shapes that we need to estimate in the presence of uncertainty."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#signal-plus-noise-model",
+    "href": "slides/ml/39-smoothing.html#signal-plus-noise-model",
+    "title": "Smoothing",
+    "section": "Signal plus noise model",
+    "text": "Signal plus noise model\n\nTo explain these concepts, we will focus first on a problem with just one predictor.\nSpecifically, we try to estimate the time trend in the 2008 US popular vote poll margin (the difference between Obama and McCain).\nLater we will learn about methods, such as k-nearest neighbors, that can be used to smooth with higher dimensions.\n\n\npolls_2008 |&gt; ggplot(aes(day, margin)) + geom_point()"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#signal-plus-noise-model-1",
+    "href": "slides/ml/39-smoothing.html#signal-plus-noise-model-1",
+    "title": "Smoothing",
+    "section": "Signal plus noise model",
+    "text": "Signal plus noise model"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#signal-plus-noise-model-2",
+    "href": "slides/ml/39-smoothing.html#signal-plus-noise-model-2",
+    "title": "Smoothing",
+    "section": "Signal plus noise model",
+    "text": "Signal plus noise model\n\nFor the purposes of the popular vote example, do not think of it as a forecasting problem.\nInstead, we are simply interested in learning the shape of the trend after the election is over.\nWe assume that for any given day \\(x\\), there is a true preference among the electorate \\(f(x)\\), but due to the uncertainty introduced by the polling, each data point comes with an error \\(\\varepsilon\\)."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#signal-plus-noise-model-3",
+    "href": "slides/ml/39-smoothing.html#signal-plus-noise-model-3",
+    "title": "Smoothing",
+    "section": "Signal plus noise model",
+    "text": "Signal plus noise model\n\nA mathematical model for the observed poll margin \\(Y_i\\) is:\n\n\\[\nY_i = f(x_i) + \\varepsilon_i\n\\]"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#signal-plus-noise-model-4",
+    "href": "slides/ml/39-smoothing.html#signal-plus-noise-model-4",
+    "title": "Smoothing",
+    "section": "Signal plus noise model",
+    "text": "Signal plus noise model\n\nTo think of this as a machine learning problem, consider that we want to predict \\(Y\\) given a day \\(x\\).\nIf we knew the conditional expectation \\(f(x) = \\mbox{E}(Y \\mid X=x)\\), we would use it.\nBut since we don’t know this conditional expectation, we have to estimate it.\nLet’s use regression, since it is the only method we have learned up to now."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#signal-plus-noise-model-5",
+    "href": "slides/ml/39-smoothing.html#signal-plus-noise-model-5",
+    "title": "Smoothing",
+    "section": "Signal plus noise model",
+    "text": "Signal plus noise model"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#signal-plus-noise-model-6",
+    "href": "slides/ml/39-smoothing.html#signal-plus-noise-model-6",
+    "title": "Smoothing",
+    "section": "Signal plus noise model",
+    "text": "Signal plus noise model\n\nThe fitted regression line does not appear to describe the trend very well.\nFor example, on September 4 (day -62), the Republican Convention was held and the data suggest that it gave John McCain a boost in the polls.\nHowever, the regression line does not capture this potential trend.\nTo see the lack of fit more clearly, we note that points above the fitted line (blue) and those below (red) are not evenly distributed across days."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#bin-smoothing",
+    "href": "slides/ml/39-smoothing.html#bin-smoothing",
+    "title": "Smoothing",
+    "section": "Bin smoothing",
+    "text": "Bin smoothing\n\nThe general idea of smoothing is to group data points into strata in which the value of \\(f(x)\\) can be assumed to be constant.\nWe can make this assumption when we think \\(f(x)\\) changes slowly and, as a result, \\(f(x)\\) is almost constant in small windows of \\(x\\).\nAn example of this idea for the poll_2008 data is to assume that public opinion remained approximately the same within a week’s time.\nWith this assumption in place, we have several data points with the same expected value."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#bin-smoothing-1",
+    "href": "slides/ml/39-smoothing.html#bin-smoothing-1",
+    "title": "Smoothing",
+    "section": "Bin smoothing",
+    "text": "Bin smoothing\n\nIf we fix a day to be in the center of our week, call it \\(x_0\\), then for any other day \\(x\\) such that \\(|x - x_0| \\leq 3.5\\), we assume \\(f(x)\\) is a constant \\(f(x) = \\mu\\).\nThis assumption implies that:\n\n\\[\nE[Y_i | X_i = x_i ] \\approx \\mu \\mbox{   if   }  |x_i - x_0| \\leq 3.5\n\\]\n\nIn smoothing, we call the size of the interval satisfying \\(|x_i - x_0| \\leq 3.5\\) the window size, bandwidth or span."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#bin-smoothing-2",
+    "href": "slides/ml/39-smoothing.html#bin-smoothing-2",
+    "title": "Smoothing",
+    "section": "Bin smoothing",
+    "text": "Bin smoothing\n\nLater we will see that we try to optimize this parameter.\nThis assumption implies that a good estimate for \\(f(x_0)\\) is the average of the \\(Y_i\\) values in the window.\nIf we define \\(A_0\\) as the set of indexes \\(i\\) such that \\(|x_i - x_0| \\leq 3.5\\) and \\(N_0\\) as the number of indexes in \\(A_0\\), then our estimate is:\n\n\\[\n\\hat{f}(x_0) = \\frac{1}{N_0} \\sum_{i \\in A_0}  Y_i\n\\]"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#bin-smoothing-3",
+    "href": "slides/ml/39-smoothing.html#bin-smoothing-3",
+    "title": "Smoothing",
+    "section": "Bin smoothing",
+    "text": "Bin smoothing\n\nWe make this calculation with each value of \\(x\\) as the center.\nIn the poll example, for each day, we would compute the average of the values within a week with that day in the center.\nHere are two examples: \\(x_0 = -125\\) and \\(x_0 = -55\\).\nThe blue segment represents the resulting average."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#bin-smoothing-4",
+    "href": "slides/ml/39-smoothing.html#bin-smoothing-4",
+    "title": "Smoothing",
+    "section": "Bin smoothing",
+    "text": "Bin smoothing"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#bin-smoothing-5",
+    "href": "slides/ml/39-smoothing.html#bin-smoothing-5",
+    "title": "Smoothing",
+    "section": "Bin smoothing",
+    "text": "Bin smoothing\n\nBy computing this mean for every point, we form an estimate of the underlying curve \\(f(x)\\).\nBelow we show the procedure happening as we move from the -155 up to 0."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#bin-smoothing-6",
+    "href": "slides/ml/39-smoothing.html#bin-smoothing-6",
+    "title": "Smoothing",
+    "section": "Bin smoothing",
+    "text": "Bin smoothing\n\nAt each value of \\(x_0\\), we keep the estimate \\(\\hat{f}(x_0)\\) and move on to the next point:"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#bin-smoothing-7",
+    "href": "slides/ml/39-smoothing.html#bin-smoothing-7",
+    "title": "Smoothing",
+    "section": "Bin smoothing",
+    "text": "Bin smoothing\n\nThe final code and resulting estimate look like this:\n\n\nspan &lt;- 7  \nfit &lt;- with(polls_2008, ksmooth(day, margin, kernel = \"box\", bandwidth = span)) \npolls_2008 |&gt; mutate(fit = fit$y) |&gt; \n  ggplot(aes(x = day)) + \n  geom_point(aes(y = margin), size = 3, alpha = .5, color = \"grey\") +  \n  geom_line(aes(y = fit), color = \"red\")"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#bin-smoothing-8",
+    "href": "slides/ml/39-smoothing.html#bin-smoothing-8",
+    "title": "Smoothing",
+    "section": "Bin smoothing",
+    "text": "Bin smoothing"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#bin-smoothing-9",
+    "href": "slides/ml/39-smoothing.html#bin-smoothing-9",
+    "title": "Smoothing",
+    "section": "Bin smoothing",
+    "text": "Bin smoothing"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#kernels",
+    "href": "slides/ml/39-smoothing.html#kernels",
+    "title": "Smoothing",
+    "section": "Kernels",
+    "text": "Kernels\n\nThe final result from the bin smoother is quite wiggly.\nOne reason for this is that each time the window moves, two points change.\nWe can attenuate this somewhat by taking weighted averages that give the center point more weight than far away points, with the two points at the edges receiving very little weight."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#kernels-1",
+    "href": "slides/ml/39-smoothing.html#kernels-1",
+    "title": "Smoothing",
+    "section": "Kernels",
+    "text": "Kernels\n\nYou can think of the bin smoother approach as a weighted average:\n\n\\[\n\\hat{f}(x_0) = \\sum_{i=1}^N w_0(x_i) Y_i\n\\]"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#kernels-2",
+    "href": "slides/ml/39-smoothing.html#kernels-2",
+    "title": "Smoothing",
+    "section": "Kernels",
+    "text": "Kernels\n\nin which each point receives a weight of either \\(0\\) or \\(1/N_0\\), with \\(N_0\\) the number of points in the week.\nIn the code above, we used the argument kernel=\"box\" in our call to the function ksmooth.\nThis is because the weight function looks like a box.\nThe ksmooth function provides a “smoother” option which uses the normal density to assign weights."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#kernels-3",
+    "href": "slides/ml/39-smoothing.html#kernels-3",
+    "title": "Smoothing",
+    "section": "Kernels",
+    "text": "Kernels"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#kernels-4",
+    "href": "slides/ml/39-smoothing.html#kernels-4",
+    "title": "Smoothing",
+    "section": "Kernels",
+    "text": "Kernels\n\nThe final code and resulting plot for the normal kernel look like this:\n\n\nspan &lt;- 7 \nfit &lt;- with(polls_2008, ksmooth(day, margin, kernel = \"normal\", bandwidth = span)) \npolls_2008 |&gt; mutate(smooth = fit$y) |&gt; \n  ggplot(aes(day, margin)) + \n  geom_point(size = 3, alpha = .5, color = \"grey\") +  \n  geom_line(aes(day, smooth), color = \"red\")"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#kernels-5",
+    "href": "slides/ml/39-smoothing.html#kernels-5",
+    "title": "Smoothing",
+    "section": "Kernels",
+    "text": "Kernels"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#kernels-6",
+    "href": "slides/ml/39-smoothing.html#kernels-6",
+    "title": "Smoothing",
+    "section": "Kernels",
+    "text": "Kernels\n\nNotice that this version looks smoother.\nThere are several functions in R that implement bin smoothers.\nOne example is ksmooth, shown above.\nIn practice, however, we typically prefer methods that use slightly more complex models than fitting a constant.\nThe final result above, for example, is still somewhat wiggly in parts we don’t expect it to be (between -125 and -75, for example)."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-loess",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-loess",
+    "title": "Smoothing",
+    "section": "Local weighted regression (loess)",
+    "text": "Local weighted regression (loess)\n\nA limitation of the bin smoother approach just described is that we need small windows for the approximately constant assumptions to hold.\nAs a result, we end up with a small number of data points to average and obtain imprecise estimates \\(\\hat{f}(x)\\).\nHere we describe how local weighted regression (loess) permits us to consider larger window sizes.\nTo do this, we will use a mathematical result, referred to as Taylor’s theorem, which tells us that if you look closely enough at any smooth function \\(f(x)\\), it will look like a line."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-loess-1",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-loess-1",
+    "title": "Smoothing",
+    "section": "Local weighted regression (loess)",
+    "text": "Local weighted regression (loess)\n\nTo see why this makes sense, consider the curved edges gardeners make using straight-edged spades:"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-loess-2",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-loess-2",
+    "title": "Smoothing",
+    "section": "Local weighted regression (loess)",
+    "text": "Local weighted regression (loess)\n\nInstead of assuming the function is approximately constant in a window, we assume the function is locally linear.\nWe can consider larger window sizes with the linear assumption than with a constant.\nInstead of the one-week window, we consider a larger one in which the trend is approximately linear.\nWe start with a three-week window and later consider and evaluate other options:"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-loess-3",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-loess-3",
+    "title": "Smoothing",
+    "section": "Local weighted regression (loess)",
+    "text": "Local weighted regression (loess)\n\\[\nE[Y_i | X_i = x_i ] = \\beta_0 + \\beta_1 (x_i-x_0) \\mbox{   if   }  |x_i - x_0| \\leq 21\n\\]\n\nFor every point \\(x_0\\), loess defines a window and fits a line within that window.\nHere is an example showing the fits for \\(x_0=-125\\) and \\(x_0 = -55\\):"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-loess-4",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-loess-4",
+    "title": "Smoothing",
+    "section": "Local weighted regression (loess)",
+    "text": "Local weighted regression (loess)"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-loess-5",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-loess-5",
+    "title": "Smoothing",
+    "section": "Local weighted regression (loess)",
+    "text": "Local weighted regression (loess)\n\nThe fitted value at \\(x_0\\) becomes our estimate \\(\\hat{f}(x_0)\\).\nBelow we show the procedure happening as we move from the -155 up to 0:"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-loess-6",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-loess-6",
+    "title": "Smoothing",
+    "section": "Local weighted regression (loess)",
+    "text": "Local weighted regression (loess)"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-loess-7",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-loess-7",
+    "title": "Smoothing",
+    "section": "Local weighted regression (loess)",
+    "text": "Local weighted regression (loess)\n\nThe final result is a smoother fit than the bin smoother since we use larger sample sizes to estimate our local parameters:\n\n\ntotal_days &lt;- diff(range(polls_2008$day)) \nspan &lt;- 21/total_days \nfit &lt;- loess(margin ~ day, degree = 1, span = span, data = polls_2008) \npolls_2008 |&gt; mutate(smooth = fit$fitted) |&gt; \n  ggplot(aes(day, margin)) + \n  geom_point(size = 3, alpha = .5, color = \"grey\") + \n  geom_line(aes(day, smooth), color = \"red\")"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-loess-8",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-loess-8",
+    "title": "Smoothing",
+    "section": "Local weighted regression (loess)",
+    "text": "Local weighted regression (loess)"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-loess-9",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-loess-9",
+    "title": "Smoothing",
+    "section": "Local weighted regression (loess)",
+    "text": "Local weighted regression (loess)\n\nDifferent spans give us different estimates.\nWe can see how different window sizes lead to different estimates:"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-loess-10",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-loess-10",
+    "title": "Smoothing",
+    "section": "Local weighted regression (loess)",
+    "text": "Local weighted regression (loess)"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-loess-11",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-loess-11",
+    "title": "Smoothing",
+    "section": "Local weighted regression (loess)",
+    "text": "Local weighted regression (loess)\n\nHere are the final estimates:"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-loess-12",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-loess-12",
+    "title": "Smoothing",
+    "section": "Local weighted regression (loess)",
+    "text": "Local weighted regression (loess)\n\nThere are three other differences between loess and the typical bin smoother.\n\n\nRather than keeping the bin size the same, loess keeps the number of points used in the local fit the same.\n\n\nThis number is controlled via the span argument, which expects a proportion.\nFor example, if N is the number of data points and span=0.5, then for a given \\(x\\), loess will use the 0.5 * N closest points to \\(x\\) for the fit."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-loess-13",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-loess-13",
+    "title": "Smoothing",
+    "section": "Local weighted regression (loess)",
+    "text": "Local weighted regression (loess)\n\nWhen fitting a line locally, loess uses a weighted approach.\n\n\nBasically, instead of using least squares, we minimize a weighted version:\n\n\\[\n\\sum_{i=1}^N w_0(x_i) \\left[Y_i - \\left\\{\\beta_0 + \\beta_1 (x_i-x_0)\\right\\}\\right]^2\n\\]\n\nHowever, instead of the Gaussian kernel, loess uses a function called the Tukey tri-weight:"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-loess-14",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-loess-14",
+    "title": "Smoothing",
+    "section": "Local weighted regression (loess)",
+    "text": "Local weighted regression (loess)\n\\[\nW(u)= \\left( 1  - |u|^3\\right)^3 \\mbox{ if } |u| \\leq 1 \\mbox{ and } W(u) = 0 \\mbox{ if } |u| &gt; 1\n\\]\n\nTo define the weights, we denote \\(2h\\) as the window size and define:\n\n\\[\nw_0(x_i) = W\\left(\\frac{x_i - x_0}{h}\\right)\n\\]\n\nThis kernel differs from the Gaussian kernel in that more points get values closer to the max:"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-loess-15",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-loess-15",
+    "title": "Smoothing",
+    "section": "Local weighted regression (loess)",
+    "text": "Local weighted regression (loess)"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-loess-16",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-loess-16",
+    "title": "Smoothing",
+    "section": "Local weighted regression (loess)",
+    "text": "Local weighted regression (loess)\n\n3.\nloess has the option of fitting the local model robustly.\nAn iterative algorithm is implemented in which, after fitting a model in one iteration, outliers are detected and down-weighted for the next iteration.\nTo use this option, we use the argument family=\"symmetric\"."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#fitting-parabolas",
+    "href": "slides/ml/39-smoothing.html#fitting-parabolas",
+    "title": "Smoothing",
+    "section": "Fitting parabolas",
+    "text": "Fitting parabolas\n\nTaylor’s theorem also tells us that if you look at any mathematical function closely enough, it looks like a parabola.\nThe theorem also states that you don’t have to look as closely when approximating with parabolas as you do when approximating with lines.\nThis means we can make our windows even larger and fit parabolas instead of lines.\n\n\\[\nE[Y_i | X_i = x_i ] = \\beta_0 + \\beta_1 (x_i-x_0) + \\beta_2 (x_i-x_0)^2 \\mbox{   if   }  |x_i - x_0| \\leq h\n\\]"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#fitting-parabolas-1",
+    "href": "slides/ml/39-smoothing.html#fitting-parabolas-1",
+    "title": "Smoothing",
+    "section": "Fitting parabolas",
+    "text": "Fitting parabolas\n\nYou may have noticed that when we showed the code for using loess, we set degree = 1.\nThis tells loess to fit polynomials of degree 1, a fancy name for lines.\nIf you read the help page for loess, you will see that the argument degree defaults to 2.\nBy default, loess fits parabolas not lines.\nHere is a comparison of the fitting lines (red dashed) and fitting parabolas (orange solid):\n\n\ntotal_days &lt;- diff(range(polls_2008$day)) \nspan &lt;- 28/total_days \nfit_1 &lt;- loess(margin ~ day, degree = 1, span = span, data = polls_2008) \nfit_2 &lt;- loess(margin ~ day, span = span, data = polls_2008) \npolls_2008 |&gt; mutate(smooth_1 = fit_1$fitted, smooth_2 = fit_2$fitted) |&gt; \n  ggplot(aes(day, margin)) + \n  geom_point(size = 3, alpha = .5, color = \"grey\") + \n  geom_line(aes(day, smooth_1), color = \"red\", lty = 2) + \n  geom_line(aes(day, smooth_2), color = \"orange\", lty = 1)"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#fitting-parabolas-2",
+    "href": "slides/ml/39-smoothing.html#fitting-parabolas-2",
+    "title": "Smoothing",
+    "section": "Fitting parabolas",
+    "text": "Fitting parabolas"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#fitting-parabolas-3",
+    "href": "slides/ml/39-smoothing.html#fitting-parabolas-3",
+    "title": "Smoothing",
+    "section": "Fitting parabolas",
+    "text": "Fitting parabolas\n\nThe degree = 2 gives us more wiggly results.\nIn general, we actually prefer degree = 1 as it is less prone to this kind of noise."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#beware-of-default-smoothing-parameters",
+    "href": "slides/ml/39-smoothing.html#beware-of-default-smoothing-parameters",
+    "title": "Smoothing",
+    "section": "Beware of default smoothing parameters",
+    "text": "Beware of default smoothing parameters\n\nggplot uses loess in its geom_smooth function:\n\n\npolls_2008 |&gt; ggplot(aes(day, margin)) + \n  geom_point() +  \n  geom_smooth(method = loess)"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#beware-of-default-smoothing-parameters-1",
+    "href": "slides/ml/39-smoothing.html#beware-of-default-smoothing-parameters-1",
+    "title": "Smoothing",
+    "section": "Beware of default smoothing parameters",
+    "text": "Beware of default smoothing parameters"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#beware-of-default-smoothing-parameters-2",
+    "href": "slides/ml/39-smoothing.html#beware-of-default-smoothing-parameters-2",
+    "title": "Smoothing",
+    "section": "Beware of default smoothing parameters",
+    "text": "Beware of default smoothing parameters\n\nBut be careful with default parameters as they are rarely optimal.\nHowever, you can conveniently change them:\n\n\npolls_2008 |&gt; ggplot(aes(day, margin)) + \n  geom_point() +  \n  geom_smooth(method = loess, method.args = list(span = 0.15, degree = 1))"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#beware-of-default-smoothing-parameters-3",
+    "href": "slides/ml/39-smoothing.html#beware-of-default-smoothing-parameters-3",
+    "title": "Smoothing",
+    "section": "Beware of default smoothing parameters",
+    "text": "Beware of default smoothing parameters"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#beware-of-default-smoothing-parameters-4",
+    "href": "slides/ml/39-smoothing.html#beware-of-default-smoothing-parameters-4",
+    "title": "Smoothing",
+    "section": "Beware of default smoothing parameters",
+    "text": "Beware of default smoothing parameters"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#connecting-smoothing-to-machine-learning",
+    "href": "slides/ml/39-smoothing.html#connecting-smoothing-to-machine-learning",
+    "title": "Smoothing",
+    "section": "Connecting smoothing to machine learning",
+    "text": "Connecting smoothing to machine learning\n\nTo see how smoothing relates to machine learning with a concrete example, consider again our two or seven example.\nIf we define the outcome \\(Y = 1\\) for digits that are seven and \\(Y=0\\) for digits that are 2, then we are interested in estimating the conditional probability:\n\n\\[\np(\\mathbf{x}) = \\mbox{Pr}(Y=1 \\mid X_1=x_1 , X_2 = x_2).\n\\]"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#connecting-smoothing-to-machine-learning-1",
+    "href": "slides/ml/39-smoothing.html#connecting-smoothing-to-machine-learning-1",
+    "title": "Smoothing",
+    "section": "Connecting smoothing to machine learning",
+    "text": "Connecting smoothing to machine learning\n\nIn this example, the 0s and 1s we observe are “noisy” because for some regions the probabilities \\(p(\\mathbf{x})\\) are not that close to 0 or 1.\nWe therefore need to estimate \\(p(\\mathbf{x})\\).\nSmoothing is an alternative to accomplishing this.\nWe saw that linear regression was not flexible enough to capture the non-linear nature of \\(p(\\mathbf{x})\\), thus smoothing approaches provide an improvement."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#connecting-smoothing-to-machine-learning-2",
+    "href": "slides/ml/39-smoothing.html#connecting-smoothing-to-machine-learning-2",
+    "title": "Smoothing",
+    "section": "Connecting smoothing to machine learning",
+    "text": "Connecting smoothing to machine learning\n\nWe later describe a popular machine learning algorithm, k-nearest neighbors, which is based on the concept of smoothing."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html#problem",
+    "href": "slides/ml/37-evaluation-metrics.html#problem",
+    "title": "Evaluation Metrics",
+    "section": "Problem",
+    "text": "Problem\n\nThe prediction rule we developed in the previous section predicts Male if the student is taller than 64 inches."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#signal-plus-noise-model-7",
+    "href": "slides/ml/39-smoothing.html#signal-plus-noise-model-7",
+    "title": "Smoothing",
+    "section": "Signal plus noise model",
+    "text": "Signal plus noise model\n\nWe therefore need an alternative, more flexible approach."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#kernels-7",
+    "href": "slides/ml/39-smoothing.html#kernels-7",
+    "title": "Smoothing",
+    "section": "Kernels",
+    "text": "Kernels\n\nMethods such as loess, which we explain next, improve on this."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression",
+    "title": "Smoothing",
+    "section": "Local weighted regression",
+    "text": "Local weighted regression\n\nA limitation of the bin smoother approach just described is that we need small windows for the approximately constant assumptions to hold.\nAs a result, we end up with a small number of data points to average and obtain imprecise estimates \\(\\hat{f}(x)\\).\nHere we describe how local weighted regression (loess) permits us to consider larger window sizes.\nTo do this, we will use a mathematical result, referred to as Taylor’s theorem, which tells us that if you look closely enough at any smooth function \\(f(x)\\), it will look like a line."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-1",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-1",
+    "title": "Smoothing",
+    "section": "Local weighted regression",
+    "text": "Local weighted regression\n\nTo see why this makes sense, consider the curved edges gardeners make using straight-edged spades:"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-2",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-2",
+    "title": "Smoothing",
+    "section": "Local weighted regression",
+    "text": "Local weighted regression\n\nInstead of assuming the function is approximately constant in a window, we assume the function is locally linear.\nWe can consider larger window sizes with the linear assumption than with a constant.\nInstead of the one-week window, we consider a larger one in which the trend is approximately linear.\nWe start with a three-week window and later consider and evaluate other options:"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-3",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-3",
+    "title": "Smoothing",
+    "section": "Local weighted regression",
+    "text": "Local weighted regression\n\\[\nE[Y_i | X_i = x_i ] = \\beta_0 + \\beta_1 (x_i-x_0) \\mbox{   if   }  |x_i - x_0| \\leq 21\n\\]\n\nFor every point \\(x_0\\), loess defines a window and fits a line within that window.\nHere is an example showing the fits for \\(x_0=-125\\) and \\(x_0 = -55\\):"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-4",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-4",
+    "title": "Smoothing",
+    "section": "Local weighted regression",
+    "text": "Local weighted regression"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-5",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-5",
+    "title": "Smoothing",
+    "section": "Local weighted regression",
+    "text": "Local weighted regression\n\nThe fitted value at \\(x_0\\) becomes our estimate \\(\\hat{f}(x_0)\\)."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-6",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-6",
+    "title": "Smoothing",
+    "section": "Local weighted regression",
+    "text": "Local weighted regression"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-7",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-7",
+    "title": "Smoothing",
+    "section": "Local weighted regression",
+    "text": "Local weighted regression\n\nThe final result is a smoother fit than the bin smoother since we use larger sample sizes to estimate our local parameters:\n\n\ntotal_days &lt;- diff(range(polls_2008$day)) \nspan &lt;- 21/total_days \nfit &lt;- loess(margin ~ day, degree = 1, span = span, data = polls_2008) \npolls_2008 |&gt; mutate(smooth = fit$fitted) |&gt; \n  ggplot(aes(day, margin)) + \n  geom_point(size = 3, alpha = .5, color = \"grey\") + \n  geom_line(aes(day, smooth), color = \"red\")"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-8",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-8",
+    "title": "Smoothing",
+    "section": "Local weighted regression",
+    "text": "Local weighted regression"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-9",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-9",
+    "title": "Smoothing",
+    "section": "Local weighted regression",
+    "text": "Local weighted regression\n\nDifferent spans give us different estimates.\nWe can see how different window sizes lead to different estimates:"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-10",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-10",
+    "title": "Smoothing",
+    "section": "Local weighted regression",
+    "text": "Local weighted regression"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-11",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-11",
+    "title": "Smoothing",
+    "section": "Local weighted regression",
+    "text": "Local weighted regression\n\nHere are the final estimates:"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-12",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-12",
+    "title": "Smoothing",
+    "section": "Local weighted regression",
+    "text": "Local weighted regression"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-13",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-13",
+    "title": "Smoothing",
+    "section": "Local weighted regression",
+    "text": "Local weighted regression\n\n3.\nloess has the option of fitting the local model robustly.\nAn iterative algorithm is implemented in which, after fitting a model in one iteration, outliers are detected and down-weighted for the next iteration.\nTo use this option, we use the argument family=\"symmetric\"."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-14",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-14",
+    "title": "Smoothing",
+    "section": "Local weighted regression",
+    "text": "Local weighted regression\n\\[\nW(u)= \\left( 1  - |u|^3\\right)^3 \\mbox{ if } |u| \\leq 1 \\mbox{ and } W(u) = 0 \\mbox{ if } |u| &gt; 1\n\\]\n\nTo define the weights, we denote \\(2h\\) as the window size and define:\n\n\\[\nw_0(x_i) = W\\left(\\frac{x_i - x_0}{h}\\right)\n\\]\n\nThis kernel differs from the Gaussian kernel in that more points get values closer to the max:"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-15",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-15",
+    "title": "Smoothing",
+    "section": "Local weighted regression",
+    "text": "Local weighted regression"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#local-weighted-regression-16",
+    "href": "slides/ml/39-smoothing.html#local-weighted-regression-16",
+    "title": "Smoothing",
+    "section": "Local weighted regression",
+    "text": "Local weighted regression\n\n3.\nloess has the option of fitting the local model robustly.\nAn iterative algorithm is implemented in which, after fitting a model in one iteration, outliers are detected and down-weighted for the next iteration.\nTo use this option, we use the argument family=\"symmetric\"."
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#beware-of-default",
+    "href": "slides/ml/39-smoothing.html#beware-of-default",
+    "title": "Smoothing",
+    "section": "Beware of default",
+    "text": "Beware of default\n\nggplot uses loess in its geom_smooth function:\n\n\npolls_2008 |&gt; ggplot(aes(day, margin)) + \n  geom_point() +  \n  geom_smooth(method = loess)"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#beware-of-default-1",
+    "href": "slides/ml/39-smoothing.html#beware-of-default-1",
+    "title": "Smoothing",
+    "section": "Beware of default",
+    "text": "Beware of default"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#beware-of-default-2",
+    "href": "slides/ml/39-smoothing.html#beware-of-default-2",
+    "title": "Smoothing",
+    "section": "Beware of default",
+    "text": "Beware of default\n\nBut be careful with default parameters as they are rarely optimal.\nHowever, you can conveniently change them:\n\n\npolls_2008 |&gt; ggplot(aes(day, margin)) + \n  geom_point() +  \n  geom_smooth(method = loess, method.args = list(span = 0.15, degree = 1))"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#beware-of-default-3",
+    "href": "slides/ml/39-smoothing.html#beware-of-default-3",
+    "title": "Smoothing",
+    "section": "Beware of default",
+    "text": "Beware of default"
+  },
+  {
+    "objectID": "slides/ml/39-smoothing.html#beware-of-default-4",
+    "href": "slides/ml/39-smoothing.html#beware-of-default-4",
+    "title": "Smoothing",
+    "section": "Beware of default",
+    "text": "Beware of default"
+  },
+  {
+    "objectID": "slides/ml/36-intro-ml.html",
+    "href": "slides/ml/36-intro-ml.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "Machine learning has achieved remarkable successes in a variety of applications.\nThese range from the postal service’s use of machine learning for reading handwritten zip codes to the development of voice recognition systems."
+  },
+  {
+    "objectID": "slides/highdim/34-distance.html",
+    "href": "slides/highdim/34-distance.html",
+    "title": "Distance",
+    "section": "",
+    "text": "Many of the analyses we perform with high-dimensional data relate directly or indirectly to distance.\nMany machine learning techniques rely on defining distances between observations.\nClustering algorithms search of observations that are similar.\nBut what does this mean mathematically?"
   }
 ]

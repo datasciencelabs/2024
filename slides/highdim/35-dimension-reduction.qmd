@@ -1,7 +1,7 @@
 ---
 title: "Dimension Reduction"
 keywords: "High dimensional data"
-date: 2024-11-12
+date: 2024-12-02
 format:
   revealjs:
     theme: night

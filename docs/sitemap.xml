@@ -58,7 +58,7 @@
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/index.html</loc>
-    <lastmod>2024-12-02T14:40:38.005Z</lastmod>
+    <lastmod>2024-12-04T14:50:03.522Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/psets/pset-04-wrangling.html</loc>
@@ -194,10 +194,34 @@
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/highdim/34-distance.html</loc>
-    <lastmod>2024-12-01T15:44:27.021Z</lastmod>
+    <lastmod>2024-12-02T21:04:53.288Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/highdim/35-dimension-reduction.html</loc>
-    <lastmod>2024-12-02T14:36:00.904Z</lastmod>
+    <lastmod>2024-12-02T21:04:46.090Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/ml/notation-and-terminology.html</loc>
+    <lastmod>2024-12-04T00:19:04.886Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/ml/evaluation-metrics.html</loc>
+    <lastmod>2024-12-04T01:42:22.347Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/ml/36-intro-ml.html</loc>
+    <lastmod>2024-12-04T04:15:15.945Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/ml/37-evaluation-metrics.html</loc>
+    <lastmod>2024-12-04T13:38:19.091Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/ml/38-conditionals.html</loc>
+    <lastmod>2024-12-04T13:46:07.207Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/ml/39-smoothing.html</loc>
+    <lastmod>2024-12-04T14:46:57.147Z</lastmod>
   </url>
 </urlset>
