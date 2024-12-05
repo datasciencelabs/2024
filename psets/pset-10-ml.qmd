@@ -1,0 +1,41 @@
+---
+title: Problem set 10
+date: 2024-12-16
+execute: 
+  eval: false
+---
+
+The data for this problem set is provided by this link: `https://github.com/datasciencelabs/2024/raw/refs/heads/main/data/pset-10-mnist.rds`
+
+Read this object into R. For example, you can use:
+
+```{r}
+fn <- tempfile()
+download.file("https://github.com/datasciencelabs/2024/raw/refs/heads/main/data/pset-10-mnist.rds", fn)
+dat <- readRDS(fn)
+file.remove(fn)
+```
+
+
+The object is a list with two components `dat$train` and `dat$test`. Use the data in `dat$train` to  develop a machine learning algorithms to predict the labels for the images in the `dat$test$images` component.
+
+Save the your predicted labels in an object called `digit_predictions`. This should be a vector of integers with length `nrow(dat$test$images)`. It is important that the `digit_predictions` is ordered to match the rows of `dat$test$images`.
+
+Save the object to a file called `digit_predictions.rds` using:
+
+```{r}
+saveRDS(digit_predictions, file = "digit_predictions.rds")
+```
+
+You will submit:
+
+1. The file `digit_predictions.rds`
+
+2. A quarto file that reproduces your analysis and provides brief explanations for your choices. 
+
+**If your code reproduces the result**, your grade will be your accuracy  rounded up the closest integer. So,for example, if your accuracy is .993 your grade will be 100%. 
+
+You will have two opportunities to submit your predictions and see your accuracy before your submitting your final predictions.
+
+
+

@@ -3458,7 +3458,7 @@
     "href": "index.html#problem-sets",
     "title": "BST 260 Introduction to Data Science",
     "section": "Problem sets",
-    "text": "Problem sets\n\n\n\nProblem set\nTopic\nDue Date\nDifficulty\n\n\n\n\n01\nUnix, Quarto\nSep 11\neasy\n\n\n02\nR\nSep 19\neasy\n\n\n03\nTidyverse\nSep 27\nmedium\n\n\n04\nWrangling\nOct 4\nmedium\n\n\n05\nCovid 19 data visualization\nOct 11\nmedium\n\n\n06\nProbability\nOct 25\neasy\n\n\n07\nPredict the election\nNov 04\nhard\n\n\n08\nExcess mortality after Hurricane María\nNov 15\nmedium\n\n\n09\nMatrices\nNov 22\neasy\n\n\n10\nDigit reading\nDec 13\nhard\n\n\nFinal Project\nYour choice\nDec 20\nhard",
+    "text": "Problem sets\n\n\n\nProblem set\nTopic\nDue Date\nDifficulty\n\n\n\n\n01\nUnix, Quarto\nSep 11\neasy\n\n\n02\nR\nSep 19\neasy\n\n\n03\nTidyverse\nSep 27\nmedium\n\n\n04\nWrangling\nOct 4\nmedium\n\n\n05\nCovid 19 data visualization\nOct 11\nmedium\n\n\n06\nProbability\nOct 25\neasy\n\n\n07\nPredict the election\nNov 04\nhard\n\n\n08\nExcess mortality after Hurricane María\nNov 15\nmedium\n\n\n09\nMatrices\nNov 22\neasy\n\n\n10\nDigit reading\nDec 16\nhard\n\n\nFinal Project\nYour choice\nDec 20\nhard",
     "crumbs": [
       "Home"
     ]
@@ -3582,7 +3582,7 @@
     "href": "psets.html",
     "title": "Problem Sets",
     "section": "",
-    "text": "Topic\n\n\nDue date (at 11:59 PM)\n\n\n\n\n\n\nProblem set 1\n\n\nWed, Sep 11\n\n\n\n\nProblem set 2\n\n\nThu, Sep 19\n\n\n\n\nProblem set 3\n\n\nFri, Sep 27\n\n\n\n\nProblem set 4\n\n\nFri, Oct 04\n\n\n\n\nProblem set 5\n\n\nFri, Oct 11\n\n\n\n\nProblem set 6\n\n\nFri, Oct 25\n\n\n\n\nProblem set 7\n\n\nMon, Nov 04\n\n\n\n\nProblem set 8\n\n\nFri, Nov 15\n\n\n\n\nProblem set 9\n\n\nFri, Nov 22\n\n\n\n\n\nNo matching items",
+    "text": "Topic\n\n\nDue date (at 11:59 PM)\n\n\n\n\n\n\nProblem set 1\n\n\nWed, Sep 11\n\n\n\n\nProblem set 2\n\n\nThu, Sep 19\n\n\n\n\nProblem set 3\n\n\nFri, Sep 27\n\n\n\n\nProblem set 4\n\n\nFri, Oct 04\n\n\n\n\nProblem set 5\n\n\nFri, Oct 11\n\n\n\n\nProblem set 6\n\n\nFri, Oct 25\n\n\n\n\nProblem set 7\n\n\nMon, Nov 04\n\n\n\n\nProblem set 8\n\n\nFri, Nov 15\n\n\n\n\nProblem set 9\n\n\nFri, Nov 22\n\n\n\n\nProblem set 10\n\n\nMon, Dec 16\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Problem Sets"
     ]
@@ -11782,8 +11782,8 @@
     "objectID": "slides/ml/37-evaluation-metrics.html#evaluation-metrics",
     "href": "slides/ml/37-evaluation-metrics.html#evaluation-metrics",
     "title": "Evaluation Metrics",
-    "section": "Evaluation metrics",
-    "text": "Evaluation metrics\n\nHere we describe ways in which machine learning algorithms are evaluated.\nWe need to quantify what we mean when we say an algorithm performs better.\nWe demonstrate with a boring and simple example: how to predict sex using height."
+    "section": "",
+    "text": "Here we describe ways in which machine learning algorithms are evaluated.\nWe need to quantify what we mean when we say an algorithm performs better.\nWe demonstrate with a boring and simple example: how to predict sex using height."
   },
   {
     "objectID": "slides/ml/37-evaluation-metrics.html#evaluation-metrics-1",
@@ -11811,7 +11811,7 @@
     "href": "slides/ml/37-evaluation-metrics.html#training-and-test-sets",
     "title": "Evaluation Metrics",
     "section": "Training and test sets",
-    "text": "Training and test sets\n\nset.seed(2007) \ntest_index &lt;- createDataPartition(y, times = 1, p = 0.5, list = FALSE) \n\n\nWe can use the result of the createDataPartition function call to define the training and test sets as follows:\n\n\ntest_set &lt;- heights[test_index, ] \ntrain_set &lt;- heights[-test_index, ]"
+    "text": "Training and test sets\n\nset.seed(2007) \ntest_index &lt;- createDataPartition(y, times = 1, p = 0.25, list = FALSE) \n\n\nWe can use the result of the createDataPartition function call to define the training and test sets as follows:\n\n\ntest_set &lt;- heights[test_index, ] \ntrain_set &lt;- heights[-test_index, ]"
   },
   {
     "objectID": "slides/ml/37-evaluation-metrics.html#training-and-test-sets-1",
@@ -11832,7 +11832,7 @@
     "href": "slides/ml/37-evaluation-metrics.html#overall-accuracy",
     "title": "Evaluation Metrics",
     "section": "Overall accuracy",
-    "text": "Overall accuracy\n\nLet’s start by developing the simplest possible machine algorithm: guessing the outcome.\n\n\ny_hat &lt;- sample(c(\"Male\", \"Female\"), length(test_index), replace = TRUE) |&gt; \n  factor(levels = levels(test_set$sex)) \n\n\nThe overall accuracy is simply defined as the overall proportion that is predicted correctly:\n\n\nmean(y_hat == test_set$sex) \n\n[1] 0.516"
+    "text": "Overall accuracy\n\nLet’s start by developing the simplest possible machine algorithm: guessing the outcome.\n\n\ny_hat &lt;- sample(c(\"Male\", \"Female\"), length(test_index), replace = TRUE) |&gt; \n  factor(levels = levels(test_set$sex)) \n\n\nThe overall accuracy is simply defined as the overall proportion that is predicted correctly:\n\n\nmean(y_hat == test_set$sex) \n\n[1] 0.479"
   },
   {
     "objectID": "slides/ml/37-evaluation-metrics.html#overall-accuracy-1",
@@ -11867,14 +11867,14 @@
     "href": "slides/ml/37-evaluation-metrics.html#overall-accuracy-5",
     "title": "Evaluation Metrics",
     "section": "Overall accuracy",
-    "text": "Overall accuracy\n\nWe see that the maximum value is:\n\n\nmax(accuracy) \n\n[1] 0.85\n\n\n\nwhich is much higher than 0.5.\nThe cutoff resulting in this accuracy is:\n\n\nbest_cutoff &lt;- cutoff[which.max(accuracy)] \nbest_cutoff \n\n[1] 64"
+    "text": "Overall accuracy\n\nWe see that the maximum value is:\n\n\nmax(accuracy) \n\n[1] 0.834\n\n\n\nwhich is much higher than 0.5.\nThe cutoff resulting in this accuracy is:\n\n\nbest_cutoff &lt;- cutoff[which.max(accuracy)] \nbest_cutoff \n\n[1] 64"
   },
   {
     "objectID": "slides/ml/37-evaluation-metrics.html#overall-accuracy-6",
     "href": "slides/ml/37-evaluation-metrics.html#overall-accuracy-6",
     "title": "Evaluation Metrics",
     "section": "Overall accuracy",
-    "text": "Overall accuracy\n\nWe can now test this cutoff on our test set to make sure our accuracy is not overly optimistic:\n\n\ny_hat &lt;- ifelse(test_set$height &gt; best_cutoff, \"Male\", \"Female\") |&gt;  \n  factor(levels = levels(test_set$sex)) \ny_hat &lt;- factor(y_hat) \nmean(y_hat == test_set$sex) \n\n[1] 0.804\n\n\n\nThe estimate of accuracy is biased due to slight over-training.\nBut ultimately we tested on a dataset that we did not train on."
+    "text": "Overall accuracy\n\nWe can now test this cutoff on our test set to make sure our accuracy is not overly optimistic:\n\n\ny_hat &lt;- ifelse(test_set$height &gt; best_cutoff, \"Male\", \"Female\") |&gt;  \n  factor(levels = levels(test_set$sex)) \ny_hat &lt;- factor(y_hat) \nmean(y_hat == test_set$sex) \n\n[1] 0.806\n\n\n\nThe estimate of accuracy is biased due to slight over-training.\nBut ultimately we tested on a dataset that we did not train on."
   },
   {
     "objectID": "slides/ml/37-evaluation-metrics.html#overall-accuracy-7",
@@ -11895,21 +11895,21 @@
     "href": "slides/ml/37-evaluation-metrics.html#the-confusion-matrix",
     "title": "Evaluation Metrics",
     "section": "The confusion matrix",
-    "text": "The confusion matrix\n\ncm &lt;- confusionMatrix(data = y_hat, reference = test_set$sex) \ncm$table \n\n          Reference\nPrediction Female Male\n    Female     48   32\n    Male       71  374\n\n\n\nIf we study this table closely, it reveals a problem."
+    "text": "The confusion matrix\n\ncm &lt;- confusionMatrix(data = y_hat, reference = test_set$sex) \ncm$table \n\n          Reference\nPrediction Female Male\n    Female     24   15\n    Male       36  188\n\n\n\nIf we study this table closely, it reveals a problem."
   },
   {
     "objectID": "slides/ml/37-evaluation-metrics.html#the-confusion-matrix-1",
     "href": "slides/ml/37-evaluation-metrics.html#the-confusion-matrix-1",
     "title": "Evaluation Metrics",
     "section": "The confusion matrix",
-    "text": "The confusion matrix\n\nIf we compute the accuracy separately we get:\n\n\ncm$byClass[c(\"Sensitivity\", \"Specificity\")] \n\nSensitivity Specificity \n      0.403       0.921"
+    "text": "The confusion matrix\n\nIf we compute the accuracy separately we get:\n\n\ncm$byClass[c(\"Sensitivity\", \"Specificity\")] \n\nSensitivity Specificity \n      0.400       0.926"
   },
   {
     "objectID": "slides/ml/37-evaluation-metrics.html#the-confusion-matrix-2",
     "href": "slides/ml/37-evaluation-metrics.html#the-confusion-matrix-2",
     "title": "Evaluation Metrics",
     "section": "The confusion matrix",
-    "text": "The confusion matrix\n\nThis is because the prevalence of males is high.\nThese heights were collected from three data sciences courses, two of which had higher male enrollment:\n\n\ncm$byClass[\"Prevalence\"] \n\nPrevalence \n     0.227 \n\n\n\nSo when computing overall accuracy, the high percentage of mistakes made for females is outweighed by the gains in correct calls for men.\nThis type of bias can actually be a big problem in practice.\nIf your training data is biased in some way, you are likely to develop algorithms that are biased as well."
+    "text": "The confusion matrix\n\nThis is because the prevalence of males is high.\nThese heights were collected from three data sciences courses, two of which had higher male enrollment:\n\n\ncm$byClass[\"Prevalence\"] \n\nPrevalence \n     0.228 \n\n\n\nSo when computing overall accuracy, the high percentage of mistakes made for females is outweighed by the gains in correct calls for men.\nThis type of bias can actually be a big problem in practice.\nIf your training data is biased in some way, you are likely to develop algorithms that are biased as well."
   },
   {
     "objectID": "slides/ml/37-evaluation-metrics.html#the-confusion-matrix-3",
@@ -11944,7 +11944,7 @@
     "href": "slides/ml/37-evaluation-metrics.html#sensitivity-and-specificity-2",
     "title": "Evaluation Metrics",
     "section": "Sensitivity and specificity",
-    "text": "Sensitivity and specificity\n\nTo provide precise definitions, we name the four entries of the confusion matrix:\n\n\n\n\n\n\n\nActually Positive\nActually Negative\n\n\n\n\nPredicted positive\nTrue positives (TP)\nFalse positives (FP)\n\n\nPredicted negative\nFalse negatives (FN)\nTrue negatives (TN)"
+    "text": "Sensitivity and specificity\n\nTo provide precise definitions, we name the four entries of the confusion matrix:\n\n\n\n\nAttaching package: 'kableExtra'\n\n\nThe following object is masked from 'package:dplyr':\n\n    group_rows\n\n\n\n\n\n\nActually Positive\nActually Negative\n\n\n\n\nPredicted positive\nTrue positives (TP)\nFalse positives (FP)\n\n\nPredicted negative\nFalse negatives (FN)\nTrue negatives (TN)"
   },
   {
     "objectID": "slides/ml/37-evaluation-metrics.html#sensitivity-and-specificity-3",
@@ -11972,7 +11972,7 @@
     "href": "slides/ml/37-evaluation-metrics.html#sensitivity-and-specificity-6",
     "title": "Evaluation Metrics",
     "section": "Sensitivity and specificity",
-    "text": "Sensitivity and specificity\n\nThe caret function confusionMatrix computes all these metrics:\n\n\ncm$overall[\"Accuracy\"] \n\nAccuracy \n   0.804 \n\ncm$byClass[c(\"Sensitivity\",\"Specificity\", \"Prevalence\")] \n\nSensitivity Specificity  Prevalence \n      0.403       0.921       0.227"
+    "text": "Sensitivity and specificity\n\nThe caret function confusionMatrix computes all these metrics:\n\n\ncm$overall[\"Accuracy\"] \n\nAccuracy \n   0.806 \n\ncm$byClass[c(\"Sensitivity\",\"Specificity\", \"Prevalence\")] \n\nSensitivity Specificity  Prevalence \n      0.400       0.926       0.228"
   },
   {
     "objectID": "slides/ml/37-evaluation-metrics.html#sensitivity-and-specificity-7",
@@ -12035,14 +12035,14 @@
     "href": "slides/ml/37-evaluation-metrics.html#balanced-accuracy-and-f_1-score-5",
     "title": "Evaluation Metrics",
     "section": "Balanced accuracy and \\(F_1\\) score",
-    "text": "Balanced accuracy and \\(F_1\\) score\n\nWe see that it is maximized at \\(F_1\\) value of:\n\n\nmax(F_1) \n\n[1] 0.647\n\n\n\nThis maximum is achieved when we use the following cutoff:\n\n\nbest_cutoff &lt;- cutoff[which.max(F_1)] \nbest_cutoff \n\n[1] 66\n\n\n\nA cutoff of 66 makes more sense than 64."
+    "text": "Balanced accuracy and \\(F_1\\) score\n\nWe see that it is maximized at \\(F_1\\) value of:\n\n\nmax(F_1) \n\n[1] 0.614\n\n\n\nThis maximum is achieved when we use the following cutoff:\n\n\nbest_cutoff &lt;- cutoff[which.max(F_1)] \nbest_cutoff \n\n[1] 66\n\n\n\nA cutoff of 66 makes more sense than 64."
   },
   {
     "objectID": "slides/ml/37-evaluation-metrics.html#balanced-accuracy-and-f_1-score-6",
     "href": "slides/ml/37-evaluation-metrics.html#balanced-accuracy-and-f_1-score-6",
     "title": "Evaluation Metrics",
     "section": "Balanced accuracy and \\(F_1\\) score",
-    "text": "Balanced accuracy and \\(F_1\\) score\n\nFurthermore, it balances the specificity and sensitivity of our confusion matrix:\n\n\ny_hat &lt;- ifelse(test_set$height &gt; best_cutoff, \"Male\", \"Female\") |&gt;  \n  factor(levels = levels(test_set$sex)) \nsensitivity(data = y_hat, reference = test_set$sex) \n\n[1] 0.63\n\nspecificity(data = y_hat, reference = test_set$sex) \n\n[1] 0.833\n\n\n\nWe now see that we do much better than guessing, that both sensitivity and specificity are relatively high."
+    "text": "Balanced accuracy and \\(F_1\\) score\n\nFurthermore, it balances the specificity and sensitivity of our confusion matrix:\n\n\ny_hat &lt;- ifelse(test_set$height &gt; best_cutoff, \"Male\", \"Female\") |&gt;  \n  factor(levels = levels(test_set$sex)) \nsensitivity(data = y_hat, reference = test_set$sex) \n\n[1] 0.633\n\nspecificity(data = y_hat, reference = test_set$sex) \n\n[1] 0.857\n\n\n\nWe now see that we do much better than guessing, that both sensitivity and specificity are relatively high."
   },
   {
     "objectID": "slides/ml/37-evaluation-metrics.html#balanced-accuracy-and-f_1-score-7",
@@ -12175,7 +12175,7 @@
     "href": "slides/ml/37-evaluation-metrics.html#mean-squared-error-2",
     "title": "Evaluation Metrics",
     "section": "Mean Squared Error",
-    "text": "Mean Squared Error\n\nBecause in practice we have tests set with many, say \\(N\\), independent observations, a commonly used observable estimate of the MSE is:\n\n\\[\n\\hat{\\mbox{MSE}} = \\frac{1}{N}\\sum_{i=1}^N (\\hat{y}_i - y_i)^2\n\\]\n\nwith the \\(\\hat{y}_i\\) generated completely independently from the the \\(y_i\\)."
+    "text": "Mean Squared Error\n\nBecause in practice we have tests set with many, say \\(N\\), independent observations, a commonly used observable estimate of the MSE is:\n\n\\[\n\\hat{\\mbox{MSE}} = \\frac{1}{N}\\sum_{i=1}^N (\\hat{y}_i - y_i)^2\n\\]\n\nwith the \\(\\hat{y}_i\\) generated completely independently from the the \\(y_i\\).\n\n\n\n\n\n\n\n\nNote\n\n\n\nIn practice, we often report the root mean squared error (RMSE), which is simply \\(\\sqrt{\\mbox{MSE}}\\), because it is in the same units as the outcomes."
   },
   {
     "objectID": "slides/ml/37-evaluation-metrics.html#mean-squared-error-3",
@@ -13009,5 +13009,19 @@
     "title": "Distance",
     "section": "",
     "text": "Many of the analyses we perform with high-dimensional data relate directly or indirectly to distance.\nMany machine learning techniques rely on defining distances between observations.\nClustering algorithms search of observations that are similar.\nBut what does this mean mathematically?"
+  },
+  {
+    "objectID": "psets/pset-10-ml.html",
+    "href": "psets/pset-10-ml.html",
+    "title": "Problem set 10",
+    "section": "",
+    "text": "The data for this problem set is provided by this link: https://github.com/datasciencelabs/2024/raw/refs/heads/main/data/pset-10-mnist.rds\nRead this object into R. For example, you can use:\n\nfn &lt;- tempfile()\ndownload.file(\"https://github.com/datasciencelabs/2024/raw/refs/heads/main/data/pset-10-mnist.rds\", fn)\ndat &lt;- readRDS(fn)\nfile.remove(fn)\n\nThe object is a list with two components dat$train and dat$test. Use the data in dat$train to develop a machine learning algorithms to predict the labels for the images in the dat$test$images component.\nSave the your predicted labels in an object called digit_predictions. This should be a vector of integers with length nrow(dat$test$images). It is important that the digit_predictions is ordered to match the rows of dat$test$images.\nSave the object to a file called digit_predictions.rds using:\n\nsaveRDS(digit_predictions, file = \"digit_predictions.rds\")\n\nYou will submit:\n\nThe file digit_predictions.rds\nA quarto file that reproduces your analysis and provides brief explanations for your choices.\n\nIf your code reproduces the result, your grade will be your accuracy rounded up the closest integer. So,for example, if your accuracy is .993 your grade will be 100%.\nYou will have two opportunities to submit your predictions and see your accuracy before your submitting your final predictions."
+  },
+  {
+    "objectID": "slides/ml/37-evaluation-metrics.html",
+    "href": "slides/ml/37-evaluation-metrics.html",
+    "title": "Evaluation Metrics",
+    "section": "",
+    "text": "Here we describe ways in which machine learning algorithms are evaluated.\nWe need to quantify what we mean when we say an algorithm performs better.\nWe demonstrate with a boring and simple example: how to predict sex using height."
   }
 ]

@@ -58,7 +58,7 @@
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/index.html</loc>
-    <lastmod>2024-12-04T14:50:03.522Z</lastmod>
+    <lastmod>2024-12-05T05:30:42.594Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/psets/pset-04-wrangling.html</loc>
@@ -214,7 +214,7 @@
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/ml/37-evaluation-metrics.html</loc>
-    <lastmod>2024-12-04T13:38:19.091Z</lastmod>
+    <lastmod>2024-12-04T17:00:55.955Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/ml/38-conditionals.html</loc>
@@ -223,5 +223,9 @@
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/ml/39-smoothing.html</loc>
     <lastmod>2024-12-04T14:46:57.147Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/psets/pset-10-ml.html</loc>
+    <lastmod>2024-12-05T05:29:14.237Z</lastmod>
   </url>
 </urlset>
