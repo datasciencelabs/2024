@@ -13435,70 +13435,70 @@
     "href": "slides/ml/42-caret.html#preprocessing-1",
     "title": "The caret package",
     "section": "Preprocessing",
-    "text": "Preprocessing\n\nThe dataset includes two components:\n\n\nnames(mnist) \n\n[1] \"train\" \"test\" \n\n\n\nEach of these components includes a matrix with features in the columns:\n\n\ndim(mnist$train$images) \n\n[1] 60000   784\n\n\n\nand vector with the classes as integers:\n\n\nclass(mnist$train$labels) \n\n[1] \"integer\"\n\ntable(mnist$train$labels) \n\n\n   0    1    2    3    4    5    6    7    8    9 \n5923 6742 5958 6131 5842 5421 5918 6265 5851 5949"
+    "text": "Preprocessing\n\nThe dataset includes two components:\n\n\nnames(mnist) \n\n[1] \"train\" \"test\""
   },
   {
     "objectID": "slides/ml/42-caret.html#preprocessing-2",
     "href": "slides/ml/42-caret.html#preprocessing-2",
     "title": "The caret package",
     "section": "Preprocessing",
-    "text": "Preprocessing\n\nBecause we want this example to run on a small laptop and in less than one hour, we will consider a subset of the dataset.\nWe will sample 10,000 random rows from the training set and 1,000 random rows from the test set:\n\n\nset.seed(1990) \nindex &lt;- sample(nrow(mnist$train$images), 10000) \nx &lt;- mnist$train$images[index,] \ny &lt;- factor(mnist$train$labels[index]) \nindex &lt;- sample(nrow(mnist$test$images), 1000) \nx_test &lt;- mnist$test$images[index,] \ny_test &lt;- factor(mnist$test$labels[index])"
+    "text": "Preprocessing\n\nEach of these components includes a matrix with features in the columns:\n\n\ndim(mnist$train$images) \n\n[1] 60000   784\n\n\n\nand vector with the classes as integers:\n\n\nclass(mnist$train$labels) \n\n[1] \"integer\"\n\ntable(mnist$train$labels) \n\n\n   0    1    2    3    4    5    6    7    8    9 \n5923 6742 5958 6131 5842 5421 5918 6265 5851 5949"
   },
   {
     "objectID": "slides/ml/42-caret.html#preprocessing-3",
     "href": "slides/ml/42-caret.html#preprocessing-3",
     "title": "The caret package",
     "section": "Preprocessing",
-    "text": "Preprocessing\n\nWhen fitting models to large datasets, we recommend using matrices instead of data frames, as matrix operations tend to be faster.\nIf the matrices lack column names, you can assign names based on their position:\n\n\ncolnames(x) &lt;- 1:ncol(mnist$train$images) \ncolnames(x_test) &lt;- colnames(x)"
+    "text": "Preprocessing\n\nBecause we want this example to run on a small laptop and in less than one hour, we will consider a subset of the dataset.\nWe will sample 10,000 random rows from the training set and 1,000 random rows from the test set:\n\n\nset.seed(1990) \nindex &lt;- sample(nrow(mnist$train$images), 10000) \nx &lt;- mnist$train$images[index,] \ny &lt;- factor(mnist$train$labels[index]) \nindex &lt;- sample(nrow(mnist$test$images), 1000) \nx_test &lt;- mnist$test$images[index,] \ny_test &lt;- factor(mnist$test$labels[index])"
   },
   {
     "objectID": "slides/ml/42-caret.html#preprocessing-4",
     "href": "slides/ml/42-caret.html#preprocessing-4",
     "title": "The caret package",
     "section": "Preprocessing",
-    "text": "Preprocessing\n\nWe often transform predictors before running the machine algorithm.\nWe also remove predictors that are clearly not useful.\nWe call these steps preprocessing.\nExamples of preprocessing include standardizing the predictors, taking the log transform of some predictors, removing predictors that are highly correlated with others, and removing predictors with very few non-unique values or close to zero variation."
+    "text": "Preprocessing\n\nWhen fitting models to large datasets, we recommend using matrices instead of data frames, as matrix operations tend to be faster.\nIf the matrices lack column names, you can assign names based on their position:\n\n\ncolnames(x) &lt;- 1:ncol(mnist$train$images) \ncolnames(x_test) &lt;- colnames(x)"
   },
   {
     "objectID": "slides/ml/42-caret.html#preprocessing-5",
     "href": "slides/ml/42-caret.html#preprocessing-5",
     "title": "The caret package",
     "section": "Preprocessing",
-    "text": "Preprocessing"
+    "text": "Preprocessing\n\nWe often transform predictors before running the machine algorithm.\nWe also remove predictors that are clearly not useful.\nWe call these steps preprocessing.\nExamples of preprocessing include standardizing the predictors, taking the log transform of some predictors, removing predictors that are highly correlated with others, and removing predictors with very few non-unique values or close to zero variation."
   },
   {
     "objectID": "slides/ml/42-caret.html#preprocessing-6",
     "href": "slides/ml/42-caret.html#preprocessing-6",
     "title": "The caret package",
     "section": "Preprocessing",
-    "text": "Preprocessing\n\nThe caret packages includes a function that recommends features to be removed due to near zero variance:\n\n\nnzv &lt;- nearZeroVar(x)"
+    "text": "Preprocessing"
   },
   {
     "objectID": "slides/ml/42-caret.html#preprocessing-7",
     "href": "slides/ml/42-caret.html#preprocessing-7",
     "title": "The caret package",
     "section": "Preprocessing",
-    "text": "Preprocessing\n\nWe can see the columns recommended for removal are the near the edges:\n\n\nimage(matrix(1:784 %in% nzv, 28, 28))"
+    "text": "Preprocessing\n\nThe caret packages includes a function that recommends features to be removed due to near zero variance:\n\n\nnzv &lt;- nearZeroVar(x)"
   },
   {
     "objectID": "slides/ml/42-caret.html#preprocessing-8",
     "href": "slides/ml/42-caret.html#preprocessing-8",
     "title": "The caret package",
     "section": "Preprocessing",
-    "text": "Preprocessing\n\nSo we end up removing.\n\n\nlength(nzv) \n\n[1] 532\n\n\n\npredictors."
+    "text": "Preprocessing\n\nWe can see the columns recommended for removal are the near the edges:\n\n\nimage(matrix(1:784 %in% nzv, 28, 28))"
   },
   {
     "objectID": "slides/ml/42-caret.html#preprocessing-9",
     "href": "slides/ml/42-caret.html#preprocessing-9",
     "title": "The caret package",
     "section": "Preprocessing",
-    "text": "Preprocessing\n\nThe caret package features the preProcess function, which allows users to establish a predefined set of preprocessing operations based on a training set.\nThis function is designed to apply these operations to new datasets without recalculating anything on the test set, ensuring that all preprocessing steps are consistent and derived solely from the training data."
+    "text": "Preprocessing\n\nSo we end up removing\n\n\nlength(nzv) \n\n[1] 532\n\n\npredictors."
   },
   {
     "objectID": "slides/ml/42-caret.html#preprocessing-10",
     "href": "slides/ml/42-caret.html#preprocessing-10",
     "title": "The caret package",
     "section": "Preprocessing",
-    "text": "Preprocessing\n\nBelow is an example demonstrating how to remove predictors with near-zero variance and then center the remaining predictors:\n\n\npp &lt;- preProcess(x, method = c(\"nzv\", \"center\")) \ncentered_subsetted_x_test &lt;- predict(pp, newdata = x_test) \ndim(centered_subsetted_x_test) \n\n[1] 1000  252\n\n\n\nAdditionally, the train function in caret includes a preProcess argument that allows users to specify which preprocessing steps to apply automatically during model training."
+    "text": "Preprocessing\n\nThe caret package features the preProcess function, which allows users to establish a predefined set of preprocessing operations based on a training set.\nThis function is designed to apply these operations to new datasets without recalculating anything on the test set, ensuring that all preprocessing steps are consistent and derived solely from the training data."
   },
   {
     "objectID": "slides/ml/42-caret.html#knn",
@@ -13653,5 +13653,12 @@
     "title": "k-nearest neighbors (knn)",
     "section": "kNN",
     "text": "kNN\n\nTo see why this is the case, we plot \\(\\widehat{p}(\\mathbf{x})\\) and compare it to the true conditional probability \\(p(\\mathbf{x})\\):"
+  },
+  {
+    "objectID": "slides/ml/42-caret.html#preprocessing-11",
+    "href": "slides/ml/42-caret.html#preprocessing-11",
+    "title": "The caret package",
+    "section": "Preprocessing",
+    "text": "Preprocessing\n\nBelow is an example demonstrating how to remove predictors with near-zero variance and then center the remaining predictors:\n\n\npp &lt;- preProcess(x, method = c(\"nzv\", \"center\")) \ncentered_subsetted_x_test &lt;- predict(pp, newdata = x_test) \ndim(centered_subsetted_x_test) \n\n[1] 1000  252\n\n\n\nAdditionally, the train function in caret includes a preProcess argument that allows users to specify which preprocessing steps to apply automatically during model training."
   }
 ]

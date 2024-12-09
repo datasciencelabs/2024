@@ -742,6 +742,9 @@ Training set outcome distribution:
 <pre><code>[1] "train" "test" </code></pre>
 </div>
 </div>
+</section>
+<section id="preprocessing-2" class="slide level2">
+<h2>Preprocessing</h2>
 <ul>
 <li>Each of these components includes a matrix with features in the columns:</li>
 </ul>
@@ -767,7 +770,7 @@ Training set outcome distribution:
 </div>
 </div>
 </section>
-<section id="preprocessing-2" class="slide level2">
+<section id="preprocessing-3" class="slide level2">
 <h2>Preprocessing</h2>
 <ul>
 <li><p>Because we want this example to run on a small laptop and in less than one hour, we will consider a subset of the dataset.</p></li>
@@ -783,7 +786,7 @@ Training set outcome distribution:
 <span id="cb32-7"><a></a>y_test <span class="ot">&lt;-</span> <span class="fu">factor</span>(mnist<span class="sc">$</span>test<span class="sc">$</span>labels[index]) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="preprocessing-3" class="slide level2">
+<section id="preprocessing-4" class="slide level2">
 <h2>Preprocessing</h2>
 <ul>
 <li><p>When fitting models to large datasets, we recommend using matrices instead of data frames, as matrix operations tend to be faster.</p></li>
@@ -794,7 +797,7 @@ Training set outcome distribution:
 <span id="cb33-2"><a></a><span class="fu">colnames</span>(x_test) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="preprocessing-4" class="slide level2">
+<section id="preprocessing-5" class="slide level2">
 <h2>Preprocessing</h2>
 <ul>
 <li><p>We often transform predictors before running the machine algorithm.</p></li>
@@ -803,11 +806,11 @@ Training set outcome distribution:
 <li><p>Examples of preprocessing include standardizing the predictors, taking the log transform of some predictors, removing predictors that are highly correlated with others, and removing predictors with very few non-unique values or close to zero variation.</p></li>
 </ul>
 </section>
-<section id="preprocessing-5" class="slide level2">
+<section id="preprocessing-6" class="slide level2">
 <h2>Preprocessing</h2>
 
 <img data-src="42-caret_files/figure-revealjs/pixel-sds-run-1.png" width="960" class="r-stretch"></section>
-<section id="preprocessing-6" class="slide level2">
+<section id="preprocessing-7" class="slide level2">
 <h2>Preprocessing</h2>
 <ul>
 <li>The <strong>caret</strong> packages includes a function that recommends features to be removed due to <em>near zero variance</em>:</li>
@@ -816,7 +819,7 @@ Training set outcome distribution:
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>nzv <span class="ot">&lt;-</span> <span class="fu">nearZeroVar</span>(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="preprocessing-7" class="slide level2">
+<section id="preprocessing-8" class="slide level2">
 <h2>Preprocessing</h2>
 <ul>
 <li>We can see the columns recommended for removal are the near the edges:</li>
@@ -826,10 +829,10 @@ Training set outcome distribution:
 
 </div>
 <img data-src="42-caret_files/figure-revealjs/near-zero-image-1.png" style="width:50.0%" class="r-stretch"></section>
-<section id="preprocessing-8" class="slide level2">
+<section id="preprocessing-9" class="slide level2">
 <h2>Preprocessing</h2>
 <ul>
-<li>So we end up removing.</li>
+<li>So we end up removing</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a><span class="fu">length</span>(nzv) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -837,18 +840,16 @@ Training set outcome distribution:
 <pre><code>[1] 532</code></pre>
 </div>
 </div>
-<ul>
-<li>predictors.</li>
-</ul>
+<p>predictors.</p>
 </section>
-<section id="preprocessing-9" class="slide level2">
+<section id="preprocessing-10" class="slide level2">
 <h2>Preprocessing</h2>
 <ul>
 <li><p>The <strong>caret</strong> package features the <code>preProcess</code> function, which allows users to establish a predefined set of preprocessing operations based on a training set.</p></li>
 <li><p>This function is designed to apply these operations to new datasets without recalculating anything on the test set, ensuring that all preprocessing steps are consistent and derived solely from the training data.</p></li>
 </ul>
 </section>
-<section id="preprocessing-10" class="slide level2">
+<section id="preprocessing-11" class="slide level2">
 <h2>Preprocessing</h2>
 <ul>
 <li>Below is an example demonstrating how to remove predictors with near-zero variance and then center the remaining predictors:</li>
