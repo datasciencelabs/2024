@@ -1,0 +1,739 @@
+---
+title: "Algorithms"
+keywords: "Machine Learning"
+date: "2024-12-11"
+format:
+  revealjs:
+    theme: night
+execute:
+  echo: true
+  fig-align: center
+---
+
+```{r setup, include=FALSE}
+options(digits = 3)
+```
+
+## Examples of algorithms
+
+- There are hundreds of machine learning algorithms.
+
+- Here we provide a few examples spanning rather different approaches.
+
+- We will use the `mnist_27` dataset from **dslabs**.
+
+
+```{r warning = FALSE, message = FALSE, cache=FALSE} 
+library(tidyverse) 
+library(caret) 
+library(dslabs) 
+``` 
+
+```{r}
+#| echo: false
+ds_theme_set()
+
+```
+
+
+## Logistic regression
+
+- We previously used linear regression to predict classes by fitting the model:
+
+
+$$
+p(\mathbf{x}) = \mbox{Pr}(Y=1 \mid X_1=x_1 , X_2 = x_2) =  
+\beta_0 + \beta_1 x_1 + \beta_2 x_2 
+$$
+
+- We used least squares after assigning numeric values of 0 and 1 to $y$, and used `lm` as if the data were continuous.
+
+
+## Logistic regression
+
+
+- An obvious problem with this approach is that $\widehat{p}(\mathbf{x})$ can be negative and larger than 1:
+
+```{r} 
+fit_lm <- lm(y ~ x_1 + x_2, 
+             data = mutate(mnist_27$train,y = ifelse(y == 7, 1, 0))) 
+range(fit_lm$fitted) 
+``` 
+
+## Logistic regression
+
+- To avoid this, we can apply an approach more appropriate for binary data:
+
+
+$$ 
+\log \frac{p(\mathbf{x})}{1-p(\mathbf{x})} = \beta_0 + \beta_1 x_1 + \beta_2 x_2 
+$$
+
+
+
+## Logistic regression
+
+We can use the `glm` function to fit the model:
+
+```{r} 
+fit_glm <- glm(y ~ x_1 + x_2, data = mnist_27$train, family = "binomial") 
+p_hat_glm <- predict(fit_glm, mnist_27$test, type = "response") 
+y_hat_glm <- factor(ifelse(p_hat_glm > 0.5, 7, 2)) 
+confusionMatrix(y_hat_glm, mnist_27$test$y)$overall["Accuracy"]
+``` 
+
+- We see that logistic regression performs similarly to regression.
+
+
+
+
+## Logistic regression
+
+- This is not surprising given that the estimate of $\widehat{p}(\mathbf{x})$ looks similar:
+
+```{r logistic-p-hat, echo = FALSE} 
+p_hat <- predict(fit_glm, newdata = mnist_27$true_p, type = "response") 
+mnist_27$true_p |> mutate(p_hat = p_hat) |> 
+  ggplot(aes(x_1, x_2,  z = p_hat)) + 
+  geom_raster(aes(fill = p_hat)) + 
+  scale_fill_gradientn(colors = c("#F8766D","white","#00BFC4")) + 
+  stat_contour(breaks = c(0.5), color = "black")  
+``` 
+
+
+## Logistic regression
+
+- Just like regression, the decision rule is a line:
+
+
+$$
+g^{-1}(\widehat{\beta}_0 + \widehat{\beta}_1 x_1 + \widehat{\beta}_2 x_2) = 0.5 \implies\\
+\widehat{\beta}_0 + \widehat{\beta}_1 x_1 + \widehat{\beta}_2 x_2 = g(0.5) = 0 \implies \\
+x_2 = -\widehat{\beta}_0/\widehat{\beta}_2 -\widehat{\beta}_1/\widehat{\beta}_2 x_1 
+$$
+
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE} 
+set.seed(2008) 
+library(gridExtra) 
+## We use this function to plot the estimated conditional probabilities 
+plot_cond_prob <- function(p_hat = NULL){ 
+  tmp <- mnist_27$true_p 
+  if (!is.null(p_hat)) { 
+    tmp <- mutate(tmp, p = p_hat) 
+  } 
+  tmp |> ggplot(aes(x_1, x_2, z = p)) + 
+  geom_raster(aes(fill = p), show.legend = FALSE) + 
+  scale_fill_gradientn(colors = c("#F8766D","white","#00BFC4")) + 
+  stat_contour(breaks = c(0.5),color = "black") 
+} 
+``` 
+
+
+
+
+
+## Generative models
+
+- With binary outcomes the smallest true error we can achieve is determined by Bayes' rule, which is a decision rule based on the true conditional probability:
+
+
+$$
+p(\mathbf{x}) = \mbox{Pr}(Y = 1 \mid \mathbf{X}=\mathbf{x})  
+$$
+
+- We have described approaches to estimating $p(\mathbf{x})$.
+
+
+
+## Generative models
+
+- In all these approaches, we estimate the conditional probability directly and do not consider the distribution of the predictors.
+
+- These are referred to as _discriminative_ approaches.
+
+- However, Bayes' theorem tells us that knowing the distribution of the predictors $\mathbf{X}$ may be useful.
+
+- Methods that model the joint distribution of $Y$ and $\mathbf{X}$ are referred to as _generative models_
+
+- We model how $Y$ **and** $\mathbf{X}$ are generated.
+
+
+## Naive Bayes
+
+- Recall that Bayes rule tells us that we can rewrite $p(\mathbf{x})$ as follows:
+
+
+$$
+p(\mathbf{x}) = \mbox{Pr}(Y = 1|\mathbf{X}=\mathbf{x}) = \frac{f_{\mathbf{X}|Y = 1}(\mathbf{x}) \mbox{Pr}(Y = 1)} 
+{ f_{\mathbf{X}|Y = 0}(\mathbf{x})\mbox{Pr}(Y = 0)  + f_{\mathbf{X}|Y = 1}(\mathbf{x})\mbox{Pr}(Y = 1) } 
+$$
+
+- with $f_{\mathbf{X}|Y = 1}$ and $f_{\mathbf{X}|Y = 0}$ representing the distribution functions of the predictor $\mathbf{X}$ for the two classes $Y = 1$ and $Y = 0$.
+
+
+## Controlling prevalence
+
+- One useful feature of the Naive Bayes approach is that it includes a parameter to account for differences in prevalence.
+
+- Using our sample, we estimate $f_{X|Y = 1}$, $f_{X|Y = 0}$ and $\pi$.
+
+- If we use hats to denote the estimates, we can write $\widehat{p}(x)$ as:
+
+
+$$
+\widehat{p}(x)= \frac{\widehat{f}_{X|Y = 1}(x) \widehat{\pi}} 
+{ \widehat{f}_{X|Y = 0}(x)(1-\widehat{\pi}) + \widehat{f}_{X|Y = 1}(x)\widehat{\pi} } 
+$$
+
+
+- We can change prevalence by pluggin in other values instead of $\widehat{\pi}$
+
+## Naive Bayes
+
+- If we can estimate these conditional distributions of the predictors, we can develop a powerful decision rule.
+
+- However, this is a big _if_.
+
+- When $\mathbf{X}$ has many dimensions and we do not have much information about the distribution, Naive Bayes will be practically impossible to implement.
+
+
+- However, with a small number of predictors and many categories generative models can be quite powerful.
+
+
+
+
+## Quadratic discriminant analysis
+
+- Quadratic Discriminant Analysis (QDA) is a version of Naive Bayes in which we assume that the distributions $p_{\mathbf{X}|Y = 1}(x)$ and $p_{\mathbf{X}|Y = 0}(\mathbf{x})$ are multivariate normal.
+
+- The simple example we described in the previous section is actually QDA.
+
+- Let's now look at a slightly more complicated case: the 2 or 7 example.
+
+- In this example, we have two predictors so we assume each one is bivariate normal.
+
+
+
+## Quadratic discriminant analysis
+
+- We can estiamte the paramters from the data:
+
+```{r} 
+params <- mnist_27$train |>  
+  group_by(y) |>  
+  summarize(avg_1 = mean(x_1), avg_2 = mean(x_2),  
+            sd_1= sd(x_1), sd_2 = sd(x_2),  
+            r = cor(x_1, x_2)) 
+params 
+``` 
+
+## Quadratic discriminant analysis
+
+- With these estimates in place, all we need are the prevalence $\pi$ to compute:
+
+
+$$
+\widehat{p}(\mathbf{x})= \frac{\widehat{f}_{\mathbf{X}|Y = 1}(\mathbf{x}) \widehat{\pi}} 
+{ \widehat{f}_{\mathbf{X}|Y = 0}(x)(1-\widehat{\pi}) + \widehat{f}_{\mathbf{X}|Y = 1}(\mathbf{x})\widehat{\pi} } 
+$$
+
+
+## Quadratic discriminant analysis
+
+Here is the fitted model:
+
+```{r qda-explained, echo=FALSE} 
+mnist_27$train |> mutate(y = factor(y)) |>  
+  ggplot(aes(x_1, x_2, fill = y, color = y)) +  
+  geom_point(show.legend = FALSE) +  
+  stat_ellipse(type = "norm", lwd = 1.5) 
+``` 
+
+
+## Quadratic discriminant analysis
+
+- We can fit QDA using the `qda` function the **MASS** package:
+
+```{r, message=FALSE, cache=FALSE} 
+train_qda <- MASS::qda(y ~ ., data = mnist_27$train) 
+y_hat <- predict(train_qda, mnist_27$test)$class 
+``` 
+
+- We see that we obtain relatively good accuracy:
+
+```{r} 
+confusionMatrix(y_hat, mnist_27$test$y)$overall["Accuracy"]  
+``` 
+
+
+
+
+## Quadratic discriminant analysis
+
+- The conditional probability looks relatively good, although it does not fit as well as the kernel smoothers:
+
+```{r qda-estimate, echo = FALSE, out.width = "100%", warning = FALSE, message = FALSE} 
+library(gridExtra) 
+p1 <- plot_cond_prob() + ggtitle("True conditional probability") 
+p2 <- plot_cond_prob(predict(train_qda, newdata = mnist_27$true_p, type = "prob")$posterior[,2]) + 
+  ggtitle("QDA") 
+grid.arrange(p2, p1, nrow = 1) 
+``` 
+
+
+## Quadratic discriminant analysis
+
+- One reason QDA does not work as well as the kernel methods is because the assumption of normality does not quite hold:
+
+
+```{r qda-does-not-fit-run, out.width = "100%", echo=FALSE} 
+mnist_27$train |> mutate(y = factor(y)) |>  
+  ggplot(aes(x_1, x_2, fill = y, color = y)) +  
+  geom_point(show.legend = FALSE) +  
+  stat_ellipse(type = "norm") + 
+  facet_wrap(~y) 
+``` 
+
+
+## Quadratic discriminant analysis
+
+- QDA can work well here, but it becomes harder to use as the number of predictors increases.
+
+- Here we have 2 predictors and had to compute 4 means, 4 SDs, and 2 correlations.
+
+- Notice that if we have 10 predictors, we have 45 correlations for each class.
+
+- The formula is $K\times p(p-1)/2$, which gets big fast.
+
+- Once the number of parameters approaches the size of our data, the method becomes impractical due to overfitting.
+
+
+
+## Linear discriminant analysis
+
+- A relatively simple solution to QDA's problem of having too many parameters is to assume that the correlation structure is the same for all classes.
+
+- This  reduces the number of parameters we need to estimate.
+
+
+## Linear discriminant analysis
+
+The estimated distribution look like this:
+
+```{r lda-explained, echo = FALSE} 
+params <- mnist_27$train |>  
+  group_by(y) |>  
+  summarize(avg_1 = mean(x_1), avg_2 = mean(x_2),  
+            sd_1= sd(x_1), sd_2 = sd(x_2),  
+            r = cor(x_1,x_2)) 
+params <- params |> mutate(sd_1 = mean(sd_1), sd_2 = mean(sd_2), r = mean(r)) 
+tmp <- lapply(1:2, function(i){ 
+  with(params[i,], MASS::mvrnorm(1000, mu = c(avg_1, avg_2), Sigma = matrix(c(sd_1^2, sd_1*sd_2*r, sd_1*sd_2*r, sd_2^2), 2, 2))) |> 
+    as.data.frame() |>  
+    setNames(c("x_1", "x_2")) |>  
+    mutate(y  = factor(c(2,7)[i])) 
+}) 
+tmp <- do.call(rbind, tmp) 
+mnist_27$train |> mutate(y = factor(y)) |>  
+  ggplot() +  
+  geom_point(aes(x_1, x_2, color = y), show.legend = FALSE) +  
+  stat_ellipse(aes(x_1, x_2, color = y), data = tmp, type = "norm", lwd = 1.5) 
+``` 
+
+
+## Linear discriminant analysis
+
+- We can LDA using the **MASS** `lda` function:
+
+```{r, echo=FALSE} 
+train_lda <- MASS::lda(y ~ ., data = mnist_27$train) 
+y_hat <- predict(train_lda, mnist_27$test)$class 
+``` 
+
+- This added constraint lowers the number of parameters, the rigidity lowers our accuracy to:
+
+```{r} 
+confusionMatrix(y_hat, mnist_27$test$y)$overall["Accuracy"] 
+``` 
+
+
+
+
+## Linear discriminant analysis
+
+In fact we can show that the boundary is a line:
+
+```{r lda-estimate, echo = FALSE, out.width = "100%"} 
+train_lda <- MASS::lda(y ~ ., data = mnist_27$train) 
+p1 <- plot_cond_prob() + ggtitle("True conditional probability") 
+p2 <- plot_cond_prob(predict(train_lda, newdata = mnist_27$true_p, type = "prob")$posterior[,2]) + 
+  ggtitle("LDA") 
+grid.arrange(p2, p1, nrow = 1) 
+``` 
+
+
+
+
+## Connection to distance
+
+- The normal density is:
+
+
+$$
+f(x) = \frac{1}{\sqrt{2\pi} \sigma} \exp\left\{ - \frac{(x-\mu)^2}{\sigma^2}\right\} 
+$$
+
+- If we remove the constant $1/(\sqrt{2\pi} \sigma)$ and then take the log, we get:
+
+
+$$
+\frac{(x-\mu)^2}{\sigma^2} 
+$$
+
+
+## Connection to distance
+
+
+- Note this ithe negative of a distance squared scaled by the standard deviation.
+
+$$
+\frac{(x-\mu)^2}{\sigma^2} 
+$$
+
+
+- For higher dimensions, the same is true except the scaling is more complex and involves correlations.
+
+
+
+## CART
+
+
+- Anything based on distance or distributions will face the course of dimensionality
+
+- In high dimensions the nearest neighbors will actually define a large region.
+
+- This makes it hard to estimate local non-linearities.
+
+- Regression trees use a completely different approach: directly partition the prediction space.
+ 
+## CART motivation
+
+- To motivate this section, we will use a new dataset:
+
+```{r} 
+names(olive) 
+``` 
+
+## CART motivation
+
+- We try to predict the region using the fatty acid composition:
+
+```{r} 
+table(olive$region) 
+``` 
+
+- We remove the `area` column because we won't use it as a predictor.
+
+```{r} 
+olive <- select(olive, -area) 
+``` 
+
+
+
+## CART motivation
+
+
+- Using kNN, we can achieve the following accuracy:
+
+```{r olive-knn, warning = FALSE, message = FALSE} 
+library(caret) 
+fit <- train(region ~ .,  method = "knn",  
+             tuneGrid = data.frame(k = seq(1, 15, 2)),  
+             data = olive) 
+fit$results[1,2]
+``` 
+
+
+## CART motivation
+
+- However, a bit of data exploration reveals that we should be able to do even better:
+
+
+```{r olive-eda, fig.height = 3, fig.width = 6, echo = FALSE} 
+olive |> 
+  pivot_longer(cols = -region, names_to = "fatty_acid", values_to = "percentage") |> 
+  ggplot(aes(region, percentage, fill = region)) + 
+  geom_boxplot() + 
+  facet_wrap(~fatty_acid, scales = "free", ncol = 4) + 
+  theme(axis.text.x = element_blank(), legend.position = "bottom")
+``` 
+
+
+## CART motivation
+
+- We should be able to predict perfectly:
+
+```{r olive-two-predictors, echo = FALSE} 
+olive |>  
+  ggplot(aes(eicosenoic, linoleic, color = region)) +  
+  geom_point() + 
+  geom_vline(xintercept = 0.065, lty = 2) +  
+  geom_segment(x = -0.2, y = 10.54, xend = 0.065, yend = 10.54,  
+               color = "black", lty = 2) 
+``` 
+
+
+
+## CART motivation
+
+```{r olive-tree, echo = FALSE, warning = FALSE, message = FALSE, fig.height = 4.5, out.width = "50%"} 
+library(rpart) 
+rafalib::mypar() 
+train_rpart <- train(region ~ ., method = "rpart", data = olive) 
+plot(train_rpart$finalModel, margin = 0.1) 
+text(train_rpart$finalModel, cex = 0.75) 
+``` 
+
+
+## CART motivation
+
+- Decision trees like this are often used in practice.
+
+
+![](https://rafalab.dfci.harvard.edu/dsbook-part-2/ml/img/Decision-Tree-for-Heart-Attack-Victim-adapted-from-Gigerenzer-et-al-1999-4.png){fig.align="center}
+
+
+## Regression trees
+
+- When using trees, and the outcome is continuous, we call the approach a *regression* tree.
+
+- To introduce regression trees, we will use the 2008 poll data used in previous sections to describe the basic idea of how we build these algorithms.
+
+- As with other machine learning algorithms, we will try to estimate the conditional expectation $f(x) = \mbox{E}(Y | X = x)$ with $Y$ the poll margin and $x$ the day.
+
+
+
+## Regression trees
+
+```{r polls-2008-again, echo=FALSE} 
+ggplot(data = polls_2008, aes(day, margin)) + geom_point() 
+``` 
+
+
+## Regression trees
+
+This fits the model:
+
+```{r} 
+library(rpart) 
+fit <- rpart(margin ~ ., data = polls_2008) 
+``` 
+
+
+There are rules to decide when to stop.
+
+
+
+## Regression trees
+
+```{r polls-2008-tree} 
+plot(fit, margin = 0.1) 
+text(fit, cex = 0.75) 
+``` 
+
+## Regression trees
+
+```{r polls-2008-tree-fit-run, echo=FALSE} 
+polls_2008 |>  
+  mutate(y_hat = predict(fit)) |>  
+  ggplot() + 
+  geom_point(aes(day, margin)) + 
+  geom_step(aes(day, y_hat), col = "red") 
+``` 
+
+
+
+
+
+
+
+## Regression trees
+
+- If we let it go to the end we get:
+
+```{r polls-2008-tree-over-fit, echo=FALSE} 
+fit <- rpart(margin ~ ., data = polls_2008,  
+             control = rpart.control(cp = 0, minsplit = 2)) 
+polls_2008 |>  
+  mutate(y_hat = predict(fit)) |>  
+  ggplot() + 
+  geom_point(aes(day, margin)) + 
+  geom_step(aes(day, y_hat), col = "red") 
+``` 
+
+
+
+
+
+## Regression trees
+
+- Picking the parameters that controls when to stop:
+
+```{r polls-2008-tree-train} 
+library(caret) 
+train_rpart <- train(margin ~ .,  
+                     method = "rpart", 
+                     tuneGrid = data.frame(cp = seq(0, 0.05, len = 25)), 
+                     data = polls_2008) 
+``` 
+
+
+## Regression trees
+
+```{r polls-2008-final-fit, echo=FALSE} 
+polls_2008 |>  
+  mutate(y_hat = predict(train_rpart)) |>  
+  ggplot() + 
+  geom_point(aes(day, margin)) + 
+  geom_step(aes(day, y_hat), col = "red") 
+``` 
+
+
+## Regression trees
+
+- We can also prune:
+
+```{r polls-2008-prune} 
+fit <- rpart(margin ~ ., data = polls_2008, 
+             control = rpart.control(cp = 0)) 
+pruned_fit <- prune(fit, cp = 0.01) 
+``` 
+
+
+
+
+## Classification (decision) trees
+
+- Apply it to 2 or 7 data:
+
+```{r}
+train_rpart <- train(y ~ ., 
+                     method = "rpart", 
+                     tuneGrid = data.frame(cp = seq(0.0, 0.1, len = 25)), 
+                     data = mnist_27$train) 
+y_hat <- predict(train_rpart, mnist_27$test) 
+confusionMatrix(y_hat, mnist_27$test$y)$overall["Accuracy"]
+``` 
+
+
+
+## Classification (decision) trees
+
+Here is the estimate of $p(\mathbf{x})$:
+
+```{r rf-cond-prob, echo = FALSE} 
+library(gridExtra) 
+p1 <- plot_cond_prob() + ggtitle("True conditional probability") 
+p2 <- plot_cond_prob(predict(train_rpart, newdata = mnist_27$true_p, type = "prob")[,2]) + 
+  ggtitle("Decision Tree") 
+grid.arrange(p2, p1, nrow = 1) 
+``` 
+
+
+
+
+
+## Random forests
+
+- Apply it to the polls data:
+
+
+```{r polls-2008-rf, message = FALSE, warning = FALSE} 
+library(randomForest) 
+fit <- randomForest(margin ~ ., data = polls_2008)  
+``` 
+
+
+## Random forests
+
+How many trees?
+
+```{r more-trees-better-fit} 
+rafalib::mypar() 
+plot(fit) 
+``` 
+
+
+## Random forests
+
+- The resulting estimate is obtained with:
+
+```{r} 
+y_hat <-  predict(fit, newdata = polls_2008)
+``` 
+
+
+## Random forests
+
+Final estimate:
+
+```{r polls-2008-rf-fit, echo=FALSE} 
+polls_2008 |> 
+  mutate(y_hat = predict(fit, newdata = polls_2008)) |>  
+  ggplot() + 
+  geom_point(aes(day, margin)) + 
+  geom_line(aes(day, y_hat), col = "red") 
+``` 
+
+
+
+## Random forests
+
+![](https://rafalab.dfci.harvard.edu/dsbook-part-2/ml/img/rf.gif){fig.aling="center"}
+
+## Random forests
+
+Apply it to 2 or 7 data:
+
+```{r mnits-27-rf-fit} 
+library(randomForest) 
+train_rf <- randomForest(y ~ ., data = mnist_27$train) 
+confusionMatrix(predict(train_rf, mnist_27$test), 
+                mnist_27$test$y)$overall["Accuracy"]
+``` 
+
+
+
+## Random forests
+
+Here is the estimate of $p(\mathbf{x})$:
+
+```{r cond-prob-rf, echo = FALSE, out.width = "100%"} 
+p1 <- plot_cond_prob() + ggtitle("True conditional probability") 
+p2 <- plot_cond_prob(predict(train_rf, newdata = mnist_27$true_p, type = "prob")[,2]) + 
+  ggtitle("Random Forest") 
+grid.arrange(p2, p1, nrow = 1) 
+``` 
+
+
+## Random forests
+
+We increase smoothness with the `nodesize` parameter:
+
+```{r} 
+train_rf_31 <- randomForest(y ~ ., data = mnist_27$train, nodesize = 31) 
+``` 
+
+## Random forests
+
+This provides a better estimate:
+
+```{r cond-prob-final-rf, echo = FALSE, out.width = "100%"} 
+p1 <- plot_cond_prob() + ggtitle("True conditional probability") 
+p2 <- plot_cond_prob(predict(train_rf_31, newdata = mnist_27$true_p, type = "prob")[,2]) + 
+  ggtitle("Random Forest") 
+grid.arrange(p2, p1, nrow = 1) 
+``` 
+
+

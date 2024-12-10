@@ -58,7 +58,7 @@
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/index.html</loc>
-    <lastmod>2024-12-09T14:42:56.054Z</lastmod>
+    <lastmod>2024-12-10T22:32:06.527Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/psets/pset-04-wrangling.html</loc>
@@ -239,5 +239,13 @@
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/ml/40-knn.html</loc>
     <lastmod>2024-12-09T14:41:55.626Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/ml/43-algorithms.html</loc>
+    <lastmod>2024-12-10T22:12:45.840Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/ml/44-ml-in-practice.html</loc>
+    <lastmod>2024-12-10T22:37:45.697Z</lastmod>
   </url>
 </urlset>

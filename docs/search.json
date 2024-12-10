@@ -3448,7 +3448,7 @@
     "href": "index.html#lectures",
     "title": "BST 260 Introduction to Data Science",
     "section": "Lectures",
-    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09, Sep 11\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git\n\n\nSep 16, Sep 19\nR\nR basics, Vectorization\nR Basics, Vectorization\n\n\nSep 23\nR\nTidyverse, ggplot2\ndplyr, ggplot2\n\n\nSep 25\nR\nTyding data\nReshaping Data\n\n\nSep 30, Oct 02\nWrangling\nIntro, Data Importing, Dates and Times, Locales, Data APIs, Web scraping, Joining tables\nImporting data, dates and times, Locales, Joining Tables, Extracting data from the web\n\n\nOct 07, Oct 09\nData visualization\nData Viz Principles, Distributions, Dataviz in practice\nDistributions, Dataviz Principles\n\n\nOct 16\nMidterm 1\n\nCovers material from Sep 04-Oct 11\n\n\nOct 21\nProbability\nIntro, Foundations for Inference\nMonte Carlo, Random Variables & CLT\n\n\nOct 23\nInference\nIntro, Parameter and estimates, Confidence Intervals\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\nModels, Bayes, Hierarchical Models\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\nIntro, Regression\nRegression, Multivariate Regression\n\n\nNov 13, Nov 18\nLinear models\nMultivariate regression, Treatment effect models\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 20\nHigh dimensional data\nIntro to Linear Algebra, Matrices in R\nMatrices in R, Applied Linear Algebra,\n\n\nNov 25\nMidterm 2\n\nMidterm 2: cover material from Sep 04-Nov 22\n\n\nDec 02\nHigh dimensional data\nDistance, Dimension reduction\nDimension Reduction\n\n\nDec 04\nMachine Learning\nIntro, Metrics, Conditionals, Smoothing\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nDec 09, Dec 11\nMachine Learning\nkNN, Resampling methods, caret package\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
+    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09, Sep 11\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git\n\n\nSep 16, Sep 19\nR\nR basics, Vectorization\nR Basics, Vectorization\n\n\nSep 23\nR\nTidyverse, ggplot2\ndplyr, ggplot2\n\n\nSep 25\nR\nTyding data\nReshaping Data\n\n\nSep 30, Oct 02\nWrangling\nIntro, Data Importing, Dates and Times, Locales, Data APIs, Web scraping, Joining tables\nImporting data, dates and times, Locales, Joining Tables, Extracting data from the web\n\n\nOct 07, Oct 09\nData visualization\nData Viz Principles, Distributions, Dataviz in practice\nDistributions, Dataviz Principles\n\n\nOct 16\nMidterm 1\n\nCovers material from Sep 04-Oct 11\n\n\nOct 21\nProbability\nIntro, Foundations for Inference\nMonte Carlo, Random Variables & CLT\n\n\nOct 23\nInference\nIntro, Parameter and estimates, Confidence Intervals\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\nModels, Bayes, Hierarchical Models\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\nIntro, Regression\nRegression, Multivariate Regression\n\n\nNov 13, Nov 18\nLinear models\nMultivariate regression, Treatment effect models\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 20\nHigh dimensional data\nIntro to Linear Algebra, Matrices in R\nMatrices in R, Applied Linear Algebra,\n\n\nNov 25\nMidterm 2\n\nMidterm 2: cover material from Sep 04-Nov 22\n\n\nDec 02\nHigh dimensional data\nDistance, Dimension reduction\nDimension Reduction\n\n\nDec 04\nMachine Learning\nIntro, Metrics, Conditionals, Smoothing\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nDec 09, Dec 11\nMachine Learning\nkNN, Resampling methods, caret package, Algorithms, ML in practice\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
     "crumbs": [
       "Home"
     ]
@@ -13660,5 +13660,649 @@
     "title": "The caret package",
     "section": "Preprocessing",
     "text": "Preprocessing\n\nBelow is an example demonstrating how to remove predictors with near-zero variance and then center the remaining predictors:\n\n\npp &lt;- preProcess(x, method = c(\"nzv\", \"center\")) \ncentered_subsetted_x_test &lt;- predict(pp, newdata = x_test) \ndim(centered_subsetted_x_test) \n\n[1] 1000  252\n\n\n\nAdditionally, the train function in caret includes a preProcess argument that allows users to specify which preprocessing steps to apply automatically during model training."
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#examples-of-algorithms",
+    "href": "slides/ml/43-algorithms.html#examples-of-algorithms",
+    "title": "Algorithms",
+    "section": "Examples of algorithms",
+    "text": "Examples of algorithms\n\nThere are hundreds of machine learning algorithms.\nHere we provide a few examples spanning rather different approaches.\nWe will use the mnist_27 dataset from dslabs.\n\n\nlibrary(tidyverse) \nlibrary(caret) \nlibrary(dslabs)"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#logistic-regression",
+    "href": "slides/ml/43-algorithms.html#logistic-regression",
+    "title": "Algorithms",
+    "section": "Logistic regression",
+    "text": "Logistic regression\n\nWe previously used linear regression to predict classes by fitting the model:\n\n\\[\np(\\mathbf{x}) = \\mbox{Pr}(Y=1 \\mid X_1=x_1 , X_2 = x_2) =  \n\\beta_0 + \\beta_1 x_1 + \\beta_2 x_2\n\\]\n\nWe used least squares after assigning numeric values of 0 and 1 to \\(y\\), and used lm as if the data were continuous."
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#logistic-regression-1",
+    "href": "slides/ml/43-algorithms.html#logistic-regression-1",
+    "title": "Algorithms",
+    "section": "Logistic regression",
+    "text": "Logistic regression\n\nAn obvious problem with this approach is that \\(\\widehat{p}(\\mathbf{x})\\) can be negative and larger than 1:\n\n\nfit_lm &lt;- lm(y ~ x_1 + x_2, \n             data = mutate(mnist_27$train,y = ifelse(y == 7, 1, 0))) \nrange(fit_lm$fitted) \n\n[1] -0.22  1.92"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#logistic-regression-2",
+    "href": "slides/ml/43-algorithms.html#logistic-regression-2",
+    "title": "Algorithms",
+    "section": "Logistic regression",
+    "text": "Logistic regression\n\nTo avoid this, we can apply an approach more appropriate for binary data:\n\n\\[\n\\log \\frac{p(\\mathbf{x})}{1-p(\\mathbf{x})} = \\beta_0 + \\beta_1 x_1 + \\beta_2 x_2\n\\]"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#logistic-regression-3",
+    "href": "slides/ml/43-algorithms.html#logistic-regression-3",
+    "title": "Algorithms",
+    "section": "Logistic regression",
+    "text": "Logistic regression\nWe can use the glm function to fit the model:\n\nfit_glm &lt;- glm(y ~ x_1 + x_2, data = mnist_27$train, family = \"binomial\") \np_hat_glm &lt;- predict(fit_glm, mnist_27$test, type = \"response\") \ny_hat_glm &lt;- factor(ifelse(p_hat_glm &gt; 0.5, 7, 2)) \nconfusionMatrix(y_hat_glm, mnist_27$test$y)$overall[\"Accuracy\"]\n\nAccuracy \n   0.775 \n\n\n\nWe see that logistic regression performs similarly to regression."
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#logistic-regression-4",
+    "href": "slides/ml/43-algorithms.html#logistic-regression-4",
+    "title": "Algorithms",
+    "section": "Logistic regression",
+    "text": "Logistic regression\n\nThis is not surprising given that the estimate of \\(\\widehat{p}(\\mathbf{x})\\) looks similar:"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#k-nearest-neighbors",
+    "href": "slides/ml/43-algorithms.html#k-nearest-neighbors",
+    "title": "Algorithms",
+    "section": "k-nearest neighbors",
+    "text": "k-nearest neighbors"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#generative-models",
+    "href": "slides/ml/43-algorithms.html#generative-models",
+    "title": "Algorithms",
+    "section": "Generative models",
+    "text": "Generative models\n\nWith binary outcomes the smallest true error we can achieve is determined by Bayes’ rule, which is a decision rule based on the true conditional probability:\n\n\\[\np(\\mathbf{x}) = \\mbox{Pr}(Y = 1 \\mid \\mathbf{X}=\\mathbf{x})  \n\\]\n\nWe have described approaches to estimating \\(p(\\mathbf{x})\\)."
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#generative-models-1",
+    "href": "slides/ml/43-algorithms.html#generative-models-1",
+    "title": "Algorithms",
+    "section": "Generative models",
+    "text": "Generative models\n\nIn all these approaches, we estimate the conditional probability directly and do not consider the distribution of the predictors.\nThese are referred to as discriminative approaches.\nHowever, Bayes’ theorem tells us that knowing the distribution of the predictors \\(\\mathbf{X}\\) may be useful.\nMethods that model the joint distribution of \\(Y\\) and \\(\\mathbf{X}\\) are referred to as generative models\nWe model how \\(Y\\) and \\(\\mathbf{X}\\) are generated."
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#naive-bayes",
+    "href": "slides/ml/43-algorithms.html#naive-bayes",
+    "title": "Algorithms",
+    "section": "Naive Bayes",
+    "text": "Naive Bayes\n\nRecall that Bayes rule tells us that we can rewrite \\(p(\\mathbf{x})\\) as follows:\n\n\\[\np(\\mathbf{x}) = \\mbox{Pr}(Y = 1|\\mathbf{X}=\\mathbf{x}) = \\frac{f_{\\mathbf{X}|Y = 1}(\\mathbf{x}) \\mbox{Pr}(Y = 1)}\n{ f_{\\mathbf{X}|Y = 0}(\\mathbf{x})\\mbox{Pr}(Y = 0)  + f_{\\mathbf{X}|Y = 1}(\\mathbf{x})\\mbox{Pr}(Y = 1) }\n\\]\n\nwith \\(f_{\\mathbf{X}|Y = 1}\\) and \\(f_{\\mathbf{X}|Y = 0}\\) representing the distribution functions of the predictor \\(\\mathbf{X}\\) for the two classes \\(Y = 1\\) and \\(Y = 0\\)."
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#controlling-prevalence",
+    "href": "slides/ml/43-algorithms.html#controlling-prevalence",
+    "title": "Algorithms",
+    "section": "Controlling prevalence",
+    "text": "Controlling prevalence\n\nOne useful feature of the Naive Bayes approach is that it includes a parameter to account for differences in prevalence.\nUsing our sample, we estimate \\(f_{X|Y = 1}\\), \\(f_{X|Y = 0}\\) and \\(\\pi\\).\nIf we use hats to denote the estimates, we can write \\(\\widehat{p}(x)\\) as:\n\n\\[\n\\widehat{p}(x)= \\frac{\\widehat{f}_{X|Y = 1}(x) \\widehat{\\pi}}\n{ \\widehat{f}_{X|Y = 0}(x)(1-\\widehat{\\pi}) + \\widehat{f}_{X|Y = 1}(x)\\widehat{\\pi} }\n\\]\n\nWe can change prevalence by pluggin in other values instead of \\(\\widehat{\\pi}\\)"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#naive-bayes-1",
+    "href": "slides/ml/43-algorithms.html#naive-bayes-1",
+    "title": "Algorithms",
+    "section": "Naive Bayes",
+    "text": "Naive Bayes\n\nIf we can estimate these conditional distributions of the predictors, we can develop a powerful decision rule.\nHowever, this is a big if.\nWhen \\(\\mathbf{X}\\) has many dimensions and we do not have much information about the distribution, Naive Bayes will be practically impossible to implement.\nHowever, with a small number of predictors and many categories generative models can be quite powerful."
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#quadratic-discriminant-analysis",
+    "href": "slides/ml/43-algorithms.html#quadratic-discriminant-analysis",
+    "title": "Algorithms",
+    "section": "Quadratic discriminant analysis",
+    "text": "Quadratic discriminant analysis\n\nQuadratic Discriminant Analysis (QDA) is a version of Naive Bayes in which we assume that the distributions \\(p_{\\mathbf{X}|Y = 1}(x)\\) and \\(p_{\\mathbf{X}|Y = 0}(\\mathbf{x})\\) are multivariate normal.\nThe simple example we described in the previous section is actually QDA.\nLet’s now look at a slightly more complicated case: the 2 or 7 example.\nIn this example, we have two predictors so we assume each one is bivariate normal."
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#quadratic-discriminant-analysis-1",
+    "href": "slides/ml/43-algorithms.html#quadratic-discriminant-analysis-1",
+    "title": "Algorithms",
+    "section": "Quadratic discriminant analysis",
+    "text": "Quadratic discriminant analysis\n\nWe can estiamte the paramters from the data:\n\n\nparams &lt;- mnist_27$train |&gt;  \n  group_by(y) |&gt;  \n  summarize(avg_1 = mean(x_1), avg_2 = mean(x_2),  \n            sd_1= sd(x_1), sd_2 = sd(x_2),  \n            r = cor(x_1, x_2)) \nparams \n\n# A tibble: 2 × 6\n  y     avg_1 avg_2   sd_1   sd_2     r\n  &lt;fct&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;\n1 2     0.136 0.287 0.0670 0.0600 0.415\n2 7     0.238 0.290 0.0745 0.104  0.468"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#quadratic-discriminant-analysis-2",
+    "href": "slides/ml/43-algorithms.html#quadratic-discriminant-analysis-2",
+    "title": "Algorithms",
+    "section": "Quadratic discriminant analysis",
+    "text": "Quadratic discriminant analysis\n\nWith these estimates in place, all we need are the prevalence \\(\\pi\\) to compute:\n\n\\[\n\\widehat{p}(\\mathbf{x})= \\frac{\\widehat{f}_{\\mathbf{X}|Y = 1}(\\mathbf{x}) \\widehat{\\pi}}\n{ \\widehat{f}_{\\mathbf{X}|Y = 0}(x)(1-\\widehat{\\pi}) + \\widehat{f}_{\\mathbf{X}|Y = 1}(\\mathbf{x})\\widehat{\\pi} }\n\\]"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#quadratic-discriminant-analysis-3",
+    "href": "slides/ml/43-algorithms.html#quadratic-discriminant-analysis-3",
+    "title": "Algorithms",
+    "section": "Quadratic discriminant analysis",
+    "text": "Quadratic discriminant analysis\nHere is the fitted model:"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#quadratic-discriminant-analysis-4",
+    "href": "slides/ml/43-algorithms.html#quadratic-discriminant-analysis-4",
+    "title": "Algorithms",
+    "section": "Quadratic discriminant analysis",
+    "text": "Quadratic discriminant analysis\n\nWe can fit QDA using the qda function the MASS package:\n\n\ntrain_qda &lt;- MASS::qda(y ~ ., data = mnist_27$train) \ny_hat &lt;- predict(train_qda, mnist_27$test)$class \n\n\nWe see that we obtain relatively good accuracy:\n\n\nconfusionMatrix(y_hat, mnist_27$test$y)$overall[\"Accuracy\"]  \n\nAccuracy \n   0.815"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#quadratic-discriminant-analysis-5",
+    "href": "slides/ml/43-algorithms.html#quadratic-discriminant-analysis-5",
+    "title": "Algorithms",
+    "section": "Quadratic discriminant analysis",
+    "text": "Quadratic discriminant analysis\n\nThe conditional probability looks relatively good, although it does not fit as well as the kernel smoothers:"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#quadratic-discriminant-analysis-6",
+    "href": "slides/ml/43-algorithms.html#quadratic-discriminant-analysis-6",
+    "title": "Algorithms",
+    "section": "Quadratic discriminant analysis",
+    "text": "Quadratic discriminant analysis\n\nOne reason QDA does not work as well as the kernel methods is because the assumption of normality does not quite hold:"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#quadratic-discriminant-analysis-7",
+    "href": "slides/ml/43-algorithms.html#quadratic-discriminant-analysis-7",
+    "title": "Algorithms",
+    "section": "Quadratic discriminant analysis",
+    "text": "Quadratic discriminant analysis\n\nQDA can work well here, but it becomes harder to use as the number of predictors increases.\nHere we have 2 predictors and had to compute 4 means, 4 SDs, and 2 correlations.\nNotice that if we have 10 predictors, we have 45 correlations for each class.\nThe formula is \\(K\\times p(p-1)/2\\), which gets big fast.\nOnce the number of parameters approaches the size of our data, the method becomes impractical due to overfitting."
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#linear-discriminant-analysis",
+    "href": "slides/ml/43-algorithms.html#linear-discriminant-analysis",
+    "title": "Algorithms",
+    "section": "Linear discriminant analysis",
+    "text": "Linear discriminant analysis\n\nA relatively simple solution to QDA’s problem of having too many parameters is to assume that the correlation structure is the same for all classes.\nThis reduces the number of parameters we need to estimate."
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#linear-discriminant-analysis-1",
+    "href": "slides/ml/43-algorithms.html#linear-discriminant-analysis-1",
+    "title": "Algorithms",
+    "section": "Linear discriminant analysis",
+    "text": "Linear discriminant analysis\nThe estimated distribution look like this:"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#linear-discriminant-analysis-2",
+    "href": "slides/ml/43-algorithms.html#linear-discriminant-analysis-2",
+    "title": "Algorithms",
+    "section": "Linear discriminant analysis",
+    "text": "Linear discriminant analysis\n\nWe can LDA using the MASS lda function:\n\n\nThis added constraint lowers the number of parameters, the rigidity lowers our accuracy to:\n\n\nconfusionMatrix(y_hat, mnist_27$test$y)$overall[\"Accuracy\"] \n\nAccuracy \n   0.775"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#linear-discriminant-analysis-3",
+    "href": "slides/ml/43-algorithms.html#linear-discriminant-analysis-3",
+    "title": "Algorithms",
+    "section": "Linear discriminant analysis",
+    "text": "Linear discriminant analysis\nIn fact we can show that the boundary is a line:"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#connection-to-distance",
+    "href": "slides/ml/43-algorithms.html#connection-to-distance",
+    "title": "Algorithms",
+    "section": "Connection to distance",
+    "text": "Connection to distance\n\nThe normal density is:\n\n\\[\nf(x) = \\frac{1}{\\sqrt{2\\pi} \\sigma} \\exp\\left\\{ - \\frac{(x-\\mu)^2}{\\sigma^2}\\right\\}\n\\]\n\nIf we remove the constant \\(1/(\\sqrt{2\\pi} \\sigma)\\) and then take the log, we get:\n\n\\[\n\\frac{(x-\\mu)^2}{\\sigma^2}\n\\]"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#classification-and-regression-trees-cart",
+    "href": "slides/ml/43-algorithms.html#classification-and-regression-trees-cart",
+    "title": "Algorithms",
+    "section": "Classification and regression trees (CART)",
+    "text": "Classification and regression trees (CART)\n\nAnything based on distance or distributions will face the course of dimensionality\nIn high dimensions the nearest neighbors will actually define a large region.\nThis makes it hard to estimate local non-linearities.\nRegression trees use a completely different approach: directly partition the prediction space."
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#cart-motivation",
+    "href": "slides/ml/43-algorithms.html#cart-motivation",
+    "title": "Algorithms",
+    "section": "CART motivation",
+    "text": "CART motivation\n\nTo motivate this section, we will use a new dataset:\n\n\nnames(olive) \n\n [1] \"region\"      \"area\"        \"palmitic\"    \"palmitoleic\" \"stearic\"    \n [6] \"oleic\"       \"linoleic\"    \"linolenic\"   \"arachidic\"   \"eicosenoic\""
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#cart-motivation-1",
+    "href": "slides/ml/43-algorithms.html#cart-motivation-1",
+    "title": "Algorithms",
+    "section": "CART motivation",
+    "text": "CART motivation\n\nWe try to predict the region using the fatty acid composition:\n\n\ntable(olive$region) \n\n\nNorthern Italy       Sardinia Southern Italy \n           151             98            323 \n\n\n\nWe remove the area column because we won’t use it as a predictor.\n\n\nolive &lt;- select(olive, -area)"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#cart-motivation-2",
+    "href": "slides/ml/43-algorithms.html#cart-motivation-2",
+    "title": "Algorithms",
+    "section": "CART motivation",
+    "text": "CART motivation\n\nUsing kNN, we can achieve the following accuracy:\n\n\nlibrary(caret) \nfit &lt;- train(region ~ .,  method = \"knn\",  \n             tuneGrid = data.frame(k = seq(1, 15, 2)),  \n             data = olive) \nfit$results[1,2]\n\n[1] 0.969"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#cart-motivation-3",
+    "href": "slides/ml/43-algorithms.html#cart-motivation-3",
+    "title": "Algorithms",
+    "section": "CART motivation",
+    "text": "CART motivation\n\nHowever, a bit of data exploration reveals that we should be able to do even better:"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#cart-motivation-4",
+    "href": "slides/ml/43-algorithms.html#cart-motivation-4",
+    "title": "Algorithms",
+    "section": "CART motivation",
+    "text": "CART motivation\n\nWe should be able to predict perfectly:"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#cart-motivation-5",
+    "href": "slides/ml/43-algorithms.html#cart-motivation-5",
+    "title": "Algorithms",
+    "section": "CART motivation",
+    "text": "CART motivation"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#regression-trees",
+    "href": "slides/ml/43-algorithms.html#regression-trees",
+    "title": "Algorithms",
+    "section": "Regression trees",
+    "text": "Regression trees\n\nWhen using trees, and the outcome is continuous, we call the approach a regression tree.\nTo introduce regression trees, we will use the 2008 poll data used in previous sections to describe the basic idea of how we build these algorithms.\nAs with other machine learning algorithms, we will try to estimate the conditional expectation \\(f(x) = \\mbox{E}(Y | X = x)\\) with \\(Y\\) the poll margin and \\(x\\) the day."
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#regression-trees-1",
+    "href": "slides/ml/43-algorithms.html#regression-trees-1",
+    "title": "Algorithms",
+    "section": "Regression trees",
+    "text": "Regression trees"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#regression-trees-2",
+    "href": "slides/ml/43-algorithms.html#regression-trees-2",
+    "title": "Algorithms",
+    "section": "Regression trees",
+    "text": "Regression trees\nThis fits the model:\n\nlibrary(rpart) \nfit &lt;- rpart(margin ~ ., data = polls_2008) \n\nThere are rules to decide when to stop."
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#regression-trees-3",
+    "href": "slides/ml/43-algorithms.html#regression-trees-3",
+    "title": "Algorithms",
+    "section": "Regression trees",
+    "text": "Regression trees\n\nplot(fit, margin = 0.1) \ntext(fit, cex = 0.75)"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#regression-trees-4",
+    "href": "slides/ml/43-algorithms.html#regression-trees-4",
+    "title": "Algorithms",
+    "section": "Regression trees",
+    "text": "Regression trees"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#regression-trees-5",
+    "href": "slides/ml/43-algorithms.html#regression-trees-5",
+    "title": "Algorithms",
+    "section": "Regression trees",
+    "text": "Regression trees\n\nIf we let it go to the end we get:"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#regression-trees-6",
+    "href": "slides/ml/43-algorithms.html#regression-trees-6",
+    "title": "Algorithms",
+    "section": "Regression trees",
+    "text": "Regression trees\n\nPicking the parameters that controls when to stop:\n\n\nlibrary(caret) \ntrain_rpart &lt;- train(margin ~ .,  \n                     method = \"rpart\", \n                     tuneGrid = data.frame(cp = seq(0, 0.05, len = 25)), \n                     data = polls_2008)"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#regression-trees-7",
+    "href": "slides/ml/43-algorithms.html#regression-trees-7",
+    "title": "Algorithms",
+    "section": "Regression trees",
+    "text": "Regression trees"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#regression-trees-8",
+    "href": "slides/ml/43-algorithms.html#regression-trees-8",
+    "title": "Algorithms",
+    "section": "Regression trees",
+    "text": "Regression trees\n\nWe can also prune:\n\n\nfit &lt;- rpart(margin ~ ., data = polls_2008, \n             control = rpart.control(cp = 0)) \npruned_fit &lt;- prune(fit, cp = 0.01)"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#regression-trees-9",
+    "href": "slides/ml/43-algorithms.html#regression-trees-9",
+    "title": "Algorithms",
+    "section": "Regression trees",
+    "text": "Regression trees\n\nWe can also prune:\n\n\nfit &lt;- rpart(margin ~ ., data = polls_2008, control = rpart.control(cp = 0)) \npruned_fit &lt;- prune(fit, cp = 0.01)"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#classification-decision-trees",
+    "href": "slides/ml/43-algorithms.html#classification-decision-trees",
+    "title": "Algorithms",
+    "section": "Classification (decision) trees",
+    "text": "Classification (decision) trees\n\nApply it to 2 or 7 data:\n\n\ntrain_rpart &lt;- train(y ~ ., \n                     method = \"rpart\", \n                     tuneGrid = data.frame(cp = seq(0.0, 0.1, len = 25)), \n                     data = mnist_27$train) \ny_hat &lt;- predict(train_rpart, mnist_27$test) \nconfusionMatrix(y_hat, mnist_27$test$y)$overall[\"Accuracy\"]\n\nAccuracy \n    0.81"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#classification-decision-trees-1",
+    "href": "slides/ml/43-algorithms.html#classification-decision-trees-1",
+    "title": "Algorithms",
+    "section": "Classification (decision) trees",
+    "text": "Classification (decision) trees\nHere is the estimate of \\(p(\\mathbf{x})\\):"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#random-forests",
+    "href": "slides/ml/43-algorithms.html#random-forests",
+    "title": "Algorithms",
+    "section": "Random forests",
+    "text": "Random forests\n\nApply it to the polls data:\n\n\nlibrary(randomForest) \nfit &lt;- randomForest(margin ~ ., data = polls_2008)"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#random-forests-1",
+    "href": "slides/ml/43-algorithms.html#random-forests-1",
+    "title": "Algorithms",
+    "section": "Random forests",
+    "text": "Random forests\nHow many trees?\n\nrafalib::mypar() \nplot(fit)"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#random-forests-2",
+    "href": "slides/ml/43-algorithms.html#random-forests-2",
+    "title": "Algorithms",
+    "section": "Random forests",
+    "text": "Random forests\n\nThe resulting estimate is obtained with:\n\n\ny_hat &lt;-  predict(fit, newdata = polls_2008)"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#random-forests-3",
+    "href": "slides/ml/43-algorithms.html#random-forests-3",
+    "title": "Algorithms",
+    "section": "Random forests",
+    "text": "Random forests\nFinal estimate:"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#random-forests-4",
+    "href": "slides/ml/43-algorithms.html#random-forests-4",
+    "title": "Algorithms",
+    "section": "Random forests",
+    "text": "Random forests"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#random-forests-5",
+    "href": "slides/ml/43-algorithms.html#random-forests-5",
+    "title": "Algorithms",
+    "section": "Random forests",
+    "text": "Random forests\nApply it to 2 or 7 data:\n\nlibrary(randomForest) \ntrain_rf &lt;- randomForest(y ~ ., data = mnist_27$train) \nconfusionMatrix(predict(train_rf, mnist_27$test), \n                mnist_27$test$y)$overall[\"Accuracy\"]\n\nAccuracy \n    0.82"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#random-forests-6",
+    "href": "slides/ml/43-algorithms.html#random-forests-6",
+    "title": "Algorithms",
+    "section": "Random forests",
+    "text": "Random forests\nHere is the estimate of \\(p(\\mathbf{x})\\):"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#random-forests-7",
+    "href": "slides/ml/43-algorithms.html#random-forests-7",
+    "title": "Algorithms",
+    "section": "Random forests",
+    "text": "Random forests\nWe increase smoothness with the nodesize parameter:\n\ntrain_rf_31 &lt;- randomForest(y ~ ., data = mnist_27$train, nodesize = 31)"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#random-forests-8",
+    "href": "slides/ml/43-algorithms.html#random-forests-8",
+    "title": "Algorithms",
+    "section": "Random forests",
+    "text": "Random forests\nThis provides a better estimate:"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#random-forests-9",
+    "href": "slides/ml/43-algorithms.html#random-forests-9",
+    "title": "Algorithms",
+    "section": "Random forests",
+    "text": "Random forests\nThis provides a better estimate:"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#logistic-regression-5",
+    "href": "slides/ml/43-algorithms.html#logistic-regression-5",
+    "title": "Algorithms",
+    "section": "Logistic regression",
+    "text": "Logistic regression\n\nJust like regression, the decision rule is a line:\n\n\\[\ng^{-1}(\\widehat{\\beta}_0 + \\widehat{\\beta}_1 x_1 + \\widehat{\\beta}_2 x_2) = 0.5 \\implies\\\\\n\\widehat{\\beta}_0 + \\widehat{\\beta}_1 x_1 + \\widehat{\\beta}_2 x_2 = g(0.5) = 0 \\implies \\\\\nx_2 = -\\widehat{\\beta}_0/\\widehat{\\beta}_2 -\\widehat{\\beta}_1/\\widehat{\\beta}_2 x_1\n\\]"
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#connection-to-distance-1",
+    "href": "slides/ml/43-algorithms.html#connection-to-distance-1",
+    "title": "Algorithms",
+    "section": "Connection to distance",
+    "text": "Connection to distance\n\nNote this ithe negative of a distance squared scaled by the standard deviation.\n\n\\[\n\\frac{(x-\\mu)^2}{\\sigma^2}\n\\]\n\nFor higher dimensions, the same is true except the scaling is more complex and involves correlations."
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#cart",
+    "href": "slides/ml/43-algorithms.html#cart",
+    "title": "Algorithms",
+    "section": "CART",
+    "text": "CART\n\nAnything based on distance or distributions will face the course of dimensionality\nIn high dimensions the nearest neighbors will actually define a large region.\nThis makes it hard to estimate local non-linearities.\nRegression trees use a completely different approach: directly partition the prediction space."
+  },
+  {
+    "objectID": "slides/ml/43-algorithms.html#cart-motivation-6",
+    "href": "slides/ml/43-algorithms.html#cart-motivation-6",
+    "title": "Algorithms",
+    "section": "CART motivation",
+    "text": "CART motivation\n\nDecision trees like this are often used in practice."
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#machine-learning-in-practice",
+    "href": "slides/ml/44-ml-in-practice.html#machine-learning-in-practice",
+    "title": "ML In Practice",
+    "section": "Machine learning in practice",
+    "text": "Machine learning in practice\n\nNow that we have learned several methods and explored them with simple examples, we will try them out on a real example: the MNIST digits.\nWe can load this data using the following dslabs package:\n\n\nlibrary(dslabs) \nmnist &lt;- read_mnist()"
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#machine-learning-in-practice-1",
+    "href": "slides/ml/44-ml-in-practice.html#machine-learning-in-practice-1",
+    "title": "ML In Practice",
+    "section": "Machine learning in practice",
+    "text": "Machine learning in practice\n\nWe will sample 10,000 random rows from the training set and 1,000 random rows from the test set:\n\n\nset.seed(1990) \n\nindex &lt;- sample(nrow(mnist$train$images), 10000) \nx &lt;- mnist$train$images[index,] \ny &lt;- factor(mnist$train$labels[index]) \n\nindex &lt;- sample(nrow(mnist$test$images), 1000) \nx_test &lt;- mnist$test$images[index,] \ny_test &lt;- factor(mnist$test$labels[index]) \n\n\nNote we make the outcomes factors."
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#machine-learning-in-practice-2",
+    "href": "slides/ml/44-ml-in-practice.html#machine-learning-in-practice-2",
+    "title": "ML In Practice",
+    "section": "Machine learning in practice",
+    "text": "Machine learning in practice\n\nAssing names to columns for caret.\n\n\ncolnames(x) &lt;- 1:ncol(mnist$train$images) \ncolnames(x_test) &lt;- colnames(x)"
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#parallelization",
+    "href": "slides/ml/44-ml-in-practice.html#parallelization",
+    "title": "ML In Practice",
+    "section": "Parallelization",
+    "text": "Parallelization\n\nDuring cross-validation or bootstrapping, the process of fitting models to different samples or using varying parameters can be performed independently.\nImagine you are fitting 100 models; if you had access to 100 computers, you could theoretically speed up the process by a factor of 100 by fitting each model on a separate computer and then aggregating the results.\nMost modern computers, are equipped with multiple processors that allow for such parallel execution."
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#parallelization-1",
+    "href": "slides/ml/44-ml-in-practice.html#parallelization-1",
+    "title": "ML In Practice",
+    "section": "Parallelization",
+    "text": "Parallelization\n\nThe caret package is set up to run in parallel but you have to let R know that you are want to parallelize your work.\nTo do this we can use the doParallel package:\n\n\nlibrary(doParallel) \nnc &lt;- detectCores() - 1 # it is convention to leave 1 core for OS \ncl &lt;- makeCluster(nc) \nregisterDoParallel(cl)"
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#parallelization-2",
+    "href": "slides/ml/44-ml-in-practice.html#parallelization-2",
+    "title": "ML In Practice",
+    "section": "Parallelization",
+    "text": "Parallelization\n\nIf you do use parallelization, make sure to let R know you are done with the following lines of code:\n\n\nstopCluster(cl) \nstopImplicitCluster()"
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#k-nearest-neighbors",
+    "href": "slides/ml/44-ml-in-practice.html#k-nearest-neighbors",
+    "title": "ML In Practice",
+    "section": "k-nearest neighbors",
+    "text": "k-nearest neighbors\n\nWe therefore us cross-validation to estimate our MSE.\nThe first step is to optimize for \\(k\\).\n\n\ntrain_knn &lt;- train(x, y, method = \"knn\",  \n                   preProcess = \"nzv\", \n                   trControl = trainControl(\"cv\", \n                                            number = 20, \n                                            p = 0.95), \n                   tuneGrid = data.frame(k = seq(1, 7, 2)))"
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#k-nearest-neighbors-1",
+    "href": "slides/ml/44-ml-in-practice.html#k-nearest-neighbors-1",
+    "title": "ML In Practice",
+    "section": "k-nearest neighbors",
+    "text": "k-nearest neighbors\n\nOnce we optimize our algorithm, the predict function defaults to using the best performing algorithm fit with the entire training data:\n\n\ny_hat_knn &lt;- predict(train_knn, x_test, type = \"raw\") \n\n\nWe achieve relatively high accuracy:\n\n\nconfusionMatrix(y_hat_knn, factor(y_test))$overall[\"Accuracy\"] \n\nAccuracy \n   0.952"
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#k-nearest-neighbors-2",
+    "href": "slides/ml/44-ml-in-practice.html#k-nearest-neighbors-2",
+    "title": "Ml In Practice",
+    "section": "k-nearest neighbors",
+    "text": "k-nearest neighbors\n\nOnce we optimize our algorithm, the predict function defaults to using the best performing algorithm fit with the entire training data:\n\n\ny_hat_knn &lt;- predict(train_knn, x_test, type = \"raw\") \n\n\nWe achieve relatively high accuracy:\n\n\nconfusionMatrix(y_hat_knn, factor(y_test))$overall[\"Accuracy\"] \n\nAccuracy \n   0.952"
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#dimension-reduction-with-pca",
+    "href": "slides/ml/44-ml-in-practice.html#dimension-reduction-with-pca",
+    "title": "ML In Practice",
+    "section": "Dimension reduction with PCA",
+    "text": "Dimension reduction with PCA\n\nAn alternative to removing low variance columns directly is to use dimension reduction on the feature matrix before applying the algorithms.\n\n\npca &lt;- prcomp(x) \n\n\nWe can actually explain, say, 75% of the variability in the predictors with a small number of dimensions:\n\n\np &lt;- which(cumsum(pca$sdev^2)/sum(pca$sdev^2) &gt;= 0.75)[1]"
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#dimension-reduction-with-pca-1",
+    "href": "slides/ml/44-ml-in-practice.html#dimension-reduction-with-pca-1",
+    "title": "ML In Practice",
+    "section": "Dimension reduction with PCA",
+    "text": "Dimension reduction with PCA\n\nWe can then re-run our algorithm on these 33 features:\n\n\nfit_knn_pca &lt;- knn3(pca$x[,1:p], y, k = train_knn$bestTune)"
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#dimension-reduction-with-pca-2",
+    "href": "slides/ml/44-ml-in-practice.html#dimension-reduction-with-pca-2",
+    "title": "ML In Practice",
+    "section": "Dimension reduction with PCA",
+    "text": "Dimension reduction with PCA\n\nWhen predicting, it is important that we not use the test set when finding the PCs nor any summary of the data, as this could result in overtraining.\nWe therefrom compute the averages needed for centering and the rotation on the training set:\n\n\nnewdata &lt;-  sweep(x_test, 2, colMeans(x)) %*% pca$rotation[,1:p] \ny_hat_knn_pca &lt;- predict(fit_knn_pca, newdata, type = \"class\")"
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#dimension-reduction-with-pca-3",
+    "href": "slides/ml/44-ml-in-practice.html#dimension-reduction-with-pca-3",
+    "title": "ML In Practice",
+    "section": "Dimension reduction with PCA",
+    "text": "Dimension reduction with PCA\n\nWe obtain similar accuracy, while using only 33 dimensions:\n\n\nconfusionMatrix(y_hat_knn_pca, factor(y_test))$overall[\"Accuracy\"] \n\nAccuracy \n   0.965"
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#dimension-reduction-with-pca-4",
+    "href": "slides/ml/44-ml-in-practice.html#dimension-reduction-with-pca-4",
+    "title": "ML In Practice",
+    "section": "Dimension reduction with PCA",
+    "text": "Dimension reduction with PCA\n\nIn this example, we used the \\(k\\) optimized for the raw data, not the principal components.\nNote that to obtain an unbiased MSE estimate we have to recompute the PCA for each cross-validation sample and apply to the validation set."
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#dimension-reduction-with-pca-5",
+    "href": "slides/ml/44-ml-in-practice.html#dimension-reduction-with-pca-5",
+    "title": "ML In Practice",
+    "section": "Dimension reduction with PCA",
+    "text": "Dimension reduction with PCA\n\nBecause the train function includes PCA as one of the available preprocessing operations we can achieve this with this modification of the code above:\n\n\ntrain_knn_pca &lt;- train(x, y, method = \"knn\",  \n                       preProcess = c(\"nzv\", \"pca\"), \n                       trControl = trainControl(\"cv\", \n                                                number = 20, \n                                                p = 0.95, \n                                                preProcOptions = \n                                                  list(pcaComp = p)), \n                       tuneGrid = data.frame(k = seq(1, 7, 2))) \ny_hat_knn_pca &lt;- predict(train_knn_pca, x_test, type = \"raw\") \nconfusionMatrix(y_hat_knn_pca, factor(y_test))$overall[\"Accuracy\"] \n\nAccuracy \n   0.969"
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#random-forest",
+    "href": "slides/ml/44-ml-in-practice.html#random-forest",
+    "title": "ML In Practice",
+    "section": "Random Forest",
+    "text": "Random Forest\n\nWith the random forest algorithm several parameters can be optimized, but the main one is mtry, the number of predictors that are randomly selected for each tree."
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#random-forest-1",
+    "href": "slides/ml/44-ml-in-practice.html#random-forest-1",
+    "title": "ML In Practice",
+    "section": "Random Forest",
+    "text": "Random Forest\n\nThis is also the only tuning parameter that the caret function train permits when using the default implementation from the randomForest package.\n\n\nlibrary(randomForest) \ntrain_rf &lt;- train(x, y, method = \"rf\",  \n                  preProcess = \"nzv\", \n                  tuneGrid = data.frame(mtry = seq(5, 15))) \ny_hat_rf &lt;- predict(train_rf, x_test, type = \"raw\")"
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#random-forest-2",
+    "href": "slides/ml/44-ml-in-practice.html#random-forest-2",
+    "title": "ML In Practice",
+    "section": "Random Forest",
+    "text": "Random Forest\n\nNow that we have optimized our algorithm, we are ready to fit our final model:\n\n\ny_hat_rf &lt;- predict(train_rf, x_test, type = \"raw\") \n\n\nAs with kNN, we also achieve high accuracy:\n\n\nconfusionMatrix(y_hat_rf, y_test)$overall[\"Accuracy\"] \n\nAccuracy \n   0.952 \n\n\n\nBy optimizing some of the other algorithm parameters, we can achieve even higher accuracy."
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#testing-and-improving-computation-time",
+    "href": "slides/ml/44-ml-in-practice.html#testing-and-improving-computation-time",
+    "title": "Ml In Practice",
+    "section": "Testing and improving computation time",
+    "text": "Testing and improving computation time\n\nThe default method for estimating accuracy used by the train function is to test prediction on 25 bootstrap samples.\nThis can result in long compute times.\nWe can use the system.time function to estimate how long it takes to run the algorithm once:\n\n\nnzv &lt;- nearZeroVar(x) \nsystem.time({fit_rf &lt;- randomForest(x[, -nzv], y,  mtry = 9)}) \n\n   user  system elapsed \n 60.499   1.033  61.946"
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#testing-and-improving-computation-time-1",
+    "href": "slides/ml/44-ml-in-practice.html#testing-and-improving-computation-time-1",
+    "title": "Ml In Practice",
+    "section": "Testing and improving computation time",
+    "text": "Testing and improving computation time\n\nOne way to reduce run time is to use k-fold cross validation with a smaller number of test sets.\nA popular choice is leaving out 5 test sets with 20% of the data.\nTo use this we set the trControl argument in train to trainControl(method = \"cv\", number = 5, p = .8)."
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#testing-and-improving-computation-time-2",
+    "href": "slides/ml/44-ml-in-practice.html#testing-and-improving-computation-time-2",
+    "title": "Ml In Practice",
+    "section": "Testing and improving computation time",
+    "text": "Testing and improving computation time\n\nFor random forest, we can also speed up the training step by running less trees per fit.\nAfter running the algorithm once, we can use the plot function to see how the error rate changes as the number of trees grows.\nHere we can see that error rate stabilizes after about 200 trees:\n\n\nplot(fit_rf)"
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#testing-and-improving-computation-time-3",
+    "href": "slides/ml/44-ml-in-practice.html#testing-and-improving-computation-time-3",
+    "title": "Ml In Practice",
+    "section": "Testing and improving computation time",
+    "text": "Testing and improving computation time\n\nWe can use this finding to speed up the cross validation procedure.\nSpecifically, because the default is 500, by adding the argument ntree = 200 to the call to train\nThe procedure will finish 2.5 times faster."
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#variable-importance",
+    "href": "slides/ml/44-ml-in-practice.html#variable-importance",
+    "title": "ML In Practice",
+    "section": "Variable importance",
+    "text": "Variable importance\n\nThe following function computes the importance of each feature:\n\n\nimp &lt;- importance(fit_rf)"
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#variable-importance-1",
+    "href": "slides/ml/44-ml-in-practice.html#variable-importance-1",
+    "title": "ML In Practice",
+    "section": "Variable importance",
+    "text": "Variable importance\n\nWe can see which features are being used most by plotting an image:\n\n\nmat &lt;- rep(0, ncol(x)) \nmat[-nzv] &lt;- imp \nimage(matrix(mat, 28, 28))"
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#diagnostics",
+    "href": "slides/ml/44-ml-in-practice.html#diagnostics",
+    "title": "ML In Practice",
+    "section": "Diagnostics",
+    "text": "Diagnostics"
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#ensembles",
+    "href": "slides/ml/44-ml-in-practice.html#ensembles",
+    "title": "ML In Practice",
+    "section": "Ensembles",
+    "text": "Ensembles\n\nThe idea of an ensemble is similar to the idea of combining data from different pollsters to obtain a better estimate of the true support for each candidate.\nIn machine learning, one can usually greatly improve the final results by combining the results of different algorithms.\nHere is a simple example where we compute new class probabilities by taking the average of random forest and kNN."
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#ensembles-1",
+    "href": "slides/ml/44-ml-in-practice.html#ensembles-1",
+    "title": "ML In Practice",
+    "section": "Ensembles",
+    "text": "Ensembles\n\nWe can see that the accuracy improves:\n\n\np_rf &lt;- predict(fit_rf, x_test[,-nzv], type = \"prob\")   \np_rf &lt;- p_rf / rowSums(p_rf) \np_knn_pca  &lt;- predict(train_knn_pca, x_test, type = \"prob\") \np &lt;- (p_rf + p_knn_pca)/2 \ny_pred &lt;- factor(apply(p, 1, which.max) - 1) \nconfusionMatrix(y_pred, y_test)$overall[\"Accuracy\"] \n\nAccuracy \n    0.97"
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#ensembles-2",
+    "href": "slides/ml/44-ml-in-practice.html#ensembles-2",
+    "title": "ML In Practice",
+    "section": "Ensembles",
+    "text": "Ensembles\n\nWe have just built an ensemble with just two algorithms.\nBy combing more similarly performing, but uncorrelated, algorithms we can improve accuracy further."
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#testing",
+    "href": "slides/ml/44-ml-in-practice.html#testing",
+    "title": "ML In Practice",
+    "section": "Testing",
+    "text": "Testing\n\nThe default method for estimating accuracy used by the train function is to test prediction on 25 bootstrap samples.\nThis can result in long compute times.\nWe can use the system.time function to estimate how long it takes to run the algorithm once:\n\n\nnzv &lt;- nearZeroVar(x) \nsystem.time({fit_rf &lt;- randomForest(x[, -nzv], y,  mtry = 9)}) \n\n   user  system elapsed \n 60.499   1.033  61.946"
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#testing-1",
+    "href": "slides/ml/44-ml-in-practice.html#testing-1",
+    "title": "ML In Practice",
+    "section": "Testing",
+    "text": "Testing\n\nOne way to reduce run time is to use k-fold cross validation with a smaller number of test sets.\nA popular choice is leaving out 5 test sets with 20% of the data.\nTo use this we set the trControl argument in train to:\n\ntrControl = trainControl(method = \"cv\", number = 5, p = .8)"
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#testing-2",
+    "href": "slides/ml/44-ml-in-practice.html#testing-2",
+    "title": "ML In Practice",
+    "section": "Testing",
+    "text": "Testing\n\nFor random forest, we can also speed up the training step by running less trees per fit.\nAfter running the algorithm once, we can use the plot function to see how the error rate changes as the number of trees grows."
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#testing-3",
+    "href": "slides/ml/44-ml-in-practice.html#testing-3",
+    "title": "ML In Practice",
+    "section": "Testing",
+    "text": "Testing\n\nWe can see that error rate stabilizes after200 trees:\n\n\nplot(fit_rf)"
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#testing-4",
+    "href": "slides/ml/44-ml-in-practice.html#testing-4",
+    "title": "ML In Practice",
+    "section": "Testing",
+    "text": "Testing\n\nWe can use this finding to speed up the cross validation procedure.\nSpecifically, because the default is 500, by adding the argument ntree = 200 to the call to train\nThe procedure will finish 2.5 times faster."
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html#dimension-reduction-with-pca-6",
+    "href": "slides/ml/44-ml-in-practice.html#dimension-reduction-with-pca-6",
+    "title": "ML In Practice",
+    "section": "Dimension reduction with PCA",
+    "text": "Dimension reduction with PCA\n\nA limitation of this approach is that we don’t get to optimize the number of PCs used in the analysis.\nTo do this we need to write our own method."
   }
 ]

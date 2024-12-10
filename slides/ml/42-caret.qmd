@@ -246,7 +246,7 @@ ggplot(train_knn, highlight = TRUE)
 
 - Because resampling methods are random procedures, the same code can result in different results.
 
-- To assure reproducible results you should set the seed, as we did at the start of this chapter.
+- To assure reproducible results you should set the seed.
 
 :::
 
