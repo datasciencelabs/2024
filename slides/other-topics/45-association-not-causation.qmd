@@ -1,0 +1,471 @@
+---
+title: "Association Not Causation"
+keywords: "Other topics"
+date: "2024-12-16"
+format:
+  revealjs:
+    theme: night
+execute:
+  echo: true
+  fig-align: center
+---
+
+```{r setup, include=FALSE}
+options(digits = 3)
+```
+
+## Association is not causation
+
+- *Association is not causation* is perhaps the most important lesson one can learn in a statistics class.
+
+- *Correlation is not causation* is another way to say this.
+
+- Throughout the statistics part of the book, we have described tools useful for quantifying associations between variables.
+
+- However, we must be careful not to over-interpret these associations.
+
+
+
+## Association is not causation
+
+- There are many reasons that a variable $X$ can be correlated with a variable $Y$, without having any direct effect on $Y$.
+
+- Today we describe three: spurious correlation, reverse causation, and confounders.
+
+
+## Spurious correlation
+
+
+```{r divorce-versus-margarine, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE} 
+library(tidyverse) 
+library(broom) 
+library(dslabs) 
+the_title <- paste("Correlation =",  
+                round(with(divorce_margarine,  
+                           cor(margarine_consumption_per_capita, divorce_rate_maine)),2)) 
+divorce_margarine |>  
+  ggplot(aes(margarine_consumption_per_capita, divorce_rate_maine)) +  
+  geom_point(cex = 3) +  
+  geom_smooth(method = "lm") +  
+  ggtitle(the_title) + 
+  xlab("Margarine Consumption per Capita (lbs)") +  
+  ylab("Divorce rate in Maine (per 1000)") 
+``` 
+
+
+## Spurious correlation
+
+More here: <http://tylervigen.com/spurious-correlations>
+
+- Referred to as *data dredging*, *data fishing*, or *data snooping*.
+
+- It's basically a form of what in the US they call *cherry picking*.
+
+
+## Spurious correlation
+
+
+```{r} 
+library(tidyverse) 
+N <- 25 
+g <- 1000000 
+sim_data <- tibble(group = rep(1:g, each = N),  
+                   x = rnorm(N*g),  
+                   y = rnorm(N*g)) 
+``` 
+
+
+## Spurious correlation
+
+```{r} 
+#| cache: true
+res <- sim_data |>  
+  group_by(group) |>  
+  summarize(r = cor(x, y)) |>  
+  arrange(desc(r)) 
+res 
+``` 
+
+- We see a maximum correlation of `r max(res$r)`.
+
+## Spurious correlation
+
+```{r dredging, eval=FALSE} 
+sim_data |> filter(group == res$group[which.max(res$r)]) |> 
+  ggplot(aes(x, y)) + 
+  geom_point() +  
+  geom_smooth(method = "lm") 
+``` 
+
+
+## Spurious correlation
+
+```{r dredging-run, echo=FALSE} 
+sim_data |> filter(group == res$group[which.max(res$r)]) |> 
+  ggplot(aes(x, y)) + 
+  geom_point() +  
+  geom_smooth(method = "lm") 
+``` 
+
+
+## Spurious correlation
+
+- Sample correlation is a random variable:
+
+
+```{r null-corr-hist-run, echo=FALSE} 
+res |> ggplot(aes(x=r)) + geom_histogram(binwidth = 0.1, color = "black") 
+``` 
+
+
+## Spurious correlation
+
+- It's simply a mathematical fact that if we observe `r cat(prettyNum(g, big.mark=",",scientific=FALSE))` random correlations that are expected to be 0, but have a standard error of `r sd(res$r)`, the largest one will be close to 1.
+
+## Spurious correlation
+
+
+```{r, message=FALSE, warning=FALSE} 
+library(broom) 
+sim_data |>  
+  filter(group == res$group[which.max(res$r)]) |> 
+  summarize(tidy(lm(y ~ x))) |>  
+  filter(term == "x") 
+``` 
+
+
+
+## Spurious correlation
+
+- This particular form of data dredging is referred to as *p-hacking*.
+
+- P-hacking is a topic of much discussion because it poses a problem in scientific publications.
+
+- Since publishers tend to reward statistically significant results over negative results, there is an incentive to report significant results.
+
+## Spurious correlation
+
+- In epidemiology and the social sciences, for example, researchers may look for associations between an adverse outcome and several exposures, and report only the one exposure that resulted in a small p-value.
+
+
+
+## Spurious correlation
+
+- Furthermore, they might try fitting several different models to account for confounding and choose the one that yields the smallest p-value.
+
+## Spurious correlation
+
+- In experimental disciplines, an experiment might be repeated more than once, yet only the results of the one experiment with a small p-value reported.
+
+## Spurious correlation
+
+- This does not necessarily happen due to unethical behavior, but rather as a result of statistical ignorance or wishful thinking.
+
+- In advanced statistics courses, you can learn methods to adjust for these multiple comparisons.
+
+
+
+## Outliers
+
+
+```{r} 
+set.seed(1985) 
+x <- rnorm(100,100,1) 
+y <- rnorm(100,84,1) 
+x[-23] <- scale(x[-23]) 
+y[-23] <- scale(y[-23]) 
+``` 
+
+## Outliers
+
+```{r outlier-run, echo=FALSE} 
+qplot(x, y) 
+``` 
+
+
+## Outliers
+
+
+```{r} 
+cor(x,y) 
+``` 
+
+This high correlation is driven by the one outlier.
+
+## Outliers
+
+- If we remove this outlier, the correlation is greatly reduced to almost 0:
+
+```{r} 
+cor(x[-23], y[-23]) 
+``` 
+
+## Outliers
+
+- There is an alternative to the sample correlation for estimating the population correlation that is robust to outliers.
+
+- It is called *Spearman correlation*.
+
+
+
+## Outliers
+
+
+```{r scatter-plot-of-ranks-run, echo=FALSE} 
+qplot(rank(x), rank(y)) 
+``` 
+
+
+## Outliers
+
+- The outlier is no longer associated with a very large value, and the correlation decreases significantly:
+
+```{r} 
+cor(rank(x), rank(y)) 
+``` 
+
+- Spearman correlation can also be calculated like this:
+
+```{r} 
+cor(x, y, method = "spearman") 
+``` 
+
+
+## Reversing cause and effect
+
+- Another way association is confused with causation is when the cause and effect are reversed.
+
+- An example of this is claiming that tutoring makes students perform worse because they test lower than peers that are not tutored.
+
+- In this case, the tutoring is not causing the low test scores, but the other way around.
+
+## Reversing cause and effect
+
+Quote from [NY Times](https://opinionator.blogs.nytimes.com/2014/04/12/parental-involvement-is-overrated):
+
+
+>> When we examined whether regular help with homework had a positive impact on children's academic performance, we were quite startled by what we found. Regardless of a family's social class, racial or ethnic background, or a child's grade level, consistent homework help almost never improved test scores or grades... 
+
+
+## Reversing cause and effect
+
+- A more likely possibility is that the children needing regular parental help, receive this help because they don't perform well in school.
+
+
+## Reversing cause and effect
+
+
+- If we fit the model:
+
+$$
+X_i = \beta_0 + \beta_1 y_i + \varepsilon_i, i=1, \dots, N
+$$ 
+
+- where $X_i$ is the father height and $y_i$ is the son height, we do get a statistically significant result.
+
+
+```{r, echo=FALSE, cache=FALSE} 
+library(HistData) 
+set.seed(1983) 
+galton_heights <- GaltonFamilies |> 
+  filter(gender == "male") |> 
+  group_by(family) |> 
+  sample_n(1) |> 
+  ungroup() |> 
+  select(father, childHeight) |> 
+  rename(son = childHeight) 
+``` 
+
+```{r} 
+galton_heights |> summarize(tidy(lm(father ~ son))) 
+``` 
+
+
+## Reversing cause and effect
+
+- The model fits the data very well.
+
+- The model is technically correct.
+
+- The estimates and p-values were obtained correctly as well.
+
+- What is wrong here is the interpretation.
+
+
+## Confounders
+
+- Confounders are perhaps the most common reason that leads to associations begin misinterpreted.
+
+- If $X$ and $Y$ are correlated, we call $Z$ a *confounder* if changes in $Z$ cause changes in both $X$ and $Y$.
+
+## Confounders
+
+- Earlier, when studying baseball data, we saw how Home Runs were a confounder that resulted in a higher correlation than expected when studying the relationship between Bases on Balls and Runs.
+
+- In some cases, we can use linear models to account for confounders.
+
+- However, this is not always the case.
+
+## Confounders
+
+- Incorrect interpretation due to confounders is ubiquitous in the lay press and they are often hard to detect.
+
+- Here, we present a widely used example related to college admissions.
+
+
+
+
+
+## UC Berkeley admissions
+
+```{r} 
+two_by_two <- admissions |> group_by(gender) |>  
+  summarize(total_admitted = round(sum(admitted / 100 * applicants)),  
+            not_admitted = sum(applicants) - sum(total_admitted)) 
+two_by_two |> 
+  mutate(percent = total_admitted/(total_admitted + not_admitted)*100)
+```
+
+```{r}
+two_by_two <- select(two_by_two, -gender)
+chisq.test(two_by_two)$p.value 
+``` 
+
+## UC Berkeley admissions
+
+- Closer inspection shows a paradoxical result:
+
+```{r} 
+admissions |> select(major, gender, admitted) |> 
+  pivot_wider(names_from = "gender", values_from = "admitted") |> 
+  mutate(women_minus_men = women - men) 
+``` 
+
+
+## UC Berkeley admissions
+
+- What's going on?
+
+- This actually can happen if an uncounted confounder is driving most of the variability.
+
+
+
+
+## UC Berkeley admissions
+
+```{r uc-berkeley-majors-run, echo=FALSE} 
+admissions |>  
+  group_by(major) |>  
+  summarize(major_selectivity = sum(admitted * applicants)/sum(applicants), 
+            percent_women_applicants = sum(applicants * (gender=="women")) / 
+                                             sum(applicants) * 100) |> 
+  ggplot(aes(major_selectivity, percent_women_applicants, label = major)) + 
+  geom_text() 
+``` 
+
+
+
+## Confounding explained 
+
+```{r confounding, echo=FALSE} 
+admissions |> 
+  mutate(yes = round(admitted/100*applicants), no = applicants - yes) |> 
+  select(-applicants, -admitted) |> 
+  gather(admission, number_of_students, -c("major", "gender")) |> 
+  ggplot(aes(gender, number_of_students, fill = admission)) + 
+  geom_bar(stat = "identity", position = "stack") + 
+  facet_wrap(. ~ major) 
+``` 
+
+
+
+## Average after stratifying
+
+```{r admission-by-major-run, echo=FALSE} 
+admissions |>  
+  ggplot(aes(major, admitted, col = gender, size = applicants)) + 
+  geom_point() 
+``` 
+
+## Average after stratifying
+
+
+- If we average the difference by major, we find that the percent is actually 3.5% higher for women.
+
+```{r} 
+admissions |>  group_by(gender) |> 
+  summarize(average = mean(admitted)) 
+``` 
+
+
+
+## Simpson's paradox
+
+- The case we have just covered is an example of Simpson's paradox.
+
+- It is called a paradox because we see the sign of the correlation flip when comparing the entire publication to specific strata.
+
+
+
+## Simpson's paradox
+
+
+- Simulated $X$, $Y$, and $Z$:
+
+```{r simpsons-paradox, echo=FALSE} 
+N <- 100 
+Sigma <- matrix(c(1,0.75,0.75, 1), 2, 2)*1.5 
+means <- list(c(x = 11, y = 3),  
+              c(x = 9, y = 5),  
+              c(x = 7, y = 7),  
+              c(x = 5, y = 9),  
+              c(x = 3, y = 11)) 
+dat <- lapply(means, function(mu){ 
+  res <- MASS::mvrnorm(N, mu, Sigma) 
+  colnames(res) <- c("x", "y") 
+  res 
+}) 
+dat <- do.call(rbind, dat) |>  
+  as_tibble() |> 
+  mutate(z = as.character(rep(seq_along(means), each = N))) 
+dat |> ggplot(aes(x, y)) + geom_point(alpha = 0.5) + 
+  ggtitle(paste("Correlation = ", round(cor(dat$x, dat$y), 2))) 
+``` 
+
+
+## Simpson's paradox
+
+- You can see that $X$ and $Y$ are negatively correlated.
+
+- However, once we stratify by $Z$ (shown in different colors below), another pattern emerges.
+
+
+## Simpson's paradox
+
+```{r}
+#| echo: false
+dat |> ggplot(aes(x, y)) + geom_point(alpha = 0.5) + 
+  ggtitle(paste("Correlation = ", round(cor(dat$x, dat$y), 2))) 
+
+```
+
+## Simpson's paradox
+
+```{r simpsons-paradox-explained, echo=FALSE} 
+means <- do.call(rbind, means) |>  
+  as_tibble() |> 
+  mutate(z = as.character(seq_along(means))) 
+corrs <- dat |> group_by(z) |> summarize(cor = cor(x, y)) |> pull(cor) 
+dat |> ggplot(aes(x, y, color = z)) +  
+  geom_point(show.legend = FALSE, alpha = 0.5) + 
+  ggtitle(paste("Correlations =",  paste(signif(corrs,2), collapse=" "))) + 
+  annotate("text", x = means$x, y = means$y, label = paste("z =", means$z), cex = 5)   
+``` 
+
+
+## Simpson's paradox
+
+- It is really $Z$ that is negatively correlated with $X$.
+
+- If we stratify by $Z$, the $X$ and $Y$ are actually positively correlated, as seen in the plot above.
+

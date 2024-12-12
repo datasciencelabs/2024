@@ -1,0 +1,164 @@
+---
+title: "Introduction to Shiny"
+keywords: "Other topics"
+date: "2024-12-16"
+format:
+  revealjs:
+    theme: night
+execute:
+  echo: true
+  fig-align: center
+---
+
+## Motivation
+
+<https://rconnect.dfci.harvard.edu/covidpr/>
+
+## Motivation
+
+![](img/example-1.png)
+
+## Motivation
+
+![](img/example-2.png)
+
+## Motivation
+
+![](img/example-3.jpg)
+
+
+## What is Shiny?
+
+- **Shiny** is an R package for building interactive web applications.
+
+- Combines the computational power of R with the interactivity of modern web technologies.
+
+- No web development experience required!
+
+## Why Use Shiny?
+
+- Create interactive dashboards for data visualization.
+
+- Share R analyses with non-programmers.
+
+- Integrate real-time data updates in your workflows.
+
+
+## Basic Components
+
+1. **UI**: Defines the layout and appearance of the app.
+2. **Server**: Contains the logic and computations of the app.
+3. **App**: Combines the UI and server into a functional app.
+
+
+## Basic Components
+
+```r
+library(shiny)
+
+# Define UI
+ui <- fluidPage(
+  titlePanel("Hello, Shiny!"),
+  
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput("num", "Choose a number:", 1, 100, 50)
+    ),
+    mainPanel(
+      textOutput("result")
+    )
+  )
+)
+
+# Define Server
+server <- function(input, output) {
+  output$result <- renderText({
+    paste("You selected:", input$num)
+  })
+}
+
+# Run the app
+shinyApp(ui = ui, server = server)
+```
+
+# Example: Interactive Plot
+
+## App Overview
+
+- A scatter plot with customizable inputs.
+
+### UI Code
+
+```r
+ui <- fluidPage(
+  titlePanel("Interactive Plot"),
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput("points", "Number of Points:", 10, 1000, 500),
+      selectInput("color", "Point Color:", c("Red", "Blue", "Green"))
+    ),
+    mainPanel(
+      plotOutput("scatterPlot")
+    )
+  )
+)
+```
+
+---
+
+### Server Code
+
+```r
+server <- function(input, output) {
+  output$scatterPlot <- renderPlot({
+    plot(
+      x = rnorm(input$points),
+      y = rnorm(input$points),
+      col = input$color,
+      pch = 19
+    )
+  })
+}
+```
+
+- Combine UI and server using `shinyApp(ui, server)`.
+
+
+# Advanced Features
+
+## Reactive Programming
+
+- **reactive()**: Generates a reactive expression.
+
+```r
+reactiveVal <- reactive({
+  input$num * 2
+})
+```
+
+- **observe()**: Executes code in response to changes.
+
+```r
+observe({
+  print(input$slider)
+})
+```
+
+- **observeEvent()**: Triggers on specific input changes.
+
+
+```r
+observeEvent(input$button, {
+  showNotification("Button clicked!")
+})
+```
+
+
+## Deployment Options
+
+- Share Shiny apps using:
+  - **Shiny Server**
+  - **RStudio Connect**
+  - **shinyapps.io**
+
+

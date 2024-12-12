@@ -58,7 +58,7 @@
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/index.html</loc>
-    <lastmod>2024-12-10T22:32:06.527Z</lastmod>
+    <lastmod>2024-12-12T20:05:40.426Z</lastmod>
   </url>
   <url>
     <loc>http://datasciencelabs.github.io/2024/psets/pset-04-wrangling.html</loc>
@@ -247,5 +247,17 @@
   <url>
     <loc>http://datasciencelabs.github.io/2024/slides/ml/44-ml-in-practice.html</loc>
     <lastmod>2024-12-10T22:37:45.697Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/other-topics/association-not-causation.html</loc>
+    <lastmod>2024-12-11T17:48:52.684Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/other-topics/45-association-not-causation.html</loc>
+    <lastmod>2024-12-11T20:46:52.811Z</lastmod>
+  </url>
+  <url>
+    <loc>http://datasciencelabs.github.io/2024/slides/other-topics/46-shiny.html</loc>
+    <lastmod>2024-12-12T19:58:31.741Z</lastmod>
   </url>
 </urlset>

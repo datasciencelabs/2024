@@ -3448,7 +3448,7 @@
     "href": "index.html#lectures",
     "title": "BST 260 Introduction to Data Science",
     "section": "Lectures",
-    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09, Sep 11\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git\n\n\nSep 16, Sep 19\nR\nR basics, Vectorization\nR Basics, Vectorization\n\n\nSep 23\nR\nTidyverse, ggplot2\ndplyr, ggplot2\n\n\nSep 25\nR\nTyding data\nReshaping Data\n\n\nSep 30, Oct 02\nWrangling\nIntro, Data Importing, Dates and Times, Locales, Data APIs, Web scraping, Joining tables\nImporting data, dates and times, Locales, Joining Tables, Extracting data from the web\n\n\nOct 07, Oct 09\nData visualization\nData Viz Principles, Distributions, Dataviz in practice\nDistributions, Dataviz Principles\n\n\nOct 16\nMidterm 1\n\nCovers material from Sep 04-Oct 11\n\n\nOct 21\nProbability\nIntro, Foundations for Inference\nMonte Carlo, Random Variables & CLT\n\n\nOct 23\nInference\nIntro, Parameter and estimates, Confidence Intervals\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\nModels, Bayes, Hierarchical Models\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\nIntro, Regression\nRegression, Multivariate Regression\n\n\nNov 13, Nov 18\nLinear models\nMultivariate regression, Treatment effect models\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 20\nHigh dimensional data\nIntro to Linear Algebra, Matrices in R\nMatrices in R, Applied Linear Algebra,\n\n\nNov 25\nMidterm 2\n\nMidterm 2: cover material from Sep 04-Nov 22\n\n\nDec 02\nHigh dimensional data\nDistance, Dimension reduction\nDimension Reduction\n\n\nDec 04\nMachine Learning\nIntro, Metrics, Conditionals, Smoothing\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nDec 09, Dec 11\nMachine Learning\nkNN, Resampling methods, caret package, Algorithms, ML in practice\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics",
+    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below. New material is added approximately on a weekly basis.\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nSep 04\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 09, Sep 11\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git\n\n\nSep 16, Sep 19\nR\nR basics, Vectorization\nR Basics, Vectorization\n\n\nSep 23\nR\nTidyverse, ggplot2\ndplyr, ggplot2\n\n\nSep 25\nR\nTyding data\nReshaping Data\n\n\nSep 30, Oct 02\nWrangling\nIntro, Data Importing, Dates and Times, Locales, Data APIs, Web scraping, Joining tables\nImporting data, dates and times, Locales, Joining Tables, Extracting data from the web\n\n\nOct 07, Oct 09\nData visualization\nData Viz Principles, Distributions, Dataviz in practice\nDistributions, Dataviz Principles\n\n\nOct 16\nMidterm 1\n\nCovers material from Sep 04-Oct 11\n\n\nOct 21\nProbability\nIntro, Foundations for Inference\nMonte Carlo, Random Variables & CLT\n\n\nOct 23\nInference\nIntro, Parameter and estimates, Confidence Intervals\nParameters & Estimates, Confidence Intervals\n\n\nOct 28, Oct 30\nStatistical Models\nModels, Bayes, Hierarchical Models\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 04, Nov 06\nLinear models\nIntro, Regression\nRegression, Multivariate Regression\n\n\nNov 13, Nov 18\nLinear models\nMultivariate regression, Treatment effect models\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association Not Causation\n\n\nNov 20\nHigh dimensional data\nIntro to Linear Algebra, Matrices in R\nMatrices in R, Applied Linear Algebra,\n\n\nNov 25\nMidterm 2\n\nMidterm 2: cover material from Sep 04-Nov 22\n\n\nDec 02\nHigh dimensional data\nDistance, Dimension reduction\nDimension Reduction\n\n\nDec 04\nMachine Learning\nIntro, Metrics, Conditionals, Smoothing\nNotation and terminology, Evaluation Metrics, conditional probabilities, smoothing\n\n\nDec 09, Dec 11\nMachine Learning\nkNN, Resampling methods, caret package, Algorithms, ML in practice\nResampling methods, ML algorithms, ML in practice\n\n\nDec 16, Dec 18\nOther topics\nAssociation is not causation, Shiny\nAssociation is not causation",
     "crumbs": [
       "Home"
     ]
@@ -14304,5 +14304,740 @@
     "title": "ML In Practice",
     "section": "Dimension reduction with PCA",
     "text": "Dimension reduction with PCA\n\nA limitation of this approach is that we don’t get to optimize the number of PCs used in the analysis.\nTo do this we need to write our own method."
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#association-is-not-causation",
+    "href": "slides/other-topics/association-not-causation.html#association-is-not-causation",
+    "title": "Association Not Causation",
+    "section": "Association is not causation",
+    "text": "Association is not causation\n\nAssociation is not causation is perhaps the most important lesson one can learn in a statistics class.\nCorrelation is not causation is another way to say this.\nThroughout the statistics part of the book, we have described tools useful for quantifying associations between variables.\nHowever, we must be careful not to over-interpret these associations."
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#association-is-not-causation-1",
+    "href": "slides/other-topics/association-not-causation.html#association-is-not-causation-1",
+    "title": "Association Not Causation",
+    "section": "Association is not causation",
+    "text": "Association is not causation\n\nThere are many reasons that a variable \\(X\\) can be correlated with a variable \\(Y\\), without having any direct effect on \\(Y\\).\nBelow we examine four common ways that can lead to misinterpreting data."
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#spurious-correlation",
+    "href": "slides/other-topics/association-not-causation.html#spurious-correlation",
+    "title": "Association Not Causation",
+    "section": "Spurious correlation",
+    "text": "Spurious correlation\n\nThe following comical example underscores the concept that correlation is not causation.\nIt shows a very strong correlation between divorce rates and margarine consumption."
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#spurious-correlation-1",
+    "href": "slides/other-topics/association-not-causation.html#spurious-correlation-1",
+    "title": "Association Not Causation",
+    "section": "Spurious correlation",
+    "text": "Spurious correlation"
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#spurious-correlation-2",
+    "href": "slides/other-topics/association-not-causation.html#spurious-correlation-2",
+    "title": "Association Not Causation",
+    "section": "Spurious correlation",
+    "text": "Spurious correlation\n\nDoes this mean that margarine causes divorces?\nOr do divorces cause people to eat more margarine?\nOf course.\nthe answer to both these questions is no.\nThis is just an example of what we call a spurious correlation.\nYou can see many more absurd examples on the Spurious Correlations website1.\n\nhttp://tylervigen.com/spurious-correlations."
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#spurious-correlation-3",
+    "href": "slides/other-topics/association-not-causation.html#spurious-correlation-3",
+    "title": "Association Not Causation",
+    "section": "Spurious correlation",
+    "text": "Spurious correlation\n\n\nThe cases presented on the website are all instances of what is generally called data dredging, data fishing, or data snooping.\nIt’s basically a form of what in the US they call cherry picking.\nAn example of data dredging would be if you look through many results produced by a random process and pick the one that shows a relationship that supports a theory you want to defend."
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#spurious-correlation-4",
+    "href": "slides/other-topics/association-not-causation.html#spurious-correlation-4",
+    "title": "Association Not Causation",
+    "section": "Spurious correlation",
+    "text": "Spurious correlation\n\nA Monte Carlo simulation can be used to show how data dredging can result in finding high correlations among uncorrelated variables.\nWe will save the results of our simulation into a tibble:\n\n\nlibrary(tidyverse) \nN &lt;- 25 \ng &lt;- 1000000 \nsim_data &lt;- tibble(group = rep(1:g, each = N),  \n                   x = rnorm(N*g),  \n                   y = rnorm(N*g)) \n\n\nThe first column denotes group."
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#spurious-correlation-5",
+    "href": "slides/other-topics/association-not-causation.html#spurious-correlation-5",
+    "title": "Association Not Causation",
+    "section": "Spurious correlation",
+    "text": "Spurious correlation\n\nWe created groups.\nFor each group, we generated a pair of independent vectors, \\(X\\) and \\(Y\\), with 25 observations each, stored in the second and third columns.\nBecause we constructed the simulation, we know that \\(X\\) and \\(Y\\) are not correlated.\nNext, we compute the correlation between X and Y for each group and look at the max:"
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#spurious-correlation-6",
+    "href": "slides/other-topics/association-not-causation.html#spurious-correlation-6",
+    "title": "Association Not Causation",
+    "section": "Spurious correlation",
+    "text": "Spurious correlation\n\nres &lt;- sim_data |&gt;  \n  group_by(group) |&gt;  \n  summarize(r = cor(x, y)) |&gt;  \n  arrange(desc(r)) \nres \n\n# A tibble: 1,000,000 × 2\n    group     r\n    &lt;int&gt; &lt;dbl&gt;\n 1 617324 0.799\n 2 592959 0.768\n 3  13734 0.762\n 4 819701 0.761\n 5  20051 0.749\n 6 603558 0.746\n 7 271954 0.745\n 8 867367 0.744\n 9  71242 0.742\n10 837045 0.740\n# ℹ 999,990 more rows\n\n\n\nWe see a maximum correlation of 0.799.\nIf you just plot the data from the group achieving this correlation, it shows a convincing plot that \\(X\\) and \\(Y\\) are in fact correlated:\n\n\nsim_data |&gt; filter(group == res$group[which.max(res$r)]) |&gt; \n  ggplot(aes(x, y)) + \n  geom_point() +  \n  geom_smooth(method = \"lm\")"
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#spurious-correlation-7",
+    "href": "slides/other-topics/association-not-causation.html#spurious-correlation-7",
+    "title": "Association Not Causation",
+    "section": "Spurious correlation",
+    "text": "Spurious correlation"
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#spurious-correlation-8",
+    "href": "slides/other-topics/association-not-causation.html#spurious-correlation-8",
+    "title": "Association Not Causation",
+    "section": "Spurious correlation",
+    "text": "Spurious correlation\n\nRemember that the correlation summary is a random variable.\nHere is the distribution generated by the Monte Carlo simulation:\n\n\nres |&gt; ggplot(aes(x=r)) + geom_histogram(binwidth = 0.1, color = \"black\")"
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#spurious-correlation-9",
+    "href": "slides/other-topics/association-not-causation.html#spurious-correlation-9",
+    "title": "Association Not Causation",
+    "section": "Spurious correlation",
+    "text": "Spurious correlation"
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#spurious-correlation-10",
+    "href": "slides/other-topics/association-not-causation.html#spurious-correlation-10",
+    "title": "Association Not Causation",
+    "section": "Spurious correlation",
+    "text": "Spurious correlation\n\nIt’s simply a mathematical fact that if we observe random correlations that are expected to be 0, but have a standard error of 0.204, the largest one will be close to 1.\nIf we performed regression on this group and interpreted the p-value, we would incorrectly claim this was a statistically significant relation:\n\n\nlibrary(broom) \nsim_data |&gt;  \n  filter(group == res$group[which.max(res$r)]) |&gt; \n  summarize(tidy(lm(y ~ x))) |&gt;  \n  filter(term == \"x\") \n\n# A tibble: 1 × 5\n  term  estimate std.error statistic    p.value\n  &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n1 x        0.587    0.0920      6.38 0.00000163"
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#spurious-correlation-11",
+    "href": "slides/other-topics/association-not-causation.html#spurious-correlation-11",
+    "title": "Association Not Causation",
+    "section": "Spurious correlation",
+    "text": "Spurious correlation\n\nThis particular form of data dredging is referred to as p-hacking.\nP-hacking is a topic of much discussion because it poses a problem in scientific publications.\nSince publishers tend to reward statistically significant results over negative results, there is an incentive to report significant results.\nIn epidemiology and the social sciences, for example, researchers may look for associations between an adverse outcome and several exposures, and report only the one exposure that resulted in a small p-value."
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#spurious-correlation-12",
+    "href": "slides/other-topics/association-not-causation.html#spurious-correlation-12",
+    "title": "Association Not Causation",
+    "section": "Spurious correlation",
+    "text": "Spurious correlation\n\nFurthermore, they might try fitting several different models to account for confounding and choose the one that yields the smallest p-value.\nIn experimental disciplines, an experiment might be repeated more than once, yet only the results of the one experiment with a small p-value reported.\nThis does not necessarily happen due to unethical behavior, but rather as a result of statistical ignorance or wishful thinking.\nIn advanced statistics courses, you can learn methods to adjust for these multiple comparisons."
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#outliers",
+    "href": "slides/other-topics/association-not-causation.html#outliers",
+    "title": "Association Not Causation",
+    "section": "Outliers",
+    "text": "Outliers\n\nSuppose we take measurements from two independent outcomes, \\(X\\) and \\(Y\\), and we standardize the measurements.\nHowever, imagine we make a mistake and forget to standardize entry 23.\nWe can simulate such data using:\n\n\nset.seed(1985) \nx &lt;- rnorm(100,100,1) \ny &lt;- rnorm(100,84,1) \nx[-23] &lt;- scale(x[-23]) \ny[-23] &lt;- scale(y[-23]) \n\n\nThe data look like this:\n\n\nqplot(x, y)"
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#outliers-1",
+    "href": "slides/other-topics/association-not-causation.html#outliers-1",
+    "title": "Association Not Causation",
+    "section": "Outliers",
+    "text": "Outliers"
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#outliers-2",
+    "href": "slides/other-topics/association-not-causation.html#outliers-2",
+    "title": "Association Not Causation",
+    "section": "Outliers",
+    "text": "Outliers\n\nNot surprisingly, the correlation is very high:\n\n\ncor(x,y) \n\n[1] 0.988\n\n\n\nBut this is driven by the one outlier.\nIf we remove this outlier, the correlation is greatly reduced to almost 0, which is what it should be:\n\n\ncor(x[-23], y[-23]) \n\n[1] -0.0442\n\n\n\nThere is an alternative to the sample correlation for estimating the population correlation that is robust to outliers.\nIt is called Spearman correlation."
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#outliers-3",
+    "href": "slides/other-topics/association-not-causation.html#outliers-3",
+    "title": "Association Not Causation",
+    "section": "Outliers",
+    "text": "Outliers\n\nThe idea is simple: compute the correlation on the ranks of the values.\nHere is a plot of the ranks plotted against each other:\n\n\nqplot(rank(x), rank(y))"
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#outliers-4",
+    "href": "slides/other-topics/association-not-causation.html#outliers-4",
+    "title": "Association Not Causation",
+    "section": "Outliers",
+    "text": "Outliers"
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#outliers-5",
+    "href": "slides/other-topics/association-not-causation.html#outliers-5",
+    "title": "Association Not Causation",
+    "section": "Outliers",
+    "text": "Outliers\n\nThe outlier is no longer associated with a very large value, and the correlation decreases significantly:\n\n\ncor(rank(x), rank(y)) \n\n[1] 0.00251\n\n\n\nSpearman correlation can also be calculated like this:\n\n\ncor(x, y, method = \"spearman\") \n\n[1] 0.00251\n\n\n\nThere are also methods for robust fitting of linear models which you can learn about in, for instance, this book: Robust Statistics: Edition 2 by Peter J.\nHuber & Elvezio M.\nRonchetti."
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#reversing-cause-and-effect",
+    "href": "slides/other-topics/association-not-causation.html#reversing-cause-and-effect",
+    "title": "Association Not Causation",
+    "section": "Reversing cause and effect",
+    "text": "Reversing cause and effect\n\nAnother way association is confused with causation is when the cause and effect are reversed.\nAn example of this is claiming that tutoring makes students perform worse because they test lower than peers that are not tutored.\nIn this case, the tutoring is not causing the low test scores, but the other way around.\nA form of this claim actually made it into an op-ed in the New York Times titled Parental Involvement Is Overrated1.\n\nhttps://opinionator.blogs.nytimes.com/2014/04/12/parental-involvement-is-overrated."
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#reversing-cause-and-effect-1",
+    "href": "slides/other-topics/association-not-causation.html#reversing-cause-and-effect-1",
+    "title": "Association Not Causation",
+    "section": "Reversing cause and effect",
+    "text": "Reversing cause and effect\n\nConsider this quote from the article:\n\n\n\nWhen we examined whether regular help with homework had a positive impact on children’s academic performance, we were quite startled by what we found.\n\n\nRegardless of a family’s social class, racial or ethnic background, or a child’s grade level, consistent homework help almost never improved test scores or grades…"
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#reversing-cause-and-effect-2",
+    "href": "slides/other-topics/association-not-causation.html#reversing-cause-and-effect-2",
+    "title": "Association Not Causation",
+    "section": "Reversing cause and effect",
+    "text": "Reversing cause and effect\n\nEven more surprising to us was that when parents regularly helped with homework, kids usually performed worse.\nA very likely possibility is that the children needing regular parental help, receive this help because they don’t perform well in school.\nWe can easily construct an example of cause and effect reversal using the father and son height data.\nIf we fit the model:\n\n\\[X_i = \\beta_0 + \\beta_1 y_i + \\varepsilon_i, i=1, \\dots, N\\]"
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#reversing-cause-and-effect-3",
+    "href": "slides/other-topics/association-not-causation.html#reversing-cause-and-effect-3",
+    "title": "Association Not Causation",
+    "section": "Reversing cause and effect",
+    "text": "Reversing cause and effect\n\nto the father and son height data, where \\(X_i\\) is the father height and \\(y_i\\) is the son height, we do get a statistically significant result.\nWe use the galton_heights dataset defined in ?@sec-regression:"
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#reversing-cause-and-effect-4",
+    "href": "slides/other-topics/association-not-causation.html#reversing-cause-and-effect-4",
+    "title": "Association Not Causation",
+    "section": "Reversing cause and effect",
+    "text": "Reversing cause and effect\n\ngalton_heights |&gt; summarize(tidy(lm(father ~ son))) \n\n# A tibble: 2 × 5\n  term        estimate std.error statistic  p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)   40.9      4.40        9.29 5.47e-17\n2 son            0.407    0.0636      6.40 1.36e- 9\n\n\n\nThe model fits the data very well."
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#reversing-cause-and-effect-5",
+    "href": "slides/other-topics/association-not-causation.html#reversing-cause-and-effect-5",
+    "title": "Association Not Causation",
+    "section": "Reversing cause and effect",
+    "text": "Reversing cause and effect\n\nIf we examine the mathematical formulation of the model above, it could easily be misinterpreted so as to suggest that the son being tall caused the father to be tall.\nHowever, based on our understanding of genetics and biology, we know it’s the other way around.\nThe model is technically correct.\nThe estimates and p-values were obtained correctly as well.\nWhat is wrong here is the interpretation."
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#confounders",
+    "href": "slides/other-topics/association-not-causation.html#confounders",
+    "title": "Association Not Causation",
+    "section": "Confounders",
+    "text": "Confounders\n\nConfounders are perhaps the most common reason that leads to associations begin misinterpreted.\nIf \\(X\\) and \\(Y\\) are correlated, we call \\(Z\\) a confounder if changes in \\(Z\\) cause changes in both \\(X\\) and \\(Y\\).\nEarlier, when studying baseball data, we saw how Home Runs were a confounder that resulted in a higher correlation than expected when studying the relationship between Bases on Balls and Runs.\nIn some cases, we can use linear models to account for confounders."
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#confounders-1",
+    "href": "slides/other-topics/association-not-causation.html#confounders-1",
+    "title": "Association Not Causation",
+    "section": "Confounders",
+    "text": "Confounders\n\nHowever, this is not always the case.\nIncorrect interpretation due to confounders is ubiquitous in the lay press and they are often hard to detect.\nHere, we present a widely used example related to college admissions."
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#example-uc-berkeley-admissions",
+    "href": "slides/other-topics/association-not-causation.html#example-uc-berkeley-admissions",
+    "title": "Association Not Causation",
+    "section": "Example: UC Berkeley admissions",
+    "text": "Example: UC Berkeley admissions\n\nAdmission data from six U.C.\nBerkeley majors, from 1973, showed that more men were being admitted than women: 44% men were admitted compared to 30% women.\nPJ Bickel, EA Hammel, and JW O’Connell.\nScience (1975).\nWe can load the data and compute a statistical test, which clearly rejects the hypothesis that gender and admission are independent:"
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#example-uc-berkeley-admissions-1",
+    "href": "slides/other-topics/association-not-causation.html#example-uc-berkeley-admissions-1",
+    "title": "Association Not Causation",
+    "section": "Example: UC Berkeley admissions",
+    "text": "Example: UC Berkeley admissions\n\ntwo_by_two &lt;- admissions |&gt; group_by(gender) |&gt;  \n  summarize(total_admitted = round(sum(admitted / 100 * applicants)),  \n            not_admitted = sum(applicants) - sum(total_admitted)) |&gt; \n  select(-gender)  \nchisq.test(two_by_two)$p.value \n\n[1] 1.06e-21\n\n\n\nBut closer inspection shows a paradoxical result.\nHere are the percent admissions by major:\n\n\nadmissions |&gt; select(major, gender, admitted) |&gt; \n  pivot_wider(names_from = \"gender\", values_from = \"admitted\") |&gt; \n  mutate(women_minus_men = women - men) \n\n# A tibble: 6 × 4\n  major   men women women_minus_men\n  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;           &lt;dbl&gt;\n1 A        62    82              20\n2 B        63    68               5\n3 C        37    34              -3\n4 D        33    35               2\n5 E        28    24              -4\n6 F         6     7               1\n\n\n\nFour out of the six majors favor women."
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#example-uc-berkeley-admissions-2",
+    "href": "slides/other-topics/association-not-causation.html#example-uc-berkeley-admissions-2",
+    "title": "Association Not Causation",
+    "section": "Example: UC Berkeley admissions",
+    "text": "Example: UC Berkeley admissions\n\nMore importantly, all the differences are much smaller than the 14.2 difference that we see when examining the totals.\nThe paradox is that analyzing the totals suggests a dependence between admission and gender, but when the data is grouped by major, this dependence seems to disappear.\nWhat’s going on?\nThis actually can happen if an uncounted confounder is driving most of the variability."
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#example-uc-berkeley-admissions-3",
+    "href": "slides/other-topics/association-not-causation.html#example-uc-berkeley-admissions-3",
+    "title": "Association Not Causation",
+    "section": "Example: UC Berkeley admissions",
+    "text": "Example: UC Berkeley admissions\n\nSo let’s define three variables: \\(X\\) is 1 for men and 0 for women, \\(Y\\) is 1 for those admitted and 0 otherwise, and \\(Z\\) quantifies the selectivity of the major.\nA gender bias claim would be based on the fact that \\(\\mbox{Pr}(Y=1 | X = x)\\) is higher for \\(x=1\\) than for \\(x=0\\).\nHowever, \\(Z\\) is an important confounder to consider.\nClearly, \\(Z\\) is associated with \\(Y\\), as the more selective a major, the lower \\(\\mbox{Pr}(Y=1 | Z = z)\\).\nBut is major selectivity \\(Z\\) associated with gender \\(X\\)?"
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#example-uc-berkeley-admissions-4",
+    "href": "slides/other-topics/association-not-causation.html#example-uc-berkeley-admissions-4",
+    "title": "Association Not Causation",
+    "section": "Example: UC Berkeley admissions",
+    "text": "Example: UC Berkeley admissions\n\nOne way to see this is to plot the total percent admitted to a major versus the percent of women that made up the applicants:\n\n\nadmissions |&gt;  \n  group_by(major) |&gt;  \n  summarize(major_selectivity = sum(admitted * applicants)/sum(applicants), \n            percent_women_applicants = sum(applicants * (gender==\"women\")) / \n                                             sum(applicants) * 100) |&gt; \n  ggplot(aes(major_selectivity, percent_women_applicants, label = major)) + \n  geom_text()"
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#example-uc-berkeley-admissions-5",
+    "href": "slides/other-topics/association-not-causation.html#example-uc-berkeley-admissions-5",
+    "title": "Association Not Causation",
+    "section": "Example: UC Berkeley admissions",
+    "text": "Example: UC Berkeley admissions"
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#example-uc-berkeley-admissions-6",
+    "href": "slides/other-topics/association-not-causation.html#example-uc-berkeley-admissions-6",
+    "title": "Association Not Causation",
+    "section": "Example: UC Berkeley admissions",
+    "text": "Example: UC Berkeley admissions\n\nThere seems to be association.\nThe plot suggests that women were much more likely to apply to the two “hard” majors, indicating a confounding between gender and major’s selectivity.\nCompare, for example, major B and major E.\nMajor E is much harder to enter than major B, and over 60% of applicants for major E were women, while less than 30% of the applicants for major B were women."
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#confounding-explained-graphically",
+    "href": "slides/other-topics/association-not-causation.html#confounding-explained-graphically",
+    "title": "Association Not Causation",
+    "section": "Confounding explained graphically",
+    "text": "Confounding explained graphically\n\nThe following plot shows the number of applicants that were admitted and those that were not by major and gender:"
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#confounding-explained-graphically-1",
+    "href": "slides/other-topics/association-not-causation.html#confounding-explained-graphically-1",
+    "title": "Association Not Causation",
+    "section": "Confounding explained graphically",
+    "text": "Confounding explained graphically"
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#confounding-explained-graphically-2",
+    "href": "slides/other-topics/association-not-causation.html#confounding-explained-graphically-2",
+    "title": "Association Not Causation",
+    "section": "Confounding explained graphically",
+    "text": "Confounding explained graphically\n\nIt also breaks down the acceptances by major.\nThis breakdown allows us to see that the majority of accepted men came from two majors, A and B.\nIt also reveals that few women applied to these majors."
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#average-after-stratifying",
+    "href": "slides/other-topics/association-not-causation.html#average-after-stratifying",
+    "title": "Association Not Causation",
+    "section": "Average after stratifying",
+    "text": "Average after stratifying\n\nIn this plot, we can see that if we condition or stratify by major, and then look at differences, we control for the confounder and this effect goes away:\n\n\nadmissions |&gt;  \n  ggplot(aes(major, admitted, col = gender, size = applicants)) + \n  geom_point()"
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#average-after-stratifying-1",
+    "href": "slides/other-topics/association-not-causation.html#average-after-stratifying-1",
+    "title": "Association Not Causation",
+    "section": "Average after stratifying",
+    "text": "Average after stratifying"
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#average-after-stratifying-2",
+    "href": "slides/other-topics/association-not-causation.html#average-after-stratifying-2",
+    "title": "Association Not Causation",
+    "section": "Average after stratifying",
+    "text": "Average after stratifying\n\nNow we see that major by major, there is not much difference.\nThe size of the dot represents the number of applicants, and explains the paradox: we see large red dots and small blue dots for the easiest majors, A and B.\nIf we average the difference by major, we find that the percent is actually 3.5% higher for women.\n\n\nadmissions |&gt;  group_by(gender) |&gt; summarize(average = mean(admitted)) \n\n# A tibble: 2 × 2\n  gender average\n  &lt;chr&gt;    &lt;dbl&gt;\n1 men       38.2\n2 women     41.7"
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#simpsons-paradox",
+    "href": "slides/other-topics/association-not-causation.html#simpsons-paradox",
+    "title": "Association Not Causation",
+    "section": "Simpson’s paradox",
+    "text": "Simpson’s paradox\n\nThe case we have just covered is an example of Simpson’s paradox.\nIt is called a paradox because we see the sign of the correlation flip when comparing the entire publication to specific strata.\nAs an illustrative example, suppose you have three random variables \\(X\\), \\(Y\\), and \\(Z\\), and we observe realizations of these.\nHere is a plot of simulated observations for \\(X\\) and \\(Y\\) along with the sample correlation:"
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#simpsons-paradox-1",
+    "href": "slides/other-topics/association-not-causation.html#simpsons-paradox-1",
+    "title": "Association Not Causation",
+    "section": "Simpson’s paradox",
+    "text": "Simpson’s paradox"
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#simpsons-paradox-2",
+    "href": "slides/other-topics/association-not-causation.html#simpsons-paradox-2",
+    "title": "Association Not Causation",
+    "section": "Simpson’s paradox",
+    "text": "Simpson’s paradox\n\nYou can see that \\(X\\) and \\(Y\\) are negatively correlated.\nHowever, once we stratify by \\(Z\\) (shown in different colors below), another pattern emerges:"
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#simpsons-paradox-3",
+    "href": "slides/other-topics/association-not-causation.html#simpsons-paradox-3",
+    "title": "Association Not Causation",
+    "section": "Simpson’s paradox",
+    "text": "Simpson’s paradox"
+  },
+  {
+    "objectID": "slides/other-topics/association-not-causation.html#simpsons-paradox-4",
+    "href": "slides/other-topics/association-not-causation.html#simpsons-paradox-4",
+    "title": "Association Not Causation",
+    "section": "Simpson’s paradox",
+    "text": "Simpson’s paradox\n\nIt is really \\(Z\\) that is negatively correlated with \\(X\\).\nIf we stratify by \\(Z\\), the \\(X\\) and \\(Y\\) are actually positively correlated, as seen in the plot above."
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#association-is-not-causation",
+    "href": "slides/other-topics/45-association-not-causation.html#association-is-not-causation",
+    "title": "Association Not Causation",
+    "section": "Association is not causation",
+    "text": "Association is not causation\n\nAssociation is not causation is perhaps the most important lesson one can learn in a statistics class.\nCorrelation is not causation is another way to say this.\nThroughout the statistics part of the book, we have described tools useful for quantifying associations between variables.\nHowever, we must be careful not to over-interpret these associations."
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#association-is-not-causation-1",
+    "href": "slides/other-topics/45-association-not-causation.html#association-is-not-causation-1",
+    "title": "Association Not Causation",
+    "section": "Association is not causation",
+    "text": "Association is not causation\n\nThere are many reasons that a variable \\(X\\) can be correlated with a variable \\(Y\\), without having any direct effect on \\(Y\\).\nToday we describe three: spurious correlation, reverse causation, and confounders."
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#spurious-correlation",
+    "href": "slides/other-topics/45-association-not-causation.html#spurious-correlation",
+    "title": "Association Not Causation",
+    "section": "Spurious correlation",
+    "text": "Spurious correlation"
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#spurious-correlation-1",
+    "href": "slides/other-topics/45-association-not-causation.html#spurious-correlation-1",
+    "title": "Association Not Causation",
+    "section": "Spurious correlation",
+    "text": "Spurious correlation\nMore here: http://tylervigen.com/spurious-correlations\n\nReferred to as data dredging, data fishing, or data snooping.\nIt’s basically a form of what in the US they call cherry picking."
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#spurious-correlation-2",
+    "href": "slides/other-topics/45-association-not-causation.html#spurious-correlation-2",
+    "title": "Association Not Causation",
+    "section": "Spurious correlation",
+    "text": "Spurious correlation\n\nlibrary(tidyverse) \nN &lt;- 25 \ng &lt;- 1000000 \nsim_data &lt;- tibble(group = rep(1:g, each = N),  \n                   x = rnorm(N*g),  \n                   y = rnorm(N*g))"
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#spurious-correlation-3",
+    "href": "slides/other-topics/45-association-not-causation.html#spurious-correlation-3",
+    "title": "Association Not Causation",
+    "section": "Spurious correlation",
+    "text": "Spurious correlation\n\nres &lt;- sim_data |&gt;  \n  group_by(group) |&gt;  \n  summarize(r = cor(x, y)) |&gt;  \n  arrange(desc(r)) \nres \n\n# A tibble: 1,000,000 × 2\n    group     r\n    &lt;int&gt; &lt;dbl&gt;\n 1 256086 0.810\n 2 421439 0.778\n 3 798292 0.757\n 4 821335 0.754\n 5 714565 0.752\n 6 247410 0.747\n 7 516166 0.744\n 8 357158 0.740\n 9 279383 0.739\n10 595854 0.735\n# ℹ 999,990 more rows\n\n\n\nWe see a maximum correlation of 0.81."
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#spurious-correlation-4",
+    "href": "slides/other-topics/45-association-not-causation.html#spurious-correlation-4",
+    "title": "Association Not Causation",
+    "section": "Spurious correlation",
+    "text": "Spurious correlation\n\nsim_data |&gt; filter(group == res$group[which.max(res$r)]) |&gt; \n  ggplot(aes(x, y)) + \n  geom_point() +  \n  geom_smooth(method = \"lm\")"
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#spurious-correlation-5",
+    "href": "slides/other-topics/45-association-not-causation.html#spurious-correlation-5",
+    "title": "Association Not Causation",
+    "section": "Spurious correlation",
+    "text": "Spurious correlation"
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#spurious-correlation-6",
+    "href": "slides/other-topics/45-association-not-causation.html#spurious-correlation-6",
+    "title": "Association Not Causation",
+    "section": "Spurious correlation",
+    "text": "Spurious correlation\n\nSample correlation is a random variable:"
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#spurious-correlation-7",
+    "href": "slides/other-topics/45-association-not-causation.html#spurious-correlation-7",
+    "title": "Association Not Causation",
+    "section": "Spurious correlation",
+    "text": "Spurious correlation\n\nIt’s simply a mathematical fact that if we observe random correlations that are expected to be 0, but have a standard error of 0.204, the largest one will be close to 1."
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#spurious-correlation-8",
+    "href": "slides/other-topics/45-association-not-causation.html#spurious-correlation-8",
+    "title": "Association Not Causation",
+    "section": "Spurious correlation",
+    "text": "Spurious correlation\n\nlibrary(broom) \nsim_data |&gt;  \n  filter(group == res$group[which.max(res$r)]) |&gt; \n  summarize(tidy(lm(y ~ x))) |&gt;  \n  filter(term == \"x\") \n\n# A tibble: 1 × 5\n  term  estimate std.error statistic p.value\n  &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;\n1 x        0.159     0.133      1.20   0.244"
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#spurious-correlation-9",
+    "href": "slides/other-topics/45-association-not-causation.html#spurious-correlation-9",
+    "title": "Association Not Causation",
+    "section": "Spurious correlation",
+    "text": "Spurious correlation\n\nThis particular form of data dredging is referred to as p-hacking.\nP-hacking is a topic of much discussion because it poses a problem in scientific publications.\nSince publishers tend to reward statistically significant results over negative results, there is an incentive to report significant results."
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#spurious-correlation-10",
+    "href": "slides/other-topics/45-association-not-causation.html#spurious-correlation-10",
+    "title": "Association Not Causation",
+    "section": "Spurious correlation",
+    "text": "Spurious correlation\n\nIn epidemiology and the social sciences, for example, researchers may look for associations between an adverse outcome and several exposures, and report only the one exposure that resulted in a small p-value."
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#spurious-correlation-11",
+    "href": "slides/other-topics/45-association-not-causation.html#spurious-correlation-11",
+    "title": "Association Not Causation",
+    "section": "Spurious correlation",
+    "text": "Spurious correlation\n\nFurthermore, they might try fitting several different models to account for confounding and choose the one that yields the smallest p-value."
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#spurious-correlation-12",
+    "href": "slides/other-topics/45-association-not-causation.html#spurious-correlation-12",
+    "title": "Association Not Causation",
+    "section": "Spurious correlation",
+    "text": "Spurious correlation\n\nIn experimental disciplines, an experiment might be repeated more than once, yet only the results of the one experiment with a small p-value reported."
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#spurious-correlation-13",
+    "href": "slides/other-topics/45-association-not-causation.html#spurious-correlation-13",
+    "title": "Association Not Causation",
+    "section": "Spurious correlation",
+    "text": "Spurious correlation\n\nThis does not necessarily happen due to unethical behavior, but rather as a result of statistical ignorance or wishful thinking.\nIn advanced statistics courses, you can learn methods to adjust for these multiple comparisons."
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#outliers",
+    "href": "slides/other-topics/45-association-not-causation.html#outliers",
+    "title": "Association Not Causation",
+    "section": "Outliers",
+    "text": "Outliers\n\nset.seed(1985) \nx &lt;- rnorm(100,100,1) \ny &lt;- rnorm(100,84,1) \nx[-23] &lt;- scale(x[-23]) \ny[-23] &lt;- scale(y[-23])"
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#outliers-1",
+    "href": "slides/other-topics/45-association-not-causation.html#outliers-1",
+    "title": "Association Not Causation",
+    "section": "Outliers",
+    "text": "Outliers"
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#outliers-2",
+    "href": "slides/other-topics/45-association-not-causation.html#outliers-2",
+    "title": "Association Not Causation",
+    "section": "Outliers",
+    "text": "Outliers\n\ncor(x,y) \n\n[1] 0.988\n\n\nThis high correlation is driven by the one outlier."
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#outliers-3",
+    "href": "slides/other-topics/45-association-not-causation.html#outliers-3",
+    "title": "Association Not Causation",
+    "section": "Outliers",
+    "text": "Outliers\n\nIf we remove this outlier, the correlation is greatly reduced to almost 0:\n\n\ncor(x[-23], y[-23]) \n\n[1] -0.0442"
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#outliers-4",
+    "href": "slides/other-topics/45-association-not-causation.html#outliers-4",
+    "title": "Association Not Causation",
+    "section": "Outliers",
+    "text": "Outliers\n\nThere is an alternative to the sample correlation for estimating the population correlation that is robust to outliers.\nIt is called Spearman correlation."
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#outliers-5",
+    "href": "slides/other-topics/45-association-not-causation.html#outliers-5",
+    "title": "Association Not Causation",
+    "section": "Outliers",
+    "text": "Outliers"
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#outliers-6",
+    "href": "slides/other-topics/45-association-not-causation.html#outliers-6",
+    "title": "Association Not Causation",
+    "section": "Outliers",
+    "text": "Outliers\n\nThe outlier is no longer associated with a very large value, and the correlation decreases significantly:\n\n\ncor(rank(x), rank(y)) \n\n[1] 0.00251\n\n\n\nSpearman correlation can also be calculated like this:\n\n\ncor(x, y, method = \"spearman\") \n\n[1] 0.00251"
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#reversing-cause-and-effect",
+    "href": "slides/other-topics/45-association-not-causation.html#reversing-cause-and-effect",
+    "title": "Association Not Causation",
+    "section": "Reversing cause and effect",
+    "text": "Reversing cause and effect\n\nAnother way association is confused with causation is when the cause and effect are reversed.\nAn example of this is claiming that tutoring makes students perform worse because they test lower than peers that are not tutored.\nIn this case, the tutoring is not causing the low test scores, but the other way around."
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#reversing-cause-and-effect-1",
+    "href": "slides/other-topics/45-association-not-causation.html#reversing-cause-and-effect-1",
+    "title": "Association Not Causation",
+    "section": "Reversing cause and effect",
+    "text": "Reversing cause and effect\nQuote from NY Times:\n\n\nWhen we examined whether regular help with homework had a positive impact on children’s academic performance, we were quite startled by what we found. Regardless of a family’s social class, racial or ethnic background, or a child’s grade level, consistent homework help almost never improved test scores or grades…"
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#reversing-cause-and-effect-2",
+    "href": "slides/other-topics/45-association-not-causation.html#reversing-cause-and-effect-2",
+    "title": "Association Not Causation",
+    "section": "Reversing cause and effect",
+    "text": "Reversing cause and effect\n\nA more likely possibility is that the children needing regular parental help, receive this help because they don’t perform well in school."
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#reversing-cause-and-effect-3",
+    "href": "slides/other-topics/45-association-not-causation.html#reversing-cause-and-effect-3",
+    "title": "Association Not Causation",
+    "section": "Reversing cause and effect",
+    "text": "Reversing cause and effect\n\nIf we fit the model:\n\n\\[\nX_i = \\beta_0 + \\beta_1 y_i + \\varepsilon_i, i=1, \\dots, N\n\\]\n\nwhere \\(X_i\\) is the father height and \\(y_i\\) is the son height, we do get a statistically significant result.\n\n\ngalton_heights |&gt; summarize(tidy(lm(father ~ son))) \n\n# A tibble: 2 × 5\n  term        estimate std.error statistic  p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)   40.9      4.40        9.29 5.47e-17\n2 son            0.407    0.0636      6.40 1.36e- 9"
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#reversing-cause-and-effect-4",
+    "href": "slides/other-topics/45-association-not-causation.html#reversing-cause-and-effect-4",
+    "title": "Association Not Causation",
+    "section": "Reversing cause and effect",
+    "text": "Reversing cause and effect\n\nThe model fits the data very well.\nThe model is technically correct.\nThe estimates and p-values were obtained correctly as well.\nWhat is wrong here is the interpretation."
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#confounders",
+    "href": "slides/other-topics/45-association-not-causation.html#confounders",
+    "title": "Association Not Causation",
+    "section": "Confounders",
+    "text": "Confounders\n\nConfounders are perhaps the most common reason that leads to associations begin misinterpreted.\nIf \\(X\\) and \\(Y\\) are correlated, we call \\(Z\\) a confounder if changes in \\(Z\\) cause changes in both \\(X\\) and \\(Y\\)."
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#confounders-1",
+    "href": "slides/other-topics/45-association-not-causation.html#confounders-1",
+    "title": "Association Not Causation",
+    "section": "Confounders",
+    "text": "Confounders\n\nEarlier, when studying baseball data, we saw how Home Runs were a confounder that resulted in a higher correlation than expected when studying the relationship between Bases on Balls and Runs.\nIn some cases, we can use linear models to account for confounders.\nHowever, this is not always the case."
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#confounders-2",
+    "href": "slides/other-topics/45-association-not-causation.html#confounders-2",
+    "title": "Association Not Causation",
+    "section": "Confounders",
+    "text": "Confounders\n\nIncorrect interpretation due to confounders is ubiquitous in the lay press and they are often hard to detect.\nHere, we present a widely used example related to college admissions."
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#uc-berkeley-admissions",
+    "href": "slides/other-topics/45-association-not-causation.html#uc-berkeley-admissions",
+    "title": "Association Not Causation",
+    "section": "UC Berkeley admissions",
+    "text": "UC Berkeley admissions\n\ntwo_by_two &lt;- admissions |&gt; group_by(gender) |&gt;  \n  summarize(total_admitted = round(sum(admitted / 100 * applicants)),  \n            not_admitted = sum(applicants) - sum(total_admitted)) \ntwo_by_two |&gt; \n  mutate(percent = total_admitted/(total_admitted + not_admitted)*100)\n\n# A tibble: 2 × 4\n  gender total_admitted not_admitted percent\n  &lt;chr&gt;           &lt;dbl&gt;        &lt;dbl&gt;   &lt;dbl&gt;\n1 men              1198         1493    44.5\n2 women             557         1278    30.4\n\n\n\ntwo_by_two &lt;- select(two_by_two, -gender)\nchisq.test(two_by_two)$p.value \n\n[1] 1.06e-21"
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#uc-berkeley-admissions-1",
+    "href": "slides/other-topics/45-association-not-causation.html#uc-berkeley-admissions-1",
+    "title": "Association Not Causation",
+    "section": "UC Berkeley admissions",
+    "text": "UC Berkeley admissions\n\nCloser inspection shows a paradoxical result:\n\n\nadmissions |&gt; select(major, gender, admitted) |&gt; \n  pivot_wider(names_from = \"gender\", values_from = \"admitted\") |&gt; \n  mutate(women_minus_men = women - men) \n\n# A tibble: 6 × 4\n  major   men women women_minus_men\n  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;           &lt;dbl&gt;\n1 A        62    82              20\n2 B        63    68               5\n3 C        37    34              -3\n4 D        33    35               2\n5 E        28    24              -4\n6 F         6     7               1"
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#uc-berkeley-admissions-2",
+    "href": "slides/other-topics/45-association-not-causation.html#uc-berkeley-admissions-2",
+    "title": "Association Not Causation",
+    "section": "UC Berkeley admissions",
+    "text": "UC Berkeley admissions\n\nWhat’s going on?\nThis actually can happen if an uncounted confounder is driving most of the variability."
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#uc-berkeley-admissions-3",
+    "href": "slides/other-topics/45-association-not-causation.html#uc-berkeley-admissions-3",
+    "title": "Association Not Causation",
+    "section": "UC Berkeley admissions",
+    "text": "UC Berkeley admissions"
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#uc-berkeley-admissions-4",
+    "href": "slides/other-topics/45-association-not-causation.html#uc-berkeley-admissions-4",
+    "title": "Association Not Causation",
+    "section": "UC Berkeley admissions",
+    "text": "UC Berkeley admissions"
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#confounding-explained-graphically",
+    "href": "slides/other-topics/45-association-not-causation.html#confounding-explained-graphically",
+    "title": "Association Not Causation",
+    "section": "Confounding explained graphically",
+    "text": "Confounding explained graphically"
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#average-after-stratifying",
+    "href": "slides/other-topics/45-association-not-causation.html#average-after-stratifying",
+    "title": "Association Not Causation",
+    "section": "Average after stratifying",
+    "text": "Average after stratifying"
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#average-after-stratifying-1",
+    "href": "slides/other-topics/45-association-not-causation.html#average-after-stratifying-1",
+    "title": "Association Not Causation",
+    "section": "Average after stratifying",
+    "text": "Average after stratifying\n\nIf we average the difference by major, we find that the percent is actually 3.5% higher for women.\n\n\nadmissions |&gt;  group_by(gender) |&gt; \n  summarize(average = mean(admitted)) \n\n# A tibble: 2 × 2\n  gender average\n  &lt;chr&gt;    &lt;dbl&gt;\n1 men       38.2\n2 women     41.7"
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#simpsons-paradox",
+    "href": "slides/other-topics/45-association-not-causation.html#simpsons-paradox",
+    "title": "Association Not Causation",
+    "section": "Simpson’s paradox",
+    "text": "Simpson’s paradox\n\nThe case we have just covered is an example of Simpson’s paradox.\nIt is called a paradox because we see the sign of the correlation flip when comparing the entire publication to specific strata."
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#simpsons-paradox-1",
+    "href": "slides/other-topics/45-association-not-causation.html#simpsons-paradox-1",
+    "title": "Association Not Causation",
+    "section": "Simpson’s paradox",
+    "text": "Simpson’s paradox\n\nSimulated \\(X\\), \\(Y\\), and \\(Z\\):"
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#simpsons-paradox-2",
+    "href": "slides/other-topics/45-association-not-causation.html#simpsons-paradox-2",
+    "title": "Association Not Causation",
+    "section": "Simpson’s paradox",
+    "text": "Simpson’s paradox\n\nYou can see that \\(X\\) and \\(Y\\) are negatively correlated.\nHowever, once we stratify by \\(Z\\) (shown in different colors below), another pattern emerges."
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#simpsons-paradox-3",
+    "href": "slides/other-topics/45-association-not-causation.html#simpsons-paradox-3",
+    "title": "Association Not Causation",
+    "section": "Simpson’s paradox",
+    "text": "Simpson’s paradox"
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#simpsons-paradox-4",
+    "href": "slides/other-topics/45-association-not-causation.html#simpsons-paradox-4",
+    "title": "Association Not Causation",
+    "section": "Simpson’s paradox",
+    "text": "Simpson’s paradox"
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#confounding-explained",
+    "href": "slides/other-topics/45-association-not-causation.html#confounding-explained",
+    "title": "Association Not Causation",
+    "section": "Confounding explained",
+    "text": "Confounding explained"
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html#simpsons-paradox-5",
+    "href": "slides/other-topics/45-association-not-causation.html#simpsons-paradox-5",
+    "title": "Association Not Causation",
+    "section": "Simpson’s paradox",
+    "text": "Simpson’s paradox\n\nIt is really \\(Z\\) that is negatively correlated with \\(X\\).\nIf we stratify by \\(Z\\), the \\(X\\) and \\(Y\\) are actually positively correlated, as seen in the plot above."
+  },
+  {
+    "objectID": "slides/other-topics/46-shiny.html#what-is-shiny",
+    "href": "slides/other-topics/46-shiny.html#what-is-shiny",
+    "title": "Introduction to Shiny",
+    "section": "What is Shiny?",
+    "text": "What is Shiny?\n\nShiny is an R package for building interactive web applications.\nCombines the computational power of R with the interactivity of modern web technologies.\nNo web development experience required!"
+  },
+  {
+    "objectID": "slides/other-topics/46-shiny.html#why-use-shiny",
+    "href": "slides/other-topics/46-shiny.html#why-use-shiny",
+    "title": "Introduction to Shiny",
+    "section": "Why Use Shiny?",
+    "text": "Why Use Shiny?\n\nCreate interactive dashboards for data visualization.\nShare R analyses with non-programmers.\nIntegrate real-time data updates in your workflows."
+  },
+  {
+    "objectID": "slides/other-topics/46-shiny.html#basic-components",
+    "href": "slides/other-topics/46-shiny.html#basic-components",
+    "title": "Introduction to Shiny",
+    "section": "Basic Components",
+    "text": "Basic Components\n\nUI: Defines the layout and appearance of the app.\nServer: Contains the logic and computations of the app.\nApp: Combines the UI and server into a functional app."
+  },
+  {
+    "objectID": "slides/other-topics/46-shiny.html#basic-components-1",
+    "href": "slides/other-topics/46-shiny.html#basic-components-1",
+    "title": "Introduction to Shiny",
+    "section": "Basic Components",
+    "text": "Basic Components\nlibrary(shiny)\n\n# Define UI\nui &lt;- fluidPage(\n  titlePanel(\"Hello, Shiny!\"),\n  \n  sidebarLayout(\n    sidebarPanel(\n      sliderInput(\"num\", \"Choose a number:\", 1, 100, 50)\n    ),\n    mainPanel(\n      textOutput(\"result\")\n    )\n  )\n)\n\n# Define Server\nserver &lt;- function(input, output) {\n  output$result &lt;- renderText({\n    paste(\"You selected:\", input$num)\n  })\n}\n\n# Run the app\nshinyApp(ui = ui, server = server)"
+  },
+  {
+    "objectID": "slides/other-topics/46-shiny.html#app-overview",
+    "href": "slides/other-topics/46-shiny.html#app-overview",
+    "title": "Introduction to Shiny",
+    "section": "App Overview",
+    "text": "App Overview\n\nA scatter plot with customizable inputs.\n\nUI Code\nui &lt;- fluidPage(\n  titlePanel(\"Interactive Plot\"),\n  sidebarLayout(\n    sidebarPanel(\n      sliderInput(\"points\", \"Number of Points:\", 10, 1000, 500),\n      selectInput(\"color\", \"Point Color:\", c(\"Red\", \"Blue\", \"Green\"))\n    ),\n    mainPanel(\n      plotOutput(\"scatterPlot\")\n    )\n  )\n)"
+  },
+  {
+    "objectID": "slides/other-topics/46-shiny.html#reactive-programming",
+    "href": "slides/other-topics/46-shiny.html#reactive-programming",
+    "title": "Introduction to Shiny",
+    "section": "Reactive Programming",
+    "text": "Reactive Programming\n\nreactive(): Generates a reactive expression.\n\nreactiveVal &lt;- reactive({\n  input$num * 2\n})\n\nobserve(): Executes code in response to changes.\n\nobserve({\n  print(input$slider)\n})\n\nobserveEvent(): Triggers on specific input changes.\n\nobserveEvent(input$button, {\n  showNotification(\"Button clicked!\")\n})"
+  },
+  {
+    "objectID": "slides/other-topics/46-shiny.html#examples",
+    "href": "slides/other-topics/46-shiny.html#examples",
+    "title": "Introduction to Shiny",
+    "section": "Examples",
+    "text": "Examples\nreactiveVal &lt;- reactive({\n  input$num * 2\n})\nobserve({\n  print(input$slider)\n})\nobserveEvent(input$button, {\n  showNotification(\"Button clicked!\")\n})"
+  },
+  {
+    "objectID": "slides/other-topics/46-shiny.html#deployment-options",
+    "href": "slides/other-topics/46-shiny.html#deployment-options",
+    "title": "Introduction to Shiny",
+    "section": "Deployment Options",
+    "text": "Deployment Options\n\nShare Shiny apps using:\n\nShiny Server\nRStudio Connect\nshinyapps.io"
+  },
+  {
+    "objectID": "slides/other-topics/46-shiny.html#motivation",
+    "href": "slides/other-topics/46-shiny.html#motivation",
+    "title": "Introduction to Shiny",
+    "section": "Motivation",
+    "text": "Motivation\nhttps://rconnect.dfci.harvard.edu/covidpr/"
+  },
+  {
+    "objectID": "slides/other-topics/46-shiny.html#motivation-1",
+    "href": "slides/other-topics/46-shiny.html#motivation-1",
+    "title": "Introduction to Shiny",
+    "section": "Motivation",
+    "text": "Motivation"
+  },
+  {
+    "objectID": "slides/other-topics/46-shiny.html#motivation-2",
+    "href": "slides/other-topics/46-shiny.html#motivation-2",
+    "title": "Introduction to Shiny",
+    "section": "Motivation",
+    "text": "Motivation"
+  },
+  {
+    "objectID": "slides/other-topics/46-shiny.html#motivation-3",
+    "href": "slides/other-topics/46-shiny.html#motivation-3",
+    "title": "Introduction to Shiny",
+    "section": "Motivation",
+    "text": "Motivation"
   }
 ]
