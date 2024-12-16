@@ -14674,7 +14674,7 @@
     "href": "slides/other-topics/45-association-not-causation.html#spurious-correlation-3",
     "title": "Association Not Causation",
     "section": "Spurious correlation",
-    "text": "Spurious correlation\n\nres &lt;- sim_data |&gt;  \n  group_by(group) |&gt;  \n  summarize(r = cor(x, y)) |&gt;  \n  arrange(desc(r)) \nres \n\n# A tibble: 1,000,000 × 2\n    group     r\n    &lt;int&gt; &lt;dbl&gt;\n 1 256086 0.810\n 2 421439 0.778\n 3 798292 0.757\n 4 821335 0.754\n 5 714565 0.752\n 6 247410 0.747\n 7 516166 0.744\n 8 357158 0.740\n 9 279383 0.739\n10 595854 0.735\n# ℹ 999,990 more rows\n\n\n\nWe see a maximum correlation of 0.81."
+    "text": "Spurious correlation\n\nres &lt;- sim_data |&gt;  \n  group_by(group) |&gt;  \n  summarize(r = cor(x, y)) |&gt;  \n  arrange(desc(r)) \nres \n\n# A tibble: 1,000,000 × 2\n    group     r\n    &lt;int&gt; &lt;dbl&gt;\n 1 508834 0.779\n 2 187260 0.773\n 3 788683 0.768\n 4 919009 0.765\n 5 284126 0.760\n 6 375763 0.760\n 7 767885 0.753\n 8 605587 0.747\n 9 959725 0.745\n10 351369 0.742\n# ℹ 999,990 more rows\n\n\n\nWe see a maximum correlation of 0.779."
   },
   {
     "objectID": "slides/other-topics/45-association-not-causation.html#spurious-correlation-4",
@@ -14709,7 +14709,7 @@
     "href": "slides/other-topics/45-association-not-causation.html#spurious-correlation-8",
     "title": "Association Not Causation",
     "section": "Spurious correlation",
-    "text": "Spurious correlation\n\nlibrary(broom) \nsim_data |&gt;  \n  filter(group == res$group[which.max(res$r)]) |&gt; \n  summarize(tidy(lm(y ~ x))) |&gt;  \n  filter(term == \"x\") \n\n# A tibble: 1 × 5\n  term  estimate std.error statistic p.value\n  &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;\n1 x        0.159     0.133      1.20   0.244"
+    "text": "Spurious correlation\n\nlibrary(broom) \nsim_data |&gt;  \n  filter(group == res$group[which.max(res$r)]) |&gt; \n  summarize(tidy(lm(y ~ x))) |&gt;  \n  filter(term == \"x\") \n\n# A tibble: 1 × 5\n  term  estimate std.error statistic    p.value\n  &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n1 x        0.622     0.104      5.96 0.00000449"
   },
   {
     "objectID": "slides/other-topics/45-association-not-causation.html#spurious-correlation-9",
@@ -15039,5 +15039,12 @@
     "title": "Introduction to Shiny",
     "section": "Motivation",
     "text": "Motivation"
+  },
+  {
+    "objectID": "slides/other-topics/45-association-not-causation.html",
+    "href": "slides/other-topics/45-association-not-causation.html",
+    "title": "Association Not Causation",
+    "section": "",
+    "text": "Association is not causation is perhaps the most important lesson one can learn in a statistics class.\nCorrelation is not causation is another way to say this.\nThroughout the statistics part of the book, we have described tools useful for quantifying associations between variables.\nHowever, we must be careful not to over-interpret these associations."
   }
 ]

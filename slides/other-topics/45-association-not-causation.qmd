@@ -78,7 +78,6 @@ sim_data <- tibble(group = rep(1:g, each = N),
 ## Spurious correlation
 
 ```{r} 
-#| cache: true
 res <- sim_data |>  
   group_by(group) |>  
   summarize(r = cor(x, y)) |>  
