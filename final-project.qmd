@@ -15,7 +15,7 @@ You will submit your project using Git. Your project should be completely reprod
 
 You can work alone or in groups of at most three people.
 
-If you select option 4 you can skip to @dashboard.
+If you select option 4 you can skip to [Election Dashboard](#sec-dashboard).
 
 ## Sections 
 
@@ -122,7 +122,7 @@ You can use `puerto_rico_counts` in the **excessmort** package.
 
 5. **For those working in groups**: Extract the data from the PDF shared with NY Times. Comment on how it matches with **excessmort** package data.
 
-# Election Dashboard {#}
+# Election Dashboard {#sec-dashboard}
 
 ## Data
 
