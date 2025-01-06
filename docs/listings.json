@@ -29,7 +29,26 @@
       "/slides/inference/24-confidence-intervals.html",
       "/slides/inference/25-models.html",
       "/slides/inference/26-bayes.html",
-      "/slides/inference/27-hierarchical-models.html"
+      "/slides/inference/27-hierarchical-models.html",
+      "/slides/linear-models/28-intro-to-linear-models.html",
+      "/slides/linear-models/29-regression.html",
+      "/slides/linear-models/30-multivariate-regression.html",
+      "/slides/linear-models/31-treatment-effect-models.html",
+      "/slides/highdim/32-linear-algebra-intro.html",
+      "/slides/highdim/33-matrices-in-R.html",
+      "/slides/highdim/34-distance.html",
+      "/slides/highdim/35-dimension-reduction.html",
+      "/slides/ml/36-intro-ml.html",
+      "/slides/ml/37-evaluation-metrics.html",
+      "/slides/ml/38-conditionals.html",
+      "/slides/ml/39-smoothing.html",
+      "/slides/ml/40-knn.html",
+      "/slides/ml/41-resampling-methods.html",
+      "/slides/ml/42-caret.html",
+      "/slides/ml/43-algorithms.html",
+      "/slides/ml/44-ml-in-practice.html",
+      "/slides/other-topics/45-association-not-causation.html",
+      "/slides/other-topics/46-shiny.html"
     ]
   },
   {

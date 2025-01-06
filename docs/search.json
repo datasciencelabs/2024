@@ -3572,7 +3572,7 @@
     "href": "slides.html",
     "title": "Slides",
     "section": "",
-    "text": "Topic\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nFirst day\n\n\nIntroduction\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nUnix\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nRStudio\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nQuarto\n\n\nMon, Sep 09\n\n\n\n\nProductivity Tools\n\n\nGit and GitHub\n\n\nMon, Sep 09\n\n\n\n\nR\n\n\nR Basics\n\n\nMon, Sep 16\n\n\n\n\nR\n\n\nVectorization\n\n\nWed, Sep 18\n\n\n\n\nR\n\n\nTidyverse\n\n\nMon, Sep 23\n\n\n\n\nR\n\n\nggplot2\n\n\nMon, Sep 23\n\n\n\n\nR\n\n\nTidying data\n\n\nWed, Sep 25\n\n\n\n\nWrangling\n\n\nIntroduction to Wrangling\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nImporting files\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nDates And Times\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nLocales\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nData APIs\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nWeb Scraping\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nJoining Tables\n\n\nMon, Sep 30\n\n\n\n\nData Visualization\n\n\nData Visualization Principles\n\n\nMon, Oct 07\n\n\n\n\nData Visualization\n\n\nDistributions\n\n\nWed, Oct 09\n\n\n\n\nData Visualization\n\n\nDataviz In Practice\n\n\nWed, Oct 09\n\n\n\n\nProbability\n\n\nIntroduction to Probability\n\n\nMon, Oct 21\n\n\n\n\nProbability\n\n\nFoundations of Statistical Inference\n\n\nMon, Oct 21\n\n\n\n\nInference\n\n\nIntroduction to Statistical Inference and Models\n\n\nWed, Oct 23\n\n\n\n\nInference\n\n\nParameters and Estimates\n\n\nWed, Oct 23\n\n\n\n\nInference\n\n\nConfidence Intervals\n\n\nWed, Oct 23\n\n\n\n\nInference\n\n\nData-driven models\n\n\nMon, Oct 28\n\n\n\n\nInference\n\n\nBayesian Models\n\n\nWed, Oct 30\n\n\n\n\nInference\n\n\nHierarchical Models\n\n\nWed, Oct 30\n\n\n\n\n\nNo matching items",
+    "text": "Topic\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nFirst day\n\n\nIntroduction\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nUnix\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nRStudio\n\n\nWed, Sep 04\n\n\n\n\nProductivity Tools\n\n\nQuarto\n\n\nMon, Sep 09\n\n\n\n\nProductivity Tools\n\n\nGit and GitHub\n\n\nMon, Sep 09\n\n\n\n\nR\n\n\nR Basics\n\n\nMon, Sep 16\n\n\n\n\nR\n\n\nVectorization\n\n\nWed, Sep 18\n\n\n\n\nR\n\n\nTidyverse\n\n\nMon, Sep 23\n\n\n\n\nR\n\n\nggplot2\n\n\nMon, Sep 23\n\n\n\n\nR\n\n\nTidying data\n\n\nWed, Sep 25\n\n\n\n\nWrangling\n\n\nIntroduction to Wrangling\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nImporting files\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nDates And Times\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nLocales\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nData APIs\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nWeb Scraping\n\n\nMon, Sep 30\n\n\n\n\nWrangling\n\n\nJoining Tables\n\n\nMon, Sep 30\n\n\n\n\nData Visualization\n\n\nData Visualization Principles\n\n\nMon, Oct 07\n\n\n\n\nData Visualization\n\n\nDistributions\n\n\nWed, Oct 09\n\n\n\n\nData Visualization\n\n\nDataviz In Practice\n\n\nWed, Oct 09\n\n\n\n\nProbability\n\n\nIntroduction to Probability\n\n\nMon, Oct 21\n\n\n\n\nProbability\n\n\nFoundations of Statistical Inference\n\n\nMon, Oct 21\n\n\n\n\nInference\n\n\nIntroduction to Statistical Inference and Models\n\n\nWed, Oct 23\n\n\n\n\nInference\n\n\nParameters and Estimates\n\n\nWed, Oct 23\n\n\n\n\nInference\n\n\nConfidence Intervals\n\n\nWed, Oct 23\n\n\n\n\nInference\n\n\nData-driven models\n\n\nMon, Oct 28\n\n\n\n\nInference\n\n\nBayesian Models\n\n\nWed, Oct 30\n\n\n\n\nInference\n\n\nHierarchical Models\n\n\nWed, Oct 30\n\n\n\n\nLinear Models\n\n\nIntroduction\n\n\nTue, Nov 05\n\n\n\n\nLinear Models\n\n\nRegression\n\n\nTue, Nov 05\n\n\n\n\nLinear Models\n\n\nMultivariate Regression\n\n\nTue, Nov 12\n\n\n\n\nLinear Models\n\n\nTreatment Effect Models\n\n\nTue, Nov 12\n\n\n\n\nHigh dimensional data\n\n\nIntroduction to Linear Algebra\n\n\nTue, Nov 12\n\n\n\n\nHigh dimensional data\n\n\nMatrices In R\n\n\nTue, Nov 12\n\n\n\n\nHigh dimensional data\n\n\nDistance\n\n\nMon, Dec 02\n\n\n\n\nHigh dimensional data\n\n\nDimension Reduction\n\n\nMon, Dec 02\n\n\n\n\nMachine Learning\n\n\nIntroduction\n\n\nMon, Dec 02\n\n\n\n\nMachine Learning\n\n\nEvaluation Metrics\n\n\nWed, Dec 04\n\n\n\n\nMachine Learning\n\n\nConditionals\n\n\nWed, Dec 04\n\n\n\n\nMachine Learning\n\n\nSmoothing\n\n\nWed, Dec 04\n\n\n\n\nMachine Learning\n\n\nk-nearest neighbors (knn)\n\n\nTue, Dec 10\n\n\n\n\nMachine Learning\n\n\nResampling Methods\n\n\nMon, Dec 09\n\n\n\n\nMachine Learning\n\n\nThe caret package\n\n\nMon, Dec 09\n\n\n\n\nMachine Learning\n\n\nAlgorithms\n\n\nWed, Dec 11\n\n\n\n\nMachine Learning\n\n\nML In Practice\n\n\nMon, Dec 09\n\n\n\n\nOther topics\n\n\nAssociation Not Causation\n\n\nMon, Dec 16\n\n\n\n\nOther topics\n\n\nIntroduction to Shiny\n\n\nMon, Dec 16\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Slides"
     ]
@@ -12202,8 +12202,8 @@
     "objectID": "slides/ml/38-conditionals.html#conditional-probabilities-and-expectations",
     "href": "slides/ml/38-conditionals.html#conditional-probabilities-and-expectations",
     "title": "Conditionals",
-    "section": "Conditional probabilities and expectations",
-    "text": "Conditional probabilities and expectations\n\nIn machine learning applications, we rarely can predict outcomes perfectly.\nThe most common reason for not being able to build perfect algorithms is that it is impossible.\nTo see this, consider that most datasets will include groups of observations with the same exact observed values for all predictors, but with different outcomes."
+    "section": "",
+    "text": "In machine learning applications, we rarely can predict outcomes perfectly.\nThe most common reason for not being able to build perfect algorithms is that it is impossible.\nTo see this, consider that most datasets will include groups of observations with the same exact observed values for all predictors, but with different outcomes."
   },
   {
     "objectID": "slides/ml/38-conditionals.html#conditional-probabilities-and-expectations-1",
@@ -12231,7 +12231,7 @@
     "href": "slides/ml/38-conditionals.html#conditional-probabilities-1",
     "title": "Conditionals",
     "section": "Conditional probabilities",
-    "text": "Conditional probabilities\n\nWhen the outcome is binary, we only need to know 1, so we drop the \\(k\\) and use the notation:\n\n\\[p(\\mathbf{x}) = \\mbox{Pr}(Y=1 \\mid \\mathbf{X}=\\mathbf{x})\\]\n\n\n\n\n\n\nNote\n\n\n\nDo not be confused by the fact that we use \\(p\\) for two different things: the conditional probability \\(p(\\mathbf{x})\\) and the number of predictors \\(p\\)."
+    "text": "Conditional probabilities\n\nWhen the outcome is binary, we only need to know 1, so we drop the \\(k\\) and use the notation:\n\n\\[p(\\mathbf{x}) = \\mbox{Pr}(Y=1 \\mid \\mathbf{X}=\\mathbf{x})\\]\n\n\n\n\n\n\nNote\n\n\n\n\nDo not be confused by the fact that we use \\(p\\) for two different things: the conditional probability \\(p(\\mathbf{x})\\) and the number of predictors \\(p\\)."
   },
   {
     "objectID": "slides/ml/38-conditionals.html#conditional-probabilities-2",
@@ -14071,8 +14071,8 @@
     "objectID": "slides/ml/44-ml-in-practice.html#machine-learning-in-practice",
     "href": "slides/ml/44-ml-in-practice.html#machine-learning-in-practice",
     "title": "ML In Practice",
-    "section": "Machine learning in practice",
-    "text": "Machine learning in practice\n\nNow that we have learned several methods and explored them with simple examples, we will try them out on a real example: the MNIST digits.\nWe can load this data using the following dslabs package:\n\n\nlibrary(dslabs) \nmnist &lt;- read_mnist()"
+    "section": "",
+    "text": "Now that we have learned several methods and explored them with simple examples, we will try them out on a real example: the MNIST digits.\nWe can load this data using the following dslabs package:\n\n\nlibrary(dslabs) \nmnist &lt;- read_mnist() \n\n\n\nLoading required package: ggplot2\n\n\nLoading required package: lattice\n\n\nrandomForest 4.7-1.2\n\n\nType rfNews() to see new features/changes/bug fixes.\n\n\n\nAttaching package: 'randomForest'\n\n\nThe following object is masked from 'package:ggplot2':\n\n    margin"
   },
   {
     "objectID": "slides/ml/44-ml-in-practice.html#machine-learning-in-practice-1",
@@ -14100,14 +14100,14 @@
     "href": "slides/ml/44-ml-in-practice.html#parallelization-1",
     "title": "ML In Practice",
     "section": "Parallelization",
-    "text": "Parallelization\n\nThe caret package is set up to run in parallel but you have to let R know that you are want to parallelize your work.\nTo do this we can use the doParallel package:\n\n\nlibrary(doParallel) \nnc &lt;- detectCores() - 1 # it is convention to leave 1 core for OS \ncl &lt;- makeCluster(nc) \nregisterDoParallel(cl)"
+    "text": "Parallelization\n\nThe caret package is set up to run in parallel but you have to let R know that you are want to parallelize your work.\nTo do this we can use the doParallel package:\n\n\nlibrary(doParallel) \n\nLoading required package: foreach\n\n\nLoading required package: iterators\n\n\nLoading required package: parallel\n\nnc &lt;- detectCores() - 1 # it is convention to leave 1 core for OS \ncl &lt;- makeCluster(nc) \nregisterDoParallel(cl)"
   },
   {
     "objectID": "slides/ml/44-ml-in-practice.html#parallelization-2",
     "href": "slides/ml/44-ml-in-practice.html#parallelization-2",
     "title": "ML In Practice",
     "section": "Parallelization",
-    "text": "Parallelization\n\nIf you do use parallelization, make sure to let R know you are done with the following lines of code:\n\n\nstopCluster(cl) \nstopImplicitCluster()"
+    "text": "Parallelization\n\nIf you do use parallelization, make sure to let R know you are done with the following lines of code:\n\n\nstopCluster(cl) \nstopImplicitCluster() \n\n\n\n\n\n\n\n\nWarning\n\n\n\n\nWhen parallelizing tasks across multiple processors, it’s important to consider the risk of running out of memory.\nEach processor might require a copy of the data or substantial portions of it, which can multiply overall memory demands.\nThis is especially challenging if the data or models are large."
   },
   {
     "objectID": "slides/ml/44-ml-in-practice.html#k-nearest-neighbors",
@@ -14268,7 +14268,7 @@
     "href": "slides/ml/44-ml-in-practice.html#testing",
     "title": "ML In Practice",
     "section": "Testing",
-    "text": "Testing\n\nThe default method for estimating accuracy used by the train function is to test prediction on 25 bootstrap samples.\nThis can result in long compute times.\nWe can use the system.time function to estimate how long it takes to run the algorithm once:\n\n\nnzv &lt;- nearZeroVar(x) \nsystem.time({fit_rf &lt;- randomForest(x[, -nzv], y,  mtry = 9)}) \n\n   user  system elapsed \n 60.499   1.033  61.946"
+    "text": "Testing\n\nThe default method for estimating accuracy used by the train function is to test prediction on 25 bootstrap samples.\nThis can result in long compute times.\nWe can use the system.time function to estimate how long it takes to run the algorithm once:\n\n\nnzv &lt;- nearZeroVar(x) \nsystem.time({fit_rf &lt;- randomForest(x[, -nzv], y,  mtry = 9)}) \n\n   user  system elapsed \n 61.121   0.412  61.549"
   },
   {
     "objectID": "slides/ml/44-ml-in-practice.html#testing-1",
@@ -14674,7 +14674,7 @@
     "href": "slides/other-topics/45-association-not-causation.html#spurious-correlation-3",
     "title": "Association Not Causation",
     "section": "Spurious correlation",
-    "text": "Spurious correlation\n\nres &lt;- sim_data |&gt;  \n  group_by(group) |&gt;  \n  summarize(r = cor(x, y)) |&gt;  \n  arrange(desc(r)) \nres \n\n# A tibble: 1,000,000 × 2\n    group     r\n    &lt;int&gt; &lt;dbl&gt;\n 1 508834 0.779\n 2 187260 0.773\n 3 788683 0.768\n 4 919009 0.765\n 5 284126 0.760\n 6 375763 0.760\n 7 767885 0.753\n 8 605587 0.747\n 9 959725 0.745\n10 351369 0.742\n# ℹ 999,990 more rows\n\n\n\nWe see a maximum correlation of 0.779."
+    "text": "Spurious correlation\n\nres &lt;- sim_data |&gt;  \n  group_by(group) |&gt;  \n  summarize(r = cor(x, y)) |&gt;  \n  arrange(desc(r)) \nres \n\n# A tibble: 1,000,000 × 2\n    group     r\n    &lt;int&gt; &lt;dbl&gt;\n 1 710822 0.805\n 2 226015 0.792\n 3 841121 0.783\n 4 838373 0.776\n 5 131974 0.774\n 6 372183 0.770\n 7 572463 0.767\n 8 924637 0.766\n 9 804367 0.760\n10 544498 0.759\n# ℹ 999,990 more rows\n\n\n\nWe see a maximum correlation of 0.805."
   },
   {
     "objectID": "slides/other-topics/45-association-not-causation.html#spurious-correlation-4",
@@ -14709,7 +14709,7 @@
     "href": "slides/other-topics/45-association-not-causation.html#spurious-correlation-8",
     "title": "Association Not Causation",
     "section": "Spurious correlation",
-    "text": "Spurious correlation\n\nlibrary(broom) \nsim_data |&gt;  \n  filter(group == res$group[which.max(res$r)]) |&gt; \n  summarize(tidy(lm(y ~ x))) |&gt;  \n  filter(term == \"x\") \n\n# A tibble: 1 × 5\n  term  estimate std.error statistic    p.value\n  &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n1 x        0.622     0.104      5.96 0.00000449"
+    "text": "Spurious correlation\n\nlibrary(broom) \nsim_data |&gt;  \n  filter(group == res$group[which.max(res$r)]) |&gt; \n  summarize(tidy(lm(y ~ x))) |&gt;  \n  filter(term == \"x\") \n\n# A tibble: 1 × 5\n  term  estimate std.error statistic    p.value\n  &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n1 x        0.764     0.118      6.50 0.00000124"
   },
   {
     "objectID": "slides/other-topics/45-association-not-causation.html#spurious-correlation-9",
@@ -15046,5 +15046,19 @@
     "title": "Association Not Causation",
     "section": "",
     "text": "Association is not causation is perhaps the most important lesson one can learn in a statistics class.\nCorrelation is not causation is another way to say this.\nThroughout the statistics part of the book, we have described tools useful for quantifying associations between variables.\nHowever, we must be careful not to over-interpret these associations."
+  },
+  {
+    "objectID": "slides/ml/44-ml-in-practice.html",
+    "href": "slides/ml/44-ml-in-practice.html",
+    "title": "ML In Practice",
+    "section": "",
+    "text": "Now that we have learned several methods and explored them with simple examples, we will try them out on a real example: the MNIST digits.\nWe can load this data using the following dslabs package:\n\n\nlibrary(dslabs) \nmnist &lt;- read_mnist() \n\n\n\nLoading required package: ggplot2\n\n\nLoading required package: lattice\n\n\nrandomForest 4.7-1.2\n\n\nType rfNews() to see new features/changes/bug fixes.\n\n\n\nAttaching package: 'randomForest'\n\n\nThe following object is masked from 'package:ggplot2':\n\n    margin"
+  },
+  {
+    "objectID": "slides/ml/38-conditionals.html",
+    "href": "slides/ml/38-conditionals.html",
+    "title": "Conditionals",
+    "section": "",
+    "text": "In machine learning applications, we rarely can predict outcomes perfectly.\nThe most common reason for not being able to build perfect algorithms is that it is impossible.\nTo see this, consider that most datasets will include groups of observations with the same exact observed values for all predictors, but with different outcomes."
   }
 ]

@@ -1,7 +1,7 @@
 ---
 title: "ML In Practice"
 author: "Rafael A. Irizarry"
-keywords: ""
+keywords: "Machine Learning"
 date: "2024-12-09"
 format:
   revealjs:
